@@ -1,7 +1,7 @@
 # Writing Pioreactor scripts with Python
 
 :::note
-This article isn't intended as a crash course in Python, or Pioreactor software, but some helpful ways to write small scripts for your Pioreactor. If interested in learning more, check out the [developer docs](http://localhost:3000/developer_guide/developer_guide_intro) for detailed information.
+This article isn't intended as a crash course in Python, or Pioreactor software, but some helpful ways to write small scripts for your Pioreactor. If interested in learning more, check out the [developer docs](/developer_guide/developer_guide_intro) for detailed information.
 :::
 
 For some testing and playing purposes, it's really easy to get started writing scripts to automate parts of your Pioreactor. For this tutorial, you'll need to be able to SSH into your Raspberry Pi.
@@ -12,7 +12,7 @@ SSHing means to connect to a computer remotely, and interact with its command li
 
  - **Windows users**: install [PuTTY](https://www.putty.org/), or install the [Secure Shell App](https://chrome.google.com/webstore/detail/secure-shell-app/pnhechapfaindjhompbnflcldabbghjo?hl=en) for Google Chrome.
  - **maxOS users**: open up the terminal app: `command`+`space`, search for "terminal".
- - **Linus users**: y'all don't need my help :)
+ - **linux users**: y'all don't need my help :)
 
 
 We need to connect to the Raspberry Pi:
