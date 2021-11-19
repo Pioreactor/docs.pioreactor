@@ -5,41 +5,40 @@ import styles from './HomepageFeatures.module.css';
 const FeatureList = [
   {
     title: 'Easy to Use',
-    Svg: require('../../static/img/undraw_docusaurus_mountain.svg').default,
+    img: require('../../static/img/Pioreactor-02__1.png').default,
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        Pioreactor was designed from the ground up to be easy to use, but highly customizable.
       </>
     ),
   },
   {
-    title: 'Focus on What Matters',
-    Svg: require('../../static/img/undraw_docusaurus_tree.svg').default,
+    title: 'Available documentation',
+    img: require('../../static/img/documentation.png').default,
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        The Pioreactor software and hardware is heavily documented. Answers are easy to find, and
+        the support is available on the community forums.
       </>
     ),
   },
   {
-    title: 'Powered by React',
-    Svg: require('../../static/img/undraw_docusaurus_react.svg').default,
+    title: 'Powered by Raspberry Pi',
+    img: require('../../static/img/RPi-Logo-SCREEN.png').default,
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        Pioreactor sits on top of the awesome Raspberry Pi micro-computer. This provids a full
+        linux environment to power your bioreactor.
       </>
     ),
   },
 ];
 
-function Feature({Svg, title, description}) {
+function Feature({img, title, description}) {
   return (
     <div className={clsx('col col--4')}>
       <div className="text--center">
-        <Svg className={styles.featureSvg} alt={title} />
+        <img src={img} className={styles.featureSvg} alt={title} />
       </div>
       <div className="text--center padding-horiz--md">
         <h3>{title}</h3>
