@@ -7,14 +7,16 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Pioreactor',
-  tagline: 'Your customizable, acccessible bioreactor',
-  url: 'https://docs.pioreactor.com',
-  baseUrl: '/',
+  tagline: 'Your customizable, accessible bioreactor',
+  url: 'https://pioreactor.github.io',
+  baseUrl: '/docs.pioreactor/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
   organizationName: 'Pioreactor', // Usually your GitHub org/user name.
   projectName: 'docs.pioreactor', // Usually your repo name.
+  deploymentBranch: "gh-pages",
+  trailingSlash: false,
 
   presets: [
     [
