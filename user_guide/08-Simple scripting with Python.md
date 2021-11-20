@@ -11,7 +11,7 @@ For some testing and playing purposes, it's really easy to get started writing s
 SSHing means to connect to a computer remotely, and interact with its command line. In our case, we wish to interact with the Raspberry Pi remotely. SSH software depends on your operating system:
 
  - **Windows users**: install [PuTTY](https://www.putty.org/), or install the [Secure Shell App](https://chrome.google.com/webstore/detail/secure-shell-app/pnhechapfaindjhompbnflcldabbghjo?hl=en) for Google Chrome.
- - **maxOS users**: open up the terminal app: `command`+`space`, search for "terminal".
+ - **macOS users**: open up the terminal app: `command`+`space`, search for "terminal".
  - **linux users**: y'all don't need my help :)
 
 

@@ -4,44 +4,46 @@ import styles from './HomepageFeatures.module.css';
 
 const FeatureList = [
   {
-    title: 'Easy to Use',
-    img: require('../../static/img/Pioreactor-02__1.png').default,
+    title: 'User Guide',
+    Svg: require('../../static/img/optical_density.svg').default,
+    link: "/user_guide/user_guide_intro",
     description: (
       <>
-        Pioreactor was designed from the ground up to be easy to use, but highly customizable.
+        For biologists, almost-biologists, reseachers, students, and those who want to use the Pioreactor to study microbiology.
       </>
     ),
   },
   {
-    title: 'Available documentation',
-    img: require('../../static/img/documentation.png').default,
+    title: 'Developer Guide',
+    Svg: require('../../static/img/automation.svg').default,
+    link: "/developer_guide/developer_guide_intro",
     description: (
       <>
-        The Pioreactor software and hardware is heavily documented. Answers are easy to find, and
-        the support is available on the community forums.
+        For those interested in the Pioreactor customizations, plugin development, and hacking.
       </>
     ),
   },
   {
-    title: 'Powered by Raspberry Pi',
-    img: require('../../static/img/RPi-Logo-SCREEN.png').default,
+    title: 'Changelog',
+    Svg: require('../../static/img/plugins.svg').default,
+    link: "/changelog",
     description: (
       <>
-        Pioreactor sits on top of the awesome Raspberry Pi micro-computer. This provids a full
-        linux environment to power your bioreactor.
+        View the latest updates to the Pioreactor software.
       </>
     ),
   },
 ];
 
-function Feature({img, title, description}) {
+function Feature({Svg, title, description, link}) {
+  console.log(Svg)
   return (
     <div className={clsx('col col--4')}>
       <div className="text--center">
-        <img src={img} className={styles.featureSvg} alt={title} />
+        <a href={link}><Svg className={styles.featureSvg} alt={title} /></a>
       </div>
       <div className="text--center padding-horiz--md">
-        <h3>{title}</h3>
+        <h3><a href={link} style={{textDecoration: "none", color: "inherit"}}>{title}</a></h3>
         <p>{description}</p>
       </div>
     </div>
