@@ -19,7 +19,7 @@ const FeatureList = [
     link: "/developer_guide/developer_guide_intro",
     description: (
       <>
-        For those interested in the Pioreactor customizations, plugin development, and hacking.
+        For those interested in the Pioreactor customizations, API, plugin development, and hacking.
       </>
     ),
   },

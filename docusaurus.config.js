@@ -50,7 +50,7 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        title: "Pioreactor",
+        title: "Pioreactor Documentation",
         logo: {
           alt: 'pioreactor',
           src: 'img/logo.png',

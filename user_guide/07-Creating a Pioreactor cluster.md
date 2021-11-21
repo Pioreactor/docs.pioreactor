@@ -1,6 +1,6 @@
 # Creating a Pioreactor cluster
 
-Pioreactors are able to be used as individual units, or in concert with other Pioreactors. In either case, some Raspberry Pi on the network needs to be assigned as a _leader_. The leader unit controls other Pioreactors (and that may include itself), stores the database, hosts the PioreactorUI, and is the interface between users and the hardware.
+Pioreactors are able to be used as individual units, or in concert with other Pioreactors. In either case, some Pioreactor needs to be assigned as a _leader_. The leader unit controls other Pioreactors (and that may include itself), stores the database, hosts the web interface, and is the interface between users and the hardware.
 
 A leader will communicate and control the all _workers_ (non-leader Pioreactors) in the _inventory_. The inventory is a list, defined in `config.ini`, of available workers. For example, when you want to remove a Pioreactor from your cluster temporarily, you can disable it as part of your available inventory in `config.ini`.
 

@@ -36,13 +36,13 @@ time.sleep(10)
 
 ```
 
-Hit `crtl-x`, and then `Y` to save our file. You're a hacker now :)
+Hit `crtl-x`, and then `Y` to save our file.
 
 ### 3. Running our Python script
 
-To run our script, type `python3 script_test.py` in the command line. If everything works correctly, your Pioreactor's stirring will start, and then finish after 10 seconds.
+To run our script, type `python3 script_test.py` in the command line. If everything works correctly, your Pioreactor's stirring will start, and then finish after 10 seconds. You're a hacker now :)
 
-To make it run _forever_, let's edit the file again: `nano script_test.py`, and replace `time.sleep(10)` with:
+To make stirring run _forever_, let's edit the file again: `nano script_test.py`, and replace `time.sleep(10)` with:
 
 ```python {5}
 import time
@@ -79,7 +79,7 @@ stirrer.set_target_rpm(300)
 stirrer.block_until_disconnected()
 ```
 
-If typed correctly, you should see data coming into to your experiment overview in the web interface!
+You should see data coming into to your experiment overview in the web interface!
 
 ### 5. Adding an automation
 
