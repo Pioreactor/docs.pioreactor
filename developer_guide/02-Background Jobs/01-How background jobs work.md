@@ -1,4 +1,4 @@
-# How background jobs work ("activities")
+# Introduction to background jobs
 
 The core unit of "work" in the Pioreactor software is a background job (called _activities_ in the web interface). Background jobs include `od_reading`, `monitor`, automation controllers, all the _automations_ themselves, etc. Often, a community plugin is a background job (or multiple jobs) that gives your bioreactor new abilities. There are a few core feature of a background job to be highlighted if you intend on working with them.
 
@@ -79,7 +79,7 @@ class SomeBackgroundJob(BackgroundJob):
 
 ```
 
-### Publishing attributes in MQTT
+### Publishing attributes to MQTT
 
 A common task is when we have a job running, say stirring job, and we want to dynamically update an attribute, like the target RPM, without restarting the job.
 
@@ -118,9 +118,17 @@ pioreactor/{self.unit}/{self.experiment}/{self.job_name}/+/set
 :::
 
 
-### processes and uniqueness
+### Uniqueness
 
-### Entry and Exit
+Only a single instance of a background job, modulo the job's name, can be running on a Raspberry Pi. For example, only a single `Monitor` background job can run, likewise only a single `ODReading` can run. (It's not clear what running multiple `ODReading`s means, or how it will interact with the hardware - poorly we expect).
+
+The uniqueness is across processes, too. So if a script is running `ODReading`, then `pio run od_reading` will fail.
+
+:::note
+This uniqueness assumption is true for the current application of background jobs. It's possible we will see a reason to remove the uniqueness constraint in a future version - let us know if you want to see this, too!
+:::
+
+### Entry and exit
 
 It's important to treat background jobs, with all their connections to networks and GPIO pins, as objects that need to be cleaned up properly. There are two traditional ways to use a background job:
 
