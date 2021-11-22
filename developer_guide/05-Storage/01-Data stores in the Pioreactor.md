@@ -3,13 +3,13 @@
 
 The Pioreactor has a few different ways to store data (depending on the requirements). They are:
 
-## SQLite3 database on the leader
+## SQLite3
 
 The most important datastore is the SQLite3 database on the _leader_, located at `/home/pi/.pioreactor/storage/`. This database stores historical data, jobs changes, logs, experiments, etc. The background job `mqtt_to_database_streaming` picks up data from MQTT (like OD readings), and puts them into the database.
 
 The CLI command `pio db` will open up the SQLite terminal to query the database directly.
 
-### Backups of the database
+#### Backups of the database
 
 The Pioreactor software will automatically backup the SQLite database via a scheduale `cron` job. The backup is hosted locally on the Raspberry Pi, however if there if the cluster has active worker Pioreactors, the database backup is duplicated to (at most) two workers as well. This level of redundancy means that if the leader's microSD card fails, the database can be recovered from backups stored off the card.
 
@@ -26,7 +26,7 @@ A principle we have stood by is to not let MQTT turn into our database. That is,
 We sometimes fail at the above, but these are seen as tech-debt pieces and may be addressed in future versions.
 
 
-### Serialization of MQTT messages
+#### Serialization of MQTT messages
 
 Every 5 minutes (set by the MQTT configuration file), MQTT will serialize its _retained_ messages to disk.
 
