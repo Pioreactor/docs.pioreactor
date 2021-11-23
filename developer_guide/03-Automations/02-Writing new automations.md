@@ -12,7 +12,7 @@ from pioreactor.automations import DosingAutomationContrib
 
 class NaiveTurbidostat(DosingAutomationContrib):
 
-    key = "naive_turbidostat"
+    automation_name = "naive_turbidostat"
     published_settings = {
         "target_od": {"datatype": "float", "settable": True, "unit": "AU"},
     }
@@ -34,11 +34,11 @@ class NaiveTurbidostat(DosingAutomationContrib):
    ...
 ```
 
-We need a "key" to i) distinguish this from other automations, and ii) be able to be communicated between systems (think: the web UI to Python, and back). The `key` class attribute does this for us. Normally, it's the [snakecase](https://en.wikipedia.org/wiki/Snake_case) of the class name.
+We need a "key" to i) distinguish this from other automations, and ii) be able to be communicated between systems (think: the web UI to Python, and back). The `automation_name` attribute does this for us. Normally, it's the [snakecase](https://en.wikipedia.org/wiki/Snake_case) of the class name.
 
 ```python
     ...
-    key = "naive_turbidostat"
+    automation_name = "naive_turbidostat"
     ...
 ```
 
@@ -63,7 +63,7 @@ Next, we define how to initialize our class. Here we can add settings we want to
         self.target_od = target_od
 ```
 
-Finally, every `duration` minutes, the function `execute` will run (this logic is in the parent class). The `execute` contains the core logic of the automation. In our (simple) case, we want to dilute the vial if we have exceed the `latest_od`:
+Finally, every `duration` (specified in the controller later) minutes, the function `execute` will run. The `execute` contains the core logic of the automation. In our (simple) case, we want to dilute the vial if we have exceed the `latest_od`:
 
 ```python
     def execute(self):
@@ -89,7 +89,7 @@ from pioreactor.automations import DosingAutomationContrib
 
 class NaiveTurbidostat(DosingAutomationContrib):
 
-    key = "naive_turbidostat"
+    automation_name = "naive_turbidostat"
     published_settings = {
         "target_od": {"datatype": "float", "settable": True, "unit": "AU"},
     }
@@ -114,7 +114,7 @@ if __name__=="__main__":
     dc.block_until_disconnected()
 
 ```
-This uses the dosing controller class, `DosingController`, which controls which dosing automation is running. By using `DosingAutomationContrib`, our new `NaiveTurbidostat` class is automatically discovered by `DosingController` and referenced by the `key` we chose, `naive_turbidostat`.
+This uses the dosing controller class, `DosingController`, which controls which dosing automation is running. By using `DosingAutomationContrib`, our new `NaiveTurbidostat` class is automatically discovered by `DosingController` and referenced by the `automation_name` we chose, `naive_turbidostat`.
 
 :::info
 If you have Pioreactor installed locally, you can save this file on your system. Otherwise, you can create this file on your Pioreactor's Raspberry Pi: after accessing the Raspberry Pi's command line, typing `nano naive_turbidostat.py`, and pasting in the code above.
@@ -158,7 +158,7 @@ from pioreactor.automations import DosingAutomationContrib
 
 class NaiveTurbidostat(DosingAutomationContrib):
 
-    key = "naive_turbidostat"
+    automation_name = "naive_turbidostat"
     published_settings = {
         "target_od": {"datatype": "float", "settable": True, "unit": "AU"},
         "volume": {"datatype": "float", "settable": True, "unit": "mL"},
@@ -185,7 +185,7 @@ from pioreactor.automations import DosingAutomationContrib
 
 class NaiveTurbidostat(DosingAutomationContrib):
 
-    key = "naive_turbidostat"
+    automation_name = "naive_turbidostat"
     published_settings = {
         "target_od": {"datatype": "float", "settable": True, "unit": "AU"},
         "volume": {"datatype": "float", "settable": True, "unit": "mL"},

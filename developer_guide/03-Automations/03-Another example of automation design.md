@@ -13,10 +13,10 @@ from pioreactor.whoami import get_unit_name, get_latest_experiment_name
 from pioreactor.automations import events
 ```
 
-2. Define a new class as a subclass of `LEDAutomationContrib`. We use `LEDAutomationContrib` since this is a 3rd party automation. We give the new class a descriptive name. The `key` attribute is necessary - and is often just the camel case version of the class name.
+2. Define a new class as a subclass of `LEDAutomationContrib`. We use `LEDAutomationContrib` since this is a 3rd party automation. We give the new class a descriptive name. The `automation_name` attribute is necessary - and is often just the camel case version of the class name.
 ```python
 class LightDarkCycle(LEDAutomationContrib):
-    key = "light_dark_cycle"
+    automation_name = "light_dark_cycle"
 ```
 
 3. Define our `published_settings` for this class. This is a dictionary of `LightDarkCycle` attributes that we can modify/inspect from MQTT (and hence from the UI, or from the leader Pioreactor). Not all attributes need to go in here - only the ones that users may want to modify mid-experiment. 
@@ -142,7 +142,7 @@ class LightDarkCycle(LEDAutomationContrib):
     Follows as h light / h dark cycle. Starts dark.
     """
 
-    key = "light_dark_cycle"
+    automation_name = "light_dark_cycle"
     published_settings = {
         "duration": {"datatype": "float", "settable": False, "unit": "min"}, # doesn't make sense to change duration.
         "light_intensity": {"datatype": "float", "settable": True, "unit": "%"},
