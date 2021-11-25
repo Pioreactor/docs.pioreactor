@@ -8,7 +8,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 const config = {
   title: 'Pioreactor',
   tagline: 'Your customizable and accessible bioreactor',
-  url: 'https://pioreactor.github.io',
+  url: 'https://docs.pioreactor.com',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',

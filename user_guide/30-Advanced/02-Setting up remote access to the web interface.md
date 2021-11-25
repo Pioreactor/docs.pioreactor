@@ -17,7 +17,7 @@ The following are the steps to take:
 7.  Fill in the following: `nano ~/.ngrok2/ngrok.yml`
     
 ```yml
-authtoken: <add your ngrok auth token here>
+authtoken: <add your ngrok auth token here, find in nrgok dashboard>
 tunnels:
   ui:
     proto: http
@@ -32,9 +32,9 @@ tunnels:
     inspect: false
     bind_tls: false
 ```
-        
+
     
-8.  (Optional) Along with `ui` and `ws`, you can also add SSH access. It's important to have a strong password on the Rpi if doing this.
+8.  (Optional) Along with `ui` and `ws`, you can also add SSH access. It's important to have a strong password on the RPi if doing this.
     
 ```yml
 ssh:
@@ -42,19 +42,21 @@ ssh:
   addr: 22
   inspect: false
 ```
-    
-9.  Run in background `nohup /opt/ngrok/ngrok start ui ws --config ~/.ngrok2/ngrok.yml &`
 
-*   Alternatively, if you wish to set this up as a service that will launch on start up, the following `sudo systemctl enable ngrok`
+9.  Run in background:
+```
+nohup /opt/ngrok/ngrok start ui ws --config ~/.ngrok2/ngrok.yml &
+```
+Alternatively, if you wish to set this up as a service that will launch on start up, the following `sudo systemctl enable ngrok`
 
-1.  On your ngrok dashboard, under Endpoints -> Status, you'll see two urls. One of the unique urls should link to your Pioreactor dashboard.
-2.  The other url is added to your config.ini (under Configuration in the Pioreactor UI):
+10.  On your ngrok dashboard, under Endpoints -> Status, you'll see two urls. One of the unique urls should link to your Pioreactor dashboard.
+11.  The other url is added to your config.ini (under Configuration in the Pioreactor UI):
     
 ```
 [remote]
 ws_url=<something>.ngrok.io
 ```
     
-3.  Hit \[Save\].
+12.  Hit \[Save\].
     
-4.  You're all done! You can now access the Pioreactor UI anywhere at `http://some_name.ngrok.io`
+13.  You're all done! You can now access the Pioreactor UI anywhere at `http://some_name.ngrok.io`
