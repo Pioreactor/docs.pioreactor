@@ -84,23 +84,6 @@ This automation is different than the others as there is no reservoirs of fresh 
 **Requires:**
 
 *   1 peristaltic pump
-*   A source and sink, with the pump inbetween.
+*   A source and sink, with the pump in-between.
 
 This automation moves a preset amount of `volume` every `duration` minutes using a pump. You choose the start and end points of the tube!
-
-How to change the dosing automation?
-------------------------------------
-
-In order to change the dosing automation, the dosing events must first be started. You can see this on the Pioreactor's _Managmodal:
-
-![](https://user-images.githubusercontent.com/884032/105217071-661a9a80-5b21-11eb-91a3-39fc1390f95e.png)
-
-_Start the job if not already started_
-
-![](https://user-images.githubusercontent.com/884032/105217075-66b33100-5b21-11eb-9922-3ce4553fcba6.png)
-
-Next, in the _Settings_ tab, under the heading _Dosing automation_, click on _Change dosing automation_:
-
-![](https://user-images.githubusercontent.com/884032/105217327-b691f800-5b21-11eb-8bf3-053b75a239cf.png)
-
-From this model, you can start a new dosing automation with given settings.

@@ -14,7 +14,7 @@ If you plan on running an experiment with dosing pumps, the Next screen will hel
 
 ### Start activities
 
-On the _Pioreactors_ page, you should see at least one Pioreactor under _Active Pioreactors_. Using the "Manage" button, you can start an activity. Once started, jobs can also be _paused_ (and then _resumed_) and _stopped_. 
+On the _Pioreactors_ page, you should see at least one Pioreactor under _Active Pioreactors_. Using the "Manage" button, you can start an activity. Once started, jobs can also be _paused_ (and then _resumed_) and _stopped_.
 
 ![](https://cdn.shopify.com/s/files/1/0515/1824/3002/files/Screen_Shot_2021-09-22_at_4.27.55_PM.png?v=1632342567)
 
@@ -22,10 +22,17 @@ On the _Pioreactors_ page, you should see at least one Pioreactor under _Active 
 
 The typical sequence of activities to start is:
 
-1\. **Stirring**: this starts the stirring in the Pioreactor. After starting stirring, you can change the stirring speed in the Settings tab. (The default stirring speed can be changed in the configuration).
+1. **Stirring**: this starts the stirring in the Pioreactor. After starting stirring, you can change the stirring speed in the Settings tab. (And default stirring speed can be changed in the configuration).
 
-2\. **Optical density**: this activity turns on the system that measures culture density. Readings will start to populate the _Experiment Overview_ page. It's useful to inspect the first few minutes to readings to ensure things look okay (ex: nothing appears too wild, stirring is not too fast or slow, etc.)
+2. **Temperature automation**: turning on a temperature automation will start collecting temperature readings, and, if enabled, start heating the culture.
 
-3\. **Growth Rate**: this activity requires that stirring and optical density be running as well. This starts the calculation of a normalized optical density, and the implied growth rate. 
 
-4\. Any other activities. Any of the automations can be started, and their settings can be changed under the Settings tab.
+3. **Optical density**: this activity turns on the system that measures culture density. Readings will start to populate the _Experiment Overview_ page. It's useful to inspect the first few minutes to readings to ensure things look okay (ex: nothing appears too wild, stirring is not too fast or slow, etc.)
+
+:::info
+You can also perform a blank optical density reading first, which is especially useful if your media is already turbid.
+:::
+
+4. **Growth Rate**: this activity requires that stirring and optical density be running as well. This starts the calculation of a normalized optical density, and the implied growth rate.
+
+5. Any other activities. Any of the automations can be started, or custom jobs you've added to your Pioreactor.
