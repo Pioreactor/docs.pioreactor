@@ -1,11 +1,12 @@
 # Writing new automations
 
-
 An automation is a hands-off way to adjust the environment for the microbes. We currently support three types of automations: dosing, LED, and temperature. A dosing automation involves when to add media (ex: a turbidostat). A LED automation uses the additional LED pockets, and user-supplied LEDs, to modify light into the vial (ex: a photobioreactor or optogenetics experiments). A temperature automation is how users can preprogram the temperature of the vial.
+
+In this section, we'll develop a simple dosing automation.
 
 ### Creating our first custom automation
 
-Writing an automation involves creating a Python class with specific methods and parent classes. It would be helpful to be familiar with [Python classes](https://realpython.com/python3-object-oriented-programming/) before beginning. Here's an example of a (naive) turbidostat automation, i.e. it will add fresh media and remove old media when an optical density threshold is exceeded. We'll go through each line of code after:
+Writing an automation involves creating a Python class and overriding specific methods. It would be helpful to be familiar with [Python classes](https://realpython.com/python3-object-oriented-programming/) before beginning. Here's an example of a (naive) turbidostat automation, i.e. it will add fresh media and remove old media when an optical density threshold is exceeded. The full code is below, and we'll go through each line of code after:
 
 ```python
 from pioreactor.automations import DosingAutomationContrib
@@ -34,7 +35,9 @@ class NaiveTurbidostat(DosingAutomationContrib):
    ...
 ```
 
-We need a "key" to i) distinguish this from other automations, and ii) be able to be communicated between systems (think: the web UI to Python, and back). The `automation_name` attribute does this for us. Normally, it's the [snakecase](https://en.wikipedia.org/wiki/Snake_case) of the class name.
+The `DosingAutomationContrib` is a subclass of a `BackgroundJob`. The `Contrib` part is a small detail to specify that it's a third-party automation (i.e. _you_ are developing it, not us.)
+
+We need a "key" to i) distinguish this from other automations, and ii) be able to be communicate between systems (think: the web UI in JavaScript to Python, and back). The `automation_name` attribute does this for us. Normally, it's the [snakecase](https://en.wikipedia.org/wiki/Snake_case) of the class name.
 
 ```python
     ...
@@ -42,7 +45,7 @@ We need a "key" to i) distinguish this from other automations, and ii) be able t
     ...
 ```
 
-The `published_settings` tells the Pioreactor software what class attributes are published to MQTT, and if they are editable via MQTT (we will try editing over MQTT later). This is important if you wish to dynamically change attributes during an experiment, say from the web interface. Our class has the following:
+The `published_settings` tells the Pioreactor software what class attributes are published to MQTT, and if they are editable via MQTT (we will try editing over MQTT later). This is important if you wish to dynamically change attributes of an automation during an experiment, say from the web interface. Our class has the following:
 
 ```python
 ...
@@ -54,7 +57,6 @@ The `published_settings` tells the Pioreactor software what class attributes are
 
 This says that the class attribute `target_od` is a float, is editable via MQTT (so it can be changed using the web interface), and it has units AU ("arbitrary units").
 
-
 Next, we define how to initialize our class. Here we can add settings we want to accept from the user: what is our target optical density. Note the boilerplate `**kwargs`, and `super()` are important.
 
 ```python
@@ -63,7 +65,7 @@ Next, we define how to initialize our class. Here we can add settings we want to
         self.target_od = target_od
 ```
 
-Finally, every `duration` (specified in the controller later) minutes, the function `execute` will run. The `execute` contains the core logic of the automation. In our (simple) case, we want to dilute the vial if we have exceed the `latest_od`:
+Finally, every `duration` (specified in the controller, later in this section) minutes, the function `execute` will run. The `execute` contains the core logic of the automation. In our simple case, we want to dilute the vial if we have exceed the `latest_od`:
 
 ```python
     def execute(self):
@@ -71,7 +73,7 @@ Finally, every `duration` (specified in the controller later) minutes, the funct
             self.execute_io_action(media_ml=1.0, waste_ml=1.0)
 ```
 
-Since we are working with a fixed volume, `media_ml` must equal `waste_ml`, else an error will be thrown. What is `latest_od`? Our class, when active, is listening to growth-rate-calculating job's output of normalized optical density. Hence when `execute` runs, we'll have access to the most up-to-date value of normalized optical density. Likewise, there is a `latest_growth_rate` that updates when a new growth-rate value is produced. Both are defined and maintained in the parent class.
+Since we are working with a fixed volume, `media_ml` must equal `waste_ml`, else an error will be thrown. What is `latest_od`? Our class, when active, is listening to the growth-rate-calculating job's output of normalized optical density. Hence when `execute` runs, we'll have access to the most up-to-date value of normalized optical density. Likewise, there is a `latest_growth_rate` that updates when a new growth-rate value is produced. Both are defined and maintained in the parent class.
 
 ### Running the script
 
@@ -135,14 +137,13 @@ We'll use `mosquitto_pub` to publish a message to this topic. So, with the pytho
 mosquitto_pub -t "pioreactor/test_unit/test_experiment/dosing_automation/target_od/set" -m 5.0
 ```
 
-You should see some logs in the Python console report that the `target_od` was changed.
+You should see some logs in the Python console report that the `target_od` was changed. Also, a the value of 5.0 is published and retained to the topic `pioreactor/test_unit/test_experiment/dosing_automation/target_od`
 
 Why is this useful?
 
 1. This is how the web interface updates settings in running activities.
 2. Other Pioreactor activities can update each other's settings.
-3. External programs or apps can update settings this way, too.
-
+3. External programs or apps can monitor and update settings this way, too.
 
 
 ### Extensions of our custom automation
@@ -151,7 +152,7 @@ Below are some extensions, with additions highlighted
 
 #### Dynamic volume exchanged
 
-Exchanging 1ml each time may not be enough
+Exchanging 1ml each time may not be enough, so we add `volume` to the `published_settings`. Now, from the UI, we can dynamically adjust the volume.
 
 ```python {8,10,13,17}
 from pioreactor.automations import DosingAutomationContrib
