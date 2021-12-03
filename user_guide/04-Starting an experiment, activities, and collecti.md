@@ -12,7 +12,13 @@ On the next screen, enter your new experiment name (must be unique from prior ex
 
 If you plan on running an experiment with dosing pumps, the Next screen will help you clean and prepare your pumps. Otherwise, you can leave this page. Let's go to _Pioreactors_ page.
 
+
+
 ### Start activities
+
+:::info
+Before starting any activities, it's useful to run a _Self test_ to confirm that your Pioreactors are all working as expected.
+:::
 
 On the _Pioreactors_ page, you should see at least one Pioreactor under _Active Pioreactors_. Using the "Manage" button, you can start an activity. Once started, jobs can also be _paused_ (and then _resumed_) and _stopped_.
 

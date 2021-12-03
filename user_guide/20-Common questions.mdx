@@ -49,7 +49,7 @@ Probably. We haven't tested them, but so long as i) the GPIO pins are identical,
 
 ### Why are the Raspberry Pi LEDs/USB/Ethernet/etc. turned off?
 
-We turn off the "activity" LED (usually the green one) to save some power for the Pioreactor's peripherals. We do the same for USB and Ethernet. You can turn these back on by editing the /boot/config.txt file on the Rpi.
+We turn off the "activity" LED (usually the green one) to save some power for the Pioreactor's peripherals. We do the same for USB and Ethernet. You can turn these back on by editing the `/boot/config.txt` file on the RPi.
 
 Data storage, access and recovery
 ---------------------------------
@@ -69,4 +69,8 @@ More granular logs per Pioreactor are available in `/var/log/pioreactor.log` on 
 
 ### My microSD card is corrupted - what can I do?
 
-Unfortunately, the microSD card becoming corrupted or damaged is an infrequent but possible risk with using Raspberry Pis. - If the microSD card was inside a non-leader, it's best to try to reformat the microSD card and start fresh (i.e. [reinstall the Pioreactor software and reintroduce it to the cluster](/user_guide/Raspberry%20Pi%20set%20up%20and%20software%20installation#adding-workers-to-your-cluster)). This is usually okay as no critical data is stored locally in workers, except for some log files. - If the microSD was inside the leader Raspberry Pi, this is a bigger problem. Likely any running experiment will have to be restarted. Fortunately, if you have more than one Pioreactor other than the leader, then the leader's SQLite database has been periodically backing itself up to other Pioreactors every few days. Using the command line, check other Pioreactors' `/home/pi/.pioreactor/storage` directory for the _latest_ backup named `pioreactor.sqlite.backup` (should be from within the past few days hours). You can use this database to restart a new leader.
+Unfortunately, the microSD card becoming corrupted or damaged is an infrequent but possible risk with using Raspberry Pis.
+
+- If the microSD card was inside a non-leader Pioreactor, it's best to try to reformat the microSD card and start fresh (i.e. [reinstall the Pioreactor software and reintroduce it to the cluster](/user_guide/Raspberry%20Pi%20set%20up%20and%20software%20installation#adding-workers-to-your-cluster)). This is usually okay as no critical data is stored locally in workers, except for some log files and hardware calibrations.
+
+- If the microSD was inside the leader Raspberry Pi, this is a bigger problem. Likely any running experiment will have to be restarted. Fortunately, if you have more than one Pioreactor in your cluster, then the leader's SQLite database has been periodically backing itself up to other Pioreactors in the cluster every few days. Using the command line, check other Pioreactors' `/home/pi/.pioreactor/storage` directory for the _latest_ backup named `pioreactor.sqlite.backup` (should be from within the past few days hours). You can use this database to restart a new leader.
