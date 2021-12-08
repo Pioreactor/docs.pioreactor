@@ -44,6 +44,15 @@ const config = {
         sidebarPath: require.resolve('./sidebars.js'),
       },
     ],
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'experiments',
+        path: 'experiments',
+        routeBasePath: 'experiments',
+        sidebarPath: require.resolve('./sidebars.js'),
+      },
+    ],
   ],
 
   themeConfig:
@@ -67,6 +76,11 @@ const config = {
             label: 'Developer Guide',
           },
           {
+            to: '/experiments/introduction',
+            position: 'left',
+            label: 'Experiments',
+          },
+          {
             to: 'changelog',
             position: 'left',
             label: 'Change log',
@@ -82,7 +96,7 @@ const config = {
         style: 'dark',
         links: [
           {
-            title: 'Docs',
+            title: 'Topics',
             items: [
               {
                 label: 'User Guide',
@@ -91,6 +105,14 @@ const config = {
               {
                 label: 'Developer Guide',
                 to: '/developer_guide/developer_guide_intro',
+              },
+              {
+                label: 'Experiments',
+                to: '/experiments/introduction',
+              },
+              {
+                label: 'Change log',
+                to: '/changelog',
               },
             ],
           },
@@ -105,15 +127,18 @@ const config = {
                 label: 'Twitter',
                 href: 'https://twitter.com/pioreactor',
               },
-            ],
-          },
-          {
-            title: 'More',
-            items: [
               {
                 label: 'GitHub',
                 href: 'https://github.com/pioreactor/',
               },
+            ],
+          },
+          {
+            title: 'Contributing to documentation',
+            items: [
+              {html: `
+              This entire site is open-source, and any suggestions or comments can be added to our <a href="https://github.com/Pioreactor/docs.pioreactor/issues">Issue Tracker</a>. If you're up for it, feel free to send a <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/getting-started/about-collaborative-development-models">pull request</a>, too!
+              `}
             ],
           },
         ],

@@ -1,6 +1,6 @@
-# Introduction
+# Biology experiments enabled by the Pioreactor
 
-This page is for the "hacker" who wants to i) get the most out of their Pioreactor, ii) wants to understand how the pieces work, iii) wants to contribute back code to the open-source Pioreactor software.
+Explore the sidebar for experiments you can perform with your Pioreactor.
 
 
 ### Have edits, corrections, or suggestions?

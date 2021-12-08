@@ -24,12 +24,12 @@ const FeatureList = [
     ),
   },
   {
-    title: 'Changelog',
-    Svg: require('../../static/img/plugins.svg').default,
-    link: "/changelog",
+    title: 'Biology experiments',
+    Svg: require('../../static/img/interface.svg').default,
+    link: "/experiments/introduction",
     description: (
       <>
-        View the latest updates to the Pioreactor software.
+        Implement Pioreactor-based experiments for aspiring biologists, classrooms, and research.
       </>
     ),
   },
