@@ -31,10 +31,6 @@ const config = {
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
-        googleAnalytics: {
-          trackingID: 'UA-187907019-1',
-          anonymizeIP: true,
-        },
       }),
     ],
   ],
@@ -55,6 +51,13 @@ const config = {
         path: 'experiments',
         routeBasePath: 'experiments',
         sidebarPath: require.resolve('./sidebars.js'),
+      },
+    ],
+    [
+      '@docusaurus/plugin-google-analytics',
+      {
+        trackingID: 'UA-187907019-1',
+        anonymizeIP: true,
       },
     ],
   ],
