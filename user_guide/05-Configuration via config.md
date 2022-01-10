@@ -1,14 +1,19 @@
 # Configuration via config.ini
 
+
 ### How configuration works across Pioreactors
 
-Configuration of the Pioreactors is through `.ini` files. On the worker Pioreactors, these live in `/home/pi/.pioreactor`. There are two `.ini` files: a shared `config.ini` and a unit-specific `unit_config.ini` file. The `config.ini` file is the same across all units. The `unit_config.ini` can be blank, or can have settings that overwrite those found in the shared `config.ini`. See image below:
+Configuration of the Pioreactors is through configuration files, prefixed by `.ini`. There are two types of `.ini` files: a shared `config.ini`, which is the same across all units, and a worker-specific `unit_config.ini` file, which can have settings that overwrite those found in the shared `config.ini`. See image below:
 
 ![](https://i.imgur.com/g8dDdhZ.png)
 
+
+This overriding lets you customize specific behavior *per* Pioreactor, without having to duplicate lots of configuration over and over again.
+
+
 ### How to edit the configuration files from the web interface
 
-In the web interface, pioreactor.local, the sidebar contains a link to _Configuration_. From there, any `config.ini` file can be edited. Clicking \[Save\] will save the new configuration and will deploy the new configuration to the proper Pioreactor unit(s).
+In the web interface, pioreactor.local, the sidebar contains a link to _Configuration_. From there, any `.ini` file can be edited. Clicking \[Save\] will save the new configuration and will deploy the new configuration to the proper Pioreactor unit(s).
 
 ### How to edit the configuration files from the command line
 

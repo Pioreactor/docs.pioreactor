@@ -22,7 +22,7 @@ Before you get started, you'll need to have the following:
 
 We'll start with an unused Raspberry Pi and empty microSD card (or we'll reformat the card later if not empty).
 
-1. Download the [Pioreactor Leader image](https://github.com/pioreactor/pioreactor/releases/latest/download/leader_worker.img.zip): this has all the required software preinstalled on it, including the latest version of Raspberry Pi OS and Pioreactor.
+1. Download the [Pioreactor Leader image](https://github.com/pioreactor/pioreactor/releases/latest/download/pioreactor_leader_worker.img.zip): this has all the required software preinstalled on it, including the latest version of Raspberry Pi OS and Pioreactor.
 2. Download the [Raspberry Pi Imager](https://www.raspberrypi.org/software/) for your operating system, install it and open the Raspberry Pi Imager.
    1. Hold down the key sequence "ctrl-shift-x" to bring up the settings menu.
   ![](/img/user_guide/ctrlshiftx.png)
@@ -41,10 +41,9 @@ We'll start with an unused Raspberry Pi and empty microSD card (or we'll reforma
 2.  Once your microSD card is in your computer, select it under "Choose Storage".
 4.  Click "Write".
 4.  Once writing is complete complete, remove the microSD card, and place it into the Raspberry Pi.
-5.  Attach your Pioreactor HAT to your Raspberry Pi.
-6.  Ensure the two pieces fit snugly together.
-7.  Plug the power cord into your Raspberry Pi in. LEDs onboard the Raspberry Pi should start to light up.
-8. After a few moments, your Pioreactor will flash a blue LED and now is ready to go. Navigate to [http://pioreactor.local](http://pioreactor.local) in a web browser to visit the web interface. (Not working? See [Troubleshooting](/user_guide/Raspberry%20Pi%20set%20up%20and%20software%20installation#troubleshooting) below).
+5.  Attach your Pioreactor HAT to your Raspberry Pi. Ensure the two pieces fit snugly together.
+6.  Plug the power cord into your Raspberry Pi in. LEDs onboard the Raspberry Pi should start to light up.
+7.  After a few moments, your Pioreactor will flash a blue LED and now is ready to go. Navigate to [http://pioreactor.local](http://pioreactor.local) in a web browser to visit the web interface. (Not working? See [Troubleshooting](/user_guide/Raspberry%20Pi%20set%20up%20and%20software%20installation#troubleshooting) below).
 
 
 
@@ -52,7 +51,7 @@ We'll start with an unused Raspberry Pi and empty microSD card (or we'll reforma
 
 #### From the web UI
 
-Follow the same instructions above, but use a [Pioreactor Worker image](https://github.com/pioreactor/pioreactor/releases/latest/download/leader_worker.img.zip) instead. Choose a hostname that isn't currently being used.
+Follow the same instructions above, but use a [Pioreactor Worker image](https://github.com/pioreactor/pioreactor/releases/latest/download/leader_worker.img.zip) instead. **Choose a hostname that isn't currently being used**.
 
 After you have an installed the image, connected the new Pioreactor to your cluster is simple. On the _Pioreactors_ page in the web interface, click the "Add new Pioreactor" button in the top right:
 

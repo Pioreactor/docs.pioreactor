@@ -52,6 +52,10 @@ You should be able to execute the following from the command line now: `pio run 
 
 Further more, in your [web interface under plugins](http://pioreactor.local/plugins), you should see "Demo Job" installed.
 
+:::info
+[A full introduction to writing jobs](/developer_guide/Background%20Jobs/Writing%20a%20custom%20background%20job) is available.
+:::
+
 
 #### Custom automations
 
@@ -82,8 +86,12 @@ class DemoAutomation(DosingAutomationContrib):
 You should be able to execute the following from the command line now: `pio run dosing_control --automation-name demo --volume 10`.
 
 
+:::info
+[A full introduction to writing automations](/developer_guide/Automations/Writing%20new%20automations) is available.
+:::
 
 
 ### Distributing the code as a Python package
 
 
+Coming soon!

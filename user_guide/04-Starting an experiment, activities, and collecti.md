@@ -10,11 +10,12 @@ On the next screen, enter your new experiment name (must be unique from prior ex
 
 ![](https://cdn.shopify.com/s/files/1/0515/1824/3002/files/Screen_Shot_2021-09-22_at_4.31.03_PM.png?v=1632342732)
 
-If you plan on running an experiment with dosing pumps, the Next screen will help you clean and prepare your pumps. Otherwise, you can leave this page. Let's go to _Pioreactors_ page.
+
+The next page will guide you through setting up heating, stirring and optical density reading for your Pioreactor.
 
 
 
-### Start activities
+### Alternative: Start activities from the Pioreactors page.
 
 :::info
 Before starting any activities, it's useful to run a _Self test_ to confirm that your Pioreactors are all working as expected.

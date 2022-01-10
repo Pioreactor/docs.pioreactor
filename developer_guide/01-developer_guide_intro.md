@@ -1,6 +1,6 @@
 # Introduction
 
-This page is for the "hacker" who wants to i) get the most out of their Pioreactor, ii) wants to understand how the pieces work, iii) wants to contribute back code to the open-source Pioreactor software.
+This documentation is for those who want to i) get the most customization out of their Pioreactor, ii) understand how the pieces work, or iii) contribute back code to the open-source Pioreactor software.
 
 
 ### Have edits, corrections, or suggestions?

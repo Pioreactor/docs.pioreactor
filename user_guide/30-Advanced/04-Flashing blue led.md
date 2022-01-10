@@ -6,6 +6,8 @@ When a Pioreactor successfully boots, the onboard blue LED will flash for 2 seco
 |-------------------|----------------------------|
 | 2                 | Can't connect to leader    |
 | 3                 | SD card is almost full     |
-| 4                 | Stirring failed (RPM is 0) |
+| 4                 | Stirring RPM is 0          |
+| 5                 | ADC input is very high     |
+| 6                 | Heating PCB is above 60 ℃  |
 
 

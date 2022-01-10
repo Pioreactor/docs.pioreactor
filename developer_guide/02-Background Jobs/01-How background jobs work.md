@@ -102,7 +102,15 @@ class Stirrer(BackgroundJob):
 
 ```
 
-Thus the attributes `target_rpm`, `measured_rpm`, `duty_cycle` are all published to MQTT when they change, but only `duty_cycle` and `target_rpm` are able to be updated over MQTT (as defined by `settable`). The `datatype` and `unit` are currently not used and are there for documentation, but this may change in a later version.
+Thus the attributes `target_rpm`, `measured_rpm`, `duty_cycle` are all published to MQTT when they change, but only `duty_cycle` and `target_rpm` are able to be updated over MQTT (as defined by `settable`).
+
+:::note
+The `datatype` key is not used and are there for documentation, but this may change in a later version.
+:::
+
+:::info
+The `unit` key is optional, and can be omitted. Also, there is an optional `persist` key (not shown above), which contains a boolean describing if the value should be kept in MQTT after the job exits.
+:::
 
 When a class attribute that's present in `published_settings` changes, a MQTT message is published under the topic `pioreactor/{self.unit}/{self.experiment}/{self.job_name}/{attr}` with payload equal to the new value of the attribute. This is how the web interface is provided real-time data.
 
@@ -114,8 +122,10 @@ pioreactor/{self.unit}/{self.experiment}/{self.job_name}/+/set
 (the `+` is a MQTT wildcard), and when a message comes in, the class will check if the attribute (defined by `+`) is `settable`. If so, a lookup is done to see if a class method called `set_<attr>` is defined, and if present, calls that, with the only argument the message's payload. Otherwise, a simple assignment is done: `self.<attr> = payload`. The utility of a `set_<attr>` method is when changing the attribute requires more logic (ex: changing a PID controller's set point).
 
 :::info
-`state` is automatically appended to `published_settings` (with `settable: True`) so the state of the job can always be updated and read from MQTT
+`state` is special attribute that is automatically appended to `published_settings` (with `settable: True` and `persist: False`) so the state of the job can always be updated and read from MQTT. Over MQTT, the field is called referenced as `pioreactor/{unit}/{experiment}/{job_name}/$state` - note the `$`.
 :::
+
+When the job disconnects and cleans up, the published settings in MQTT are removed as well by sending an empty payload to the respective topics (unless `persist: True`, see above.)
 
 
 ### Uniqueness
@@ -125,12 +135,12 @@ Only a single instance of a background job, modulo the job's name, can be runnin
 The uniqueness is across processes, too. So if a script is running `ODReading`, then `pio run od_reading` will fail.
 
 :::note
-This uniqueness assumption is true for the current application of background jobs. It's possible we will see a reason to remove the uniqueness constraint in a future version - let us know if you want to see this, too!
+This uniqueness constraint is currently enforced. It's possible we will see a reason to remove the uniqueness constraint in a future version - let us know if you want to see this, too!
 :::
 
 ### Entry and exit
 
-It's important to treat background jobs, with all their connections to networks and GPIO pins, as objects that need to be cleaned up properly. There are two traditional ways to use a background job:
+It's important to treat background jobs as objects that need to be cleaned up properly. There are two traditional ways to use a background job:
 
 ```python
 job = SomeBackgroundJob(unit, experiment)
@@ -166,12 +176,12 @@ In the above, the job `SomeBackgroundJob` isn't disconnected, and state hasn't c
 
 ```python
 # ✅ this is okay
-def function_that_doesnt_clean_up():
+def function_that_does_clean_up():
     with SomeBackgroundJob(unit, experiment) as job:
         ...
     return True
 
-value = function_that_doesnt_clean_up()
+value = function_that_does_clean_up()
 ```
 
 :::
