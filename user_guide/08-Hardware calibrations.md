@@ -38,13 +38,14 @@ You're done! Your stirring RPM should be much more responsive now!
 :::info
 You'll need the following:
 1. Pioreactor HAT
-2. Pump, with power connection to Pioreactor's PWM outputs
+2. A pump per liquid input/output, with power connection to Pioreactor's PWM outputs
 3. An accurate scale, or accurate graduated cylinder
 4. Container of water
 :::
 
 Calibrating a pump, like a low-volume peristaltic pump, is very important to accurately dispense or remove a target volume. There is no liquid feedback loop in the Pioreactor (unlike in the stirring & RPM relationship), so this calibration curve is important.
 
+There are three pumps on the Pioreactor: media, alt-media, and waste. You don't need to have all three available, and can calibrate them one at a time.
 
 
 :::note

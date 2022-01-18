@@ -6,11 +6,11 @@ When pairing the Pioreactor with dosing pumps, there are new capabilities and ex
 
 <TOCInline toc={toc} />
 
-### Sleep
+### Silent
 
 **Requires:** None
 
-The sleep automation is the simplest automation: doing nothing. The automation will still "wake up" every `duration` minutes, but does nothing.
+The silent automation is the simplest automation: doing nothing. The automation will still "wake up" every `duration` minutes, but does nothing.
 
 ### Chemostat
 

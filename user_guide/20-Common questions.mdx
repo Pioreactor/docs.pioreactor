@@ -51,6 +51,19 @@ Probably. We haven't tested them, but so long as i) the GPIO pins are identical,
 
 We turn off the "activity" LED (usually the green one) to save some power for the Pioreactor's peripherals. We do the same for USB and Ethernet. You can turn these back on by editing the `/boot/config.txt` file on the RPi.
 
+
+Dosing
+------------------------
+
+### Why does the Media card in the UI not update when I run a dosing command?
+
+The Media card will _only_ update when an [Dosing Automation](/user_guide/Automations/Dosing%20Automations) is active (even the `Silent` automation). Why is it done this way? Often, you don't want volumes to be recorded there: during cleaning, during testing, etc. Often you only want volumes associated with the experiment to be there.
+
+:::note
+All dosing events ares recorded to the database however, and with a record of when the event occurred, and source of action. This data is available in the "Export data" web page, under `Dosing event log`.
+###
+
+
 Data storage, access and recovery
 ---------------------------------
 
@@ -66,6 +79,7 @@ More granular logs per Pioreactor are available in `/var/log/pioreactor.log` on 
 
 1.  The _Download experiment data_ page in the Pioreactor web interface provides CSV exports of common datasets from a pre-selected experiment.
 2.  All data eventually lands in a SQLite3 database on the leader Pioreactor, by default located in `/home/pi/.pioreactor/storage/pioreactor.sqlite`. This can be download using a tool like `scp`.
+3. To access the SQLite3 database from the command line, try `pio db`.
 
 ### My microSD card is corrupted - what can I do?
 
