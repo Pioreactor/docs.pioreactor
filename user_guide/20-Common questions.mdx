@@ -4,12 +4,22 @@ import TOCInline from '@theme/TOCInline';
 
 <TOCInline toc={toc} />
 
+Pioreactor operation
+------------------------
+
+### Why does the onboard blue LED keep flashing?
+
+There may be a problem. You can diagnose the problem by [counting the number of flashes observed](/user_guide/Advanced/Flashing%20blue%20led)
+
+### What does the onboard button do?
+
+The button on the Pioreactor HAT It sends a signal to the web UI to display a "hello" message. This is useful to know which Pioreactor you are interacting with.
 
 
 Optical density and LEDs
 ------------------------
 
-### Why does the intensity for LED A turn on & off?
+### Why does the intensity for LED A turn on & off during an experiment?
 
 You may have noticed that the LED labelled A turns on & off every 5 seconds or so. This is (normally) the channel for the infrared (IR) LED, which is used in the optical density measurements. Since we only take reading every 5 seconds (normally, this can be changed), we don't need the IR LED on all the time. The Pioreactor will only turn on LED when needed. This preserves the strength of the LED over longer periods of time. For more advanced use cases, it also allows other optical measurements to take place without the IR LED interfering with them.
 

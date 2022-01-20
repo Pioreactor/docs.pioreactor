@@ -37,11 +37,11 @@ We'll start with an unused Raspberry Pi and empty microSD card (or we'll reforma
 
     ![](/img/user_guide/select_new_image.png)
 
-1.  Put your microSD card into your computer. This is what you'll be using for 'storage'.
-2.  Once your microSD card is in your computer, select it under "Choose Storage".
+1.  Connect your microSD card to your computer.
+2.  Once your microSD card connected to your computer, select it under "Choose Storage".
 4.  Click "Write".
 4.  Once writing is complete complete, remove the microSD card, and place it into the Raspberry Pi.
-5.  Attach your Pioreactor HAT to your Raspberry Pi. Ensure the two pieces fit snugly together.
+5.  If not already done so, attach your Pioreactor HAT to your Raspberry Pi. Ensure the two pieces fit snugly together.
 6.  Plug the power cord into your Raspberry Pi in. LEDs onboard the Raspberry Pi should start to light up.
 7.  After a few moments, your Pioreactor will flash a blue LED and now is ready to go. Navigate to [http://pioreactor.local](http://pioreactor.local) in a web browser to visit the web interface. (Not working? See [Troubleshooting](/user_guide/Raspberry%20Pi%20set%20up%20and%20software%20installation#troubleshooting) below).
 
@@ -69,10 +69,15 @@ On the leader's command line, the command `pio add-pioreactor <new name>` will c
 
 ## Troubleshooting
 
+#### My Pioreactor keeps flashing the blue LED
+On a successful start, the Pioreactor will flash its blue LED for about 4 seconds. If you observe the blue LED flashing for longer, something may be wrong. You can diagnose the problem by [counting the number of flashes observed](/user_guide/Advanced/Flashing%20blue%20led)
+
+
 
 #### My Rpi won't connect to my Wifi.
 
 *   Some Raspberry Pis can't connect to Wifi natively, and some Raspberry Pis can only connect to 2.4GHz connections. See table below: [![Rpi and wifi](https://user-images.githubusercontent.com/884032/105118696-e945dd00-5a9c-11eb-91f5-0cc77cdc1422.png)](https://user-images.githubusercontent.com/884032/105118696-e945dd00-5a9c-11eb-91f5-0cc77cdc1422.png)[](https://user-images.githubusercontent.com/884032/105118696-e945dd00-5a9c-11eb-91f5-0cc77cdc1422.png)
+*   You may have mis-typed your Wifi credentials. To fix this, you'll need to restart the image installation from the Raspberry Pi Imager.
 *   If connecting to a 5GHz wifi connection, you _need_ to supply a valid country code. See the list here: [https://en.wikipedia.org/wiki/ISO\_3166-1\_alpha-2/](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 "Link to country codes on wikipedia")
 *   Check out some other possibilities [here](https://community.octoprint.org/t/wifi-setup-and-troubleshooting/184#heading--troubleshooting).
 
