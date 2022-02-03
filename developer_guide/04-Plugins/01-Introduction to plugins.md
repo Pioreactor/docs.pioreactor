@@ -25,6 +25,8 @@ from pioreactor.background_jobs.base import BackgroundJob
 __plugin_summary__ = "Just a demo job"
 __plugin_version__ = "0.0.1"
 __plugin_name__ = "Demo job"
+__plugin_author__ = "Cam Davidson-Pilon"
+__plugin_homepage__ = "https://docs.pioreactor.com"
 
 
 class DemoJob(BackgroundJob):
@@ -68,7 +70,8 @@ from pioreactor.automations.dosing.base import DosingAutomationContrib
 __plugin_summary__ = "A demo dosing automation"
 __plugin_version__ = "0.0.1"
 __plugin_name__ = "Demo Dosing Automation"
-
+__plugin_author__ = "Cam Davidson-Pilon"
+__plugin_homepage__ = "https://docs.pioreactor.com"
 
 class DemoAutomation(DosingAutomationContrib):
 

@@ -24,24 +24,24 @@ We'll start with an unused Raspberry Pi and empty microSD card (or we'll reforma
 
 1. Download the [Pioreactor Leader image](https://github.com/pioreactor/pioreactor/releases/latest/download/pioreactor_leader_worker.img.zip): this has all the required software preinstalled on it, including the latest version of Raspberry Pi OS and Pioreactor.
 2. Download the [Raspberry Pi Imager](https://www.raspberrypi.org/software/) for your operating system, install it and open the Raspberry Pi Imager.
-   1. Hold down the key sequence "ctrl-shift-x" to bring up the settings menu.
-  ![](/img/user_guide/ctrlshiftx.png)
-    2. Set hostname as the desired name of this Pioreactor. Some names that we use for our first Pioreactor: ` pioreactor1`, or `leader`, or `p1`.
-    2. Check "Enable SSH" and add a password
-    3. Check "Configure wifi" and enter your network name into SSID, wifi password, and country.
-    4. Optional: change timezone to your local timezone.
-    5. Click "Save"
-3.  Click "Choose OS". Click on "Use custom" towards the bottom:
-    ![](/img/user_guide/use_custom_image.png)
+2.  Click "Choose OS". Click on "Use custom" towards the bottom:
+    ![Select the "Use custom" option](/img/user_guide/use_custom_image.png)
     Select the downloaded Pioreactor image from step 1.
+    ![In the local computers direction, select the downloaded image](/img/user_guide/select_new_image.png)
+2. Connect your microSD card to your computer. Once your microSD card connected to your computer, select it under "Choose Storage".
+4. Click the settings menu (Gear button in the bottom left).
+  ![Settings menu](/img/user_guide/ctrlshiftx.png)
 
-    ![](/img/user_guide/select_new_image.png)
+    1. Set hostname as the desired name of this Pioreactor. Some names that we use for our first Pioreactor: ` pioreactor1`, or `leader`, or `p1`.
+    2. Check "Enable SSH".
+    3. (Optional) Add a password, default is `raspberry` if not provided.
+    3. Check "Configure wifi" and enter your network name into SSID, wifi password, and country.
+    4. (Optional) Change timezone to your local timezone.
+    5. Click "Save"
 
-1.  Connect your microSD card to your computer.
-2.  Once your microSD card connected to your computer, select it under "Choose Storage".
 4.  Click "Write".
 4.  Once writing is complete complete, remove the microSD card, and place it into the Raspberry Pi.
-5.  If not already done so, attach your Pioreactor HAT to your Raspberry Pi. Ensure the two pieces fit snugly together.
+5.  (Optional) If not already done so, attach your Pioreactor HAT to your Raspberry Pi. Ensure the two pieces fit snugly together.
 6.  Plug the power cord into your Raspberry Pi in. LEDs onboard the Raspberry Pi should start to light up.
 7.  After a few moments, your Pioreactor will flash a blue LED and now is ready to go. Navigate to [http://pioreactor.local](http://pioreactor.local) in a web browser to visit the web interface. (Not working? See [Troubleshooting](/user_guide/Raspberry%20Pi%20set%20up%20and%20software%20installation#troubleshooting) below).
 
