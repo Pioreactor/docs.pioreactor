@@ -2,9 +2,9 @@
 
 The core unit of "work" in the Pioreactor software is a background job (called _activities_ in the web interface). Background jobs include `od_reading`, `monitor`, automation controllers, all the _automations_ themselves, etc. Often, a community plugin is a background job (or multiple jobs) that gives your bioreactor new abilities. There are a few core feature of a background job to be highlighted if you intend on working with them.
 
-### Inheritance
+### Inheritance and file structure
 
-All background jobs inherit from the base class `pioreactor.background_jobs.base.BackgroundJob`. This class controls most of the behind-the-scenes behaviour of the class, including the following features:
+All background jobs inherit from the base class `pioreactor.background_jobs.base.BackgroundJob`. This class controls most of the behind-the-scenes behaviour of the class. Typically, we structure code such that a Python file has a single background job.
 
 ### State of a job
 A background job can be in one of five different states:
@@ -54,7 +54,7 @@ job = SomeBackgroundJob(unit, experiment)
 job.publish(f"pioreactor/{job.unit}/{job.experiment}/...", payload)
 ```
 
-Another common pattern is to subscribe to a MQTT topic, and execute a threaded callback whenever a message comes in. This is done with the `.subscribe_and_callback` method. By convention, this is most often used in a `.start_passive_listeners` method:
+Another common pattern is to subscribe to a MQTT topic, and execute a threaded callback whenever a message comes in from that topic. This is done with the `.subscribe_and_callback` method. By convention, this is most often used in a `.start_passive_listeners` method:
 
 ```python
 from pioreactor.background_jobs.base import BackgroundJob
@@ -85,7 +85,7 @@ A common task is when we have a job running, say stirring job, and we want to dy
 
 We also want to know the value of a job's attribute when it changes. For example, in the stirring job, we'd like to know what the _actual_ RPM is. This can't be edited externally (it's a measured value...), but we want the value available for other jobs to use, for the web interface to display, or to sink it into a database.
 
-These two tasks, updating attributes and reading attributes in real-time, are so common that we've wrapped the logic into the parent `BackgroundJob` class, and allow job authors to tell us what they wish to update and/or read.
+These two tasks, updating attributes and reading attributes in real-time, are so common that we've wrapped the logic into the parent `BackgroundJob` class, and allow job authors to tell us what attributes they wish to update and/or read.
 
 In the class definition, the attribute `published_settings` defines which class attributes they would like to track. For example, the job responsible for stirring looks like:
 
@@ -109,10 +109,10 @@ The `datatype` key is not used and are there for documentation, but this may cha
 :::
 
 :::info
-The `unit` key is optional, and can be omitted. Also, there is an optional `persist` key (not shown above), which contains a boolean describing if the value should be kept in MQTT after the job exits.
+The `unit` key is optional, and can be omitted. Also, there is an optional `persist` key (not shown above), which contains a boolean describing if the value should be kept in MQTT after the job exits, default `False`.
 :::
 
-When a class attribute that's present in `published_settings` changes, a MQTT message is published under the topic `pioreactor/{self.unit}/{self.experiment}/{self.job_name}/{attr}` with payload equal to the new value of the attribute. This is how the web interface is provided real-time data.
+When a class' attribute that's present in `published_settings` changes, a MQTT message is published under the topic `pioreactor/{self.unit}/{self.experiment}/{self.job_name}/{attr}` with payload equal to the new value of the attribute. This is how the web interface is provided real-time data.
 
 For updating an attribute, the `BackgroundJob` parent class listens to the MQTT topic:
 ```
@@ -122,7 +122,7 @@ pioreactor/{self.unit}/{self.experiment}/{self.job_name}/+/set
 (the `+` is a MQTT wildcard), and when a message comes in, the class will check if the attribute (defined by `+`) is `settable`. If so, a lookup is done to see if a class method called `set_<attr>` is defined, and if present, calls that, with the only argument the message's payload. Otherwise, a simple assignment is done: `self.<attr> = payload`. The utility of a `set_<attr>` method is when changing the attribute requires more logic (ex: changing a PID controller's set point).
 
 :::info
-`state` is special attribute that is automatically appended to `published_settings` (with `settable: True` and `persist: False`) so the state of the job can always be updated and read from MQTT. Over MQTT, the field is called referenced as `pioreactor/{unit}/{experiment}/{job_name}/$state` - note the `$`.
+`state` is special attribute that is automatically appended to `published_settings` (with `settable: True` and `persist: True`) so the state of the job can always be updated and read from MQTT. Over MQTT, the field is called referenced as `pioreactor/{unit}/{experiment}/{job_name}/$state` - note the `$`.
 :::
 
 When the job disconnects and cleans up, the published settings in MQTT are removed as well by sending an empty payload to the respective topics (unless `persist: True`, see above.)
@@ -184,4 +184,3 @@ def function_that_does_clean_up():
 value = function_that_does_clean_up()
 ```
 
-:::

@@ -1,4 +1,4 @@
-#Adding custom pumps to dosing automations
+# Adding custom pumps to dosing automations
 
 You may want to use a different pumping system for the Pioreactor (or, if you are using the Pioreactor software with a different vessel, you may require different pumps). You can add code for different pumps like so:
 
