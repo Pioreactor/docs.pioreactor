@@ -24,7 +24,7 @@ export default function Home() {
   return (
     <Layout
       title={"Pioreactor Documentation"}
-      description="User guides, developer guides and more for the Pioreactor bioreactor system.">
+      description="User guide, developer guide, experiments and more for the Pioreactor bioreactor system.">
       <HomepageHeader />
       <main>
         <HomepageFeatures />
