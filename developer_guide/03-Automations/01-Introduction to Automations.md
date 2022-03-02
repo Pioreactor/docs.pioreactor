@@ -28,9 +28,9 @@ Since the automation in the controller is part of `published_settings`, you can 
 ```
 {
    "automation_name":"chemostat",
-   "volume: 1,
-   "duration": 20
+   "args": {
+      "volume: 1,
+      "duration": 20
+   }
 }
 ```
-
-The payload is a JSON of the parameters needed for the automation, and the `automation_name` field population with the name of the automation.

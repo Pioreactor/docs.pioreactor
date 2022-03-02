@@ -9,9 +9,9 @@ In this section, we'll develop a simple dosing automation.
 Writing an automation involves creating a Python class and overriding specific methods. It would be helpful to be familiar with [Python classes](https://realpython.com/python3-object-oriented-programming/) before beginning. Here's an example of a (naive) turbidostat automation, i.e. it will add fresh media and remove old media when an optical density threshold is exceeded. The full code is below, and we'll go through each line of code after:
 
 ```python
-from pioreactor.automations import DosingAutomationContrib
+from pioreactor.automations import DosingAutomationJobContrib
 
-class NaiveTurbidostat(DosingAutomationContrib):
+class NaiveTurbidostat(DosingAutomationJobContrib):
 
     automation_name = "naive_turbidostat"
     published_settings = {
@@ -26,12 +26,12 @@ class NaiveTurbidostat(DosingAutomationContrib):
             self.execute_io_action(media_ml=1.0, waste_ml=1.0)
 ```
 
-First important thing is to subclass from `DosingAutomationContrib`:
+First important thing is to subclass from `DosingAutomationJobContrib`:
 
 ```python
-from pioreactor.automations import DosingAutomationContrib
+from pioreactor.automations import DosingAutomationJobContrib
 
-class NaiveTurbidostat(DosingAutomationContrib):
+class NaiveTurbidostat(DosingAutomationJobContrib):
    ...
 ```
 
@@ -87,9 +87,9 @@ $ python3 naive_turbidostat.py
 
 Exit with ctrl-c
 """
-from pioreactor.automations import DosingAutomationContrib
+from pioreactor.automations import DosingAutomationJobContrib
 
-class NaiveTurbidostat(DosingAutomationContrib):
+class NaiveTurbidostat(DosingAutomationJobContrib):
 
     automation_name = "naive_turbidostat"
     published_settings = {
@@ -116,7 +116,7 @@ if __name__=="__main__":
     dc.block_until_disconnected()
 
 ```
-This uses the dosing controller class, `DosingController`, which controls which dosing automation is running. By using `DosingAutomationContrib`, our new `NaiveTurbidostat` class is automatically discovered by `DosingController` and referenced by the `automation_name` we chose, `naive_turbidostat`.
+This uses the dosing controller class, `DosingController`, which controls which dosing automation is running. By using `DosingAutomationJobContrib`, our new `NaiveTurbidostat` class is automatically discovered by `DosingController` and referenced by the `automation_name` we chose, `naive_turbidostat`.
 
 :::info
 If you have Pioreactor installed locally, you can save this file on your system. Otherwise, you can create this file on your Pioreactor's Raspberry Pi: after accessing the Raspberry Pi's command line, typing `nano naive_turbidostat.py`, and pasting in the code above.
@@ -126,7 +126,7 @@ Run the script with `python3 naive_turbidostat.py`. This will start the job. Aft
 
 #### Editing attributes over MQTT (optional)
 
-We'll demonstrate the ability to dynamically change the `target_od` attribute using MQTT. For each member of `published_settings`, the `DosingAutomationContrib` class listens to the MQTT topic:
+We'll demonstrate the ability to dynamically change the `target_od` attribute using MQTT. For each member of `published_settings`, the `DosingAutomationJobContrib` class listens to the MQTT topic:
 ```
 pioreactor/<unit name>/<experiment>/dosing_automation/<attribute>/set
 ```
@@ -155,9 +155,9 @@ Below are some extensions, with additions highlighted
 Exchanging 1ml each time may not be enough, so we add `volume` to the `published_settings`. Now, from the UI, we can dynamically adjust the volume.
 
 ```python {8,10,13,17}
-from pioreactor.automations import DosingAutomationContrib
+from pioreactor.automations import DosingAutomationJobContrib
 
-class NaiveTurbidostat(DosingAutomationContrib):
+class NaiveTurbidostat(DosingAutomationJobContrib):
 
     automation_name = "naive_turbidostat"
     published_settings = {
@@ -182,9 +182,9 @@ If our growth rate is high, we may want to modify the volume exchanged to keep u
 
 
 ```python {8,10,13,17}
-from pioreactor.automations import DosingAutomationContrib
+from pioreactor.automations import DosingAutomationJobContrib
 
-class NaiveTurbidostat(DosingAutomationContrib):
+class NaiveTurbidostat(DosingAutomationJobContrib):
 
     automation_name = "naive_turbidostat"
     published_settings = {

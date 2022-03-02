@@ -8,14 +8,14 @@ Let's design a simple LED automation for Light/Dark cycles. The basic idea is th
 ```python
 # -*- coding: utf-8 -*-
 from __future__ import annotations
-from pioreactor.automations import LEDAutomationContrib
+from pioreactor.automations import LEDAutomationJobContrib
 from pioreactor.whoami import get_unit_name, get_latest_experiment_name
 from pioreactor.automations import events
 ```
 
-2. Define a new class as a subclass of `LEDAutomationContrib`. We use `LEDAutomationContrib` since this is a 3rd party automation. We give the new class a descriptive name. The `automation_name` attribute is necessary - and is often just the camel case version of the class name.
+2. Define a new class as a subclass of `LEDAutomationJobContrib`. We use `LEDAutomationJobContrib` since this is a 3rd party automation. We give the new class a descriptive name. The `automation_name` attribute is necessary - and is often just the camel case version of the class name.
 ```python
-class LightDarkCycle(LEDAutomationContrib):
+class LightDarkCycle(LEDAutomationJobContrib):
     automation_name = "light_dark_cycle"
 ```
 
@@ -134,10 +134,10 @@ In total, our file looks like:
 ```python
 # -*- coding: utf-8 -*-
 from __future__ import annotations
-from pioreactor.automations import LEDAutomationContrib
+from pioreactor.automations import LEDAutomationJobContrib
 from pioreactor.automations import events
 
-class LightDarkCycle(LEDAutomationContrib):
+class LightDarkCycle(LEDAutomationJobContrib):
     """
     Follows as h light / h dark cycle. Starts dark.
     """

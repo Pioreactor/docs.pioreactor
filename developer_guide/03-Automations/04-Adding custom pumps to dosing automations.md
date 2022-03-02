@@ -8,7 +8,7 @@ You may want to use a different pumping system for the Pioreactor (or, if you ar
 import signal
 import time
 from pioreactor.logging import create_logger
-from pioreactor.automations import DosingAutomation
+from pioreactor.automations import DosingAutomationJob
 from pioreactor.whoami import get_unit_name, get_latest_experiment_name
 
 
@@ -30,9 +30,9 @@ def custom_remove_media_program(cls, ml: float, unit: str, experiment: str, sour
 
 
 
-class CustomPump(DosingAutomation):
+class CustomPumper(DosingAutomationJob):
 
-    automation_name = "custom_pump"
+    automation_name = "custom_pumper"
 
     published_settings = {
         "duration": {"datatype": "float", "settable": True, "unit": "min"},
@@ -55,7 +55,7 @@ if __name__ == "__main__":
     from pioreactor.background_jobs.dosing_control import DosingController
 
     dc = DosingController(
-        "custom_pump",
+        "custom_pumper",
         duration=1, # execute every 1 minute
         unit="test_unit",
         experiment="test_experiment"
@@ -79,7 +79,7 @@ but then you need to add `staticmethod`:
 
 ```python
 
-class CustomPump(DosingAutomation):
+class CustomPump(DosingAutomationJob):
 
     automation_name = "custom_pump"
 
