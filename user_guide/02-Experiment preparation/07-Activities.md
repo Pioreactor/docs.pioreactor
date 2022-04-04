@@ -1,0 +1,13 @@
+# Activities
+
+- **Stirring**: this starts the stirring in the Pioreactor. After starting stirring, you can change the stirring speed in the Settings tab. (And default stirring speed can be changed in the configuration).
+
+- **Optical density**: this activity turns on the system that measures culture density. Readings will start to populate the _Experiment Overview_ page. It's useful to inspect the first few minutes to readings to ensure things look okay (ex: nothing appears too wild, stirring is not too fast or slow, etc.)
+
+- **Growth Rate**: this activity requires that stirring and optical density be running as well. This starts the calculation of a normalized optical density, and the implied growth rate.
+
+- **Temperature automation**: turning on a temperature automation will start collecting temperature readings. For example, the **Stable** automation will use a feedback loop to stabilize the Pioreactor to a set temperature. Pausing an automation will stop any active heating _and_ stop temperature data collection. Stopping an automation will stop the heating and temperature collection. To change a running temperature automation, use the "Change Temperature Automation" button. Read more about specific [temperature automations](/user_guide/Automations/Temperature%20Automations).
+
+- **Dosing automation**: turning on a dosing automation to start listening periodically for dosing triggers. A dosing automation requires at least 1 pump to be available and calibrated. [More about using pumps](/user_guide/Extending%20your%20Pioreactor/Peristaltic%20pumps). Pausing a dosing automation will stop any currently, and future, dosing occurring until the automation is unpaused. Read more about the different types of [dosing automations](/user_guide/Automations/Dosing%20Automations).
+
+- **LED automation**: turning on a temperature automation to start listening periodically for LED change triggers. Read more about [LED automations](/user_guide/Automations/LED%20Automations).
