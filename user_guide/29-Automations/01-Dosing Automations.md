@@ -1,6 +1,6 @@
 import TOCInline from '@theme/TOCInline';
 
-# Dosing Automations
+# Dosing automations
 
 When pairing the Pioreactor with dosing pumps, there are new capabilities and experiments you can run. The Pioreactor is pre-programmed with the following dosing automations. In the below automations, values highlighted `like so` are configurable.
 

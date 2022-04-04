@@ -1,4 +1,4 @@
-# Setting up an Experiment
+# Setting up an experiment
 
 ### Creating an experiment
 
@@ -25,7 +25,7 @@ The next pages will guide you through setting up heating, stirring and optical d
 Before starting any activities, it's useful to run a _self test_ to confirm that your Pioreactors are all working as expected. [How to run a self-test.](http://docs.pioreactor.com)
 :::
 
-On the _Pioreactors_ page, you should see at least one Pioreactor under _Active Pioreactors_. Using the "Manage" button, you can start an activity. Once started, jobs can also be _paused_ (and then _resumed_) and _stopped_.
+On the _Pioreactors_ page, you should see at least one Pioreactor under _Active Pioreactors_. Using the "Manage" button, you can start an [activity](/user_guide/Experiment%20preparation/Activities). Once started, jobs can also be _paused_ (and then _resumed_) and _stopped_.
 
 ![](/img/user_guide/pioreactor_page_manage.png)
 ![](/img/user_guide/pioreactor_page_activities.png)
@@ -33,17 +33,8 @@ On the _Pioreactors_ page, you should see at least one Pioreactor under _Active 
 
 The typical sequence of activities to start is:
 
-1. **Stirring**: this starts the stirring in the Pioreactor. After starting stirring, you can change the stirring speed in the Settings tab. (And default stirring speed can be changed in the configuration).
-
-2. **Temperature automation**: turning on a temperature automation will start collecting temperature readings, and, if enabled, start heating the culture.
-
-
-3. **Optical density**: this activity turns on the system that measures culture density. Readings will start to populate the _Experiment Overview_ page. It's useful to inspect the first few minutes to readings to ensure things look okay (ex: nothing appears too wild, stirring is not too fast or slow, etc.)
-
-:::info
-You can also perform a blank optical density reading first, which is especially useful if your media is already turbid.
-:::
-
-4. **Growth Rate**: this activity requires that stirring and optical density be running as well. This starts the calculation of a normalized optical density, and the implied growth rate.
-
+1. **Stirring**
+2. **Temperature automation**
+3. **Optical density**
+4. **Growth Rate**
 5. Any other activities. Any of the automations can be started, or custom jobs you've added to your Pioreactor.
