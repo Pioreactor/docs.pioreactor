@@ -1,6 +1,6 @@
 # Blue LED flashing & error codes
 
-When a Pioreactor successfully boots, the onboard blue LED will flash for 2 seconds, and then stop. However, there are times when the Pioreactor encounters an error, and will use the LED to alert to you that something is wrong. By counting the number of flashes (per cycle), you can diagnose what might be wrong.
+When a Pioreactor successfully boots, the onboard blue LED will flash quickly for 2 seconds, and then stop. However, there are times when the Pioreactor encounters an error, and will use the LED to alert to you that something is wrong. By counting the number of _short_ flashes (per cycle), you can diagnose what might be wrong.
 
 | Number of flashes | Error                      |
 |-------------------|----------------------------|

@@ -11,7 +11,7 @@ Interacting with the Pioreactor on the command line are through the `pio` tool. 
 *   `pio run <job> <options>` will run the `<job>`. Each job has specific command line arguments. Note that some jobs (like `monitor`) are started with `run-always`, see below.
 *   `pio run-always <job>`: run a leader-specific job (ex: `monitor`). These jobs are independent of any running experiment, and are not killed by `pio kill`.
 *   `pio version` print the version of the PioreactorApp software.
-*   `pio update` will update the software to the latest version: adding `--app` will upgrade the PioreactorApp.
+*   `pio update` will update the software to the latest version: adding `--app` will upgrade the Pioreactor Python app.
 *   `pio install-plugin <plugin name>` will install a plugin
 *   `pio uninstall-plugin <plugin name>` will uninstall a plugin
 *   `pio list-plugins` will list the currently installed plugins

@@ -1,31 +1,35 @@
-# Starting an experiment, activities, and collecting data
+# Setting up an Experiment
 
-### Starting an experiment
+### Creating an experiment
 
-To start a new experiment, use the "New experiment" button at the top of the _Experiment Overview_ page.
+1. To create a new experiment, use the "New experiment" button at the top of the _Experiment Overview_ page.
 
-![](https://cdn.shopify.com/s/files/1/0515/1824/3002/files/Screen_Shot_2021-09-22_at_4.26.25_PM.png?v=1632342428)
+![](/img/user_guide/start_new_experiment.png)
 
-On the next screen, enter your new experiment name (must be unique from prior experiments), and enter an optional description. This description can be changed later (the experiment name cannot be changed later, however). Click "Create"
+2. On the next screen, enter your new experiment name (must be unique from prior experiments), and enter an optional metadata about your experiment. The description can be changed later (the experiment name cannot be changed later, however). Click "Create" when done.
 
-![](https://cdn.shopify.com/s/files/1/0515/1824/3002/files/Screen_Shot_2021-09-22_at_4.31.03_PM.png?v=1632342732)
+![](/img/user_guide/create_new_experiment_page.png)
+
+3. (Optional) If working with more than one Pioreactor in your cluster, it's useful to assign experiment-specific labels to them. These labels show up in the user interface, and make progress checking and updating easier. The labels can be changed later. Click "Assign" when done.
+
+![](/img/user_guide/assign_labels_bulk.png)
 
 
-The next page will guide you through setting up heating, stirring and optical density reading for your Pioreactor.
+The next pages will guide you through setting up heating, stirring and optical density reading for your Pioreactor.
 
 
 
 ### Alternative: Start activities from the Pioreactors page.
 
 :::info
-Before starting any activities, it's useful to run a _Self test_ to confirm that your Pioreactors are all working as expected.
+Before starting any activities, it's useful to run a _self test_ to confirm that your Pioreactors are all working as expected. [How to run a self-test.](http://docs.pioreactor.com)
 :::
 
 On the _Pioreactors_ page, you should see at least one Pioreactor under _Active Pioreactors_. Using the "Manage" button, you can start an activity. Once started, jobs can also be _paused_ (and then _resumed_) and _stopped_.
 
-![](https://cdn.shopify.com/s/files/1/0515/1824/3002/files/Screen_Shot_2021-09-22_at_4.27.55_PM.png?v=1632342567)
+![](/img/user_guide/pioreactor_page_manage.png)
+![](/img/user_guide/pioreactor_page_activities.png)
 
-![](https://cdn.shopify.com/s/files/1/0515/1824/3002/files/Screen_Shot_2021-09-22_at_4.27.59_PM.png?v=1632342601)
 
 The typical sequence of activities to start is:
 

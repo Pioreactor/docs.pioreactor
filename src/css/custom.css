@@ -27,10 +27,11 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
   background-color: rgba(0, 0, 0, 0.3);
 }
 
-article img {
-  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2)
-}
 
 h1 {
   font-size:  2.3rem;
+}
+
+.menu__link {
+  font-size: 15px;
 }
