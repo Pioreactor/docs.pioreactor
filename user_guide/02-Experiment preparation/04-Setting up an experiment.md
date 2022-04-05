@@ -22,7 +22,7 @@ The next pages will guide you through setting up heating, stirring and optical d
 ### Alternative: Start activities from the Pioreactors page.
 
 :::info
-Before starting any activities, it's useful to run a _self test_ to confirm that your Pioreactors are all working as expected. [How to run a self-test.](http://docs.pioreactor.com)
+Before starting any activities, it's useful to run a _self test_ to confirm that your Pioreactors are all working as expected. [How to run a self-test.](/user_guide/Experiment%20preparation/Running%20a%20self-test)
 :::
 
 On the _Pioreactors_ page, you should see at least one Pioreactor under _Active Pioreactors_. Using the "Manage" button, you can start an [activity](/user_guide/Experiment%20preparation/Activities). Once started, jobs can also be _paused_ (and then _resumed_) and _stopped_.

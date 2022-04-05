@@ -14,7 +14,7 @@ In our case, if we were to use the pump as a media pump, we would connect the pu
 ## Running the pump
 
 :::info
-Pump calibrations must be run first, see [section on calibrating a pump](/user_guide/Hardware%20calibrations#pump-calibration)
+Pump calibrations must be run first, see [section on calibrating a pump](/user_guide/Extending%20your%20Pioreactor/Hardware%20calibrations#pump-calibration)
 :::
 
 Once finished calibrating, you can run your pump manually and programmatically.

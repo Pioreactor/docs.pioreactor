@@ -1,5 +1,7 @@
 # Activities
 
+Below is a list of activities that come available with the Pioreactor. Activities can be added with plugins, as well. [Read more about using plugins](user_guide/Extending%20your%20Pioreactor/Using%20community-built%20plugins).
+
 - **Stirring**: this starts the stirring in the Pioreactor. After starting stirring, you can change the stirring speed in the Settings tab. (And default stirring speed can be changed in the configuration).
 
 - **Optical density**: this activity turns on the system that measures culture density. Readings will start to populate the _Experiment Overview_ page. It's useful to inspect the first few minutes to readings to ensure things look okay (ex: nothing appears too wild, stirring is not too fast or slow, etc.)

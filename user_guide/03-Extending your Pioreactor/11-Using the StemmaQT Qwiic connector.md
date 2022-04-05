@@ -15,7 +15,7 @@ What is StemmaQT / Qwiic? It's simply a standardized physical connector, the JST
 
 Suppose you are placing your Pioreactor in a CO₂ incubator, and want to record the CO₂ concentration of the incubator. The incubator does monitor the CO₂ concentration, but generally this isn't accessible to other tools. What you can do is purchase an external CO₂ sensor with StemmaQT / Qwiic connectors, like the [SCD-40](https://www.adafruit.com/product/5187), and attach it to your Pioreactor. The Pioreactor can now read from the CO₂ sensor, and build logging, event-loops, plotting, etc. around the measurements. 
 
-To read from the sensor, a [plugin](/user_guide/Using%20community-built%20plugins) may be available for it, or you can write a simple Python script like so:
+To read from the sensor, a [plugin](/user_guide/Extending%20your%20Pioreactor/Using%20community-built%20plugins) may be available for it, or you can write a simple Python script like so:
 
 :::note
 You'll first need to install the Python library:

@@ -38,4 +38,4 @@ Inventory is assigned in `config.ini` under `network.inventory`:
 
 ### Adding new workers
 
-See the instructions [here](/user_guide/Raspberry%20Pi%20set%20up%20and%20software%20installation#adding-workers-to-your-cluster) to add new workers to your cluster.
+See the instructions [here](/user_guide/Getting%20Started/Raspberry%20Pi%20set%20up%20and%20software%20installation#adding-workers-to-your-cluster) to add new workers to your cluster.
