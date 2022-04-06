@@ -1,3 +1,7 @@
+---
+slug: /external-power
+---
+
 # Supplying external power to the Pioreactor's PWM channels
 
 Some applications require more power to your Pioreactor if it is heavily using lots of peripherals. This may include using a more powerful pumps, more powerful external LEDs, etc. Or, if you see warning messages that reference under voltage or throttling, you probably are asking the Pioreactor to do too much given its default power supply.

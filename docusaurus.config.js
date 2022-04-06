@@ -73,12 +73,12 @@ const config = {
         },
         items: [
           {
-            to: '/user-guide/user-guide-intro',
+            to: '/user-guide/introduction',
             position: 'left',
             label: 'User Guide',
           },
           {
-            to: '/developer-guide/developer-guide-intro',
+            to: '/developer-guide/introduction',
             position: 'left',
             label: 'Developer Guide',
           },
@@ -107,11 +107,11 @@ const config = {
             items: [
               {
                 label: 'User Guide',
-                to: '/user-guide/user-guide-intro',
+                to: '/user-guide/introduction',
               },
               {
                 label: 'Developer Guide',
-                to: '/developer-guide/developer-guide-intro',
+                to: '/developer-guide/introduction',
               },
               {
                 label: 'Experiments',

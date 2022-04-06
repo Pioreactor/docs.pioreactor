@@ -1,3 +1,8 @@
+---
+slug: /set-up-an-experiment
+---
+
+
 # Setting up an experiment
 
 ### Creating an experiment
@@ -22,10 +27,10 @@ The next pages will guide you through setting up heating, stirring and optical d
 ### Alternative: Start activities from the Pioreactors page.
 
 :::info
-Before starting any activities, it's useful to run a _self test_ to confirm that your Pioreactors are all working as expected. [How to run a self-test.](/user-guide/Experiment%20preparation/Running%20a%20self-test)
+Before starting any activities, it's useful to run a _self test_ to confirm that your Pioreactors are all working as expected. [How to run a self-test.](/user-guide/running-self-test)
 :::
 
-On the _Pioreactors_ page, you should see at least one Pioreactor under _Active Pioreactors_. Using the "Manage" button, you can start an [activity](/user-guide/Experiment%20preparation/Activities). Once started, jobs can also be _paused_ (and then _resumed_) and _stopped_.
+On the _Pioreactors_ page, you should see at least one Pioreactor under _Active Pioreactors_. Using the "Manage" button, you can start an [activity](/user-guide/activities). Once started, jobs can also be _paused_ (and then _resumed_) and _stopped_.
 
 ![](/img/user-guide/pioreactor_page_manage.png)
 ![](/img/user-guide/pioreactor_page_activities.png)

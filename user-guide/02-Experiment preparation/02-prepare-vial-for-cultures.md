@@ -1,3 +1,7 @@
+---
+slug: /prepare-vial-for-cultures
+---
+
 # Preparing your vial for cultures
 
 ### Media volume

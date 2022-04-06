@@ -1,3 +1,7 @@
+---
+slug: /common-questions
+---
+
 import TOCInline from '@theme/TOCInline';
 
 # Common questions
@@ -9,7 +13,7 @@ Pioreactor operation
 
 #### Why does the onboard blue LED keep flashing?
 
-There may be a problem. You can diagnose the problem by [counting the number of flashes observed](/user-guide/Advanced/Flashing%20blue%20led)
+There may be a problem. You can diagnose the problem by [counting the number of flashes observed](/user-guide/error-codes)
 
 #### What does the onboard button do?
 
@@ -91,7 +95,7 @@ We've designed the hardware and software to be compatible with any Raspberry Pi 
 
 Although you can use any above, we like the Raspberry Pi 3 Model A+ because of its low power consumption, slim build, and low price. It has the necessary CPU power and memory for the Pioreactor workload, and is generally the cheapest on the list above (see note on Zero W below).
 
-¹ _Raspberry Pi Zero W_ is on the list above, and is very low cost compared to the others. They can absolutely be used for Pioreactors _as workers_ - we don't recommend them to be your _leader_ (note sure what these terms mean? Here's an introduction to [leader and workers](/user-guide/Extending%20your%20Pioreactor/Creating%20a%20Pioreactor%20cluster)). As workers, Raspberry Pi Zero W perform just fine, but will respond slower to commands. Note that this does not include the Raspberry Pi Zero _2_ W model, which is fine for all jobs.
+¹ _Raspberry Pi Zero W_ is on the list above, and is very low cost compared to the others. They can absolutely be used for Pioreactors _as workers_ - we don't recommend them to be your _leader_ (note sure what these terms mean? Here's an introduction to [leader and workers](/user-guide/create-cluster)). As workers, Raspberry Pi Zero W perform just fine, but will respond slower to commands. Note that this does not include the Raspberry Pi Zero _2_ W model, which is fine for all jobs.
 
 ² The RPi 400 has its 40 pin header exposed in a different orientation, so your Pioreactor won't be able to sit on top like for other RPi versions.
 
@@ -114,7 +118,7 @@ Dosing
 
 #### Why does the Media card in the UI not update when I run a dosing command?
 
-The Media card will _only_ update when an [Dosing Automation](/user-guide/Automations/Dosing%20Automations) is active (even the `Silent` automation). Why is it done this way? Often, you don't want volumes to be recorded there: during cleaning, during testing, etc. Often you only want volumes associated with the experiment to be there.
+The Media card will _only_ update when an [Dosing Automation](/user-guide/dosing-automations) is active (even the `Silent` automation). Why is it done this way? Often, you don't want volumes to be recorded there: during cleaning, during testing, etc. Often you only want volumes associated with the experiment to be there.
 
 :::note
 All dosing events ares recorded to the database however, and with a record of when the event occurred, and source of action. This data is available in the "Export data" web page, under `Dosing event log`.
@@ -142,6 +146,6 @@ More granular logs per Pioreactor are available in `/var/log/pioreactor.log` on 
 
 Unfortunately, the microSD card becoming corrupted or damaged is an infrequent but possible risk with using Raspberry Pis.
 
-- If the microSD card was inside a non-leader Pioreactor, it's best to try to reformat the microSD card and start fresh (i.e. [reinstall the Pioreactor software and reintroduce it to the cluster](/user-guide/getting-started/software-set-up#adding-workers-to-your-cluster)). This is usually okay as no critical data is stored locally in workers, except for some log files and hardware calibrations.
+- If the microSD card was inside a non-leader Pioreactor, it's best to try to reformat the microSD card and start fresh (i.e. [reinstall the Pioreactor software and reintroduce it to the cluster](/user-guide/software-set-up#adding-workers-to-your-cluster)). This is usually okay as no critical data is stored locally in workers, except for some log files and hardware calibrations.
 
 - If the microSD was inside the leader Raspberry Pi, this is a bigger problem. Likely any running experiment will have to be restarted. Fortunately, if you have more than one Pioreactor in your cluster, then the leader's SQLite database has been periodically backing itself up to other Pioreactors in the cluster every few days. Using the command line, check other Pioreactors' `/home/pi/.pioreactor/storage` directory for the _latest_ backup named `pioreactor.sqlite.backup` (should be from within the past few days hours). You can use this database to restart a new leader.

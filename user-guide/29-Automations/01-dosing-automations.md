@@ -1,3 +1,7 @@
+---
+slug: /dosing-automations
+---
+
 import TOCInline from '@theme/TOCInline';
 
 # Dosing automations

@@ -1,7 +1,11 @@
+---
+slug: /intro-python-scripting
+---
+
 # Writing Pioreactor scripts with Python
 
 :::note
-This article isn't intended as a crash course in Python, or Pioreactor software, but some helpful ways to write small scripts for your Pioreactor. If interested in learning more, check out the [developer docs](/developer-guide/developer-guide-intro) for detailed information.
+This article isn't intended as a crash course in Python, or Pioreactor software, but some helpful ways to write small scripts for your Pioreactor. If interested in learning more, check out the [developer docs](/developer-guide/introduction) for detailed information.
 :::
 
 For some testing and playing purposes, it's really easy to get started writing scripts to automate parts of your Pioreactor. For this tutorial, you'll need to be able to SSH into your Raspberry Pi.
@@ -106,5 +110,5 @@ stirrer.block_until_disconnected()
 
 ### Conclusion
 
-This is just a small example of scripts you can make. If you need to learn more, we suggest checking out the [developer guide](/developer-guide/developer-guide-intro).
+This is just a small example of scripts you can make. If you need to learn more, we suggest checking out the [developer guide](/developer-guide/introduction).
 

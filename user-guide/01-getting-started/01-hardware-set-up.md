@@ -2,10 +2,10 @@
 id: hardware-set-up
 title: Hardware set up
 description: Assemble the hardware
-slug: /getting-started/hardware-set-up
+slug: /hardware-set-up
 ---
 
 
-# Pioreactor hardware set up
+# Hardware set up
 
 Coming soon!

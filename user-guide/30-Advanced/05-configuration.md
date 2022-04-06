@@ -1,3 +1,6 @@
+---
+slug: /configuation
+---
 # Configuration via config.ini
 
 

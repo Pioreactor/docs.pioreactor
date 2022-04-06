@@ -1,3 +1,7 @@
+---
+slug: /create-cluster
+---
+
 # Creating a Pioreactor cluster
 
 Pioreactors are able to be used as individual units, or in concert with other Pioreactors. In either case, a Pioreactor needs to be assigned as a _leader_. The leader unit controls other Pioreactors (and that may include itself), stores the database, hosts the web interface, and is the interface between users and the hardware.
@@ -38,4 +42,4 @@ Inventory is assigned in `config.ini` under `network.inventory`:
 
 ### Adding new workers
 
-See the instructions [here](/user-guide/getting-started/software-set-up#adding-workers-to-your-cluster) to add new workers to your cluster.
+See the instructions [here](/user-guide/software-set-up#adding-workers-to-your-cluster) to add new workers to your cluster.

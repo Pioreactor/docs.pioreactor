@@ -1,3 +1,8 @@
+---
+slug: /yeast-growth-by-temperature
+---
+
+
 # Yeast growth on varying temperature
 
 :::tip Success Goal
