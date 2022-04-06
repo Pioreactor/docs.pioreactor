@@ -1,0 +1,43 @@
+# Command line interface
+
+For those interested, you can use the command line to interact with the Pioreactors. This is called the command line interface (CLI). Log onto either the [leader or worker](http://localhost:3000/user-guide/Creating%20a%20Pioreactor%20cluster) and you can execute the following commands. Full options and up-to-date documentation are available with `pio <command> --help`.
+
+### Worker commands
+
+Interacting with the Pioreactor on the command line are through the `pio` tool. Available arguments are:
+
+*   `pio logs` will produce a stream of recent logs events. Logs are stored in `/var/log/pioreactor.log`.
+*   `pio kill <job> [<job>...]` will safely terminate a `<job>`. Can kill multiple jobs, ex: `pio kill stirring dosing_control`
+*   `pio run <job> <options>` will run the `<job>`. Each job has specific command line arguments. Note that some jobs (like `monitor`) are started with `run-always`, see below.
+*   `pio run-always <job>`: run a leader-specific job (ex: `monitor`). These jobs are independent of any running experiment, and are not killed by `pio kill`.
+*   `pio version` print the version of the PioreactorApp software.
+*   `pio update` will update the software to the latest version: adding `--app` will upgrade the Pioreactor Python app.
+*   `pio install-plugin <plugin name>` will install a plugin
+*   `pio uninstall-plugin <plugin name>` will uninstall a plugin
+*   `pio list-plugins` will list the currently installed plugins
+*   `pio blink` will blink the Pioreactor's onboard LED.
+
+### Leader-only commands
+
+The leader also has their own unique set of `pio` commands (these commands do not interact with the workers):
+
+*   `pio db`: open the sqlite3 CLI of the Pioreactor database.
+*   `pio mqtt`: tail the MQTT broker.
+*   `pio run-always <job>`: run a leader-specific job (ex: `mqtt_to_db_streaming` or `watchdog`). These jobs are independent of any running experiment, and are not killed by `pio kill`.
+*   `pio add-pioreactor <new name>`: add a Pioreactor to your cluster, with given (unique) name. Need a blank RPi on the network first. See instructions [here](https://github.com/Pioreactor/pioreactor/wiki/Installation).
+*   `pio update` will update the software to the latest version: adding `--ui` will update the web interface (repo: pioreactor/pioreactorui) and adding `--app` will upgrade the Pioreactor Python app (repo: pioreactor/pioreactor).
+*   `pio cluster-status` will report to the user each Pioreactor in the cluster, and metadata like status, IP, and state.
+
+### Leader-only commands to control workers
+
+The leader computer interacts with the worker computers using the `pios` command. Unless otherwise noted, the `pios` will target all worker computers (see `--units` to change this). Available `pios` commands on the leader computer are the following:
+
+*   `pios kill <job> [<job>...]` terminate the job `<job>` on the workers. Ex: `pios kill dosing_control`. Multiple jobs can be killed, ex: `pios kill stirring dosing_control`
+*   `pios run <job>` on each worker, run the job `<job>` in the background. Job specific arguments can be specified after. Ex: `pios run add_media --ml 1`
+*   `pios update` install the latest PioreactorApp code on each worker.
+*   `pios sync-configs` deploy the config.ini files to workers.
+*   `pios install-plugin <plugin name>` will install the plugin on each worker _and_ the leader.
+
+In each of the above commands, the specific workers can be invoked with `--units` (which can be used multiple times. Ex: `pios run stirring --units 1 --units 2`.
+
+`-y` will skip user confirmation of the command to run.

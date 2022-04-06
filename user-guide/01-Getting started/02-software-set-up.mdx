@@ -1,0 +1,99 @@
+---
+description: Install the Pioreactor software onto the Raspberry Pi
+title: Raspberry Pi set up and software installation
+slug: /getting-started/software-set-up
+---
+
+import TOCInline from '@theme/TOCInline';
+
+
+### Let's install your new Pioreactor
+
+You can expect the setup process to take 10-15 minutes.
+
+
+:::info
+
+Before you get started, you'll need to have the following:
+
+1.  A Raspberry Pi (our list of preferred Raspberry Pis is [here](/user-guide/Common%20questions#what-raspberry-pi-hardware-can-i-use-i-see-raspberry-pi-1-2-3-4-a-b--zero---its-confusing))
+2.  A blank microSD card, ideally 16GB size or larger.
+3.  A suitable power cord for the Raspberry Pi. (If you look at the power rating, it should be about 5V and at least 2A).
+4.  A computer with internet access and ability to read & write to a microSD card.
+
+:::
+
+### Setting up your Raspberry Pi
+
+
+We'll start with an unused Raspberry Pi and empty microSD card (or we'll reformat the card later if not empty).
+
+1. Download the [Pioreactor Leader image](https://github.com/pioreactor/pioreactor/releases/latest/download/pioreactor_leader_worker.img.zip): this has all the required software preinstalled on it, including the latest version of Raspberry Pi OS and Pioreactor.
+2. Download the [Raspberry Pi Imager](https://www.raspberrypi.org/software/) for your operating system, install it and open the Raspberry Pi Imager.
+2.  Click "Choose OS". Click on "Use custom" towards the bottom:
+    ![Select the "Use custom" option](/img/user-guide/use_custom_image.png)
+    Select the downloaded Pioreactor image from step 1.
+    ![In the local computers direction, select the downloaded image](/img/user-guide/select_new_image.png)
+2. Connect your microSD card to your computer. Once your microSD card connected to your computer, select it under "Choose Storage".
+4. Click the settings menu (Gear button in the bottom left).
+  ![Settings menu](/img/user-guide/ctrlshiftx.png)
+
+    1. Set hostname as the desired name of this Pioreactor. Some names that we use for our first Pioreactor: `pioreactor1`, or `leader`, or `p1`.
+    2. Check "Enable SSH".
+    3. (Optional) Add a password, default is `raspberry` if not provided.
+    3. Check "Configure wifi" and enter your network name into SSID, wifi password, and country.
+    4. (Optional) Change timezone to your local timezone.
+    5. Click "Save"
+
+4.  Click "Write".
+4.  Once writing is complete complete, remove the microSD card, and place it into the Raspberry Pi.
+6.  Plug the power cord into your Raspberry Pi in. LEDs onboard the Raspberry Pi should start to light up.
+7.  After a few moments, your Pioreactor will flash a blue LED and now is ready to go. Navigate to [http://pioreactor.local](http://pioreactor.local) in a web browser to visit the web interface. (Not working? See [Troubleshooting](#troubleshooting) below).
+
+
+
+## Adding workers to your cluster
+
+#### From the web UI
+
+Follow the same instructions above, but use a [Pioreactor Worker image](https://github.com/pioreactor/pioreactor/releases/latest/download/leader_worker.img.zip) instead. **Choose a hostname that isn't currently being used**.
+
+After you have an installed the image, connected the new Pioreactor to your cluster is simple. On the _Pioreactors_ page in the web interface, click the "Add new Pioreactor" button in the top right:
+
+![](https://user-images.githubusercontent.com/884032/104632720-201a8e00-566c-11eb-9e80-6fb2346411c9.png)
+
+Provide the name of the new worker Pioreactor:
+
+![](https://user-images.githubusercontent.com/884032/104633581-586e9c00-566d-11eb-9ea9-cffbf55d7303.png)
+
+After a few minutes, the new Pioreactor should appear on the _Pioreactors_ and _Experiment Overview_ page.
+
+#### From the command line
+
+On the leader's command line, the command `pio add-pioreactor <new name>` will connect the new Pioreactor to the cluster.
+
+## Troubleshooting
+
+#### My Pioreactor keeps flashing the blue LED
+On a successful start, the Pioreactor will flash its blue LED for about 4 seconds. If you observe the blue LED flashing for longer, something may be wrong. You can diagnose the problem by [counting the number of flashes observed](/user-guide/Advanced/Flashing%20blue%20led)
+
+
+
+#### My Rpi won't connect to my Wifi.
+
+*   Some Raspberry Pis can't connect to Wifi natively, and some Raspberry Pis can only connect to 2.4GHz connections. See table below: [![Rpi and wifi](https://user-images.githubusercontent.com/884032/105118696-e945dd00-5a9c-11eb-91f5-0cc77cdc1422.png)](https://user-images.githubusercontent.com/884032/105118696-e945dd00-5a9c-11eb-91f5-0cc77cdc1422.png)[](https://user-images.githubusercontent.com/884032/105118696-e945dd00-5a9c-11eb-91f5-0cc77cdc1422.png)
+*   You may have mis-typed your Wifi credentials. To fix this, you'll need to restart the image installation from the Raspberry Pi Imager.
+*   If connecting to a 5GHz wifi connection, you _need_ to supply a valid country code. See the list here: [https://en.wikipedia.org/wiki/ISO\_3166-1\_alpha-2/](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 "Link to country codes on wikipedia")
+*   Check out some other possibilities [here](https://community.octoprint.org/t/wifi-setup-and-troubleshooting/184#heading--troubleshooting).
+
+
+#### I want to change the Pioreactor name on installation of leader
+
+Easiest solution is to start over: reflashing the OS onto the microSD card will remove all previous data, and you can try again.
+
+#### pioreactor.local in a web browser is not showing up
+
+*   The UI is hosted on **http**, not **http_s_**. Check if you are accessing `http` `://pioreactor.local`, and _not_ `https` `://pioreactor.local`.
+*   Are you on an older Windows machine? You may need to install a DNS [service](https://learn.adafruit.com/bonjour-zeroconf-networking-for-windows-and-linux/overview#microsoft-windows-914263-8), but also see workarounds [here](https://github.com/OutsourcedGuru/octoprint-name-resolution-hacks).
+*   Try instead `http://<the permanent name of your Pioreactor aka hostname>.local`
+*   Still not working? Try instead `http://<IP address of your Raspberry Pi>`

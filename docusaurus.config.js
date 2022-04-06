@@ -24,8 +24,8 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
-          routeBasePath: 'user_guide',
-          path: 'user_guide',
+          routeBasePath: 'user-guide',
+          path: 'user-guide',
           sidebarPath: require.resolve('./sidebars.js'),
         },
         theme: {
@@ -38,9 +38,9 @@ const config = {
     [
       '@docusaurus/plugin-content-docs',
       {
-        id: 'developer_guide',
-        path: 'developer_guide',
-        routeBasePath: 'developer_guide',
+        id: 'developer-guide',
+        path: 'developer-guide',
+        routeBasePath: 'developer-guide',
         sidebarPath: require.resolve('./sidebars.js'),
       },
     ],
@@ -73,12 +73,12 @@ const config = {
         },
         items: [
           {
-            to: '/user_guide/user_guide_intro',
+            to: '/user-guide/user-guide-intro',
             position: 'left',
             label: 'User Guide',
           },
           {
-            to: '/developer_guide/developer_guide_intro',
+            to: '/developer-guide/developer-guide-intro',
             position: 'left',
             label: 'Developer Guide',
           },
@@ -107,11 +107,11 @@ const config = {
             items: [
               {
                 label: 'User Guide',
-                to: '/user_guide/user_guide_intro',
+                to: '/user-guide/user-guide-intro',
               },
               {
                 label: 'Developer Guide',
-                to: '/developer_guide/developer_guide_intro',
+                to: '/developer-guide/developer-guide-intro',
               },
               {
                 label: 'Experiments',

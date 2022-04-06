@@ -6,7 +6,7 @@ const FeatureList = [
   {
     title: 'User Guide',
     Svg: require('../../static/img/optical_density.svg').default,
-    link: "/user_guide/user_guide_intro",
+    link: "/user-guide/user-guide-intro",
     description: (
       <>
         For biologists, almost-biologists, reseachers, students, and those who want to use the Pioreactor to study microbiology.
@@ -16,7 +16,7 @@ const FeatureList = [
   {
     title: 'Developer Guide',
     Svg: require('../../static/img/automation.svg').default,
-    link: "/developer_guide/developer_guide_intro",
+    link: "/developer-guide/developer-guide-intro",
     description: (
       <>
         For those interested in the Pioreactor customizations, API, plugin development, and hacking.
