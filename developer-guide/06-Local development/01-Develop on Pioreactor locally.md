@@ -1,3 +1,8 @@
+---
+slug: /local-development
+---
+
+
 # Local development of Pioreactor
 
 

@@ -1,3 +1,7 @@
+---
+slug: /data-stores
+---
+
 # Data stores in the Pioreactor
 
 

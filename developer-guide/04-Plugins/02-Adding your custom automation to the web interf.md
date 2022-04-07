@@ -1,3 +1,8 @@
+---
+slug: /adding-plugins-to-ui
+---
+
+
 # Adding your custom automation to the web interface
 
 With custom background jobs or automations, the end-game is really to have it available in the web interface, so you and your users don't need to use the command line at all. We've built support for easily adding to the web interface.

@@ -1,3 +1,8 @@
+---
+slug: /plugin-as-python-package
+---
+
+
 # Turning your automation in a Python package to share
 
 Following the template here: [https://github.com/Pioreactor/pioreactor\_custom\_dosing\_automation](https://github.com/Pioreactor/pioreactor_custom_dosing_automation), you can package and deploy your automation to your Pioreactor cluster, or for others to use.

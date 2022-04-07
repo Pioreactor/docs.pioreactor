@@ -1,3 +1,8 @@
+---
+slug: /intro-plugins
+---
+
+
 # Introduction to plugins
 
 Pioreactor plugins are a way to distribute code to others (or yourself), and avoid having to use the command line each time you invoke your custom code - you should be able to just use the web interface.

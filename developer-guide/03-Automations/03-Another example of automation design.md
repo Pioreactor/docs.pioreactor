@@ -1,3 +1,7 @@
+---
+slug: /writing-automations-2
+---
+
 # Another example of automation design
 
 Let's design a simple LED automation for Light/Dark cycles. The basic idea is that the LED automation "wakes up" (specifically: it runs its `execute` method) every hour, and on specific hours, turns on or turns off the white light LEDs.

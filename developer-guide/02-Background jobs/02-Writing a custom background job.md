@@ -1,3 +1,7 @@
+---
+slug: /writing-background-jobs
+---
+
 # Writing a custom background job
 
 ## Introductory example

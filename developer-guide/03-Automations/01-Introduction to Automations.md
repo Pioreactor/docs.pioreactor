@@ -1,3 +1,7 @@
+---
+slug: /intro-automations
+---
+
 # Automations architecture 
 
 ### Automations
