@@ -60,7 +60,7 @@ You should be able to execute the following from the command line now: `pio run 
 Further more, in your [web interface under plugins](http://pioreactor.local/plugins), you should see "Demo Job" installed.
 
 :::info
-[A full introduction to writing jobs](/developer-guide/Background%20Jobs/Writing%20a%20custom%20background%20job) is available.
+[A full introduction to writing jobs](/developer-guide/writing-background-jobs) is available.
 :::
 
 
@@ -95,7 +95,7 @@ You should be able to execute the following from the command line now: `pio run 
 
 
 :::info
-[A full introduction to writing automations](/developer-guide/Automations/Writing%20new%20automations) is available.
+[A full introduction to writing automations](/developer-guide/writing-automations-1) is available.
 :::
 
 

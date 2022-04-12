@@ -62,4 +62,4 @@ while True:
 
 Running this on your Pioreactor will publish the data to MQTT, and thus be available to any other bioreactor job. 
 
-You could also turn this into a [background job](/developer-guide/Background%20Jobs/How%20background%20jobs%20work) to make it even easier to use!
+You could also turn this into a [background job](/developer-guide/intro-background-jobs) to make it even easier to use!

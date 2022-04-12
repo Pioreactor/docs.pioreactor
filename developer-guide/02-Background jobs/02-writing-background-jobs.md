@@ -269,7 +269,7 @@ import json
 
 In the callback, `update_duty_cycle_by_normalized_od`, we accept the message object. The message has two important properties: `topic` and `payload`. We only care about the payload, which is a string of json. We de-serialize the json to a dict.
 
-We only want to update the duty cycle if the job is in state `READY` (read about states [here](/developer-guide/Background%20Jobs/How%20background%20jobs%20work#state-of-a-job)). If this is true, we call `set_duty_cycle` to update our duty cycle. This method handles the logic of clamping the value to be between 0 and 100, and we've stuck a `debug` in there so we can watch it change.
+We only want to update the duty cycle if the job is in state `READY` (read about states [here](/developer-guide/intro-background-jobs#state-of-a-job)). If this is true, we call `set_duty_cycle` to update our duty cycle. This method handles the logic of clamping the value to be between 0 and 100, and we've stuck a `debug` in there so we can watch it change.
 
 What is the relationship between normalized OD and duty cycle. We do something naive, and just multiple the initial duty cycle by the normalized OD. So if the `initial_duty_cycle` is 10%, and the culture has 3.5x, then our new duty cycle is 35%. It _is_ very naive.
 
