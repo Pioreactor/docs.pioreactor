@@ -15,7 +15,7 @@ When changing the default power supply, any stirring calibration and pump calibr
 :::
 
 :::caution
-Be mindful that the default stirring motor provided with the Pioreactor is has a maximum voltage of 12V.
+Be mindful that the default stirring motor provided with the Pioreactor has a maximum voltage of 12V.
 :::
 
 

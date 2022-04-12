@@ -1,5 +1,5 @@
 ---
-slug: /configuation
+slug: /configuration
 ---
 # Configuration via config.ini
 
