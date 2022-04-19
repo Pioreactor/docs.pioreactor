@@ -149,7 +149,7 @@ It's important to treat background jobs as objects that need to be cleaned up pr
 ```python
 job = SomeBackgroundJob(unit, experiment)
 ...
-job.set_state(job.DISCONNECTED)
+job.clean_up()
 # all cleaned up - state is set to disconnected
 ```
 

@@ -36,7 +36,7 @@ For some experiments, especially when using a scatter angle of 135°, you may no
 The scatter angle is the angle between the IR LED and a photodiode. This angle can be 45°, 90°, or 135°  (although 180° is possible, we don't consider it here). What is there to consider when choosing an angle. In general, the trend is shorter angles => less sensitive at low densities, but higher saturation point. By default, we suggest 45° as a good trade off between sensitivity and saturation. You can mix angles, and the Pioreactor's internal algorithm will still combine them into a single growth rate. Read more about Pioreactor's optical system [here](https://pioreactor.com/blogs/pioreactor-blog/estimating-growth-rates-with-kalman-filters).
 
 
-#### Can I use my own LEDs and photodiodes for optical density?
+#### Can I use my own 5mm LEDs and photodiodes for optical density?
 
 Of course! The only two requirements are that the spectrum of the LED overlaps with the spectrum of the photodiode, and that the LED light won't be absorbed by media/culture, nor damage the media/culture. Thus, the often-used 600nm light source works in the Pioreactor. None of our internal algorithms or analytics are dependent on the wavelength of light chosen.
 

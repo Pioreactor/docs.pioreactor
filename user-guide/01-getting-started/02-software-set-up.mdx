@@ -41,7 +41,7 @@ We'll start with an unused Raspberry Pi and empty microSD card (or we'll reforma
     1. Set hostname as the desired name of this Pioreactor. Some names that we use for our first Pioreactor: `pioreactor1`, or `leader`, or `p1`.
     2. Check "Enable SSH".
     3. Add username: `pioreactor` and password: `raspberry` (you can change the password later)
-    3. Check "Configure wifi" and enter your network name into SSID, wifi password, and country.
+    3. Check "Configure wifi" and enter your network name into SSID, wifi password, and country. (Alternative: instead of trying to use a "restrictive" network, like at a university that may not allow Raspberry Pi's, [here's a built-in solution for creating a local access point](/user-guide/local-access-point)).
     4. (Optional) Change timezone to your local timezone.
     5. Click "Save"
 
@@ -81,6 +81,7 @@ On a successful start, the Pioreactor will flash its blue LED for about 4 second
 
 #### My Rpi won't connect to my Wifi.
 
+*   If you are on a restrictive WiFi network (like at a university), and wish to avoid the network, [creating a local access point](/user-guide/local-access-point) may be a better option.
 *   Some Raspberry Pis can't connect to Wifi natively, and some Raspberry Pis can only connect to 2.4GHz connections. See table below: [![Rpi and wifi](https://user-images.githubusercontent.com/884032/105118696-e945dd00-5a9c-11eb-91f5-0cc77cdc1422.png)](https://user-images.githubusercontent.com/884032/105118696-e945dd00-5a9c-11eb-91f5-0cc77cdc1422.png)[](https://user-images.githubusercontent.com/884032/105118696-e945dd00-5a9c-11eb-91f5-0cc77cdc1422.png)
 *   You may have mis-typed your Wifi credentials. To fix this, you'll need to restart the image installation from the Raspberry Pi Imager.
 *   If connecting to a 5GHz wifi connection, you _need_ to supply a valid country code. See the list here: [https://en.wikipedia.org/wiki/ISO\_3166-1\_alpha-2/](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 "Link to country codes on wikipedia")
