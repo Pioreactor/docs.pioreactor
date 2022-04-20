@@ -20,15 +20,17 @@ This gives us a few different possible topologies of what your cluster of Piorea
 
 1.  The simplest topology is when you have a single Pioreactor, and so the leader is the only worker.
 
-![single pioreactor](https://user-images.githubusercontent.com/884032/103158118-69bc3b00-4788-11eb-8a32-a5580896a3a9.png)
+<img src="/img/user-guide/single_pioreactor_cluster.png" width="335" style={{margin: "auto", display:"block"}}/>
+
+
 
 2\.  When you have multiple Pioreactors, you can nominate one to be the leader node, and retain it as a worker, too:
 
-![leader and worker](https://user-images.githubusercontent.com/884032/103158257-c0764480-4789-11eb-8c83-6fb87f807a49.png)
+![leader is also a worker in the cluster](/img/user-guide/leader_as_worker_cluster.png)
 
-3\.  You can also choose not to have the leader be a worker. This is useful if you have a spare Raspberry Pi without the Pioreactor hardware, or the number of Pioreactors grows large and you wish to keep one out of the worker inventory.
+3\.  You can also choose not to have the leader be a worker. This is useful if you have a spare Raspberry Pi without the Pioreactor hardware, or the number of Pioreactors grows large and you wish to keep one out of the inventory to focus on being a leader only.
 
-![leader not worker](https://user-images.githubusercontent.com/884032/103158281-eac80200-4789-11eb-9acc-4fc680d180b9.png)
+![leader not worker](/img/user-guide/leader_cluster.png)
 
 ### How to edit roles
 

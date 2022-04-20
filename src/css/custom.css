@@ -27,6 +27,12 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
   background-color: rgba(0, 0, 0, 0.3);
 }
 
+[data-theme='dark'] {
+  --ifm-heading-color: rgb(245, 246, 247);
+  --ifm-hero-text-color: rgb(245, 246, 247);
+  --ifm-font-color-base: rgb(245, 246, 247);
+}
+
 
 h1 {
   font-size:  2.3rem;

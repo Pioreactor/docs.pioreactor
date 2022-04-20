@@ -10,7 +10,6 @@ You may want to use a different pumping system for the Pioreactor (or, if you ar
 
 ```python
 # -*- coding: utf-8 -*-
-import signal
 import time
 from pioreactor.logging import create_logger
 from pioreactor.automations import DosingAutomationJob
@@ -19,9 +18,11 @@ from pioreactor.whoami import get_unit_name, get_latest_experiment_name
 
 def custom_add_media_program(cls, ml: float, unit: str, experiment: str, source_of_event: str) -> float:
     # add your custom logic here: could be interfacing with i2c, etc.
-    # see later in docs for what the signature should look like:
+    # Signature should look like:
+    # function(cls, ml: float, unit: str, experiment: str, source_of_event: str) -> float:
     ...
-    create_logger("custom_add_media_program").info(f"pumping {ml}")
+    pwm = PWM(...)
+    cls.logger.info(f"pumping {ml}")
     time.sleep(ml * 2)
     return ml
 

@@ -28,7 +28,9 @@ The leader Pioreactor has the necessary software to create the local access poin
 
 ## Access the local access point
 
-After starting the local access point, you should see a new network called `pioreactor`, with password `raspberry`. You should be able to connect to this new access point with any computer, phone, tablet, and other Pioreactors.
+After starting the local access point, you should see a new network called `pioreactor`, with password `raspberry`. You should be able to connect to this new access point with any computer, phone, tablet, etc.
+
+<img src="/img/user-guide/pioreactor_ap.png" width="325" />
 
 Once connected, the usual urls should work: http://pioreactor.local will bring up the Pioreactor interface (having trouble? Try http://your_leaders_name.local).
 
