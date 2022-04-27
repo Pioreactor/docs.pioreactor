@@ -6,7 +6,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Pioreactor',
+  title: 'Pioreactor Docs',
   tagline: 'Your customizable and accessible bioreactor',
   url: 'https://docs.pioreactor.com',
   baseUrl: '/',
@@ -26,6 +26,7 @@ const config = {
         docs: {
           routeBasePath: 'user-guide',
           path: 'user-guide',
+          breadcrumbs: false,
           sidebarPath: require.resolve('./sidebars.js'),
         },
         theme: {
@@ -39,6 +40,7 @@ const config = {
       '@docusaurus/plugin-content-docs',
       {
         id: 'developer-guide',
+        breadcrumbs: false,
         path: 'developer-guide',
         routeBasePath: 'developer-guide',
         sidebarPath: require.resolve('./sidebars.js'),
@@ -49,6 +51,7 @@ const config = {
       {
         id: 'experiments',
         path: 'experiments',
+        breadcrumbs: false,
         routeBasePath: 'experiments',
         sidebarPath: require.resolve('./sidebars.js'),
       },
