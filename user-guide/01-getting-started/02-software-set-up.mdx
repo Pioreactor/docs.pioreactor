@@ -33,7 +33,7 @@ We'll start with an unused Raspberry Pi and empty microSD card (or we'll reforma
 2.  Click "Choose OS". Click on "Use custom" towards the bottom:
     ![Select the "Use custom" option](/img/user-guide/use_custom_image.png)
     Select the downloaded Pioreactor image from step 1.
-    ![In the local computers direction, select the downloaded image](/img/user-guide/select_new_image.png)
+    ![In the local computer's directory, select the downloaded image](/img/user-guide/select_new_image.png)
 2. Connect your microSD card to your computer. Once your microSD card connected to your computer, select it under "Choose Storage".
 4. Click the settings menu (Gear button in the bottom left).
   ![Settings menu](/img/user-guide/ctrlshiftx.png)
@@ -56,17 +56,17 @@ We'll start with an unused Raspberry Pi and empty microSD card (or we'll reforma
 
 #### From the web UI
 
-Follow the same instructions above, but use a [Pioreactor Worker image](https://github.com/pioreactor/pioreactor/releases/latest/download/leader_worker.img.zip) instead. **Choose a hostname that isn't currently being used**.
+Follow the same instructions above, but use a [Pioreactor Worker image](https://github.com/pioreactor/pioreactor/releases/latest/download/pioreactor_worker.img.zip) instead. **Note**: Choose a hostname that isn't currently being used in your cluster, ex: `worker1`, `worker2`, etc.
 
 After you have an installed the image, connected the new Pioreactor to your cluster is simple. On the _Pioreactors_ page in the web interface, click the "Add new Pioreactor" button in the top right:
 
 ![](https://user-images.githubusercontent.com/884032/104632720-201a8e00-566c-11eb-9e80-6fb2346411c9.png)
 
-Provide the name of the new worker Pioreactor:
+Provide the chosen hostname of the new worker Pioreactor:
 
 ![](https://user-images.githubusercontent.com/884032/104633581-586e9c00-566d-11eb-9ea9-cffbf55d7303.png)
 
-After a few minutes, the new Pioreactor should appear on the _Pioreactors_ and _Experiment Overview_ page.
+After a minute, the new Pioreactor should appear on the _Pioreactors_ and _Experiment Overview_ page (refresh the page if not showing up).
 
 #### From the command line
 
@@ -75,7 +75,7 @@ On the leader's command line, the command `pio add-pioreactor <new name>` will c
 ## Troubleshooting
 
 #### My Pioreactor keeps flashing the blue LED
-On a successful start, the Pioreactor will flash its blue LED for about 4 seconds. If you observe the blue LED flashing for longer, something may be wrong. You can diagnose the problem by [counting the number of flashes observed](/user-guide/error-codes)
+On a successful start, the Pioreactor will flash its blue LED for about 4 seconds. If you observe the blue LED flashing for longer, something may be wrong. You can diagnose the problem by [counting the number of flashes observed](/user-guide/error-codes).
 
 
 

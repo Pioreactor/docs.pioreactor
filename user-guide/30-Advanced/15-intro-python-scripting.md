@@ -56,7 +56,7 @@ stirrer = start_stirring(target_rpm=400)
 stirrer.block_until_disconnected()
 ```
 
-Save the file with `crtl-x`, and then `Y`, and run the script again. Now, the job will run until you log off, or exit the program with `ctrl-c`. This is because `block_until_disconnected` will block to program at that line (so keep this at the end of scripts!)
+Save the file with `crtl-x`, and then `Y`, and run the script again. Now, the job will run until you log off, or exit the program with `ctrl-c`. This is because `block_until_disconnected` will block to program at that line.
 
 
 ### 4. Extending our script: more jobs, changing RPM, and adding lights.

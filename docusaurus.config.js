@@ -69,10 +69,11 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        title: "Pioreactor Documentation",
+        hideOnScroll: true,
         logo: {
           alt: 'pioreactor',
-          src: 'img/logo.png',
+          src: 'img/colour-Docs-logo.png',
+          srcDark: 'img/white-Docs-logo.png',
         },
         items: [
           {
@@ -102,6 +103,7 @@ const config = {
           },
         ],
       },
+      hideableSidebar: true,
       footer: {
         style: 'dark',
         links: [
