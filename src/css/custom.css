@@ -15,7 +15,7 @@
   --ifm-color-primary-lightest: rgb(146, 224, 208);
   --ifm-code-font-size: 95%;
   --ifm-navbar-link-color: #646464;
-  --ifm-hero-banner-bg-color: #6343d1;
+  --ifm-hero-banner-bg: #6343d1;
 }
 
 .docusaurus-highlight-code-line {
@@ -34,7 +34,7 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
   --ifm-hero-text-color: rgb(245, 246, 247);
   --ifm-font-color-base: rgb(245, 246, 247);
   --ifm-navbar-link-color: #eeee;
-  --ifm-hero-banner-bg-color: inherit;
+  --ifm-hero-banner-bg: linear-gradient(13deg, rgb(24 25 26) 49%, rgba(99,67,209,1) 100%);
 }
 
 

@@ -8,7 +8,7 @@
   text-align: center;
   position: relative;
   overflow: hidden;
-  background-color: var(--ifm-hero-banner-bg-color);
+  background: var(--ifm-hero-banner-bg);
 }
 
 @media screen and (max-width: 966px) {
