@@ -15,6 +15,7 @@
   --ifm-color-primary-lightest: rgb(146, 224, 208);
   --ifm-code-font-size: 95%;
   --ifm-navbar-link-color: #646464;
+  --ifm-hero-banner-bg-color: #6343d1;
 }
 
 .docusaurus-highlight-code-line {
@@ -33,6 +34,7 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
   --ifm-hero-text-color: rgb(245, 246, 247);
   --ifm-font-color-base: rgb(245, 246, 247);
   --ifm-navbar-link-color: #eeee;
+  --ifm-hero-banner-bg-color: inherit;
 }
 
 

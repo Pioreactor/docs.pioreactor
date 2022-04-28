@@ -1,6 +1,8 @@
 import React from 'react';
 import clsx from 'clsx';
+
 import styles from './HomepageFeatures.module.css';
+import { useColorMode } from '@docusaurus/theme-common';
 
 const FeatureList = [
   {
@@ -24,23 +26,28 @@ const FeatureList = [
     ),
   },
   {
-    title: 'Biology experiments',
+    title: 'Experiments',
     Svg: require('../../static/img/interface.svg').default,
     link: "/experiments/introduction",
     description: (
       <>
-        Implement Pioreactor-based experiments for aspiring biologists, classrooms, and research.
+        Implement Pioreactor-based experiments, from classrooms to research-level.
       </>
     ),
   },
 ];
 
 function Feature({Svg, title, description, link}) {
-  console.log(Svg)
   return (
     <div className={clsx('col col--4')}>
       <div className="text--center">
-        <a href={link}><Svg className={styles.featureSvg} alt={title} /></a>
+        <a href={link}>
+          <Svg
+           className={styles.featureSvg}
+           stroke={useColorMode().colorMode === "dark" ? "white" : "#5332CA"}
+           fill={useColorMode().colorMode === "dark" ? "white" : "#5332CA"}
+           alt={title} />
+           </a>
       </div>
       <div className="text--center padding-horiz--md">
         <h3><a href={link} style={{textDecoration: "none", color: "inherit"}}>{title}</a></h3>
