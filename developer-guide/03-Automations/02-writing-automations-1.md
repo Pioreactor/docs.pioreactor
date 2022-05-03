@@ -39,7 +39,7 @@ class NaiveTurbidostat(DosingAutomationJobContrib):
    ...
 ```
 
-The `DosingAutomationContrib` is a subclass of a `BackgroundJob`. The `Contrib` part is a small detail to specify that it's a third-party automation (i.e. _you_ are developing it, not us.)
+The `DosingAutomationJobContrib` is a subclass of a `BackgroundJob`. The `-Contrib` part is a small detail to specify that it's a third-party automation (i.e. _you_ are developing it, not us.)
 
 We need a "key" to i) distinguish this from other automations, and ii) be able to be communicate between systems (think: the web UI in JavaScript to Python, and back). The `automation_name` attribute does this for us. Normally, it's the [snakecase](https://en.wikipedia.org/wiki/Snake_case) of the class name.
 
@@ -49,7 +49,7 @@ We need a "key" to i) distinguish this from other automations, and ii) be able t
     ...
 ```
 
-The `published_settings` tells the Pioreactor software what class attributes are published to MQTT, and if they are editable via MQTT (we will try editing over MQTT later). This is important if you wish to dynamically change attributes of an automation during an experiment, say from the web interface. Our class has the following:
+The `published_settings` tells the Pioreactor software what class attributes are published to MQTT, and if they are editable via MQTT (we will try editing over MQTT later). This is important if you wish to dynamically change attributes of an automation during an experiment, for example: from the web interface. Our class has the following:
 
 ```python
 ...
@@ -59,9 +59,9 @@ The `published_settings` tells the Pioreactor software what class attributes are
 ...
 ```
 
-This says that the class attribute `target_od` is a float, is editable via MQTT (so it can be changed using the web interface), and it has units AU ("arbitrary units").
+The associated metadata says that the class attribute `target_od` is a float, is editable via MQTT (so it can be changed using the web interface), and it has units AU ("arbitrary units").
 
-Next, we define how to initialize our class. Here we can add settings we want to accept from the user: what is our target optical density. Note the boilerplate `**kwargs`, and `super()` are important.
+Next, we define how to initialize our class. Here we can add settings we want to accept from the user: what is our initial target optical density. Note the boilerplate `**kwargs`, and `super()` are important.
 
 ```python
     def __init__(self, target_od, **kwargs):

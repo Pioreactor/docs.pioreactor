@@ -8,7 +8,7 @@ The heater in the Pioreactor wetware can be programmed to control the temperatur
 
 ### Stable
 
-The Stable automation will try to maintain a `target temperature` using a feedback loop. You can select a `target temperature` (between ambient temperature and about 50℃), and the automation will vary the onboard heater to maintain that temperature in the vial. At room temperature, the Pioreactor will be able to achieve up to 43℃.
+The Stable automation will try to maintain a `target temperature` using a feedback loop. You can select a `target temperature` (between ambient temperature and 50℃), and the automation will vary the onboard heater to maintain that temperature in the vial. At room temperature, the Pioreactor will be able to achieve up to about 43℃.
 
 ### Silent
 

@@ -4,7 +4,7 @@ slug: /prepare-vial-for-cultures
 
 # Preparing your vial for cultures
 
-### Media volume
+### 1. Choosing a volume for your culture
 
 We suggest using between **10ml to 15ml** volume of liquid in the vial.
 
@@ -12,12 +12,12 @@ We suggest using between **10ml to 15ml** volume of liquid in the vial.
 Some things to consider when selecting a volume: lower volume will provide more aeration per ml (since the liquid-air interface is fixed). A lower volume will also be more responsive to changes in temperature. Too low and a vortex may start interfering with the Pioreactor's optical system.
 :::
 
-### Sterilization
+### 2. Sterilization
 
 
 #### Using heat
 
-The 20ml vial, stirbar and vial cap that come with your Pioreactor are all fully autoclavable, and heat resistant up to 125℃. The luer lock ends can be covered with tin foil, or attached to air filters.
+The glassware vial, stirbar and vial cap that come with your Pioreactor are all fully autoclavable, and heat resistant up to 125℃. The luer lock ends can be covered with tin foil, or attached to air filters, or neither. Since the volume in the vial is so little, the autoclave only needs to be at its maximum temperature for a very short duration.
 
 :::tip
 Don't have an autoclave? A kitchen pressure cooker works just as well. Still don't have that? You can use a stove top or hotplate: heat on a medium-low heat until boiling, and let boil for a few minutes. An autoclave and pressure cooker is a much more effective sterilizer though.
@@ -26,16 +26,27 @@ Don't have an autoclave? A kitchen pressure cooker works just as well. Still don
 
 #### Using sterile filtration
 
-Filtered media can be directly added to a sterilized glass vial, or via the male luer lock ports.
+Filtered media can be directly added to a sterilized glass vial, or via the (sterilized) male luer lock ports.
 
 
-
-### Inoculation
+### 3. Inoculation
 
 Ideally in a sterile environment, the vial's lid can be removed and the inoculant can be added. Alternatively, for additional sterility, a needle can be sent down a tube, without removing the cap at all.
 
+How much inoculant should you add? That depends on how concentrated your inoculant is. From our experience, we will take a dense culture / slurry, add a few drops to sterile media or water, and then inoculate our vials from this stock.
 
-### Using pumps: influx and efflux.
+
+### 4. Cleaning glassware
+
+Since light will be traveling through the glass, we recommend handling the glass ware with gloves, or at least minimizing oils from hands. Post-inoculation, and before placing in the Pioreactor sleeve, wiping the surface of the glass with ethanol is a great idea!
+
+
+### 5. Positioning glassware in the Pioreactor sleeve
+
+Place the glassware vial into the Pioreactor sleeve. Ensure that the vial is pressed all the way down into the sleeve. The rotation of the vial doesn't matter.
+
+
+### Extra: Using pumps: influx and efflux.
 
 When using the Pioreactor with pumps, you'll be using the four luer lock tubes as influx and efflux. The tubes, which are identical lengths, can be moved up and down, and we suggest using this as a way to "label" tubes, and to control the maximum volume in the vial. Here's how (do this post-cleaning, before any sterilization):
 

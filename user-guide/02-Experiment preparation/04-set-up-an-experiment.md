@@ -2,8 +2,15 @@
 slug: /set-up-an-experiment
 ---
 
-
 # Setting up an experiment
+
+### Hardware set up
+
+1. Ensure the LEDs and photodiodes are placed deep in their respective pockets, and the caps are placed on the ends of the pockets.
+
+:::info
+Before starting any activities, it's useful to run a _self test_ to confirm that your Pioreactors are all working as expected. [How to run a self-test.](/user-guide/running-self-test)
+:::
 
 ### Creating an experiment
 
@@ -24,11 +31,8 @@ The next pages will guide you through setting up heating, stirring and optical d
 
 
 
-### Alternative: Start activities from the Pioreactors page.
+## Alternative: Start activities from the Pioreactors page.
 
-:::info
-Before starting any activities, it's useful to run a _self test_ to confirm that your Pioreactors are all working as expected. [How to run a self-test.](/user-guide/running-self-test)
-:::
 
 On the _Pioreactors_ page, you should see at least one Pioreactor under _Active Pioreactors_. Using the "Manage" button, you can start an [activity](/user-guide/activities). Once started, jobs can also be _paused_ (and then _resumed_) and _stopped_.
 
