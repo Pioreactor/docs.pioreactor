@@ -30,26 +30,26 @@ We'll start with an unused Raspberry Pi and empty microSD card (or we'll reforma
 
 1. Download the [Pioreactor Leader image](https://github.com/pioreactor/pioreactor/releases/latest/download/pioreactor_leader_worker.img.zip): this has all the required software preinstalled on it, including the latest version of Raspberry Pi OS and Pioreactor.
 2. Download the [Raspberry Pi Imager](https://www.raspberrypi.org/software/) for your operating system, install it and open the Raspberry Pi Imager.
-2.  Click "Choose OS". Click on "Use custom" towards the bottom:
+3.  Click "Choose OS". Click on "Use custom" towards the bottom:
     ![Select the "Use custom" option](/img/user-guide/use_custom_image.png)
     Select the downloaded Pioreactor image from step 1.
     ![In the local computer's directory, select the downloaded image](/img/user-guide/select_new_image.png)
-2. Connect your microSD card to your computer. Once your microSD card connected to your computer, select it under "Choose Storage".
-4. Click the settings menu (Gear button in the bottom left).
+4. Connect your microSD card to your computer. Once your microSD card connected to your computer, select it under "Choose Storage".
+5. Click the settings menu (Gear button in the bottom right).
   ![Settings menu](/img/user-guide/ctrlshiftx.png)
 
     1. Set hostname as the desired name of this Pioreactor. Some names that we use for our first Pioreactor: `pioreactor1`, or `leader`, or `p1`.
     2. Check "Enable SSH".
     3. Add username: `pioreactor` and password: `raspberry` (you can change the password later)
-    3. Check "Configure wifi" and enter your network name into SSID, wifi password, and country. (Alternative: instead of trying to use a "restrictive" network, like at a university that may not allow Raspberry Pi's, [here's a built-in solution for creating a local access point](/user-guide/local-access-point)).
-    4. (Optional) Change timezone to your local timezone.
-    5. Click "Save"
+    4. Check "Configure wireless LAN" and enter your network name into SSID, wifi password, and country. (Alternative: instead of trying to use a "restrictive" network, like at a university that may not allow Raspberry Pi's, [here's a built-in solution for creating a local access point](/user-guide/local-access-point)).
+    5. _(Optional)_ Change timezone to your local timezone.
+    6. Click "Save"
 
-4.  Click "Write".
-4.  Once writing is complete complete, remove the microSD card, and place it into the Raspberry Pi.
-6.  Plug the power cord into your Raspberry Pi in. LEDs onboard the Raspberry Pi should start to light up.
-7.  After a few moments, your Pioreactor will flash a blue LED and now is ready to go. Navigate to [http://pioreactor.local](http://pioreactor.local) in a web browser to visit the web interface. (Not working? See [Troubleshooting](#troubleshooting) below).
-
+6.  Click "Write".
+7.  Once writing is complete complete, remove the microSD card, and place it into the Raspberry Pi.
+8.  Plug in the power cord into your Raspberry Pi. LEDs onboard the Raspberry Pi should start to light up.
+9.  After a few moments, your Pioreactor will briefly flash a blue LED, signifying it is ready. Navigate to [http://pioreactor.local](http://pioreactor.local) in a web browser to visit the web interface. (Not working? See [Troubleshooting](#troubleshooting) below).
+10. The Pioreactor is now ready for use! Experiment preparation instructions can be found [here](/user-guide/prepare-vial-for-cultures). 
 
 
 ## Adding workers to your cluster
