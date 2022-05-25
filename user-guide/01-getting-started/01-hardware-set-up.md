@@ -5,7 +5,4 @@ description: Assemble the hardware
 slug: /hardware-set-up
 ---
 
-
-# Hardware set up
-
 Coming soon!

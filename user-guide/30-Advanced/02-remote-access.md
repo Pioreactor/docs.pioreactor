@@ -1,8 +1,7 @@
 ---
+title: Setting up remote access to the web interface
 slug: /remote-access
 ---
-
-# Setting up remote access to the web interface
 
 If you would like to expose the web interface to view over the internet (no authentication is provided however), you can use a service like [Ngrok](https://ngrok.com/) to do so.
 

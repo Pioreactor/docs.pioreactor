@@ -1,8 +1,7 @@
 ---
+title: Local access points
 slug: /local-access-point
 ---
-
-# Local access points
 
 :::tip
 This is a relatively new feature, and if you have problems with using it, or questions, please contact us at info@pioreactor.com ❤️

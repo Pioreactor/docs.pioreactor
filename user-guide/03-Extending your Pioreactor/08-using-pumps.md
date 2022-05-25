@@ -1,7 +1,7 @@
 ---
+title: Using a peristaltic pump with your Pioreactor
 slug: /using-pumps
 ---
-# Using a peristaltic pump with your Pioreactor
 
 ## Attaching the pump
 
