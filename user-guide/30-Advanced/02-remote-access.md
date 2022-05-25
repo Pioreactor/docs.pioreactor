@@ -11,9 +11,9 @@ This exposes your web interface and Raspberry Pi over the internet. You should a
 
 The following are the steps to take:
 
-1.  Sign up for [Ngrok](https://ngrok.com/) - the free plan is all we need.
-2.  Download app onto the Raspberry Pi: `wget -o ngrok.zip https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-arm.zip`
-3.  Unzip `unzip ngrok-stable-linux-arm.zip`
+1.  Sign up for [Ngrok](https://ngrok.com/) - the free plan is all we need. Make sure to confirm your account.
+2.  Download the app onto the Raspberry Pi: `wget -o ngrok.zip https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-arm.zip`
+3.  Unzip: `unzip ngrok-stable-linux-arm.zip`
 4.  Make a new folder for the program: `sudo mkdir /opt/ngrok`
 5.  Move `ngrok` file there: `sudo mv ngrok /opt/ngrok`
 6.  Make a config folder: `mkdir ~/.ngrok2`

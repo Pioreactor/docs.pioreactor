@@ -33,3 +33,10 @@ The Pioreactor doesn't cool samples, so it can't achieve temperatures below your
     the students can explore maximum growth rates achieved, duration of lag phases, and overall yield of the cultures. Plotting these metrics vs temperature give students an intuition about how temperature affects yeast growth.
 
 
+## Example
+
+The following simple experiment was performed using two Pioreactors. Two vials containing 15 mL of the sterile YPD stock were inoculated with 1 drop of rehydrated active dry yeast (0.500 g of dry yeast in a 15mL YPD broth vial). They were subjected to different temperatures of 27.6°C and 35°C. 
+
+**Note**: the ambient temperature of the office was warm, so temperatures below 27.6°C could not be achieved without external cooling. 
+
+Over the course of 24 hours, the following implied growth rates were recorded: 

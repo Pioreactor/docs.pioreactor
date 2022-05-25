@@ -17,11 +17,15 @@ Before starting any activities, it's useful to run a _self test_ to confirm that
 
 ![](/img/user-guide/start_new_experiment.png)
 
-2. On the next screen, enter your new experiment name (must be unique from prior experiments), and enter an optional metadata about your experiment. The description can be changed later (the experiment name cannot be changed later, however). Click "Create" when done.
+2. On the next screen, enter your new experiment name, unique from prior experiments. This cannot be changed. Enter optional metadata about your experiment. The description can be changed later. Click "Create" when done.
 
 ![](/img/user-guide/create_new_experiment_page.png)
 
 3. (Optional) If working with more than one Pioreactor in your cluster, it's useful to assign experiment-specific labels to them. These labels show up in the user interface, and make progress checking and updating easier. The labels can be changed later. Click "Assign" when done.
+
+:::tip
+Use these labels to keep track of treatments on multiple vials. For example, labels '15C', '25C' and '35C' can be used to differentiate temperature treatments. These labels will be shown on graphs generated in the _Overview_ page on the website. 
+::: 
 
 ![](/img/user-guide/assign_labels_bulk.png)
 

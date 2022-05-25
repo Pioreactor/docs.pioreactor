@@ -54,13 +54,17 @@ We'll start with an unused Raspberry Pi and empty microSD card (or we'll reforma
 
 ## Adding workers to your cluster
 
-#### From the web UI
+#### From the Raspberry Pi Imager
 
 Follow the same instructions above, but use a [Pioreactor Worker image](https://github.com/pioreactor/pioreactor/releases/latest/download/pioreactor_worker.img.zip) instead. 
 
 **Note**: Choose a hostname that isn't currently being used in your cluster, ex: `worker1`, `worker2`, etc.
 
-After you have an installed the image, connected the new Pioreactor to your cluster is simple. On the _Pioreactors_ page in the web interface, click the "Add new Pioreactor" button in the top right:
+After you have installed the image, connecting the new Pioreactor to your cluster is simple. 
+
+#### From the web UI
+
+On the _Pioreactors_ page in the web interface, click the "Add new Pioreactor" button in the top right:
 
 ![](https://user-images.githubusercontent.com/884032/104632720-201a8e00-566c-11eb-9e80-6fb2346411c9.png)
 
@@ -68,9 +72,9 @@ Provide the chosen hostname of the new worker Pioreactor:
 
 ![](https://user-images.githubusercontent.com/884032/104633581-586e9c00-566d-11eb-9ea9-cffbf55d7303.png)
 
-After a minute, the new Pioreactor should appear on the _Pioreactors_ and _Experiment Overview_ page (refresh the page if not showing up).
+After a minute, the new Pioreactor should appear on the _Pioreactors_ and _Experiment Overview_ page. Refresh the page if it does not show up.
 
-#### From the command line
+#### From the command line _(Alternative)_
 
 On the leader's command line, the command `pio add-pioreactor <new name>` will connect the new Pioreactor to the cluster.
 
