@@ -19,6 +19,7 @@ Interacting with the Pioreactor on the command line are through the `pio` tool. 
 *   `pio uninstall-plugin <plugin name>` will uninstall a plugin
 *   `pio list-plugins` will list the currently installed plugins
 *   `pio blink` will blink the Pioreactor's onboard LED.
+*   `pio log -m <message>` will log a message
 
 ### Leader-only commands
 
@@ -30,6 +31,7 @@ The leader also has their own unique set of `pio` commands (these commands do no
 *   `pio add-pioreactor <new name>`: add a Pioreactor to your cluster, with given (unique) name. Need a blank RPi on the network first. See instructions [here](https://github.com/Pioreactor/pioreactor/wiki/Installation).
 *   `pio update` will update the software to the latest version: adding `--ui` will update the web interface (repo: pioreactor/pioreactorui) and adding `--app` will upgrade the Pioreactor Python app (repo: pioreactor/pioreactor).
 *   `pio cluster-status` will report to the user each Pioreactor in the cluster, and metadata like status, IP, and state.
+*   `pio discover-workers` will return a list of workers on the network (may be a superset of the current cluster.)
 
 ### Leader-only commands to control workers
 
@@ -40,6 +42,7 @@ The leader computer interacts with the worker computers using the `pios` command
 *   `pios update` install the latest PioreactorApp code on each worker.
 *   `pios sync-configs` deploy the config.ini files to workers.
 *   `pios install-plugin <plugin name>` will install the plugin on each worker _and_ the leader.
+*   `pios reboot` will reboot all workers in the cluster
 
 In each of the above commands, the specific workers can be invoked with `--units` (which can be used multiple times. Ex: `pios run stirring --units 1 --units 2`.
 
