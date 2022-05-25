@@ -28,7 +28,7 @@ The leader also has their own unique set of `pio` commands (these commands do no
 *   `pio db`: open the sqlite3 CLI of the Pioreactor database.
 *   `pio mqtt`: tail the MQTT broker.
 *   `pio run-always <job>`: run a leader-specific job (ex: `mqtt_to_db_streaming` or `watchdog`). These jobs are independent of any running experiment, and are not killed by `pio kill`.
-*   `pio add-pioreactor <new name>`: add a Pioreactor to your cluster, with given (unique) name. Need a blank RPi on the network first. See instructions [here](https://github.com/Pioreactor/pioreactor/wiki/Installation).
+*   `pio add-pioreactor <hostname>`: add a Pioreactor to your cluster, with given (unique) name. Need a worker Pioreactor on the network first. See instructions [here](https://github.com/Pioreactor/pioreactor/wiki/Installation).
 *   `pio update` will update the software to the latest version: adding `--ui` will update the web interface (repo: pioreactor/pioreactorui) and adding `--app` will upgrade the Pioreactor Python app (repo: pioreactor/pioreactor).
 *   `pio cluster-status` will report to the user each Pioreactor in the cluster, and metadata like status, IP, and state.
 *   `pio discover-workers` will return a list of workers on the network (may be a superset of the current cluster.)
