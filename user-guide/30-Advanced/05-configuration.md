@@ -1,8 +1,7 @@
 ---
+title: Configuration via config.ini
 slug: /configuration
 ---
-# Configuration via config.ini
-
 
 ### How configuration works across Pioreactors
 

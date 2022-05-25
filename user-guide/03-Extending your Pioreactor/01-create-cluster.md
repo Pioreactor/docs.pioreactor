@@ -1,8 +1,7 @@
 ---
+title: Creating a Pioreactor cluster
 slug: /create-cluster
 ---
-
-# Creating a Pioreactor cluster
 
 Pioreactors are able to be used as individual units, or in concert with other Pioreactors. In either case, a Pioreactor needs to be assigned as a _leader_. The leader unit controls other Pioreactors (and that may include itself), stores the database, hosts the web interface, and is the interface between users and the hardware.
 

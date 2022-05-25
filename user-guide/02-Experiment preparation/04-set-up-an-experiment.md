@@ -1,8 +1,7 @@
 ---
+title: Setting up an experiment
 slug: /set-up-an-experiment
 ---
-
-# Setting up an experiment
 
 ### Hardware set up
 

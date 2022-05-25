@@ -1,8 +1,7 @@
 ---
+title: Writing Pioreactor scripts with Python
 slug: /intro-python-scripting
 ---
-
-# Writing Pioreactor scripts with Python
 
 :::note
 This article isn't intended as a crash course in Python, or Pioreactor software, but some helpful ways to write small scripts for your Pioreactor. If interested in learning more, check out the [developer docs](/developer-guide/introduction) for detailed information.
