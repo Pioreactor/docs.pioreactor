@@ -9,7 +9,7 @@ The Pioreactor has a few different ways to store data (depending on the requirem
 
 ## SQLite3
 
-The most important datastore is the SQLite3 database on the _leader_, located at `/home/pi/.pioreactor/storage/`. This database stores historical data, jobs changes, logs, experiments, etc. The background job `mqtt_to_database_streaming` picks up data from MQTT (like OD readings), and puts them into the database.
+The most important datastore is the SQLite3 database on the _leader_, located at `/home/pioreactor/.pioreactor/storage/`. This database stores historical data, jobs changes, logs, experiments, etc. The background job `mqtt_to_database_streaming` picks up data from MQTT (like OD readings), and puts them into the database.
 
 The CLI command `pio db` will open up the SQLite terminal to query the database directly.
 
@@ -37,7 +37,7 @@ Every 5 minutes (set by the MQTT configuration file), MQTT will serialize its _r
 
 ## DBM
 
-The last storage option is DBM, a built-in Unix "database". This is essentially a fast key-value store on the Raspberry Pi. For Pioreactor, we use it to store "machine-specific" data, like calibration curves, locks on GPIOs, state of LEDs, jobs running, etc. Instead of one large file containing all these keys, we have split them into multiple files based on category and level of persistence. The persistent databases are stored in `/home/pi/.pioreactor/storage` and the temporary databases are in `/tmp`. You can access them from Python using `pioreactor.utils.local_persistant_storage` and `pioreactor.utils.local_intermittent_storage`, respectively.
+The last storage option is DBM, a built-in Unix "database". This is essentially a fast key-value store on the Raspberry Pi. For Pioreactor, we use it to store "machine-specific" data, like calibration curves, locks on GPIOs, state of LEDs, jobs running, etc. Instead of one large file containing all these keys, we have split them into multiple files based on category and level of persistence. The persistent databases are stored in `/home/pioreactor/.pioreactor/storage` and the temporary databases are in `/tmp`. You can access them from Python using `pioreactor.utils.local_persistant_storage` and `pioreactor.utils.local_intermittent_storage`, respectively.
 
 :::info
 What are temporary and persistent? Something like GPIO locks or LED state are physically reset between cycles of the Raspberry Pi. So when the Pi power-cycles, the state is wiped, and by have the database in `/tmp`, the databases are wiped as well.

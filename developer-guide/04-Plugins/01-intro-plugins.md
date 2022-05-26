@@ -11,7 +11,7 @@ There are two ways to distribute a plugin:
 
 ### Adding Python files to `plugins` folder
 
-On each Pioreactor's Raspberry Pi is a folder at `/home/pi/.pioreactor/plugins`. When the Pioreactor software starts, any Python files in this folder are read and loaded into memory. If you were to include an automation in here, or a background job (with the `click` CLI component), they would be available globally.
+On each Pioreactor's Raspberry Pi is a folder at `/home/pioreactor/.pioreactor/plugins`. When the Pioreactor software starts, any Python files in this folder are read and loaded into memory. If you were to include an automation in here, or a background job (with the `click` CLI component), they would be available globally.
 
 :::info
 Why would you want to distribute code this way? It's a great way to test or develop your code instead of committing to other distribution methods: short iterations times, tight feedback loop, and code runs in the production environment. Two downsides are that it's harder to distribute your code to the rest of the community, and that it doesn't have the same deployment pipeline (adding configs, etc.)
@@ -19,7 +19,7 @@ Why would you want to distribute code this way? It's a great way to test or deve
 
 #### Custom background jobs
 
-Here's an example: place the following code into the file `/home/pi/.pioreactor/plugins/demo_job.py`
+Here's an example: place the following code into the file `/home/pioreactor/.pioreactor/plugins/demo_job.py`
 
 ```python
 # -*- coding: utf-8 -*-
@@ -66,7 +66,7 @@ Further more, in your [web interface under plugins](http://pioreactor.local/plug
 
 #### Custom automations
 
-Here's an example of adding a custom automation: place the following code into the file `/home/pi/.pioreactor/plugins/demo_automation.py`
+Here's an example of adding a custom automation: place the following code into the file `/home/pioreactor/.pioreactor/plugins/demo_automation.py`
 
 ```python
 # -*- coding: utf-8 -*-

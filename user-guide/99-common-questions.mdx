@@ -138,7 +138,7 @@ More granular logs per Pioreactor are available in `/var/log/pioreactor.log` on 
 #### How do I access raw experiment data?
 
 1.  The _Download experiment data_ page in the Pioreactor web interface provides CSV exports of common datasets from a pre-selected experiment.
-2.  All data eventually lands in a SQLite3 database on the leader Pioreactor, by default located in `/home/pi/.pioreactor/storage/pioreactor.sqlite`. This can be download using a tool like `scp`.
+2.  All data eventually lands in a SQLite3 database on the leader Pioreactor, by default located in `/home/pioreactor/.pioreactor/storage/pioreactor.sqlite`. This can be download using a tool like `scp`.
 3. To access the SQLite3 database from the command line, try `pio db`.
 
 #### My microSD card is corrupted - what can I do?
@@ -147,4 +147,4 @@ Unfortunately, the microSD card becoming corrupted or damaged is an infrequent b
 
 - If the microSD card was inside a non-leader Pioreactor, it's best to try to reformat the microSD card and start fresh (i.e. [reinstall the Pioreactor software and reintroduce it to the cluster](/user-guide/software-set-up#adding-workers-to-your-cluster)). This is usually okay as no critical data is stored locally in workers, only log files and hardware calibrations will be lost.
 
-- If the microSD was inside the leader Raspberry Pi, this is a bigger problem. Likely any running experiment will have to be restarted. Fortunately, if you have more than one Pioreactor in your cluster, then the leader's SQLite database has been periodically backing itself up to other Pioreactors in the cluster every few days. Using the command line, check other Pioreactors' `/home/pi/.pioreactor/storage` directory for the _latest_ backup named `pioreactor.sqlite.backup` (should be from within the past few days hours). You can use this database to restart a new leader.
+- If the microSD was inside the leader Raspberry Pi, this is a bigger problem. Likely any running experiment will have to be restarted. Fortunately, if you have more than one Pioreactor in your cluster, then the leader's SQLite database has been periodically backing itself up to other Pioreactors in the cluster every few days. Using the command line, check other Pioreactors' `/home/pioreactor/.pioreactor/storage` directory for the _latest_ backup named `pioreactor.sqlite.backup` (should be from within the past few days hours). You can use this database to restart a new leader.

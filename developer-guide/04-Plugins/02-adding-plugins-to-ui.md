@@ -13,7 +13,7 @@ Suppose we wish to add our new automation, either installed from a package or vi
 
 ![](/img/developer-guide/dropdown_automations.png)
 
-This list is sourced from yaml files located on the leader's Raspberry Pi, under `/home/pi/pioreactorui/backend/contrib/automations/`. Placing a new yaml file in the correct folder there will populate the list with your new automation. Here's an example `example.yaml` file:
+This list is sourced from yaml files located on the leader's Raspberry Pi, under `/home/pioreactor/pioreactorui/backend/contrib/automations/`. Placing a new yaml file in the correct folder there will populate the list with your new automation. Here's an example `example.yaml` file:
 
 ```yaml
 ---
@@ -39,7 +39,7 @@ fields:
     label: Intensity of PWM
 ```
 
-If this file was saved to the folder `/home/pi/pioreactorui/backend/contrib/automations/dosing`, we would see the following in the web interface (after refreshing):
+If this file was saved to the folder `/home/pioreactor/pioreactorui/backend/contrib/automations/dosing`, we would see the following in the web interface (after refreshing):
 
 ![](/img/developer-guide/dropdown_automations_with_example.png)
 
@@ -51,7 +51,7 @@ If this file was saved to the folder `/home/pi/pioreactorui/backend/contrib/auto
 ![](/img/developer-guide/activities.png)
 
 
-The list of activities, among other things, is sourced from  `/home/pi/pioreactorui/backend/contrib/jobs/` on the leader's Raspberry Pi. Placing a new yaml file here will populate the list with your new automation. Here's an example `example.yaml` file:
+The list of activities, among other things, is sourced from  `/home/pioreactor/pioreactorui/backend/contrib/jobs/` on the leader's Raspberry Pi. Placing a new yaml file here will populate the list with your new automation. Here's an example `example.yaml` file:
 
 ```yaml
 ---

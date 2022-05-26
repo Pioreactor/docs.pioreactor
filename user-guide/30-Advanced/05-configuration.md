@@ -19,7 +19,7 @@ In the web interface, pioreactor.local, the sidebar contains a link to _Configur
 
 ### Editing the configuration files from the command line
 
-All the `.ini` files come from the leader unit. They are stored in `/home/pi/.pioreactor` - one `config.ini` and a `config_<unitName>.ini` for each Pioreactor unit. The command `pios sync-configs` will deploy the `.ini` files to their correct unit. Editing the `.ini` files on the leader is correct workflow, as any edits on the worker units will be overwritten on the next `pios sync-configs`.
+All the `.ini` files come from the leader unit. They are stored in `/home/pioreactor/.pioreactor` - one `config.ini` and a `config_<unitName>.ini` for each Pioreactor unit. The command `pios sync-configs` will deploy the `.ini` files to their correct unit. Editing the `.ini` files on the leader is correct workflow, as any edits on the worker units will be overwritten on the next `pios sync-configs`.
 
 One can programmatically, or by hand, edit the `config_<unitName>.ini` files to create varying parameters in an experiment. Running `pios sync-configs` will deploy the config files.
 

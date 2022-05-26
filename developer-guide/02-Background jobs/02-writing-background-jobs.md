@@ -293,7 +293,7 @@ After the job moves from `init` to `ready` (implicitly done after the `__init__`
 
 When we sleep (pause), we record the last `duty_cycle` value, and use that to populate the `duty_cycle` when we re-start the job.
 
-Let's recap what we have so far, and save this to a file called `motor_driver.py` (ideally we save it in `/home/pi/.pioreactor/plugins/`:
+Let's recap what we have so far, and save this to a file called `motor_driver.py` (ideally we save it in `/home/pioreactor/.pioreactor/plugins/`:
 
 ```python
 # -*- coding: utf-8 -*-
