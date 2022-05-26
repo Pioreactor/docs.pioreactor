@@ -35,8 +35,8 @@ The Pioreactor doesn't cool samples, so it can't achieve temperatures below your
 
 ## Example
 
-The following simple experiment was performed using two Pioreactors. Two vials containing 15 mL of the sterile YPD stock were inoculated with 1 drop of rehydrated active dry yeast (0.500 g of dry yeast in a 15mL YPD broth vial). They were subjected to different temperatures of 27.6°C and 35°C. 
+The following simple experiment was performed using two Pioreactors. Two vials containing 15 mL of the sterile YPD stock were inoculated with 1 drop of rehydrated active dry yeast (0.500 g of dry yeast in a 15mL YPD broth vial). They were subjected to different temperatures of 27°C, 31°C, 35°C and 39°C. 
 
-**Note**: the ambient temperature of the office was warm, so temperatures below 27.6°C could not be achieved without external cooling. 
+**Note**: the ambient temperature of the office was warm, so temperatures below 27°C could not be achieved without external cooling. 
 
-Over the course of 24 hours, the following implied growth rates were recorded: 
+Over the course of 18 hours, the following implied growth rates were recorded: 
