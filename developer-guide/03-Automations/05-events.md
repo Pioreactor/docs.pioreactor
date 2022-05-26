@@ -1,8 +1,7 @@
 ---
+title: Automation events
 slug: /events
 ---
-
-# Automation events
 
 The `execute` method attached to any automation can return either `None`, or a `AutomationEvent`. If the latter, the event will be published to MQTT as a published setting, i.e under the topic `pioreactor/<unit>/<experiment>/dosing_automation/latest_event`. This can be used to downstream events that want to know about what events are occurring.
 

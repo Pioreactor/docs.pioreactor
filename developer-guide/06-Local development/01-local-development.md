@@ -1,10 +1,7 @@
 ---
+title: Local development of Pioreactor
 slug: /local-development
 ---
-
-
-# Local development of Pioreactor
-
 
 #### Local development
 

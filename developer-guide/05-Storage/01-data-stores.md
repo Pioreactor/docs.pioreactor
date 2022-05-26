@@ -1,9 +1,7 @@
 ---
+title: Data stores in the Pioreactor
 slug: /data-stores
 ---
-
-# Data stores in the Pioreactor
-
 
 The Pioreactor has a few different ways to store data (depending on the requirements). They are:
 

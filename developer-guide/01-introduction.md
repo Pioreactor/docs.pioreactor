@@ -1,8 +1,7 @@
 ---
+title: Introduction
 slug: /introduction
 ---
-
-# Introduction
 
 This documentation is for those who want to i) get the most customization out of their Pioreactor, ii) understand how the pieces work, or iii) contribute back code to the open-source Pioreactor software.
 

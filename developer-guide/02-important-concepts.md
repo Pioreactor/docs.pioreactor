@@ -1,8 +1,7 @@
 ---
+title: Important concepts
 slug: /important-concepts
 ---
-
-# Some important details first
 
 ### Cluster topology
 

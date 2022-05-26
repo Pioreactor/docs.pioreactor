@@ -1,8 +1,7 @@
 ---
+title: Writing new automations
 slug: /writing-automations-1
 ---
-
-# Writing new automations
 
 An automation is a hands-off way to adjust the environment for the microbes. We currently support three types of automations: dosing, LED, and temperature. A dosing automation involves when to add media (ex: a turbidostat). A LED automation uses the additional LED pockets, and user-supplied LEDs, to modify light into the vial (ex: a photobioreactor or optogenetics experiments). A temperature automation is how users can preprogram the temperature of the vial.
 
