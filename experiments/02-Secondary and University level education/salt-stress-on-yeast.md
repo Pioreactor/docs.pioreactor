@@ -1,0 +1,32 @@
+---
+title: Osmotic pressure induced by salt
+slug: /salt-stress-on-yeast
+---
+
+:::tip Success Goal
+Observe differences yeast cell viability by introducing osmotic pressures with increasing salt concentrations. Salty environments create osmotic pressure gradients across the cell membrane. This introduces cellular stress, resulting in a change in cell growth. Students can explore the topic of hypo- and hypertonicity. 
+:::tip
+
+## Requirements
+
+*	At least two available Pioreactors
+*	Dry baker's yeast
+*   YPD broth mix, or any other media mix
+*	Table salt 
+*	Scale (accurate to 0.1)
+
+## Steps
+
+1.  Prepare a sterile stock of 50g YPD / 1L distilled water. Aim to make 20ml × the number of Pioreactors you are using, as each Pioreactor will require about 15mL of media.
+2.  *Weigh an amount of table salt to add to your media. 
+The calculation is as follows:
+For example, to increase the salt concentration of **15 mL** of media by **2%**, **0.3g** of table salt is needed.
+3. Once stock is cool, divide the stock into the sterilized vials add salt. You can mix the salt with gentle shaking or by using the stirring function on the Pioreactor. 
+4. When the salt is diluted into the media, inoculate the stock with a very small amount of baker's yeast using best practices to avoid other contamination. Wait for the yeast granules to dissolve, aided by gentle rocking or stirring.
+6.  Visit [pioreactor.local](http://pioreactor.local) and start a new experiment.
+7.  On the left menu, select the _Pioreactors_ page. Add any additional Pioreactors that you would like to use (more information [here](/user-guide/create-cluster)). Select _Manage all Pioreactors_, and start _Stirring_ activity and _OD reading_ activity_._. Optionally, you can  start the _Temperature automation_ activity set on an optimal temperature.
+8.  Confirm that everything looks normal (ex: receiving optical density signal).
+10.  Optional: you can change the names of the Pioreactor in the UI to display the target temperature.
+11.  Students can watch growth progress on the _Overview_ page.
+12.  After 24 or so hours (even sooner in some cases),
+    the students can explore maximum growth rates achieved, duration of lag phases, and overall yield of the cultures. Plotting these metrics vs pH levels can give students an intuition about how acidity affects yeast growth.
