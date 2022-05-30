@@ -24,8 +24,9 @@ The Pioreactor doesn't cool samples, so it can't achieve temperatures below your
 2.  Once stock is cool, inoculate the stock with a very small amount of baker's yeast using best practices to avoid other contamination. Wait for the yeast granules to dissolve, aided by gentle rocking or stirring.
 3.  Mix well, and distribute up to 15mL of liquid to clean and sterilized Pioreactor vials.
 4.  Visit [pioreactor.local](http://pioreactor.local) and start a new experiment.
-5.  On the left menu, select the _Pioreactors_ page. Add any additional Pioreactors that you would like to use (more information [here](/user-guide/create-cluster)). Select _Manage all Pioreactors_, and start _Stirring_ activity, and _OD reading_ activity_._
-6.  Confirm that everything looks normal (ex: receiving optical density signal)
+5.  On the left menu, select the _Pioreactors_ page. Add any additional Pioreactors that you would like to use (more information [here](/user-guide/create-cluster)). Select _Manage all Pioreactors_, and start _Stirring_ activity, and _OD reading_ activity_._ Optionally, you can start the _Temperature automation_ activity set on an optimal temperature. 
+6.  Confirm that everything looks normal (ex: receiving optical density signal).
+6.  Confirm that everything looks normal (ex: receiving optical density signal).
 8.  For each Pioreactor in use, select _Manage_ and start the _temperature automation_, select _Stable_ and provide the target temperature for that Pioreactor.
 9.  Optional: you can change the names of the Pioreactor in the UI to display the target temperature.
 10.  Students can watch growth progress on the _Overview_ page.
