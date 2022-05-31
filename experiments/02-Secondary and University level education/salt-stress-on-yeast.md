@@ -31,3 +31,15 @@ Therefore, **0.3g** of table salt is needed.
 11.  Students can watch growth progress on the _Overview_ page.
 12.  After 24 or so hours (even sooner in some cases),
     the students can explore maximum growth rates achieved, duration of lag phases, and overall yield of the cultures. 
+
+
+## Example
+
+We replicated this experiment using four Pioreactors and vials containing 15 mL of sterile YPD stock and salt concentrations of 0%, 2%, 4%, and 6% w/v. By grams, 0g, 0.3g, 0.6g, and 0.9g of table salt were added to each vial, repectively. They were then innoculated with one drop of rehydrated active yeast (0.500 g of dry yeast in a 15 mL YPD broth vial). The _Temperature automation_ was set on _Stable_ at 30°C. 
+
+After approximately 20 hours, the following implied growth rates were recorded: 
+![](/img/experiments/salt_growth_rate.png)
+
+## Interpretation (to be edited) 
+
+The optimal growth condition occurs at 0% salt w/v (no salt stress). A spike in 2% salt w/v growth rate is observed at approximately 9pm. This can be indicative of adaptation of the yeast to the higher salt content after a lag phase. 
