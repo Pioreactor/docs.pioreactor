@@ -1,6 +1,9 @@
 ---
 title: Yeast growth at varying temperatures
 slug: /yeast-growth-by-temperature
+tags: 
+  - Yeast
+  - Temperature
 ---
 
 :::tip Success Goal

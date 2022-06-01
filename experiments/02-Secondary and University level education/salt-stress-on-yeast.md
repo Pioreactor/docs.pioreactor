@@ -1,6 +1,9 @@
 ---
 title: Osmotic pressure induced by salt
 slug: /salt-stress-on-yeast
+tags: 
+  - Yeast
+  - Salt
 ---
 
 :::tip Success Goal
@@ -38,6 +41,7 @@ Therefore, **0.3g** of table salt is needed.
 We replicated this experiment using four Pioreactors and vials containing 15 mL of sterile YPD stock and salt concentrations of 0%, 2%, 4%, and 6% w/v. By grams, 0g, 0.3g, 0.6g, and 0.9g of table salt were added to each vial, repectively. They were then innoculated with one drop of rehydrated active yeast (0.500 g of dry yeast in a 15 mL YPD broth vial). The _Temperature automation_ was set on _Stable_ at 30°C. 
 
 After approximately 20 hours, the following implied growth rates were recorded: 
+
 ![](/img/experiments/salt_growth_rate.png)
 
 ## Interpretation (to be edited) 

@@ -1,6 +1,9 @@
 ---
 title: Yeast fermentation at different pH levels
 slug: /yeast-ferment-different-ph
+tags: 
+  - Yeast
+  - pH
 ---
 
 :::tip Success Goal 

@@ -1,6 +1,9 @@
 ---
 title: Starch digestion using amylase
 slug: /amylase-enzyme
+tags: 
+  - Amylase
+  - Enzyme
 ---
 
 :::tip Success Goal
