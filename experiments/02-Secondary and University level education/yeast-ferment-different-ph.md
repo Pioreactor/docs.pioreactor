@@ -26,6 +26,7 @@ Demonstrate how environmental pH levels can affect the growth rate of yeast. Stu
 * For 1N of NaOH, combine 40g NaOH per 1L distilled water. 
 3. Once stock is cool, divide the stock into different beakers to adjust the pH. Using a pH meter or strips, adjust the pH of separate beakers until the desired pH is reached. For example, after dividing the sterile stock into three beakers, each can be adjusted to pH levels of 4 (by adding drops of 1N HCl), 7, and 9 (by adding drops of 1N NaOH), respectively. 
 4. Inoculate the stock with a very small amount of baker's yeast using best practices to avoid other contamination. Wait for the yeast granules to dissolve, aided by gentle rocking or stirring.
+> Alternatively, a yeast stock solution can be made by diluting (x) amount of yeast in 15mL of YPD stock media, then (1 drop/1mL) of this stock solution can be added to your vials.
 5.  Mix well, and distribute up to 15mL of liquid to clean and sterilized Pioreactor vials.
 6.  Visit [pioreactor.local](http://pioreactor.local) and start a new experiment.
 7.  On the left menu, select the _Pioreactors_ page. Add any additional Pioreactors that you would like to use (more information [here](/user-guide/create-cluster)). Select _Manage all Pioreactors_, and start _Stirring_ activity, _Temperature automation_ activity and _OD reading_ activity_._
@@ -34,3 +35,4 @@ Demonstrate how environmental pH levels can affect the growth rate of yeast. Stu
 11.  Students can watch growth progress on the _Overview_ page.
 12.  After 24 or so hours (even sooner in some cases),
     the students can explore maximum growth rates achieved, duration of lag phases, and overall yield of the cultures. Plotting these metrics vs pH levels can give students an intuition about how acidity affects yeast growth.
+	

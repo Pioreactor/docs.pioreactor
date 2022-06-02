@@ -56,6 +56,8 @@ const config = {
         id: 'developer-guide',
         breadcrumbs: false,
         path: 'developer-guide',
+		remarkPlugins: [math],
+        rehypePlugins: [katex],
         routeBasePath: 'developer-guide',
         sidebarPath: require.resolve('./sidebars.js'),
       },
@@ -65,6 +67,8 @@ const config = {
       {
         id: 'experiments',
         path: 'experiments',
+		remarkPlugins: [math],
+        rehypePlugins: [katex],
         breadcrumbs: false,
         routeBasePath: 'experiments',
         sidebarPath: require.resolve('./sidebars.js'),
