@@ -25,8 +25,8 @@ For example:
 
 | Pioreactor name | OD reading 1 (reference OD) | OD reading 2 (new OD)|
 |--------------|------------| --------------|
-| Leader	   | 0.030		| 0.033 |
-| Worker1	   | 0.010		| 0.015 |
+| Pioreactor1  | 0.030		| 0.033 |
+| Pioreactor2  | 0.010		| 0.015 |
 
 It's difficult to compare OD readings since the starting values are different. However, if we normalize using the above equation: 
 
@@ -60,8 +60,8 @@ As an example, let's consider the same data as above, but this time we have info
 
 | Pioreactor name | Blank OD | OD with culture (reference OD) | Difference (culture - blank) | New OD |
 |-----------------|----------|--------------------------------|------------------------------| -------|
-| Leader          |  0.025   | 0.030         		          | 0.005                        | 0.033  |
-| Worker1         |  0.005   | 0.010	    			      | 0.005                        | 0.015  |
+| Pioreactor1     |  0.025   | 0.030         		          | 0.005                        | 0.033  |
+| Pioreactor2     |  0.005   | 0.010	    			      | 0.005                        | 0.015  |
 
 We can now subtract the _blank_ values from the _new OD_ and _reference OD_ values: 
 

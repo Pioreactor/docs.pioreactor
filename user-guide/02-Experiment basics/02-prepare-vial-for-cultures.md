@@ -32,7 +32,7 @@ Filtered media can be directly added to a sterilized glass vial, or via the (ste
 
 Ideally in a sterile environment, the vial's lid can be removed and the inoculant can be added. Alternatively, for additional sterility, a needle can be sent down a tube, without removing the cap at all.
 
-How much inoculant should you add? That depends on how concentrated your inoculant is. From our experience, we will take a dense culture/slurry, add a few drops to sterile media or water, and then inoculate our vials from this stock.
+How much inoculant should you add? That depends on how concentrated your inoculant is. From our experience, we create a dense culture/slurry, add a few drops to sterile media or water, and then inoculate our vials from this stock. If you are using a dropper, hold it vertically for more accurate, consistent drops. 
 
 
 ### 4. Cleaning glassware
@@ -42,7 +42,7 @@ Since light will be traveling through the glass, we recommend handling the glass
 
 ### 5. Positioning glassware in the Pioreactor sleeve
 
-Place the glassware vial into the Pioreactor sleeve. Ensure that the vial is pressed all the way down into the sleeve. The rotation of the vial doesn't matter.
+The outside of the glassware vial must be dry. Place the glassware vial into the Pioreactor sleeve. Ensure that the vial is pressed all the way down into the sleeve. The rotation of the vial doesn't matter.
 
 
 ### Extra

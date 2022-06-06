@@ -102,6 +102,6 @@ $$
 \text{ethanol \%} \approx 3\%
 $$
 
-This technique would yield ethanol percentages of 0%, 1.5%, 3%, and 6% to be studied on a cluster of 4 Pioreactors. 
+This technique produces halving ethanol percentages of 0%, 1.5%, 3%, and 6% to be studied on a cluster of 4 Pioreactors. 
 
 ### Results 
