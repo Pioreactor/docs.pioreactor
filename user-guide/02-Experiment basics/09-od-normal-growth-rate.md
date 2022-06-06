@@ -104,5 +104,16 @@ These graphs can be interpreted in 4 phases:
 * The lag phase: No observed growth, but high cell activity. In this stage, cells are in a nutrient rich environment and are preparing for growth by synthesizing proteins and other necessary molecules. 
 * Exponential (or log) phase: Cells are now dividing and doubling in numbers after each generation time. Generation times are dependent on the species you are using for your experiment. 
 * Stationary phase: Eventually the growth of cells reaches a plateau as nutrients are used up and waste products accumulate. At this point, the number of dividing cells will equal the number of dying cells.
-* Decline (or death) phase: As nutrients are depleted, cell growth slows while cell death exponentially increases. 
+* Decline (or death) phase: As nutrients are depleted, cell growth slows while cell death increases.
 
+Here's how these phases would apply to our graphs, focusing on the 35°C vial: 
+
+![](/img/user-guide/gr_interpretation.png)
+
+![](/img/user-guide/nod_interpretation.png)
+
+Some things to note: 
+* The lag phase can be detected easily in the growth rate graph, as the rate is stable and doesn't begin increasing until a bit after 6 PM. This is not easily determined in the NOD graph, since at this point the overall turbidity of the culture is low. 
+* The exponential phase occurs when the growth rate is high/increasing. 
+* When the culture reaches the stationary phase, growth rate drops to 0 since the culture is no longer growing in size. The turbidity is constant.
+* The decline phase is not represented in the graphs above, as yeast remain in the stationary phase over many days. 
