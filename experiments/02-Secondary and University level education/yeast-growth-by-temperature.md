@@ -28,13 +28,13 @@ The Pioreactor doesn't cool samples, so it can't achieve temperatures below your
 > Alternatively, a yeast stock solution can be made by diluting (x) amount of yeast in 15mL of YPD stock media, then (1 drop/1mL) of this stock solution can be added to your vials.
 3.  Mix well, and distribute up to 15mL of liquid into each clean and sterilized Pioreactor vial.
 4.  Visit [pioreactor.local](http://pioreactor.local) and start a new experiment.
-5.  On the left menu, select the _Pioreactors_ page. Add any additional Pioreactors that you would like to use (more information [here](/user-guide/create-cluster)). Select _Manage all Pioreactors_, and start _Stirring_ activity, and _OD reading_ activity_._ 
+5.  On the left menu, select the _Pioreactors_ page. Add any additional Pioreactors that you would like to use (more information [here](/user-guide/create-cluster)). Select _Manage all Pioreactors_, and start _Stirring_ activity, and _OD reading_ activity.
 6.  For each Pioreactor in use, select _Manage_ and start the _temperature automation_, select _Stable_ and provide the target temperature for that Pioreactor.
-7.  Confirm that everything looks normal (ex: receiving optical density signal).
+7.  Confirm that everything looks normal on the _Overview_ page (ex: receiving optical density signal).
 8.  Optional: you can change the names of the Pioreactor in the UI to display the target temperature. This can also be done at the start of your experiment.
-9.  Students can watch growth progress on the _Overview_ page.
-10.  After 24 or so hours (or even sooner in some cases),
-    the students can explore maximum growth rates achieved, duration of lag phases, and overall yield of the cultures. 
+9.	Back on the _Pioreactors_ page, select _Manage all Pioreactors_ and start _Growth rate_. It will take a minute for results to begin showing up. 
+10.  Students can watch growth progress on the _Overview_ page.
+11.  After 24 or so hours (or even sooner in some cases),
 
 ## Example
 

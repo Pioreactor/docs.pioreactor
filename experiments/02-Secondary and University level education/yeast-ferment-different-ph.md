@@ -30,12 +30,11 @@ Demonstrate how environmental pH levels can affect the growth rate of yeast. Stu
 6. Visit [pioreactor.local](http://pioreactor.local) and start a new experiment.
 7. On the left menu, select the _Pioreactors_ page. Add any additional Pioreactors that you would like to use (more information [here](/user-guide/create-cluster)).
 8. Select _Calibrate_ for each Pioreactor and under the _Blanks_ tab, click _Start_.
-9. Select _Manage all Pioreactors_, and start _Stirring_ activity, _Temperature automation_ activity (set to an optimal temperature; ex. 30°C) and _OD reading_ activity_._
+9. Select _Manage all Pioreactors_, and start _Stirring_ activity, _Temperature automation_ activity (set to an optimal temperature; ex. 30°C) and _OD reading_ activity.
 10. Confirm that everything looks normal (ex: receiving optical density signal).
-11. Optional: you can change the names of the Pioreactor in the UI to display the media or pH. 
-12. Students can watch growth progress on the _Overview_ page.
-13. After 24 or so hours (even sooner in some cases),
-    the students can explore maximum growth rates achieved, duration of lag phases, and overall yield of the cultures. 
+11.	Back on the _Pioreactors_ page, select _Manage all Pioreactors_ and start _Growth rate_. It will take a minute for results to begin showing up. 
+12. Optional: you can change the names of the Pioreactor in the UI to display the media or pH. 
+13. Students can watch growth progress on the _Overview_ page.
 	
 ## Example
 

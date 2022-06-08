@@ -14,7 +14,6 @@ Ethanol, along with carbon dioxide, are waste products of yeast fermentation. Hi
 *	Distilled water 
 
 ## Steps 
-
 1. Prepare a sterile stock of 50g YPD / 1L distilled water. Aim to make 20 mL × the number of Pioreactors you are using, as each Pioreactor will require about 15 mL of media.
 2. Prepare 1 mL of each ethanol concentration you would like to use.  
    * Detailed calculations are found in the example below. Aim for an end ethanol concentration between 0-10%. 
@@ -23,12 +22,13 @@ Ethanol, along with carbon dioxide, are waste products of yeast fermentation. Hi
 5. Inoculate the stock with a very small amount of baker's yeast using best practices to avoid other contamination. Wait for the yeast granules to dissolve, aided by gentle rocking or stirring.
    * Alternatively, a yeast stock solution can be made by diluting a small amount of yeast in 15 mL of YPD stock, then 1 drop of this stock solution can be added to your vials.
 6. Place the vials in your Pioreactors. 
-7. Visit pioreactor.local and start a new experiment.
-8. On the left menu, select the Pioreactors page. Add any additional Pioreactors that you would like to use (more information here). Select Manage all Pioreactors, and start Stirring activity and OD reading activity.
+7. Visit [pioreactor.local](http://pioreactor.local) and start a new experiment.
+8. On the left menu, select the Pioreactors page. Add any additional Pioreactors that you would like to use (more information [here](/user-guide/create-cluster)). Select Manage all Pioreactors, and start _Stirring_ activity and _OD reading_ activity.
 9. Optional: you can turn on the Temperature automation activity and set it on _Stable_ at an optimal temperature (ex. 30C). 
 10. Confirm that everything looks normal (ex: receiving optical density signal).
-11. Optional: you can change the names of the Pioreactor in the UI to display the target temperature.
-12. Students can watch growth progress on the Overview page.
+11.	Back on the _Pioreactors_ page, select _Manage all Pioreactors_ and start _Growth rate_. It will take a minute for results to begin showing up. 
+12. Optional: you can change the names of the Pioreactor in the UI to display the target temperature.
+13. Students can watch growth progress on the _Overview_ page.
 
 ## Example
 

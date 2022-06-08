@@ -26,9 +26,10 @@ Observe differences yeast cell viability by introducing osmotic pressures with i
 4. When the salt is diluted into the media, inoculate the stock with a very small amount of baker's yeast using best practices to avoid other contamination. 
 	* A yeast stock solution can be made by diluting a small amount of yeast in 15mL of YPD stock media, then a drop of this stock solution can be added to your vials.
 6.  Visit [pioreactor.local](http://pioreactor.local) and start a new experiment.
-7.  On the left menu, select the _Pioreactors_ page. Add any additional Pioreactors that you would like to use (more information [here](/user-guide/create-cluster)). Select _Manage all Pioreactors_, and start _Stirring_ activity and _OD reading_ activity_._ 
+7.  On the left menu, select the _Pioreactors_ page. Add any additional Pioreactors that you would like to use (more information [here](/user-guide/create-cluster)). Select _Manage all Pioreactors_, and start _Stirring_ activity and _OD reading_ activity.
 	* Optional: you can  start the _Temperature automation_ activity set on an optimal temperature.
-8.  Confirm that everything looks normal (ex: receiving optical density signal).
+8.  Confirm that everything looks normal on the _Overview_ page (ex: receiving optical density signal).
+9.	Back on the _Pioreactors_ page, select _Manage all Pioreactors_ and start _Growth rate_. It will take a minute for results to begin showing up. 
 10.  Optional: you can change the names of the Pioreactor in the UI to display the target temperature.
 11.  Students can watch growth progress on the _Overview_ page.
 12.  After 24 or so hours (even sooner in some cases),
