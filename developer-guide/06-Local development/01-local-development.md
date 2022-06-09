@@ -14,15 +14,15 @@ pip3 install -r requirements/requirements_dev.txt
 
 #### MQTT
 
-You will need to set up MQTT locally. On OSX, homebrew can be used to install the MQTT broker `mosquitto`. Also enable logging in `/usr/local/etc/mosquitto/mosquitto.conf`, ex:
+You will need to set up MQTT locally. On OSX, homebrew can be used to install the MQTT broker `mosquitto`. Also enable logging in `/usr/local/etc/mosquitto/mosquitto.conf` by adding a line like:
 
-`log_dest file path/to/somewhere/.mosquitto/log`
+```
+log_dest file path/to/somewhere/.mosquitto/log
+```
 
 The CLI tools `mosquitto_pub` and `mosquitto_sub` should work as well.
 
 #### Testing
-
-Paho MQTT uses lots of sockets, and running all tests at once can overload the max allowed open files. Try something like `ulimit -Sn 10000` if you receive `OSError: [Errno 24] Too many open files`
 
 ```
 py.test pioreactor/tests

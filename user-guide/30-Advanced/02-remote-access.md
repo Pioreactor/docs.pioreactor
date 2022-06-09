@@ -25,25 +25,13 @@ tunnels:
   ui:
     proto: http
     addr: 9000
-    subdomain: <some_name>
     inspect: false
     bind_tls: false
   ws:
     proto: http
     addr: 9001
-    subdomain: <some_name>ws
     inspect: false
     bind_tls: false
-```
-
-    
-8.  (Optional) Along with `ui` and `ws`, you can also add SSH access. It's important to have a strong password on the RPi if doing this.
-    
-```yml
-ssh:
-  proto: tcp
-  addr: 22
-  inspect: false
 ```
 
 9.  Run in background:
@@ -52,14 +40,36 @@ nohup /opt/ngrok/ngrok start ui ws --config ~/.ngrok2/ngrok.yml &
 ```
 Alternatively, if you wish to set this up as a service that will launch on start up, the following `sudo systemctl enable ngrok`
 
-10.  On your ngrok dashboard, under Endpoints -> Status, you'll see two urls. One of the unique urls should link to your Pioreactor dashboard.
+10.  On your ngrok dashboard, under _Endpoints_ -> _Status_, you'll see two urls. One of the unique urls should link to your Pioreactor dashboard.
 11.  The other url is added to your config.ini (under Configuration in the Pioreactor UI):
     
 ```
 [remote]
-ws_url=<something>.ngrok.io
+ws_url=<some address>.ngrok.io
 ```
     
 12.  Hit \[Save\].
     
-13.  You're all done! You can now access the Pioreactor UI anywhere at `http://some_name.ngrok.io`
+13.  You're all done! You can now access the Pioreactor UI anywhere at `http://some_address.ngrok.io`
+
+
+### Custom domain (if using Pro plan)
+
+Set up a domain in the ngrok UI, and follow the steps to add it to you your domain provider. Then in your `ngrok.yml`, add `hostname` fields, example:
+
+```
+authtoken: ...
+tunnels:
+  ui:
+    proto: http
+    addr: 9000
+    inspect: false
+    hostname: dev.pioreactor.com
+    bind_tls: false
+  ws:
+    proto: http
+    addr: 9001
+    hostname: dev.ws.pioreactor.com
+    inspect: false
+    bind_tls: false
+```

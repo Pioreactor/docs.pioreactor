@@ -26,7 +26,7 @@ class Turbidostat(DosingAutomationJob):
 ```
 
 
-When `execute` runs, either a `DilutionEvent` or `NoEvent` is returned, and this is test to MQTT. All events take up two (optional) arguments: a message, and a dictionary of arbitrary data. In this case, we've included a small message of _why_ the dosing did or did not occur, and included some metadata about the optical densities.
+When `execute` runs, either a `DilutionEvent` or `NoEvent` is returned, and this is sent to MQTT. All events take up two (optional) arguments: a message, and a dictionary of arbitrary data. In this case, we've included a small message of _why_ the dosing did or did not occur, and included some metadata about the optical densities.
 
 After `execute` returns an event, it will be published to MQTT. For example:
 ```

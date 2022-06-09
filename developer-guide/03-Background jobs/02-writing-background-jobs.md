@@ -140,7 +140,9 @@ if __name__ == "__main__":
     job.block_until_disconnected()
 ```
 
-If you save this code in a file called `intro_job.py`, we can run it from the command line: `python3 intro_job.py`. In another terminal window, try the following:
+If you save this code in a file called `intro_job.py`, we can run it from the command line: `python3 intro_job.py`.
+
+In another terminal window, try the following:
 
 ```
 pio mqtt -t "pioreactor/+/+/intro_job/#"
