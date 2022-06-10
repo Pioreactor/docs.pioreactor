@@ -15,7 +15,7 @@ Some things to consider when selecting a volume: a lower volume will provide mor
 
 #### Position of tubes in cap
 
-Keep _at least_ 1 tube out of the liquid and well away from potential bubbles / foam that may occur. This will prevent gas pressure from building up. Something also to keep in mind: more tubes out of the media means more gas transfer with the ambient atmosphere.
+Keep _at least_ 1 cap tube out of the liquid and well away from potential bubbles / foam that may occur. This will prevent gas pressure from building up. Something also to keep in mind: more tubes out of the liquid means more gas transfer with the ambient atmosphere.
 
 If using pumps with your Pioreactor, see the note [below](/user-guide/prepare-vial-for-cultures#using-pumps-influx-and-efflux).
 
