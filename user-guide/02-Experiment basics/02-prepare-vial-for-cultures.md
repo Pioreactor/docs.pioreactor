@@ -3,13 +3,22 @@ title: Preparing your vial for cultures
 slug: /prepare-vial-for-cultures
 ---
 
-### 1. Choosing a volume for your culture
+### 1. Preparing the vial
+
+#### Choosing a volume for your culture
 
 We suggest using between **10ml to 15ml** volume of liquid in the vial.
 
 :::tip
 Some things to consider when selecting a volume: a lower volume will provide more aeration per mL since the liquid-air interface is fixed. A lower volume will also be more responsive to changes in temperature. Too low and a vortex may start interfering with the Pioreactor's optical system.
 :::
+
+#### Position of tubes in cap
+
+Keep _at least_ 1 cap tube out of the liquid and well away from potential bubbles / foam that may occur. This will prevent gas pressure from building up. Something also to keep in mind: more tubes out of the liquid means more gas transfer with the ambient atmosphere.
+
+If using pumps with your Pioreactor, see the note [below](/user-guide/prepare-vial-for-cultures#using-pumps-influx-and-efflux).
+
 
 ### 2. Sterilization
 

@@ -46,7 +46,7 @@ The test will also report any valid IR LED & photodiode relationships in the mod
 
 **No ambient IR light detected** checks that the photodiodes are detecting a near-0 signal when the IR LED is completely off. This test may fail if a powerful IR signal is shining into or onto the Pioreactor's body (aka the Sun - don't put the Pioreactor in direct sunlight). Also make sure that the caps are on all the Pioreactor's LED pockets.
 
-**Reference photodiode is the correct magnitude** checks, if using the reference photodiode (REF), that the REF signal is less than 0.256 volts when the IR LED is at the level specified in the config.ini's `[od_config].[ir_intensity]` section. If this test fails, check the positioning of the REF photoiode (should be adjacent the the IR LED, snugly inserted, and with a cap). If still failing, try reducing the value in `[od_config].[ir_intensity]`.
+**Reference photodiode is the correct magnitude** checks, if using the reference photodiode (REF), that the REF signal is less than 0.256 volts when the IR LED is at the level specified in the config.ini's `[od_config].[ir_led_intensity]` section. If this test fails, check the positioning of the REF photoiode (should be adjacent the the IR LED, snugly inserted, and with a cap). If still failing, try reducing the value in `[od_config].[ir_led_intensity]`.
 
 **Heating PCB is detected** checks that the heating PCB is correctly attached to the Pioreactor HAT.
 
