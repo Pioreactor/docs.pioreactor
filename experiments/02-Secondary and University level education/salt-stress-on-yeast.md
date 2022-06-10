@@ -60,12 +60,13 @@ After approximately 20 hours, the following implied growth rates were recorded:
 
 We can summarize our results in the following table to highlight the non-linearity of our data: 
 
-|Salt percent (w/v)|Peak growth rate (h⁻¹)|Time to reach stationary phase|
-|------------------|---------------------|--------------------|
-|0%|0.68|9 hours|
-|2%|0.37|14 hours|
-|4%|0.11|30 hours|
-|6%|0.07|N/A|
+|Salt percent (w/v)|Peak growth rate (h⁻¹)|Percent of control|Time to reach stationary phase|
+|------------------|--------------|-------|--------------------|
+|0%|0|100%|9 hours|
+|1.5%|0.37| |14 hours|
+|3%|0.11| |30 hours|
+|4.5%|0.07| |N/A|
+|6%| | | |
 
 The highest growth was recorded in the vial at 0% salt w/v (no salt stress), at approximately 0.68 h⁻¹. We conclude that the phases of growth (lag, log phase) occured quickest with no salt stress and the stationary phase was reached in the smallest time frame of about 9 hours. 
 

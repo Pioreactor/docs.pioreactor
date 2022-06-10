@@ -44,6 +44,9 @@ Since light will be traveling through the glass, we recommend handling the glass
 
 The outside of the glassware vial must be dry. Place the glassware vial into the Pioreactor sleeve. Ensure that the vial is pressed all the way down into the sleeve. The rotation of the vial doesn't matter.
 
+### 6. Adjusting tube length 
+
+When working with yeast, you’ll want to keep the bottoms of the tubes in the cap from being submerged in your media to avoid creating a pressured, anaerobic environment. Carbon dioxide bubbles are likely to form due to excess CO<sub>2</sub> production, and this will impede the OD readings. Thus, you should pull the luer locks until the ends of the tubes are above liquid level. 
 
 ### Extra
 #### Using pumps: influx and efflux.

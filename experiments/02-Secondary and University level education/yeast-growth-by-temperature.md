@@ -47,12 +47,12 @@ Over the course of 12 hours, the following graphs were recorded:
 
 Though subtle, non-linear patterns of growth rate are observed between the temperatures. Key data points are summarized in the following table: 
 
-|Temperature|Peak growth rate (h⁻¹)|Time to reach stationary phase|
-|------------------|---------------------|--------------------|
-|28°C|0.65|9 hours|
-|32°C|0.73|8.5 hours|
-|36°C|0.76|7.5 hours|
-|40°C|0.59|9.5 hours|
+|Temperature|Peak growth rate (h⁻¹)|Percent of highest peak|Time to reach stationary phase|
+|------------------|----------------|-----|--------------------|
+|28°C|0.65|85.5%|9 hours|
+|32°C|0.73|96.1%|8.5 hours|
+|36°C|0.76|100%|7.5 hours|
+|40°C|0.59|77.6%|9.5 hours|
 
 Rather than increasing as temperature increases, the higherst growth rates form a slight bell-curve, with the highest overall growth rate of **0.76 h⁻¹** occuring at 36°C. It tapers off at 40°C, since this temperature lies outside of the ideal temperature range for yeast. 
 

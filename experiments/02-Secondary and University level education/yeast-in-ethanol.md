@@ -32,7 +32,7 @@ Ethanol, along with carbon dioxide, are waste products of yeast fermentation. Hi
 
 ## Example
 
-We conducted an experiment using 4 Pioreactors and vials with ethanol concentrations of 0%, 2%, 4%, and 6%. After adding 15 mL YPD stock into each vial, we calculated the amount of ethanol to use per vial using **Method 1** below. **Method 2** can be done instead to simplify the procedure. 
+We conducted an experiment using 4 Pioreactors and vials with ethanol concentrations of 0%, 4%, and 6%. After adding 15 mL YPD stock into each vial, we calculated the amount of ethanol to use per vial using **Method 1** below. **Method 2** can be done instead to simplify the procedure. 
 
 ### Method 1
 
@@ -59,7 +59,7 @@ Initial concentration (C<sub>i</sub>)= 95%
 Final volume (V<sub>f</sub>)= 1 mL  
 Final concentration (C<sub>f</sub>)= 32%  
 
-Now we substitute our variables into the equation C<sub>i</sub> V<sub>i</sub> = C<sub>f</sub> V<sub>f</sub>
+Now we substitute our variables into the equation C<sub>i</sub> V<sub>i</sub> = C<sub>f</sub> V<sub>f</sub>:
 
 $$
 V_i = \frac{(32\%)(\text{1 mL})}{95\%}
@@ -105,3 +105,18 @@ $$
 This technique produces halving ethanol percentages of 0%, 1.5%, 3%, and 6% to be studied on a cluster of 4 Pioreactors. 
 
 ### Results 
+
+(something about how worker1 had a lot of noise?) 
+
+After approximately 18 hours, the following implied growth rates were recorded:
+
+![](/img/experiments/ethanol_gr.png)
+
+We can summarize our results in the following table to highlight the non-linearity of our data: 
+
+|Alcohol percent|Peak growth rate (h⁻¹)|Percent of control|Time to reach stationary phase|
+|--------------|---------------|------|--------------------|
+|0%|0.75|100%|7 hours|
+|4%|0.46|61%|9 hours|
+|6%|0.27|36%|14 hours|
+
