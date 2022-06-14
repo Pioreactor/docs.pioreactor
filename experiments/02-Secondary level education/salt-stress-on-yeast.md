@@ -22,19 +22,18 @@ Observe differences yeast cell viability by introducing osmotic pressures with i
 
 1.  Prepare a sterile stock of 50g YPD / 1L distilled water. Aim to make 20ml × the number of Pioreactors you are using, as each Pioreactor will require about 15mL of media.
 2.  Weigh table salt to add to your media. This amount can be calculated (as per the example below), or decided by the teacher beforehand. 
-3. Once stock is cool, divide the stock into the sterilized vials and add salt. You can mix the salt with gentle shaking or by using the stirring function on the Pioreactor. 
+3. Once stock is cool, divide the stock into the sterilized vials and add salt. You can mix the salt with gentle shaking or by using the _Stirring_ function on the Pioreactor. 
 4. When the salt is diluted into the media, inoculate the stock with a very small amount of baker's yeast using best practices to avoid other contamination. 
-	* A yeast stock solution can be made by diluting a small amount of yeast in 15mL of YPD stock media, then a drop of this stock solution can be added to your vials.
+	* A yeast stock solution can be made by diluting a small amount of yeast in 15mL of YPD stock media, then a drop of this stock solution can be added to your vials. Add 3-4 drops of this yeast slurry. 
+5.	Wipe the vials and place them in the Pioreactor.
 6.  Visit [pioreactor.local](http://pioreactor.local) and start a new experiment.
 7.  On the left menu, select the _Pioreactors_ page. Add any additional Pioreactors that you would like to use (more information [here](/user-guide/create-cluster)). Select _Manage all Pioreactors_, and start _Stirring_ activity and _OD reading_ activity.
 	* Optional: you can  start the _Temperature automation_ activity set on an optimal temperature.
 8.  Confirm that everything looks normal on the _Overview_ page (ex: receiving optical density signal).
 9.	Back on the _Pioreactors_ page, select _Manage all Pioreactors_ and start _Growth rate_. It will take a minute for results to begin showing up. 
 10.  Optional: you can change the names of the Pioreactor in the UI to display the target temperature.
-11.  Students can watch growth progress on the _Overview_ page.
-12.  After 24 or so hours (even sooner in some cases),
-    the students can explore maximum growth rates achieved, duration of lag phases, and overall yield of the cultures. 
-
+11.  Students can watch growth progress on the _Overview_ page. 
+12.  Within 24 hours, students can observe the growth curves of yeast under various salt stresses. 
 
 ## Example
 
@@ -61,16 +60,13 @@ After approximately 20 hours, the following implied growth rates were recorded:
 
 We can summarize our results in the following table to highlight the non-linearity of our data: 
 
-<center>
-
-|Salt percent (w/v)|Peak growth rate (h⁻¹)|Time to reach stationary phase|
-|------------------|---------------------|--------------------|
-|0%|0.68|9 hours|
-|2%|0.37|14 hours|
-|4%|0.11|30 hours|
-|6%|0.07|N/A|
-
-</center>
+|Salt percent (w/v)|Peak growth rate (h⁻¹)|Percent of control|Time to reach stationary phase|
+|------------------|--------------|-------|--------------------|
+|0%|0|100%|9 hours|
+|1.5%|0.37| |14 hours|
+|3%|0.11| |30 hours|
+|4.5%|0.07| |N/A|
+|6%| | | |
 
 The highest growth was recorded in the vial at 0% salt w/v (no salt stress), at approximately 0.68 h⁻¹. We conclude that the phases of growth (lag, log phase) occured quickest with no salt stress and the stationary phase was reached in the smallest time frame of about 9 hours. 
 
