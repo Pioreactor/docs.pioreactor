@@ -5,17 +5,19 @@ slug: /create-cluster
 
 Pioreactors are able to be used as individual units, or in concert with other Pioreactors. In either case, a Pioreactor needs to be assigned as a _leader_. The leader unit controls other Pioreactors (and that may include itself), stores the database, hosts the web interface, and is the interface between users and the hardware.
 
-A leader will communicate and control the all _workers_ (non-leader Pioreactors) in the _inventory_. The inventory is a list, defined in `config.ini`, of available workers.
+A leader will communicate and control all the _workers_ (non-leader Pioreactors) in the _inventory_. The inventory is a list of workers in your cluster, defined in the section `network.inventory` in the `config.ini`.
 
 ![](https://user-images.githubusercontent.com/884032/103158311-5316e380-478a-11eb-9425-6bb0df079d58.png)
 
-When you want to remove a Pioreactor from your cluster temporarily, you can disable it as part of your available inventory in `config.ini`.
 
-For solo Pioreactors, the leader is also the (only) worker. When used in concert with others, a leader can be assigned (and need not be a worker).
+Workers can be *active* (available for running activities and housing cultures), or inactive. This is set with `1` or `0` respectively in the `network.inventory` section.
+
+When you want to remove a Pioreactor from your cluster, you can remove it from the list in available inventory in `network.inventory` section in `config.ini`.
+
 
 ### Possible cluster topologies
 
-This gives us a few different possible topologies of what your cluster of Pioreactor(s) might look like.
+A cluster can be made up of a single Pioreactor, or can be scaled to as many Pioreactors as you have. This gives us a few different possible topologies of what your cluster of Pioreactor(s) might look like.
 
 1.  The simplest topology is when you have a single Pioreactor, and so the leader is the only worker.
 
