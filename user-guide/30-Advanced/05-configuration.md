@@ -31,4 +31,4 @@ Sometimes it's desirable to make changes to the `config.ini` without having to b
 
 ### Example `config.ini`
 
-If you need a reference config.ini, or to replace parts of yours, here's our [default one](https://raw.githubusercontent.com/Pioreactor/CustoPiZer/pioreactor/workspace/scripts/files/config.example.ini) ships with the Raspberry Pi image. To use it, you'll need to make some changes, specifically to \`network.leader\` and \`inventory\`.
+If you need a reference config.ini, or to replace parts of yours, here's our [default one](https://raw.githubusercontent.com/Pioreactor/CustoPiZer/pioreactor/workspace/scripts/files/config.example.ini) ships with the Raspberry Pi image. To use it, you'll need to make some changes, specifically to \`cluster.leader\` and \`inventory\`.

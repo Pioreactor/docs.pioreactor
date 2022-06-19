@@ -5,14 +5,14 @@ slug: /create-cluster
 
 Pioreactors are able to be used as individual units, or in concert with other Pioreactors. In either case, a Pioreactor needs to be assigned as a _leader_. The leader unit controls other Pioreactors (and that may include itself), stores the database, hosts the web interface, and is the interface between users and the hardware.
 
-A leader will communicate and control all the _workers_ (non-leader Pioreactors) in the _inventory_. The inventory is a list of workers in your cluster, defined in the section `network.inventory` in the `config.ini`.
+A leader will communicate and control all the _workers_ (non-leader Pioreactors) in the _inventory_. The inventory is a list of workers in your cluster, defined in the section `cluster.inventory` in the `config.ini`.
 
 ![](https://user-images.githubusercontent.com/884032/103158311-5316e380-478a-11eb-9425-6bb0df079d58.png)
 
 
-Workers can be *active* (available for running activities and housing cultures), or inactive. This is set with `1` or `0` respectively in the `network.inventory` section.
+Workers can be *active* (available for running activities and housing cultures), or inactive. This is set with `1` or `0` respectively in the `cluster.inventory` section.
 
-When you want to remove a Pioreactor from your cluster, you can remove it from the list in available inventory in `network.inventory` section in `config.ini`.
+When you want to remove a Pioreactor from your cluster, you can remove it from the list in available inventory in `cluster.inventory` section in `config.ini`.
 
 
 ### Possible cluster topologies
@@ -35,11 +35,11 @@ A cluster can be made up of a single Pioreactor, or can be scaled to as many Pio
 
 ### How to edit roles
 
-To tell the cluster which computer is the leader, you edit the `config.ini`'s `leader_hostname` section (under `network.topology`):
+To tell the cluster which computer is the leader, you edit the `config.ini`'s `leader_hostname` section (under `cluster.topology`):
 
 ![where to edit the leader](https://user-images.githubusercontent.com/884032/103158348-b43eb700-478a-11eb-80d9-883458107f31.png)
 
-Inventory is assigned in `config.ini` under `network.inventory`:
+Inventory is assigned in `config.ini` under `cluster.inventory`:
 
 ![](https://user-images.githubusercontent.com/884032/103158311-5316e380-478a-11eb-9425-6bb0df079d58.png)
 
