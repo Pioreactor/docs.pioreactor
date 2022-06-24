@@ -30,7 +30,7 @@ You will need:
 
 -----
 
-<AssemblyInstructionBlock title="Step 2: Bottom faceplate" images={["hat_pieces.jpg"]}>
+<AssemblyInstructionBlock title="Step 2: Bottom faceplate" images={["bottom_faceplate.jpg","bot_faceplate_screwed.jpg","rpi_no_standoffs.jpg"]}>
 
 This faceplate will protect the Pioreactor from potential spills. 
 
@@ -43,7 +43,7 @@ This faceplate will protect the Pioreactor from potential spills.
 
 -----
 
-<AssemblyInstructionBlock title="Step 3: Placing the HAT" images={["hat_pieces.jpg"]}>
+<AssemblyInstructionBlock title="Step 3: Placing the HAT" images={["rpi_with_standoffs.jpg","gpio_unpushed.jpg","gpio_pushed.jpg"]}>
 
 1.	Screw on the hex standoffs plus screw in each corner.
 2.	Place the HAT on top. 
