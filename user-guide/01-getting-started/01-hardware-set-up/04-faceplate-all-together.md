@@ -11,7 +11,7 @@ import Highlight from '@site/src/components/Highlight';
 
 *	Fan
 *	Top faceplate (note: contains a long, notched edge where the GPIO pins go)
-*	30 mm M3 metal screws
+*	30 mm M3 screws
 *	6 mm M2.5 nylon screws
 
 </AssemblyInstructionBlock>

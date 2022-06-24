@@ -6,10 +6,20 @@ hide_table_of_contents: true
 
 import AssemblyInstructionBlock from '@site/src/components/AssemblyInstructionBlock';
 import Highlight from '@site/src/components/Highlight';
+import Admonition from '@theme/Admonition';
 
 import * as colors from '@site/src/components/constants';
 
 Below are the instructions for setting up your Pioreactor. You can expect the assembly to take approximately 15 minutes. 
+=======
+
+Below are the instructions for assembling up your Pioreactor. You can expect the assembly to take approximately 15 minutes.
+
+<Admonition type="tip" title="Need help?">
+  <p>
+   We're here to help! Feel free to send us a message to help@pioreactor.com if you get stuck or need clarification.
+  </p>
+</Admonition>
 
 <AssemblyInstructionBlock title="Step 0: Necessary tools & tips" images={["rpi_types.jpg","assembly_tools.jpg"]}>
 

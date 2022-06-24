@@ -41,9 +41,9 @@ import Highlight from '@site/src/components/Highlight';
 
 -----
 
-<AssemblyInstructionBlock title="Capping" images={["hat_pieces.jpg"]}>
+<AssemblyInstructionBlock title="Add the rest of the pocket caps" images={["hat_pieces.jpg"]}>
 
-1.	Push all 8 pocket caps onto each pocket. 
-2.	Your Pioreactor is complete! You can now insert your vial and begin experimenting.
+1.	Push all remaining LED pocket caps onto each pocket.
+2.	Your Pioreactor is complete! 🚀 You can now insert your vial and begin installing the [software](/user-guide/software-set-up).
 
 </AssemblyInstructionBlock>

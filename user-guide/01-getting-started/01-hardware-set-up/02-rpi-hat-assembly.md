@@ -7,7 +7,7 @@ hide_table_of_contents: true
 import AssemblyInstructionBlock from '@site/src/components/AssemblyInstructionBlock';
 import Highlight from '@site/src/components/Highlight';
 
-Depending on if you are using a Raspberry Pi Zero (the tinier Raspberry Pi), or Raspberry Pi A or B (the full and 3/4 size), the placement of the nuts will be slightly different. See below:
+Depending on if you are using a Raspberry Pi Zero (the tinier Raspberry Pi), or Raspberry Pi A or B (the full and 3/4 size), the placement of the hex nuts will be slightly different. See below:
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -19,9 +19,9 @@ import TabItem from '@theme/TabItem';
 
 You will need:
 *	A Raspberry Pi of your choosing
-*	Hexnuts (4x) 
+*	Hex nuts (4x)
 *	12 mm hex standoffs (4x) 
-*	12 mm hex standoffs plus screws (4x) 
+*	12 mm hex standoffs-with-screws (4x)
 *	10 mm plastic nylon screws (4x) 
 *	Bottom faceplate
 *	HAT
@@ -45,11 +45,11 @@ This faceplate will protect the Pioreactor from potential spills.
 
 <AssemblyInstructionBlock title="Step 3: Placing the HAT" images={["rpi_with_standoffs.jpg","gpio_unpushed.jpg","gpio_pushed.jpg"]}>
 
-1.	Screw on the hex standoffs plus screw in each corner.
+1.	Screw on the hex standoffs-with-screw in each corner.
 2.	Place the HAT on top. 
 
 :::note
-The HAT's GPIO insert will line up with the RPi's GPIO pins, and may require a slight force to compress down. Careful note to apply too much force and bend any pins.
+The HAT's GPIO connector will line up with the RPi's GPIO pins, and may require a slight force to compress down. Careful note to apply too much force and bend any pins.
 :::
 3.	Screw the hex standoffs in each corner, on top of the HAT.
 4.	Put this aside and proceed to the next page. 
@@ -63,13 +63,13 @@ The HAT's GPIO insert will line up with the RPi's GPIO pins, and may require a s
 
 You will need:
 *	A Raspberry Pi of your choosing
-*	Hexnuts (4x) 
-*	12 mm hex standoffs (4x) 
-*	12 mm hex standoffs plus screws (4x) 
-*	10 mm plastic nylon screws (4x) 
+*	Hex nuts (4x)
+*	12 mm hex standoffs (4x)
+*	12 mm hex standoffs-with-screws (4x)
+*	10 mm plastic nylon screws (4x)
 *	Bottom faceplate
 *	The HAT
-	
+
 </AssemblyInstructionBlock>
 
 -----
@@ -89,11 +89,11 @@ This faceplate will protect the Pioreactor from potential spills.
 
 <AssemblyInstructionBlock title="Step 3: Placing the HAT" images={["hat_pieces.jpg"]}>
 
-1.	Screw on the hex standoffs plus screw in each corner.
+1.	Screw on the hex standoffs-with-screw in each corner.
 2.	Place the HAT on top. 
 
 :::note
-The HAT's GPIO insert will line up with the RPi's GPIO pins, and may require a slight force to compress down. Careful note to apply too much force and bend any pins.
+The HAT's GPIO connector will line up with the RPi's GPIO pins, and may require a slight force to compress down. Careful note to apply too much force and bend any pins.
 :::
 3.	Screw the hex standoffs in each corner, on top of the HAT.
 4.	Put this aside and continue to the next page.

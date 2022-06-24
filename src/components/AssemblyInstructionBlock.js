@@ -13,7 +13,7 @@ export default function AssemblyInstructionBlock({children, title, images}) {
   }
 
   return (
-    <div style={{padding: "10px", margin: "60px 0px 40px 0px", display:"flex", flexWrap: "nowrap"}}>
+    <div style={{padding: "10px", margin: "20px 0px 60px 0px", display:"flex", flexWrap: "nowrap"}}>
 
       <div id="mainImage" style={{width: "55%", float: "left", marginRight: "10px"}}>
         <h2> {title} </h2>
