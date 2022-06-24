@@ -7,35 +7,21 @@ hide_table_of_contents: true
 import AssemblyInstructionBlock from '@site/src/components/AssemblyInstructionBlock';
 import Highlight from '@site/src/components/Highlight';
 
-Below are the instructions for setting up your XXXX.
+Below are the instructions for setting up your Pioreactor. You can expect the assembly to take approximately 15 minutes. 
 
-<AssemblyInstructionBlock title="Step 1: This is your title" images={["absorption_vs_od.png", "add_media_ui.png"]}>
+<AssemblyInstructionBlock title="Step 0: Necessary tools & tips" images={["hat_pieces.jpg"]}>
 
-1. This is an <Highlight color={"rgb(35, 67, 232)"}>highlighted instruction</Highlight>
-2. So is another one: <Highlight color={"rgb(170, 10, 60)"}>highlighted instruction</Highlight>
-3. Another one that is long long Another one that is long long Another one that is long long Another one that is long long Another one that is long long
-4. Can I write **markdown**?
+You will need the following tools to assemble your Pioreactor:
 
-:::note
-This is a test of notes
+1. Your own Raspberry Pi (Rpi). Here are <Highlight color={"rgb(35, 67, 232)"}>three examples.</Highlight>
+2. A Philip's head screwdriver and needlenose pliers. 
+
+:::tip
+The GPIO pins (standing for general-purpose input/output) form a distinct row on the Rpi and HAT. Note the orientation of these pins to help you assemble correctly! 
 :::
 
 </AssemblyInstructionBlock>
 
------
-
-<AssemblyInstructionBlock title="Step 2: This is your title" images={["absorption_vs_od.png", "add_media_ui.png"]}>
-
-1. This is an <Highlight color={"rgb(35, 67, 232)"}>highlighted instruction</Highlight>
-2. So is another one: <Highlight color={"rgb(170, 10, 60)"}>highlighted instruction</Highlight>
-3. Another one that is long long Another one that is long long Another one that is long long Another one that is long long Another one that is long long
-4. Can I write **markdown**?
-
-:::note
-This is a test of notes
-:::
-
-</AssemblyInstructionBlock>
 
 
 

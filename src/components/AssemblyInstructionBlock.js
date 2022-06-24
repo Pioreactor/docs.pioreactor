@@ -19,7 +19,7 @@ export default function AssemblyInstructionBlock({children, title, images}) {
         <h2> {title} </h2>
         <img
           maxHeight={240}
-          src={require(`/static/img/user-guide/${mainImage}`).default}
+          src={require(`/static/img/user-guide/hardware-assembly/${mainImage}`).default}
         />
         <div id="thumbnails" style={{width: "100%"}}>
           {
@@ -31,7 +31,7 @@ export default function AssemblyInstructionBlock({children, title, images}) {
               >
               <img
                 width={100} height={50}
-                src={require(`/static/img/user-guide/${image}`).default}
+                src={require(`/static/img/user-guide/hardware-assembly/${image}`).default}
                 key={image}
               />
             </button>)
