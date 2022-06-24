@@ -7,7 +7,7 @@ hide_table_of_contents: true
 import AssemblyInstructionBlock from '@site/src/components/AssemblyInstructionBlock';
 import Highlight from '@site/src/components/Highlight';
 
-<AssemblyInstructionBlock title="Step 1: Connecting heater and stirring to the HAT" images={["hat_pieces.jpg"]}>
+<AssemblyInstructionBlock title="Step 1: Connecting heater and stirring to the HAT" images={["heating_connection.jpg","stirring_connection.jpg"]}>
 
 1.	Open the flat flex cable connector on the HAT by pulling the tabs outward, like previously. 
 2.	Insert the flex cable copper-side up. 
@@ -18,7 +18,7 @@ import Highlight from '@site/src/components/Highlight';
 
 -----
 
-<AssemblyInstructionBlock title="Step 2: Optic cables assembly" images={["hat_pieces.jpg"]}>
+<AssemblyInstructionBlock title="Step 2: Optic cables assembly" images={["three_bulbs.jpg","cable_channels.jpg"]}>
 
 1.	You will need PD cables (2x; dark bulbs) and IR cable (1x; clear bulb). 
 2.	Insert the connector of either PD cable into PD channel 1. 
@@ -29,7 +29,7 @@ import Highlight from '@site/src/components/Highlight';
 
 -----
 
-<AssemblyInstructionBlock title="Step 3: Inserting the bulbs into the vial holder" images={["hat_pieces.jpg"]}>
+<AssemblyInstructionBlock title="Step 3: Inserting the bulbs into the vial holder" images={["bulb_in_pocket.jpg","pocket_caps.jpg"]}>
 
 1.	Insert the bulb of the PD cable in **channel 1** into the pocket labeled **REF**, as seen in the image. 
 	*	Bend the bulb's leads 90 degrees, as seen.
@@ -41,7 +41,7 @@ import Highlight from '@site/src/components/Highlight';
 
 -----
 
-<AssemblyInstructionBlock title="Add the rest of the pocket caps" images={["hat_pieces.jpg"]}>
+<AssemblyInstructionBlock title="Add the rest of the pocket caps" images={["pockets_with_caps.jpg","finished_pio.jpg"]}>
 
 1.	Push all remaining LED pocket caps onto each pocket.
 2.	Your Pioreactor is complete! 🚀 You can now insert your vial and begin installing the [software](/user-guide/software-set-up).
