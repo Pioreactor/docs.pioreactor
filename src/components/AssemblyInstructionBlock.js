@@ -30,7 +30,7 @@ export default function AssemblyInstructionBlock({children, title, images}) {
               className={clsx({[styles.highlightThumbnail]: image ===  mainImage, [styles.thumbnail]: true})}
               >
               <img
-                width={75}
+                width={"100px"}
                 src={require(`/static/img/user-guide/hardware-assembly/${image}`).default}
                 key={image}
               />
