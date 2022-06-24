@@ -13,7 +13,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 <Tabs>
-  <TabItem value="a_or_b" label="Raspberry Pi A or B">
+  <TabItem value="a_or_b" label="Raspberry Pi A or B" default>
   
 <AssemblyInstructionBlock title="Step 1: Necessary parts" images={["hat_pieces.jpg"]}>
 
@@ -57,7 +57,7 @@ The HAT's GPIO connector will line up with the RPi's GPIO pins, and may require 
 </AssemblyInstructionBlock>
 
   </TabItem>
-  <TabItem value="zero" label="Raspberry Pi Zero" default>
+  <TabItem value="zero" label="Raspberry Pi Zero">
 
 <AssemblyInstructionBlock title="Step 1: Necessary parts" images={["hat_pieces.jpg"]}>
 
