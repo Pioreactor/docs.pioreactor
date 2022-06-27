@@ -67,9 +67,11 @@ This faceplate will protect the Pioreactor from potential spills.
 
 1.	Screw on the <Highlight color={colors.blue}>hex standoffs-with-screw</Highlight> in each corner.
 2.	Place the HAT on top. <Highlight color={colors.red}>Push down</Highlight> to secure it in place.
+
 :::note
 The HAT's GPIO connector will line up with the RPi's GPIO pins, and may require a slight force to compress down. Careful note to apply too much force and bend any pins.
 :::
+
 3.	Screw the <Highlight color={colors.green}>hex standoffs</Highlight> in each corner, on top of the HAT.
 4.	Put this aside and proceed to the next page.
 
