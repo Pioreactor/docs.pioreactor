@@ -8,8 +8,6 @@ import AssemblyInstructionBlock from '@site/src/components/AssemblyInstructionBl
 import Highlight from '@site/src/components/Highlight';
 import * as colors from '@site/src/components/constants';
 
-Depending on if you are using a Raspberry Pi Zero (the tinier Raspberry Pi), or Raspberry Pi A or B (the full and 3/4 size), the placement of the hex nuts will be slightly different. See below:
-
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
@@ -24,7 +22,11 @@ You will need:
 *	<Highlight color={colors.green}>10 mm plastic nylon screws (4x) </Highlight>
 *	<Highlight color={colors.orange}>Bottom faceplate</Highlight>
 *	<Highlight color={colors.teal}>HAT</Highlight>
-	
+
+:::note
+Depending on if you are using a Raspberry Pi Zero (the tinier Raspberry Pi), or Raspberry Pi A or B (the full and 3/4 size), the placement of the hex nuts will be slightly different. See below:
+:::
+
 </AssemblyInstructionBlock>
 
 -----
