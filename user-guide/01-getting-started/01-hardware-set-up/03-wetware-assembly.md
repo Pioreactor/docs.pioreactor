@@ -52,7 +52,7 @@ You can check the alignment of the square nuts by looking through the screwhole 
 1.	On one side of the vial holder is a <Highlight color={colors.magenta}>slot</Highlight> where the flat flex cable will go through.
 2.	Insert the heating PCB through the vial holder, with the blue side of the cable facing upwards.
 3.	Pull the wire through until the heating PCB is flat with the bottom of the vial holder. 
-4.	Secure the PCB from the bottom using the <Highlight color={colors.teal}>two 3 mm M2.5 screws</Highlight>.
+4.	Secure the PCB from the bottom using the <Highlight color={colors.teal}>two 3 mm M2.5 screws.</Highlight>
 5.	Continue to the next page. 
 
 </AssemblyInstructionBlock>
