@@ -10,9 +10,6 @@ import Admonition from '@theme/Admonition';
 
 import * as colors from '@site/src/components/constants';
 
-Before you begin
-=======
-
 Below are the instructions for assembling up your Pioreactor. You can expect the assembly to take approximately 15 minutes.
 
 <Admonition type="info" title="Need help?">
@@ -25,12 +22,12 @@ Below are the instructions for assembling up your Pioreactor. You can expect the
 
 You will need the following tools to assemble your Pioreactor:
 
-1. Your own Raspberry Pi (Rpi). Displayed are <Highlight color={colors.blue}>three examples.</Highlight>
-2. A Philip's head screwdriver
-3. Needle-nose pliers
+1. Your own Raspberry Pi (Rpi). Displayed are three examples.
+2. A Philip's head screwdriver.
+3. Needle-nose pliers.
 
 :::tip
-The GPIO pins (standing for general-purpose input/output) form a distinct row on the Rpi and HAT. Note the orientation of these pins to help you assemble correctly! 
+The 40 GPIO pins (standing for general-purpose input/output) form a distinct row on one side of the Rpi and HAT. Note the orientation of these pins to help you assemble correctly!
 :::
 
 </AssemblyInstructionBlock>
