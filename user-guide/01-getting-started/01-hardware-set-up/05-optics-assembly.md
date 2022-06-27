@@ -7,6 +7,8 @@ hide_table_of_contents: true
 import AssemblyInstructionBlock from '@site/src/components/AssemblyInstructionBlock';
 import Highlight from '@site/src/components/Highlight';
 
+import * as colors from '@site/src/components/constants';
+
 <AssemblyInstructionBlock title="Step 1: Connecting heater and stirring to the HAT" images={["heating_connection.jpg","stirring_connection.jpg"]}>
 
 1.	Open the flat flex cable connector on the HAT by pulling the tabs outward, like previously. 
@@ -31,10 +33,10 @@ import Highlight from '@site/src/components/Highlight';
 
 <AssemblyInstructionBlock title="Step 3: Inserting the bulbs into the vial holder" images={["bulb_in_pocket.jpg","pocket_caps.jpg"]}>
 
-1.	Insert the bulb of the PD cable in **channel 1** into the pocket labeled **REF**, as seen in the image. 
+1.	Insert the bulb of the PD cable in **channel 1** into the <Highlight color={colors.red}>pocket labeled **REF**,</Highlight> as seen in the image. 
 	*	Bend the bulb's leads 90 degrees, as seen.
-	*	If needed, secure it in place with one of the 8 pocket caps. 
-2.	Insert the bulb of the PD cable in **channel 2** into the pocket labeled **90°.**
+	*	If needed, secure it in place with one of the <Highlight color={colors.blue}>8 pocket caps.</Highlight> 
+2.	Insert the bulb of the PD cable in **channel 2** into the <Highlight color={colors.magenta}>pocket labeled **90°.**</Highlight>
 3.	Insert the bulb of the IR cable in **channel A** into the pocket labeled **IR**.
 
 </AssemblyInstructionBlock>
