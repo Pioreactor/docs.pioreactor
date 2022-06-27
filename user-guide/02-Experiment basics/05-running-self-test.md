@@ -48,6 +48,10 @@ The test will also report any valid IR LED & photodiode relationships in the mod
 
 **Reference photodiode is the correct magnitude** checks, if using the reference photodiode (REF), that the REF signal is less than 0.256 volts when the IR LED is at the level specified in the config.ini's `[od_config].[ir_led_intensity]` section. If this test fails, check the positioning of the REF photoiode (should be adjacent the the IR LED, snugly inserted, and with a cap). If still failing, try reducing the value in `[od_config].[ir_led_intensity]`.
 
+
+**Reference photodiode is in the correct position** checks, if using the reference photodiode (REF), that the REF cable is inserted into the correct photodiode position (channel 1 or 2). The correct position is provided in the config.ini's `[od_config.photodiode_channel]` section. The test compares the variances of the two signals (from photodiode channels 1 and 2), and the lower variance one is usually the REF.
+
+
 **Heating PCB is detected** checks that the heating PCB is correctly attached to the Pioreactor HAT.
 
 **Heating is responsive** checks for a linear relationship between the temperature sensor and the PWM heating system.
