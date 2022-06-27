@@ -38,7 +38,7 @@ import * as colors from '@site/src/components/constants';
 
 -----
 
-<AssemblyInstructionBlock title="Putting it all together" images={["screw_top_bottom.jpg"]}>
+<AssemblyInstructionBlock title="Putting it all together" images={["screw_top_bottom_gpio.jpg", "screw_top_bottom.jpg"]}>
 
 1.	Place the top assembly onto the bottom Raspberry Pi/HAT. 
 	*	The <Highlight color={colors.blue}>GPIO pins</Highlight> align with the side notch of the faceplate.
