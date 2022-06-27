@@ -13,7 +13,7 @@ This guide is for users of the Pioreactor. If you are interested in the software
 
 ### Getting started
 
-If you need help setting up the Pioreactor for your first experiment, check out our [Getting Started](hardware-set-up) guide.
+If you need help setting up the Pioreactor for your first experiment, check out our [Getting Started](/user-guide/hardware-setup-intro) guide.
 
 
 ### Looking for further help?
