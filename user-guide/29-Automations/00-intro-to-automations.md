@@ -13,4 +13,4 @@ Some examples:
 
 Setting automations can be done so that the Pioreactor performs these tasks automatically. These automations can be found under _Activities_, when you _Manage_ your Pioreactor. 
 
-(insert image here)
+![](/img/user-guide/automations.png)
