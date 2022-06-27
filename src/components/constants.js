@@ -3,3 +3,4 @@ export const red = "rgb(170, 10, 60)";
 export const magenta = 'rgb(220, 84, 183)';
 export const green = 'rgb(19, 173, 102)';
 export const orange = 'rgb(255, 144, 36)';
+export const teal = 'rgb(0,139,139)';
