@@ -30,7 +30,7 @@ import * as colors from '@site/src/components/constants';
 
 <AssemblyInstructionBlock title="Step 3: Securing the vial holder" images={["vial_holder_on_fan.jpg","cable_orientation.jpg","screw_vial_holder_faceplate.jpg","vial_holder_alignment.jpg"]}>
 
-1.	Place the vial holder on top of the faceplate piece. The  <Highlight color={colors.red}>flat cable should follow the arrow on the faceplate</Highlight>.
+1.	Place the vial holder on top of the faceplate piece. The <Highlight color={colors.red}>flat cable should follow the arrow on the faceplate</Highlight>.
 2.	Holding it together, finish screwing the bottom of the faceplate. 
 	*	Screws should enter the square nuts you placed into the vial holder.
 
