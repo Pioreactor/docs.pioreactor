@@ -31,7 +31,7 @@ import * as colors from '@site/src/components/constants';
 
 -----
 
-<AssemblyInstructionBlock title="Step 3: Inserting the bulbs into the vial holder" images={["bulb_in_pocket.jpg","pocket_caps.jpg"]}>
+<AssemblyInstructionBlock title="Step 3: Inserting the bulbs into the vial holder" images={["pocket_caps.jpg", "bulb_in_pocket.jpg"]}>
 
 1.	Insert the bulb of the PD cable in **channel 1** into the <Highlight color={colors.red}>pocket labeled **REF**,</Highlight> as seen in the image. 
 	*	Bend the bulb's leads 90 degrees, as seen.
