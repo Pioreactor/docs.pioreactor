@@ -1,8 +1,12 @@
 .highlightThumbnail {
-  border: 2px solid #ffc107;
+  margin: 3px 0px;
+  border: 3px solid #aaa;
+  padding: 3px 3px 1px 3px;
 }
 
 
 .thumbnail {
-  margin: 0px 3px;
+  margin: 3px 0px;
+  border: 3px solid white;
+  padding: 3px 3px 1px 3px;
 }

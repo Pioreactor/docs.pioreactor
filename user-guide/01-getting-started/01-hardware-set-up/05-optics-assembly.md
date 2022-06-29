@@ -1,6 +1,6 @@
 ---
 title: Connect the optics system
-slug: /optics
+slug: /optics-assembly
 hide_table_of_contents: true
 ---
 
