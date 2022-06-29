@@ -27,7 +27,7 @@ export default function AssemblyInstructionBlock({children, title, images}) {
             <button
               onClick={imageSelect(n)}
               key={n}
-              className={clsx({[styles.highlightThumbnail]: image ===  mainImage, [styles.thumbnail]: true})}
+              className={clsx({[styles.thumbnail]: image !==  mainImage, [styles.highlightThumbnail]: image ===  mainImage})}
               >
               <img
                 width={"100px"}

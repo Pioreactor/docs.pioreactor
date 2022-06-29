@@ -1,6 +1,6 @@
 ---
 title: Putting it all together
-slug: /final-steps
+slug: /putting-it-together
 hide_table_of_contents: true
 ---
 
@@ -42,7 +42,8 @@ import * as colors from '@site/src/components/constants';
 
 1.	Place the top assembly onto the bottom Raspberry Pi/HAT. 
 	*	The <Highlight color={colors.blue}>GPIO pins</Highlight> align with the side notch of the faceplate.
-2.	Using the <Highlight color={colors.orange}>6 mm nylon screws,</Highlight> attach the top and bottom pieces in each corner.
-3.	Continue to the next page. 
+2.	Using the <Highlight color={colors.orange}>6 mm nylon screws</Highlight>, attach the top and bottom pieces in each corner.
+3.	Continue to the [next page](/user-guide/optics-assembly).
+
 
 </AssemblyInstructionBlock>
