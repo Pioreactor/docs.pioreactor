@@ -14,7 +14,7 @@ import * as colors from '@site/src/components/constants';
 1.	Open the <Highlight color={colors.orange}>flat flex cable connector on the HAT</Highlight> by pulling the tabs outward, like previously.
 2.	Insert the flex cable copper-side up. 
 3.	Push the tabs inward to secure the flex cable.
-4.	Insert the <Highlight color={colors.green}>stirring power connector into PWM channel 1</Highlight>.
+4.	Insert the <Highlight color={colors.green}>stirring power connector into PWM channel 1.</Highlight>
 
 </AssemblyInstructionBlock>
 
@@ -23,9 +23,9 @@ import * as colors from '@site/src/components/constants';
 <AssemblyInstructionBlock title="Step 2: Optic cables assembly" images={["three_bulbs.jpg","cable_channels.jpg"]}>
 
 1.	You will need PD cables (2x; dark bulbs) and IR cable (1x; clear bulb). 
-2.	Insert the connector of either <Highlight color={colors.blue}>PD cable into PD channel 1</Highlight>.
-3.	Place the connector of the <Highlight color={colors.blue}>other PD cable into PD channel 2</Highlight>.
-4.	Insert the connector of the <Highlight color={colors.red}>IR cable into channel A</Highlight>.
+2.	Insert the connector of either <Highlight color={colors.blue}>PD cable into PD channel 1.</Highlight>
+3.	Place the connector of the <Highlight color={colors.blue}>other PD cable into PD channel 2.</Highlight>
+4.	Insert the connector of the <Highlight color={colors.red}>IR cable into channel A.</Highlight>
 
 </AssemblyInstructionBlock>
 
@@ -43,7 +43,7 @@ import * as colors from '@site/src/components/constants';
 
 -----
 
-<AssemblyInstructionBlock title="Add the rest of the pocket caps" images={["pockets_with_caps.jpg","finished_pio.jpg"]}>
+<AssemblyInstructionBlock title="Step 4: Add the rest of the pocket caps" images={["pockets_with_caps.jpg","finished_pio.jpg"]}>
 
 1.	Push all remaining LED pocket caps onto each pocket.
 2.	Your Pioreactor is complete! 🚀 You can now insert your vial and begin installing the [software](/user-guide/software-set-up).

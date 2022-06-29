@@ -55,4 +55,5 @@ You can check the alignment of the square nuts by looking through the screwhole 
 4.	Secure the PCB from the bottom using the <Highlight color={colors.teal}>two 3 mm M2.5 screws</Highlight>.
 5.	Continue to the [next page](/user-guide/putting-it-together).
 
+
 </AssemblyInstructionBlock>
