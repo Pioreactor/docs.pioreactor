@@ -9,7 +9,7 @@ import Highlight from '@site/src/components/Highlight';
 
 import * as colors from '@site/src/components/constants';
 
-<AssemblyInstructionBlock title="Step 1: Connecting heater and stirring to the HAT" images={["heating_connection.jpg","stirring_connection.jpg"]}>
+<AssemblyInstructionBlock title="Step 1: Connecting heater and stirring to the HAT" images={["user-guide/hardware-assembly/heating_connection.jpg","user-guide/hardware-assembly/stirring_connection.jpg"]}>
 
 1.	Open the <Highlight color={colors.orange}>flat flex cable connector on the HAT</Highlight> by pulling the tabs outward, like previously.
 2.	Insert the flex cable copper-side up. 
@@ -20,7 +20,7 @@ import * as colors from '@site/src/components/constants';
 
 -----
 
-<AssemblyInstructionBlock title="Step 2: Optic cables assembly" images={["three_bulbs.jpg","cable_channels.jpg"]}>
+<AssemblyInstructionBlock title="Step 2: Optic cables assembly" images={["user-guide/hardware-assembly/three_bulbs.jpg","user-guide/hardware-assembly/cable_channels.jpg"]}>
 
 1.	You will need PD cables (2x; dark bulbs) and IR cable (1x; clear bulb). 
 2.	Insert the connector of either <Highlight color={colors.blue}>PD cable into PD channel 1.</Highlight>
@@ -31,7 +31,7 @@ import * as colors from '@site/src/components/constants';
 
 -----
 
-<AssemblyInstructionBlock title="Step 3: Inserting the bulbs into the vial holder" images={["pocket_caps.jpg", "bulb_in_pocket.jpg"]}>
+<AssemblyInstructionBlock title="Step 3: Inserting the bulbs into the vial holder" images={["user-guide/hardware-assembly/pocket_caps.jpg", "user-guide/hardware-assembly/bulb_in_pocket.jpg"]}>
 
 1.	Insert the bulb of the PD cable in **channel 1** into the <Highlight color={colors.red}>pocket labeled **REF**,</Highlight> as seen in the image. 
 	*	Bend the bulb's leads 90 degrees, as seen.
@@ -43,7 +43,7 @@ import * as colors from '@site/src/components/constants';
 
 -----
 
-<AssemblyInstructionBlock title="Step 4: Add the rest of the pocket caps" images={["pockets_with_caps.jpg","finished_pio.jpg"]}>
+<AssemblyInstructionBlock title="Step 4: Add the rest of the pocket caps" images={["user-guide/hardware-assembly/pockets_with_caps.jpg","user-guide/hardware-assembly/finished_pio.jpg"]}>
 
 1.	Push all remaining LED pocket caps onto each pocket.
 2.	Your Pioreactor is complete! 🚀 You can now insert your vial and begin installing the [software](/user-guide/software-set-up).

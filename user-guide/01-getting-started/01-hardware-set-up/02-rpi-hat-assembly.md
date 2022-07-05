@@ -12,7 +12,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-<AssemblyInstructionBlock title="Step 1: Necessary parts" images={["hat_pieces.jpg"]}>
+<AssemblyInstructionBlock title="Step 1: Necessary parts" images={["user-guide/hardware-assembly/hat_pieces.jpg"]}>
 
 You will need:
 *	A Raspberry Pi of your choosing
@@ -35,7 +35,7 @@ Depending on if you are using a Raspberry Pi Zero (the tinier Raspberry Pi), or 
   <TabItem value="a_or_b" label="Raspberry Pi A or B" default>
 
 
-<AssemblyInstructionBlock title="Step 2: Bottom faceplate" images={["bottom_faceplate.jpg","bot_faceplate_screwed.jpg","rpi_no_standoffs.jpg"]}>
+<AssemblyInstructionBlock title="Step 2: Bottom faceplate" images={["user-guide/hardware-assembly/bottom_faceplate.jpg","user-guide/hardware-assembly/bot_faceplate_screwed.jpg","user-guide/hardware-assembly/rpi_no_standoffs.jpg"]}>
 
 This faceplate will protect the Pioreactor from potential spills.
 
@@ -48,7 +48,7 @@ This faceplate will protect the Pioreactor from potential spills.
 
   </TabItem>
   <TabItem value="zero" label="Raspberry Pi Zero">
-<AssemblyInstructionBlock title="Step 2: Bottom faceplate" images={["bottom_faceplate.jpg","bot_faceplate_screwed.jpg","rpi_no_standoffs.jpg"]}>
+<AssemblyInstructionBlock title="Step 2: Bottom faceplate" images={["user-guide/hardware-assembly/bottom_faceplate.jpg","user-guide/hardware-assembly/bot_faceplate_screwed.jpg","user-guide/hardware-assembly/rpi_no_standoffs.jpg"]}>
 
 This faceplate will protect the Pioreactor from potential spills.
 
@@ -63,7 +63,7 @@ This faceplate will protect the Pioreactor from potential spills.
 
 -----
 
-<AssemblyInstructionBlock title="Step 3: Placing the HAT" images={["rpi_with_standoffs.jpg","gpio_unpushed.jpg","gpio_pushed.jpg", "standoff_on_hat.jpg"]}>
+<AssemblyInstructionBlock title="Step 3: Placing the HAT" images={["user-guide/hardware-assembly/rpi_with_standoffs.jpg","user-guide/hardware-assembly/gpio_unpushed.jpg","user-guide/hardware-assembly/gpio_pushed.jpg", "user-guide/hardware-assembly/standoff_on_hat.jpg"]}>
 
 1.	Screw on the <Highlight color={colors.blue}>hex standoffs-with-screw</Highlight> in each corner.
 2.	Place the HAT on top. <Highlight color={colors.red}>Push down</Highlight> to secure it in place.

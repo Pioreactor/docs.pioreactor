@@ -18,7 +18,7 @@ Below are the instructions for assembling up your Pioreactor. You can expect the
   </p>
 </Admonition>
 
-<AssemblyInstructionBlock title="Step 0: Necessary tools & tips" images={["rpi_types.jpg","pliers.jpg", "screwdriver.jpg"]}>
+<AssemblyInstructionBlock title="Step 0: Necessary tools & tips" images={["user-guide/hardware-assembly/rpi_types.jpg","user-guide/hardware-assembly/pliers.jpg", "user-guide/hardware-assembly/screwdriver.jpg"]}>
 
 You will need the following tools to assemble your Pioreactor:
 
