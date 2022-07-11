@@ -7,18 +7,30 @@ slug: /local-development
 
 To install the Pioreactor codebase locally, it should be enough to clone the repo [pioreactor/pioreactor](https://github.com/pioreactor/pioreactor) and run:
 
+
+Then, in the pioreactor folder, create a folder called `.pioreactor/` and `.pioreactor/storage`.
+
+Install the core software are necessary packages (useful to do this in a virtualenv!):
+
 ```
 pip3 install -e .
 pip3 install -r requirements/requirements_dev.txt
 ```
 
+
+
 #### MQTT
 
-You will need to set up MQTT locally. On OSX, homebrew can be used to install the MQTT broker `mosquitto`. Also enable logging in `/usr/local/etc/mosquitto/mosquitto.conf` by adding a line like:
+You will need to install MQTT and have a broker running locally. On OSX, homebrew can be used to install the MQTT broker `mosquitto`. On Windows, it can be installed [from this download page](https://mosquitto.org/download/).
+
+::: tip
+enable logging in `/usr/local/etc/mosquitto/mosquitto.conf` by adding a line like:
 
 ```
 log_dest file path/to/somewhere/.mosquitto/log
 ```
+:::
+
 
 The CLI tools `mosquitto_pub` and `mosquitto_sub` should work as well.
 
