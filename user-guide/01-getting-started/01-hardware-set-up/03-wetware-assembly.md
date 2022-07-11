@@ -9,7 +9,7 @@ import Highlight from '@site/src/components/Highlight';
 import * as colors from '@site/src/components/constants';
 
 
-<AssemblyInstructionBlock title="Step 1: Necessary parts" images={["square_nuts.jpg", "heating_parts.jpg"]}>
+<AssemblyInstructionBlock title="Step 1: Necessary parts" images={["user-guide/hardware-assembly/square_nuts.jpg", "user-guide/hardware-assembly/heating_parts.jpg"]}>
 
 You will need:
 *	<Highlight color={colors.blue}>Vial holder</Highlight>
@@ -23,7 +23,7 @@ You will need:
 
 -----
 
-<AssemblyInstructionBlock title="Step 2: Assembling the vial holder" images={["insert_square_nuts.jpg","check_square_nuts.jpg"]}>
+<AssemblyInstructionBlock title="Step 2: Assembling the vial holder" images={["user-guide/hardware-assembly/insert_square_nuts.jpg","user-guide/hardware-assembly/check_square_nuts.jpg"]}>
 
 1.	Insert <Highlight color={colors.blue}>M3 square nuts</Highlight> into the 4 holes at the bottom of the vial holder.
 
@@ -35,7 +35,7 @@ You can check the alignment of the square nuts by looking through the screwhole 
 
 -----
 
-<AssemblyInstructionBlock title="Step 3: Placing the heating pad" images={["sticky_side.jpg","remove_blue.jpg","remove_blue_2.jpg","cable_connector_open.jpg","cable_connector_closed.jpg"]}>
+<AssemblyInstructionBlock title="Step 3: Placing the heating pad" images={["user-guide/hardware-assembly/sticky_side.jpg","user-guide/hardware-assembly/remove_blue.jpg","user-guide/hardware-assembly/remove_blue_2.jpg","user-guide/hardware-assembly/cable_connector_open.jpg","user-guide/hardware-assembly/cable_connector_closed.jpg"]}>
 
 1.	Remove the clear plastic from the bottom of the heating pad, revealing the sticky side. 
 2.	Place the sticky side on the flat part of the heating PCB.
@@ -47,7 +47,7 @@ You can check the alignment of the square nuts by looking through the screwhole 
 
 -----
 
-<AssemblyInstructionBlock title="Step 4: Securing the heating PCB into the vial holder" images={["insert_heating_cable.jpg","inserted_heating_cable.jpg","heating_bottom_screws.jpg"]}>
+<AssemblyInstructionBlock title="Step 4: Securing the heating PCB into the vial holder" images={["user-guide/hardware-assembly/insert_heating_cable.jpg","user-guide/hardware-assembly/inserted_heating_cable.jpg","user-guide/hardware-assembly/heating_bottom_screws.jpg"]}>
 
 1.	Identify the <Highlight color={colors.magenta}>slot</Highlight> on the vial holder where the flat flex cable will go through.
 2.	Insert the cable in the vial holder, and through the slot, with the blue side of the cable facing upwards.

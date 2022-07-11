@@ -8,7 +8,7 @@ import AssemblyInstructionBlock from '@site/src/components/AssemblyInstructionBl
 import Highlight from '@site/src/components/Highlight';
 import * as colors from '@site/src/components/constants';
 
-<AssemblyInstructionBlock title="Step 1: Necessary parts" images={["stirring_parts.jpg"]}>
+<AssemblyInstructionBlock title="Step 1: Necessary parts" images={["user-guide/hardware-assembly/stirring_parts.jpg"]}>
 
 *	<Highlight color={colors.blue}>Fan</Highlight>
 *	<Highlight color={colors.red}>Top faceplate</Highlight> (note the long indent where the GPIO will pins go)
@@ -19,7 +19,7 @@ import * as colors from '@site/src/components/constants';
 
 -----
 
-<AssemblyInstructionBlock title="Step 2: Assembling the stirring apparatus" images={["top_faceplate_screws.jpg","top_faceplate_screws_2.jpg","fan_on_faceplate.jpg"]}>
+<AssemblyInstructionBlock title="Step 2: Assembling the stirring apparatus" images={["user-guide/hardware-assembly/top_faceplate_screws.jpg","user-guide/hardware-assembly/top_faceplate_screws_2.jpg","user-guide/hardware-assembly/fan_on_faceplate.jpg"]}>
 
 1.	From the bottom of the faceplate, insert the 30 mm M3 screws. Do not screw in all the way &#151 just enough that the <Highlight color={colors.orange}>screws poke out the other</Highlight> end.
 2.	Push the fan on top of the screws. Make sure the <Highlight color={colors.teal}>wire is oriented towards the side labeled PWM.</Highlight>
@@ -28,7 +28,7 @@ import * as colors from '@site/src/components/constants';
 
 -----
 
-<AssemblyInstructionBlock title="Step 3: Securing the vial holder" images={["vial_holder_on_fan.jpg","cable_orientation.jpg","screw_vial_holder_faceplate.jpg","vial_holder_alignment.jpg"]}>
+<AssemblyInstructionBlock title="Step 3: Securing the vial holder" images={["user-guide/hardware-assembly/vial_holder_on_fan.jpg","user-guide/hardware-assembly/cable_orientation.jpg","user-guide/hardware-assembly/screw_vial_holder_faceplate.jpg","user-guide/hardware-assembly/vial_holder_alignment.jpg"]}>
 
 1.	Place the vial holder on top of the faceplate piece. The <Highlight color={colors.red}>flat cable should follow the arrow on the faceplate.</Highlight>
 2.	Holding it together, finish screwing the bottom of the faceplate. 
@@ -38,7 +38,7 @@ import * as colors from '@site/src/components/constants';
 
 -----
 
-<AssemblyInstructionBlock title="Putting it all together" images={["screw_top_bottom_gpio.jpg", "screw_top_bottom.jpg"]}>
+<AssemblyInstructionBlock title="Putting it all together" images={["user-guide/hardware-assembly/screw_top_bottom_gpio.jpg", "user-guide/hardware-assembly/screw_top_bottom.jpg"]}>
 
 1.	Place the top assembly onto the bottom Raspberry Pi/HAT. 
 	*	The <Highlight color={colors.blue}>GPIO pins</Highlight> align with the side notch of the faceplate.
