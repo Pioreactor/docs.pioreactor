@@ -6,8 +6,16 @@ tags:
   - Salt
 ---
 
+import AssemblyInstructionBlock from '@site/src/components/AssemblyInstructionBlock';
+import Highlight from '@site/src/components/Highlight';
+import Admonition from '@theme/Admonition';
+
+import * as colors from '@site/src/components/constants';
+
 :::tip Success Goal
-Environmental salt content is one of several factors that influence the growth rates of yeast. Teachers can take many directions for this experiment, like introducing osmotic pressures (hypotonicity and hypertonicity of a cell) or discussing the effectiveness of salt as a food curing agent.  
+The addition of salt in media causes growth stress for yeast. Classes can quantify the linear differences in growth rate over time as salt content increases. 
+
+Topic discussions for this experiment can range from introducing osmotic pressures (hypotonicity and hypertonicity of a cell) to discussing the effectiveness of salt as a food curing agent. Teachers can also consider exploring different species and their reactivity to salt content.  
 :::tip
 
 ## Requirements
@@ -20,20 +28,45 @@ Environmental salt content is one of several factors that influence the growth r
 
 ## Steps
 
-1.  Prepare a sterile stock of 50g YPD / 1L distilled water. Aim to make 20ml × the number of Pioreactors you are using, as each Pioreactor will require about 15mL of media.
-2.  Weigh table salt to add to your media. This amount can be calculated (as per the example below), or decided by the teacher beforehand. 
-3. Once stock is cool, divide the stock into the sterilized vials and add salt. You can mix the salt with gentle shaking or by using the _Stirring_ function on the Pioreactor. 
-4. When the salt is diluted into the media, inoculate the stock with a very small amount of baker's yeast using best practices to avoid other contamination. 
-	* A yeast stock solution can be made by diluting a small amount of yeast in 15mL of YPD stock media, then a drop of this stock solution can be added to your vials. Add 3-4 drops of this yeast slurry. 
-5.	Wipe the vials and place them in the Pioreactor.
+<AssemblyInstructionBlock title="Step 1: Preparing the media" images={["user-guide/calibrate.png","user-guide/calibrate_stirring.png"]}>
+
+1.  Prepare a sterile stock of 50g YPD / 1L distilled water. Aim for 20ml × the number of Pioreactors you are using, as each Pioreactor will require about 15mL of media.
+2.  Weigh table salt to add to your media. This amount can be calculated as per the example below.
+3. Allow stock to cool
+4. Divide the stock into the sterilized vials and add salt.
+5. Mix the salt with gentle shaking or by using the _Stirring_ function on the Pioreactor. 
+
+
+</AssemblyInstructionBlock>
+
+-----
+
+<AssemblyInstructionBlock title="Step 2: Inoculate your vials" images={["user-guide/calibrate.png","user-guide/calibrate_stirring.png"]}>
+
+6. Dilute a small amount of yeast in 15mL of YPD stock media. 
+7. Sterily add 3-4 drops of this solution to your vials. 
+8. Wipe the vials and place them in the Pioreactor.
+
+</AssemblyInstructionBlock>
+
+<AssemblyInstructionBlock title="Step 3: Start your experiment" images={["user-guide/calibrate.png","user-guide/calibrate_stirring.png"]}>
+
 6.  Visit [pioreactor.local](http://pioreactor.local) and start a new experiment.
-7.  On the left menu, select the _Pioreactors_ page. Add any additional Pioreactors that you would like to use (more information [here](/user-guide/create-cluster)). Select _Manage all Pioreactors_, and start _Stirring_ activity and _OD reading_ activity.
-	* Optional: you can  start the _Temperature automation_ activity set on an optimal temperature.
+7.  On the left menu, select the _Pioreactors_ page. Add any additional Pioreactors that you would like to use (more information [here](/user-guide/create-cluster)). Select _Manage all Pioreactors_, and start:
+	*	_Stirring_ activity
+	*	_OD reading_ activity
+	*	_Temperature automation_ activity 
 8.  Confirm that everything looks normal on the _Overview_ page (ex: receiving optical density signal).
-9.	Back on the _Pioreactors_ page, select _Manage all Pioreactors_ and start _Growth rate_. It will take a minute for results to begin showing up. 
-10.  Optional: you can change the names of the Pioreactor in the UI to display the target temperature.
+9.	Back on the _Pioreactors_ page, select _Manage all Pioreactors_ and start _Growth rate_. 
+	* Optional: you can change the names of the Pioreactor in the UI to display the target temperature.
 11.  Students can watch growth progress on the _Overview_ page. 
-12.  Within 24 hours, students can observe the growth curves of yeast under various salt stresses. 
+
+
+</AssemblyInstructionBlock>
+
+
+
+
 
 ## Example
 
