@@ -22,7 +22,7 @@ Below are the instructions for assembling up your Pioreactor. You can expect the
 
 You will need the following tools to assemble your Pioreactor:
 
-1. Your own Raspberry Pi (Rpi) 
+1. Your own Raspberry Pi (Rpi)
 	*	Displayed are three examples
 2. A Philip's head screwdriver
 3. Needle-nose pliers
