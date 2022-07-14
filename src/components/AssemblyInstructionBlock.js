@@ -21,7 +21,8 @@ export default function AssemblyInstructionBlock({children, title, images}) {
           maxHeight={240}
           src={require(`/static/img/${mainImage}`).default}
         />
-        <div id="thumbnails" style={{width: "100%"}}>
+        {images.length > 1  && 
+		   <div id="thumbnails" style={{width: "100%"}}>
           {
             images.map((image, n) =>
             <button
@@ -36,7 +37,8 @@ export default function AssemblyInstructionBlock({children, title, images}) {
               />
             </button>)
           }
-        </div>
+			</div>
+		}
       </div>
       <section style={{width: "44%", float: "left", marginTop: "40px"}}>
           {children}
@@ -45,3 +47,4 @@ export default function AssemblyInstructionBlock({children, title, images}) {
     </div>
   );
 }
+

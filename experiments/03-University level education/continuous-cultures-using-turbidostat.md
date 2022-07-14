@@ -10,23 +10,27 @@ import Admonition from '@theme/Admonition';
 import * as colors from '@site/src/components/constants';
 
 :::tip Success goal
-Your Pioreactor can be transformed into a [turbidostat](/user-guide/dosing-automations#pid-turbidostat), where pumps are used to replenish media around a target OD to create a continuous culture. This maximizes the growth rate while all other variables are held constant. 
+Your Pioreactor can be transformed into a [turbidostat](/user-guide/dosing-automations#pid-turbidostat), where pumps are used to replenish media around a target OD, creating a continuous culture. Due to the abundance of resources and lack of rate-limiting nutrients, the specific growth rate of a species is maximized. _Learn more about the differences in bioreactor strategies [here](https://pioreactor.com/blogs/pioreactor-blog/the-many-different-environments-of-bioreactors-chemostat-turbidostat-stressostat-and-more)._
 
-This setup is a powerful tool that tests the limits of population growth. Students can use this system to assess the following questions: What is a species' maximum growth rate? What are the limiting factors? And how can we change the environment (added media) to affect the maximum growth? 
+This setup is a powerful tool that tests the limits of population growth. Students can investigate the specific maximum growth rate of a species and evaluate what innate biological process is limiting growth. 
 :::
 
 ## Requirements
+
+<AssemblyInstructionBlock images={["experiments/turbidostat/turbido_mats.jpg"]}>
 
 * One available Pioreactor
 * Two peristaltic pumps: 
 	*	One media pump
 	*	One waste pump
-* Two liquid containers with luer attachments:
+* Two liquid containers:
 	*	One labelled "media"
 	*	One labelled "waste" 
-* Measuring scale
+* Scale to calibrate, if needed
 * Culture of choice (ex. Baker's Yeast)
 * Media of choice (ex. YPD)
+
+</AssemblyInstructionBlock>
 
 ## Protocol
 
@@ -74,14 +78,41 @@ The peristaltic pump has two tubes: a <Highlight color={colors.red}>source</High
 
 -----
 
-<AssemblyInstructionBlock title="Step 4: Start activities and automations" images={["experiments/turbidostat/dosing_automation.png","experiments/turbidostat/PID_turbidostat.png","experiments/turbidostat/turbidostat_settings.png","experiments/turbidostat/overview_settings.png"]}>
+<AssemblyInstructionBlock title="Step 4: Start activities and automations" images={["experiments/turbidostat/general_automations.png","experiments/turbidostat/dosing_automation.png","experiments/turbidostat/PID_turbidostat.png","experiments/turbidostat/turbidostat_settings.png","experiments/turbidostat/overview_settings.png","experiments/turbidostat/dosing_settings.png"]}>
 
 6.	Visit [pioreactor.local](http://pioreactor.local) and start a new experiment.
 7.	Select _Manage_, and start _Stirring_ activity and _OD reading_ activity.
 8.	Confirm everything looks correct, then start the _Growth rate_ activity. 
 9.	Start the _Dosing automation_. Change automation to _PID Turbidostat_. Set your _Time between dosing_ and _Target OD_. 
 
+:::note
+_Target OD_ refers to the normalized optical density. 
+
+To change the _Time between dosing_ and/or _Target OD_ while the experiment is running, go to the _Settings_ tab instead of the _Activities_ tab.
+:::
+
 </AssemblyInstructionBlock>
 
 ## Example 
 
+In our turbidostat system, we studied a small vial of YPD media inoculated with 4 drops of a yeast slurry. The culture was replenished every **10 minutes** (time between dosing) with fresh YPD media when the target OD was reached.
+
+We initially set our turbidostat target OD to **2 AU**. To demonstrate how quickly our system can adapt, we changed our target OD to **3.5 AU after 6 hours**. A higher target OD allows the culture to become more turbid. 
+
+After 16 hours, the following results are recorded: 
+
+![](/img/experiments/turbidostat/turbidostat_results.png)
+
+:::tip FYI: _Why does normalized OD look noisy?_
+After the time period set by you (the _Time between dosing_), the system assesses the normalized OD.
+
+As the normalized OD approaches the target OD, an automated amount of new media is added and waste is removed. The next time the system "wakes up", the OD will equals/be close to the set target OD. 
+:::
+
+![](/img/experiments/turbidostat/turbidostat_gr_results.png)
+
+Over time, we expect faster growing yeast to out-compete slower growing yeast, resulting in an increase in maximum growth rate. As seen above, the growth rate improves from **0.30 h⁻¹** to **0.41 h⁻¹** in the span of 15 hours. 
+
+There are a myriad of further applications for turbidostats, such as characterization of species, directed evolution, responses to stimuli (gene regulating metabolites) and so much more. 
+
+We encourage you to choose species and media compositions to suit your interests. Have fun! 

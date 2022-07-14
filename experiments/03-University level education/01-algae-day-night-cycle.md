@@ -10,7 +10,9 @@ import Admonition from '@theme/Admonition';
 import * as colors from '@site/src/components/constants';
 
 :::tip Success goal
-This experiment will show the basic growth curve of algae over a 16h:8h day/night cycle. Students can observe exponential growth during the “day” hours, and stalled growth “overnight”. 
+Adding two LED bulbs onto your base Pioreactor will create a _photo_-bioreactor, giving you the ability to grow species that require light! 
+
+This experiment will show the growth curve of algae over a 16h:8h day/night cycle. Students can observe **exponential growth during the “day”**  (as algae biomass is accumulated through photosynthesis), and **stalled growth “overnight”** (where algae reproduce, but don't accumulate biomass). 
 :::
 
 ## Requirements
