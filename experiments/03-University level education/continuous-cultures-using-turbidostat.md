@@ -1,6 +1,8 @@
 ---
 title: Continuous cultures using a turbidostat
 slug: /continuous-cultures-using-turbidostat
+hide_table_of_contents: true
+
 ---
 
 import AssemblyInstructionBlock from '@site/src/components/AssemblyInstructionBlock';
@@ -42,19 +44,19 @@ This setup is a powerful tool that tests the limits of population growth. Studen
 More details on attaching pumps can be found [here](/user-guide/using-pumps). 
 
 :::note
-The peristaltic pump has two tubes: a <Highlight color={colors.red}>source</Highlight> and a <Highlight color={colors.blue}>sink.</Highlight> Source tubes take up liquid, and sink tubes expell liquid. You can label your tubes with coloured tape as we have in the images.  
+The peristaltic pump has two tubes: a <Highlight color={colors.red}>source</Highlight> and a <Highlight color={colors.blue}>sink.</Highlight> Source tubes take up liquid, and sink tubes expel liquid. You can label your tubes with coloured tape as we have in the images.
 :::
 
 </AssemblyInstructionBlock>
 
 -----
 
-<AssemblyInstructionBlock title="Step 2: Calibrating the pumps" images={["experiments/turbidostat/ssh_into_unit.png","experiments/turbidostat/run_pump_calc.png"]}>
+<AssemblyInstructionBlock title="(Optional) Step 2: Calibrating the pumps" images={["experiments/turbidostat/ssh_into_unit.png","experiments/turbidostat/run_pump_calc.png"]}>
 
-1. [Calibrate your pumps](/user-guide/hardware-calibrations#pump-calibration) through the command line.
-2.	Type **`ssh pioreactor@<insert unit name>.local`**. For example, to calibrate on our Pioreactor named worker2, we typed **`ssh pioreactor@worker2.local`**.
+1. If you haven't done so, [calibrate your pumps](/user-guide/hardware-calibrations#pump-calibration) through your computer's command line.
+2.	Type **`ssh pioreactor@<insert unit name>.local`**. For example, to calibrate on our Pioreactor named _worker3_, we typed **`ssh pioreactor@worker3.local`**.
 3. Type **pio run pump_calibration**. 
-4. Follow the promts to calibrate your media pump.
+4. Follow the prompts to calibrate your media pump.
 5. Repeat for your waste pump. 
 
 </AssemblyInstructionBlock>
@@ -67,18 +69,18 @@ The peristaltic pump has two tubes: a <Highlight color={colors.red}>source</High
 2. Adjust the tube lengths on the cap of your small sterile vial such that <Highlight color={colors.green}>one just touches the media,</Highlight> while another <Highlight color={colors.magenta}>sits above the media.</Highlight>
 3. Inoculate your small sterile vial with drops of your culture. 
 4. Wipe vial and place in the Pioreactor. 
-5. <Highlight color={colors.red}>For your media pump:</Highlight>
-  *	Attach the source tube to your media container.
-  *	Attach the sink tube to the vial cap tube that sits above the media. 
-6. <Highlight color={colors.blue}>For your waste pump:</Highlight>  
-*	Attach the source tube to the vial cap tube that touches the media.  
-*	Attach the sink tube to your waste container. 
+5. For your <Highlight color={colors.red}>media pump:</Highlight>
+   * Attach the source tube to your media container.
+   * Attach the sink tube to the vial cap tube that sits above the media.
+6. For your <Highlight color={colors.blue}>waste pump:</Highlight>
+   *	Attach the source tube to the vial cap tube that touches the media.
+   *	Attach the sink tube to your waste container.
 
 </AssemblyInstructionBlock>
 
 -----
 
-<AssemblyInstructionBlock title="Step 4: Start activities and automations" images={["experiments/turbidostat/general_automations.png","experiments/turbidostat/dosing_automation.png","experiments/turbidostat/PID_turbidostat.png","experiments/turbidostat/turbidostat_settings.png","experiments/turbidostat/overview_settings.png","experiments/turbidostat/dosing_settings.png"]}>
+<AssemblyInstructionBlock title="Step 4: Start activities and automations" images={["experiments/turbidostat/general_automations.png","experiments/turbidostat/dosing_automation.png","experiments/turbidostat/PID_turbidostat.png","experiments/turbidostat/turbidostat_settings.png","experiments/turbidostat/overview_settings.png"]}>
 
 6.	Visit [pioreactor.local](http://pioreactor.local) and start a new experiment.
 7.	Select _Manage_, and start _Stirring_ activity and _OD reading_ activity.
@@ -93,6 +95,17 @@ To change the _Time between dosing_ and/or _Target OD_ while the experiment is r
 
 </AssemblyInstructionBlock>
 
+
+<AssemblyInstructionBlock title="Step 5: Changing parameters" images={["experiments/turbidostat/dosing_settings.png"]}>
+
+1. You can change the parameters of the turbidostat automation in the _Settings_ tab.
+2. Changes will take effect immediately.
+
+
+</AssemblyInstructionBlock>
+
+
+
 ## Example 
 
 In our turbidostat system, we studied a small vial of YPD media inoculated with 4 drops of a yeast slurry. The culture was replenished every **10 minutes** (time between dosing) with fresh YPD media when the target OD was reached.
@@ -103,10 +116,8 @@ After 16 hours, the following results are recorded:
 
 ![](/img/experiments/turbidostat/turbidostat_results.png)
 
-:::tip FYI: _Why does normalized OD look noisy?_
-After the time period set by you (the _Time between dosing_), the system assesses the normalized OD.
-
-As the normalized OD approaches the target OD, an automated amount of new media is added and waste is removed. The next time the system "wakes up", the OD will equals/be close to the set target OD. 
+:::tip FYI: _Why does normalized OD look like that?_
+After the time period set by you (the _Time between dosing_), the system assesses the normalized OD. As the normalized OD approaches the target OD, an automated amount of new media is added and waste is removed. The next time the system "wakes up", the OD will equals/be close to the set target OD.
 :::
 
 ![](/img/experiments/turbidostat/turbidostat_gr_results.png)

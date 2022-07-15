@@ -13,8 +13,8 @@ The silent automation is the simplest automation: doing nothing. The automation 
 
 ### Light/Dark cycle
 
-**Requires:** up to 2 LEDs, in channels B and C.
+**Requires:** up to 2 LEDs, in channels C and D.
 
-This automation will turn the LEDs in channels B & C ON and OFF on a predetermined scheduale, specified by `light_duration_hours` and `dark_duration_hours`. The intensity of the LED is given by `light_intensity`. The LEDs start ON. `duration` is set to be 60 minutes.
+This automation will turn the LEDs in channels C & D on and off on a predetermined scheduale, specified by `light_duration_hours` and `dark_duration_hours`. The intensity of the LED is given by `light_intensity`. The LEDs start ON. `duration` is permanently set to be 60 minutes / 1 hour.
 
 
