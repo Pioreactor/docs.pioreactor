@@ -15,7 +15,7 @@ Apply turbidostat functions with temperature cycling. We offer a (plugin?) that 
 
 ## Requirements
 
-<AssemblyInstructionBlock images={["experiments/turbidostat/turbido_mats.jpg"]}>
+<AssemblyInstructionBlock images={["experiments/turbidostat/turbido_mats_1.jpg"]}>
 
 * Two available Pioreactors
 * Four peristaltic pumps: 
