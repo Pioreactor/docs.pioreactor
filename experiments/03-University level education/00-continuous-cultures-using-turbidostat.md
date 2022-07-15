@@ -1,6 +1,7 @@
 ---
 title: Continuous cultures using a turbidostat
 slug: /continuous-cultures-using-turbidostat
+hide_table_of_contents: true
 ---
 
 import AssemblyInstructionBlock from '@site/src/components/AssemblyInstructionBlock';
@@ -12,12 +13,12 @@ import * as colors from '@site/src/components/constants';
 :::tip Success goal
 Your Pioreactor can be transformed into a [turbidostat](/user-guide/dosing-automations#pid-turbidostat), where pumps are used to replenish media around a target OD, creating a continuous culture. Due to the abundance of resources and lack of rate-limiting nutrients, the specific growth rate of a species is maximized. _Learn more about the differences in bioreactor strategies [here](https://pioreactor.com/blogs/pioreactor-blog/the-many-different-environments-of-bioreactors-chemostat-turbidostat-stressostat-and-more)._
 
-This setup is a powerful tool that tests the limits of population growth. Students can investigate the specific maximum growth rate of a species and evaluate what innate biological process is limiting growth. 
+This setup is a powerful tool that tests the limits of population growth. Students can investigate the specific maximum growth rate of a species and evaluate what innate biological processes are limiting growth. 
 :::
 
 ## Requirements
 
-<AssemblyInstructionBlock images={["experiments/turbidostat/turbido_mats.jpg"]}>
+<AssemblyInstructionBlock images={["experiments/turbidostat/turbido_mats_1.jpg","experiments/turbidostat/turbido_mats_2.jpg"]}>
 
 * One available Pioreactor
 * Two peristaltic pumps: 
@@ -27,8 +28,6 @@ This setup is a powerful tool that tests the limits of population growth. Studen
 	*	One labelled "media"
 	*	One labelled "waste" 
 * Scale to calibrate, if needed
-* Culture of choice (ex. Baker's Yeast)
-* Media of choice (ex. YPD)
 
 </AssemblyInstructionBlock>
 
@@ -37,7 +36,7 @@ This setup is a powerful tool that tests the limits of population growth. Studen
 <AssemblyInstructionBlock title="Step 1: Setting up the pumps" images={["experiments/turbidostat/pump_to_pwm.png","experiments/turbidostat/sink_and_source.png"]}>
 
 1. Insert the cable of one peristaltic pump into <Highlight color={colors.magenta}>PWM channel 2.</Highlight> This is your **media pump.** 
-2. Insert the cable of the other pump into <Highlight color={colors.blue}>PWM channel 4.</Highlight>  This is your **waste pump.**
+2. Insert the cable of the other pump into <Highlight color={colors.orange}>PWM channel 4.</Highlight>  This is your **waste pump.**
 
 More details on attaching pumps can be found [here](/user-guide/using-pumps). 
 
@@ -61,18 +60,20 @@ The peristaltic pump has two tubes: a <Highlight color={colors.red}>source</High
 
 -----
 
-<AssemblyInstructionBlock title="Step 3: Vial, media and waste container setup" images={["experiments/turbidostat/adjusting_tubes.png","experiments/turbidostat/media_flow.png"]}>
+<AssemblyInstructionBlock title="Step 3: Vial, media and waste container setup" images={["experiments/turbidostat/adjusting_tubes.png","experiments/turbidostat/luer_attach.png","experiments/turbidostat/media_flow.png"]}>
 
 1. Add media into your media container. Sterilize by autoclaving.
 2. Adjust the tube lengths on the cap of your small sterile vial such that <Highlight color={colors.green}>one just touches the media,</Highlight> while another <Highlight color={colors.magenta}>sits above the media.</Highlight>
 3. Inoculate your small sterile vial with drops of your culture. 
 4. Wipe vial and place in the Pioreactor. 
-5. <Highlight color={colors.red}>For your media pump:</Highlight>
-  *	Attach the source tube to your media container.
-  *	Attach the sink tube to the vial cap tube that sits above the media. 
-6. <Highlight color={colors.blue}>For your waste pump:</Highlight>  
-*	Attach the source tube to the vial cap tube that touches the media.  
-*	Attach the sink tube to your waste container. 
+5. For your media pump:
+	*	Attach the <Highlight color={colors.teal}>source tube to your media container.</Highlight>
+	*	Attach the <Highlight color={colors.orange}>sink tube to the vial cap tube</Highlight> that sits **above** the media. 
+6. For your waste pump:
+	*	Attach the <Highlight color={colors.red}>source tube to the vial cap tube</Highlight> that **touches** the media.  
+	*	Attach the <Highlight color={colors.blue}>sink tube to your waste container.</Highlight>  
+
+The flow of liquid is summarized in the third picture, using <Highlight color={colors.red}>red arrows.</Highlight> 
 
 </AssemblyInstructionBlock>
 

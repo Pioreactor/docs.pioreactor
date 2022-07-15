@@ -1,6 +1,7 @@
 ---
 title: Yeast nutrient enrichment
 slug: /yeast-nutrient-enrichment
+hide_table_of_contents: true
 ---
 
 :::tip Success goal

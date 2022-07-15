@@ -4,6 +4,7 @@ slug: /salt-stress-on-yeast
 tags: 
   - Yeast
   - Salt
+hide_table_of_contents: true
 ---
 
 import AssemblyInstructionBlock from '@site/src/components/AssemblyInstructionBlock';
@@ -30,9 +31,9 @@ Topic discussions for this experiment can range from introducing osmotic pressur
 
 <AssemblyInstructionBlock title="Step 1: Preparing the media" images={["user-guide/calibrate.png","user-guide/calibrate_stirring.png"]}>
 
-1.  Prepare a sterile stock of 50g YPD / 1L distilled water. Aim for 20ml × the number of Pioreactors you are using, as each Pioreactor will require about 15mL of media.
-2.  Weigh table salt to add to your media. This amount can be calculated as per the example below.
-3. Allow stock to cool
+1. Prepare a stock of 50g YPD / 1L distilled water. Aim for 20ml × the number of Pioreactors you are using, as each Pioreactor will require about 15mL of media.
+2. Divide this stock into small vials, then sterilize by autoclaving. Allow stock to cool.
+2. Weigh table salt to add to your media. This amount can be calculated as per the example below.
 4. Divide the stock into the sterilized vials and add salt.
 5. Mix the salt with gentle shaking or by using the _Stirring_ function on the Pioreactor. 
 
@@ -44,7 +45,7 @@ Topic discussions for this experiment can range from introducing osmotic pressur
 <AssemblyInstructionBlock title="Step 2: Inoculate your vials" images={["user-guide/calibrate.png","user-guide/calibrate_stirring.png"]}>
 
 6. Dilute a small amount of yeast in 15mL of YPD stock media. 
-7. Sterily add 3-4 drops of this solution to your vials. 
+7. Sterily add 3-4 drops of this yeast solution to your vials. 
 8. Wipe the vials and place them in the Pioreactor.
 
 </AssemblyInstructionBlock>

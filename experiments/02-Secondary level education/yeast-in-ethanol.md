@@ -1,6 +1,7 @@
 ---
 title: Yeast growth in ethanol
 slug: /yeast-in-ethanol
+hide_table_of_contents: true
 ---
 :::tip Success goal 
 Ethanol, along with carbon dioxide, are waste products of yeast fermentation. High concentrations of ethanol can inhibit yeast cell division and growth. Students can explore the ethanol fermentation process and practice dilution calculations for media preparation. We've included two methods to calculate ethanol precentages; teachers can prepare this beforehand or allow their students to calculate it themselves.

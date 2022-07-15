@@ -4,7 +4,14 @@ slug: /yeast-growth-by-temperature
 tags: 
   - Yeast
   - Temperature
+hide_table_of_contents: true
 ---
+
+import AssemblyInstructionBlock from '@site/src/components/AssemblyInstructionBlock';
+import Highlight from '@site/src/components/Highlight';
+import Admonition from '@theme/Admonition';
+
+import * as colors from '@site/src/components/constants';
 
 :::tip Success Goal
 Demonstrate the effect of temperature on yeast growth. Students may have a prior belief that temperature effects are linear, ex: a culture at 10℃ will grow at half the rate compared to a culture at 20℃, and a third the rate at 30℃. This experiment would show the non-linear effect of temperature on growth (and relate it to how refrigerators halt spoilage for so long). Students and the teacher can pick temperatures to test beforehand.
@@ -23,17 +30,36 @@ The Pioreactor doesn't cool samples, so it can't achieve temperatures below your
 
 ## Steps
 
-1.  Prepare a sterile stock of 50g YPD / 1L distilled water. Aim to make 20ml × the number of Pioreactors you are using, as each Pioreactor will require about 15mL of media.
-2.  Distribute up to 15mL of liquid into each clean and sterilized Pioreactor vial.
-3.  Once stock is cool, inoculate the stock with a very small amount of baker's yeast using best practices to avoid other contamination. 
-	* A yeast stock solution can be made by diluting a small amount of yeast in 15mL of YPD stock media, then a drop of this stock solution can be added to your vials. Add 3-4 drops of this yeast slurry. 
-4.  Visit [pioreactor.local](http://pioreactor.local) and start a new experiment.
-5.  On the left menu, select the _Pioreactors_ page. Add any additional Pioreactors that you would like to use (more information [here](/user-guide/create-cluster)). Select _Manage all Pioreactors_, and start _Stirring_ activity, and _OD reading_ activity.
-6.  For each Pioreactor in use, select _Manage_ and start the _temperature automation_, select _Stable_ and provide the target temperature for that Pioreactor.
-7.  Confirm that everything looks normal on the _Overview_ page (ex: receiving optical density signal).
-8.  Optional: you can change the names of the Pioreactor in the UI to display the target temperature. This can also be done at the start of your experiment.
-9.	Back on the _Pioreactors_ page, select _Manage all Pioreactors_ and start _Growth rate_. It will take a minute for results to begin showing up. 
-10.  Students can watch growth progress on the _Overview_ page.
+<AssemblyInstructionBlock title="Step 1: Preparing the media" images={["user-guide/calibrate.png","user-guide/calibrate_stirring.png"]}>
+
+1. Prepare a stock of 50g YPD / 1L distilled water. Aim for 20ml × the number of Pioreactors you are using, as each Pioreactor will require about 15mL of media.
+2. Divide this stock into small vials, then sterilize by autoclaving. Allow stock to cool.
+
+</AssemblyInstructionBlock>
+
+-----
+
+<AssemblyInstructionBlock title="Step 2: Inoculate your vials" images={["user-guide/calibrate.png","user-guide/calibrate_stirring.png"]}>
+
+6. Dilute a small amount of yeast in 15mL of YPD stock media. 
+7. Sterily add 3-4 drops of this yeast solution to your vials. 
+8. Wipe the vials and place them in the Pioreactor.
+
+</AssemblyInstructionBlock>
+ 
+<AssemblyInstructionBlock title="Step 3: Start your experiment" images={["user-guide/calibrate.png","user-guide/calibrate_stirring.png"]}>
+
+6.  Visit [pioreactor.local](http://pioreactor.local) and start a new experiment.
+7.  On the left menu, select the _Pioreactors_ page. Add any additional Pioreactors that you would like to use (more information [here](/user-guide/create-cluster)). Select _Manage all Pioreactors_, and start:
+	*	_Stirring_ activity
+	*	_OD reading_ activity
+8.	Select _Manage_ on an individual Pioreactor. Turn on the _Temperature automation_ activity on _Stable_, selecting your temperature of interest. 
+8.  Confirm that everything looks normal on the _Overview_ page (ex: receiving optical density signal).
+9.	Back on the _Pioreactors_ page, select _Manage all Pioreactors_ and start _Growth rate_. 
+	* Optional: you can change the names of the Pioreactor in the UI to display the target temperature.
+11.  Students can watch growth progress on the _Overview_ page. 
+
+</AssemblyInstructionBlock>
 
 ## Example
 
