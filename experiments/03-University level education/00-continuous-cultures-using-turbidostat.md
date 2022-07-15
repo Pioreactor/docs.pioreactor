@@ -2,10 +2,6 @@
 title: Continuous cultures using a turbidostat
 slug: /continuous-cultures-using-turbidostat
 hide_table_of_contents: true
-<<<<<<< HEAD:experiments/03-University level education/00-continuous-cultures-using-turbidostat.md
-=======
-
->>>>>>> 19f2c9ac6f4dc57af3e585a99397504693c2876f:experiments/03-University level education/continuous-cultures-using-turbidostat.md
 ---
 
 import AssemblyInstructionBlock from '@site/src/components/AssemblyInstructionBlock';
@@ -70,7 +66,6 @@ The peristaltic pump has two tubes: a <Highlight color={colors.red}>source</High
 2. Adjust the tube lengths on the cap of your small sterile vial such that <Highlight color={colors.green}>one just touches the media,</Highlight> while another <Highlight color={colors.magenta}>sits above the media.</Highlight>
 3. Inoculate your small sterile vial with drops of your culture. 
 4. Wipe vial and place in the Pioreactor. 
-<<<<<<< HEAD:experiments/03-University level education/00-continuous-cultures-using-turbidostat.md
 5. For your media pump:
 	*	Attach the <Highlight color={colors.teal}>source tube to your media container.</Highlight>
 	*	Attach the <Highlight color={colors.orange}>sink tube to the vial cap tube</Highlight> that sits **above** the media. 
@@ -79,15 +74,6 @@ The peristaltic pump has two tubes: a <Highlight color={colors.red}>source</High
 	*	Attach the <Highlight color={colors.blue}>sink tube to your waste container.</Highlight>  
 
 The flow of liquid is summarized in the third picture, using <Highlight color={colors.red}>red arrows.</Highlight> 
-=======
-5. For your <Highlight color={colors.red}>media pump:</Highlight>
-   * Attach the source tube to your media container.
-   * Attach the sink tube to the vial cap tube that sits above the media.
-6. For your <Highlight color={colors.blue}>waste pump:</Highlight>
-   *	Attach the source tube to the vial cap tube that touches the media.
-   *	Attach the sink tube to your waste container.
->>>>>>> 19f2c9ac6f4dc57af3e585a99397504693c2876f:experiments/03-University level education/continuous-cultures-using-turbidostat.md
-
 </AssemblyInstructionBlock>
 
 -----
