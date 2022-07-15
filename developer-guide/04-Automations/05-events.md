@@ -11,7 +11,7 @@ It may make more sense to look at a specific `execute`. This is from the builtin
 class Turbidostat(DosingAutomationJob):
     ...
 
-    def execute(self) -> events.DilutionEvent | events.NoEvent:
+    def execute(self) -> Optional[events.DilutionEvent]:
         if self.latest_od >= self.target_od:
             self.execute_io_action(media_ml=self.volume, waste_ml=self.volume)
             return events.DilutionEvent(
@@ -19,14 +19,11 @@ class Turbidostat(DosingAutomationJob):
                 {'latest_od': self.latest_od, 'target_od': self.target_od}
             )
         else:
-            return events.NoEvent(
-                f"latest OD={self.latest_od:.2f} < target OD={self.target_od:.2f}",
-                {'latest_od': self.latest_od, 'target_od': self.target_od}
-            )
+            return
 ```
 
 
-When `execute` runs, either a `DilutionEvent` or `NoEvent` is returned, and this is sent to MQTT. All events take up two (optional) arguments: a message, and a dictionary of arbitrary data. In this case, we've included a small message of _why_ the dosing did or did not occur, and included some metadata about the optical densities.
+When `execute` runs, either a `DilutionEvent` or nothing is returned. All events take up two (optional) arguments: a message, and a dictionary of arbitrary data. In this case, we've included a small message of _why_ the dosing did or did not occur, and included some metadata about the optical densities.
 
 After `execute` returns an event, it will be published to MQTT. For example:
 ```
