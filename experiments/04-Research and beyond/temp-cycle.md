@@ -10,7 +10,7 @@ import Admonition from '@theme/Admonition';
 import * as colors from '@site/src/components/constants';
 
 :::tip Success Goal
-Apply turbidostat functions with temperature cycling. We offer a (plugin?) that cycles the temperature between 30°C and 40°C sinusoidally over a 24 hour period. In conjunction with turbidostat media cycling*, the maximum specific growth rate can be characterized between a culture held at a static temperature versus a culture undergoing temperature cycling. This experiment explores concepts described in Knutson et al. (2018). 
+Apply turbidostat functions with temperature cycling. We created a plugin that cycles the temperature between 30°C and 40°C sinusoidally over a 24 hour period. Together with turbidostat media cycling, the maximum specific growth rate can be characterized between a culture held at a static temperature versus a culture undergoing temperature cycling. This experiment explores concepts described in Knutson et al., (2018). 
 :::
 
 ## Requirements
