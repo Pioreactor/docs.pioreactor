@@ -10,6 +10,8 @@ A key dataset produced by the Pioreactor is the _implied growth rate_ of the cul
 Additionally, when working with small amounts of a microorganism, you can obtain more accurate growth rates by [blanking the vial](/user-guide/od-normal-growth-rate#blanking) before inoculation (Pioreactors tab > Calibrate > Blanks > Start, for each Pioreactor). 
 :::
 
+Whether you're a student, educator, or researcher, or even just interested in studying cultures, the Pioreactor can be modulated to perform a wide range of experiments suited to you. We encourage you to expand on the example protocols we provided using your own cultures and media. 
+
 ### Have edits, corrections, or suggestions?
 
 This entire site is open-source, and any suggestions or comments can be added to our [Issue Tracker](https://github.com/Pioreactor/docs.pioreactor/issues). If you're up for it, feel free to send a [pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/getting-started/about-collaborative-development-models), too!

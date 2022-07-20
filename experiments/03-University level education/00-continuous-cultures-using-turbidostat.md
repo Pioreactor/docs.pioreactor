@@ -93,6 +93,7 @@ To change the _Time between dosing_ and/or _Target OD_ while the experiment is r
 
 </AssemblyInstructionBlock>
 
+-----
 
 <AssemblyInstructionBlock title="Step 5: Changing parameters" images={["experiments/turbidostat/dosing_settings.png"]}>
 
