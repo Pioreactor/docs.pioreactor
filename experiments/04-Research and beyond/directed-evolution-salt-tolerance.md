@@ -50,7 +50,29 @@ Use a turbidostat system with selective pressures to study evolutionary principl
 
 <AssemblyInstructionBlock title="Step 2: Running the turbidostat" images={["experiments/turbidostat/turbido_mats_1.jpg","experiments/turbidostat/turbido_mats_2.jpg"]}>
 
-1. Click _Manage_ and _Start_ the _Dosing automation_. Change the automation type to a turbidostat. 
+1. Click _Manage_ and _Start_ the _Dosing automation_. Change the automation type to _Turbidostat_. 
+2. Set your _Target OD_ and _Volume_, then _Start_. 
+3. End the experiment once the maximum specific growth rate has increased suffienctly. This may take a day or more.  
+
+:::note
+The maximum specific growth rate will increase over time, as faster-growing yeast outcompete slow-growing yeast. 
+:::
+
+</AssemblyInstructionBlock>
+
+-----
+
+<AssemblyInstructionBlock title="Step 3. Comparison of salt-tolerant and wild type cells" images={["experiments/turbidostat/turbido_mats_1.jpg","experiments/turbidostat/turbido_mats_2.jpg"]}>
+
+1. Inoculate one vial of sterile salted YPD media with the new, salt-tolerant yeast. 
+2. Inoculate a second vial of sterile salted YPD media with the wild type yeast. 
+3. Determine their growth rates using two Pioreactors. 
+
+You should be able to observe that the yeast from the turbidostat are quicker to grow in the salt heavy media. 
+
+</AssemblyInstructionBlock>
+
+## Example
 
 
 
