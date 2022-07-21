@@ -46,13 +46,7 @@ We can more accurately compare culture growth using these ratios as opposed to u
 
 ### Blanking
 
-While basic normalization accounts for initial OD differences, it does not consider the optical density of the media itself. For a more accurate growth rate calculation, you can blank your sample:
-
-1. Insert your sterile vial containing media into the Pioreactor **before** inoculating with your species of interest. 
-2. On the website, click _Pioreactors_ tab on the left-hand menu, and choose one of the active Pioreactors. 
-3. Select _Calibrate_, and under the _Blanks_ tab, click _Start_. The Pioreactor will now record the optical density of the blank vial. This can take a few minutes. 
-4. Once the blank is recorded, repeat for all the Pioreactors to be used. 
-5. You can now inoculate your vials and begin your experiment. 
+While basic normalization accounts for initial OD differences, it does not consider the optical density of the media itself. For a more accurate growth rate calculation, you can blank your sample.
 
 Blanking your vials is recommended for experiments that begin with low OD readings (ex. inoculating small amounts of yeast). By blanking, you are able to observe the OD of only the microorganism of interest. 
 
