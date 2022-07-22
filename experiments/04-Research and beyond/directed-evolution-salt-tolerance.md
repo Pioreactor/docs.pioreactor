@@ -1,7 +1,7 @@
 ---
 title: Directed evolution of salt-tolerant yeast 
 slug: /directed-evolution-salt-tolerance
-hide_table_of_contents: true
+
 ---
 
 import AssemblyInstructionBlock from '@site/src/components/AssemblyInstructionBlock';
@@ -72,7 +72,23 @@ You should be able to observe that the yeast from the turbidostat are quicker to
 
 </AssemblyInstructionBlock>
 
+-----
+
 ## Example
 
+The following normalized OD graph resulted from our turbidostat using salted media: 
 
+![](/img/experiments/turbidostat/salt_turbidostat.png)
+
+A maximum growth rate of **0.6 h⁻¹** was reached. In contrast, when you look back at our [secondary level salt experiment](/experiments/salt-stress-on-yeast), the 4.5% w/v salt vial only reached **0.29 h⁻¹**. This is because our previous experiment _selected_ for salt tolerant yeast cells, but not enough time passed for the yeast to _adapt_ before nutrients ran out. 
+
+Using the turbidostat system, we were able to _double_ the maximum growth rate! 
+
+Our yeast culture exhibited an adaptation to grow in high salt, indicating our turbidostat yeast culture has gained a **higher fitness** in 4% w/v salted media.  
+
+We then grew batch cultures of our new, salt-tolerant yeast, alongside our original (wildtype) yeast culture in 2 Pioreactors using 4% w/v salt media. Here's our result:  
+
+![](/img/experiments/turbidostat/salt_vs_wt_gr.png)
+
+You can see just how effective our turbidostat system was in creating an environment that pushed yeast into becoming more salt tolerant. 
 

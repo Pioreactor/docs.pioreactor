@@ -1,7 +1,6 @@
 ---
 title: Continuous cultures using a turbidostat
 slug: /continuous-cultures-using-turbidostat
-hide_table_of_contents: true
 ---
 
 import AssemblyInstructionBlock from '@site/src/components/AssemblyInstructionBlock';

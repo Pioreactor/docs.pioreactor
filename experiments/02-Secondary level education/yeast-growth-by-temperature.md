@@ -4,7 +4,6 @@ slug: /yeast-growth-by-temperature
 tags: 
   - Yeast
   - Temperature
-hide_table_of_contents: true
 ---
 
 import AssemblyInstructionBlock from '@site/src/components/AssemblyInstructionBlock';

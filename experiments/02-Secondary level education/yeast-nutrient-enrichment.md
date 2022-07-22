@@ -1,7 +1,6 @@
 ---
 title: Yeast nutrient enrichment
 slug: /yeast-nutrient-enrichment
-hide_table_of_contents: true
 ---
 
 import AssemblyInstructionBlock from '@site/src/components/AssemblyInstructionBlock';
@@ -11,7 +10,7 @@ import Admonition from '@theme/Admonition';
 import * as colors from '@site/src/components/constants';
 
 :::tip Success goal
-DME + YL or just DME in a turbidostat system. 
+Dried malt extract, or DME, is a precursor used in beer production.  + YL or just DME in a turbidostat system. 
 :::
 
 ## Requirements
@@ -35,31 +34,6 @@ DME + YL or just DME in a turbidostat system.
 </AssemblyInstructionBlock>
 
 ## Steps
-
-<AssemblyInstructionBlock title="Step 1: Setting up the pumps" images={["experiments/turbidostat/pump_to_pwm.png","experiments/turbidostat/sink_and_source.png"]}>
-
-1. Insert the cable of one peristaltic pump into <Highlight color={colors.magenta}>PWM channel 2.</Highlight> This is your **media pump.** 
-2. Insert the cable of the other pump into <Highlight color={colors.orange}>PWM channel 4.</Highlight>  This is your **waste pump.**
-
-More details on attaching pumps can be found [here](/user-guide/using-pumps). 
-
-:::note
-The peristaltic pump has two tubes: a <Highlight color={colors.red}>source</Highlight> and a <Highlight color={colors.blue}>sink.</Highlight> Source tubes take up liquid, and sink tubes expel liquid. You can label your tubes with coloured tape as we have in the images.
-:::
-
-</AssemblyInstructionBlock>
-
------
-
-<AssemblyInstructionBlock title="(Optional) Step 2: Calibrating the pumps" images={["experiments/turbidostat/ssh_into_unit.png","experiments/turbidostat/run_pump_calc.png"]}>
-
-1. If you haven't done so, [calibrate your pumps](/user-guide/hardware-calibrations#pump-calibration) through your computer's command line.
-2.	Type **`ssh pioreactor@<insert unit name>.local`**. For example, to calibrate on our Pioreactor named _worker3_, we typed **`ssh pioreactor@worker3.local`**.
-3. Type **pio run pump_calibration**. 
-4. Follow the prompts to calibrate your media pump.
-5. Repeat for your waste pump. 
-
-</AssemblyInstructionBlock>
 
 -----
 

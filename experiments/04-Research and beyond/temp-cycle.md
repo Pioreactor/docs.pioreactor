@@ -1,7 +1,6 @@
 ---
 title: Temperature cycling of continuous cultures
 slug: /temp-cycle
-hide_table_of_contents: true
 ---
 import AssemblyInstructionBlock from '@site/src/components/AssemblyInstructionBlock';
 import Highlight from '@site/src/components/Highlight';
