@@ -10,7 +10,7 @@ slug: /prepare-vial-for-cultures
 We suggest using between **10ml to 15ml** volume of liquid in the vial.
 
 :::tip
-Some things to consider when selecting a volume: a lower volume will provide more aeration per mL since the liquid-air interface is fixed. A lower volume will also be more responsive to changes in temperature. Too low and a vortex may start interfering with the Pioreactor's optical system.
+Some things to consider when selecting a volume: a lower volume will provide more aeration per mL since the liquid-air interface is fixed. A lower volume will also be more responsive to changes in temperature. But too low and a vortex may start interfering with the Pioreactor's optical system.
 :::
 
 #### Position of tubes in cap
@@ -46,7 +46,7 @@ How much inoculant should you add? That depends on how concentrated your inocula
 
 ### 4. Cleaning glassware
 
-Since light will be traveling through the glass, we recommend handling the glass ware with gloves, or at least minimizing oils from hands. Post-inoculation, and before placing in the Pioreactor sleeve, wiping the surface of the glass with ethanol is a great idea!
+Since light will be traveling through the glass, we recommend handling the glass ware with gloves, or at least minimizing handling the glass much. Before placing in the Pioreactor sleeve, wiping the surface of the glass with a wipe or ethanol is a great idea!
 
 
 ### 5. Positioning glassware in the Pioreactor sleeve
@@ -54,8 +54,7 @@ Since light will be traveling through the glass, we recommend handling the glass
 The outside of the glassware vial must be dry. Place the glassware vial into the Pioreactor sleeve. Ensure that the vial is pressed all the way down into the sleeve. The rotation of the vial doesn't matter.
 
 ### 6. Adjusting tube length 
-
-When working with yeast, you’ll want to keep the bottoms of the tubes in the cap from being submerged in your media to avoid creating a pressured, anaerobic environment. Carbon dioxide bubbles are likely to form due to excess CO<sub>2</sub> production, and this will impede the OD readings. Thus, you should pull the luer locks until the ends of the tubes are above liquid level. 
+You want to keep the bottoms of the tubes in the cap from being submerged in your media to avoid creating a pressured environment. Thus, you should pull the luer locks until the ends of the tubes are above liquid level.
 
 ### Extra
 #### Using pumps: influx and efflux.

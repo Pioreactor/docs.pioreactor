@@ -3,12 +3,9 @@ title: Setting up an experiment
 slug: /set-up-an-experiment
 ---
 
-### Hardware set up
-
-1. Ensure the LEDs and photodiodes are placed deep in their respective pockets, and the caps are placed on the ends of the pockets.
 
 :::info
-Before starting any activities, it's useful to run a _self test_ to confirm that your Pioreactors are all working as expected. [How to run a self-test.](/user-guide/running-self-test)
+Before starting an experiment, it's useful to run a _self test_ to confirm that your Pioreactors are all working as expected. [How to run a self-test.](/user-guide/running-self-test)
 :::
 
 ### Creating an experiment
