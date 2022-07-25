@@ -4,7 +4,6 @@ slug: /salt-stress-on-yeast
 tags: 
   - Yeast
   - Salt
-hide_table_of_contents: true
 ---
 
 import AssemblyInstructionBlock from '@site/src/components/AssemblyInstructionBlock';

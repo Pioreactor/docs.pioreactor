@@ -1,7 +1,6 @@
 ---
 title: Continuous cultures using a turbidostat
 slug: /continuous-cultures-using-turbidostat
-hide_table_of_contents: true
 ---
 
 import AssemblyInstructionBlock from '@site/src/components/AssemblyInstructionBlock';
@@ -93,6 +92,7 @@ To change the _Time between dosing_ and/or _Target OD_ while the experiment is r
 
 </AssemblyInstructionBlock>
 
+-----
 
 <AssemblyInstructionBlock title="Step 5: Changing parameters" images={["experiments/turbidostat/dosing_settings.png"]}>
 
