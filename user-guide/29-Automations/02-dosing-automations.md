@@ -31,7 +31,7 @@ The silent automation is the simplest automation: doing nothing. The automation 
 
 The chemostat automation is the second simplest dosing automation. Every `duration` minutes, the media and waste pumps run and exchange `volume` (mL) of liquid inside the Pioreactor. Initially, the culture is growing and consuming nutrients and energy. Eventually, a nutrient will become scarce and will stall growing. Upon a pump refresh, this _growth-limiting_ nutrient becomes abundant once again, and the culture can grow, up until consuming all of it again and stalling growth. Thus, the bioreactor enters into a nutrient _near_\-equilibrium (hence the term "chemostat", for "chemical-static"). However, more long-term, because the culture is under an evolutionary pressure to grow, adaptions will occur that will improve the acquisition or utilization of the growth-limiting nutrient.
 
-### PID Turbidostat
+### Turbidostat
 
 **Requires:**
 
@@ -46,7 +46,7 @@ The chemostat automation is the second simplest dosing automation. Every `durati
     * one labelled "media"
 
 
-First, what is a turbidostat? A turbidostat ("turbidity-static") tries to keep the turbidity (also called optical density, or OD), constant over time. This is usually accomplished by taking frequent measurements of the turbidity, and performing a set media/waste pump cycle when the optical density exceeds some `target OD`. The Pioreactor improves upon this simple procedure by introducing a dynamic controller that will control _how much_ volume to exchange upon each cycle. This means that there needs to be no manual tuning after starting the automation. (Traditional turbidostats need to be tuned to adapt to the growth of the culture: either the volume exchanged or the frequency of exchanges). A `max volume` parameter needs to be set, and the PID Turbidostat automation will choose some value between 0 and `max volume`, and run a cycle every `duration` minutes.
+A turbidostat ("turbidity-static") tries to keep the turbidity (also called optical density, or OD), constant over time. This is usually accomplished by taking frequent measurements of the turbidity (every 1 minute), and performing a set media/waste pump cycle when the _normalized_ optical density exceeds some `target OD`. The amount exchanged is the `volume` parameter. For very fast growing cultures, we recommend a `volume` around 2.0 ml.
 
 ### PID Morbidostat
 
