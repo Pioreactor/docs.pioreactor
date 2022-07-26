@@ -11,7 +11,7 @@ import * as colors from '@site/src/components/constants';
 Now that you've set up your Pioreactor, you can start a brand new experiment. Explore the sidebar for experiments you can perform with your Pioreactor. We encourage you to expand on the sample protocols we provided using your own cultures and media. 
 
 :::info
-A key dataset produced by the Pioreactor is the _implied growth rate_ of the culture. You can find more information on interpreting this growth rate [here](/user-guide/od-normal-growth-rate#growth-rate).
+If you haven't already, please reference the [_Experiment basics_](/user-guide/prepare-vial-for-cultures) page for information on media preparation, sterilization, and utilizing the Pioreactor UI. 
 :::
 
 ### Blanking
