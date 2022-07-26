@@ -19,8 +19,11 @@ Keep _at least_ 1 cap tube out of the liquid and well away from potential bubble
 
 If using pumps with your Pioreactor, see the note [below](/user-guide/prepare-vial-for-cultures#using-pumps-influx-and-efflux).
 
+### 2. Preparing media 
 
-### 2. Sterilization
+In the experiments tab, we typically showcase yeast growth in YPD broth, which is autoclavable. To create YPD broth, dissolve 50 grams YPD powder per 1 litre distilled water. Divide the mixture into the vials before sterilization.
+
+### 3. Sterilization
 
 
 #### Using heat
@@ -37,23 +40,23 @@ Don't have an autoclave? A kitchen pressure cooker works just as well. Still don
 Filtered media can be directly added to a sterilized glass vial, or via the (sterilized) male luer lock ports.
 
 
-### 3. Inoculation
+### 4. Inoculation
 
 Ideally in a sterile environment, the vial's lid can be removed and the inoculant can be added. Alternatively, for additional sterility, a needle can be sent down a tube, without removing the cap at all.
 
 How much inoculant should you add? That depends on how concentrated your inoculant is. From our experience, we create a dense culture/slurry, add a few drops to sterile media or water, and then inoculate our vials from this stock. If you are using a dropper, hold it vertically for more accurate, consistent drops. 
 
 
-### 4. Cleaning glassware
+### 5. Cleaning glassware
 
 Since light will be traveling through the glass, we recommend handling the glass ware with gloves, or at least minimizing oils from hands. Post-inoculation, and before placing in the Pioreactor sleeve, wiping the surface of the glass with ethanol is a great idea!
 
 
-### 5. Positioning glassware in the Pioreactor sleeve
+### 6. Positioning glassware in the Pioreactor sleeve
 
 The outside of the glassware vial must be dry. Place the glassware vial into the Pioreactor sleeve. Ensure that the vial is pressed all the way down into the sleeve. The rotation of the vial doesn't matter.
 
-### 6. Adjusting tube length 
+### 7. Adjusting tube length 
 
 When working with yeast, you’ll want to keep the bottoms of the tubes in the cap from being submerged in your media to avoid creating a pressured, anaerobic environment. Carbon dioxide bubbles are likely to form due to excess CO<sub>2</sub> production, and this will impede the OD readings. Thus, you should pull the luer locks until the ends of the tubes are above liquid level. 
 

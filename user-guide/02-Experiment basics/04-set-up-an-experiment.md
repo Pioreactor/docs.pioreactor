@@ -37,7 +37,7 @@ The next pages will guide you through setting up heating, stirring and optical d
 ## Alternative: Start activities from the Pioreactors page.
 
 
-On the _Pioreactors_ page, you should see at least one Pioreactor under _Active Pioreactors_. Using the "Manage" button, you can start an [activity](/user-guide/activities). Once started, jobs can also be _paused_ (and then _resumed_) and _stopped_.
+On the _Pioreactors_ page, you should see at least one Pioreactor under _Active Pioreactors_. Using the "Manage" button (Or "Manage all Pioreactors" button above), you can start an [activity](/user-guide/activities). Once started, jobs can also be _paused_ (and then _resumed_) and _stopped_.
 
 ![](/img/user-guide/pioreactor_page_manage.png)
 ![](/img/user-guide/pioreactor_page_activities.png)
