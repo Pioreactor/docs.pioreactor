@@ -46,21 +46,6 @@ This faceplate will protect the Pioreactor from potential spills.
 
 </AssemblyInstructionBlock>
 
-  </TabItem>
-  <TabItem value="zero" label="Raspberry Pi Zero">
-<AssemblyInstructionBlock title="Step 2: Bottom faceplate" images={["user-guide/hardware-assembly/bottom_faceplate.jpg","user-guide/hardware-assembly/bot_faceplate_screwed.jpg","user-guide/hardware-assembly/rpi_no_standoffs.jpg"]}>
-
-This faceplate will protect the Pioreactor from potential spills.
-
-1.  Orientation: the base will have a flat edge and an edge with an indent. The GPIO pins sit along the <Highlight color={colors.blue}>indent,</Highlight> seen on the left in the images.
-2.  Insert the 10 mm screws into the <Highlight color={colors.red}>holes.</Highlight>
-3.  Screw the <Highlight color={colors.magenta}>hexnuts</Highlight> on the screws along the flat edge of the bottom faceplate. Hexnuts are only needed on one side because of the size of the Raspberry Pi Zero.
-4.  Place the Raspberry Pi along the indented edge of the faceplate, with the <Highlight color={colors.green}>GPIO pins</Highlight> on the left. See the image.
-
-</AssemblyInstructionBlock>
-  </TabItem>
-</Tabs>
-
 -----
 
 <AssemblyInstructionBlock title="Step 3: Placing the HAT" images={["user-guide/hardware-assembly/rpi_with_standoffs.jpg","user-guide/hardware-assembly/gpio_unpushed.jpg","user-guide/hardware-assembly/gpio_pushed.jpg", "user-guide/hardware-assembly/standoff_on_hat.jpg"]}>
@@ -77,5 +62,37 @@ The HAT's GPIO connector will line up with the RPi's GPIO pins, and may require 
 
 </AssemblyInstructionBlock>
 
+
+
+  </TabItem>
+  <TabItem value="zero" label="Raspberry Pi Zero">
+<AssemblyInstructionBlock title="Step 2: Bottom faceplate" images={["user-guide/hardware-assembly/bottom_faceplate.jpg","user-guide/hardware-assembly/hex_one_side.jpg","user-guide/hardware-assembly/rpi-zero.jpg"]}>
+
+This faceplate will protect the Pioreactor from potential spills.
+
+1.  Orientation: the base will have a flat edge and an edge with an indent. The GPIO pins sit along the <Highlight color={colors.blue}>indent,</Highlight> seen on the left in the images.
+2.  Insert the 10 mm screws into the <Highlight color={colors.red}>holes.</Highlight>
+3.  Screw the <Highlight color={colors.magenta}>hexnuts</Highlight> on the screws along the flat edge of the bottom faceplate. Hexnuts are only needed on one side because of the size of the Raspberry Pi Zero.
+4.  Place the Raspberry Pi along the indented edge of the faceplate, with the <Highlight color={colors.green}>GPIO pins</Highlight> on the left. See the image.
+
+</AssemblyInstructionBlock>
+  </TabItem>
+</Tabs>
+
+-----
+
+<AssemblyInstructionBlock title="Step 3: Placing the HAT" images={["user-guide/hardware-assembly/rpi_zero_hex_standoffs.jpg","user-guide/hardware-assembly/gpio_unpushed.jpg","user-guide/hardware-assembly/gpio_pushed.jpg", "user-guide/hardware-assembly/standoff_on_hat.jpg"]}>
+
+1.	Screw on the <Highlight color={colors.blue}>hex standoffs-with-screw</Highlight> in each corner.
+2.	Place the HAT on top. <Highlight color={colors.red}>Push down</Highlight> to secure it in place.
+
+:::note
+The HAT's GPIO connector will line up with the RPi's GPIO pins, and may require a slight force to compress down. Careful note to apply too much force and bend any pins.
+:::
+
+3.	Screw the <Highlight color={colors.green}>hex standoffs</Highlight> in each corner, on top of the HAT.
+4.	Put this aside and proceed to the next page.
+
+</AssemblyInstructionBlock>
 
 
