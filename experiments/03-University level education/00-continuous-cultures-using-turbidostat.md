@@ -15,7 +15,7 @@ Determine the maximum specific growth rate of your culture using turbidostat str
 
 ## Requirements
 
-<AssemblyInstructionBlock images={["experiments/turbidostat/turbido_mats_1.jpg","experiments/turbidostat/turbido_mats_2.jpg"]}>
+<AssemblyInstructionBlock images={["experiments/turbidostat/turbido_mats_1.jpg"]}>
 
 * One available Pioreactor
 * Two peristaltic pumps: 
@@ -61,7 +61,9 @@ There are a myriad of further applications for turbidostats, such as characteriz
 
 We encourage you to choose species and media compositions to suit your interests. Have fun! 
 
-## Detailed protocol
+-----
+
+## Detailed procedure
 
 1. Add media into your media container. Sterilize by autoclaving.
 2. Adjust the tube lengths on the cap of your small sterile vial such that one just touches the media, while another sits above the media.
