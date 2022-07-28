@@ -84,41 +84,24 @@ The flexibility of the Pioreactor means you can do much more with this simple co
 * exploring pretreated cells (by growing one culture in a saltier environment, then comparing a non-treated culture to the treated culture under the same conditions). See our [experiment on directed evolution](/experiments/directed-evolution-salt-tolerance). 
 * considering different species and how they react to the same salt conditions.
 
-## Detailed procedure
+-----
 
-<AssemblyInstructionBlock title="Step 1: Preparing the media" images={["experiments/one_vial_ypd.jpg","experiments/ypd_vials.jpg"]}>
+## Detailed procedure
 
 1. Prepare a stock of 50g YPD / 1L distilled water. Aim for 20ml × the number of Pioreactors you are using, as each Pioreactor will require about 15mL of media.
 2. Divide this stock into small vials, then sterilize by autoclaving. Allow stock to cool.
-2. Weigh table salt to add to your media. This amount can be calculated as per the example below.
+2. Weigh table salt to add to your media. This amount can be calculated as per the example above.
 4. Divide the stock into the sterilized vials and add salt.
 5. Mix the salt with gentle shaking or by using the _Stirring_ function on the Pioreactor. 
-
-
-</AssemblyInstructionBlock>
-
------
-
-<AssemblyInstructionBlock title="Step 2: Inoculate your vials" images={["user-guide/calibrate.png","user-guide/calibrate_stirring.png"]}>
-
 6. Dilute a small amount of yeast in 15mL of YPD stock media. This can be stored in a fridge for future use.
 7. Using sterile techniqes, add 3-4 drops of this yeast solution to your vials. 
 8. Wipe the vials and place them in the Pioreactor.
+9.  Visit [pioreactor.local](http://pioreactor.local) and start a new experiment.
+10. On the left menu, select the _Pioreactors_ page. Add any additional Pioreactors that you would like to use (more information [here](/user-guide/create-cluster)). Select _Manage all Pioreactors_, and start:
+     * _Stirring_ activity
+     * _OD reading_ activity
+     * _Temperature automation_ activity 
+11.  Confirm that everything looks normal on the _Overview_ page (ex: receiving optical density signal).
+12.	Back on the _Pioreactors_ page, select _Manage all Pioreactors_ and start _Growth rate_. 
+13.  Watch the growth progress on the _Overview_ page! 
 
-</AssemblyInstructionBlock>
-
------
-
-<AssemblyInstructionBlock title="Step 3: Start your experiment" images={["user-guide/calibrate.png","user-guide/calibrate_stirring.png"]}>
-
-6.  Visit [pioreactor.local](http://pioreactor.local) and start a new experiment.
-7.  On the left menu, select the _Pioreactors_ page. Add any additional Pioreactors that you would like to use (more information [here](/user-guide/create-cluster)). Select _Manage all Pioreactors_, and start:
-	*	_Stirring_ activity
-	*	_OD reading_ activity
-	*	_Temperature automation_ activity 
-8.  Confirm that everything looks normal on the _Overview_ page (ex: receiving optical density signal).
-9.	Back on the _Pioreactors_ page, select _Manage all Pioreactors_ and start _Growth rate_. 
-11.  Watch the growth progress on the _Overview_ page! 
-
-
-</AssemblyInstructionBlock>
