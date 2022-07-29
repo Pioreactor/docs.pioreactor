@@ -4,6 +4,7 @@ slug: /yeast-growth-by-temperature
 tags: 
   - Yeast
   - Temperature
+  - Secondary education
 ---
 
 import AssemblyInstructionBlock from '@site/src/components/AssemblyInstructionBlock';
@@ -40,9 +41,9 @@ The following experiment was performed using four Pioreactors. Four vials contai
 
 ### Results
 
-![](/img/experiments/temperature_temp.png)
-
 Over the course of 12 hours, the following graphs were recorded: 
+
+![](/img/experiments/temperature_temp.png)
 
 ![](/img/experiments/temperature_growth_rate.png)
 
@@ -62,6 +63,8 @@ The time it takes for each culture to reach the stationary phase is also related
 ## Recommendations 
 
 We chose a relatively small temperature range that mostly aligned with optimal temperatures for yeast growth. We encourage you to explore temperatures outside of this range, whether by cooling the Pioreactor externally (using ice/a cooler) or increasing the temperature (the maximum that can be reached is room temperature plus 20°C).
+
+Keep in mind to not get the electronics of your Pioreactor wet! Elevate your Pioreactor to protect it from any spills. 
 
 -----
 

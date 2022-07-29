@@ -1,6 +1,11 @@
 ---
 title: Directed evolution of salt-tolerant yeast 
 slug: /directed-evolution-salt-tolerance
+tags:
+  - Yeast
+  - Turbidostat
+  - Continuous culture
+  - University education
 ---
 
 import AssemblyInstructionBlock from '@site/src/components/AssemblyInstructionBlock';
@@ -61,7 +66,6 @@ We then grew batch cultures of our new, salt-tolerant yeast, alongside our origi
 
 You can see just how effective our turbidostat system was in creating an environment that pushed yeast into becoming more salt tolerant. 
 
-
 -----
 
 ## Detailed procedure
@@ -74,7 +78,7 @@ You can see just how effective our turbidostat system was in creating an environ
 5. Inoculate the sample vial with baker's yeast.  
 6. Visit [pioreactor.local](http://pioreactor.local) and start a new experiment.
 7. Click _Manage_ and _Start_ the _Dosing automation_. Change the automation type to _Turbidostat_. 
-8. Set your _Target OD_ and _Volume_, then _Start_. 
+8. Set your _Volume_ and _Target OD_. 
 9. End the experiment once the maximum specific growth rate has increased suffienctly. This may take a day or more.  
 
 :::note

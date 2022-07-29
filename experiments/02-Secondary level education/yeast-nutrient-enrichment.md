@@ -1,6 +1,10 @@
 ---
 title: Yeast nutrient enrichment
 slug: /yeast-nutrient-enrichment
+tags: 
+  - Yeast
+  - Nutrient enrichment
+  - Secondary education
 ---
 
 import AssemblyInstructionBlock from '@site/src/components/AssemblyInstructionBlock';
@@ -15,8 +19,6 @@ Dried malt extract, or DME, is a precursor used in beer production.  + YL or jus
 
 ## Requirements
 
-<AssemblyInstructionBlock images={["experiments/turbidostat/turbido_mats_1.jpg","experiments/turbidostat/turbido_mats_2.jpg"]}>
-
 *   Two available Pioreactors
 *   Dry baker's yeast
 *	YPD media
@@ -30,57 +32,27 @@ Dried malt extract, or DME, is a precursor used in beer production.  + YL or jus
 	*	One labelled "media"
 	*	One labelled "nutrients"
 	*	One labelled "waste" 
-
-</AssemblyInstructionBlock>
-
-## Steps
-
+	
 -----
 
-<AssemblyInstructionBlock title="Step 3: Vial, media and waste container setup" images={["experiments/turbidostat/adjusting_tubes.png","experiments/turbidostat/luer_attach.png","experiments/turbidostat/media_flow.png"]}>
+## Detailed procedure
 
 1. Add media into your media container. Sterilize by autoclaving.
-2. Adjust the tube lengths on the cap of your small sterile vial such that <Highlight color={colors.green}>one just touches the media,</Highlight> while another <Highlight color={colors.magenta}>sits above the media.</Highlight>
+2. Adjust the tube lengths on the cap of your small sterile vial such that one just touches the media, while another sits above the media.
 3. Inoculate your small sterile vial with drops of your culture. 
 4. Wipe vial and place in the Pioreactor. 
 5. For your media pump:
-	*	Attach the <Highlight color={colors.teal}>source tube to your media container.</Highlight>
-	*	Attach the <Highlight color={colors.orange}>sink tube to the vial cap tube</Highlight> that sits **above** the media. 
+	*	Attach the source tube to your media container. 
+	*	Attach the sink tube to the vial cap tube that sits **above** the media. 
 6. For your waste pump:
-	*	Attach the <Highlight color={colors.red}>source tube to the vial cap tube</Highlight> that **touches** the media.  
-	*	Attach the <Highlight color={colors.blue}>sink tube to your waste container.</Highlight>  
+	*	Attach the source tube to the vial cap tube that **touches** the media. 
+7. For your alternative media pump: ******
+8.	Visit [pioreactor.local](http://pioreactor.local) and start a new experiment.
+9.  On the left menu, select the _Pioreactors_ page. Add the additional Pioreactor (more information [here](/user-guide/create-cluster)). 
+10.	Select _Manage all Pioreactors_, and start _Stirring_ activity and _OD reading_ activity.
+11.	Confirm everything looks correct, then start the _Growth rate_ activity for all Pioreactors. 
+12.	Start separate _Dosing automation_ for both Pioreactors. 
+13. Change automation to _Turbidostat_. Set your _Volume_ and _Target OD_. 
+14. You can change the parameters of the turbidostat automation in the _Settings_ tab. Changes will take effect immediately. 
 
-The flow of liquid is summarized in the third picture, using <Highlight color={colors.red}>red arrows.</Highlight> 
-</AssemblyInstructionBlock>
-
------
-
-<AssemblyInstructionBlock title="Step 4: Start activities and automations" images={["experiments/turbidostat/general_automations.png","experiments/turbidostat/dosing_automation.png","experiments/turbidostat/PID_turbidostat.png","experiments/turbidostat/turbidostat_settings.png","experiments/turbidostat/overview_settings.png"]}>
-
-6.	Visit [pioreactor.local](http://pioreactor.local) and start a new experiment.
-7.  On the left menu, select the _Pioreactors_ page. Add the additional Pioreactor (more information [here](/user-guide/create-cluster)). 
-8.	Select _Manage all Pioreactors_, and start _Stirring_ activity and _OD reading_ activity.
-9.	Confirm everything looks correct, then start the _Growth rate_ activity for all Pioreactors. 
-10.	Start separate _Dosing automation_ for both Pioreactors. Change automation to _PID Turbidostat_. Set your _Time between dosing_ and _Target OD_. 
-
-:::note
-_Target OD_ refers to the normalized optical density. 
-
-To change the _Time between dosing_ and/or _Target OD_ while the experiment is running, go to the _Settings_ tab instead of the _Activities_ tab.
-:::
-
-</AssemblyInstructionBlock>
-
------
-
-<AssemblyInstructionBlock title="Step 5: Changing parameters" images={["experiments/turbidostat/dosing_settings.png"]}>
-
-1. You can change the parameters of the turbidostat automation in the _Settings_ tab.
-2. Changes will take effect immediately.
-
-
-</AssemblyInstructionBlock>
-
-
-## Example 
 
