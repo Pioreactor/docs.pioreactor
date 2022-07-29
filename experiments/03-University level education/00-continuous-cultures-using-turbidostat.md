@@ -1,6 +1,11 @@
 ---
 title: Continuous cultures using a turbidostat
 slug: /continuous-cultures-using-turbidostat
+tags: 
+  - Yeast
+  - Turbidostat
+  - Continuous culture
+  - University education
 ---
 
 import AssemblyInstructionBlock from '@site/src/components/AssemblyInstructionBlock';
@@ -80,6 +85,6 @@ We encourage you to choose species and media compositions to suit your interests
 9.	Select _Manage_, start _Stirring_ activity and _OD reading_ activity.
 10.	Confirm everything looks correct, then start the _Growth rate_ activity.
 11.	Start the _Dosing automation_. 
-12. Change automation to _Turbidostat_. Set your _Time between dosing_ and _Target OD_. 
+12. Change automation to _Turbidostat_. Set your _Volume_ and _Target OD_. 
 13. You can change the parameters of the turbidostat automation in the _Settings_ tab.
 14. Changes will take effect immediately.

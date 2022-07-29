@@ -4,6 +4,7 @@ slug: /salt-stress-on-yeast
 tags: 
   - Yeast
   - Salt
+  - Secondary education
 ---
 
 import AssemblyInstructionBlock from '@site/src/components/AssemblyInstructionBlock';
