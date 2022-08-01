@@ -59,6 +59,9 @@ The test will also report any valid IR LED & photodiode relationships in the mod
 **Stirring RPM is responsive** checks for a linear relationship between PWM stirring system and the Hall sensor that measure's RPM. If this fails, check that the stirring power is connected correctly (and in the location specified in config.ini's `[PWM]` section). Another reason for failure is that the magnets are too far away from the base of the vial.
 
 
+**Stirring RPM is responsive** checks for a linear relationship between PWM stirring system and the Hall sensor that measure's RPM. If this fails, check that the stirring power is connected correctly (and in the location specified in config.ini's `[PWM]` section). Another reason for failure is that the magnets are too far away from the base of the vial.
+
+**AUX power supply is appropriate value** checks that the AUX power voltage is between 0V and 18V. If no AUX power is connected to the Pioreactor, the default voltage is 5V.
 
 
 
