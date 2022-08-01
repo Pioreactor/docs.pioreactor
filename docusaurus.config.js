@@ -122,7 +122,6 @@ const config = {
           },
         ],
       },
-      hideableSidebar: true,
       footer: {
         style: 'dark',
         links: [
@@ -180,6 +179,19 @@ const config = {
         darkTheme: darkCodeTheme,
       },
     }),
+  themes: [
+    [
+      require.resolve("@easyops-cn/docusaurus-search-local"),
+      {
+        // ... Your options.
+        // `hashed` is recommended as long-term-cache of index file is possible.
+        hashed: true,
+        docsDir: ["user-guide", "experiments", "developer-guide"],
+        indexBlog: false,
+        docsRouteBasePath: ["/user-guide", "/experiments", "/developer-guide"],
+      },
+    ],
+  ],
 };
 
 module.exports = config;
