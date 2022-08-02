@@ -35,6 +35,8 @@ We created a plugin that cycles the temperature between 30°C and 40°C sinusoid
 
 
 
+Check out our [blog post](https://pioreactor.com/blogs/pioreactor-blog/pioreactor-dev-blog-20) for an in-depth evaluation of our experiment! 
+
 ### Results 
 
 Once we [exported our data](/user-guide/export-data), we charted our yeast growth rate against the temperature readings to generate the following graph:
@@ -42,6 +44,8 @@ Once we [exported our data](/user-guide/export-data), we charted our yeast growt
 ![](/img/experiments/yeast_growth_vs_temp.png)
 
 ## Recommendations 
+
+
 
 -----
 
