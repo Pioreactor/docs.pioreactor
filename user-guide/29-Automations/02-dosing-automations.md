@@ -46,7 +46,7 @@ The chemostat automation is the second simplest dosing automation. Every `durati
     * one labelled "media"
 
 
-A turbidostat ("turbidity-static") tries to keep the turbidity (also called optical density, or OD), constant over time. This is usually accomplished by taking frequent measurements of the turbidity (every 1 minute), and performing a set media/waste pump cycle when the _normalized_ optical density exceeds some `target OD`. The amount exchanged is the `volume` parameter. For very fast growing cultures, we recommend a `volume` around 2.0 ml.
+A turbidostat ("turbidity-static") tries to keep the turbidity (also called optical density, or OD), constant over time. This is usually accomplished by taking frequent measurements of the turbidity (every 1 minute), and performing a set media/waste pump cycle when the _normalized_ optical density exceeds some `target OD`. The amount exchanged is the `volume` parameter. For very fast growing cultures, we recommend a `volume` between 1.0 ml and 2.0 ml.
 
 ### PID Morbidostat
 
