@@ -66,7 +66,7 @@ The HAT's GPIO connector will line up with the RPi's GPIO pins, and may require 
 
   </TabItem>
   <TabItem value="zero" label="Raspberry Pi Zero">
-<AssemblyInstructionBlock title="Step 2: Bottom faceplate" images={["user-guide/hardware-assembly/bottom_faceplate.jpg","user-guide/hardware-assembly/hex_one_side.jpg","user-guide/hardware-assembly/rpi-zero.jpg"]}>
+<AssemblyInstructionBlock title="Step 2: Bottom faceplate" images={["user-guide/hardware-assembly/bottom_faceplate.jpg","user-guide/hardware-assembly/hex_one_side.jpg","user-guide/hardware-assembly/rpi_zero.jpg"]}>
 
 This faceplate will protect the Pioreactor from potential spills.
 
