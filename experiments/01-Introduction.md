@@ -1,5 +1,6 @@
 ---
 title: Biology experiments and protocols
+slug: /introduction
 ---
 
 import AssemblyInstructionBlock from '@site/src/components/AssemblyInstructionBlock';

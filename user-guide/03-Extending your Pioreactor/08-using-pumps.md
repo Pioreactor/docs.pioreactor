@@ -80,7 +80,7 @@ pio run add_media --continuously
 
 ## Programmatically run pumps using automations
 
-Dosing automations, like turbidostats, chemostats, fed-batch and more, are available to run once your pumps are attached and calibrated. [Read more about automations](https://docs.pioreactor.com/user-guide/Automations/Dosing%20Automations).
+Dosing automations, like turbidostats, chemostats, fed-batch and more, are available to run once your pumps are attached and calibrated. [Read more about automations](/user-guide/dosing-automations).
 
 
 
