@@ -36,7 +36,9 @@ The peristaltic pump has two tubes: a <Highlight color={colors.red}>source</High
 <AssemblyInstructionBlock title="Calibrating the pumps" images={["experiments/turbidostat/ssh_into_unit.png","experiments/turbidostat/run_pump_calc.png"]}>
 
 1. [Calibrate your pumps](/user-guide/hardware-calibrations#pump-calibration) through your computer's command line. 
-2.	Type **`ssh pioreactor@<insert unit name>.local`**. For example, to calibrate on our Pioreactor named _worker3_, we typed **`ssh pioreactor@worker3.local`**.
+2.	Type **`ssh pioreactor@<insert unit name>.local`**. 
+	*	For example, to calibrate on our Pioreactor named _worker3_, we typed **`ssh pioreactor@worker3.local`**.
+	*	The default password is `raspberry`.
 3. Type **`pio run pump_calibration`**. 
 4. Follow the prompts to calibrate your media, waste, and/or alternate media pumps. 
 5. Calibrations can be performed depending on the frequency of your Pioreactor use. 

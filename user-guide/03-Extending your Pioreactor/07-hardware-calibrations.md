@@ -68,6 +68,7 @@ There currently is no web interface for this calibration, and must be done on th
 
 1. Type **`ssh pioreactor@<insert unit name>.local`**.
 	*	For example, to calibrate on our Pioreactor named worker3, we typed **`ssh pioreactor@worker3.local`**.
+	*	The default password is `raspberry`.
 2. Type **pio run pump_calibration**. 
 3. You'll be shown a command-line application that will guide your through the pump calibration. 
 4. Follow the promts to calibrate your media pump.
