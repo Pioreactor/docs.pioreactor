@@ -9,8 +9,6 @@ Note that in that template package, there are ways to add fields to the configur
 
 ## Organizing your files
 
-MANIFEST - at build step, tells what packages in the wheel 
-
 :::tip
 Note that the way files are organized depends on if your plugin is an **automation** or a **background job**. 
 :::
@@ -30,6 +28,7 @@ Here's a general schematic of how your files should be organized for a backgroun
 │  ├─ 📝 additional_config.ini
 │  ├─ 📝 my_plugin.py
 ├─ 📝 LICENSE.txt
+├─ 📝 MANIFEST.in
 ├─ 📝 README.md
 ├─ 📝 setup.py
 ```
@@ -49,6 +48,7 @@ The schematic is very similar for an **automation plugin** &#151 the only differ
 │  ├─ 📝 my_plugin.py
 ├─ 📝 LICENSE.txt
 ├─ 📝 README.md
+├─ 📝 MANIFEST.in
 ├─ 📝 setup.py
 ```
 
@@ -66,12 +66,20 @@ The above copyright notice and this permission notice shall be included in all c
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ```
+#### 2. A MANIFEST file, named `MANIFEST.in`
 
-#### 2. A README file, named `README.md` 
+When creating a Python package, there's a default set of files that are included. To assure that our additional configuration and yaml files are included, create a `MANIFEST.in` file and paste the following: 
+
+```
+include <MAIN FOLDER>/additional_config.ini
+recursive-include <MAIN FOLDER>/ui/ *.yaml
+```
+
+#### 3. A README file, named `README.md` 
 
 Write a few notes with general information on your plugin to guide users. 
 
-#### 3. A setup Python file, named `setup.py`
+#### 4. A setup Python file, named `setup.py`
 
 Create a Python file and paste the following. Make changes based on your own plugin information.
 
@@ -97,7 +105,7 @@ setup(
 )
 ```
 
-#### 4. A subfolder containing your plugin
+#### 5. A subfolder containing your plugin
 
 Within the main file `pioreactor-relay-plugin`, we created a subfile `pioreactor_relay_plugin`. 
 
@@ -143,10 +151,23 @@ twine upload dist/<.WHL FILE>
 
 You will then be prompted for a username and password. Use the credentials for your PyPi account. Then, your package is uploaded and viewable at the link provided! 
 
-## Sharing your plugin on the web interface
+## Installing your Python package on your cluster
 
-To add your plugin as an option on the web interface, you will need to edit the **plugins.json** file within our [Pioreactor repository, list-of-plugins](https://github.com/Pioreactor/list-of-plugins). 
+A plugin can be installed individually through the command line on a leader using `pio`:
 
+```
+pios install-plugin <PACKAGE NAME>
+```
+
+To install a given plugin on the leader and all workers connected to the leader in a cluster, `pios install-plugin` can be used. 
+ 
+```
+pios install-plugin <PACKAGE NAME>
+```
+
+## Sharing your plugin with the community
+
+To give your plugin futher reach, we've provided an option to add it to the web interface. You will need to edit the **plugins.json** file within our [Pioreactor repository, list-of-plugins](https://github.com/Pioreactor/list-of-plugins). 
 
 There are two ways to do this: 
 
@@ -156,3 +177,7 @@ There are two ways to do this:
 ![](/img/developer-guide/python-package-pull-or-issue.png)
 
 In both cases, we will evaluate your plugin to ensure code quality and all requirements are met (tests are included). 
+
+Once your plugin is accepted, it will appear on the Plugins tab on the Pioreactor web interface. Users in the community can now easily click _Install_ to download your plugin onto their Pioreactors!
+
+![](/img/developer-guide/python-package-plugins.png)
