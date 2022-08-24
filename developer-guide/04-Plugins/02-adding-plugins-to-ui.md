@@ -18,7 +18,7 @@ This list is sourced from yaml files located on the leader's Raspberry Pi, under
 display_name: My Automations Name  # human readable name
 automation_name: my_automations_name   # the corresponding name of the automation from the Python code.
 description: Provide a meaningful description of what the automation does, when to use it, how it works...
-fields:
+published_settings:
   - key: duration  # key is the same as the keyword in the Python code.
     default: 30
     unit: min
@@ -53,12 +53,12 @@ The list of activities, among other things, is sourced from  `/home/pioreactor/p
 
 ```yaml
 ---
-name: Name
+display_name: Name
 job_name: job_name_as_defined_in_Python
 display: true  # true to display on the /Pioreactors card
 source: your_plugin_name
 description: This description is displayed with the start/stop buttons in Manage / Activities.
-editable_settings:
+published_settings:
   - key: rpm   # as defined in Python
     unit: RPM  #
     label: Stirring speed # human readable name
