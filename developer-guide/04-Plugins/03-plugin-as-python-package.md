@@ -1,5 +1,5 @@
 ---
-title: Turning your automation into a Python package to share
+title: Turning your plugins into a Python package to share
 slug: /plugin-as-python-package
 ---
 
@@ -8,6 +8,8 @@ The plugin and yaml files are all you need to use your plugin on your local Pior
 Note that in that template package, there are ways to add fields to the configuration (see `additional_config.ini`, which gets merged with `config.ini` on installation), and adding your automation to the web UI (see the specific folder structure in the `ui` folder).
 
 ## Organizing your files
+
+MANIFEST - at build step, tells what packages in the wheel 
 
 :::tip
 Note that the way files are organized depends on if your plugin is an **automation** or a **background job**. 

@@ -1,5 +1,5 @@
 ---
-title: Adding your custom automation to the web interface
+title: Adding your plugins to the web interface
 slug: /adding-plugins-to-ui
 ---
 
