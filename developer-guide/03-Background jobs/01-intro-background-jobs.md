@@ -107,9 +107,7 @@ class Stirrer(BackgroundJob):
 
 Thus the attributes `target_rpm`, `measured_rpm`, `duty_cycle` are all published to MQTT when they change, but only `duty_cycle` and `target_rpm` are able to be updated over MQTT (as defined by `settable`).
 
-:::note
-The `datatype` key is not used and are there for documentation, but this may change in a later version.
-:::
+The `"datatype"` field is normally one of: `"string"`, `"float"`, `"integer"`, `"json"`, `"boolean"` (full list in `pioreactor.types.py`).
 
 :::info
 The `unit` key is optional, and can be omitted. Also, there is an optional `persist` key (not shown above), which contains a boolean describing if the value should be kept in MQTT after the job exits, default `False`.

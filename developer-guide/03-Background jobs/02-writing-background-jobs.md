@@ -28,7 +28,7 @@ from pioreactor.actions.led_intensity import led_intensity
 class IntroJob(BackgroundJob):
 
     published_settings = {
-        'intensity': {'datatype': float, "unit": "%", "settable": True}
+        'intensity': {'datatype': "float", "unit": "%", "settable": True}
     }
     intensity = 0
     LED_channel = "A"
@@ -45,7 +45,7 @@ from pioreactor.actions.led_intensity import led_intensity
 class IntroJob(BackgroundJob):
 
     published_settings = {
-        'intensity': {'datatype': float, "unit": "%", "settable": True}
+        'intensity': {'datatype': "float", "unit": "%", "settable": True}
     }
     intensity = 0
     LED_channel = "A"
@@ -67,7 +67,7 @@ from pioreactor.actions.led_intensity import led_intensity
 class IntroJob(BackgroundJob):
 
     published_settings = {
-        'intensity': {'datatype': float, "unit": "%", "settable": True}
+        'intensity': {'datatype': "float", "unit": "%", "settable": True}
     }
     intensity = 0
     LED_channel = "A"
@@ -90,7 +90,7 @@ from pioreactor.actions.led_intensity import led_intensity
 class IntroJob(BackgroundJob):
 
     published_settings = {
-        'intensity': {'datatype': float, "unit": "%", "settable": True}
+        'intensity': {'datatype': "float", "unit": "%", "settable": True}
     }
     intensity = 0
     LED_channel = "A"
@@ -115,7 +115,7 @@ from pioreactor.actions.led_intensity import led_intensity
 class IntroJob(BackgroundJob):
 
     published_settings = {
-        'intensity': {'datatype': float, "unit": "%", "settable": True}
+        'intensity': {'datatype': "float", "unit": "%", "settable": True}
     }
     intensity = 0
     LED_channel = "A"
@@ -204,7 +204,7 @@ from pioreactor.config import config
     def __init__(...)
         ...
 
-        pwm_pin = PWM_TO_PIN[config.getint("PWM_reverse", "motor_driver")]
+        pwm_pin = PWM_TO_PIN[config["PWM_reverse", "motor_driver"]]
         self.pwm = PWM(pwm_pin, self.hz)
         self.pwm.lock()
 
@@ -320,7 +320,7 @@ class MotorDriver(BackgroundJob):
         self._initial_duty_cycle = initial_duty_cycle
         self.duty_cycle = initial_duty_cycle
 
-        self.pwm_pin = PWM_TO_PIN[config.getint("PWM_reverse", "motor_driver")]
+        self.pwm_pin = PWM_TO_PIN[config["PWM_reverse", "motor_driver"]]
 
         self.pwm = PWM(self.pwm_pin, self.hz)
         self.pwm.lock()

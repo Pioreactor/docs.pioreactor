@@ -47,3 +47,8 @@ Since this network is not connected to the internet, you won't be able to upgrad
  ## Turning off a local access point
 
  If you wish to stop the local access point, rebooting the leader Pioreactor while pulling the GPIO pin 26 HIGH. You just need to do this once.
+
+
+ ## Changing SSID name or password for your local access point
+
+In the `config.ini`, the SSID and password are editable under the section `local_access_point`. Requires a power-cycle to take effect.

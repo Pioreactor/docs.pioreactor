@@ -25,7 +25,7 @@ class NaiveTurbidostat(DosingAutomationJobContrib):
         self.target_od = target_od
 
     def execute(self):
-        if self.latest_od > self.target_od:
+        if self.latest_normalized_od > self.target_od:
             self.execute_io_action(media_ml=1.0, waste_ml=1.0)
 ```
 
@@ -68,15 +68,15 @@ Next, we define how to initialize our class. Here we can add settings we want to
         self.target_od = target_od
 ```
 
-Finally, every `duration` (specified in the controller, later in this section) minutes, the function `execute` will run. The `execute` contains the core logic of the automation. In our simple case, we want to dilute the vial if we have exceed the `latest_od`:
+Finally, every `duration` (specified in the controller, later in this section) minutes, the function `execute` will run. The `execute` contains the core logic of the automation. In our simple case, we want to dilute the vial if we have exceed the `latest_normalized_od`:
 
 ```python
     def execute(self):
-        if self.latest_od > self.target_od:
+        if self.latest_normalized_od > self.target_od:
             self.execute_io_action(media_ml=1.0, waste_ml=1.0)
 ```
 
-Since we are working with a fixed volume, `media_ml` must equal `waste_ml`, else an error will be thrown. What is `latest_od`? Our class, when active, is listening to the growth-rate-calculating job's output of normalized optical density. Hence when `execute` runs, we'll have access to the most up-to-date value of normalized optical density. Likewise, there is a `latest_growth_rate` that updates when a new growth-rate value is produced. Both are defined and maintained in the parent class.
+Since we are working with a fixed volume, `media_ml` must equal `waste_ml`, else an error will be thrown. What is `latest_normalized_od`? Our class, when active, is listening to the growth-rate-calculating job's output of normalized optical density. Hence when `execute` runs, we'll have access to the most up-to-date value of normalized optical density. Likewise, there is a `latest_growth_rate` that updates when a new growth-rate value is produced. Both are defined and maintained in the parent class.
 
 ### Running the script
 
@@ -103,7 +103,7 @@ class NaiveTurbidostat(DosingAutomationJobContrib):
         self.target_od = target_od
 
     def execute(self):
-        if self.latest_od > self.target_od:
+        if self.latest_normalized_od > self.target_od:
             self.execute_io_action(media_ml=1.0, waste_ml=1.0)
 
 if __name__=="__main__":
@@ -173,7 +173,7 @@ class NaiveTurbidostat(DosingAutomationJobContrib):
         self.volume = volume
 
     def execute(self):
-        if self.latest_od > self.target_od:
+        if self.latest_normalized_od > self.target_od:
             self.execute_io_action(media_ml=self.volume, waste_ml=self.volume)
 ```
 
