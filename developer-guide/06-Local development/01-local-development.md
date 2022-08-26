@@ -5,25 +5,31 @@ slug: /local-development
 
 #### Local development
 
-To install the Pioreactor codebase locally, it should be enough to clone the repo [pioreactor/pioreactor](https://github.com/pioreactor/pioreactor) and run:
+1. To install the Pioreactor codebase locally, it should be enough to clone the repo [pioreactor/pioreactor](https://github.com/pioreactor/pioreactor).
 
+```
+git clone https://github.com/Pioreactor/pioreactor.git && cd pioreactor
+```
 
-Then, in the pioreactor folder, create a folder called `.pioreactor/` and `.pioreactor/storage`.
-
-Install the core software are necessary packages (useful to do this in a virtualenv!):
+2. Install the core software are necessary packages (useful to do this in a virtualenv!):
 
 ```
 pip3 install -e .
 pip3 install -r requirements/requirements_dev.txt
 ```
 
+3. In the pioreactor folder, create a folder called `.pioreactor/` and `.pioreactor/storage`.
 
+```
+mkdir .pioreactor
+mkdir .pioreactor/storage
+```
 
 #### MQTT
 
 You will need to install MQTT and have a broker running locally. On OSX, homebrew can be used to install the MQTT broker `mosquitto`. On Windows, it can be installed [from this download page](https://mosquitto.org/download/).
 
-::: tip
+:::tip
 enable logging in `/usr/local/etc/mosquitto/mosquitto.conf` by adding a line like:
 
 ```
@@ -42,6 +48,7 @@ py.test pioreactor/tests
 
 #### Running jobs locally
 
+
 ```
 TESTING=1 pio run <job name>
 ```
@@ -54,6 +61,10 @@ HOSTNAME=<whatever> \
 EXPERIMENT=<up to you> \
 pio run <job name>
 ```
+
+:::info
+If invoking from a different directory from `pioreactor/`, you'll need to have a `config.dev.ini` file locally. I usually copy my `pioreactor/config.dev.ini` to wherever I am working.
+:::
 
 #### Raspberry Pi Images
 
