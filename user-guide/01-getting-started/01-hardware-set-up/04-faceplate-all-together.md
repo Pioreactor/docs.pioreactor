@@ -21,8 +21,8 @@ import * as colors from '@site/src/components/constants';
 
 <AssemblyInstructionBlock title="Step 2: Assembling the stirring apparatus" images={["user-guide/hardware-assembly/top_faceplate_screws.jpg","user-guide/hardware-assembly/top_faceplate_screws_2.jpg","user-guide/hardware-assembly/fan_on_faceplate.jpg"]}>
 
-1.	From the bottom of the faceplate, insert the 30 mm M3 screws. Do not screw in all the way &#151 just enough that the <Highlight color={colors.orange}>screws poke out the other</Highlight> end.
-2.	Push the fan on top of the screws. Make sure the <Highlight color={colors.teal}>wire is oriented towards the side labeled PWM.</Highlight>
+1.	From the bottom of the faceplate, insert the 30 mm M3 screws. Do not screw in all the way &#151 just enough that the <Highlight color={colors.orange}>screws poke out</Highlight> the other end.
+2.	Push the fan on top of the screws. Make sure the wire is oriented towards the side labeled <Highlight color={colors.teal}>PWM</Highlight>.
 
 </AssemblyInstructionBlock>
 
@@ -30,7 +30,7 @@ import * as colors from '@site/src/components/constants';
 
 <AssemblyInstructionBlock title="Step 3: Securing the vial holder" images={["user-guide/hardware-assembly/vial_holder_on_fan.jpg","user-guide/hardware-assembly/cable_orientation.jpg","user-guide/hardware-assembly/screw_vial_holder_faceplate.jpg","user-guide/hardware-assembly/vial_holder_alignment.jpg"]}>
 
-1.	Place the vial holder on top of the faceplate piece. The <Highlight color={colors.red}>flat cable should follow the arrow on the faceplate.</Highlight>
+1.	Place the vial holder on top of the faceplate piece. The flat cable should follow the <Highlight color={colors.red}>arrow on the faceplate</Highlight>.
 2.	Holding it together, finish screwing the bottom of the faceplate. 
 	*	Screws should enter the square nuts you placed into the vial holder.
 

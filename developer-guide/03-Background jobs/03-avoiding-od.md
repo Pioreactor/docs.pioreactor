@@ -42,7 +42,7 @@ class JustPause(BackgroundJobWithDodgingContrib):
 [<job_name>]
 pre_delay_duration=<float>
 post_delay_duration=<float>
-
+enable_dodging_od=1 # 1 if you want the behaviour, 0 to disable it.
 ```
 
 
