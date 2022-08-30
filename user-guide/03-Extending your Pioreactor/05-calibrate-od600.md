@@ -51,14 +51,18 @@ By default, we fit the calibration curve with a polynomial. You can choose the d
 
 ## Using calibrations in your experiments
 
-After performing a calibration, your future experiments that use optical density readings will be displayed in the UI and saved to the database in your post-calibrated values.
+Calibrations are applied automatically. That is, after performing a calibration, your future experiments that use optical density readings will use the post-calibration values and be displayed in the UI and saved to the database.
 
 If you wish to stop using calibrations, you can switch if off in the config.ini by setting adding `use_calibations=0` under the  `[od_config]` section.
 
 
-## Accessing your previous calibrations 
+## Viewing your previous calibrations
 
-On the command line, you can display your current calibrations using the `--display-current` flag (specifically, inputting `pio run od_calibration --display-current`). This will display the calibration graphs and metadata for each angle (45°, 90°, and 135°). Setting a new calibration would replace the information shown here, and be applied to new experiments that use the given angle.
+On the command line, you can display your current calibrations using `pio run od_calibration display_current`). This will display the calibration graphs and metadata for each angle (45°, 90°, and 135°). Setting a new calibration would replace the information shown here, and be applied to new experiments that use the given angle.
 
-However, when setting a new calibration, your previous calibrations are not lost! All calibrations are stored by their unique names and can be retrieved and reused. If you would like to return to specific calibration for whatever reason, you can soon replace your current calibrations &#151 a future feature to be implemented into the UI. For now, feel free to email us at hello@pioreactor.com for more information! 
+To see a full list of all previous calibrations, use `pio run od_calibration list`.
+
+## Changing a calibration
+
+If you wish to change your calibration to a previous version, use `pio run od_calibrations change_current <name>` where `<name>` is some previous calibration you've run (i.e from `pio run od_calibration list`).
 
