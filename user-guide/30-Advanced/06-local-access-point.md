@@ -7,6 +7,11 @@ slug: /local-access-point
 This is a relatively new feature, and if you have problems with using it, or questions, please contact us at info@pioreactor.com ❤️
 :::
 
+
+:::caution
+This many not work if your leader is a Raspberry Pi Zero W or Raspberry Pi Zero 2 W
+:::
+
 For some use cases, you may want to create a local WiFi network just for your Pioreactors (this is called a local access point). Why might you want to do this?
 
  - If you want to get started right away, without dealing with WiFi credentials.
@@ -19,10 +24,9 @@ The Pioreactor comes with the ability to create its own local access point, whic
 
 ## Starting a local access point
 
-The leader Pioreactor has the necessary software to create the local access point. To start the access point, there are two methods:
+The leader Pioreactor has the necessary software to create the local access point. To start the access point:
 
- - During set up of your leader Pioreactor, in the Raspberry Pi Imager, uncheck "Configure wireless LAN". This leaves WiFi credentials blank, and so the Pioreactor will start a local access point on boot.
- - If you have an existing Pioreactor with WiFi credentials, and still want to start the local access point: remove power from the Pioreactor, pull GPIO pin 20 HIGH, and return power to the Pioreactor. (To do this: connect a jumper wire between a 3.3V pin and GPIO pin 20. See pins [here](https://pinout.xyz/)). Upon boot, the Pioreactor will initialize the local access network.
+ - With the power off, remove the SD card from the leader and insert it into a computer. Add a file named `local_access_point` to the `/boot/` directory on the card. In this new file, add a two letter country code (ex: `CA`, `US`, `GB`, etc.). Remove the SD card safely, and insert back into the Pioreactor.
 
 
 ## Access the local access point
@@ -46,7 +50,7 @@ Since this network is not connected to the internet, you won't be able to upgrad
 
  ## Turning off a local access point
 
- If you wish to stop the local access point, rebooting the leader Pioreactor while pulling the GPIO pin 26 HIGH. You just need to do this once.
+Simply delete the `local_access_point` file in the `/boot/` directory.
 
 
  ## Changing SSID name or password for your local access point
