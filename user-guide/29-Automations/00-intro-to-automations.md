@@ -3,7 +3,7 @@ title: Introduction to Automations
 slug: /intro-to-automations
 ---
 
-So far, we’ve worked with basic activities that you can directly set as a one time thing, typically at the beginning of your experiment (turning stirring, OD, and growth rate readings on). For more complex experiments, we introduce automations. 
+So far, we’ve worked with basic activities that you can directly set as a one time thing, typically at the beginning of your experiment (starting stirring, OD readings, etc.). For more advanced experiments, we introduce automations.
 
 Automations are preset functions that are _automated_, or performed by the Pioreactor without the need of your intervention. This is great for when you want to change the environment of your experiment in some way, whether periodically or at a given time  — and you don’t want to change your settings every time! 
 
