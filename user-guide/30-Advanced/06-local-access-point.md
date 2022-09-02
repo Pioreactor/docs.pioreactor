@@ -26,12 +26,11 @@ The Pioreactor comes with the ability to create its own local access point, whic
 
 The leader Pioreactor has the necessary software to create the local access point. To start the access point:
 
- - With the power off, remove the SD card from the leader and insert it into a computer. Add a file named `local_access_point` to the `/boot/` directory on the card. In this new file, add a two letter country code (ex: `CA`, `US`, `GB`, etc.). Remove the SD card safely, and insert back into the Pioreactor.
-
+ - Unplug the Pioreactor. Remove the SD card from the leader and insert it into a computer. Add a file named `local_access_point` to the `/boot/` directory on the card. In this new file, add a two letter country code (ex: `CA`, `US`, `GB`, etc.). Remove the SD card safely, and insert back into the Pioreactor.
 
 ## Access the local access point
 
-After starting the local access point, you should see a new network called `pioreactor`, with password `raspberry`. You should be able to connect to this new access point with any computer, phone, tablet, etc.
+After plugging in the Pioreactor, the local access point will start and you should see a new network called `pioreactor`, with password `raspberry`. You should be able to connect to this new access point with any computer, phone, tablet, etc.
 
 <img src="/img/user-guide/pioreactor_ap.png" width="325" />
 
@@ -55,4 +54,4 @@ Simply delete the `local_access_point` file in the `/boot/` directory.
 
  ## Changing SSID name or password for your local access point
 
-In the `config.ini`, the SSID and password are editable under the section `local_access_point`. Requires a power-cycle to take effect.
+In the `config.ini`, the SSID and password are editable under the section `local_access_point`. This requires a power-cycle to take effect.
