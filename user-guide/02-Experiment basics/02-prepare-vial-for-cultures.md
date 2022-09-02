@@ -31,7 +31,7 @@ Prepare your media as your protocol suggests. For example: in the our experiment
 The glassware vial, stirbar and vial cap that come with your Pioreactor are all fully autoclavable, and heat resistant up to 125℃. The luer lock ends can be covered with tin foil, or attached to air filters, or neither. Since the volume in the vial is so little, the autoclave only needs to be at its maximum temperature for a very short duration.
 
 :::tip
-Don't have an autoclave? A kitchen pressure cooker works just as well. Still don't have that? You can use a stove top or hotplate: heat on a medium-low heat until boiling, and let boil for a few minutes. An autoclave and pressure cooker is a much more effective sterilizer though.
+Don't have an autoclave? A kitchen pressure cooker works just as well. Still don't have that? You can use a stove top or hotplate: heat on a medium-low heat until boiling, and let boil for a few minutes. However, an autoclave or a pressure cooker is a more effective sterilizer.
 :::
 
 

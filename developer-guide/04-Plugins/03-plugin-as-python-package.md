@@ -111,7 +111,11 @@ function decorated with `@click.command` at the bottom of the file. See example 
 #### 2. An initial Python file, named `__init__.py`
 
 ##### If implementing an automation:
-Leave this file blank.
+Import the Class of your automation file:  
+
+```
+from <SUBFOLDER CONTAINING PLUGIN>.<PYTHON FILE NAME> import <CLASS NAME>
+```,
 
 ##### If implementing a background job:
 
@@ -161,6 +165,11 @@ twine upload dist/<.WHL FILE>
 ```
 
 You will then be prompted for a username and password. Use the credentials for your PyPi account. Then, your package is uploaded and viewable at the link provided! 
+
+:::tip Note
+Before you build a new wheel, it's good practice to clean up your previous build.  
+This can be done using `python setup.py clean --all` on the command line. 
+:::
 
 ## Installing your Python package on your cluster
 

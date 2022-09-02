@@ -9,6 +9,9 @@ The interaction of light within samples of suspended microorganisms will differ 
 
 ![](/img/user-guide/absorption_vs_od.png)
 
+:::tip
+Looking to calibrate for OD600 readings? [Visit this page](/user-guide/calibrate-od600).
+:::
 
 ### Normalization
 
