@@ -28,6 +28,16 @@ Is a dataset not available in the list? Is there a specific data point you'd lik
 
 When exporting datasets, most csv files will include a single metric against a time series. If you'd like to compare many datasets using a single time series, we recommend export of the _Pioreactor Unit Activity_ dataset.
 
-This dataset summarizes all activities from one Pioreactor against a single time series to make extrapolation easier. As an experiment runs, activity metrics will be continuously saved. The dataset will follow a running timeseries (column A) and include metrics for OD, temperature, stirring, LED updates and dosing. 
+This dataset summarizes all activities from one Pioreactor against a single time series to make working with data easier. The dataset will follow a running timeseries (column A) and include metrics for OD, temperature, stirring, LED updates and dosing. 
+
+Consider this example where we turned on temperature and stirring: 
+
+![](/img/user-guide/temp-vs-stirring-separate-csv.png)
+
+Temperature and stirring datasets are exported on separate .csv files and follow their unique time series. In comparison, the Pioreactor Unit dataset compiles both against the same time series, making it much more accessible:
+
+![](/img/user-guide/pio-unit-data-example.png)
+
+
 
 <!-- insert images of example export data once implemented --> 
