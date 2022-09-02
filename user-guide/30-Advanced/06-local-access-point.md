@@ -26,7 +26,8 @@ The Pioreactor comes with the ability to create its own local access point, whic
 
 The leader Pioreactor has the necessary software to create the local access point. To start the access point:
 
- - With the power off, remove the SD card from the leader and insert it into a computer. Add a file named `local_access_point` to the `/boot/` directory on the card. In this new file, add a two letter country code (ex: `CA`, `US`, `GB`, etc.). Remove the SD card safely, and insert back into the Pioreactor.
+ - If starting with a fresh Pioreactor: after the image has been added to the SD card, remove the SD card from your computer, and insert it back in. Add a file named `local_access_point` to the `/boot/` directory on the card. In this new file, add a two letter country code (ex: `CA`, `US`, `GB`, etc.). Remove the SD card safely, and insert back into the Pioreactor.
+ - If starting from an existing Pioreactor: with the power off, remove the SD card from the leader and insert it into a computer. Add a file named `local_access_point` to the `/boot/` directory on the card. In this new file, add a two letter country code (ex: `CA`, `US`, `GB`, etc.). Remove the SD card safely, and insert back into the Pioreactor.
 
 
 ## Access the local access point
