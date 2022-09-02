@@ -33,6 +33,10 @@ The peristaltic pump has two tubes: a <Highlight color={colors.red}>source</High
 
 </AssemblyInstructionBlock>
 
+:::tip
+[Supplying external power](/user-guide/external-power)? Make sure to plug in your external power **before** pump calibration!
+:::
+
 <AssemblyInstructionBlock title="Calibrating the pumps" images={["experiments/turbidostat/ssh_into_unit.png","experiments/turbidostat/run_pump_calc.png"]}>
 
 1. [Calibrate your pumps](/user-guide/hardware-calibrations#pump-calibration) through your computer's command line. 
@@ -49,15 +53,11 @@ The peristaltic pump has two tubes: a <Highlight color={colors.red}>source</High
 
 To avoid cross contamination, pumps should be sterilized before and after use. 
 
-<AssemblyInstructionBlock title=" " images={["experiments/turbidostat/ssh_into_unit.png","experiments/turbidostat/run_pump_calc.png"]}>
-
 1. Create a 10% bleach dilution in a beaker. Place the sink and source tubes of each pump you're using in the beaker. 
 2. On the UI, in the _Pioreactors_ tab, click _Manage_ and go to the _Dosing_ tab. 
 3. _Run continuously_ to cycle the disinfectant solution through each pump that you're using. 
 4. _Interrupt_ after sufficient cycling. In another beaker with deionized water, place the tubes in and repeat the cycling to rinse out the pumps. 
 5. Your pumps are now ready to be attached to media, waste, or vials for your experiments. 
-
-</AssemblyInstructionBlock>
 
 Once finished calibrating, you can run your pump manually and programmatically.
 
