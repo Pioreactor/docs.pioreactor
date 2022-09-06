@@ -4,10 +4,6 @@ slug: /set-up-an-experiment
 ---
 
 
-:::info
-Before starting an experiment, it's useful to run a _self test_ to confirm that your Pioreactors are all working as expected. [How to run a self-test.](/user-guide/running-self-test)
-:::
-
 ### Creating an experiment
 
 1. To create a new experiment, use the "New experiment" button at the top of the _Experiment Overview_ page.
@@ -33,8 +29,13 @@ The next pages will guide you through setting up heating, stirring and optical d
 
 ## Alternative: Start activities from the Pioreactors page.
 
+:::info
+Before starting an experiment, it's useful to run a _self test_ to confirm that your Pioreactors are all working as expected. [How to run a self-test.](/user-guide/running-self-test)
+:::
 
 On the _Pioreactors_ page, you should see at least one Pioreactor under _Active Pioreactors_. Using the "Manage" button (Or "Manage all Pioreactors" button above), you can start an [activity](/user-guide/activities). Once started, jobs can also be _paused_ (and then _resumed_) and _stopped_.
+
+
 
 ![](/img/user-guide/pioreactor_page_manage.png)
 ![](/img/user-guide/pioreactor_page_activities.png)

@@ -21,7 +21,7 @@ SSHing means to connect to a computer remotely, and interact with its command li
 We need to connect to the Raspberry Pi:
 
 1. hostname: your Pioreactor's name (see web interface) also-known-as your Raspberry Pi's _hostname_.
-2. user: `pi`
+2. user: `pioreactor`
 3. password: the one you used when you installed the Pioreactor, by default it's `raspberry`.
 
 One your online, you can have some fun and type `pio blink` to have your Pioreactor blink!
@@ -62,7 +62,7 @@ Save the file with `crtl-x`, and then `Y`, and run the script again. Now, the jo
 
 Let's add some more to our script. Let's say we also want to:
 1. turn on an LED in channel B,
-2. turn on optical density reading (with 45° photodiode in channel 1 and reference in channel 2).
+2. turn on optical density reading (with 90° photodiode in channel 1 and reference in channel 2).
 3. After 10 seconds, slow down the stirring RPM
 
 ```python {3,4,6,9,11,12}
@@ -74,7 +74,7 @@ from pioreactor.actions.led_intensity import led_intensity
 led_intensity("B", 50)
 
 stirrer = start_stirring(target_rpm=400)
-od_reader = start_od_reading("45", "REF")
+od_reader = start_od_reading("90", "REF")
 
 time.sleep(10)
 stirrer.set_target_rpm(300)
@@ -86,7 +86,7 @@ You should see data coming into to your experiment overview in the web interface
 
 ### 5. Adding an automation
 
-Next, we'd like to start heating and keep our vial at a constant temperature. Recall that all temperature tasks are actually temperature automations. In this case, we require the `pid_stable` temperature automation, invoked from a temperature controller:
+Next, we'd like to start heating and keep our vial at a constant temperature. Recall that all temperature tasks are actually temperature automations. In this case, we require the `stable` temperature automation, invoked from a temperature controller:
 
 ```python {5,11}
 import time
@@ -98,8 +98,8 @@ from pioreactor.background_jobs.temperature_control import start_temperature_con
 led_intensity("B", 50)
 
 stirrer = start_stirring(target_rpm=400)
-od_reader = start_od_reading("45", "REF")
-temp_controller = start_temperature_control("pid_stable", target_temperature=32)
+od_reader = start_od_reading("90", "REF")
+temp_controller = start_temperature_control("stable", target_temperature=32)
 
 time.sleep(10)
 stirrer.set_target_rpm(300)
