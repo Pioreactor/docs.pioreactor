@@ -19,6 +19,8 @@ GR can be negtive at first &#151 this is an artifact of turbidity measurements!
 
 If you'd like to **change the settings** of your activities after you start, navigate back to the _Pioreactors_ tab. Under _Manage_ for a single Pioreactor or _Manage all Pioreactors_, click the _Settings_ tab. Here you can change the settings of your activities (such as labels and targets) without pausing or stopping. 
 
+![](/img/user-guide/manage_ui.png)
+
 ![](/img/user-guide/settings.png)
 
 Set specific functions for **dosing and LEDs** under the _Dosing_ and _LEDs_ tabs. These are NOT automations, but rather simple, manual commands for external pumps and LED cables.   
