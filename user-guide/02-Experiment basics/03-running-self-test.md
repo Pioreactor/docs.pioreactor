@@ -29,7 +29,7 @@ Depending on the results of each test, you'll see success and failures:
 
 
 :::info
-The self-test routine is optional. Even with test failures, the Pioreactor is still operational (perhaps not where the test failed though!)
+The self-test routine is optional. Even with test failures, the Pioreactor is still operational (perhaps not where the test failed though!). We highly recommend a self-test at least after your initial setup. 
 :::
 
 

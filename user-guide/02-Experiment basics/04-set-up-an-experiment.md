@@ -46,4 +46,6 @@ The typical sequence of activities to start is:
 2. **Temperature automation → Stable**
 3. **Optical density**
 4. **Growth rate**
-5. Any other activities. Any of the automations can be started, or custom jobs you've added to your Pioreactor.
+5. Any other activities. Any of the automations can be started, or [custom jobs](/user-guide/using-community-plugins) you've added to your Pioreactor.
+
+Once your activities are started, you're ready to [monitor your experiment](/user-guide/monitor-experiment)! 

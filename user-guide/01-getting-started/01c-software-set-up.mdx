@@ -51,7 +51,6 @@ We'll start with an unused Raspberry Pi and empty microSD card (or we'll reforma
 9. Navigate to [http://pioreactor.local](http://pioreactor.local) in a web browser to visit the web interface. (Not working? See [Troubleshooting](#troubleshooting) below).
 10. The Pioreactor is now ready for use! Basic experiment instructions can be found [here](/user-guide/prepare-vial-for-cultures). 
 
-
 ## Adding workers to your cluster
 
 #### From the Raspberry Pi Imager
@@ -79,6 +78,10 @@ After a minute, the new Pioreactor should appear on the _Pioreactors_ and _Exper
 #### From the command line _(Alternative)_
 
 On the leader's command line, the command `pio add-pioreactor <new name>` will connect the new Pioreactor to the cluster.
+
+:::tip
+We highly recommend running a [self-test](/user-guide/running-self-test) on all Pioreactors after your initial setup to detect any hardware bugs at this point. 
+:::
 
 ## Troubleshooting
 
