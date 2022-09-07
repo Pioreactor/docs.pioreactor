@@ -75,4 +75,4 @@ Each Pioreactor had an increase in temperature since the target fell below ambie
 
 ## Looking for further help? 
 
-If none of these issues apply to your data, feel free to contact us at support@pioreactor.com or post to our [forums](forum.pioreactor.com) for further assistance.
+If none of these issues apply to your data, feel free to contact us at support@pioreactor.com or post to our [forums](https://forum.pioreactor.com/) for further assistance.
