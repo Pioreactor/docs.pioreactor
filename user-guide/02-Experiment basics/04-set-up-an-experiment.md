@@ -23,11 +23,8 @@ Use these labels to keep track of treatments on multiple vials. For example, lab
 ![](/img/user-guide/assign_labels_bulk.png)
 
 
-The next pages will guide you through setting up heating, stirring and optical density reading for your Pioreactor.
 
-
-
-## Alternative: Start activities from the Pioreactors page.
+## Start activities from the Pioreactors page.
 
 :::info
 Before starting an experiment, it's useful to run a _self test_ to confirm that your Pioreactors are all working as expected. [How to run a self-test.](/user-guide/running-self-test)
