@@ -12,22 +12,20 @@ You would typically want the graphs to follow the examples below. While running 
 ![](/img/user-guide/all-four-graphs.png)
 
 :::tip
-GR can be negtive at first &#151 this is an artifact of turbidity measurements! 
+GR can be negative at first &#151 this is an artifact of turbidity measurements!
 :::
 
-## Change settings
+## Changing settings
 
-If you'd like to **change the settings** of your activities after you start, navigate back to the _Pioreactors_ tab. Under _Manage_ for a single Pioreactor or _Manage all Pioreactors_, click the _Settings_ tab. Here you can change the settings of your activities (such as labels and targets) without pausing or stopping. 
+If you'd like to **change the settings** of your activities after you start, navigate back to the _Pioreactors_ tab. Under _Manage_ for a single Pioreactor or _Manage all Pioreactors_, click the _Settings_ tab.
 
 ![](/img/user-guide/manage_ui.png)
 
+Here you can change the settings of your activities (such as temperature, RPM, and dosing volume) without pausing or stopping the activity.
+
 ![](/img/user-guide/settings.png)
 
-Set specific functions for **dosing and LEDs** under the _Dosing_ and _LEDs_ tabs. These are NOT automations, but rather simple, manual commands for external pumps and LED cables.   
 
-![](/img/user-guide/dosing-settings.png)
-
-![](/img/user-guide/led-settings.png)
 
 ## Event logs
 
@@ -35,7 +33,7 @@ Set specific functions for **dosing and LEDs** under the _Dosing_ and _LEDs_ tab
 
 ![](/img/user-guide/example-event-logs.png)
 
-## Identifying your Pioreactors
+## Identifying Pioreactors in your cluster
 
 To locate your Pioreactor, click _Identify_ on the _Pioreactors_ tab. This will cause the Pioreactor to blink blue light. 
 
