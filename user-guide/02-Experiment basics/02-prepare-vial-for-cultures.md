@@ -7,10 +7,10 @@ slug: /prepare-vial-for-cultures
 
 #### Choosing a volume for your culture
 
-We suggest using between **10ml to 15ml** volume of liquid in the vial.
+We suggest using between **8ml to 15ml** volume of liquid in the vial.
 
 :::tip
-Some things to consider when selecting a volume: a lower volume will provide more aeration per mL since the liquid-air interface is fixed. A lower volume will also be more responsive to changes in temperature. But too low and a vortex may start interfering with the Pioreactor's optical system.
+Some things to consider when selecting a volume: a lower volume will provide more aeration per mL since the liquid-air interface is fixed. A lower volume will also be more responsive to changes in temperature, and be able to achieve a higher maximum temperature. But too low and the vortex caused by stirring may start interfering with the Pioreactor's optical system (a lower RPM can fix this though).
 :::
 
 #### Position of tubes in cap
