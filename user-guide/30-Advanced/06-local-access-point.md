@@ -3,10 +3,6 @@ title: Local access points
 slug: /local-access-point
 ---
 
-:::tip
-This is a relatively new feature, and if you have problems with using it, or questions, please contact us at info@pioreactor.com ❤️
-:::
-
 
 :::caution
 This many not work if your leader is a Raspberry Pi Zero W or Raspberry Pi Zero 2 W

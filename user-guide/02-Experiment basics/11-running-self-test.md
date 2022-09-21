@@ -3,7 +3,7 @@ title: Running a self-test
 slug: /running-self-test
 ---
 
-It's advisable to run a self-test on your Pioreactor before experiments. The self-test routine can catch common hardware errors that may compromise your data collection.
+To get the best results and confirm your Pioreactor is working as expected, it's advisable to run a self-test on your Pioreactor. The self-test routine can catch common hardware errors that may compromise your data collection.
 
 ### How to run the self-test routine
 

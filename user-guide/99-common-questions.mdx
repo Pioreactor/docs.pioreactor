@@ -167,3 +167,7 @@ Yes, so long as the Raspberry Pi's are connected to the same network and discove
 
 On a computer that is connected to the internet, download the `.whl` file from the plugins webpage on PyPI. Then, connect that computer to your Pioreactor's local access point's network. To each Pioreactor you wish to install the plugin on, transfer the `.whl` file to the Pioreactor (using SFTP or FTP). Then, run `pio install-plugin <plugin-name> <path/to/local/.whl>`
 
+
+##### To upgrade the core Pioreactor software
+
+On a computer that is connected to the internet, download the `.whl` file from the under "Assets" from the [latest release on Github](https://github.com/Pioreactor/pioreactor/releases/latest). Then, connect that computer to your Pioreactor's local access point's network. To each Pioreactor you wish to update software on, transfer the `.whl` file to the Pioreactor (using SFTP or FTP). Then, run `pio update --app --source <path/to/local/.whl>`
