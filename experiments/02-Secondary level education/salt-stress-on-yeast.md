@@ -37,8 +37,6 @@ The inside and outside of a cell are separated by the cell's **semi-permeable** 
 
 Through the process of osmosis, water (our **solvent**) is drawn across a cell's membrane towards higher concentrations of solutes, until an equilibrium is reached. If the concentration of solutes inside and outside of a cell are the same, then the cell is in an **isotonic** solution. Less external solutes or more solutes create **hypotonic** and **hypertonic** solutions, respectively. 
 
-(diagram here) 
-
 Increasing salt content to create a hypertonic solution will slow the yeast's fermentation or reproductive activities, leading to slower growth. As salt is addded in excess, yeast cells will fail to grow; yeast needs water and their cell volume eventually becomes too small for growth.  
 
 ## Experiment

@@ -3,6 +3,9 @@ title: Setting up an experiment
 slug: /set-up-an-experiment
 ---
 
+import AssemblyInstructionBlock from '@site/src/components/AssemblyInstructionBlock';
+import Highlight from '@site/src/components/Highlight';
+import Admonition from '@theme/Admonition';
 
 ### Creating an experiment
 
@@ -22,7 +25,20 @@ Use these labels to keep track of treatments on multiple vials. For example, lab
 
 ![](/img/user-guide/assign_labels_bulk.png)
 
+### Blanking
 
+When working with **small amounts** of a microorganism, you can obtain more accurate growth rates by [blanking the vial](/user-guide/od-normal-growth-rate#blanking) before inoculation.
+
+<AssemblyInstructionBlock images={["experiments/calibrate.png","experiments/blank.png"]}>
+
+1. Insert your sterile vial containing media into the Pioreactor before inoculating with your species of interest.
+2. On the website, click the _Pioreactors_ tab on the left-hand menu, and choose one of the active Pioreactors.
+3. Select _Calibrate_, and under the _Blanks_ tab, click _Start_. The Pioreactor will now record the optical density of the blank vial.
+4. Repeat for all the Pioreactors to be used. 
+	*	A notification will appear when a Pioreactor has finished blanking. 
+6. You can now inoculate your vials and begin your experiment.
+
+</AssemblyInstructionBlock>
 
 ## Start activities from the Pioreactors page.
 
