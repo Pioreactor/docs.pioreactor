@@ -38,13 +38,12 @@ With all factors the same, you should see similar normalized OD and growth rate 
 
 ### Results 
 
-Here are a few A/A graphs we were able to generate: 
+Here are graphs we generated though our A/A test: 
 
-![](/img/experiments/aa-experiment.png)
+![](/img/experiments/aa-test-results.png)
 
-![](/img/experiments/aa-experiment2.png)
-
-Any fluctuations affect both Pioreactors as a result of changes in the external environment. These include AC, light exposure, and any vibrations from the building. 
+These kinds of tests make it easy to identify any unusual activity occuring in a specific Pioreactor (i.e, missing an LED, temperature malfunctions, etc). In our case, though, both ran almost identically! 
+Thus, we conclude that our results from both Pioreactors are due to biological causes, and reliable comparisons can be drawn between these Pioreactors. 
 
 ## Detailed procedure
 
