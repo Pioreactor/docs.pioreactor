@@ -34,8 +34,10 @@ __plugin_homepage__ = "https://docs.pioreactor.com"
 
 class DemoJob(BackgroundJob):
 
+    job_name="demo_job"
+
     def __init__(self, unit, experiment, **kwargs):
-        super().__init__(job_name="demo_job", unit=unit, experiment=experiment)
+        super().__init__(unit=unit, experiment=experiment)
 
     def on_ready(self):
         self.logger.debug("Hello, world!")

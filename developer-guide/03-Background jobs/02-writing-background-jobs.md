@@ -15,18 +15,22 @@ from pioreactor.actions.led_intensity import led_intensity
 
 class IntroJob(BackgroundJob):
 
+    job_name="intro_job"
+
 ```
 
-We've given the class the simple name of `IntroJob`. Our background job must inherit from `BackgroundJob`. Next we'll define some initial attributes:
+We've given the class the simple name of `IntroJob`. Our background job must inherit from `BackgroundJob`. All jobs require a `job_name`: the `job_name` is usually the snake-case of the class name.
+
+Next we'll define some initial attributes:
 
 
-
-```python {6-10}
+```python {7-11}
 from pioreactor.background_jobs.base import BackgroundJob
 from pioreactor.actions.led_intensity import led_intensity
 
 class IntroJob(BackgroundJob):
 
+    job_name="intro_job"
     published_settings = {
         'intensity': {'datatype': "float", "unit": "%", "settable": True}
     }
@@ -38,12 +42,13 @@ We declare that the `intensity` attribute is to be published and controllable ov
 
 Next we add the `__init__`, which should always accept at least `unit` and `experiment` (as strings). `unit` refers to the name of the Pioreactor (the hostname), and `experiment` is the experiment the job is associated to.
 
-```python {12,13}
+```python {13,14}
 from pioreactor.background_jobs.base import BackgroundJob
 from pioreactor.actions.led_intensity import led_intensity
 
 class IntroJob(BackgroundJob):
 
+    job_name="intro_job"
     published_settings = {
         'intensity': {'datatype': "float", "unit": "%", "settable": True}
     }
@@ -51,21 +56,22 @@ class IntroJob(BackgroundJob):
     LED_channel = "A"
 
     def __init__(self, unit, experiment):
-        super().__init__(job_name="intro_job", unit=unit, experiment=experiment)
+        super().__init__(unit=unit, experiment=experiment)
 
 ```
 
-We call `super` to initialize the super class, `BackgroundJob`, with the unit, experiment, and `job_name`: the `job_name` is usually the snake-case of the class name.
+We call `super` to initialize the super class, `BackgroundJob`, with the unit, and experiment.
 
 Next, we define a function, `set_intensity`m that will be called whenever `intensity` is changed remotely (we'll do this later). The `set_intensity` function updates `intensity` _and_ will change the onboard LED power for channel `A`. Remember, whenever the attribute `intensity` changes, it's published to MQTT.
 
 
-```python {15,16,17}
+```python {16-18}
 from pioreactor.background_jobs.base import BackgroundJob
 from pioreactor.actions.led_intensity import led_intensity
 
 class IntroJob(BackgroundJob):
 
+    job_name="intro_job"
     published_settings = {
         'intensity': {'datatype': "float", "unit": "%", "settable": True}
     }
@@ -73,7 +79,7 @@ class IntroJob(BackgroundJob):
     LED_channel = "A"
 
     def __init__(self, unit, experiment):
-        super().__init__(job_name="intro_job", unit=unit, experiment=experiment)
+        super().__init__(unit=unit, experiment=experiment)
 
     def set_intensity(self, intensity):
         self.intensity = intensity
@@ -83,12 +89,13 @@ class IntroJob(BackgroundJob):
 Next, we create the "on exit" behaviour (turn off LED) by overwriting the `on_disconnected` function.
 
 
-```python {19-20}
+```python {20,21}
 from pioreactor.background_jobs.base import BackgroundJob
 from pioreactor.actions.led_intensity import led_intensity
 
 class IntroJob(BackgroundJob):
 
+    job_name="intro_job"
     published_settings = {
         'intensity': {'datatype': "float", "unit": "%", "settable": True}
     }
@@ -96,7 +103,7 @@ class IntroJob(BackgroundJob):
     LED_channel = "A"
 
     def __init__(self, unit, experiment):
-        super().__init__(job_name="intro_job", unit=unit, experiment=experiment)
+        super().__init__(unit=unit, experiment=experiment)
 
     def set_intensity(self, intensity):
         self.intensity = intensity
@@ -108,12 +115,13 @@ class IntroJob(BackgroundJob):
 
 Finally, we add a small script at the bottom to run our new job when the Python file is invoked:
 
-```python {22-30}
+```python {23-30}
 from pioreactor.background_jobs.base import BackgroundJob
 from pioreactor.actions.led_intensity import led_intensity
 
 class IntroJob(BackgroundJob):
 
+    job_name="intro_job"
     published_settings = {
         'intensity': {'datatype': "float", "unit": "%", "settable": True}
     }
@@ -121,7 +129,7 @@ class IntroJob(BackgroundJob):
     LED_channel = "A"
 
     def __init__(self, unit, experiment):
-        super().__init__(job_name="intro_job", unit=unit, experiment=experiment)
+        super().__init__(unit=unit, experiment=experiment)
 
     def set_intensity(self, intensity):
         self.intensity = intensity
@@ -179,8 +187,10 @@ from pioreactor.background_jobs.base import BackgroundJob
 
 class MotorDriver(BackgroundJob):
 
+    job_name="motor_driver"
+
     def __init__(self, hz, initial_duty_cycle, unit, experiment, **kwargs):
-        super().__init__(job_name="motor_driver", unit=unit, experiment=experiment)
+        super().__init__(unit=unit, experiment=experiment)
         self.hz = hz
         self._initial_duty_cycle = initial_duty_cycle
         self.duty_cycle = initial_duty_cycle
@@ -309,13 +319,14 @@ from pioreactor.utils import clamp
 
 class MotorDriver(BackgroundJob):
 
+    job_name="motor_driver"
     published_settings = {
         "duty_cycle": {"datatype": "float", "settable": False, "unit": "%"},
     }
     _previous_duty_cycle: None
 
     def __init__(self, hz, initial_duty_cycle, unit, experiment, **kwargs):
-        super().__init__(job_name="motor_driver", unit=unit, experiment=experiment)
+        super().__init__(unit=unit, experiment=experiment)
         self.hz = hz
         self._initial_duty_cycle = initial_duty_cycle
         self.duty_cycle = initial_duty_cycle
