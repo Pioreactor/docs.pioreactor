@@ -52,3 +52,8 @@ Simply delete the `local_access_point` file in the `/boot/` directory.
  ## Changing SSID name or password for your local access point
 
 In the `config.ini`, the SSID and password are editable under the section `local_access_point`. This requires a power-cycle to take effect.
+
+
+## Hidden site: `raspap.pioreactor.local`
+
+The software we use, RaspAP, exposes it's own website to view statistics and configuration for the local access point. You can view this website at [http://raspap.pioreactor.local](http://raspap.pioreactor.local).
