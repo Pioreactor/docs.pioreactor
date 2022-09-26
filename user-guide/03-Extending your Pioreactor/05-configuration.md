@@ -5,12 +5,11 @@ slug: /configuration
 
 ### How configuration works across Pioreactors
 
-Configuration of the Pioreactors is through configuration files, prefixed by `.ini`. There are two types of `.ini` files: a shared `config.ini`, which is the same across all units, and a worker-specific `unit_config.ini` file, which can have settings that overwrite those found in the shared `config.ini`. See image below:
+Configuration of the Pioreactors is through configuration files, prefixed by `.ini`. There are two types of `.ini` files: a shared `config.ini`, which is the same across all units, and a unit-specific `unit_config.ini` file, which can have settings that overwrite those found in the shared `config.ini`. See image below:
 
-![](https://i.imgur.com/g8dDdhZ.png)
+![](/img/user-guide/configini.png)
 
-
-This overriding lets you customize specific behavior *per* Pioreactor, without having to duplicate lots of configuration over and over again.
+From the image, each unit will use the shared config.ini setting of `target_rpm=500`, unless an alternative setting is present in their specific unit_config.ini files (like `target_rpm=400` found in `unit1_config.ini`) . This overriding lets you customize specific behavior *per* Pioreactor, without having to duplicate lots of configuration over and over again.
 
 
 ### Editing the configuration files from the web interface
