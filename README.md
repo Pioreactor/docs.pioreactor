@@ -18,6 +18,8 @@ npx docusaurus start
 
 
 #### Deploy
+Deploys are done via Github actions, but manually they are done:
+
 ```
 USE_SSH=true GIT_USER=<your github username>  npx docusaurus deploy
 ```
