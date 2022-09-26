@@ -1,9 +1,9 @@
 ---
-title: A/A testing
-slug: /aa-testing
+title: Control testing
+slug: /control-testing
 tags: 
   - Yeast
-  - AA
+  - Control
 ---
 
 import AssemblyInstructionBlock from '@site/src/components/AssemblyInstructionBlock';
@@ -11,7 +11,7 @@ import Highlight from '@site/src/components/Highlight';
 import Admonition from '@theme/Admonition';
 
 :::tip Success Goal 
-Conduct a simple similarity test between Pioreactors, using the same media composition, culture, and activities. 
+Conduct a simple control test to evaluate results between Pioreactors, using the same media composition, culture, and activities. 
 :::
 
 ## Requirements
@@ -26,9 +26,9 @@ Conduct a simple similarity test between Pioreactors, using the same media compo
 
 ## Introduction
 
-Like any biotechnology, sources of error exist due to slight differences between Pioreactors. This can include bulb intensity variations, minute differences in the Pioreactor plastics, and even slight differences between vials! We can minimize how these differences affect our experiment through calibrations (check out [available calibrations](/user-guide/calibrate-od600)) and test these differences by conducting A/A tests.
+Like any biotechnology, sources of error exist due to slight differences between Pioreactors. This can include bulb intensity variations, minute differences in the Pioreactor plastics, and even slight differences between vials! We can minimize how these differences affect our experiment through calibrations (check out [available calibrations](/user-guide/calibrate-od600)) and test these differences by conducting control tests.
 
-A/A tests, unlike A/B tests, look at two or more instruments under the same conditions to determine any variance. This is an important statistical consideration when comparing data between several Pioreactors for research purposes. Ideally, we'd expect congruently run Pioreactors to have very similar results. If results are dissimilar, we can begin to investigate sources of error by manipulating internal factors.
+Control tests for the Pioreactor, unlike typical experiments, look at two or more instruments under the same conditions to determine any variances. This is an important statistical consideration when comparing data between several Pioreactors for research purposes. Ideally, we'd expect Pioreactors run under the same conditions to have very similar results. If results are dissimilar, we can begin to investigate sources of error by manipulating internal factors (such as configurations).
 
 ## Experiment
 
@@ -42,8 +42,7 @@ Here are graphs we generated though our A/A test:
 
 ![](/img/experiments/aa-test-results.png)
 
-These kinds of tests make it easy to identify any unusual activity occuring in a specific Pioreactor (i.e, missing an LED, temperature malfunctions, etc). In our case, though, both ran almost identically! 
-Thus, we conclude that our results from both Pioreactors are due to biological causes, and reliable comparisons can be drawn between these Pioreactors. 
+These kinds of tests make it easy to identify any unusual activity occuring in a specific Pioreactor (i.e, if it's missing an LED, temperature malfunctions, etc). In our case, though, both ran almost identically! Thus, we conclude that reliable comparisons can be drawn between these Pioreactors. 
 
 ## Detailed procedure
 
