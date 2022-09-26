@@ -17,20 +17,20 @@ This overriding lets you customize specific behavior *per* Pioreactor, without h
 
 At [pioreactor.local](http://pioreactor.local), navigate to the _Configuration_ page in the sidebar.
 
-![](/img/user-guide/edit_config_page.png)
+![Edit configuration page](/img/user-guide/edit_config_page.png)
 
 Select the configuration file you wish to edit from the dropdown:
 
-![](/img/user-guide/find_config_to_edit.png)
+![Choose the config.ini you wish to edit](/img/user-guide/find_config_to_edit.png)
 
 
 Clicking \[Save\] will save the new configuration and will deploy the new configuration to the proper Pioreactor unit(s).
 
-![](/img/user-guide/save_config.png)
+![Save the edited config.ini using the Save button](/img/user-guide/save_config.png)
 
 Pioreactor also stores a history of changes to each configuration file. You can view previous versions of configuration files in the dropdown. Clicking \[Revert\] will save the displayed configuration file.
 
-![](/img/user-guide/choose_config_version2.png)
+![Select historical versions of config.ini's](/img/user-guide/choose_config_version2.png)
 
 
 
