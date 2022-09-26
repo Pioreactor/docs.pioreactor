@@ -3,4 +3,4 @@ title: The Big Architecture Picture
 slug: /architecture
 ---
 
-![](https://cdn.shopify.com/s/files/1/0515/1824/3002/files/Pioreactor_System.drawio.png?v=1632150514)
+![The Pioreactor system architecture](/img/developer-guide/arch.png)

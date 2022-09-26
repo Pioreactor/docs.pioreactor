@@ -15,7 +15,24 @@ This overriding lets you customize specific behavior *per* Pioreactor, without h
 
 ### Editing the configuration files from the web interface
 
-In the web interface, pioreactor.local, the sidebar contains a link to _Configuration_. From there, any `.ini` file can be edited. Clicking \[Save\] will save the new configuration and will deploy the new configuration to the proper Pioreactor unit(s).
+At [pioreactor.local](http://pioreactor.local), navigate to the _Configuration_ page in the sidebar.
+
+![](/img/user-guide/edit_config_page.png)
+
+Select the configuration file you wish to edit from the dropdown:
+
+![](/img/user-guide/find_config_to_edit.png)
+
+
+Clicking \[Save\] will save the new configuration and will deploy the new configuration to the proper Pioreactor unit(s).
+
+![](/img/user-guide/save_config.png)
+
+Pioreactor also stores a history of changes to each configuration file. You can view previous versions of configuration files in the dropdown. Clicking \[Revert\] will save the displayed configuration file.
+
+![](/img/user-guide/choose_config_version2.png)
+
+
 
 ### Editing the configuration files from the command line
 
