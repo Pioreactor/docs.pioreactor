@@ -115,7 +115,7 @@ Import the Class of your automation file:
 
 ```
 from <SUBFOLDER CONTAINING PLUGIN>.<PYTHON FILE NAME> import <CLASS NAME>
-```,
+```
 
 ##### If implementing a background job:
 
