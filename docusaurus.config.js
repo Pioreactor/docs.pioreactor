@@ -29,7 +29,7 @@ const config = {
         docs: {
           routeBasePath: 'user-guide',
           path: 'user-guide',
-		  remarkPlugins: [math],
+		      remarkPlugins: [math],
           rehypePlugins: [katex],
           breadcrumbs: false,
           sidebarPath: require.resolve('./sidebars.js'),
@@ -56,7 +56,7 @@ const config = {
         id: 'developer-guide',
         breadcrumbs: false,
         path: 'developer-guide',
-		remarkPlugins: [math],
+		    remarkPlugins: [math],
         rehypePlugins: [katex],
         routeBasePath: 'developer-guide',
         sidebarPath: require.resolve('./sidebars.js'),
@@ -67,7 +67,7 @@ const config = {
       {
         id: 'experiments',
         path: 'experiments',
-		remarkPlugins: [math],
+		    remarkPlugins: [math],
         rehypePlugins: [katex],
         breadcrumbs: false,
         routeBasePath: 'experiments',
