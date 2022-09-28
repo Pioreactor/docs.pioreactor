@@ -1,5 +1,5 @@
 ---
-title: Before you begin
+title: Before you begin assembly
 slug: /hardware-setup-intro
 hide_table_of_contents: true
 ---
