@@ -12,6 +12,8 @@ The web server we use is lighttp, and hosted from `/var/www/pioreactorui`. This 
 
 The lighttp conf file is located in `/etc/lighttpd/conf-enabled/50-pioreactorui.conf`. Error logs (though not helpful) are in `/var/log/lighttpd/error.log`.
 
+
+
 ### Backend
 
 The backend app is a Flask app, with entry point in `/var/www/pioreactorui/main.fcgi`. The app uses Huey as background workers to perform `pio` tasks, save to disk, etc. Huey is controlled by systemd `huey.service`.
@@ -36,4 +38,5 @@ sudo systemctl restart lighttp && sudo systemctl restart huey
 ```
 
 ### Logs
-Logs for the backend and background workers are located in `/var/log/pioreactorui.log`.
+- Start up logs from systemd are in `sudo systemctl status lighttpd.service`.
+- Logs for the backend and background workers are located in `/var/log/pioreactorui.log`.
