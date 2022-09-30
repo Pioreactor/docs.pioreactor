@@ -146,10 +146,41 @@ This configuration file will contain additional configs that we want to add to o
 
 Within our main subfolder, create a subfolder named `ui`. Within that, create a subfolder `contrib`, then `jobs`. Move your `.yaml` file to the final subfolder.
 
+For a background job, the `.yaml` file should follow this format:
+```
+---
+display_name:  # human readable name
+job_name: # job name
+display: # bool; true to display on the /Pioreactors card
+source: # folder that contains your plugin
+description: # description of your plugin
+published_settings:
+  - key:  # as defined in Python
+    unit: # unit of your key
+    label: # human readable name
+    description: # description of your key
+    type:  # one of numeric, boolean, text
+    default: null
+    display: # bool; true to display on the /Pioreactors card
+```
+
 ##### If implementing an automation:
 
 In the case of creating an **automation plugin** instead of a **background job**, the subfolders are `ui/contrib/automations/<SPECIFIC AUTOMATION>`, where `SPECIFIC_AUTOMATION` is one of `dosing`, `led`, or `temperature`. Move your `.yaml` file to the final subfolder.
 
+The`.yaml` file of an automation should appear as the following:
+```
+---
+display_name:  # human readable name
+automation_name: # automation name
+source: # folder that contains your plugin
+description: # description of your plugin
+fields:
+  - key:  # as defined in Python
+    unit: # unit of your key
+    label: # human readable name
+    description: # description of your key
+```
 
 ## Create a Python package on PyPi
 
