@@ -181,7 +181,7 @@ class NaiveTurbidostat(DosingAutomationJobContrib):
 
 #### Using `latest_growth_rate`
 
-If our growth rate is high, we may want to modify the volume exchanged to keep up. A naive solution: we can bump up the exchanged volume if the growth rate is high. Much better would be a dynamic solution, or a feedback loop (like a PID controller, see [`pid_turbidostat`](https://github.com/Pioreactor/pioreactor/blob/master/pioreactor/automations/dosing/pid_turbidostat.py))
+If our growth rate is high, we may want to modify the volume exchanged to keep up. A naive solution: we can bump up the exchanged volume if the growth rate is high. Much better would be a dynamic solution, or a feedback loop.
 
 
 ```python {8,10,13,17}
