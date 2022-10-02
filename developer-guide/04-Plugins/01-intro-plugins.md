@@ -97,9 +97,3 @@ You should be able to execute the following from the command line now: `pio run 
 :::info
 [A full introduction to writing automations](/developer-guide/writing-automations-1) is available.
 :::
-
-
-### Distributing the code as a Python package
-
-
-Coming soon!

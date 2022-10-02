@@ -3,7 +3,7 @@ title: Adding your plugins to the web interface
 slug: /adding-plugins-to-ui
 ---
 
-With custom background jobs or automations, the end-game is really to have it available in the web interface, so you and your users don't need to use the command line at all. We've built support for easily adding to the web interface.
+With custom background jobs or automations, the goal is to have it available in the web interface, so you and your users don't need to use the command line at all. We've built support for easily adding to the web interface.
 
 ### Adding a custom automation to the drop-down of automations
 
@@ -11,7 +11,11 @@ Suppose we wish to add our new automation, either installed from a package or vi
 
 ![](/img/developer-guide/dropdown_automations.png)
 
-This list is sourced from yaml files located on the leader's Raspberry Pi, under `/var/www/pioreactorui/contrib/automations/`. Placing a new yaml file in the correct folder there will populate the list with your new automation. Here's an example `example.yaml` file:
+This list is sourced from yaml files located on the leader's Raspberry Pi, in either of two directories:
+ - `/var/www/pioreactorui/contrib/automations/`, is the source of the "default" automations
+ - `/user/pioreactor/.pioreactor/plugins/ui/automations`, is a directory to put custom plugins.
+
+ Placing a new yaml file in the correct folder there will populate the list with your new automation. Here's an example `example.yaml` file:
 
 ```yaml
 ---
@@ -37,7 +41,7 @@ published_settings:
     label: Intensity of PWM
 ```
 
-If this file was saved to the folder `/var/www/pioreactorui/contrib/automations/dosing`, we would see the following in the web interface (after refreshing):
+If this file was saved to the folder `/user/pioreactor/.pioreactor/plugins/ui/automations/dosing`, we would see the following in the web interface (after refreshing):
 
 ![](/img/developer-guide/dropdown_automations_with_example.png)
 
@@ -49,7 +53,11 @@ If this file was saved to the folder `/var/www/pioreactorui/contrib/automations/
 ![](/img/developer-guide/activities.png)
 
 
-The list of activities, among other things, is sourced from  `/var/www/pioreactorui/contrib/jobs/` on the leader's Raspberry Pi. Placing a new yaml file here will populate the list with your new automation. Here's an example `example.yaml` file:
+The list of activities, among other things, is sourced from either of two directories:
+ - `/var/www/pioreactorui/contrib/jobs/`, is the source of the "default" jobs
+ - `/user/pioreactor/.pioreactor/plugins/ui/jobs`, is a directory to put custom plugins.
+
+Placing a new yaml file in either of these folders will populate the UI dropdown with your new automation. Here's an example `example.yaml` file:
 
 ```yaml
 ---

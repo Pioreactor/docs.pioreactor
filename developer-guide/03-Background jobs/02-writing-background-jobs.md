@@ -62,7 +62,7 @@ class IntroJob(BackgroundJob):
 
 We call `super` to initialize the super class, `BackgroundJob`, with the unit, and experiment.
 
-Next, we define a function, `set_intensity`m that will be called whenever `intensity` is changed remotely (we'll do this later). The `set_intensity` function updates `intensity` _and_ will change the onboard LED power for channel `A`. Remember, whenever the attribute `intensity` changes, it's published to MQTT.
+Next, we define a function, `set_intensity` that will be called whenever `intensity` is changed remotely (we'll do this later). The `set_intensity` function updates `intensity` _and_ will change the onboard LED power for channel `A`. Remember, whenever the attribute `intensity` changes, it's published to MQTT.
 
 
 ```python {16-18}

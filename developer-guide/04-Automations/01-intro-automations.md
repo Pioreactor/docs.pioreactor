@@ -10,7 +10,7 @@ Automations are specialized [background jobs](/developer-guide/intro-background-
 
 ### Controllers
 
-Because we often want to change automations during an experiment, there is a `Controller` object (a background job) that initializes and tears-down automations during an experiment. For each automation type, dosing, temperature, and LED, there is a corresponding controller: `DosingController`, `TemperatureController`, and `LEDController`. Running these looks like:
+Because we often want to change automations during an experiment, there is a `Controller` object (a background job) that initializes and teardowns automations during an experiment. For each automation type: dosing, temperature, and LED, there is a corresponding controller: `DosingController`, `TemperatureController`, and `LEDController`, respectively. Running these looks like:
 
 
 ```python

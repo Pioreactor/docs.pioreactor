@@ -5,17 +5,16 @@ slug: /plugin-as-python-package
 
 If you'd like to contribute your plugin to the community, this is done easily by creating a Python package and uploading to PyPi. Let's walk through this!
 
-Note that in that template package, there are ways to add fields to the configuration (see `additional_config.ini`, which gets merged with `config.ini` on installation), and adding your automation to the web UI (see the specific folder structure in the `ui` folder).
 
 ## Organizing your files
 
 :::tip
-Note that the way files are organized depends on if your plugin is an **automation** or a **background job**. 
+Note that the way files are organized may depend on if your plugin is an **automation** or a **job**. Plugins can install both automations and jobs.
 :::
 
-Consider an example plugin: a **background job** called _Relay_, which just turns on or off anything thats plugged into a channel of your choosing. Follow the file organization here: [https://github.com/kellytr/pioreactor-relay-plugin](https://github.com/kellytr/pioreactor-relay-plugin).
+Consider an example plugin: a **job** called _Relay_, which just turns on or off anything thats plugged into a channel of your choosing. Follow the file organization here: [kellytr/pioreactor-relay-plugin](https://github.com/kellytr/pioreactor-relay-plugin).
 
-Here's a general schematic of how your files should be organized for a background job: 
+Here's a general schematic of how your files should be organized for a job:
 
 ```
 📁 my-plugin-name
@@ -33,7 +32,7 @@ Here's a general schematic of how your files should be organized for a backgroun
 ├─ 📝 setup.py
 ```
 
-The schematic is very similar for an **automation plugin** &#151 the only difference is the location of the `.yaml` file. Follow the template here for automation specific plugins:[https://github.com/Pioreactor/pioreactor\_custom\_dosing\_automation](https://github.com/Pioreactor/pioreactor_custom_dosing_automation).
+The schematic is very similar for an **automation plugin** &#151 the only difference is the location of the `.yaml` file.
 
 ```
 📁 my-plugin-name
@@ -52,7 +51,7 @@ The schematic is very similar for an **automation plugin** &#151 the only differ
 ├─ 📝 setup.py
 ```
 
-Start by creating a new file for your plugin. In our case, we named it `pioreactor-relay-plugin`. This **main file** will contain 4 important parts: 
+Start by creating a new folder for your plugin. In our case, we named it `pioreactor-relay-plugin`. This **main folder** will contain 4 important parts:
 
 #### 1. A license text file, named `LICENSE.txt`
 
@@ -67,11 +66,11 @@ include <MAIN FOLDER>/additional_config.ini
 recursive-include <MAIN FOLDER>/ui/ *.yaml
 ```
 
-#### 3. A README file, named `README.md` 
+#### 3. A `README.md`
 
 Write a few notes with general information on your plugin to guide users. 
 
-#### 4. A setup Python file, named `setup.py`
+#### 4. A Python `setup.py` file
 
 Create a Python file and paste the following. Make changes based on your own plugin information.
 
@@ -97,18 +96,18 @@ setup(
 )
 ```
 
-#### 5. A subfolder containing your plugin
+#### 5. A subfolder containing your plugin's code
 
 Within the main file `pioreactor-relay-plugin`, we created a subfile `pioreactor_relay_plugin`. 
 
 ### Contents of the subfolder: 
 
-#### 1. Your plugin file
+#### 1. Your plugins Python files
 
 This Python file contains the core code for your plugin. If your plugin is implementing a background job, then there should be a
-function decorated with `@click.command` at the bottom of the file. See example [here](https://github.com/kellytr/pioreactor-relay-plugin/blob/d3fd10dab2bd3b460e2b00223d7d9dd9ae3165d8/pioreactor_relay_plugin/relay.py#L60-L83).
+function decorated with `@click.command` at the bottom of the file. See example [here](https://github.com/kellytr/pioreactor-relay-plugin/blob/d3fd10dab2bd3b460e2b00223d7d9dd9ae3165d8/pioreactor_relay_plugin/relay.py#L60-L83). For discovery reasons, this function's name **should start with `click_` **.
 
-#### 2. An initial Python file, named `__init__.py`
+#### 2. A Python `__init__.py` file
 
 ##### If implementing an automation:
 Import the Class of your automation file:  
@@ -117,7 +116,7 @@ Import the Class of your automation file:
 from <SUBFOLDER CONTAINING PLUGIN>.<PYTHON FILE NAME> import <CLASS NAME>
 ```
 
-##### If implementing a background job:
+##### If implementing a job:
 
 This will contain an `import` statement such as the following: 
 
@@ -140,33 +139,34 @@ This configuration file will contain additional configs that we want to add to o
 
 ![](/img/developer-guide/python-package-new-config.png)
 
-#### 4. More subfolders
+#### 4. Adding details to the UI
 
-##### If implementing a background job:
+##### If implementing a job:
 
-Within our main subfolder, create a subfolder named `ui`. Within that, create a subfolder `contrib`, then `jobs`. Move your `.yaml` file to the final subfolder.
+Within our main subfolder, create subfolders named `ui/contrib/jobs`. Move your `.yaml` file to this folder.
 
-For a background job, the `.yaml` file should follow this format:
+For a job, the `.yaml` file should follow this format:
 ```
 ---
 display_name:  # human readable name
 job_name: # job name
 display: # bool; true to display on the /Pioreactors card
-source: # folder that contains your plugin
-description: # description of your plugin
+source: # name of your plugin
+description: # description of what your plugin does
 published_settings:
   - key:  # as defined in Python
-    unit: # unit of your key
+    unit: # unit (ml, lux, AU, etc.)
     label: # human readable name
-    description: # description of your key
+    description: # description of your setting
     type:  # one of numeric, boolean, text
-    default: null
+    default: # provide a default value
     display: # bool; true to display on the /Pioreactors card
+  ...
 ```
 
 ##### If implementing an automation:
 
-In the case of creating an **automation plugin** instead of a **background job**, the subfolders are `ui/contrib/automations/<SPECIFIC AUTOMATION>`, where `SPECIFIC_AUTOMATION` is one of `dosing`, `led`, or `temperature`. Move your `.yaml` file to the final subfolder.
+In the case of creating an **automation plugin** instead of a **job**, the subfolders are `ui/contrib/automations/<SPECIFIC AUTOMATION>`, where `SPECIFIC_AUTOMATION` is one of `dosing`, `led`, or `temperature`. Move your `.yaml` file to the final subfolder.
 
 The`.yaml` file of an automation should appear as the following:
 ```
