@@ -144,7 +144,7 @@ Plenty of yeast strains are available at your local breweries. You can do the sa
 6. Wipe the vials and place them in the Pioreactors. 
 7. Visit [pioreactor.local](http://pioreactor.local) and start a new experiment.
 8. On the left menu, select the Pioreactors page. Add any additional Pioreactors that you would like to use (more information [here](/user-guide/create-cluster)). Select Manage all Pioreactors, and start _Stirring_ activity and _OD reading_ activity.
-9. Optional: you can turn on the Temperature automation activity and set it on _Stable_ at an optimal temperature (ex. 30C). 
+9. Optional: you can turn on the Temperature automation activity and set it on _Thermostat_ at an optimal temperature (ex. 30C).
 10. Confirm that everything looks normal (ex: receiving optical density signal).
 11.	Back on the _Pioreactors_ page, select _Manage all Pioreactors_ and start _Growth rate_. It will take a minute for results to begin showing up. 
 12. Optional: you can change the names of the Pioreactor in the UI to display the target temperature.

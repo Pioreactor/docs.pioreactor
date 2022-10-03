@@ -86,7 +86,7 @@ You should see data coming into to your experiment overview in the web interface
 
 ### 5. Adding an automation
 
-Next, we'd like to start heating and keep our vial at a constant temperature. Recall that all temperature tasks are actually temperature automations. In this case, we require the `stable` temperature automation, invoked from a temperature controller:
+Next, we'd like to start heating and keep our vial at a constant temperature. Recall that all temperature tasks are actually temperature automations. In this case, we require the `thermostat` temperature automation, invoked from a temperature controller:
 
 ```python {5,11}
 import time
@@ -99,7 +99,7 @@ led_intensity("B", 50)
 
 stirrer = start_stirring(target_rpm=400)
 od_reader = start_od_reading("90", "REF")
-temp_controller = start_temperature_control("stable", target_temperature=32)
+temp_controller = start_temperature_control("thermostat", target_temperature=32)
 
 time.sleep(10)
 stirrer.set_target_rpm(300)

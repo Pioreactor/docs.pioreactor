@@ -54,7 +54,7 @@ $$
 \text {mass} = 0.45 g
 $$
 Therefore, **0.45 grams** of table salt is needed for 3% w/v of salt.
-To each vial, 0g, 0.225g, 0.45g, 0.675g and 0.9g of table salt were added, repectively. They were then innoculated with one drop of rehydrated active yeast (0.500 g of dry yeast in a 15 mL YPD broth vial). The _Temperature automation_ was set on _Stable_ at 32.5°C. 
+To each vial, 0g, 0.225g, 0.45g, 0.675g and 0.9g of table salt were added, repectively. They were then innoculated with one drop of rehydrated active yeast (0.500 g of dry yeast in a 15 mL YPD broth vial). The _Temperature automation_ was set on _Thermostat_ at 32.5°C.
 
 ### Results
 

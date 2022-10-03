@@ -79,7 +79,7 @@ Keep in mind to not get the electronics of your Pioreactor wet! Elevate your Pio
 7. On the left menu, select the _Pioreactors_ page. Add any additional Pioreactors that you would like to use (more information [here](/user-guide/create-cluster)). Select _Manage all Pioreactors_, and start:
 	*	_Stirring_ activity
 	*	_OD reading_ activity
-8. Select _Manage_ on an individual Pioreactor. Turn on the _Temperature automation_ activity on _Stable_, selecting your temperature of interest. 
+8. Select _Manage_ on an individual Pioreactor. Turn on the _Temperature automation_ activity on _Thermostat_, selecting your temperature of interest.
 8. Confirm that everything looks normal on the _Overview_ page (ex: receiving optical density signal).
 9. Back on the _Pioreactors_ page, select _Manage all Pioreactors_ and start _Growth rate_. 
 	* Optional: you can change the names of the Pioreactor in the UI to display the target temperature.
