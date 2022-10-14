@@ -36,7 +36,7 @@ class JustPause(BackgroundJobWithDodgingContrib):
 
 ```
 
-3. We also want some "buffer" time before and after an OD reading. For example, if using a bubbler, we want the bubbles to dissipate before taking an OD reading. To set these times, add the following to your config.ini:
+3. We also want some "buffer" time before and after an OD reading. For example, if using a bubbler, we want the bubbles to dissipate completely before taking an OD reading. We should stop bubbling early then. To set these times, add the following to your config.ini:
 
 ```
 [<job_name>]
@@ -45,5 +45,8 @@ post_delay_duration=<float>
 enable_dodging_od=1 # 1 if you want the behaviour, 0 to disable it.
 ```
 
+The diagram of timing, actions, and OD reading, looks like the following:
+
+![](/img/developer-guide/background_job_dodging_timing.png)
 
 And you're done!
