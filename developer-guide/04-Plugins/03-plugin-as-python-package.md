@@ -139,6 +139,10 @@ This configuration file will contain additional configs that we want to add to o
 
 ![](/img/developer-guide/python-package-new-config.png)
 
+:::tip
+A convention we've tried to follow is to use the section name `[<job_name>.config]` or `[<automation_name>.config]` in the configuration files. For example, our relay job has `[relay.config]` in its `additional_config.ini` and settings under it.
+:::
+
 #### 4. Adding details to the UI
 
 ##### If implementing a job:
