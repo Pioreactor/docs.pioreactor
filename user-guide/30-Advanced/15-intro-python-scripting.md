@@ -71,7 +71,7 @@ from pioreactor.background_jobs.stirring import start_stirring
 from pioreactor.background_jobs.od_reading import start_od_reading
 from pioreactor.actions.led_intensity import led_intensity
 
-led_intensity("B", 50)
+led_intensity({'B': 50})
 
 stirrer = start_stirring(target_rpm=400)
 od_reader = start_od_reading("90", "REF")
@@ -95,7 +95,7 @@ from pioreactor.background_jobs.od_reading import start_od_reading
 from pioreactor.actions.led_intensity import led_intensity
 from pioreactor.background_jobs.temperature_control import start_temperature_control
 
-led_intensity("B", 50)
+led_intensity({'B': 50})
 
 stirrer = start_stirring(target_rpm=400)
 od_reader = start_od_reading("90", "REF")
