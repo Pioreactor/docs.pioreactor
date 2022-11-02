@@ -41,10 +41,10 @@ from pioreactor.whoami import get_latest_experiment_name, get_unit_name
 target="od_reading"
 
 def pause(*args):
-    publish(f"pioreactor/{get_unit_name()}/{get_latest_experiment_name()}/{target}/state/set", "sleeping")
+    publish(f"pioreactor/{get_unit_name()}/{get_latest_experiment_name()}/{target}/$state/set", "sleeping")
 
 def unpause(*args):
-    publish(f"pioreactor/{get_unit_name()}/{get_latest_experiment_name()}/{target}/state/set", "ready")
+    publish(f"pioreactor/{get_unit_name()}/{get_latest_experiment_name()}/{target}/$state/set", "ready")
 
 Monitor.add_pre_button_callback(pause)
 Monitor.add_post_button_callback(unpause)
