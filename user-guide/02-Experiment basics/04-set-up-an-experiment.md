@@ -25,9 +25,13 @@ Use these labels to keep track of treatments on multiple vials. For example, lab
 
 ![](/img/user-guide/assign_labels_bulk.png)
 
-### Blanking
+:::tip
+When starting, it's useful to run a _self test_ to confirm that your Pioreactors are all working as expected. [How to run a self-test.](/user-guide/running-self-test)
+:::
 
-When working with **small amounts** of a microorganism, you can obtain more accurate growth rates by [blanking the vial](/user-guide/od-normal-growth-rate#blanking) before inoculation.
+### (Optional) Blanking
+
+When working with **small amounts** of a microorganism, or very turbid media, you can obtain more accurate growth rates by [blanking the vial](/user-guide/od-normal-growth-rate#blanking) before inoculation.
 
 <AssemblyInstructionBlock images={["experiments/calibrate.png","experiments/blank.png"]}>
 
@@ -42,12 +46,7 @@ When working with **small amounts** of a microorganism, you can obtain more accu
 
 ## Start activities from the Pioreactors page.
 
-:::info
-It's useful to run a _self test_ to confirm that your Pioreactors are all working as expected. [How to run a self-test.](/user-guide/running-self-test)
-:::
-
-On the _Pioreactors_ page, you should see at least one Pioreactor under _Active Pioreactors_. Using the "Manage" button (Or "Manage all Pioreactors" button above), you can start an [activity](/user-guide/activities). Once started, jobs can also be _paused_ (and then _resumed_) and _stopped_.
-
+On the _Pioreactors_ page, you should see at least one Pioreactor under _Active Pioreactors_. Using the "Manage" button, you can start an [activity](/user-guide/activities) . Once started, jobs can also be _paused_ (and then _resumed_) or _stopped_. Clicking the "Manage all Pioreactors" button will give you control to start and stop activities on all active Pioreactors.
 
 
 ![](/img/user-guide/pioreactor_page_manage.png)
@@ -57,9 +56,7 @@ On the _Pioreactors_ page, you should see at least one Pioreactor under _Active 
 The typical sequence of activities to start is:
 
 1. **Stirring**
-2. **Temperature automation → Thermostat**
+2. **Temperature automation**, and selecting **Thermostat**
 3. **Optical density**
 4. **Growth rate**
 5. Any other activities. Any of the automations can be started, or [custom jobs](/user-guide/using-community-plugins) you've added to your Pioreactor.
-
-Once your activities are started, you're ready to [monitor your experiment](/user-guide/monitor-experiment)! 

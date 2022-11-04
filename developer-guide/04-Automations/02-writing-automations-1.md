@@ -74,11 +74,15 @@ Finally, every `duration` (specified in the controller, later in this section) m
             self.execute_io_action(media_ml=1.0, waste_ml=1.0)
 ```
 
-Since we are working with a fixed volume, `media_ml` must equal `waste_ml`, else an error will be thrown. What is `latest_od`? Our class, when active, is listening to new optical densities being record. Hence when `execute` runs, we'll have access to the most up-to-date value of optical density. Likewise, there is a `latest_growth_rate` that updates when a new growth-rate value is produced. Both are defined and maintained in the parent class.
+Since we are working with a fixed volume, `media_ml` must equal `waste_ml`, else an error will be thrown. What is `latest_od`? Our class, when active, is listening to new optical densities being recorded. Hence when `execute` runs, we'll have access to the most up-to-date value of optical density. Likewise, there is a `latest_growth_rate` that updates when a new growth-rate value is produced. Both are defined and maintained in the parent class, so you don't have to worry about them in your code.
 
 ### Running the script
 
-How do we run this automation now? Let's put the following code in to a file called `naive_turbidostat.py`
+How do we run this automation now? Let's put the code into a file called `naive_turbidostat.py`
+
+:::info
+You can create this file on your Pioreactor's Raspberry Pi: after accessing the Raspberry Pi's command line, typing `nano naive_turbidostat.py`, and pasting in the code below.
+:::
 
 ```python
 # -*- coding: utf-8 -*-
@@ -119,9 +123,6 @@ if __name__=="__main__":
 ```
 This uses the dosing controller class, `DosingController`, which controls which dosing automation is running. By using `DosingAutomationJobContrib`, our new `NaiveTurbidostat` class is automatically discovered by `DosingController` and referenced by the `automation_name` we chose, `naive_turbidostat`.
 
-:::info
-Yoi can create this file on your Pioreactor's Raspberry Pi: after accessing the Raspberry Pi's command line, typing `nano naive_turbidostat.py`, and pasting in the code above.
-:::
 
 Run the script with `python3 naive_turbidostat.py`. This will start the job. After a minute, you may notice that errors are thrown - that's because there's no optical density measurements being sent!
 

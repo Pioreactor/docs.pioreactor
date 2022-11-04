@@ -3,16 +3,10 @@ title: Monitoring your experiment
 slug: /monitor-experiment
 ---
 
-Navigate to the _Overview_ page on the Pioreactor web interface. Here you can scroll for graphs for growth rate, OD, normalized OD, and temperature. These overview graphs are used to monitor collected data during the experiment runtime. 
+Navigate to the _Overview_ page on the Pioreactor web interface. Here you can view live charts for growth rate, OD, normalized OD, and temperature. These overview graphs are used to monitor collected data during the experiment runtime.
 
-![](/img/user-guide/main-screenshot.png)
-
-You would typically want the graphs to follow the examples below. While running your experiment, keep an eye out for any abnoralities. These can be indicative of hardware or software bugs undetected by the self-test. 
-
-![](/img/user-guide/all-four-graphs.png)
-
-:::tip
-GR can be negative at first &#151 this is an artifact of turbidity measurements!
+:::note
+Optical density can decrease early => growth rates can dip negative early on &#151 this is an artifact of turbidity measurements!
 :::
 
 ## Changing settings
