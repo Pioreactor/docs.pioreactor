@@ -22,6 +22,15 @@ The button on the Pioreactor HAT sends a signal to the web UI to display a "hell
 Optical density and LEDs
 ------------------------
 
+#### How does optical density work on the Pioreactor?
+
+The Pioreactor uses the concept of _scattering_ to measure optical density (other systems, like spectrophotometers, use attenuation). The system will shine infrared light into the culture, and measure the amount of light that is scattered off cells. The scattering has a good linear range (see below for more), and higher saturation point than attenuation for cultures of 20ml volume. If you have an instrument that measures OD600 or some other measurement of optical density, and you wish to calibrate to that, the Pioreactor has a routine to perform a calibration and record in the instruments units. See [docs here](/user-guide/calibrate-od600).
+
+#### What are the units of Pioreactor's optical density
+
+The _uncalibrated_ optical densities reported the UI and recorded in the database are have an arbitrary unit, and are per Pioreactor (so they can't be compared to each other). However, the _normalized optical density_, generated after starting the activity **Growth rate** in the UI, is comparable, which is why we suggest using it for inferences (especially if you haven't calibrated to some OD600 machine). Read more about our [optical density measurements here](https://docs.pioreactor.com/user-guide/od-normal-growth-rate).
+
+
 #### Why does the intensity for LED A turn on & off during an experiment?
 
 You may have noticed that the LED labelled A turns on & off every 5 seconds or so. This is (normally) the channel for the infrared (IR) LED, which is used in the optical density measurements. Since we only take reading every 5 seconds (normally, this can be changed), we don't need the IR LED on all the time. The Pioreactor will only turn on LED when needed. This preserves the strength of the LED over longer periods of time. For more advanced use cases, it also allows other optical measurements to take place without the IR LED interfering with them.
@@ -92,7 +101,7 @@ We've designed the hardware and software to be compatible with any Raspberry Pi 
 *   Raspberry Pi 4 B
 *   Raspberry Pi Zero W (with header) ¹
 *   Raspberry Pi Zero 2 W
-*   Raspberry Pi 400 ²
+*   Raspberry Pi 400
 
 Although you can use any above, **we like the Raspberry Pi 3 Model A+, and Raspberry Pi Zero 2 W** because of their low power consumption, slim build, and low price. Both have the necessary CPU power and memory for the Pioreactor workload, and are generally the cheapest on the list above (but see note on Zero W below).
 

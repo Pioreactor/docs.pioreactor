@@ -20,4 +20,4 @@ Be mindful that the default stirring motor provided with the Pioreactor has a ma
 
 ### Power supply for Pioreactor peristaltic pumps.
 
-When using multiple of Pioreactor's [peristaltic pumps](https://pioreactor.com/products/peristaltic-pump), we recommend a 12V power supply, with at least 1 amp (This is the same as a 12W power supply). Our pumps use maximum 0.4A, and the stirring motor uses 0.1A.
+When using multiple of Pioreactor's [peristaltic pumps](https://pioreactor.com/products/peristaltic-pump), we recommend a 12V power supply, with at least 1 amp (this is the same as a 12W power supply). Our pumps use maximum 0.4A, and the stirring motor uses 0.1A.
