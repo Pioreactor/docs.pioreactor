@@ -1,5 +1,5 @@
 ---
-title: Supplying external power to the Pioreactor's PWM channels
+title: Supplying auxiliary power to the Pioreactor's PWM channels
 slug: /external-power
 ---
 
@@ -7,7 +7,11 @@ Some applications require more power to your Pioreactor if it is heavily using l
 
 You can supply a higher voltage / amp power using the barrel jack connection. The barrel jack connection allows for (positive polarity) power supply units of up to 18V to the PWM channels 1 through 4 (PWM channel 5, used for onboard heating, is not effected, and always tied to the 5V rail).
 
-Finally, to enable the PWM channels to use the new power supply, **you need to move the shunt connector to the position closest to the LED outputs**.
+Finally, to enable the PWM channels to use the new auxiliary power supply, **you need to move the shunt connector to the position closest to the LED outputs**.
+
+
+![](/img/user-guide/aux_position.png)
+
 
 :::note
 When changing the default power supply, any stirring calibration and pump calibrations will need to be updated. Also, the `initial_duty_cycle` under `stirring` in the configuration may need to change.
