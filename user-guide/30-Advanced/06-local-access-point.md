@@ -4,10 +4,6 @@ slug: /local-access-point
 ---
 
 
-:::caution
-This many not work if your leader is a Raspberry Pi Zero W or Raspberry Pi Zero 2 W
-:::
-
 For some use cases, you may want to create a local WiFi network just for your Pioreactors (this is called a local access point). Why might you want to do this?
 
  - If you want to get started right away, without dealing with WiFi credentials.
@@ -22,7 +18,9 @@ The Pioreactor comes with the ability to create its own local access point, whic
 
 The leader Pioreactor has the necessary software to create the local access point. To start the access point:
 
- - If starting with a fresh Pioreactor: after the image has been added to the SD card, remove the SD card from your computer, and immediately insert it back in. Add a file named `local_access_point` to the `/boot/` directory on the card. In this new file, add a two letter country code (ex: `CA`, `US`, `GB`). Remove the SD card safely, and insert into the Pioreactor.
+ - If starting with a new Pioreactor:
+    1. Leave the "Configure wireless LAN" unchecked.
+    2.  after the image has been written to the SD card, remove the SD card from your computer, and immediately insert it back in. Add a file named `local_access_point` to the `/boot/` directory on the card. In this new file, add a two letter country code (ex: `CA`, `US`, `GB`). Remove the SD card safely, and insert into the Pioreactor.
  - If starting from an existing Pioreactor: with the power off, remove the SD card from the leader and insert it into a computer. Add a file named `local_access_point` to the `/boot/` directory on the card. In this new file, add a two letter country code (ex: `CA`, `US`, `GB`, etc.). Remove the SD card safely, and insert back into the Pioreactor.
 
 ## Access the local access point
