@@ -23,6 +23,7 @@ import * as colors from '@site/src/components/constants';
 
 1.	Only if not already completed: from the bottom of the faceplate, insert the 30 mm M3 screws. Do not screw in all the way &#151 just enough that the <Highlight color={colors.orange}>screws poke out</Highlight> the other end.
 2.	Push the fan on top of the screws. The wire should be oriented towards the side labeled <Highlight color={colors.teal}>PWM</Highlight>. You may need to wiggle the screw ends a bit to align everything well, and apply some *careful* force.
+
 </AssemblyInstructionBlock>
 
 -----
