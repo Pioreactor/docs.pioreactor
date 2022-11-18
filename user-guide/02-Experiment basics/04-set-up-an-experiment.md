@@ -13,7 +13,7 @@ import Admonition from '@theme/Admonition';
 
 ![](/img/user-guide/start_new_experiment.png)
 
-2. On the next screen, enter your new experiment name, unique from prior experiments. This cannot be changed. Enter optional metadata about your experiment. The description can be changed later. Click "Create" when done.
+2. On the next screen, enter your new experiment name, unique from prior experiments. This cannot be changed. Enter optional metadata about your experiment. The description can be changed later. Click "Save" when done.
 
 ![](/img/user-guide/create_new_experiment_page.png)
 

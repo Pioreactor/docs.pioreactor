@@ -21,7 +21,7 @@ Suppose you are placing your Pioreactor in a CO₂ incubator, and want to record
 To read from the sensor, a [plugin](/user-guide/using-community-plugins) may be available for it, or you can write a simple Python script like so:
 
 :::note
-You'll first need to install the Python library:
+To run the script, you'll first need to install the Python library:
 `sudo pip3 install adafruit-circuitpython-scd4x`
 :::
 
