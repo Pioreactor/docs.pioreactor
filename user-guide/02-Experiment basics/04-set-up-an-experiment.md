@@ -60,3 +60,15 @@ The typical sequence of activities to start is:
 3. **Optical density**
 4. **Growth rate**
 5. Any other activities. Any of the automations can be started, or [custom jobs](/user-guide/using-community-plugins) you've added to your Pioreactor.
+
+
+## Changing settings
+
+If you'd like to **change the settings** of your activities after you start, navigate back to the _Pioreactors_ tab. Under _Manage_ for a single Pioreactor or _Manage all Pioreactors_, click the _Settings_ tab.
+
+![](/img/user-guide/manage_ui.png)
+
+Here you can change the settings of your activities (such as temperature, RPM, and dosing volume) without pausing or stopping the activity.
+
+![](/img/user-guide/settings.png)
+

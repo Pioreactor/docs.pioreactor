@@ -5,21 +5,6 @@ slug: /monitor-experiment
 
 Navigate to the _Overview_ page on the Pioreactor web interface. Here you can view live charts for growth rate, OD, normalized OD, and temperature. These overview graphs are used to monitor collected data during the experiment runtime.
 
-:::note
-Optical density can decrease early => growth rates can dip negative early on &#151 this is an artifact of turbidity measurements!
-:::
-
-## Changing settings
-
-If you'd like to **change the settings** of your activities after you start, navigate back to the _Pioreactors_ tab. Under _Manage_ for a single Pioreactor or _Manage all Pioreactors_, click the _Settings_ tab.
-
-![](/img/user-guide/manage_ui.png)
-
-Here you can change the settings of your activities (such as temperature, RPM, and dosing volume) without pausing or stopping the activity.
-
-![](/img/user-guide/settings.png)
-
-
 
 ## Event logs
 
@@ -46,6 +31,11 @@ Keep an eye on the optical density graph in the _Overview_ page. Initially, you 
 This type of noise is typically caused by bubbling in the media due to metabolism. Noise gradually gets worse as the culture grows, where more metabolism leads to more CO2 bubbles. Thus, you would notice noise build up gradually as the culture becomes larger. To reduce the noise made by bubbles, we recommend allowing more airflow by **raising the tubing** enough so they **aren't submerged in your media**.
 
 ### Initial noise in OD 
+
+:::note
+Optical density can decrease early => growth rates can dip negative early on &#151 this is an artifact of turbidity measurements!
+:::
+
 
 ![](/img/user-guide/forgot-stirbar.png)
 
