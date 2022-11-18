@@ -32,7 +32,7 @@ import * as colors from '@site/src/components/constants';
 
 1.	Place the vial holder on top of the faceplate piece. The flat cable should follow the <Highlight color={colors.red}>arrow on the faceplate</Highlight>.
 2.	Holding it together, finish screwing the bottom of the faceplate. **Do not overtighten**.
-	*	Screws should enter the square nuts you placed into the vial holder.
+	*	The Screws will enter the square nuts you placed into the vial holder.
 
 </AssemblyInstructionBlock>
 

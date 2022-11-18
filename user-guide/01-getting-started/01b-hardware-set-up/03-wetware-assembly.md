@@ -40,7 +40,7 @@ You can check the alignment of the square nuts by looking through the screwhole 
 1.	Remove the clear plastic from the bottom of the heating pad, revealing the sticky side. 
 2.	Place the sticky side on the flat part of the heating PCB.
 3.	Remove the blue protective plastic on top of the heating pad. 
-4.	Flip the PCB over. On the cable connector, <Highlight color={colors.red}>pull the tabs outward</Highlight> to open it.
+4.	Flip the PCB over. On the cable connector, <Highlight color={colors.red}>pull the beige-colored tabs outward</Highlight> to open it.
 5.	<Highlight color={colors.green}>Insert the cable</Highlight> (blue side down, copper side up) into the cable connector, then <Highlight color={colors.orange}>push the tabs inward</Highlight> to secure the cable.
 
 </AssemblyInstructionBlock>
@@ -53,7 +53,7 @@ You can check the alignment of the square nuts by looking through the screwhole 
 2.	Insert the cable in the vial holder, and through the slot, with the blue side of the cable facing upwards.
 3.	Pull the cable through until the heating PCB is flat with the bottom of the vial holder.
 4.	Secure the PCB from the bottom using the <Highlight color={colors.teal}>two 4 mm M2.5 screws</Highlight>.
-5.  Confirm the heating PCB is secure by gently moving the vial holder - everything should feel secure.
+5.  Confirm the heating PCB is secure by gently shaking the vial holder - everything should feel secure.
 6.	Continue to the [next page](/user-guide/putting-it-together).
 
 
