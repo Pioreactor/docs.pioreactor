@@ -31,8 +31,7 @@ import * as colors from '@site/src/components/constants';
 <AssemblyInstructionBlock title="Step 3: Securing the vial holder" images={["user-guide/hardware-assembly/vial_holder_on_fan.jpg","user-guide/hardware-assembly/cable_orientation.jpg","user-guide/hardware-assembly/screw_vial_holder_faceplate.jpg","user-guide/hardware-assembly/vial_holder_alignment.jpg"]}>
 
 1.	Place the vial holder on top of the faceplate piece. The flat cable should follow the <Highlight color={colors.red}>arrow on the faceplate</Highlight>.
-2.	Holding it together, finish screwing the bottom of the faceplate. **Do not overtighten**.
-	*	The Screws will enter the square nuts you placed into the vial holder.
+2.	Holding it together, finish screwing the bottom of the faceplate. The Screws will enter the square nuts you placed into the vial holder. **Do not overtighten**. The screw heads should be flush with the faceplate. Check that the magnets can spin freely without rubbing against anything.
 
 </AssemblyInstructionBlock>
 
