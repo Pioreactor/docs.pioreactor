@@ -47,9 +47,11 @@ What is an image file? It's a file that contains all the required software prein
 5. Click the settings menu (Gear button in the bottom right).
 	![Settings menu](/img/user-guide/rpi-click-settings.png)
     1. Check **Set hostname**. Input a unique name for this Pioreactor. Some names that we use for our first Pioreactor: `pioreactor1`, or `leader`, or `p1`.
-    2. Check **Enable SSH**, and **Use password authentication**.
-    3. Check **Set username and password**. Add **username**: `pioreactor` and **password**: `raspberry` (you can change the password later).
-    4. Check **Configure wireless LAN** and enter your network name into SSID, wifi password, and country.
+    2. Check **Enable SSH**, and select **Use password authentication**.
+    3. Check **Set username and password**. Enter the following:
+        -   **username**: `pioreactor`
+        -   **password**: `raspberry` (you can change the password later).
+    4. Check **Configure wireless LAN** and enter your network name into SSID network name, WiFi password, and country.
 	:::note
 	Alternative: instead of trying to connect to a difficult-to-access network, like at a university that may not easily allow Raspberry Pi's, [there's a built-in solution for creating a local access point](/user-guide/local-access-point)).
 	:::
@@ -61,11 +63,12 @@ Your settings should look like this:
   ![Settings menu](/img/user-guide/rpi-imager-settings.png)
 
 6.  Click **Save**.
-8.  Click **Write**. Writing will take up to 5 minutes.
+8.  Click **Write**. Writing will take up to 5 minutes. Perfect time for a tea break.
 7.  Once writing is complete complete, remove the microSD card, and place it (exposed copper side up) into the Raspberry Pi. The microSD slot is located on the PWM side of the Pioreactor, in the gap between the Raspberry Pi and the bottom faceplate. Reference the picture for the orientation. 
 
 	![Insert the microSD card](/img/user-guide/place-micro-sd-card.png)
-8.  Plug in the power cord into your Raspberry Pi. LEDs onboard the Raspberry Pi should start to light up. Your Pioreactor will briefly flash a blue LED, signifying it is ready. **This can take up to 3 minutes.**
+8.  Plug in the power cord into your Raspberry Pi. LEDs onboard the Raspberry Pi should start to light up. After no more than **three minutes**, your Pioreactor HAT will briefly blink a blue LED, signifying it is ready.
+    - Waited, but didn't see a blue LED blink? Try pressing on the onboard button, near the side labelled "PWM". If this lights up a blue LED, you're good to move on. Still not working? Try this install process again, or email us at hello@pioreactor.com.
 9. After observing the blue LED flashing, navigate to [http://pioreactor.local](http://pioreactor.local) in a web browser to visit the web interface. (Not working? See [Troubleshooting](#troubleshooting) below).
 10. The Pioreactor is now ready for use! Follow [this guide](/user-guide/prepare-vial-for-cultures) to setting up your first experiment.
 
@@ -110,12 +113,12 @@ On a successful start, the Pioreactor will flash its blue LED for about 4 second
 
 
 
-#### My RPi won't connect to my Wifi.
+#### My RPi won't connect to my WiFi.
 
 *   If you are on a restrictive WiFi network (like at a university), and wish to avoid the network, [creating a local access point](/user-guide/local-access-point) may be a better option.
 *   Some Raspberry Pis can't connect to Wifi natively, and some Raspberry Pis can only connect to 2.4GHz connections. See table below: [![Rpi and wifi](https://user-images.githubusercontent.com/884032/105118696-e945dd00-5a9c-11eb-91f5-0cc77cdc1422.png)](https://user-images.githubusercontent.com/884032/105118696-e945dd00-5a9c-11eb-91f5-0cc77cdc1422.png)[](https://user-images.githubusercontent.com/884032/105118696-e945dd00-5a9c-11eb-91f5-0cc77cdc1422.png)
-*   You may have mis-typed your Wifi credentials. To fix this, you'll need to restart the image installation from the Raspberry Pi Imager.
-*   If connecting to a 5GHz wifi connection, you _need_ to supply a valid country code. See the list here: [https://en.wikipedia.org/wiki/ISO\_3166-1\_alpha-2/](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 "Link to country codes on wikipedia")
+*   You may have mis-typed your WiFi credentials. To fix this, you'll need to restart the image installation from the Raspberry Pi Imager.
+*   If connecting to a 5GHz WiFi connection, you _need_ to supply a valid country code. See the list here: [https://en.wikipedia.org/wiki/ISO\_3166-1\_alpha-2/](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 "Link to country codes on wikipedia")
 *   Check out some other possibilities [here](https://community.octoprint.org/t/wifi-setup-and-troubleshooting/184#heading--troubleshooting).
 
 
