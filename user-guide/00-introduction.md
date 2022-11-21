@@ -7,13 +7,18 @@ slug: /introduction
 
 The Pioreactor is an open-source, affordable, and extensible bioreactor platform. The goal is to enable biologists, educators, DIYers, biohackers, and enthusiasts to be able to reliably control and study the growth of microorganisms.
 
-We hope to empower the next generation of builders, similar to the Raspberry Pi's influence on our imagination (in fact, at the core of our hardware is a Raspberry Pi). However, the builders in mind are those who are looking to use biology, or computer science, or both, to achieve their goals. For research, the affordable price point enables fleets of Pioreactors to study large experiment spaces. For educators and students, the Pioreactor is a learning tool to study a wide variety of microbiology, electrical engineering, and computer science principles. For enthusiasts, the control and extensibility of the Pioreactor gives them a platform to build their next project on-top of.
+### Need to assemble your Pioreactor?
 
-This guide is for users of the Pioreactor. If you are interested in the software internals, take a look at our [developer guide](/developer-guide/introduction).
+To start assembling your Pioreactor, check out our [Getting Started](/user-guide/hardware-setup-intro) guide.
 
-### Getting started
+### Help with your first experiment?
 
-If you need help setting up the Pioreactor for your first experiment, check out our [Getting Started](/user-guide/hardware-setup-intro) guide.
+See the [basic steps](https://docs.pioreactor.com/user-guide/prepare-vial-for-cultures) to operating your Pioreactor, or check out our repository of [biology experiments](https://docs.pioreactor.com/experiments/introduction).
+
+
+### Developers
+
+If you are interested in the software internals, take a look at our [developer guide](/developer-guide/introduction).
 
 
 ### Looking for further help?
