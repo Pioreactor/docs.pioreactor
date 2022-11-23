@@ -11,7 +11,7 @@ import * as colors from '@site/src/components/constants';
 
 <AssemblyInstructionBlock title="Step 1: Connecting heater and stirring to the HAT" images={["user-guide/hardware-assembly/heating_connection.jpg","user-guide/hardware-assembly/stirring_connection.jpg"]}>
 
-1.  Open the <Highlight color={colors.orange}>flat flex cable connector</Highlight> on the HAT by pulling the tabs outward, like previously.
+1.  Open the <Highlight color={colors.orange}>flat flex cable connector</Highlight> on the HAT by pulling the tabs outward, like done previously.
 2.  Insert the flex cable copper-side up.
 3.  Push the tabs inward to secure the flex cable.
 4.  Insert the stirring power connector into <Highlight color={colors.green}>PWM **channel 1**</Highlight> (unlabelled).

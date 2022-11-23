@@ -26,9 +26,10 @@ You will need:
 <AssemblyInstructionBlock title="Step 2: Assembling the vial holder" images={["user-guide/hardware-assembly/insert_square_nuts.jpg","user-guide/hardware-assembly/check_square_nuts.jpg"]}>
 
 1.	Insert <Highlight color={colors.blue}>M3 square nuts</Highlight> into the 4 holes at the bottom of the vial holder.
+2.  Push the nuts in as far as they go. The should align with the holes in the vial holder.
 
 :::tip
-You can check the alignment of the square nuts by looking through the screwhole from the bottom of the vial holder. 
+You can check the alignment of the square nuts by looking through the holes from the bottom of the vial holder.
 :::
 
 </AssemblyInstructionBlock>
