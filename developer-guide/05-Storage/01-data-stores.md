@@ -15,6 +15,17 @@ The CLI command `pio db` will open up the SQLite terminal to query the database 
 
 The Pioreactor software will automatically backup the SQLite database via a scheduale `cron` job. The backup is hosted locally on the Raspberry Pi, however if there if the cluster has active worker Pioreactors, the database backup is duplicated to (at most) two workers as well. This level of redundancy means that if the leader's microSD card fails, the database can be recovered from backups stored off the card.
 
+#### Key-value datastore
+
+SQLite3 is also used by the library *diskcache*. This is essentially a fast key-value store on the Raspberry Pi. For Pioreactor, we use it to store "machine-specific" data, like calibration curves, locks on GPIOs, state of LEDs, jobs running, etc. Instead of one large file containing all these keys, we have split them into multiple locations based on category and level of persistence. The persistent databases are stored in `/home/pioreactor/.pioreactor/storage` and the temporary databases are in `/tmp`. You can access them from Python using `pioreactor.utils.local_persistant_storage` and `pioreactor.utils.local_intermittent_storage`, respectively.
+
+:::info
+What are temporary and persistent? Something like GPIO locks or LED state are physically reset between cycles of the Raspberry Pi. So when the Pi power-cycles, the state is wiped, and by have the database in `/tmp`, the databases are wiped as well.
+:::
+
+You can use `pio view-cache <name>` to view the contents of `<name>`.
+
+
 ## MQTT
 
 The inter- and intra-Pioreactor communications are handled by MQTT, a pub/sub service. The MQTT broker is on the leader Pioreactor (`pio mqtt` will stream the latest messages to your terminal). MQTT is used to transfer data between workers and leader, and even between process on the workers (ex: OD readings are created on worker, send to leader, and then sent back to worker's growth_rate_calculating job. This does create minor latency, and certainly more risk of data loss, but simplifies the design of the system overall).
@@ -32,13 +43,3 @@ We sometimes fail at the above, but these are seen as tech-debt pieces and may b
 
 Every 5 minutes (set by the MQTT configuration file), MQTT will serialize its _retained_ messages to disk.
 
-
-## DBM
-
-The last storage option is DBM, a built-in Unix "database". This is essentially a fast key-value store on the Raspberry Pi. For Pioreactor, we use it to store "machine-specific" data, like calibration curves, locks on GPIOs, state of LEDs, jobs running, etc. Instead of one large file containing all these keys, we have split them into multiple files based on category and level of persistence. The persistent databases are stored in `/home/pioreactor/.pioreactor/storage` and the temporary databases are in `/tmp`. You can access them from Python using `pioreactor.utils.local_persistant_storage` and `pioreactor.utils.local_intermittent_storage`, respectively.
-
-:::info
-What are temporary and persistent? Something like GPIO locks or LED state are physically reset between cycles of the Raspberry Pi. So when the Pi power-cycles, the state is wiped, and by have the database in `/tmp`, the databases are wiped as well.
-:::
-
-You can use `pio view-cache <name>` to view the contents of `<name>`.
