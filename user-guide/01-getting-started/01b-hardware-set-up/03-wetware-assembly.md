@@ -15,9 +15,9 @@ You will need:
 *	<Highlight color={colors.blue}>Vial holder</Highlight>
 *	<Highlight color={colors.red}>M3 square nuts </Highlight>
 *	<Highlight color={colors.orange}>Heating PCB</Highlight>
-*	<Highlight color={colors.magenta}>Heating thermal pad</Highlight>(contains blue cover on one side and clear plastic on the other)
+*	<Highlight color={colors.magenta}>Thermal pad</Highlight>(contains blue cover on one side and clear plastic on the other)
 *	<Highlight color={colors.green}>Flat flex cable</Highlight>
-*	<Highlight color={colors.teal}>4mm nylon screws (2x)</Highlight>
+*	<Highlight color={colors.teal}>4mm screws (2x)</Highlight>
 
 </AssemblyInstructionBlock>
 
@@ -38,9 +38,9 @@ You can check the alignment of the square nuts by looking through the holes from
 
 <AssemblyInstructionBlock title="Step 3: Placing the heating pad" images={["user-guide/hardware-assembly/sticky_side.jpg","user-guide/hardware-assembly/remove_blue.jpg","user-guide/hardware-assembly/remove_blue_2.jpg","user-guide/hardware-assembly/cable_connector_open.jpg","user-guide/hardware-assembly/cable_connector_closed.jpg"]}>
 
-1.	Remove the clear plastic from the bottom of the heating pad, revealing the sticky side. 
-2.	Place the sticky side on the flat part of the heating PCB.
-3.	Remove the blue protective plastic on top of the heating pad. 
+1.	Remove the clear plastic from  the thermal pad, revealing the sticky side.
+2.	Place the sticky side on the flat part of the heating PCB. Apply some pressure around the edges to secure it.
+3.	Remove the blue protective plastic on top of the thermal pad.
 4.	Flip the PCB over. On the cable connector, <Highlight color={colors.red}>pull the beige-colored tabs outward</Highlight> to open it.
 5.	<Highlight color={colors.green}>Insert the cable</Highlight> (blue side down, copper side up) into the cable connector, then <Highlight color={colors.orange}>push the tabs inward</Highlight> to secure the cable.
 
@@ -50,8 +50,8 @@ You can check the alignment of the square nuts by looking through the holes from
 
 <AssemblyInstructionBlock title="Step 4: Securing the heating PCB into the vial holder" images={["user-guide/hardware-assembly/insert_heating_cable.jpg","user-guide/hardware-assembly/inserted_heating_cable.jpg","user-guide/hardware-assembly/heating_bottom_screws.jpg"]}>
 
-1.	Identify the <Highlight color={colors.magenta}>slot</Highlight> on the vial holder where the flat flex cable will go through.
-2.	Insert the cable in the vial holder, and through the slot, with the blue side of the cable facing upwards.
+1.	Identify the <Highlight color={colors.magenta}>slot</Highlight> on the vial holder where the flex cable will go through.
+2.	Insert the flex cable in the vial holder, and through the slot, with the blue side of the cable facing upwards.
 3.	Pull the cable through until the heating PCB is flat with the bottom of the vial holder.
 4.	Secure the PCB from the bottom using the <Highlight color={colors.teal}>two 4mm screws</Highlight>.
 5.  Confirm the heating PCB is secure by gently shaking the vial holder - everything should feel secure.

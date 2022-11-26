@@ -39,10 +39,10 @@ The 40 GPIO pins (standing for general-purpose input/output) form a distinct row
 
 <AssemblyInstructionBlock title="Step 2: Bottom faceplate" images={["user-guide/hardware-assembly/bottom_faceplate.jpg","user-guide/hardware-assembly/bot_faceplate_screwed.jpg","user-guide/hardware-assembly/rpi_no_standoffs.jpg"]}>
 
-1.	Orientation: the base will have a flat edge and an edge with an indent. The GPIO pins sit along the <Highlight color={colors.blue}>indent,</Highlight> seen on the left in the images.
-2.	Insert the 10mm screws into the <Highlight color={colors.red}>holes</Highlight>.
-3.	Hand screw the <Highlight color={colors.magenta}>hexnuts</Highlight> on each screw, sandwiching the faceplate.
-4.	Place the Raspberry Pi on top, aligning the holes, with the <Highlight color={colors.green}>GPIO pins</Highlight> on the left.
+1.	Orientation: the base will have a flat edge and an edge with an indent. The GPIO pins sit along the <Highlight color={colors.blue}>indent</Highlight>, seen on the left in the images.
+2.	Insert the <Highlight color={colors.red}>10mm screws</Highlight> into the holes.
+3.	Hand screw a <Highlight color={colors.magenta}>hexnut</Highlight> onto each screw.
+4.	Place the Raspberry Pi on top, aligning the holes, with the <Highlight color={colors.green}>GPIO pins</Highlight> on the left. Note: your Raspberry Pi may look different than the one displayed.
 
 
 </AssemblyInstructionBlock>
@@ -52,10 +52,10 @@ The 40 GPIO pins (standing for general-purpose input/output) form a distinct row
 <AssemblyInstructionBlock title="Step 3: Placing the HAT" images={["user-guide/hardware-assembly/rpi_with_standoffs.jpg","user-guide/hardware-assembly/gpio_unpushed.jpg","user-guide/hardware-assembly/gpio_pushed.jpg", "user-guide/hardware-assembly/standoff_on_hat.jpg"]}>
 
 1.	Hand screw on the <Highlight color={colors.blue}>hex standoffs-with-screw</Highlight> in each corner.
-2.	Place the HAT on top. <Highlight color={colors.red}>Push down</Highlight> to secure it in place.
+2.	Place the HAT PCB on top. <Highlight color={colors.red}>Push down</Highlight> to secure it in place.
 
 :::note
-The HAT's GPIO connector will line up with the RPi's GPIO pins, and may require a slight force to compress down. Careful note to apply too much force and bend any pins.
+The HAT PCB's GPIO connector will line up with the RPi's GPIO pins, and may require a slight force to compress down. Careful not to apply too much force.
 :::
 
 3.	Hand screw the <Highlight color={colors.green}>hex standoffs</Highlight> in each corner, on top of the HAT.
@@ -87,7 +87,7 @@ This faceplate will protect the Pioreactor from potential spills.
 2.	Place the HAT on top. <Highlight color={colors.red}>Push down</Highlight> to secure it in place.
 
 :::note
-The HAT's GPIO connector will line up with the RPi's GPIO pins, and may require a slight force to compress down. Careful note to apply too much force and bend any pins.
+The HAT's GPIO connector will line up with the RPi's GPIO pins, and may require a slight force to compress down. Careful not to apply too much force.
 :::
 
 3.	Hand screw the <Highlight color={colors.green}>hex standoffs</Highlight> in each corner, on top of the HAT.

@@ -19,8 +19,7 @@ import * as colors from '@site/src/components/constants';
 
 You will need the following tools to assemble your Pioreactor:
 
-1. Your own Raspberry Pi (RPi)
-	*	Displayed are three examples
+1. Your own Raspberry Pi (RPi). Displayed are three examples.
 2. A Philip's head screwdriver
 3. Needle-nose pliers
 
