@@ -36,7 +36,10 @@ Depending on if you are using a Raspberry Pi Zero (the right-most Raspberry Pi d
 
 
 <AssemblyInstructionBlock title="Step 2: Bottom faceplate" images={["user-guide/hardware-assembly/bottom_faceplate.jpg","user-guide/hardware-assembly/bot_faceplate_screwed.jpg","user-guide/hardware-assembly/rpi_no_standoffs.jpg"]}>
-The 40 GPIO pins (standing for general-purpose input/output) form a distinct row on one side of the RPi. Note the orientation of these pins to help you assemble correctly!
+
+:::tip
+The 40 GPIO pins (standing for general-purpose input/output) form a distinct row on one side of the Raspberry Pi. Note the orientation of these pins to help you assemble correctly!
+:::
 
 1.	Orientation: the base will have a flat edge and an edge with an indent. The GPIO pins sit along the <Highlight color={colors.blue}>indent</Highlight>, seen on the left in the images.
 2.	Insert the <Highlight color={colors.red}>10mm screws</Highlight> into the holes.
@@ -48,7 +51,7 @@ The 40 GPIO pins (standing for general-purpose input/output) form a distinct row
 
 -----
 
-<AssemblyInstructionBlock title="Step 3: Placing the HAT PCB ontop" images={["user-guide/hardware-assembly/rpi_with_standoffs.jpg","user-guide/hardware-assembly/gpio_unpushed.jpg","user-guide/hardware-assembly/gpio_pushed.jpg", "user-guide/hardware-assembly/standoff_on_hat.jpg"]}>
+<AssemblyInstructionBlock title="Step 3: Placing the HAT PCB on top" images={["user-guide/hardware-assembly/rpi_with_standoffs.jpg","user-guide/hardware-assembly/gpio_unpushed.jpg","user-guide/hardware-assembly/gpio_pushed.jpg", "user-guide/hardware-assembly/standoff_on_hat.jpg"]}>
 
 1.	Hand screw on the <Highlight color={colors.blue}>hex standoffs-with-screw</Highlight> in each corner.
 2.	Place the HAT PCB on top. <Highlight color={colors.red}>Push down</Highlight> to secure it in place.
