@@ -13,24 +13,10 @@ import * as colors from '@site/src/components/constants';
 
 You will need:
 *	<Highlight color={colors.blue}>Vial holder</Highlight>
-*	<Highlight color={colors.red}>M3 square nuts </Highlight>
 *	<Highlight color={colors.orange}>Heating PCB</Highlight>
 *	<Highlight color={colors.magenta}>Thermal pad</Highlight>(contains blue cover on one side and clear plastic on the other)
 *	<Highlight color={colors.green}>Flat flex cable</Highlight>
 *	<Highlight color={colors.teal}>4mm screws (2x)</Highlight>
-
-</AssemblyInstructionBlock>
-
------
-
-<AssemblyInstructionBlock title="Step 2: Assembling the vial holder" images={["user-guide/hardware-assembly/insert_square_nuts.jpg","user-guide/hardware-assembly/check_square_nuts.jpg"]}>
-
-1.	Insert <Highlight color={colors.blue}>M3 square nuts</Highlight> into the 4 holes at the bottom of the vial holder.
-2.  Push the nuts in as far as they go. The should align with the holes in the vial holder.
-
-:::tip
-You can check the alignment of the square nuts by looking through the holes from the bottom of the vial holder.
-:::
 
 </AssemblyInstructionBlock>
 

@@ -23,10 +23,10 @@ import * as colors from '@site/src/components/constants';
 
 <AssemblyInstructionBlock title="Step 2: Inserting the bulbs into the vial holder" images={["user-guide/hardware-assembly/bulb_in_pocket.jpg", "user-guide/hardware-assembly/single_pocket_with_cap.jpg", "user-guide/hardware-assembly/pocket_caps.jpg"]}>
 
-1.  Insert the bulb of the PD cable in **channel 2** into the <Highlight color={colors.magenta}>pocket labeled **90°**</Highlight>.
+1.  Insert the bulb of the PD cable in **channel 2** into the <Highlight color={colors.blue}>pocket labeled **90°**</Highlight>.
 2. Bend the bulb's leads 90 degrees, as seen. Secure with a <Highlight color={colors.blue}>LED pocket caps</Highlight>.
 3.  Insert the bulb of the IR cable in **channel A** into the pocket labeled **IR**. Bend the leads 90 degrees.
-4.  Insert the bulb of the PD cable in **channel 1** into the pocket labeled **REF**. <Highlight color={colors.red}>Orient the bulb</Highlight> such that when bent, it does not interfere with the IR LED bulb. Bend the leads 90 degrees.
+4.  Insert the bulb of the PD cable in **channel 1** into the pocket labeled **REF**. <Highlight color={colors.green}>Orient the bulb</Highlight> such that when bent, it does not interfere with the IR LED bulb. Bend the leads 90 degrees.
 
 </AssemblyInstructionBlock>
 
