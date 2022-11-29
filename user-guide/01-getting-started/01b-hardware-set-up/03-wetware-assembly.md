@@ -40,7 +40,6 @@ You will need:
 2.	Insert the flex cable in the vial holder, and through the slot, with the blue side of the cable facing upwards.
 3.	Pull the cable through until the heating PCB is flat with the bottom of the vial holder.
 4.	Secure the PCB from the bottom using the <Highlight color={colors.teal}>two 4mm screws</Highlight>.
-5.  Confirm the heating PCB is secure by gently shaking the vial holder - everything should feel secure.
 6.	Continue to the [next page](/user-guide/putting-it-together).
 
 
