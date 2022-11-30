@@ -136,7 +136,7 @@ pioreactor/<unit name>/<experiment>/dosing_automation/<attribute>/set
 We'll use `mosquitto_pub` to publish a message to this topic. So, with the python script running, open a new command line, and enter the following:
 
 ```
-mosquitto_pub -t "pioreactor/test_unit/test_experiment/dosing_automation/target_od/set" -m 5.0
+mosquitto_pub -t "pioreactor/test_unit/test_experiment/dosing_automation/target_od/set" -m 5.0 -u pioreactor -P raspberry
 ```
 
 You should see some logs in the Python console report that the `target_od` was changed. Also, a the value of 5.0 is published and retained to the topic `pioreactor/test_unit/test_experiment/dosing_automation/target_od`

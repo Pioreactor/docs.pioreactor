@@ -22,7 +22,7 @@ You will need:
 
 -----
 
-<AssemblyInstructionBlock title="Step 3: Placing the heating pad" images={["user-guide/hardware-assembly/sticky_side.jpg","user-guide/hardware-assembly/remove_blue.jpg","user-guide/hardware-assembly/remove_blue_2.jpg","user-guide/hardware-assembly/cable_connector_open.jpg","user-guide/hardware-assembly/cable_connector_closed.jpg"]}>
+<AssemblyInstructionBlock title="Step 2: Placing the heating pad" images={["user-guide/hardware-assembly/sticky_side.jpg","user-guide/hardware-assembly/remove_blue.jpg","user-guide/hardware-assembly/remove_blue_2.jpg","user-guide/hardware-assembly/cable_connector_open.jpg","user-guide/hardware-assembly/cable_connector_closed.jpg"]}>
 
 1.	Remove the clear plastic from  the thermal pad, revealing the sticky side.
 2.	Place the sticky side on the flat part of the heating PCB. Apply some pressure around the edges to secure it.
@@ -34,7 +34,7 @@ You will need:
 
 -----
 
-<AssemblyInstructionBlock title="Step 4: Securing the heating PCB into the vial holder" images={["user-guide/hardware-assembly/insert_heating_cable.jpg","user-guide/hardware-assembly/inserted_heating_cable.jpg","user-guide/hardware-assembly/heating_bottom_screws.jpg"]}>
+<AssemblyInstructionBlock title="Step 3: Securing the heating PCB into the vial holder" images={["user-guide/hardware-assembly/insert_heating_cable.jpg","user-guide/hardware-assembly/inserted_heating_cable.jpg","user-guide/hardware-assembly/heating_bottom_screws.jpg"]}>
 
 1.	Identify the <Highlight color={colors.magenta}>slot</Highlight> on the vial holder where the flex cable will go through.
 2.	Insert the flex cable in the vial holder, and through the slot, with the blue side of the cable facing upwards.
