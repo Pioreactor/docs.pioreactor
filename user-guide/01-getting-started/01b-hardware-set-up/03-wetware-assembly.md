@@ -24,11 +24,12 @@ You will need:
 
 <AssemblyInstructionBlock title="Step 2: Placing the heating pad" images={["user-guide/hardware-assembly/sticky_side.jpg","user-guide/hardware-assembly/remove_blue.jpg","user-guide/hardware-assembly/remove_blue_2.jpg","user-guide/hardware-assembly/cable_connector_open.jpg","user-guide/hardware-assembly/cable_connector_closed.jpg"]}>
 
-1.	Remove the clear plastic from  the thermal pad, revealing the sticky side.
-2.	Place the sticky side on the flat part of the heating PCB. Apply some pressure around the edges to secure it.
+1.	Remove the _clear_ plastic from one side of the thermal pad.
+2.	Place the side on the flat (aluminum) part of the heating PCB. Apply downwards pressure to secure it.
 3.	Remove the blue protective plastic on top of the thermal pad.
-4.	Flip the PCB over. On the cable connector, <Highlight color={colors.red}>pull the beige-colored tabs outward</Highlight> to open it.
-5.	<Highlight color={colors.green}>Insert the cable</Highlight> (blue side down, copper side up) into the cable connector, then <Highlight color={colors.orange}>push the tabs inward</Highlight> to secure the cable.
+4.	Flip the PCB over. On the white-&-beige cable connector, <Highlight color={colors.red}>pull the beige-colored tabs outward</Highlight> to open it.
+5.	<Highlight color={colors.green}>Insert the flex cable</Highlight> blue side down, copper side up, into the cable connector.
+6.  Then <Highlight color={colors.orange}>push the beige tabs back in</Highlight> to secure the flex cable.
 
 </AssemblyInstructionBlock>
 
