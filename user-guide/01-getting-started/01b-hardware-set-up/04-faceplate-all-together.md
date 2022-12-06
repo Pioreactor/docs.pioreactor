@@ -1,5 +1,5 @@
 ---
-title: Putting it all together
+title: Attaching the wetware to the HAT asssembly
 slug: /putting-it-together
 hide_table_of_contents: true
 ---

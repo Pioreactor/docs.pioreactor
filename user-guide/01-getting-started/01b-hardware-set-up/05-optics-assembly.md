@@ -42,3 +42,23 @@ import * as colors from '@site/src/components/constants';
 4.  Next: begin installing the [software](/user-guide/software-set-up).
 
 </AssemblyInstructionBlock>
+
+
+<AssemblyInstructionBlock title="Step 4: Add the window covering (optional)" images={["user-guide/hardware-assembly/window_screws.jpg","user-guide/hardware-assembly/window_placement.jpg", "user-guide/hardware-assembly/window_screwing.jpg"]}>
+
+This window covering is optional. You can add it to maximize control of the light in the bioreactor, or leave it open to inspect the culture.
+
+1. You will need <Highlight color={colors.orange}>4x 6mm screws</Highlight>, and the <Highlight color={colors.green}>window cover</Highlight>.
+2. Attach the window cover to the side of the vial holder using the screws.
+
+</AssemblyInstructionBlock>
+
+
+
+<AssemblyInstructionBlock title="Step 4: Your done!" images={["user-guide/hardware-assembly/finished.jpg"]}>
+
+1.  Insert the glass vial into the Pioreactor.
+2.  Your Pioreactor assembly is complete! 🚀
+3.  Next: begin installing the [software](/user-guide/software-set-up).
+
+</AssemblyInstructionBlock>
