@@ -1,6 +1,7 @@
 ---
 title: Using a peristaltic pump with your Pioreactor
 slug: /using-pumps
+hide_table_of_contents: true
 ---
 
 import AssemblyInstructionBlock from '@site/src/components/AssemblyInstructionBlock';
@@ -9,7 +10,7 @@ import Admonition from '@theme/Admonition';
 
 import * as colors from '@site/src/components/constants';
 
-## Adding pumps in configuration
+### Viewing pump configuration in config.ini
 
 You can attach up to three peristaltic pumps to your Pioreactor, typically used for: adding fresh media to the vial, removing effluent from the vial, and adding an alternative media to the vial.
 
@@ -20,24 +21,46 @@ First decided what you want this pump to do: add media, remove waste, or add alt
 
 In our case, if we were to use the pump as a media pump, we would connect the pump to PWM channel 2.
 
-<AssemblyInstructionBlock title="Attaching the pumps" images={["experiments/turbidostat/pump_to_pwm.png","experiments/turbidostat/sink_and_source.png"]}>
 
-1. Insert the cable of one peristaltic pump into <Highlight color={colors.magenta}>PWM channel 2.</Highlight> This is your **media pump.** 
-2. Insert the cable of the other pump into <Highlight color={colors.orange}>PWM channel 4.</Highlight>  This is your **waste pump.**
 
-More details on attaching pumps can be found [here](/user-guide/using-pumps). 
+<AssemblyInstructionBlock title="Setting up the dosing platform" images={["user-guide/dosing_platform/pump1.JPG", "user-guide/dosing_platform/pump2.JPG", "user-guide/dosing_platform/pump3.JPG", "user-guide/dosing_platform/pump4.JPG", "user-guide/dosing_platform/pump5.JPG", "user-guide/dosing_platform/pump6.JPG", "user-guide/dosing_platform/pump7.JPG"]}>
 
-:::note
-The peristaltic pump has two tubes: a <Highlight color={colors.red}>source</Highlight> and a <Highlight color={colors.blue}>sink.</Highlight> Source tubes take up liquid, and sink tubes expel liquid. You can label your tubes with coloured tape as we have in the images.
-:::
+The dosing platform isn't needed, but helps organize your pumps. It's [open source](https://www.printables.com/model/298240-pioreactor-platform-with-dovetails) - so you can 3D print your own!
+
+1. Set the dosing platform on a level surface.
+2. Place your Pioreactor in the platform, as shown. Note: a Raspberry Pi B model won't fit.
+3. Attach your two pumps' wires to <Highlight color={colors.orange}>media and waste PWMs</Highlight> on the Pioreactor (your config.ini has the PWM channels these should attach to, [see section above](/user-guide/using-pumps#viewing-pump-configuration-in-configini)).
+4. Vertically place each pump into the platform. Note the following:
+   - Check the orientation of the pump head: the tubes should be <Highlight color={colors.green}>facing out</Highlight>.
+   - Each pump's wire should travel up one of the <Highlight color={colors.blue}>grooves in the side</Highlight> of the holder. The pump will feel snug in the holder.
+ 5. Do this for both pumps.
+ 6. The pumps should be have some gap between them and the Pioreactor, facing opposite directions, and not interfering with each other.
+
+
 
 </AssemblyInstructionBlock>
+
+<AssemblyInstructionBlock title="Connecting the tubes" images={["user-guide/dosing_platform/pump8.JPG",  "user-guide/dosing_platform/pump10.JPG", "user-guide/dosing_platform/pump9.JPG"]}>
+
+
+1. For both pumps, the tube that is closer to the Pioreactor's vial is the tube that will connect to the vial.
+2. **Optional**: If the pump→vial tubes feel too long, you can cut them. In the pictures shown, we cut the 1ft tube down to 6". This reduces media waste and makes the platform more compact.
+3. For each pump, attach this tube to the Pioreactor's vial via the <Highlight color={colors.blue}>luer lock connection</Highlight>.
+4. You're done! Note the picture demonstrating the flow of liquid in and out of the Pioreactor's vial.
+
+
+</AssemblyInstructionBlock>
+
+
+
+
+<AssemblyInstructionBlock title="Calibrating the pumps" images={["experiments/turbidostat/ssh_into_unit.png","experiments/turbidostat/run_pump_calc.png"]}>
+
+After calibrating, you can run your pump to dose exact mL volumes. Here's how to calibrate your pump(s):
 
 :::tip
 [Supplying external power](/user-guide/external-power)? Make sure to plug in your external power **before** pump calibration!
 :::
-
-<AssemblyInstructionBlock title="Calibrating the pumps" images={["experiments/turbidostat/ssh_into_unit.png","experiments/turbidostat/run_pump_calc.png"]}>
 
 1. [Calibrate your pumps](/user-guide/hardware-calibrations#pump-calibration) through your computer's command line. 
 2.	Type **`ssh pioreactor@<insert unit name>.local`**. 
@@ -49,26 +72,27 @@ The peristaltic pump has two tubes: a <Highlight color={colors.red}>source</High
 
 </AssemblyInstructionBlock>
 
-## Sterilizing the pumps
+### Sterilizing the pumps
 
 To avoid cross contamination, pumps should be sterilized before and after use. 
 
 1. Create a 10% bleach dilution in a beaker. Place the sink and source tubes of each pump you're using in the beaker. 
 2. On the UI, in the _Pioreactors_ tab, click _Manage_ and go to the _Dosing_ tab. 
 3. _Run continuously_ to cycle the disinfectant solution through each pump that you're using. 
+![](/img/user-guide/dosing_in_ui.png)
 4. _Interrupt_ after sufficient cycling. In another beaker with deionized water, place the tubes in and repeat the cycling to rinse out the pumps. 
 5. Your pumps are now ready to be attached to media, waste, or vials for your experiments. 
 
-Once finished calibrating, you can run your pump manually and programmatically.
+## Using pumps
 
-### Manually from the web interface
+### Running pumps from the web interface
 
 ![](/img/user-guide/manage_ui.png)
 ![](/img/user-guide/dosing_ui.png)
 ![](/img/user-guide/add_media_ui.png)
 
 
-### Manually from the command line
+### Running pumps from the command line
 
 ```
 pio run add_media --ml 3
@@ -80,7 +104,7 @@ or, if you wish to run continuously until interrupted.
 pio run add_media --continuously
 ```
 
-## Programmatically run pumps using automations
+### Programmatically run pumps using automations
 
 Dosing automations, like turbidostats, chemostats, fed-batch and more, are available to run once your pumps are attached and calibrated. [Read more about automations](/user-guide/dosing-automations).
 
