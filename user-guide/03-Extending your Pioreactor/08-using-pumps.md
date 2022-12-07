@@ -36,23 +36,17 @@ The dosing platform isn't needed, but helps organize your pumps. It's [open sour
  5. Do this for both pumps.
  6. The pumps should be have some gap between them and the Pioreactor, facing opposite directions, and not interfering with each other.
 
-
-
 </AssemblyInstructionBlock>
 
 <AssemblyInstructionBlock title="Connecting the tubes" images={["user-guide/dosing_platform/pump8.JPG",  "user-guide/dosing_platform/pump10.JPG", "user-guide/dosing_platform/pump9.JPG"]}>
 
 
 1. For both pumps, the tube that is closer to the Pioreactor's vial is the tube that will connect to the vial.
-2. **Optional**: If the pump→vial tubes feel too long, you can cut them. In the pictures shown, we cut the 1ft tube down to 6". This reduces media waste and makes the platform more compact.
+2. **Optional**: If the pump→vial tubes seem too long, you can cut them to a preferable. In the pictures shown, we cut the 1ft tube down to 6". This reduces media waste and makes the platform more compact.
 3. For each pump, attach this tube to the Pioreactor's vial via the <Highlight color={colors.blue}>luer lock connection</Highlight>.
 4. You're done! Note the picture demonstrating the flow of liquid in and out of the Pioreactor's vial.
 
-
 </AssemblyInstructionBlock>
-
-
-
 
 <AssemblyInstructionBlock title="Calibrating the pumps" images={["experiments/turbidostat/ssh_into_unit.png","experiments/turbidostat/run_pump_calc.png"]}>
 
