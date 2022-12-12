@@ -32,3 +32,5 @@ You don't have to worry about your LED interfering with optical density measurem
 5. Just like adding PD LED and IR LEDs to your Pioreactor, any additional 5mm LED fits tight into the pocket. To put the cap on, bend the leads 90°.
 
 </AssemblyInstructionBlock>
+
+

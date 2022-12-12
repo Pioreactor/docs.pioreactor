@@ -38,19 +38,32 @@ The dosing platform isn't needed, but helps organize your pumps. It's [open sour
 
 </AssemblyInstructionBlock>
 
+
+
+
 <AssemblyInstructionBlock title="Connecting the tubes" images={["user-guide/dosing_platform/pump8.JPG",  "user-guide/dosing_platform/pump10.JPG", "user-guide/dosing_platform/pump9.JPG"]}>
 
 
 1. For both pumps, the tube that is closer to the Pioreactor's vial is the tube that will connect to the vial.
-2. **Optional**: If the pump→vial tubes seem too long, you can cut them to a preferable. In the pictures shown, we cut the 1ft tube down to 6". This reduces media waste and makes the platform more compact.
+2. **Optional**: If the pump→vial tubes seem too long, you can cut them to a preferable length. In the pictures shown, we cut the 12" tube down to 6". This reduces media waste and makes the platform more compact.
 3. For each pump, attach this tube to the Pioreactor's vial via the <Highlight color={colors.blue}>luer lock connection</Highlight>.
 4. You're done! Note the picture demonstrating the flow of liquid in and out of the Pioreactor's vial.
 
 </AssemblyInstructionBlock>
 
+
+:::tip
+If using your pumps for the first time, we suggest letting them run continuously for 20 minutes or so to "loosen" the tubing up and check for any problems. Place both ends (source and sick) into a beaker of water, and use the UI to run them continuously.
+
+![](/img/user-guide/dosing_in_ui.png)
+
+:::
+
+
+
 <AssemblyInstructionBlock title="Calibrating the pumps" images={["experiments/turbidostat/ssh_into_unit.png","experiments/turbidostat/run_pump_calc.png"]}>
 
-After calibrating, you can run your pump to dose exact mL volumes. Here's how to calibrate your pump(s):
+You can run your pump to dose exact mL volumes after calibrating. Here's how to calibrate your pump(s):
 
 :::tip
 [Supplying external power](/user-guide/external-power)? Make sure to plug in your external power **before** pump calibration!
@@ -66,11 +79,11 @@ After calibrating, you can run your pump to dose exact mL volumes. Here's how to
 
 </AssemblyInstructionBlock>
 
-### Sterilizing the pumps
+### Sterilizing the pumps before and after experiments
 
 To avoid cross contamination, pumps should be sterilized before and after use. 
 
-1. Create a 10% bleach dilution in a beaker. Place the sink and source tubes of each pump you're using in the beaker. 
+1. Create a 10% bleach dilution, or high concentration alcohol, in a container. Place the sink and source tubes of each pump you're sterilizing in the beaker.
 2. On the UI, in the _Pioreactors_ tab, click _Manage_ and go to the _Dosing_ tab. 
 3. _Run continuously_ to cycle the disinfectant solution through each pump that you're using. 
 ![](/img/user-guide/dosing_in_ui.png)
