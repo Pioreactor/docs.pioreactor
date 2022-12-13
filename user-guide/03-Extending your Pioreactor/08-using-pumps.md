@@ -53,7 +53,7 @@ The dosing platform isn't needed, but helps organize your pumps. It's [open sour
 
 
 :::tip
-If using your pumps for the first time, we suggest letting them run continuously for 20 minutes or so to "loosen" the tubing up and check for any problems. Place both ends (source and sick) into a beaker of water, and use the UI to run them continuously.
+If using your pumps for the first time, we suggest letting them run continuously for 10 minutes or so to "loosen" the tubing up and check for any problems. Place both ends (source and sick) into a beaker of water, and use the UI to run them continuously.
 
 ![](/img/user-guide/dosing_in_ui.png)
 
@@ -70,10 +70,10 @@ You can run your pump to dose exact mL volumes after calibrating. Here's how to 
 :::
 
 1. [Calibrate your pumps](/user-guide/hardware-calibrations#pump-calibration) through your computer's command line. 
-2.	Type **`ssh pioreactor@<insert unit name>.local`**. 
+2.	Enter **`ssh pioreactor@<insert unit name>.local`**.
 	*	For example, to calibrate on our Pioreactor named _worker3_, we typed **`ssh pioreactor@worker3.local`**.
 	*	The default password is `raspberry`.
-3. Type **`pio run pump_calibration`**. 
+3. Enter **`pio run pump_calibration`**.
 4. Follow the prompts to calibrate your media, waste, and/or alternate media pumps. 
 5. Calibrations can be performed depending on the frequency of your Pioreactor use. 
 
@@ -87,7 +87,7 @@ To avoid cross contamination, pumps should be sterilized before and after use.
 2. On the UI, in the _Pioreactors_ tab, click _Manage_ and go to the _Dosing_ tab. 
 3. _Run continuously_ to cycle the disinfectant solution through each pump that you're using. 
 ![](/img/user-guide/dosing_in_ui.png)
-4. _Interrupt_ after sufficient cycling. In another beaker with deionized water, place the tubes in and repeat the cycling to rinse out the pumps. 
+4. _Interrupt_ after sufficient cycling. In another beaker with DI water, place the tubes in and repeat the cycling to rinse out the pumps.
 5. Your pumps are now ready to be attached to media, waste, or vials for your experiments. 
 
 ## Using pumps

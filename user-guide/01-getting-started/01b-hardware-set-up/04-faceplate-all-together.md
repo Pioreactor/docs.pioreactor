@@ -10,9 +10,8 @@ import * as colors from '@site/src/components/constants';
 
 <AssemblyInstructionBlock title="Step 1: Necessary parts" images={["user-guide/hardware-assembly/stirring_parts.jpg"]}>
 
-*	<Highlight color={colors.blue}>Fan</Highlight>
+*	<Highlight color={colors.blue}>Fan</Highlight> (this may come attached to the top faceplate already)
 *	<Highlight color={colors.red}>Top faceplate</Highlight> (note the long indent where the GPIO will pins go)
-*	<Highlight color={colors.orange}>6mm screws</Highlight> (not shown)
 
 </AssemblyInstructionBlock>
 
@@ -20,7 +19,11 @@ import * as colors from '@site/src/components/constants';
 
 <AssemblyInstructionBlock title="Step 2: Assembling the stirring apparatus" images={["user-guide/hardware-assembly/fan_on_faceplate.jpg"]}>
 
-2.	Push the fan on top of the screws on the faceplate. The wire should be oriented towards the side labeled <Highlight color={colors.teal}>PWM</Highlight>. You may need to wiggle the screw ends a bit to align everything well, and apply some *careful* force.
+:::info
+This step may already be done for you. If so, move the to next step.
+:::
+
+1.	Push the fan on top of the screws on the faceplate. The wire should be oriented towards the side labeled <Highlight color={colors.teal}>PWM</Highlight>. You may need to wiggle the screw ends a bit to align everything well, and apply some *careful* force.
 
 </AssemblyInstructionBlock>
 
