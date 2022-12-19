@@ -45,7 +45,7 @@ The dosing platform isn't needed, but helps organize your pumps. It's [open sour
 
 
 1. For both pumps, the tube that is closer to the Pioreactor's vial is the tube that will connect to the vial.
-2. **Optional**: If the pump→vial tubes seem too long, you can cut them to a preferable length. In the pictures shown, we cut the 12" tube down to 6". This reduces media waste and makes the platform more compact.
+2. **Optional**: If the pump→vial tubes seem too long, you can cut them to a preferable length. In the pictures shown, we cut the 9" tube down to 6". This reduces media waste and makes the platform more compact.
 3. For each pump, attach this tube to the Pioreactor's vial via the <Highlight color={colors.blue}>luer lock connection</Highlight>.
 4. You're done! Note the picture demonstrating the flow of liquid in and out of the Pioreactor's vial.
 
