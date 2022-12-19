@@ -59,6 +59,7 @@ This window covering is optional. You can add it to maximize control of the ligh
 
 1.  Insert the glass vial into the Pioreactor.
 2.  Your Pioreactor assembly is complete! 🚀
+3.  If you also have pumps, we'll assemble those later.
 3.  Next: begin installing the [software](/user-guide/software-set-up).
 
 </AssemblyInstructionBlock>

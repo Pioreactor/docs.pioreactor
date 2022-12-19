@@ -60,24 +60,11 @@ If using your pumps for the first time, we suggest letting them run continuously
 :::
 
 
+### Calibrating pumps
 
-<AssemblyInstructionBlock title="Calibrating the pumps" images={["experiments/turbidostat/ssh_into_unit.png","experiments/turbidostat/run_pump_calc.png"]}>
+Read the [calibration instructions](/user-guide/hardware-calibrations#pump-calibration) for how to calibrate your pumps to move precise mL of liquid. Calibration is required for most dosing automations in the Pioreactor.
 
-You can run your pump to dose exact mL volumes after calibrating. Here's how to calibrate your pump(s):
 
-:::tip
-[Supplying external power](/user-guide/external-power)? Make sure to plug in your external power **before** pump calibration!
-:::
-
-1. [Calibrate your pumps](/user-guide/hardware-calibrations#pump-calibration) through your computer's command line. 
-2.	Enter **`ssh pioreactor@<insert unit name>.local`**.
-	*	For example, to calibrate on our Pioreactor named _worker3_, we typed **`ssh pioreactor@worker3.local`**.
-	*	The default password is `raspberry`.
-3. Enter **`pio run pump_calibration`**.
-4. Follow the prompts to calibrate your media, waste, and/or alternate media pumps. 
-5. Calibrations can be performed depending on the frequency of your Pioreactor use. 
-
-</AssemblyInstructionBlock>
 
 ### Sterilizing the pumps before and after experiments
 
