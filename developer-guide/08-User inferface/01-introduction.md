@@ -18,12 +18,12 @@ The lighttp conf file is located in `/etc/lighttpd/conf-enabled/50-pioreactorui.
 
 The backend app is a Flask app, with entry point in `/var/www/pioreactorui/main.fcgi`. The app uses Huey as background workers to perform `pio` tasks, save to disk, etc. Huey is controlled by systemd `huey.service`.
 
-To update on the Pioreactor leader, use `pio update --ui`. This also restarts the server.
+To update on the Pioreactor leader, use `pio update ui`. This also restarts the server.
 
 
 ### Frontend
 
-The frontend is a React app, with Material UI. The source code is at [pioreactorui_frontend](https://github.com/Pioreactor/pioreactorui_frontend). To update the front end, locally I will build the site in a local version of `pioreactorui_frontend`, (automatically) `mv` the necessary assets to local repo of `pioreactorui`, commit and push. Then on the Pioreactor, one can run `pio update --ui`. This also restarts the server.
+The frontend is a React app, with Material UI. The source code is at [pioreactorui_frontend](https://github.com/Pioreactor/pioreactorui_frontend). To update the front end, locally I will build the site in a local version of `pioreactorui_frontend`, (automatically) `mv` the necessary assets to local repo of `pioreactorui`, commit and push. Then on the Pioreactor, one can run `pio update ui`. This also restarts the server.
 
 
 ### DNS name resolution to `pioreactor.local`

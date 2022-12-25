@@ -13,7 +13,7 @@ To start assembling your Pioreactor, check out our [Getting Started](/user-guide
 
 ### Help with your first experiment?
 
-See the [basic steps](https://docs.pioreactor.com/user-guide/prepare-vial-for-cultures) to operating your Pioreactor, or check out our repository of [biology experiments](https://docs.pioreactor.com/experiments/introduction).
+See the [basic steps](/user-guide/prepare-vial-for-cultures) to operating your Pioreactor, or check out our repository of [biology experiments](/experiments/introduction).
 
 
 ### Developers

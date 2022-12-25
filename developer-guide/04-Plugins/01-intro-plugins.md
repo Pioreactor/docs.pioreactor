@@ -64,12 +64,12 @@ Finally, in your [web interface under plugins](http://pioreactor.local/plugins),
 :::
 
 :::info
-How do you add this to your /pioreactors page in the UI? See [here](https://docs.pioreactor.com/developer-guide/adding-plugins-to-ui).
+How do you add this to your /pioreactors page in the UI? See [here](/developer-guide/adding-plugins-to-ui).
 :::
 
 ### Simple script using existing jobs
 
-If you are interested in creating a script to control multiple jobs, like in a [previous Python scripting example](https://docs.pioreactor.com/user-guide/intro-python-scripting), you can create a file called `example_script.py` in the `plugins` folder mentioned above:
+If you are interested in creating a script to control multiple jobs, like in a [previous Python scripting example](/user-guide/intro-python-scripting), you can create a file called `example_script.py` in the `plugins` folder mentioned above:
 
 ```python
 import time
@@ -144,9 +144,9 @@ You should be able to execute the following from the command line now: `pio run 
 :::
 
 :::info
-How do you add this to your /pioreactors page in the UI? See [here](https://docs.pioreactor.com/developer-guide/adding-plugins-to-ui).
+How do you add this to your /pioreactors page in the UI? See [here](/developer-guide/adding-plugins-to-ui).
 :::
 
 ## 2. `pip`-installable plugins
 
-An alternative to placing Python files in the `plugins` folder is to bundle your code into a Python package that can be installed over the internet. This is the best way to ship your code to many users, and is pretty easy! We have a full guide on how to [create a Pioreactor Python package](https://docs.pioreactor.com/developer-guide/plugin-as-python-package).
+An alternative to placing Python files in the `plugins` folder is to bundle your code into a Python package that can be installed over the internet. This is the best way to ship your code to many users, and is pretty easy! We have a full guide on how to [create a Pioreactor Python package](/developer-guide/plugin-as-python-package).

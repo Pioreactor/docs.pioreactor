@@ -18,4 +18,4 @@ Setting automations can be done so that the Pioreactor performs these tasks auto
 
 ### `Skip first run`?
 
-When starting an automation, like chemostat, a ambiguity is whether to start dosing (or checking whether to dose) _immediately_, or delay N minutes to start. Checking `Skip first run` will choose the latter: delay N minutes.
+When starting an automation, like a chemostat, it is ambiguous whether to start dosing (or checking whether to dose) _immediately_, or wait _N_ minutes to start. Checking `Skip first run` will choose the latter: wait _N_ minutes, and then begin.

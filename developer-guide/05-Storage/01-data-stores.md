@@ -32,8 +32,8 @@ The inter- and intra-Pioreactor communications are handled by MQTT, a pub/sub se
 
 A principle we have stood by is to not let MQTT turn into our database. That is,
 
-1. we shouldn't store important information in MQTT,
-2. we shouldn't store information in MQTT that is "machine-specific" (see DBM section below),
+1. we shouldn't store important information in MQTT only,
+2. we shouldn't store information in MQTT that is "machine-specific",
 3. we shouldn't use MQTT as a source of truth.
 
 We sometimes fail at the above, but these are seen as tech-debt pieces and may be addressed in future versions.
