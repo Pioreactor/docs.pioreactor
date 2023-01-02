@@ -36,10 +36,8 @@ A principle we have stood by is to not let MQTT turn into our database. That is,
 2. we shouldn't store information in MQTT that is "machine-specific",
 3. we shouldn't use MQTT as a source of truth.
 
-We sometimes fail at the above, but these are seen as tech-debt pieces and may be addressed in future versions.
-
 
 #### Serialization of MQTT messages
 
-Every 5 minutes (set by the MQTT configuration file), MQTT will serialize its _retained_ messages to disk.
+Every 25 minutes (set by the MQTT configuration file), MQTT will serialize its _retained_ messages to disk.
 

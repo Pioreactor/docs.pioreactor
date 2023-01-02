@@ -50,18 +50,17 @@ For example, we add 0.5 grams of dried Baker's yeast to 15 mL of YPD broth, then
 
 We recommend measuring with a scale and a micropipette. If you are using a dropper, hold it vertically for more accurate, consistent drops. 
 
+### 5. Adjusting tube length
 
-### 5. Cleaning glassware
+Keep the bottoms of the tubes in the cap from being submerged in your media to avoid creating a pressured environment. Adjust the each luer lock until the other end of the tube is above liquid level.
 
-Since light will be traveling through the glass, we recommend handling the vial with gloves, or at least minimizing touching the glass much. Before placing in the Pioreactor sleeve, wiping the surface of the glass with a wipe or ethanol is a great idea!
+### 6. Cleaning glass
 
-### 6. Adjusting tube length
-
-Keep the bottoms of the tubes in the cap from being submerged in your media to avoid creating a pressured, anaerobic environment. Carbon dioxide bubbles can form due to excess CO₂ production, and this will impede the OD readings. Pull the luer lock ends until the ends of the tubes are above liquid level.
+Since light will be traveling through the glass, we recommend handling the vial with gloves, or at least minimizing touching the glass much. Before placing in the Pioreactor sleeve, wiping the surface of the glass with a wipe is a great idea!
 
 ### 7. Positioning glassware in the Pioreactor sleeve
 
-Place the glassware vial into the Pioreactor sleeve. The outside of the glassware vial must be dry. Ensure that the vial is pressed all the way down into the sleeve. The rotation of the vial doesn't matter.
+Place the glassware vial into the Pioreactor sleeve. The outside of the glassware vial should be clean and dry. Ensure that the vial is pressed all the way down into the sleeve.
 
 
 Next, you can [start your experiment](http://localhost:3001/user-guide/set-up-an-experiment) in the browser.
