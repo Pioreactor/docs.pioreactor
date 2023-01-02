@@ -10,13 +10,18 @@ Pinch valves are useful for controlling gas into the Pioreactor by "pinching" a 
 
 The pinch valve opens and closes, controlled by the Pioreactor, to allow gas from the CO₂ source into the headspace. The Pioreactor controls the pinch valve via the PWM channels and software (plugins).
 
+:::warning
+Keeping a pinch valve powered continuously for a long time can reach temperatures above 60℃!
+:::
+
+
 ### Pinch valve options
 
 Some options for pinch valves that will be useful for your application:
 
 1. **Normally open / normally closed**. When no power is provided to the pinch valve, a **normally closed** pinch valve will force the tube to be closed. Conversely, a **normally open** pinch valve will keep the tube open when no power is provided. We suggest a normally closed most of the time, since if the Pioreactor loses power, or an experiment ends and power is turned off, we would like the tube to be closed to avoid losing gas.
 
-2. **PWM**: safest option is "continously" (or "continous"). This means that we can power the pinch valve continuously without it overheating.
+2. **PWM**: safest option is "continuously" (or "continuous"). This means that we can power the pinch valve continuously without it overheating, however it still may be hot to touch.
 
 3. **Voltage**: The Pioreactor normally operates at 5V, and there are pinch valves that work at this voltage. More common though are pinch valves that work at 12V. To use a 12V pinch valve, you'll need to supply 12V to the [auxiliary power input on your Pioreactor](/user-guide/external-power).
 
