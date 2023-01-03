@@ -7,7 +7,7 @@ import { useColorMode } from '@docusaurus/theme-common';
 const FeatureList = [
   {
     title: 'User Guide',
-    Svg: require('../../static/img/optical_density.svg').default,
+    Svg: require('@site/static/img/misc/optical_density.svg').default,
     link: "/user-guide/introduction",
     description: (
       <>
@@ -17,7 +17,7 @@ const FeatureList = [
   },
   {
     title: 'Developer Guide',
-    Svg: require('../../static/img/automation.svg').default,
+    Svg: require('@site/static/img/misc/automation.svg').default,
     link: "/developer-guide/introduction",
     description: (
       <>
@@ -27,7 +27,7 @@ const FeatureList = [
   },
   {
     title: 'Experiments',
-    Svg: require('../../static/img/interface.svg').default,
+    Svg: require('@site/static/img/misc/interface.svg').default,
     link: "/experiments/introduction",
     description: (
       <>

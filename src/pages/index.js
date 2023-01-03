@@ -6,13 +6,13 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import styles from './index.module.css';
 import HomepageFeatures from '../components/HomepageFeatures';
 
+
 function HomepageHeader() {
   const {siteConfig} = useDocusaurusContext();
-  console.log(siteConfig)
   return (
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
       <div className="container">
-       <img src="img/white-Docs-logo.png" width="400px"/>
+       <img src={require("@site/static/img/misc/white-Docs-logo.png").default} width="400px"/>
 
       </div>
     </header>

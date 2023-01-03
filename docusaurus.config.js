@@ -15,7 +15,7 @@ const config = {
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/misc/favicon.ico',
   organizationName: 'Pioreactor', // Usually your GitHub org/user name.
   projectName: 'docs.pioreactor', // Usually your repo name.
   deploymentBranch: "gh-pages",
@@ -91,8 +91,8 @@ const config = {
         hideOnScroll: true,
         logo: {
           alt: 'pioreactor',
-          src: 'img/colour-Docs-logo.png',
-          srcDark: 'img/white-Docs-logo.png',
+          src: 'img/misc/colour-Docs-logo.png',
+          srcDark: 'img/misc/white-Docs-logo.png',
         },
         items: [
           {
