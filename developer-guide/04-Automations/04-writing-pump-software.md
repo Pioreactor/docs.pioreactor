@@ -48,7 +48,7 @@ class CustomPumper(DosingAutomationJob):
     remove_waste_from_bioreactor = custom_remove_media_program
 
     def __init__(self, **kwargs):
-        super(CustomPump, self).__init__(**kwargs)
+        super().__init__(**kwargs)
 
     def execute(self):
         self.execute_io_action(media_ml=1.0, alt_media_ml=1.0, waste_ml=2.0)

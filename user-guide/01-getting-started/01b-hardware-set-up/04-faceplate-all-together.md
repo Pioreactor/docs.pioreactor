@@ -32,8 +32,9 @@ This step may already be done for you. If so, move the to next step.
 <AssemblyInstructionBlock title="Step 3: Securing the vial holder" images={["user-guide/hardware-assembly/vial_holder_on_fan.jpg","user-guide/hardware-assembly/cable_orientation.jpg","user-guide/hardware-assembly/screw_vial_holder_faceplate.jpg","user-guide/hardware-assembly/vial_holder_alignment.jpg"]}>
 
 1.	Place the vial holder on top of the faceplate piece. The flat cable should follow the <Highlight color={colors.red}>arrow on the faceplate</Highlight>.
-2.	Holding it together, finish screwing the bottom of the faceplate. The Screws will enter the square nuts you placed into the vial holder. **Do not overtighten**. The screw heads should be flush with the faceplate.
-3. Use the screwdriver to check that the fan can spin freely without rubbing against the <Highlight color={colors.magenta}>screws above</Highlight>.
+2.	Holding it together, finish screwing the bottom of the faceplate. The screws will enter square nuts in the vial holder. Do not overtighten.
+3. The screw heads will be flush with the faceplate, and there should be <Highlight color={colors.blue}>no screw threads</Highlight> showing between the vial holder and the faceplate.
+4. Use the screwdriver to check that the fan can spin freely without rubbing against the <Highlight color={colors.magenta}>screws above</Highlight>.
 
 </AssemblyInstructionBlock>
 
