@@ -69,7 +69,7 @@ How do you add this to your /pioreactors page in the UI? See [here](/developer-g
 
 ### Simple script using existing jobs
 
-If you are interested in creating a script to control multiple jobs, like in a [previous Python scripting example](/user-guide/intro-python-scripting), you can create a file called `example_script.py` in the `plugins` folder mentioned above:
+If you are interested in creating a script to control multiple jobs, like in a [previous Python scripting example](/user-guide/intro-python-scripting), you can create a file called `example_script.py` in the `/home/pioreactor/.pioreactor/plugins/` folder:
 
 ```python
 import time
@@ -105,8 +105,22 @@ def click_my_script():
 
 You should be able to execute the following from the command line now: `pio run my_script`. (The `my_script` is from the `@click.command` line, you can change it there).
 
+:::important
+The `click` function's name should be prepended by `click_`. Ex: `def click_my_script` is okay, but `def my_script` is not.
+:::
+
 :::info
-How do you add this to your /pioreactors page in the UI? Unfortunately, you can't yet.
+How do you add this to your /pioreactors page in the UI? Create a custom .yaml in `/var/www/pioreactorui/contrib/jobs` with contents like:
+```
+---
+display_name: Example Script
+display: true
+job_name: my_script
+source: Example Script
+description: Run my custom script.
+published_settings: []
+
+```
 :::
 
 ### Custom automations
@@ -136,7 +150,10 @@ class DemoAutomation(DosingAutomationContrib):
 
 ```
 
-You should be able to execute the following from the command line now: `pio run dosing_control --automation-name demo --volume 10`.
+You should be able to execute the following from the command line now:
+```
+pio run dosing_control --automation-name demo --volume 10
+```
 
 
 :::info

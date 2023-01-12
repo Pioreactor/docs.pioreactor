@@ -17,7 +17,7 @@ Because we often want to change automations during an experiment, there is a `Co
 from pioreactor.background_jobs.dosing_control import DosingController
 
 dc = DosingController(
-    dosing_automation="turbidostat", # name of the automation, see next section
+    dosing_automation="turbidostat", # name of the automation, see next page
     duration=30,                     # how often `execute` runs, in minutes
     target_od=2.0,                   # kwarg that the turbidostat automation needs
     volume=0.5,                      # kwarg that the turbidostat automation needs

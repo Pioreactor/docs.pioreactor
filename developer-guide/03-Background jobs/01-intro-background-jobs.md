@@ -7,14 +7,14 @@ The core unit of "work" in the Pioreactor software is a background job (called _
 
 ### Inheritance and file structure
 
-All background jobs inherit from the base class `pioreactor.background_jobs.base.BackgroundJob`. This class controls most of the behind-the-scenes behaviour of the class. Typically, we structure code such that a Python file has a single background job.
+All background jobs inherit from the base class `pioreactor.background_jobs.base.BackgroundJob`. This class controls most of the behind-the-scenes behaviour of the class. Typically, we structure background job code such that the Python file has a single background job class. See examples [here](https://github.com/Pioreactor/pioreactor/tree/master/pioreactor/background_jobs).
 
 ### State of a job
 A background job can be in one of five different states:
 
  - `init`: the job is initializing. The job starts in this state.
  - `ready`: the job is prepared to do "work", or currently doing "work"
- - `sleeping`: the job's work is paused (ex: when the stirring job is in state `sleeping`, it turns off its PWM signal.) This state is called "paused" in the web interface.
+ - `sleeping`: the job's work is paused (ex: when the stirring job is in state `sleeping`, it turns off its power.) This state is called "paused" in the web interface.
  - `disconnected`: the job has disconnected from services (MQTT, databases, etc.) and cleaned itself up successfully.
  - `lost`: the job did not disconnect gracefully. Something may be wrong.
 
@@ -44,11 +44,11 @@ Here's how the states can transition to each other:
 
 The author can optionally define hooks when a job moves between states, and when it enters a new state. For example, the method `.on_ready_to_sleeping()` is called when the job moves from `ready` to `sleeping`. Similarly, the method `.on_sleeping()` is called when the jobs enters state `sleeping`. By default, these methods are empty.
 
-The recommended way to move a job between states is with `job.set_state(job.READY)`. This will invoke any hooks that exist between the states. State can also be changed over MQTT - we'll get to that point later.
+The recommended way to move a job between states is with `job.set_state(job.READY)`. This will invoke any hooks that exist between the states. State can also be changed remotely over MQTT - we'll get to that point later.
 
 ### Publish & subscribe, also known as pub/sub
 
-On job creation, the job will connect to MQTT to allow for publishing and subscribing. The attribute `sub_client` is for subscribing from MQTT, and `pub_client` is for publishing to MQTT. Internally, `sub_client` and `pub_client` are [Paho client objects](https://github.com/eclipse/paho.mqtt.python/blob/master/src/paho/mqtt/client.py).
+On job creation, the job will connect to [MQTT](/developer-guide/important-concepts#mqtt) to allow for publishing and subscribing. The attribute `sub_client` is for subscribing from MQTT, and `pub_client` is for publishing to MQTT. Internally, `sub_client` and `pub_client` are [Paho client objects](https://github.com/eclipse/paho.mqtt.python/blob/master/src/paho/mqtt/client.py).
 
 Since publishing is so common, we also expose a `.publish` method:
 
@@ -107,7 +107,7 @@ class Stirrer(BackgroundJob):
 
 Thus the attributes `target_rpm`, `measured_rpm`, `duty_cycle` are all published to MQTT when they change, but only `duty_cycle` and `target_rpm` are able to be updated over MQTT (as defined by `settable`).
 
-The `"datatype"` field is normally one of: `"string"`, `"float"`, `"integer"`, `"json"`, `"boolean"` (full list in `pioreactor.types.py`).
+The `"datatype"` field is normally one of: `"string"`, `"float"`, `"integer"`, `"json"`, `"boolean"` (full list in `pioreactor/types.py`).
 
 :::info
 The `unit` key is optional, and can be omitted. Also, there is an optional `persist` key (not shown above), which contains a boolean describing if the value should be kept in MQTT after the job exits, default `False`.
@@ -120,18 +120,18 @@ For updating an attribute, the `BackgroundJob` parent class listens to the MQTT 
 pioreactor/{self.unit}/{self.experiment}/{self.job_name}/+/set
 ```
 
-(the `+` is a MQTT wildcard), and when a message comes in, the class will check if the attribute (defined by `+`) is `settable`. If so, a lookup is done to see if a class method called `set_<attr>` is defined, and if present, calls that, with the only argument the message's payload. Otherwise, a simple assignment is done: `self.<attr> = payload`. The utility of a `set_<attr>` method is when changing the attribute requires more logic (ex: changing a PID controller's set point).
+(the `+` is a MQTT wildcard), and when a message comes in, the class will check if the attribute (defined by `+`) is `settable`. If so, a lookup is done to see if a class method called `set_<attr>` is defined, and if present, calls that, with the only argument the message's payload. Otherwise, a simple assignment is done: `self.<attr> = payload`. The utility of a `set_<attr>` method is when changing the attribute requires more logic (ex: changing a PID controller's set point, see [example here](https://github.com/Pioreactor/pioreactor/blob/2d26082b85e06114b1847f11ffd28fd86453cf7f/pioreactor/background_jobs/stirring.py#L382-L385)).
 
 :::info
 `state` is special attribute that is automatically appended to `published_settings` (with `settable: True` and `persist: True`) so the state of the job can always be updated and read from MQTT. Over MQTT, the field is called referenced as `pioreactor/{unit}/{experiment}/{job_name}/$state` - note the `$`.
 :::
 
-When the job disconnects and cleans up, the published settings in MQTT are removed as well by sending an empty payload to the respective topics (unless `persist: True`, see above.)
+When the job disconnects and cleans up, the published settings in MQTT are removed by sending an empty payload to the respective topics (unless `persist: True`, see above.)
 
 
 ### Uniqueness
 
-Only a single instance of a background job, modulo the job's name, can be running on a Raspberry Pi. For example, only a single `Monitor` background job can run, likewise only a single `ODReading` can run. (It's not clear what running multiple `ODReading`s means, or how it will interact with the hardware - poorly we expect).
+Only a single instance of a background job, modulo the job's name, can be running on a Raspberry Pi. For example, only a single `Monitor` background job can run, likewise only a single `ODReading` can run. (It's not clear what running multiple `ODReading`s means, or how they will interact with the hardware - poorly we expect).
 
 The uniqueness is across processes, too. So if a script is running `ODReading`, then `pio run od_reading` will fail.
 

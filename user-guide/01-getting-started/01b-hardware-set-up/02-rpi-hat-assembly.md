@@ -69,7 +69,7 @@ The HAT PCB's GPIO connector will line up with the RPi's GPIO pins, and may requ
 
   </TabItem>
   <TabItem value="zero" label="Raspberry Pi Zero">
-<AssemblyInstructionBlock title="Step 2: Assembly the bottom faceplate" images={["user-guide/hardware-assembly/bottom_faceplate.jpg","user-guide/hardware-assembly/hex_one_side.jpg","user-guide/hardware-assembly/rpi_zero.jpg"]}>
+<AssemblyInstructionBlock title="Step 2: Assemble the bottom faceplate" images={["user-guide/hardware-assembly/bottom_faceplate.jpg","user-guide/hardware-assembly/hex_one_side.jpg","user-guide/hardware-assembly/rpi_zero.jpg"]}>
 The 40 GPIO pins (standing for general-purpose input/output) form a distinct row on one side of the RPi. Note the orientation of these pins to help you assemble correctly!
 
 1.  Orientation: the base will have a flat edge and an edge with an indent. The GPIO pins sit along the <Highlight color={colors.blue}>indent</Highlight>, seen on the left in the images.

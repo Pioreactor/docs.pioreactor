@@ -1,5 +1,5 @@
 ---
-title: Another example of automation design
+title: Another example writing a new automation
 slug: /writing-automations-2
 ---
 

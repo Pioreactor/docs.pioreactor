@@ -1,5 +1,5 @@
 ---
-title: Writing new automations
+title: Writing a new automation
 slug: /writing-automations-1
 ---
 
