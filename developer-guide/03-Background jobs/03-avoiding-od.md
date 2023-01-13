@@ -3,7 +3,7 @@ title: Avoiding when optical density is run
 slug: /avoiding-od
 ---
 
-It's common to want a feature to turn off, or more generally change behaviour, when a sensitive optical density reading is taken. For example, if running a air bubbler, you may want to turn if off before an OD reading is taken, and then turn if back on after. 
+It's common to want a feature to turn off, or more generally change behaviour, when a sensitive optical density reading is taken. For example, if running an air bubbler, you may want to turn it off before an OD reading is taken, and then turn if back on after.
 
 This behaviour is so common, we've added a helper class to take care of it for you. In `pioreactor.background_jobs.base` is the class `BackgroundJobWithDodgingContrib` that implements most of the "dodging" behaviour for you. you'll only need to do three things:
 

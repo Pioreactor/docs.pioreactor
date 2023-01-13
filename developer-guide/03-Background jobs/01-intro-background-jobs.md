@@ -3,11 +3,13 @@ title: Introduction to background jobs
 slug: /intro-background-jobs
 ---
 
-The core unit of "work" in the Pioreactor software is a background job (called _activities_ in the web interface). Background jobs include `od_reading`, `monitor`, automation controllers, all the _automations_ themselves, etc. Often, a community plugin is a background job (or multiple jobs) that gives your bioreactor new abilities. There are a few core feature of a background job to be highlighted if you intend on working with them.
+The core unit of "work" in the Pioreactor software is a background job (called _activities_ in the web interface). Background jobs include `od_reading`, `monitor`, automation controllers, all the _automations_ themselves, etc. Often, a community plugin is a background job (or multiple jobs) that gives your bioreactor new abilities. There are a few important features of background jobs to be highlighted if you intend on working with them.
 
 ### Inheritance and file structure
 
-All background jobs inherit from the base class `pioreactor.background_jobs.base.BackgroundJob`. This class controls most of the behind-the-scenes behaviour of the class. Typically, we structure background job code such that the Python file has a single background job class. See examples [here](https://github.com/Pioreactor/pioreactor/tree/master/pioreactor/background_jobs).
+All background jobs inherit from the base class `pioreactor.background_jobs.base.BackgroundJob`. This class controls most of the behind-the-scenes behaviour of the class.
+
+Typically, we structure background job code such that the Python file has a single background job class and a command-line interface. See examples [here](https://github.com/Pioreactor/pioreactor/tree/master/pioreactor/background_jobs).
 
 ### State of a job
 A background job can be in one of five different states:
@@ -139,7 +141,8 @@ The uniqueness is across processes, too. So if a script is running `ODReading`, 
 This uniqueness constraint is currently enforced. It's possible we will see a reason to remove the uniqueness constraint in a future version - let us know if you want to see this, too!
 :::
 
-### Entry and exit
+
+### Entry & exit
 
 It's important to treat background jobs as objects that need to be cleaned up properly. There are two traditional ways to use a background job:
 
@@ -185,3 +188,13 @@ def function_that_does_clean_up():
 value = function_that_does_clean_up()
 ```
 
+
+### Blocking
+
+Often we want the job to pause (or a script to pause), and wait for commands or MQTT messages. We can accomplish this with
+
+```python
+job.block_until_disconnected()
+```
+
+This blocks the execution until the job is disconnected (either a MQTT state change, or a signal from the OS).

@@ -25,6 +25,8 @@ mkdir .pioreactor
 mkdir .pioreactor/storage
 ```
 
+4. The configuration file that is used is `config.dev.ini`, and comes with the repository.
+
 #### MQTT
 
 You will need to install MQTT and have a broker running locally. On OSX, homebrew can be used to install the MQTT broker `mosquitto`. On Windows, it can be installed [from this download page](https://mosquitto.org/download/).

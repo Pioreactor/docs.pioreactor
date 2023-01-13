@@ -29,4 +29,3 @@ MQTT is message-broker system that the Pioreactor uses to communicate between Pi
 
 The Pioreactor UI also connects to MQTT, and uses it to push and pull live data from the activities in each Pioreactor (states of activities, settings, graphs, etc).
 
-The broker has a username/password of `pioreactor` / `raspberry`.

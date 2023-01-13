@@ -32,7 +32,7 @@ The inter- and intra-Pioreactor communications are handled by MQTT, a pub/sub se
 
 A principle we have stood by is to not let MQTT turn into our database. That is,
 
-1. we shouldn't store important information in MQTT only,
+1. we shouldn't store important information in MQTT _only_,
 2. we shouldn't store information in MQTT that is "machine-specific",
 3. we shouldn't use MQTT as a source of truth.
 
@@ -40,4 +40,11 @@ A principle we have stood by is to not let MQTT turn into our database. That is,
 #### Serialization of MQTT messages
 
 Every 25 minutes (set by the MQTT configuration file), MQTT will serialize its _retained_ messages to disk.
+
+
+#### Authentication
+
+The Mosquitto broker has a username/password of `pioreactor` / `raspberry`.
+
+
 
