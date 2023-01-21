@@ -26,14 +26,14 @@ A cluster can be made up of a single Pioreactor, or can be scaled to as many Pio
 
 #### Single Pioreactor
 
-The simplest topology is when you have a single Pioreactor, and so by default the leader is the only worker.
+The simplest topology is when you have a single Pioreactor, and so by default the Pioreactor is both the leader and the only worker.
 
 <img src="/img/user-guide/single_pioreactor_cluster.png" width="335" style={{margin: "auto", display:"block"}}/>
 
 
 #### Cluster, and leader is a worker
 
-When you have multiple Pioreactors, you can nominate one to be the leader node, and retain it as a worker, too:
+When you have multiple Pioreactors, you can nominate one to be the leader, and retain it as a worker, too:
 
 ![leader is also a worker in the cluster](/img/user-guide/leader_as_worker_cluster.png)
 

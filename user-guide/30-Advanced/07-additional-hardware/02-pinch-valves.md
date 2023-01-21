@@ -33,7 +33,13 @@ Some options for pinch valves that will be useful for your application:
 
 ### Software
 
-To control the pinch valve, we suggest using the [pioreactor relay plugin](https://github.com/camdavidsonpilon/pioreactor-relay-plugin). This plugin will turn the PWM channel for the pinch valve (specified in your config.ini) on and off at your control. You can [install this plugin from the Pioreactor UI](/user-guide/using-community-plugins#installing-plugins).
+To control the pinch valve, we suggest using the [pioreactor relay plugin](https://github.com/camdavidsonpilon/pioreactor-relay-plugin). This plugin will turn the PWM channel for the pinch valve (specified in your config.ini) on and off at your control. By default, it won't operating when OD readings are taken.
+
+You can [install this plugin from the Pioreactor UI](/user-guide/using-community-plugins#installing-plugins).
+
+
+![](/img/user-guide/start_relay.png)
+
 
 
 ### Recommended pinch valves

@@ -26,7 +26,7 @@ Before you get started, you'll need to have the following:
 ### Setting up your Raspberry Pi
 
 
-We'll start with an unused Raspberry Pi and empty microSD card (or we'll reformat the card later if not empty).
+We'll start your empty microSD card (or we'll reformat the card later if not empty).
 
 1. Download the [Pioreactor leader & worker image file](https://github.com/pioreactor/custopizer/releases/latest/download/pioreactor_leader_worker.zip).
 
@@ -72,7 +72,9 @@ Your settings should look like this:
 9. After observing the blue LED flashing, navigate to [http://pioreactor.local](http://pioreactor.local) in a web browser to visit the web interface. (Not working? See [Troubleshooting](#troubleshooting) below).
 10. The Pioreactor is now ready for use! Follow [this guide](/user-guide/prepare-vial-for-cultures) to set up your first experiment.
 
-## Adding workers to your cluster
+## Adding additional workers to your cluster
+
+Workers are additional Pioreactors that you can control from a single UI. Together, a leader and workers form a Pioreactor cluster.
 
 #### Step 1. Install the worker software
 
@@ -84,7 +86,7 @@ Choose a hostname that isn't currently being used in your cluster, ex: `worker1`
 
 2. After the image is written to the microSD card, place the microSD card into the Raspberry Pi and power it on. The Pioreactor's blue LED won't blink, as it's not 100% ready yet.
 
-2. After a few minutes, connect the new Pioreactor worker to your cluster using the UI:
+2. After a few minutes, connect the new Pioreactor worker to your cluster using the UI. See next steps.
 
 #### Step 2. Add worker to cluster using the UI
 
