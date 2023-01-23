@@ -15,7 +15,7 @@ The list of activities, among other things, is sourced from either of two direct
  - `/var/www/pioreactorui/contrib/jobs/`, is the source of the "default" jobs
  - `/user/pioreactor/.pioreactor/plugins/ui/jobs`, is a directory to put custom plugins.
 
-Placing a new yaml file in either of these folders will populate the UI dropdown with your new automation. Here's an example `example.yaml` file:
+Placing a new yaml file in either of these folders will populate the page with your new job. Here's an example `example.yaml` file:
 
 ```yaml
 ---
@@ -49,6 +49,25 @@ Saving it to this folder, and refreshing the page:
 
 ![](/img/developer-guide/card_with_example.png)
 
+
+### Adding a custom Python script to the list of activities
+
+Placing a new yaml file in either of the following folders will populate the UI with your new job.
+
+ - `/var/www/pioreactorui/contrib/jobs/`, is the source of the "default" jobs
+ - `/user/pioreactor/.pioreactor/plugins/ui/jobs`, is a directory to put custom plugins.
+
+```yaml
+---
+display_name: Example Script
+display: true
+job_name: my_script
+source: Example Script
+description: Run my custom script.
+published_settings: []
+```
+
+See more information on the structure of your script [here](/developer-guide/intro-plugins#scripts)
 
 ### Adding a custom automation to the drop-down of automations
 

@@ -12,7 +12,7 @@ If you'd like to contribute your plugin to the community, this is done easily by
 Note that the way files are organized may depend on if your plugin is an **automation** or a **job**. Plugins can install both automations and jobs.
 :::
 
-Consider an example plugin: a **job** called _Relay_, which just turns on or off anything thats plugged into a channel of your choosing. Follow the file organization here: [kellytr/pioreactor-relay-plugin](https://github.com/kellytr/pioreactor-relay-plugin).
+Consider an example plugin: a **job** called _Relay_, which just turns on or off anything that is plugged into a channel of your choosing. Follow the file organization here: [kellytr/pioreactor-relay-plugin](https://github.com/kellytr/pioreactor-relay-plugin).
 
 Here's a general schematic of how your files should be organized for a job:
 
@@ -40,7 +40,7 @@ The schematic is very similar for an **automation plugin** &#151 the only differ
 │  ├─ 📁 ui
 │  │  ├─ 📁 contrib
 │  │  │  ├─ 📁 automations
-│  │  │  │  ├─ 📁 <SPECIFIC AUTOMATION (ex. either dosing, led, or temperature)>
+│  │  │  │  ├─ 📁 <SPECIFIC AUTOMATION (one of {dosing, led, temperature})>
 │  │  │  │  │  ├─ 📝 my_plugin.yaml
 │  ├─ 📝 __init__.py
 │  ├─ 📝 additional_config.ini
@@ -100,12 +100,12 @@ setup(
 
 Within the main file `pioreactor-relay-plugin`, we created a subfile `pioreactor_relay_plugin`. 
 
-### Contents of the subfolder: 
+### Contents of the subfolder
 
 #### 1. Your plugins Python files
 
 This Python file contains the core code for your plugin. If your plugin is implementing a background job, then there should be a
-function decorated with `@click.command` at the bottom of the file. See example [here](https://github.com/kellytr/pioreactor-relay-plugin/blob/d3fd10dab2bd3b460e2b00223d7d9dd9ae3165d8/pioreactor_relay_plugin/relay.py#L60-L83). For discovery reasons, this function's name **should start with `click_` **.
+function decorated with `@click.command` at the bottom of the file. See example [here](https://github.com/kellytr/pioreactor-relay-plugin/blob/d3fd10dab2bd3b460e2b00223d7d9dd9ae3165d8/pioreactor_relay_plugin/relay.py#L60-L83). For discovery reasons, this function's name **should start with `click_`**.
 
 #### 2. A Python `__init__.py` file
 
@@ -143,7 +143,7 @@ This configuration file will contain additional configs that we want to add to o
 A convention we've tried to follow is to use the section name `[<job_name>.config]` or `[<automation_name>.config]` in the configuration files. For example, our relay job has `[relay.config]` in its `additional_config.ini` and settings under it.
 :::
 
-#### 4. Adding details to the UI
+#### 4. Adding details for the UI
 
 ##### If implementing a job:
 
@@ -185,6 +185,54 @@ fields:
     label: # human readable name
     description: # description of your key
 ```
+
+#### 5. Optional: adding tables to the SQL store
+
+You can also add a file called `additional_sql.sql` that will run against the SQLite database. For example, a CO₂ sensor may want to create a new table in the database to store its sensor data. It's `additional_sql.sql` may look like:
+
+```sql
+CREATE TABLE IF NOT EXISTS co2_readings (
+    experiment               TEXT NOT NULL,
+    pioreactor_unit          TEXT NOT NULL,
+    timestamp                TEXT NOT NULL,
+    co2_reading_ppm          REAL
+);
+```
+
+You also need to tell Pioreactor software how to populate this table from your sensor readings. Include the following in your code such that is runs when the plugin is loaded:
+
+ 1. a parser function that accepts a MQTT topic and payload, and returns a dictionary that maps to the new tables schema.
+ 2. a `TopicToParserToTable` object is created with the MQTT topics to listen to, the parser, and the table name to load to. This `TopicToParserToTable` is provided to `register_source_to_sink`.
+
+ Example below for a CO2 sensor:
+
+```python
+from pioreactor.background_jobs.leader.mqtt_to_db_streaming import produce_metadata
+from pioreactor.background_jobs.leader.mqtt_to_db_streaming import register_source_to_sink
+from pioreactor.background_jobs.leader.mqtt_to_db_streaming import TopicToParserToTable
+
+...
+
+def parser(topic, payload) -> dict:
+    metadata = produce_metadata(topic)
+    return {
+        "experiment": metadata.experiment,
+        "pioreactor_unit": metadata.pioreactor_unit,
+        "timestamp": timing.current_utc_timestamp(),
+        "co2_reading_ppm": float(payload),
+    }
+
+
+register_source_to_sink(
+    TopicToParserToTable(
+        ["pioreactor/+/+/scd_reading/co2", "pioreactor/+/+/co2_reading/co2"],
+        parser,
+        "co2_readings",
+    )
+)
+```
+
+See an example plugin that uses this idea [here](https://github.com/Pioreactor/co2-reading-plugin).
 
 ## Create a Python package on PyPi
 
