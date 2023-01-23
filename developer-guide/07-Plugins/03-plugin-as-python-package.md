@@ -62,8 +62,8 @@ A common license for software is the [MIT license](https://opensource.org/licens
 When creating a Python package, there's a default set of files that are included. To assure that our additional configuration and yaml files are included, create a `MANIFEST.in` file and paste the following:
 
 ```
-include <MAIN FOLDER>/additional_config.ini
 recursive-include <MAIN FOLDER>/ui/ *.yaml
+include <MAIN FOLDER>/additional_config.ini
 ```
 
 #### 3. A `README.md`
@@ -207,6 +207,7 @@ You also need to tell Pioreactor software how to populate this table from your s
  Example below for a CO2 sensor:
 
 ```python
+...
 from pioreactor.background_jobs.leader.mqtt_to_db_streaming import produce_metadata
 from pioreactor.background_jobs.leader.mqtt_to_db_streaming import register_source_to_sink
 from pioreactor.background_jobs.leader.mqtt_to_db_streaming import TopicToParserToTable
@@ -232,7 +233,18 @@ register_source_to_sink(
 )
 ```
 
+:::note
+You also need to add the following to your `MANIFEST.in`:
+```
+...
+include <MAIN FOLDER>/additional_sql.sql
+```
+:::
+
+
 See an example plugin that uses this idea [here](https://github.com/Pioreactor/co2-reading-plugin).
+
+
 
 ## Create a Python package on PyPi
 
