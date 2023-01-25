@@ -12,7 +12,7 @@ If you'd like to contribute your plugin to the community, this is done easily by
 Note that the way files are organized may depend on if your plugin is an **automation** or a **job**. Plugins can install both automations and jobs.
 :::
 
-Consider an example plugin: a **job** called _Relay_, which just turns on or off anything that is plugged into a channel of your choosing. Follow the file organization here: [kellytr/pioreactor-relay-plugin](https://github.com/kellytr/pioreactor-relay-plugin).
+Consider an example plugin: a **job** called _Relay_, which just turns on or off anything that is plugged into a channel of your choosing. Follow the file organization here: [CamDavidsonPilon/pioreactor-relay-plugin](https://github.com/CamDavidsonPilon/pioreactor-relay-plugin).
 
 Here's a general schematic of how your files should be organized for a job:
 
@@ -105,7 +105,7 @@ Within the main file `pioreactor-relay-plugin`, we created a subfile `pioreactor
 #### 1. Your plugins Python files
 
 This Python file contains the core code for your plugin. If your plugin is implementing a background job, then there should be a
-function decorated with `@click.command` at the bottom of the file. See example [here](https://github.com/kellytr/pioreactor-relay-plugin/blob/d3fd10dab2bd3b460e2b00223d7d9dd9ae3165d8/pioreactor_relay_plugin/relay.py#L60-L83). For discovery reasons, this function's name **should start with `click_`**.
+function decorated with `@click.command` at the bottom of the file. See example [here](https://github.com/CamDavidsonPilon/pioreactor-relay-plugin/blob/e25b46997d6e6b3b1b2e2bf1141299ddba4eaa49/pioreactor_relay_plugin/relay.py#L79-L93). For discovery reasons, this function's name **should start with `click_`**.
 
 #### 2. A Python `__init__.py` file
 

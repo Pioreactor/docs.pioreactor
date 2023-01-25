@@ -11,8 +11,38 @@ There are two ways to distribute a plugin:
 
 On each Pioreactor's Raspberry Pi is a folder at `/home/pioreactor/.pioreactor/plugins`. When the Pioreactor software starts, any Python files in this folder are read and loaded into memory. If you were to include an automation in here, or a background job (with the `click` CLI component), they would be available globally.
 
-:::info
 Why would you want to distribute code this way? It's a great way to test or develop your code instead of committing to other distribution methods: short iterations times, tight feedback loop, and code runs in the production environment. Two downsides are that it's harder to distribute your code to the rest of the community, and that it doesn't have the same deployment pipeline (adding configs, etc.)
+
+
+:::caution
+The Pioreactor software will load and run each Python file in `/plugins` on each invocation of `pio`. Don't pull long-running, or blocking, code without wrapping it in a function or `if __name__ == "__main__"`. For example:
+
+```python
+#❌ don't do this
+# my plugin code.py
+import time
+
+time.sleep(100)
+```
+
+
+```python
+# ✅ this is okay
+import time
+
+def sleep():
+    time.sleep(100)
+
+```
+
+```python
+# ✅ also is okay
+import time
+
+if __name__ == "__main__":
+    time.sleep(100)
+```
+
 :::
 
 ### Custom background jobs
@@ -67,7 +97,7 @@ Finally, in your [web interface under plugins](http://pioreactor.local/plugins),
 How do you add this to your /pioreactors page in the UI? See [here](/developer-guide/adding-plugins-to-ui).
 :::
 
-### Scripts
+### Custom Scripts
 
 If you are interested in creating a Python script to control multiple jobs, like in a [previous Python scripting example](/user-guide/intro-python-scripting), you can create a file called `example_script.py` in the `/home/pioreactor/.pioreactor/plugins/` folder:
 
@@ -106,21 +136,11 @@ def click_my_script():
 You should be able to execute the following from the command line now: `pio run my_script`. (The `my_script` is from the `@click.command` line, you can change it there).
 
 :::important
-The `click` function's name should be prepended by `click_`. Ex: `def click_my_script` is okay, but `def my_script` is not.
+The function that `click.command` wraps should have it's name prepended by `click_`. Ex: `def click_my_script` is okay, but `def my_script` is not.
 :::
 
 :::info
-How do you add this to your /pioreactors page in the UI? Create a custom .yaml in `/var/www/pioreactorui/contrib/jobs` with contents like:
-```
----
-display_name: Example Script
-display: true
-job_name: my_script
-source: Example Script
-description: Run my custom script.
-published_settings: []
-
-```
+How do you add this to your /pioreactors page in the UI? See [here](/developer-guide/adding-plugins-to-ui).
 :::
 
 ### Custom automations
