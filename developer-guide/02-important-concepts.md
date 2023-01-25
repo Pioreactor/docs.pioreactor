@@ -7,11 +7,11 @@ slug: /important-concepts
 
 The Pioreactor software works as follows:
 
-1. Different jobs, like stirring, OD reading, dosing, etc. are controlled by separate Python objects. A Python script can instantiate multiple objects, and interact with them as one wishes. Some jobs will passively listen for events from other jobs, and change their behavior in response, for example, dosing automations listen to OD readings, and may respond by dosing (or not dosing).
+1. Different jobs, like stirring, OD reading, dosing, etc. are controlled by separate Python objects. Some jobs will passively listen for events from other jobs, and change their behavior in response, for example, dosing automations listen to OD readings, and may respond by dosing (or not dosing).
 
-2. New Python classes that control new activities can be created by developers. This includes custom dosing, temperature or LED programs. Beyond that, users can write new classes that integrate with external hardware (pumps, circuit boards, etc.), or external software (cloud APIs, etc.)
+2. New Python classes can be created by developers to control the bioreactor behaviour. This includes custom dosing, temperature or LED programs. Furthermore, users can write new classes that integrate with external hardware (pumps, circuit boards, etc.), or external software (cloud APIs, etc.)
 
-3. The main "control plane" for the Pioreactor software is the command line. The `pio` command will list all the command available. When the user starts a job from the UI, the UI backend will run `pio run <some activity> --arguments`, which launches a Python snippet that will instantiate the job the controls the activity.
+3. The main "control plane" for the Pioreactor software is the command line. The `pio` command will list all the commands available. When the user starts a job from the UI, the UI backend will run `pio run <some activity> --arguments`, which launches a Python snippet that will instantiate the object the controls the activity.
 
 
 ### Cluster topology
