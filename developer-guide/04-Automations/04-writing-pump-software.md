@@ -1,51 +1,68 @@
 ---
-title: Adding custom pumps to dosing automations
+title: Custom & additional pumps for dosing automations
 slug: /writing-pump-software
 ---
 
-You may want to use a different pumping system for the Pioreactor (or, if you are using the Pioreactor software with a different vessel, you may require different pumps). You can add code for different pumps like so:
+The following provides solutions to:
+
+- using a different pumping system for the Pioreactor instead of our peristaltic pumps
+- adding additional pumps to the Pioreactor (i.e., more than media and alt-media). These additional pumps
+may be provided via another system, for example an Arduino.
+
+### Using external pumps
+
+The first thing to do is to add a hook to your custom pump into Pioreactor's software. To do this, we attach new functions to a dosing automation that are invoked when `execute_io_action` is called. These functions will call your logic that runs the external pump. Specifically, if we wish to overwrite the `media` pump, we create a function called `add_media_to_bioreactor`, with signature
+
+```
+(cls, ml: float, unit: str, experiment: str, source_of_event: str) -> float)
+```
+
+To see this in an example:
 
 
-```python
-# -*- coding: utf-8 -*-
-import time
-from pioreactor.logging import create_logger
+```python {10-16}
 from pioreactor.automations import DosingAutomationJob
-from pioreactor.whoami import get_unit_name, get_latest_experiment_name
-
-
-def custom_add_media_program(cls, ml: float, unit: str, experiment: str, source_of_event: str) -> float:
-    # add your custom logic here: could be interfacing with i2c, etc.
-    # Signature should look like:
-    # function(cls, ml: float, unit: str, experiment: str, source_of_event: str) -> float:
-    ...
-    pwm = PWM(...)
-    cls.logger.info(f"pumping {ml}")
-    time.sleep(ml * 2)
-    return ml
-
-def custom_alt_add_media_program(cls, ml: float, unit: str, experiment: str, source_of_event: str) -> float:
-    ...
-    return ml
-
-def custom_remove_media_program(cls, ml: float, unit: str, experiment: str, source_of_event: str) -> float:
-    ...
-    return ml
-
-
 
 class CustomPumper(DosingAutomationJob):
 
     automation_name = "custom_pumper"
 
-    published_settings = {
-        "duration": {"datatype": "float", "settable": True, "unit": "min"},
-    }
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
 
-    # overwrite the following variables (all optional) with custom pumping logic
-    add_media_to_bioreactor = custom_add_media_program
-    add_alt_media_to_bioreactor = custom_add_alt_media_program
-    remove_waste_from_bioreactor = custom_remove_media_program
+    def add_media_to_bioreactor(self, ml: float, unit: str, experiment: str, source_of_event: str) -> float:
+        # overrides the built in add_media_to_bioreactor
+        # add your custom logic here. Example could be interfacing with i2c, serial, PWM, etc.
+        ...
+        pwm = PWM(...)
+        self.logger.info(f"pumping {ml}")
+        return ml
+
+    def execute(self):
+        self.execute_io_action(media_ml=1.0, waste_ml=1.0)
+```
+
+Whenever `execute_io_action` is called upon to add media, the custom function `add_media_to_bioreactor` is invoked. Similar logic applies to `alt_media`. Overriding `waste` uses a different name, as the next example shows:
+
+```python {15-18}
+class CustomPumper(DosingAutomationJob):
+
+    automation_name = "custom_pumper"
+
+    def add_media_to_bioreactor(self, ml: float, unit: str, experiment: str, source_of_event: str) -> float:
+        # overrides the built in add_media_to_bioreactor
+        ...
+        return ml
+
+    def add_alt_media_to_bioreactor(self, ml: float, unit: str, experiment: str, source_of_event: str) -> float:
+        # overrides the built in remove_waste_from_bioreactor
+        ...
+        return ml
+
+    def remove_waste_from_bioreactor(self, ml: float, unit: str, experiment: str, source_of_event: str) -> float:
+        # overrides the built in remove_waste_from_bioreactor
+        ...
+        return ml
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
@@ -53,50 +70,38 @@ class CustomPumper(DosingAutomationJob):
     def execute(self):
         self.execute_io_action(media_ml=1.0, alt_media_ml=1.0, waste_ml=2.0)
 
-
-if __name__ == "__main__":
-
-    from pioreactor.background_jobs.dosing_control import DosingController
-
-    dc = DosingController(
-        "custom_pumper",
-        duration=1, # execute every 1 minute
-        unit="test_unit",
-        experiment="test_experiment"
-    )
-    dc.block_until_disconnected()
 ```
 
+### Adding more pumps
 
-You can also omit the `cls` argument:
+
+In general, we can use this same pattern to add even more pumps to the Pioreactor software, beyond media and alt-media. Let's say we have a third pump, salty-media, that we wish to also use along with media and alt-media. We define the function `add_salty_media_to_bioreactor` with the same signature above:
+
+```python {5-8}
+class ThreePumps(DosingAutomationJob):
+
+    automation_name = "three_pumps"
+
+    def add_salty_media_to_bioreactor(self, ml: float, unit: str, experiment: str, source_of_event: str) -> float:
+        # call an external pump, via i2c, serial, GPIO, etc.
+        ...
+        return ml
+
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+```
+
+With this function defined, we can invoke `execute_io_action` with an additional kwarg, `salty_media_ml`:
 
 ```python
-def custom_add_media_program(ml: float, unit: str, experiment: str, source_of_event: str) -> float:
-    # add your custom logic here: could be interfacing with i2c, etc.
-    ...
-    create_logger("custom_add_media_program").info(f"pumping {ml}")
-    time.sleep(ml * 2)
-    return ml
+    def execute(self):
+        results = self.execute_io_action(waste_ml=3.0, media_ml=1.0, alt_media_ml=1.0, salty_media_ml=1.0)
 ```
 
-but then you need to add `staticmethod`:
+Notice the `salty_media_ml=1.0` kwarg: this represents how much salty-media volume to add (your pump is responsible to dosing the correct volume). (Note in the above example, media and alt-media are not overwritten, so would use the "traditional" peristaltic pump system provided.)
 
-```python
+:::info
+In general, `execute_io_action` will try to call a function called `add_<name>_to_bioreactor` if provided with a kwarg `<name>_ml`.
+:::
 
-class CustomPump(DosingAutomationJob):
-
-    automation_name = "custom_pump"
-
-    published_settings = {
-        "duration": {"datatype": "float", "settable": True, "unit": "min"},
-    }
-
-    add_media_to_bioreactor = staticmethod(custom_add_media_program)
-    ...
-```
-
-The function signature should look like:
-
-```python
-function(ml: float, unit: str, experiment: str, source_of_event: str) -> float:
-```
+----
