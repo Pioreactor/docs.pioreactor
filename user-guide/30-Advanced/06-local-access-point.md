@@ -40,7 +40,7 @@ After plugging in the Pioreactor, the local access point will start and you shou
 
 <img src="/img/user-guide/pioreactor_ap.png" width="325" />
 
-Once connected, the usual urls should work: http://pioreactor.local will bring up the Pioreactor interface (having trouble? Try http://your_leaders_name.local).
+Once connected, the usual urls should work: http://pioreactor.local will bring up the Pioreactor interface (having trouble? Try `http://<your_leaders_hostname>.local`). Still not working? Try `http://10.3.141.1`)
 
 ### Connecting workers to your local access point
 
@@ -65,4 +65,4 @@ In the `config.ini`, the SSID and password are editable under the section `local
 
 ## Hidden site: `raspap.pioreactor.local`
 
-The software we use, RaspAP, exposes it's own website to view statistics and configuration for the local access point. You can view this website at [http://raspap.pioreactor.local](http://raspap.pioreactor.local).
+The software we use, RaspAP, exposes it's own website to view statistics and configuration for the local access point. You can view this website at [http://raspap.pioreactor.local](http://raspap.pioreactor.local). Username: `admin`, password: `secret`
