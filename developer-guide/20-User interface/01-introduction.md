@@ -19,7 +19,7 @@ The backend app is a Flask app, with entry point in `/var/www/pioreactorui/main.
 
 ### Frontend
 
-The frontend is a React app, with Material UI. The source code is at [pioreactorui_frontend](https://github.com/Pioreactor/pioreactorui_frontend). To update the front end, locally I will build the site in a local version of `pioreactorui_frontend`, (automatically) `mv` the necessary assets to local repo of `pioreactorui`, commit and push. Then on the Pioreactor, one can run `pio update ui`. This also restarts the server.
+The frontend is a React app, built with Material UI components. The source code is at [pioreactorui_frontend](https://github.com/Pioreactor/pioreactorui_frontend). A lot of the "data" for the frontend comes from YAML files on the RPi's filesystem. For example, all the charts, activities, and automations are defined in their own YAML file in a `contrib` folder on the filesystem. This way, it's easy to add new data to the frontend without having to write new JS.
 
 
 ### DNS name resolution to `pioreactor.local`
