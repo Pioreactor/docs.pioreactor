@@ -21,7 +21,7 @@ One of the Raspberry Pi's is assigned as the "leader", and this hosts most of th
 
 ### Networking
 
-The Raspberry Pis communicate through the local network (in more advanced cases, this network is hosted on the leader). Each RPi broadcasts its hostname through mDNS, and the leader also broadcasts an alias (default: \`pioreactor.local\`).
+The Raspberry Pis communicate through the local network (in more advanced cases, this network is hosted on the leader).
 
 ### MQTT
 

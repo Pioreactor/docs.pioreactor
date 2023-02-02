@@ -20,6 +20,19 @@ You can also find your Pioreactor name by pressing the small white button on the
 
 ![](/img/user-guide/blue-tag.png)
 
+
+## Changing settings
+
+To **change the settings** of activities after starting, navigate to the _Pioreactors_ tab. Under _Manage_ for a single Pioreactor or _Manage all Pioreactors_, click the _Settings_ tab.
+
+![](/img/user-guide/manage_ui.png)
+
+Here you can change the settings of your activities (such as temperature, RPM, and dosing volume) without pausing or stopping the activity.
+
+![](/img/user-guide/settings.png)
+
+
+
 ## Troubleshooting 
 
 Keep an eye on the optical density graph in the _Overview_ page. Initially, you can expect the the OD to be relatively stable. The following are some common issues: 

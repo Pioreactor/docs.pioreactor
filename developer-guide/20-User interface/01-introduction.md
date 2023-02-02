@@ -1,5 +1,5 @@
 ---
-title: User interface
+title: Overview
 slug: /web-ui-introduction
 ---
 
@@ -13,13 +13,9 @@ The web server we use is lighttp, and hosted from `/var/www/pioreactorui`. This 
 The lighttp conf file is located in `/etc/lighttpd/conf-enabled/50-pioreactorui.conf`. Error logs (though not helpful) are in `/var/log/lighttpd/error.log`.
 
 
-
 ### Backend
 
-The backend app is a Flask app, with entry point in `/var/www/pioreactorui/main.fcgi`. The app uses Huey as background workers to perform `pio` tasks, save to disk, etc. Huey is controlled by systemd `huey.service`.
-
-To update on the Pioreactor leader, use `pio update ui`. This also restarts the server.
-
+The backend app is a Flask app, with entry point in `/var/www/pioreactorui/main.fcgi`. The app uses Huey as background workers to perform `pio` tasks, save to disk, etc. Huey is controlled by systemd `huey.service`. The API is [available here](/developer-guide/web-ui-api)
 
 ### Frontend
 
@@ -31,7 +27,11 @@ The frontend is a React app, with Material UI. The source code is at [pioreactor
 To allow for `pioreactor.local` to be an alias for `<leader hostname>.local`, we use mdns provided by `avahi`. There is a systemd service, `avahi_alias.service`, that will point `pioreactor.local` to `<leader hostname>.local`.
 
 
-### Restarting the web UI
+### Updating and restarting the web UI
+
+To update on the UI on Pioreactor leader, use `pio update ui`. This also restarts the server.
+
+To restart:
 
 ```
 sudo systemctl restart lighttp && sudo systemctl restart huey
