@@ -115,3 +115,5 @@ If this file was saved to the folder `/user/pioreactor/.pioreactor/plugins/ui/au
 ### Adding a chart to display a new data source
 
 If your plugin produces data (or is some novel transformation of existing data), you can also add a new chart to the Overview page. See documentation [here](/developer-guide/chart-to-ui).
+
+

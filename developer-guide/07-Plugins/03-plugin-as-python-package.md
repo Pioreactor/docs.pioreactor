@@ -98,7 +98,7 @@ setup(
 
 #### 5. A subfolder containing your plugin's code
 
-Within the main file `pioreactor-relay-plugin`, we created a subfile `pioreactor_relay_plugin`. 
+Within the main project directly `pioreactor-relay-plugin`, we created a sub-directory called `pioreactor_relay_plugin`.
 
 ### Contents of the subfolder
 
@@ -109,47 +109,45 @@ function decorated with `@click.command` at the bottom of the file. See example 
 
 #### 2. A Python `__init__.py` file
 
-##### If implementing an automation:
-Import the Class of your automation file:  
+- **If implementing an automation:**
+  Import the Class of your automation file:
 
-```
-from <SUBFOLDER CONTAINING PLUGIN>.<PYTHON FILE NAME> import <CLASS NAME>
-```
+  ```
+  from <SUBFOLDER CONTAINING PLUGIN>.<PYTHON FILE NAME> import <CLASS NAME>
+  ```
 
-##### If implementing a job:
+ - **If implementing a job:**
+  This will contain an `import` statement such as the following:
 
-This will contain an `import` statement such as the following: 
+  ```python
+  from <SUBFOLDER CONTAINING PLUGIN>.<PYTHON FILE NAME> import <PLUGIN CLICK FUNCTION>
+  ```
+  This imports the function within our plugin file that executes our plugin action.
 
-```python
-from <SUBFOLDER CONTAINING PLUGIN>.<PYTHON FILE NAME> import <PLUGIN CLICK FUNCTION>
-```
-This imports the function within our plugin file that executes our plugin action. 
+  Example for the relay plugin:
 
-Example for the relay plugin:
+  ```python
+  from pioreactor_relay_plugin.relay import click_relay
+  ```
 
-```python
-from pioreactor_relay_plugin.relay import click_relay
-```
+  where `click_relay` is the function decorated with `@click.command`.
 
-where `click_relay` is the function decorated with `@click.command`.
-
-#### 3. A configuration file, named `additional_config.ini`
+#### 3. Optional: A configuration file, named `additional_config.ini`
 
 This configuration file will contain additional configs that we want to add to our list of existing Configurations on the Pioreactor web interface. This file will be merged with the existing `config.ini` when the plugin is installed. 
 
 ![](/img/developer-guide/python-package-new-config.png)
 
 :::tip
-A convention we've tried to follow is to use the section name `[<job_name>.config]` or `[<automation_name>.config]` in the configuration files. For example, our relay job has `[relay.config]` in its `additional_config.ini` and settings under it.
+A convention we've tried to follow is to use the section name convention of `[<job_name>.config]` or `[<automation_name>.config]` in the configuration files. For example, our relay job has `[relay.config]` in its `additional_config.ini` and settings under it.
 :::
 
 #### 4. Adding details for the UI
 
 ##### If implementing a job:
 
-Within our main subfolder, create subfolders named `ui/contrib/jobs`. Move your `.yaml` file to this folder.
+Within our main subfolder, create subfolders named `ui/contrib/jobs`. For a job, create a `.yaml` file that looks like the following format. The name of the yaml can be anything, but convention is to use the `<job_name>.yaml`:
 
-For a job, the `.yaml` file should follow this format:
 ```
 ---
 display_name:  # human readable name
@@ -168,11 +166,14 @@ published_settings:
   ...
 ```
 
+There are lots of examples of job yaml files [here](https://github.com/Pioreactor/pioreactorui/tree/master/contrib/jobs).
+
+
+
 ##### If implementing an automation:
 
-In the case of creating an **automation plugin** instead of a **job**, the subfolders are `ui/contrib/automations/<SPECIFIC AUTOMATION>`, where `SPECIFIC_AUTOMATION` is one of `dosing`, `led`, or `temperature`. Move your `.yaml` file to the final subfolder.
+In the case of creating an **automation plugin**, create subfolder(s) with `ui/contrib/automations/<SPECIFIC AUTOMATION>`, where `SPECIFIC_AUTOMATION` is one of `dosing`, `led`, or `temperature` depending on your automation type. Create a yaml file with the following convention. The name of the yaml file can be anything, but by convention it's `<automation_name>.yaml`.
 
-The`.yaml` file of an automation should appear as the following:
 ```
 ---
 display_name:  # human readable name
@@ -185,6 +186,8 @@ fields:
     label: # human readable name
     description: # description of your key
 ```
+
+There are lots of examples of automation yaml files [here](https://github.com/Pioreactor/pioreactorui/tree/master/contrib/automations).
 
 #### 5. Optional: adding tables to the SQL store
 
@@ -199,7 +202,7 @@ CREATE TABLE IF NOT EXISTS co2_readings (
 );
 ```
 
-You also need to tell Pioreactor software how to populate this table from your sensor readings. Include the following in your code such that is runs when the plugin is loaded:
+You also need to tell Pioreactor software how to populate this table from your source of data. Include the following in your code such that it executes when the plugin is loaded:
 
  1. a parser function that accepts a MQTT topic and payload, and returns a dictionary that maps to the new tables schema.
  2. a `TopicToParserToTable` object is created with the MQTT topics to listen to, the parser, and the table name to load to. This `TopicToParserToTable` is provided to `register_source_to_sink`.
@@ -231,6 +234,8 @@ register_source_to_sink(
         "co2_readings",
     )
 )
+
+...
 ```
 
 :::note
@@ -244,6 +249,25 @@ include <MAIN FOLDER>/additional_sql.sql
 
 See an example plugin that uses this idea [here](https://github.com/Pioreactor/co2-reading-plugin).
 
+
+#### 6. Optional: adding a custom chart to the UI
+
+To add a chart that display real-time and historical data (provided by MQTT and SQL store respectively), you can do the following:
+
+1. In a new folder named `ui/contrib/charts` in your project, add a YAML file as described [here](/developer-guide/chart-to-ui). The name of the file can by the `chart_key` field, append with `.yaml`.
+2. In your `additional_config.ini`, add a new entry to be merged:
+
+```
+[ui.overview.charts]
+<your chart key>=1
+```
+
+:::info
+You'll need to make sure your database table has the necessary fields. See details under `data_source` in the [docs here](/developer-guide/chart-to-ui).
+:::
+
+
+See an example plugin that uses this idea [here](https://github.com/Pioreactor/co2-reading-plugin).
 
 
 ## Create a Python package on PyPi

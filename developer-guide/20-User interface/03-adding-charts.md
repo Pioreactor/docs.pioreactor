@@ -3,6 +3,10 @@ title: Adding basic time series charts
 slug: /chart-to-ui
 ---
 
+You can add custom charts to the UI. Below is an example of adding a chart that displays historical and real-time CO2 sensor data.
+
+![custom chart of CO2 reading](/img/developer-guide/custom_chart.png)
+
 
 #### Step 1
 Create a yaml file with the following fields, and place it in `/home/pioreactor/.pioreactor/plugins/ui/charts`. (Plugins can put the yaml file under `ui/contrib/charts` in there project folder - it will be added upon installation.)
@@ -34,3 +38,6 @@ In your config.ini, add your chart key under `[ui.overview.charts]` and assign i
 ...
 co2_readings=1
 ...
+```
+
+![](/img/developer-guide/adding_chart_to_config.png)
