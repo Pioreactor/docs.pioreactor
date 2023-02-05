@@ -11,8 +11,7 @@ Interacting with the Pioreactor on the command line are through the `pio` tool. 
 
 *   `pio logs` will produce a stream of recent logs events. Logs are stored in `/var/log/pioreactor.log`.
 *   `pio kill <job> [<job>...]` will safely terminate a `<job>`. Can kill multiple jobs, ex: `pio kill stirring dosing_control`
-*   `pio run <job> <options>` will run the `<job>`. Each job has specific command line arguments. Note that some jobs (like `monitor`) are started with `run-always`, see below.
-*   `pio run-always <job>`: run a leader-specific job (ex: `monitor`). These jobs are independent of any running experiment, and are not killed by `pio kill`.
+*   `pio run <job> <options>` will run the `<job>`. Each job may have specific command line arguments.
 *   `pio version` print the version of the PioreactorApp software.
 *   `pio update` will update the software to the latest version: adding `--app` will upgrade the Pioreactor Python app.
 *   `pio install-plugin <plugin name>` will install a plugin
@@ -27,15 +26,14 @@ The leader also has their own unique set of `pio` commands (these commands do no
 
 *   `pio db`: open the sqlite3 CLI of the Pioreactor database.
 *   `pio mqtt`: tail the MQTT broker.
-*   `pio run-always <job>`: run a leader-specific job (ex: `mqtt_to_db_streaming` or `watchdog`). These jobs are independent of any running experiment, and are not killed by `pio kill`.
 *   `pio add-pioreactor <hostname>`: add a Pioreactor to your cluster, with given (unique) name. Need a worker Pioreactor on the network first. See instructions [here](https://github.com/Pioreactor/pioreactor/wiki/Installation).
 *   `pio update` will update the software to the latest version: adding `--ui` will update the web interface (repo: pioreactor/pioreactorui) and adding `--app` will upgrade the Pioreactor Python app (repo: pioreactor/pioreactor).
 *   `pio cluster-status` will report to the user each Pioreactor in the cluster, and metadata like status, IP, and state.
 *   `pio discover-workers` will return a list of workers on the network (may be a superset of the current cluster.)
 
-### Leader-only commands to control workers
+#### Leader-only commands to control workers
 
-The leader computer interacts with the worker computers using the `pios` command. Unless otherwise noted, the `pios` will target all worker computers (see `--units` to change this). Available `pios` commands on the leader computer are the following:
+The leader computer interacts with the worker computers using the `pios` command. Unless otherwise noted, the `pios` will target all worker computers. Available `pios` commands on the leader computer are the following:
 
 *   `pios kill <job> [<job>...]` terminate the job `<job>` on the workers. Ex: `pios kill dosing_control`. Multiple jobs can be killed, ex: `pios kill stirring dosing_control`
 *   `pios run <job>` on each worker, run the job `<job>` in the background. Job specific arguments can be specified after. Ex: `pios run add_media --ml 1`
@@ -44,6 +42,10 @@ The leader computer interacts with the worker computers using the `pios` command
 *   `pios install-plugin <plugin name>` will install the plugin on each worker _and_ the leader.
 *   `pios reboot` will reboot all workers in the cluster
 
-In each of the above commands, the specific workers can be invoked with `--units` (which can be used multiple times. Ex: `pios run stirring --units 1 --units 2`.
+:::tip
+In each of the above commands, specific workers can be invoked with `--units` (which can be used multiple times. Ex: `pios run stirring --units 1 --units 2`.
+:::
 
+:::tip
 `-y` will skip user confirmation of the command to run.
+:::

@@ -161,8 +161,10 @@ published_settings:
     label: # human readable name
     description: # description of your setting
     type:  # one of numeric, boolean, text
-    default: # provide a default value
+    default: # provide a default value, often null
     display: # bool; true to display on the /Pioreactors card
+  - key: ...
+    unit: ...
   ...
 ```
 
