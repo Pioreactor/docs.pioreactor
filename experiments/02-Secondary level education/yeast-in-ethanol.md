@@ -126,7 +126,7 @@ As expected, just the smallest addition of ethanol really cut down on our yeasts
 
 ## Recommendations 
 
-We encourage you to select alcohol concentrations outside of the expected range. At what point does yeast show no growth? Can you see anything interesting when your culture reaches the stationary phase? _Hint: you may be able to observe a **[diauxic shift!](https://pioreactor.com/blogs/pioreactor-blog/yeast-have-two-growth-spurts)**_
+We encourage you to select alcohol concentrations outside of the expected range. At what point does yeast show no growth? Can you see anything interesting when your culture reaches the stationary phase? _Hint: you may be able to observe a diauxic shift_!
 
 Plenty of yeast strains are available at your local breweries. You can do the same experiment on different strains to see which yeasts are more tolerant than others. What concentrations of beers can they make? 
 

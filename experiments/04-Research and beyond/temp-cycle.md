@@ -35,7 +35,7 @@ We created a plugin that cycles the temperature between 30°C and 40°C sinusoid
 
 
 
-Check out our [blog post](https://pioreactor.com/blogs/pioreactor-blog/pioreactor-dev-blog-20) for an in-depth evaluation of our experiment! 
+Check out our [blog post](https://pioreactor.com/blogs/pioreactor/using-custom-automations-to-control-your-pioreactor) for an in-depth evaluation of our experiment!
 
 ### Results 
 
