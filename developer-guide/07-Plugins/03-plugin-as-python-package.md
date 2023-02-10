@@ -160,7 +160,7 @@ published_settings:
     unit: # unit (ml, lux, AU, etc.)
     label: # human readable name
     description: # description of your setting
-    type:  # one of numeric, boolean, text
+    type:  # one of numeric, boolean, string, json
     default: # provide a default value, often null
     display: # bool; true to display on the /Pioreactors card
   - key: ...
@@ -187,6 +187,8 @@ fields:
     unit: # unit of your key
     label: # human readable name
     description: # description of your key
+  - key: ...
+    unit: ...
 ```
 
 There are lots of examples of automation yaml files [here](https://github.com/Pioreactor/pioreactorui/tree/master/contrib/automations).

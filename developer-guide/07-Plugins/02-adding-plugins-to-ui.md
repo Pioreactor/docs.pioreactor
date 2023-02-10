@@ -13,7 +13,7 @@ With custom background jobs or automations, the goal is to have it available in 
 
 The list of activities, among other things, is sourced from either of two directories:
  - `/var/www/pioreactorui/contrib/jobs/`, is the source of the "default" jobs
- - `/user/pioreactor/.pioreactor/plugins/ui/jobs`, is a directory to put custom plugins.
+ - `/user/pioreactor/.pioreactor/plugins/ui/jobs`, is a directory to put custom yaml.
 
 Placing a new yaml file in either of these folders will populate the page with your new job. Here's an example `example.yaml` file:
 
@@ -29,19 +29,19 @@ published_settings:
     unit: RPM  #
     label: Stirring speed # human readable name
     description: This description is displayed with an editable field in Manage / Settings.
-    type: numeric  # not used atm, but one of numeric, bool, text
+    type: numeric  # one of numeric, bool, string, json
     default: null
     display: true # true to display on the /Pioreactors card
   - key: something_else
     unit: lb
     label: Something else
     description: This description is displayed with an editable field in Manage / Settings.
-    type: numeric # not used atm, but one of numeric, bool, text
+    type: numeric # one of numeric, bool, string, json
     default: null
     display: true # true to display on the /Pioreactors card
 ```
 
-Saving it to this folder, and refreshing the page:
+Saving it to either directory above, and refreshing the page:
 
 ![](/img/developer-guide/activities_with_example.png)
 
@@ -85,8 +85,9 @@ This list is sourced from yaml files located on the leader's Raspberry Pi, in ei
 ---
 display_name: My Automations Name  # human readable name
 automation_name: my_automations_name   # the corresponding name of the automation from the Python code.
+source: my_plugin_name
 description: Provide a meaningful description of what the automation does, when to use it, how it works...
-published_settings:
+fields:
   - key: duration  # key is the same as the keyword in the Python code.
     default: 30
     unit: min
@@ -115,5 +116,15 @@ If this file was saved to the folder `/user/pioreactor/.pioreactor/plugins/ui/au
 ### Adding a chart to display a new data source
 
 If your plugin produces data (or is some novel transformation of existing data), you can also add a new chart to the Overview page. See documentation [here](/developer-guide/chart-to-ui).
+
+
+### Troubleshooting
+
+ - If the UI stops displaying data, you may have introduced a yaml file that is not being read correctly. Check out the Pioreactor UI logs by sshing into the leader, and running:
+  ```
+  tail /var/log/pioreactorui.log
+  ```
+  The last few lines should tell you about if a field is missing, a wrong type, etc.
+ - There is a 30sec cache, so it may take up to 30sec to see new changes in the UI.
 
 
