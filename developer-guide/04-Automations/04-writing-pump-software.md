@@ -9,7 +9,7 @@ The following provides solutions to:
 - adding additional pumps to the Pioreactor (i.e., more than media and alt-media). These additional pumps
 may be provided via another system, for example an Arduino.
 
-### Using external pumps
+### Using external pumps with a custom automation
 
 The first thing to do is to add a hook to your custom pump into Pioreactor's software. To do this, we attach new functions to a dosing automation that are invoked when `execute_io_action` is called. These functions will call your logic that runs the external pump. Specifically, if we wish to overwrite the `media` pump, we create a function called `add_media_to_bioreactor`, with signature
 
@@ -72,7 +72,29 @@ class CustomPumper(DosingAutomationJob):
 
 ```
 
-### Adding more pumps
+### Using an external pump for all builtin automations
+
+Instead of create a custom dosing automation, you can use your external pump for all automations with the following. In a Python file in your `~/.pioreactor/plugins` folder, add the following code:
+
+
+```python
+from pioreactor.automations.dosing.base import DosingAutomationJob
+
+
+def call_external_pump(cls, ml: float, unit: str, experiment: str, source_of_event: str) -> float:
+    # add your code here
+    ...
+
+
+# attach your call to the base DosingAutomationJob with the following
+DosingAutomationJob.add_media_to_bioreactor = call_external_pump
+
+```
+
+How does this work? When a dosing job starts, it will run the above plugin code last, and this code overwrites the default `add_media_to_bioreactor`. When the dosing jobs goes to dose media, it will use the code present in `call_external_pump`.
+
+
+### Adding additional pumps beyond media and alt-media
 
 
 In general, we can use this same pattern to add even more pumps to the Pioreactor software, beyond media and alt-media. Let's say we have a third pump, salty-media, that we wish to also use along with media and alt-media. We define the function `add_salty_media_to_bioreactor` with the same signature above:
@@ -104,4 +126,5 @@ Notice the `salty_media_ml=1.0` kwarg: this represents how much salty-media volu
 In general, `execute_io_action` will try to call a function called `add_<name>_to_bioreactor` if provided with a kwarg `<name>_ml`.
 :::
 
-----
+
+
