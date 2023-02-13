@@ -19,7 +19,7 @@ You can add your own LEDs to the Pioreactor. You might want to do this for the f
 
 
 :::info
-You don't have to worry about your LED interfering with optical density measurements. When the OD Reading job is running, it forces all other LEDs 100% off before taking a reading.
+You don't have to worry about your LED interfering with optical density measurements. When the OD Reading job is running, it forces all other LEDs off (setting intensity to 0%) before taking a reading.
 :::
 
 

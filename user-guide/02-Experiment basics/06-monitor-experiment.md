@@ -12,14 +12,6 @@ Navigate to the _Overview_ page on the Pioreactor web interface. Here you can vi
 
 ![](/img/user-guide/example-event-logs.png)
 
-## Identifying Pioreactors in your cluster
-
-To locate your Pioreactor, click _Identify_ on the _Pioreactors_ tab. This will cause the Pioreactor to blink blue light. 
-
-You can also find your Pioreactor name by pressing the small white button on the Pioreactor. This causes a blue tag to come up on the interface:
-
-![](/img/user-guide/blue-tag.png)
-
 
 ## Changing settings
 
@@ -31,6 +23,16 @@ Here you can change the settings of your activities (such as temperature, RPM, a
 
 ![](/img/user-guide/settings.png)
 
+
+
+
+## Identifying Pioreactors in your cluster
+
+To locate a Pioreactor, click _Identify_ for the corresponding Pioreactor on the _Pioreactors_ page. This will cause the Pioreactor's onboard LED to blink a blue light.
+
+Conversely, you can also find a Pioreactor's name by pressing the white button on the Pioreactor. This causes a tag to come up on the interface for as long as you are holding the button down:
+
+![](/img/user-guide/blue-tag.png)
 
 
 ## Troubleshooting 
