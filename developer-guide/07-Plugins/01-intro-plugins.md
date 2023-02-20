@@ -1,5 +1,5 @@
 ---
-title: Introduction to plugins
+title: Working with plugins
 slug: /intro-plugins
 ---
 

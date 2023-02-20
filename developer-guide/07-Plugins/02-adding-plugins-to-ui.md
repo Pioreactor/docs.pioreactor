@@ -3,8 +3,13 @@ title: Adding your plugins to the web interface
 slug: /adding-plugins-to-ui
 ---
 
+
+
 With custom background jobs or automations, the goal is to have it available in the web interface, so you and your users don't need to use the command line at all. We've built support for easily adding to the web interface.
 
+:::info
+You should have already added your plugin's Python code to your Pioreactor by some method presented [here](/developer-guide/intro-plugins).
+:::
 
 ### Adding a custom background job to the list of activities
 
@@ -13,7 +18,7 @@ With custom background jobs or automations, the goal is to have it available in 
 
 The list of activities, among other things, is sourced from either of two directories:
  - `/var/www/pioreactorui/contrib/jobs/`, is the source of the "default" jobs
- - `/user/pioreactor/.pioreactor/plugins/ui/jobs`, is a directory to put custom yaml files for jobs.
+ - `/home/pioreactor/.pioreactor/plugins/ui/contrib/jobs`, is a directory to put custom yaml files for jobs.
 
 Placing a new yaml file in either of these folders will populate the page with your new job. Here's an example `example.yaml` file:
 
@@ -55,7 +60,7 @@ Saving it to either directory above, and refreshing the page:
 Placing a new yaml file in either of the following folders will populate the UI with your new job.
 
  - `/var/www/pioreactorui/contrib/jobs/`, is the source of the "default" jobs
- - `/user/pioreactor/.pioreactor/plugins/ui/jobs`, is a directory to put custom plugins.
+ - `/home/pioreactor/.pioreactor/plugins/ui/contrib/jobs/`, is a directory to put custom plugins.
 
 ```yaml
 ---
@@ -77,7 +82,7 @@ Suppose we wish to add our new automation, either installed from a package or vi
 
 This list is sourced from yaml files located on the leader's Raspberry Pi, in either of two directories:
  - `/var/www/pioreactorui/contrib/automations/`, is the source of the "default" automations
- - `/user/pioreactor/.pioreactor/plugins/ui/automations/{led,dosing,temperature}`, is a directory to put custom yaml files for automations.
+ - `/home/pioreactor/.pioreactor/plugins/ui/contrib/automations/{led,dosing,temperature}`, is a directory to put custom yaml files for automations.
 
  Placing a new yaml file in the correct folder there will populate the list with your new automation. Here's an example `example.yaml` file:
 
@@ -106,7 +111,7 @@ fields:
     label: Intensity of PWM
 ```
 
-If this file was saved to the folder `/user/pioreactor/.pioreactor/plugins/ui/automations/dosing`, we would see the following in the web interface (after refreshing):
+If this file was saved to the folder `/home/pioreactor/.pioreactor/plugins/ui/automations/dosing`, we would see the following in the web interface (after refreshing):
 
 ![](/img/developer-guide/dropdown_automations_with_example.png)
 
