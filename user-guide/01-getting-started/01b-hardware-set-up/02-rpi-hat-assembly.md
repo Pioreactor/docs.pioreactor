@@ -57,10 +57,15 @@ The 40 GPIO pins (standing for general-purpose input/output) form a distinct row
 2.	Place the HAT PCB on top. <Highlight color={colors.red}>Push down *from the corners*</Highlight> to secure it in place.
 
 :::note
-The HAT PCB's GPIO connector will line up with the RPi's GPIO pins, and may require a slight force to compress down. Careful not to apply too much force.
+The HAT PCB's GPIO connector will line up with the RPi's GPIO pins, and may require a slight force to compress down. You can also use the next Tip below to help apply force.
 :::
 
 3.	Hand screw the <Highlight color={colors.green}>hex standoffs</Highlight> in each corner, on top of the HAT.
+
+:::tip
+By screwing down, you can use these standoffs to help compress the HAT onto the RPi, too.
+:::
+
 4.	Put this aside and proceed to the next page.
 
 </AssemblyInstructionBlock>
@@ -88,10 +93,15 @@ The 40 GPIO pins (standing for general-purpose input/output) form a distinct row
 2.	Place the HAT on top. <Highlight color={colors.red}>Push down</Highlight> to secure it in place.
 
 :::note
-The HAT's GPIO connector will line up with the RPi's GPIO pins, and may require a slight force to compress down. Careful not to apply too much force.
+The HAT PCB's GPIO connector will line up with the RPi's GPIO pins, and may require a slight force to compress down. You can also use the next Tip below to help apply force.
 :::
 
-3.	Hand screw the <Highlight color={colors.green}>hex standoffs</Highlight> in each corner, on top of the HAT.
+3.  Hand screw the <Highlight color={colors.green}>hex standoffs</Highlight> in each corner, on top of the HAT.
+
+:::tip
+By screwing down, you can use these standoffs to help compress the HAT onto the RPi, too.
+:::
+
 4.	Put this aside and proceed to the next page.
 
 </AssemblyInstructionBlock>
