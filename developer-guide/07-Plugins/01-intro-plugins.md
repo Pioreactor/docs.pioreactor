@@ -97,7 +97,7 @@ Finally, in your [web interface under plugins](http://pioreactor.local/plugins),
 How do you add this to your /pioreactors page in the UI? See [here](/developer-guide/adding-plugins-to-ui).
 :::
 
-### Custom Scripts
+### Custom scripts
 
 If you are interested in creating a Python script to control multiple jobs, like in a [previous Python scripting example](/user-guide/intro-python-scripting), you can create a file called `example_script.py` in the `/home/pioreactor/.pioreactor/plugins/` folder:
 

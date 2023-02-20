@@ -4,12 +4,15 @@ slug: /adding-plugins-to-ui
 ---
 
 
-
 With custom background jobs or automations, the goal is to have it available in the web interface, so you and your users don't need to use the command line at all. We've built support for easily adding to the web interface.
+
+Based on whether your have created a background job, a script, or an automation, adding it to the UI only involves creating a yaml file and placing it in the correct directory.
 
 :::info
 You should have already added your plugin's Python code to your Pioreactor by some method presented [here](/developer-guide/intro-plugins).
 :::
+
+## Background jobs and scripts
 
 ### Adding a custom background job to the list of activities
 
@@ -74,6 +77,8 @@ published_settings: []
 
 See more information on the structure of your script [here](/developer-guide/intro-plugins#scripts)
 
+## Automations
+
 ### Adding a custom automation to the drop-down of automations
 
 Suppose we wish to add our new automation, either installed from a package or via the `plugins` folder, to the drop-down list of automations users can choose from:
@@ -81,10 +86,10 @@ Suppose we wish to add our new automation, either installed from a package or vi
 ![](/img/developer-guide/dropdown_automations.png)
 
 This list is sourced from yaml files located on the leader's Raspberry Pi, in either of two directories:
- - `/var/www/pioreactorui/contrib/automations/`, is the source of the "default" automations
- - `/home/pioreactor/.pioreactor/plugins/ui/contrib/automations/{led,dosing,temperature}`, is a directory to put custom yaml files for automations.
+ - `/var/www/pioreactorui/contrib/automations/`, is the source of the our built-in automations
+ - `/home/pioreactor/.pioreactor/plugins/ui/contrib/automations/{led,dosing,temperature}`, is a directory to put yaml files for custom automations.
 
- Placing a new yaml file in the correct folder there will populate the list with your new automation. Here's an example `example.yaml` file:
+Placing your yaml file in either folder above will populate the dropdown list in the UI with your new automation. Here's an example `example.yaml` file:
 
 ```yaml
 ---
@@ -117,13 +122,16 @@ If this file was saved to the folder `/home/pioreactor/.pioreactor/plugins/ui/au
 
 ![](/img/developer-guide/automations_example.png)
 
+More examples of automation [yaml files here](https://github.com/Pioreactor/pioreactorui/tree/master/contrib/automations).
+
+## Charts
 
 ### Adding a chart to display a new data source
 
 If your plugin produces data (or is some novel transformation of existing data), you can also add a new chart to the Overview page. See documentation [here](/developer-guide/chart-to-ui).
 
 
-### Troubleshooting
+## Troubleshooting
 
  - If the UI isn't display the data from your yaml, you may have introduced a yaml file that is not being read correctly. Look for error logs on the Overview page.
  - There is a 30sec cache, so it may take up to 30sec to see new changes in the UI.
