@@ -23,8 +23,13 @@ Below is a list of important locations and files on the filesystem for the Piore
 
 ### Storage
 
- - `/home/pioreactor/.pioreactor/storage/` holds the main database, and caches.
+ - `/home/pioreactor/.pioreactor/storage/` holds the main database, backup of the database, and persistent caches.
  - `/tmp/` holds temporary caches. Files in here are not kept between reboots.
+
+
+### Bash scripts
+ - `/usr/local/bin/` store bash scripts that are used when working with the filesystem: installing plugins, updating code, etc.
+
 
 ### Config
 
