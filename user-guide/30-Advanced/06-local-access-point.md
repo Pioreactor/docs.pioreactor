@@ -6,6 +6,11 @@ slug: /local-access-point
 import ButtonDownloadLocalAccessPointFile from '@site/src/components/ButtonDownloadLocalAccessPointFile';
 
 
+:::info
+
+This feature is currently disabled, but will be available in a few days! Follow at our [forums](https://forum.pioreactor.com/)
+:::
+
 For some use cases, you may want to create a local WiFi network just for your Pioreactors (this is called a local access point). Why might you want to do this?
 
  - If you want to get started right away, without dealing with WiFi credentials.

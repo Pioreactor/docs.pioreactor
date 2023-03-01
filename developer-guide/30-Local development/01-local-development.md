@@ -87,4 +87,4 @@ Create a folder in the `pioreactor` folder called `plugins_dev`. In this folder,
 
 ### Raspberry Pi Images
 
-Raspberry Pi images are built in the [Pioreactor/CustoPizer](https://github.com/Pioreactor/CustoPiZer/tree/pioreactor) repo, though these aren't needed for development.
+Raspberry Pi images are built in the [Pioreactor/CustoPizer](https://github.com/Pioreactor/CustoPiZer/tree/pioreactor) repo. Nightly builds are available at [nightly.pioreactor.com](http://nightly.pioreactor.com).
