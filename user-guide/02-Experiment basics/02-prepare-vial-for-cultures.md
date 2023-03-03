@@ -63,7 +63,7 @@ Since light will be traveling through the glass, we recommend handling the vial 
 Place the glassware vial into the Pioreactor sleeve. The outside of the glassware vial should be clean and dry. Ensure that the vial is pressed all the way down into the sleeve.
 
 
-Next, you can [start your experiment](http://localhost:3001/user-guide/set-up-an-experiment) in the browser.
+Next, you can [start your experiment](/user-guide/set-up-an-experiment) in the browser.
 
 
 ### Extra

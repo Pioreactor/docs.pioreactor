@@ -10,7 +10,7 @@ Let's get your Pioreactor set up. We'll start with hardware assembly. Start belo
 
 :::tip Written instructions & photos
 
-[Written instructions & photos](http://localhost:3001/user-guide/hardware-setup-intro)
+[Written instructions & photos](/user-guide/hardware-setup-intro)
 
 :::
 
