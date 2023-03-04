@@ -21,7 +21,9 @@ If using pumps with your Pioreactor, see the note [below](/user-guide/prepare-vi
 
 ### 2. Preparing media 
 
-Prepare your media as your protocol suggests. For example: in the our experiments, we typically showcase yeast grown in YPD broth. To create YPD broth, dissolve 50 grams YPD powder per 1 litre distilled water. Divide the mixture into the vials.
+Prepare your media as your protocol suggests. For example: in the our experiments, we typically showcase yeast grown in YPD broth. To create YPD broth, dissolve 50 grams YPD powder per 1 liter distilled water.
+
+Divide the mixture into the vials to the correct volume, and add the 15mm stir bar in the vial.
 
 ### 3. Sterilization
 
@@ -50,17 +52,21 @@ For example, we add 0.5 grams of dried Baker's yeast to 15 mL of YPD broth, then
 
 We recommend measuring with a scale and a micropipette. If you are using a dropper, hold it vertically for more accurate, consistent drops. 
 
-### 5. Adjusting tube length
+### 5. Adjusting tube lengths (Optional)
 
-Keep the bottoms of the tubes in the cap from being submerged in your media to avoid creating a pressured environment. Adjust the each luer lock until the other end of the tube is above liquid level.
+Keep the bottoms of the tubes in the cap from being submerged in your media to avoid creating a pressured environment. Adjust each luer lock end until the other end of the tube is above liquid level.
 
-### 6. Cleaning glass
+### 6. Cleaning glass  (Optional)
 
-Since light will be traveling through the glass, we recommend handling the vial with gloves, or at least minimizing touching the glass much. Before placing in the Pioreactor sleeve, wiping the surface of the glass with a wipe is a great idea!
+Since light will be traveling through the glass, we recommend handling the vial with gloves, or minimizing touching the glass as much as possible. Before placing in the Pioreactor sleeve, wiping the surface of the glass with a kimwipe is a great idea!
 
 ### 7. Positioning glassware in the Pioreactor sleeve
 
-Place the glassware vial into the Pioreactor sleeve. The outside of the glassware vial should be clean and dry. Ensure that the vial is pressed all the way down into the sleeve.
+Place the glassware vial into the Pioreactor sleeve. The outside of the glassware vial should be clean and dry.
+
+:::tip
+Ensure that the vial is pressed all the way down and is touching the bottom of the vial holder.
+:::
 
 
 Next, you can [start your experiment](/user-guide/set-up-an-experiment) in the browser.
@@ -78,9 +84,7 @@ Two tubes can be pulled such they are aligned with the bottom rim of the cap. Th
 The final tube is the liquid efflux tube. It will be positioned such that it controls the final amount of volume in the vial. Fill your vial to the desired final volume using water. Pull the final tube down such that its end just touches the top of the water when the cap is fully screwed on. It may take some minor adjustments to achieve this.
 
 :::info
-How does this maintain a constant volume throughout operation? When liquid is added, say 1ml, the volume rises an additional 1ml. Then 1ml of liquid is removed via efflux, but then the efflux runs for an additional few seconds. This is hard coded into the software.
-
-This guarantees that that volume of liquid never exceeds the end of the efflux tube. The efflux pump is run for an additional few seconds to eliminate any volume differences or deltas (for example, if the volume added is greater than the volume removed due to pumping errors). Otherwise, the deltas accumulate and the vial can overflow.
+How does this maintain a constant volume throughout operation? When liquid is added, say 1ml, the volume rises an additional 1ml. Then 1ml of liquid is removed via efflux, but **then the efflux pump runs again for an additional few seconds**.  The efflux pump is run for an additional few seconds to eliminate any volume differences or deltas (for example, if the volume added is greater than the volume removed due to pumping errors). Otherwise, the deltas accumulate and the vial can overflow. This additional step guarantees that that volume of liquid never exceeds the end of the efflux tube.
 :::
 
 During your experiment set up, the length of the tubes out of the cap can provide information about their "roles": longest tube is air exchange, shortest tube is efflux, and middle two tubes are influx.

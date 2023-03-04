@@ -13,7 +13,7 @@ import Admonition from '@theme/Admonition';
 
 ![](/img/user-guide/start_new_experiment.png)
 
-2. On the next screen, enter your new experiment name, unique from prior experiments. This cannot be changed. Enter optional metadata about your experiment. The description can be changed later. Click "Save" when done.
+2. On the next screen, enter your new experiment name. This name should be unique from prior experiment names. Enter optional metadata about your experiment. The description can be changed later, too. Click "Save" when done.
 
 ![](/img/user-guide/create_new_experiment_page.png)
 
@@ -58,7 +58,7 @@ The typical sequence of activities to start is:
 1. **Stirring**
 2. **Temperature automation**, and selecting **Thermostat**
 3. **Optical density**
-4. **Growth rate**
+4. After observing that the optical density looks normal on the _Experiment Overview page_, **Growth rate**
 5. Any other activities. Any of the automations can be started, or [custom jobs](/user-guide/using-community-plugins) you've added to your Pioreactor.
 
 
