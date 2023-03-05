@@ -5,9 +5,13 @@ slug: /prepare-vial-for-cultures
 
 ### 1. Preparing the vial
 
+#### Cleaning the vial
+
+It's recommend to clean your vial before every use. The vial and cap can be cleaned with soapy water. A useful accessory for cleaning is a small bottle brush / test tube brush.
+
 #### Choosing a volume for your culture
 
-We suggest using between **8ml to 15ml** volume of liquid in the vial.
+We suggest using between **8ml to 16ml** volume of liquid in the vial.
 
 :::tip
 Some things to consider when selecting a volume: a lower volume will provide more aeration per mL since the liquid-air interface is fixed. A lower volume will also be more responsive to changes in temperature, and be able to achieve a higher maximum temperature. But too low and the vortex caused by stirring may start interfering with the Pioreactor's optical system (a lower RPM can fix this though).
