@@ -67,9 +67,8 @@ python <your script>.py
 ```
 
 
-
 :::info
-If invoking from a different directory from `pioreactor/`, you'll need to have a `config.dev.ini` file locally. I usually copy my `pioreactor/config.dev.ini` to wherever I am working.
+If invoking from a different directory from `pioreactor/`, you'll need to have a `config.dev.ini` file locally. I usually copy my `pioreactor/config.dev.ini` to wherever I am working. Or you can use an environment argument `GLOBAL_CONFIG=./config.dev.ini pio ...`
 :::
 
 
