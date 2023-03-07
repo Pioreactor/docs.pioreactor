@@ -1,5 +1,5 @@
 ---
-title: Important locations on the filesytem
+title: Important locations on the filesystem
 slug: /filesystem-locations
 ---
 

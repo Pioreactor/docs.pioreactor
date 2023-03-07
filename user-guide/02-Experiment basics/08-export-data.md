@@ -5,19 +5,23 @@ slug: /export-data
 
 Experiment data can be exported using the _Export data_ tab on the Pioreactor site.
 
+
+![](/img/user-guide/export_data_default.png)
+
+
 You can retrieve datasets from any previous experiments, including from _all_ experiments simultaneously using the `<All experiments>` option at the bottom of the list.
 
 Select your experiment from the drop down menu.
 
-![](/img/user-guide/export_data.png)
+![](/img/user-guide/export_data_choose_dataset.png)
 
 Select the datasets you would like to download. 
 
-![](/img/user-guide/export_data_sets.png)
+![](/img/user-guide/export_data_selections.png)
 
-Scroll to the bottom and click the _Export_ button to download the raw data as **.csv** files. Each dataset on the list will export as its own .csv file, for each Pioreactor in your cluster.  
+Click the _Export_ button to download the raw data as **.csv** files. Each dataset on the list will export as its own .csv file.
 
-![](/img/user-guide/export_button.png)
+![](/img/user-guide/export_data_downloading.png)
 
 
 :::note
