@@ -50,9 +50,17 @@ The dosing platform isn't needed, but helps organize your pumps. We sell them in
 
 </AssemblyInstructionBlock>
 
+:::caution
+When attaching tube ends that contain liquid to the vial, be careful of drops that might escape. We suggest taking the Pioreactor vial _out_ of the vial holder when attaching tubes, to minimize the chance of a drop falling into the vial holder. After attaching, place back into the vial holder.
+:::
+
 
 :::tip
-If using your pumps for the first time, we suggest letting them run continuously for 10 minutes or so to "loosen" the tubing up and check for any problems. Place both ends (source and sick) into a beaker of water, and use the UI to run them continuously.
+If using your pumps for the first time, we suggest letting them run continuously for 10 minutes or so to "loosen" the tubing up and check for any problems. Here's how to do this:
+
+1. Unattach the end connected to the vial.
+2. Place both ends (source and sick) into a beaker of water,
+3. Use the Pioreactor UI to run them continuously.
 
 ![](/img/user-guide/dosing_in_ui.png)
 
@@ -64,7 +72,6 @@ If using your pumps for the first time, we suggest letting them run continuously
 ### Calibrating pumps
 
 Read the [calibration instructions](/user-guide/hardware-calibrations#pump-calibration) for how to calibrate your pumps to move precise mL of liquid. Calibration is required for most dosing automations in the Pioreactor.
-
 
 
 
@@ -89,12 +96,7 @@ To avoid cross contamination, pumps should be sterilized before and after use.
 
 ### Running pumps from the web interface
 
-After calibration, you can dose precise amounts using the Pioreactor UI:
-
-![](/img/user-guide/manage_ui.png)
-![](/img/user-guide/dosing_ui.png)
-![](/img/user-guide/add_media_ui.png)
-
+See documentation on [how to run pumps manually from the UI](http://localhost:3001/user-guide/manual-dosing-leds#dosing).
 
 ### Running pumps from the command line
 
