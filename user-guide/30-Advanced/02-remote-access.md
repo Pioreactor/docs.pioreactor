@@ -3,10 +3,10 @@ title: Setting up remote access to the web interface
 slug: /remote-access
 ---
 
-If you would like to expose the web interface to view over the internet (no authentication is provided however), you can use a service like [Ngrok](https://ngrok.com/) to do so.
+If you would like to expose the Pioreactor UI to view remotely, you can use a service like [Ngrok](https://ngrok.com/) to do so.
 
 :::caution
-This exposes your web interface and Raspberry Pi over the internet. You should at the very least have a strong password on your Raspberry Pi, and also install a software like [fail2ban](https://pimylifeup.com/raspberry-pi-fail2ban/) to restrict malicious SSH attempts.
+This exposes your Pioreactor UI and therefore your Raspberry Pi over the internet. You should have a strong password on your Raspberry Pi leader, and use a strong password for basic-auth (below). We make our best security effort in our products, **however we are not responsible for any damages as a result of exposing your Raspberry Pi online**.
 :::
 
 The following are the steps to take:
@@ -17,7 +17,7 @@ The following are the steps to take:
 4.  Make a new folder for the program: `sudo mkdir /opt/ngrok`
 5.  Move `ngrok` file there: `sudo mv ngrok /opt/ngrok`
 6.  Make a config folder: `mkdir ~/.ngrok`
-7.  Fill in the following: `nano ~/.ngrok/ngrok.yml`
+7.  Fill in the following: `nano ~/.ngrok/ngrok.yml`. **We advise changing the basic auth credentials below to something more secure**
     
 ```yml
 authtoken: <add your ngrok auth token here, find in nrgok dashboard>
@@ -26,7 +26,7 @@ tunnels:
         proto: http
         addr: 80
         inspect: false
-        basic_auth: ["pioreactor:raspberry"]
+        basic_auth: ["pioreactor:vogue-awesome-brag"]
         schemes:
             - http
     ws:
@@ -52,7 +52,7 @@ Alternatively, if you wish to set this up as a service that will launch on start
 
 12.  Save the configuration by clicking \[Save\].
     
-13.  You're all done! You can now access the Pioreactor UI anywhere at `http://some_address.ngrok.io`
+13.  You're all done! You can now access the Pioreactor UI anywhere at `http://some_address.ngrok.io`. The username and password are the same you added to your yaml file above.
 
 
 ### Custom domain (if using Pro plan)
@@ -66,7 +66,7 @@ tunnels:
     proto: http
     addr: 80
     inspect: false
-    basic_auth: ["pioreactor:raspberry"]
+    basic_auth: ["pioreactor:vogue-awesome-brag"]
     hostname: dev.pioreactor.com
     bind_tls: false
     schemes:
