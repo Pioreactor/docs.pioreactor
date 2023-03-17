@@ -4,6 +4,8 @@ slug: /web-ui-api
 ---
 
 
+### All endpoints
+
 ```
 Methods  Rule
 -------  ------------------------------------------------------
@@ -49,3 +51,12 @@ PUT      /api/configs/<filename>
 ```
 
 From `python3 -m flask --debug --app main routes -s methods`
+
+
+### Useful endpoints for building app on top of
+
+```
+POST     /api/run/<job>/<unit>
+POST     /api/stop/<job>/<unit>
+POST     /api/stop_all
+```

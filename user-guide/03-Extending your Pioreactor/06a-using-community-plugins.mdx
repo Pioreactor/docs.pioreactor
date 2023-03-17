@@ -13,26 +13,29 @@ The Pioreactor comes with a large set of functionality and behaviour to accompli
 
 From your Pioreactor's interface, the "Plugins" button on the left navigation bar will display all your currently installed plugins, and available plugins that meet standard requirements. We also encourage you to explore our [forums](https://forum.pioreactor.com/) for more plugins created by the community. 
 
-![plugin page](/img/user-guide/plugin_page.png)
+![Plugin page in the Pioreactor UI. The page shows a list of plugins, with a description of the plugin under each one.](/img/user-guide/plugin_page.png)
 
 ### Automations installed via plugins
 
 After installation, dosing, LED, and temperature automations will be available in the list of automations available to you.
 
-![](/img/user-guide/custom_automation_plugin.png)
-![](/img/user-guide/custom_automation_plugin2.png)
+![The UI of an automation installed via a plugin. The plugin is highlighted in the dropdown.](/img/user-guide/custom_automation_plugin.png)
+![The UI of an automation installed via a plugin, with the automation's settings displayed.](/img/user-guide/custom_automation_plugin2.png)
 
 ### Activities installed via plugins
 
 After installation, an activity's state and settings will show up on each Pioreactor's card. Below, we've installed the pioreactor-air-bubbler plugin:
 
-![](/img/user-guide/custom_job_plugin.png)
+![The Pioreactor card with the newly installed activity displayed.](/img/user-guide/custom_job_plugin.png)
 
 Managing on/off and settings are done just like any other job, in the Manage dialog:
 
-![](/img/user-guide/custom_job_plugin2.png)
-![](/img/user-guide/custom_job_plugin3.png)
+![The list of activities, that now includes the activity installed via a plugin (highlighted).](/img/user-guide/custom_job_plugin2.png)
+![The list of settings of activities, and specific settings for the new activity are highlighted.](/img/user-guide/custom_job_plugin3.png)
 
+### Uninstalling plugins
+
+You can uninstall plugins from the same page, too. These will remove the action on the Pioreactor's card, but won't delete the section in your config.ini. Also, if a SQL table was installed with the plugin, the table will not be deleted.
 
 ## Alternative: putting Python files in the the `plugins` folder
 
