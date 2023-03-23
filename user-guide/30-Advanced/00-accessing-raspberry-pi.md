@@ -3,6 +3,7 @@ title: Accessing the Raspberry Pi
 slug: /accessing-raspberry-pi
 ---
 
+
 For more customization and control of your Pioreactor, you can access the Raspberry Pi's command line. From the command line, you can view more logs, control individual Pioreactors, and more.
 
 ## Access from Windows

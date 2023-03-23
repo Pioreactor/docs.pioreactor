@@ -10,6 +10,13 @@ import TOCInline from '@theme/TOCInline';
 Pioreactor operation
 ------------------------
 
+#### How can I restart my Pioreactor? Is pulling the power plug out safe?
+
+We suggest using the UI to reboot your Pioreactor's software:
+
+![Rebooting your pi](/img/user-guide/reboot.png)
+
+
 #### Why does the onboard blue LED keep flashing?
 
 There may be a problem. You can diagnose the problem by [counting the number of flashes observed](/user-guide/error-codes).
@@ -194,8 +201,10 @@ Also, see question below.
 
 #### When I click an action in the UI, I don't see any response
 
- - If you _also_ had trouble accessing the UI (see question above), in your configuration, change the `leader_address` field to whatever worked above, an IP for example.
- - Another possibility is that the experiment has changed - try refreshing the page.
+ - Is there a green icon in the top-left of the Pioreactor card? If not, or it's grey, either the Pioreactor is off, or the `monitor` job is not running. Try power-cycling the Pioreactor.
+ - It's possible that the current experiment has changed - try refreshing the page.
+ - If you had trouble accessing the UI (see question above), in your config.ini, change the `leader_address` field to whatever worked above, an IP for example.
+ - Possibly the web server is off. Try logging into your leader and typing `sudo systemctl status lighttpd.service`
 
 
 Networking

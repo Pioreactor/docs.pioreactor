@@ -11,6 +11,18 @@ All background jobs inherit from the base class `pioreactor.background_jobs.base
 
 Typically, we structure background job code such that the Python file has a single background job class and a command-line interface. See examples [here](https://github.com/Pioreactor/pioreactor/tree/master/pioreactor/background_jobs).
 
+### Logging
+
+All subclasses of `BackgroundJob` have the `logger` attribute that can be used to log messages. These messages are printed to the console, send to MQTT, _sometimes_ displayed in the UI, and stored permanently in the Pioreactor database. Here's how:
+
+```python
+job.logger.debug("A debug message")
+job.logger.info("An info message - this is display in the recent logs in the UI")
+job.logger.notice("A notice message - this is displayed in the UI in a green popup")
+job.logger.warning("A debug message - this is displayed in the UI in a yellow popup")
+job.logger.error("A debug message - this is displayed in the UI in a red popup")
+```
+
 ### State of a job
 A background job can be in one of five different states:
 
