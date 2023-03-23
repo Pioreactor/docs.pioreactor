@@ -18,7 +18,7 @@ Here's a general schematic of how your files should be organized for a job:
 
 ```
 📁 my-plugin-name
-├─ 📁 my_plugin_name
+├─ 📁 src
 │  ├─ 📁 ui
 │  │  ├─ 📁 contrib
 │  │  │  ├─ 📁 jobs
@@ -36,11 +36,11 @@ The schematic is very similar for an **automation plugin** &#151 the only differ
 
 ```
 📁 my-plugin-name
-├─ 📁 my_plugin_name
+├─ 📁 src
 │  ├─ 📁 ui
 │  │  ├─ 📁 contrib
 │  │  │  ├─ 📁 automations
-│  │  │  │  ├─ 📁 <SPECIFIC AUTOMATION (one of {dosing, led, temperature})>
+│  │  │  │  ├─ 📁 <AUTOMATION TYPE (one of {dosing, led, temperature})>
 │  │  │  │  │  ├─ 📝 my_plugin.yaml
 │  ├─ 📝 __init__.py
 │  ├─ 📝 additional_config.ini
@@ -51,7 +51,7 @@ The schematic is very similar for an **automation plugin** &#151 the only differ
 ├─ 📝 setup.py
 ```
 
-Start by creating a new folder for your plugin. In our case, we named it `pioreactor-relay-plugin`. This **main folder** will contain 4 important parts:
+Start by creating a new folder for your plugin. In our case, we named it `pioreactor-relay-plugin`. This **top level folder** will contain 4 important parts:
 
 #### 1. A license text file, named `LICENSE.txt`
 
@@ -62,8 +62,8 @@ A common license for software is the [MIT license](https://opensource.org/licens
 When creating a Python package, there's a default set of files that are included. To assure that our additional configuration and yaml files are included, create a `MANIFEST.in` file and paste the following:
 
 ```
-recursive-include <MAIN FOLDER>/ui/ *.yaml
-include <MAIN FOLDER>/additional_config.ini
+recursive-include src/ui/ *.yaml
+include src/additional_config.ini
 ```
 
 #### 3. A `README.md`
@@ -79,7 +79,7 @@ Create a Python file and paste the following. Make changes based on your own plu
 from setuptools import setup, find_packages
 
 setup(
-    name="pioreactor_relay_plugin",
+    name="<PLUGIN_NAME>",
     version="<VERSION>",
     license_files = ('LICENSE.txt',),
     description="<DESCRIPTION OF PLUGIN>",
@@ -87,20 +87,21 @@ setup(
     long_description_content_type="text/markdown",
     author_email="<EMAIL>",
     author="<NAME>",
-    url="<YOUR HOMEPAGE>",
+    url="<A HOMEPAGE>",
     packages=find_packages(),
     include_package_data=True,
+    install_requires=[], # PROVIDE OTHER PYTHON REQUIREMENTS
     entry_points={
-        "pioreactor.plugins": "<SUBFOLDER CONTAINING PLUGIN> = <SUBFOLDER CONTAINING PLUGIN>"
+        "pioreactor.plugins": "<PLUGIN_NAME> = src"
     },
 )
 ```
 
-#### 5. A subfolder containing your plugin's code
+#### 5. The subfolder `src` containing your plugin's code
 
-Within the main project directly `pioreactor-relay-plugin`, we created a sub-directory called `pioreactor_relay_plugin`.
+Within the top level directory, we created a sub-directory called `src`.
 
-### Contents of the subfolder
+### Contents of the subfolder, `src`
 
 #### 1. Your plugins Python files
 
@@ -120,7 +121,7 @@ function decorated with `@click.command` at the bottom of the file. See example 
   This will contain an `import` statement such as the following:
 
   ```python
-  from <SUBFOLDER CONTAINING PLUGIN>.<PYTHON FILE NAME> import <PLUGIN CLICK FUNCTION>
+  from <PLUGIN_NAME>.<PYTHON FILE NAME> import <PLUGIN CLICK FUNCTION>
   ```
   This imports the function within our plugin file that executes our plugin action.
 
@@ -142,11 +143,11 @@ This configuration file will contain additional configs that we want to add to o
 A convention we've tried to follow is to use the section name convention of `[<job_name>.config]` or `[<automation_name>.config]` in the configuration files. For example, our relay job has `[relay.config]` in its `additional_config.ini` and settings under it.
 :::
 
-#### 4. Adding details for the UI
+#### 4. Optional: Adding details for the UI
 
 ##### If implementing a job:
 
-Within our main subfolder, create subfolders named `ui/contrib/jobs`. For a job, create a `.yaml` file that looks like the following format. The name of the yaml can be anything, but convention is to use the `<job_name>.yaml`:
+Within `src`, create subfolders named `ui/contrib/jobs`. For a job, create a `.yaml` file that looks like the following format. The name of the yaml can be anything, but convention is to use the `<job_name>.yaml`:
 
 ```
 ---
@@ -174,7 +175,7 @@ There are lots of examples of job yaml files [here](https://github.com/Pioreacto
 
 ##### If implementing an automation:
 
-In the case of creating an **automation plugin**, create subfolder(s) with `ui/contrib/automations/<SPECIFIC AUTOMATION>`, where `SPECIFIC_AUTOMATION` is one of `dosing`, `led`, or `temperature` depending on your automation type. Create a yaml file with the following convention. The name of the yaml file can be anything, but by convention it's `<automation_name>.yaml`.
+In the case of creating an **automation plugin**, create subfolder(s) with `ui/contrib/automations/<AUTOMATION TYPE>`, where `AUTOMATION TYPE` is one of `dosing`, `led`, or `temperature` depending on your automation type. Create a yaml file with the following convention. The name of the yaml file can be anything, but by convention it's `<automation_name>.yaml`.
 
 ```
 ---
@@ -246,7 +247,7 @@ register_source_to_sink(
 You also need to add the following to your `MANIFEST.in`:
 ```
 ...
-include <MAIN FOLDER>/additional_sql.sql
+include src/additional_sql.sql
 ```
 :::
 
@@ -287,7 +288,7 @@ python -m build --wheel
 twine upload dist/<.WHL FILE>
 ```
 
-You will then be prompted for a username and password. Use the credentials for your PyPi account. Then, your package is uploaded and viewable at the link provided! 
+You will then be prompted for a username and password. Use the credentials for your PyPi account. Then, your package is uploaded and viewable at the link provided in the output!
 
 :::tip Note
 Before you build a new wheel, it's good practice to clean up your previous build.  
@@ -299,18 +300,18 @@ This can be done using `python setup.py clean --all` on the command line.
 A plugin can be installed individually through the command line on a leader using `pio`:
 
 ```
-pios install-plugin <PACKAGE NAME>
+pios install-plugin <PLUGIN NAME>
 ```
 
 To install a given plugin on the leader and all workers connected to the leader in a cluster, `pios install-plugin` can be used. 
  
 ```
-pios install-plugin <PACKAGE NAME>
+pios install-plugin <PLUGIN NAME>
 ```
 
 ## Sharing your plugin with the community
 
-To give your plugin futher reach, we've provided an option to add it to the web interface. You will need to edit the **plugins.json** file within our [Pioreactor repository, list-of-plugins](https://github.com/Pioreactor/list-of-plugins). 
+To give your plugin further reach, we've provided an option to add it to the web interface. You will need to edit the **plugins.json** file within our [Pioreactor repository, list-of-plugins](https://github.com/Pioreactor/list-of-plugins).
 
 There are two ways to do this: 
 
