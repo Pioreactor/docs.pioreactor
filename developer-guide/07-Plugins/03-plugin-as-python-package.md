@@ -5,6 +5,9 @@ slug: /plugin-as-python-package
 
 If you'd like to contribute your plugin to the community, this is done easily by creating a Python package and uploading to PyPi. Let's walk through this!
 
+## Choosing a plugin name
+
+Your plugin name should be _all lowercase_, and have _underscores_ divide any words. Ex: `pioreactor_gas_plugin` is fine, but `pioreactor-gas-plugin` is not, nor is `Pioreactor-gas-plugin`.
 
 ## Organizing your files
 
