@@ -51,7 +51,7 @@ The schematic is very similar for an **automation plugin** &#151 the only differ
 ├─ 📝 setup.py
 ```
 
-Start by creating a new folder for your plugin. In our case, we named it `pioreactor-relay-plugin`. This **top level folder** will contain 4 important parts:
+Start by creating a new folder for your plugin. In our case, we named it `pioreactor_relay_plugin`. This **top level folder** will contain 4 important parts:
 
 #### 1. A license text file, named `LICENSE.txt`
 
@@ -299,14 +299,21 @@ This can be done using `python setup.py clean --all` on the command line.
 
 A plugin can be installed individually through the command line on a leader using `pio`:
 
+:::tip
+
+If your plugin name has underscores, Python packaging will convert the underscores to dashes. Ex: `pioreactor_relay_plugin` is converted to `pioreactor-relay-plugin` when you install it.
+
+:::
+
+
 ```
-pios install-plugin <PLUGIN_NAME>
+pios install-plugin <PLUGIN-NAME>
 ```
 
 To install a given plugin on the leader and all workers connected to the leader in a cluster, `pios install-plugin` can be used. 
  
 ```
-pios install-plugin <PLUGIN_NAME>
+pios install-plugin <PLUGIN-NAME>
 ```
 
 ## Sharing your plugin with the community
