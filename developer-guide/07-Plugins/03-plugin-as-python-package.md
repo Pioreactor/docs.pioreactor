@@ -17,15 +17,15 @@ Consider an example plugin: a **job** called _Relay_, which just turns on or off
 Here's a general schematic of how your files should be organized for a job:
 
 ```
-📁 my-plugin-name
-├─ 📁 src
+📁 <PLUGIN_NAME>
+├─ 📁 <PLUGIN_NAME>
 │  ├─ 📁 ui
 │  │  ├─ 📁 contrib
 │  │  │  ├─ 📁 jobs
-│  │  │  │  ├─ 📝 my_plugin.yaml
+│  │  │  │  ├─ 📝 <PLUGIN_NAME>.yaml
 │  ├─ 📝 __init__.py
 │  ├─ 📝 additional_config.ini
-│  ├─ 📝 my_plugin.py
+│  ├─ 📝 my_plugin_code.py
 ├─ 📝 LICENSE.txt
 ├─ 📝 MANIFEST.in
 ├─ 📝 README.md
@@ -35,16 +35,16 @@ Here's a general schematic of how your files should be organized for a job:
 The schematic is very similar for an **automation plugin** &#151 the only difference is the location of the `.yaml` file.
 
 ```
-📁 my-plugin-name
-├─ 📁 src
+📁 <PLUGIN_NAME>
+├─ 📁 <PLUGIN_NAME>
 │  ├─ 📁 ui
 │  │  ├─ 📁 contrib
 │  │  │  ├─ 📁 automations
 │  │  │  │  ├─ 📁 <AUTOMATION TYPE (one of {dosing, led, temperature})>
-│  │  │  │  │  ├─ 📝 my_plugin.yaml
+│  │  │  │  │  ├─ 📝 <PLUGIN_NAME>.yaml
 │  ├─ 📝 __init__.py
 │  ├─ 📝 additional_config.ini
-│  ├─ 📝 my_plugin.py
+│  ├─ 📝 my_plugin_code.py
 ├─ 📝 LICENSE.txt
 ├─ 📝 README.md
 ├─ 📝 MANIFEST.in
@@ -62,8 +62,8 @@ A common license for software is the [MIT license](https://opensource.org/licens
 When creating a Python package, there's a default set of files that are included. To assure that our additional configuration and yaml files are included, create a `MANIFEST.in` file and paste the following:
 
 ```
-recursive-include src/ui/ *.yaml
-include src/additional_config.ini
+recursive-include <PLUGIN_NAME>/ui/ *.yaml
+include <PLUGIN_NAME>/additional_config.ini
 ```
 
 #### 3. A `README.md`
@@ -92,16 +92,16 @@ setup(
     include_package_data=True,
     install_requires=[], # PROVIDE OTHER PYTHON REQUIREMENTS
     entry_points={
-        "pioreactor.plugins": "<PLUGIN_NAME> = src"
+        "pioreactor.plugins": "<PLUGIN_NAME> = <PLUGIN_NAME>"
     },
 )
 ```
 
-#### 5. The subfolder `src` containing your plugin's code
+#### 5. The subfolder `<PLUGIN_NAME>` containing your plugin's code
 
-Within the top level directory, we created a sub-directory called `src`.
+Within the top level directory, we created a sub-directory called `<PLUGIN_NAME>`.
 
-### Contents of the subfolder, `src`
+### Contents of the subfolder, `<PLUGIN_NAME>`
 
 #### 1. Your plugins Python files
 
@@ -147,7 +147,7 @@ A convention we've tried to follow is to use the section name convention of `[<j
 
 ##### If implementing a job:
 
-Within `src`, create subfolders named `ui/contrib/jobs`. For a job, create a `.yaml` file that looks like the following format. The name of the yaml can be anything, but convention is to use the `<job_name>.yaml`:
+Within `<PLUGIN_NAME>` folder, create subfolders named `ui/contrib/jobs`. For a job, create a `.yaml` file that looks like the following format. The name of the yaml can be anything, but convention is to use the `<job_name>.yaml`:
 
 ```
 ---
@@ -247,7 +247,7 @@ register_source_to_sink(
 You also need to add the following to your `MANIFEST.in`:
 ```
 ...
-include src/additional_sql.sql
+include <PLUGIN_NAME>/additional_sql.sql
 ```
 :::
 
@@ -300,13 +300,13 @@ This can be done using `python setup.py clean --all` on the command line.
 A plugin can be installed individually through the command line on a leader using `pio`:
 
 ```
-pios install-plugin <PLUGIN NAME>
+pios install-plugin <PLUGIN_NAME>
 ```
 
 To install a given plugin on the leader and all workers connected to the leader in a cluster, `pios install-plugin` can be used. 
  
 ```
-pios install-plugin <PLUGIN NAME>
+pios install-plugin <PLUGIN_NAME>
 ```
 
 ## Sharing your plugin with the community
