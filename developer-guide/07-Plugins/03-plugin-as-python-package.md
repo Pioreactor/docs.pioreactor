@@ -15,9 +15,9 @@ Your plugin name should be _all lowercase_, and have _underscores_ divide any wo
 Note that the way files are organized may depend on if your plugin is an **automation** or a **job**. Plugins can install both automations and jobs.
 :::
 
-Consider an example plugin: a **job** called _Relay_, which just turns on or off anything that is plugged into a channel of your choosing. Follow the file organization here: [CamDavidsonPilon/pioreactor-relay-plugin](https://github.com/CamDavidsonPilon/pioreactor-relay-plugin).
+Consider an example plugin: a **job** called `pireactor_relay_plugin`, which just turns on or off a PWM channel. Follow the file organization here: [CamDavidsonPilon/pioreactor-relay-plugin](https://github.com/CamDavidsonPilon/pioreactor-relay-plugin).
 
-Here's a general schematic of how your files should be organized for a job:
+Here's a general directory outline of how your files should be organized for a job:
 
 ```
 📁 <PLUGIN_NAME>
@@ -35,7 +35,7 @@ Here's a general schematic of how your files should be organized for a job:
 ├─ 📝 setup.py
 ```
 
-The schematic is very similar for an **automation plugin** &#151 the only difference is the location of the `.yaml` file.
+The directory outline is very similar for an **automation plugin** &#151 the only difference is the location of the `.yaml` file.
 
 ```
 📁 <PLUGIN_NAME>
@@ -71,11 +71,11 @@ include <PLUGIN_NAME>/additional_config.ini
 
 #### 3. A `README.md`
 
-Write a few notes with general information on your plugin to guide users. 
+Write a few notes with general information on your plugin to guide users. Call out any additional installation steps, or hardware required. This is a markdown document.
 
 #### 4. A Python `setup.py` file
 
-Create a Python file and paste the following. Make changes based on your own plugin information.
+Create a Python file called `setup.py` and copy & paste the following. Make changes based on your own plugin information.
 
 ```python
 # -*- coding: utf-8 -*-
@@ -184,7 +184,7 @@ In the case of creating an **automation plugin**, create subfolder(s) with `ui/c
 ---
 display_name:  # human readable name
 automation_name: # automation name
-source: # folder that contains your plugin
+source: # name of your plugin
 description: # description of your plugin
 fields:
   - key:  # as defined in Python
@@ -330,7 +330,7 @@ There are two ways to do this:
 
 ![](/img/developer-guide/python-package-pull-or-issue.png)
 
-In both cases, we will evaluate your plugin to ensure code quality and all requirements are met (tests are included). 
+In both cases, we will evaluate your plugin to ensure code quality and all requirements are met.
 
 Once your plugin is accepted, it will appear on the Plugins tab on the Pioreactor web interface. Users in the community can now easily click _Install_ to download your plugin onto their Pioreactors!
 
