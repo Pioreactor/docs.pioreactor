@@ -1,6 +1,6 @@
 ---
 title: User interface
-slug: /troubleshooting-stirring
+slug: /troubleshooting-ui
 ---
 
 #### I'm not able to access `http://pioreactor.local`
