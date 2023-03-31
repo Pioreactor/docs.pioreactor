@@ -20,7 +20,7 @@ Due to manufacturing variables such as differences in LED strength and sensitivi
 A series of initial OD readings are averaged to produce a _reference value_ (denominator). New OD readings after the reference value are normalized using the following simple equation: 
 
 $$
-\frac{\normalsize \text{latest\thickspace OD}}{\normalsize \text{reference\thickspace OD}}=\text{nomalized\thickspace OD}
+\frac{\normalsize \text{latest\thickspace OD}}{\normalsize \text{reference\thickspace OD}}=\text{normalized\thickspace OD}
 $$ 
 
 
@@ -67,7 +67,7 @@ As an example, let's consider the same data as above, but this time we have info
 We can now subtract the _blank_ values from the _latest OD_ and _reference OD_ values:
 
 $$
-\frac{\normalsize \text{latest\thickspace OD}-\text{blank\thickspace OD}}{\normalsize \text{reference\thickspace OD}-\text{blank\thickspace OD}}=\text{blanked\thickspace nomalized\thickspace OD}
+\frac{\normalsize \text{latest\thickspace OD}-\text{blank\thickspace OD}}{\normalsize \text{reference\thickspace OD}-\text{blank\thickspace OD}}=\text{blanked\thickspace normalized\thickspace OD}
 $$ 
 
 ###### Pioreactor1

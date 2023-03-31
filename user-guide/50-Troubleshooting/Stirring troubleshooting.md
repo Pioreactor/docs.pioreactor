@@ -49,3 +49,7 @@ Dis-attach the top faceplate. Under the faceplate, slightly unscrew each of the 
 2. Check if the vial is pushed all the way down.
 3. Check that no metal from the screws is showing => the vial is straight vertically.
 
+
+### Raspberry Pi shuts off or restarts when stirring is turned on from the UI
+
+Likely this is caused by a short in the fan's cable assembly. Remove the fan's power cable, and remove the plastic housing by applying pressure on the exposed metal tabs and gently pulling the wires out. Examine for any stray wire strands.

@@ -33,7 +33,7 @@ When starting, it's useful to run a _self test_ to confirm that your Pioreactors
 
 When working with **small amounts** of a microorganism, or very turbid media, you can obtain more accurate growth rates by [blanking the vial](/user-guide/od-normal-growth-rate#blanking) before inoculation.
 
-<AssemblyInstructionBlock images={["experiments/calibrate.png","experiments/blank.png"]}>
+<AssemblyInstructionBlock title="How to record a blank" images={["experiments/calibrate.png","experiments/blank.png"]}>
 
 1. Insert your sterile vial containing media into the Pioreactor before inoculating with your species of interest.
 2. On the website, click the _Pioreactors_ tab on the left-hand menu, and choose one of the active Pioreactors.
