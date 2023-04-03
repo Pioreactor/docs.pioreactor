@@ -72,27 +72,6 @@ class CustomPumper(DosingAutomationJob):
 
 ```
 
-### Using an external pump for all builtin automations
-
-Instead of create a custom dosing automation, you can use your external pump for all automations with the following. In a Python file in your `~/.pioreactor/plugins` folder, add the following code:
-
-
-```python
-from pioreactor.automations.dosing.base import DosingAutomationJob
-
-
-def call_external_pump(cls, ml: float, unit: str, experiment: str, source_of_event: str) -> float:
-    # add your code here
-    ...
-
-
-# attach your call to the base DosingAutomationJob with the following
-DosingAutomationJob.add_media_to_bioreactor = call_external_pump
-
-```
-
-How does this work? When a dosing job starts, it will run the above plugin code last, and this code overwrites the default `add_media_to_bioreactor`. When the dosing jobs goes to dose media, it will use the code present in `call_external_pump`.
-
 
 ### Adding additional pumps beyond media and alt-media
 
@@ -105,7 +84,8 @@ class ThreePumps(DosingAutomationJob):
     automation_name = "three_pumps"
 
     def add_salty_media_to_bioreactor(self, ml: float, unit: str, experiment: str, source_of_event: str) -> float:
-        # call an external pump, via i2c, serial, GPIO, etc.
+        # call an external pump, via i2c, serial, GPIO, etc.,
+        # or pumping_functions.add_salt_media
         ...
         return ml
 
