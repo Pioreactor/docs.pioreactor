@@ -3,7 +3,7 @@ title: Adding a new calibration type
 slug: /adding-calibration-type
 ---
 
-Ideally, allg calibrations, including od_calibration and pump_calibration, should behave similarly:
+Ideally, all calibrations, including od_calibration and pump_calibration, should behave similarly:
 
 1. Interface should have the following:
    - `pio run <x>_calibration` starts the calibration and saves it keyed by a unique name (see 2. for storage)
