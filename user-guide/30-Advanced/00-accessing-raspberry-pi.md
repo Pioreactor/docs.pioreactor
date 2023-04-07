@@ -10,11 +10,12 @@ For more customization and control of your Pioreactor, you can access the Raspbe
 
 ### Using the Command Prompt
 
-Open the command prompt and SSH into your Pioreactor: 
+1. [Open the command prompt](https://support.kaspersky.com/common/windows/14637#block0).
+2. Type `ssh pioreactor@<insert unit name>.local`. For example, to access on our Pioreactor named _worker3_, we typed `ssh pioreactor@worker3.local`. The default password is `raspberry`.
+  ![](/img/experiments/turbidostat/ssh_into_unit.png)
 
-![](/img/experiments/turbidostat/ssh_into_unit.png)
+If successful, try entering `pio blink` - your Pioreactor's blue LED should starting blinking. See [more commands here](/user-guide/cli).
 
-Type `ssh pioreactor@<insert unit name>.local`. For example, to calibrate on our Pioreactor named _worker3_, we typed `ssh pioreactor@worker3.local`. The default password is `raspberry`.
 
 ### Using PuTTY
 
@@ -25,11 +26,21 @@ If successful, try entering `pio blink` - your Pioreactor's blue LED should star
 
 ## Access from a Mac
 
-Open the Terminal application. From the command line, enter `ssh pioreactor@<name of pioreactor>.local`. If this is the first time to connect to the Raspberry Pi, you will have to accept its SSH certificate. When prompted, enter the password `raspberry`.
+1. [Open the Terminal application](https://www.makeuseof.com/open-terminal-on-mac/).
+2. From the command line, enter `ssh pioreactor@<name of pioreactor>.local`. If this is the first time to connect to the Raspberry Pi, you will have to accept its SSH certificate. When prompted, enter the password `raspberry`.
 
 If successful, try entering `pio blink` - your Pioreactor's blue LED should starting blinking. See [more commands here](/user-guide/cli).
 
 
 ## Access from Linux
 
-You don't need my help.
+You don't need my help. Try entering `pio blink` - your Pioreactor's blue LED should starting blinking. See [more commands here](/user-guide/cli).
+
+
+## Troubleshooting
+
+If the above steps aren't working for your system, try the following:
+
+1. Instead if using the `<unit name>.local`, try using the IP address (if available). Example, `ssh pioreactor@192.168.1.30` for a Raspberry Pi at IP address 192.168.1.30.
+2. Try power-cycling the Pioreactor.
+
