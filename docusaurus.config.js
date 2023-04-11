@@ -96,6 +96,11 @@ const config = {
         },
         items: [
           {
+            to: '/user-guide/getting-started',
+            position: 'left',
+            label: 'Getting Started',
+          },
+          {
             to: '/user-guide/introduction',
             position: 'left',
             label: 'User Guide',
