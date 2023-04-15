@@ -10,7 +10,7 @@ You can supply a higher voltage / amp power using the barrel jack connection. Th
 Finally, to enable the PWM channels to use the new auxiliary power supply, **you need to move the shunt connector to the position closest to the LED outputs**.
 
 
-![](/img/user-guide/aux_position.png)
+![left image shows the shunt connector in the ON position, right image shows shunt connector in the OFF position](/img/user-guide/aux_position.png)
 
 
 :::note

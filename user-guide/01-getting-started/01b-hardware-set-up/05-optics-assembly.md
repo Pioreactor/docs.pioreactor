@@ -27,7 +27,7 @@ import * as colors from '@site/src/components/constants';
 2. _Slowly_ bend the bulb's leads 90 degrees, as seen. Secure with a LED pocket cap.
 
 :::caution
-Avoid over-bending the leads, or applying too much force. After bending once, it's ill-advised to bend them again.
+Avoid over-stressing the leads, or applying too much force too quickly. After bending once, it's ill-advised to bend them again.
 :::
 
 
@@ -37,7 +37,7 @@ Avoid over-bending the leads, or applying too much force. After bending once, it
 6. Bend the leads 90 degrees and secure with a LED pocket cap.
 
 :::tip
-Do the following inspection: check to make sure neither of the leads are touching on each of the LED and PDs.
+Inspect each LED and PD to confirm that neither of the leads are touching.
 :::
 
 </AssemblyInstructionBlock>

@@ -13,7 +13,7 @@ Interacting with the Pioreactor on the command line are through the `pio` tool. 
 *   `pio kill <job> [<job>...]` will safely terminate a `<job>`. Can kill multiple jobs, ex: `pio kill stirring dosing_control`
 *   `pio run <job> <options>` will run the `<job>`. Each job may have specific command line arguments.
 *   `pio version` print the version of the PioreactorApp software.
-*   `pio update` will update the software to the latest version: adding `--app` will upgrade the Pioreactor Python app.
+*   `pio update app` will update the software to the latest app version.
 *   `pio install-plugin <plugin name>` will install a plugin
 *   `pio uninstall-plugin <plugin name>` will uninstall a plugin
 *   `pio list-plugins` will list the currently installed plugins
@@ -27,7 +27,8 @@ The leader also has their own unique set of `pio` commands (these commands do no
 *   `pio db`: open the sqlite3 CLI of the Pioreactor database.
 *   `pio mqtt`: tail the MQTT broker.
 *   `pio add-pioreactor <hostname>`: add a Pioreactor to your cluster, with given (unique) name. Need a worker Pioreactor on the network first. See instructions [here](https://github.com/Pioreactor/pioreactor/wiki/Installation).
-*   `pio update` will update the software to the latest version: adding `--ui` will update the web interface (repo: pioreactor/pioreactorui) and adding `--app` will upgrade the Pioreactor Python app (repo: pioreactor/pioreactor).
+*   `pio update ui` will update the UI software to the latest version and adding `--app` will upgrade the Pioreactor Python app (repo: pioreactor/pioreactor).
+*   `pio update app` will update the software to the latest version.
 *   `pio cluster-status` will report to the user each Pioreactor in the cluster, and metadata like status, IP, and state.
 *   `pio discover-workers` will return a list of workers on the network (may be a superset of the current cluster.)
 

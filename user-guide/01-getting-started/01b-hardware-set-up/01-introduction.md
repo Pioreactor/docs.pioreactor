@@ -12,7 +12,7 @@ import * as colors from '@site/src/components/constants';
 
 
 <Admonition type="info" title="Info">
-  You can expect the assembly to take approximately 20 minutes.
+  You can expect the assembly to take approximately 20-30 minutes.
 </Admonition>
 
 <AssemblyInstructionBlock title="Step 1: Necessary tools" images={["user-guide/hardware-assembly/rpi_types.jpg","user-guide/hardware-assembly/screwdriver.jpg"]}>
