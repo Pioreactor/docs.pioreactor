@@ -11,7 +11,7 @@ import * as colors from '@site/src/components/constants';
 
 First, with the stirring activity running, carefully examine if the fan below is spinning.
  - If it's not spinning,
-    - Check to confirm that the power cord is in the right PMW channel. You can find the right PWM channel to use in the config.ini, under `[PWM]` (also check that it is not [overwritten in the unit specific config.ini](https://docs.pioreactor.com/user-guide/configuration#how-configuration-works-across-pioreactors))
+    - Check to confirm that the fan's cable is in the right PMW channel. You can find the right PWM channel to use in the config.ini, under `[PWM]` (also check that it is not [overwritten in the unit specific config.ini](https://docs.pioreactor.com/user-guide/configuration#how-configuration-works-across-pioreactors))
     - Is the fan starting to spin momentarily, but then stopping? You may need to increase the target RPM in the UI. The lower limit of RPM is around 125. Target RPMs below 125 have a tendency to stall.
     - Visually inspect the fan. Is it touching the <Highlight color={colors.magenta}>screws above it (see image below)</Highlight>? Can you spin freely if you spin it with a pen or pencil?
     - The fan may be damaged. Contact us at support@pioreactor.com
@@ -20,7 +20,7 @@ First, with the stirring activity running, carefully examine if the fan below is
        - There should be no visible metal from the screw at the <Highlight color={colors.blue}>interface between the vial holder and the top faceplate's arms</Highlight>. See image below.
        - Try pushing the fan only slightly higher up using a pen, pencil or thin rod. Avoid moving the fan _too_ high up and hitting the <Highlight color={colors.magenta}>vial holder's screws</Highlight>.
        - Try _moderately_ tightening the screws on the bottom of the top faceplate.
-    - Unscrew the top faceplate from the vial holder. Are the two magnets still present on the fan?
+    - Are the two magnets still present on the fan? Visually inspect from the side, or unscrew the top faceplate from the vial holder to see better.
     - The heater PCB may be damaged. Contact us at support@pioreactor.com
 
 
@@ -47,7 +47,7 @@ Dis-attach the top faceplate. Under the faceplate, slightly unscrew each of the 
 
 1. Try reducing your target RPM.
 2. Check if the vial is pushed all the way down.
-3. Check that no metal from the screws is showing => the vial is straight vertically.
+3. From the side profile, check that no metal from the screws is showing ⇒ the vial is straight vertically.
 
 
 ### Raspberry Pi shuts off or restarts when stirring is turned on from the UI
