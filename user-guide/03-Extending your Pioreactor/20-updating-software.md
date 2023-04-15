@@ -5,7 +5,7 @@ slug: /updating-software
 
 We publish new software occasionally that fixes bugs, adds new features, and improves performance. You can update your Pioreactor(s) to the latest software from the UI. **We highly recommend keeping your Pioreactor software up to date!**
 
-### How to update your software
+### How to update your software from the UI
 
 First, when a new software version is released by our team, you will see a red "badge" in your UI's sidebar:
 
@@ -20,6 +20,7 @@ If you'd like to update, click on the "Update to latest release" button. Updatin
 
 ![](/img/user-guide/click_update.png)
 
+Updating from the UI will update all the Pioreactors in your cluster.
 
 ### Installing previous versions or development versions
 
