@@ -15,11 +15,11 @@ Why would you want to distribute code this way? It's a great way to test or deve
 
 
 :::caution
-The Pioreactor software will load and run each Python file in `/plugins` on each invocation of `pio`. Don't pull long-running, or blocking, code without wrapping it in a function or `if __name__ == "__main__"`. For example:
+The Pioreactor software will load and run each Python file in `/plugins` on each invocation of `pio`. Don't have long-running or blocking code without wrapping it in a function or `if __name__ == "__main__"`. For example:
 
 ```python
-#❌ don't do this
 # my plugin code.py
+#❌ don't do this
 import time
 
 time.sleep(100)
