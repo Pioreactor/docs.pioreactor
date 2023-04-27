@@ -189,7 +189,6 @@ Networking
 
 Yes, so long as the Raspberry Pi's are connected to the same network and discoverable, this should work. Even mixing Ethernet and WIFI is fine.
 
-
 #### I'm using a local access point, but I'd like to install plugins, update software, etc.
 
 ##### To install a plugin
@@ -200,3 +199,8 @@ On a computer that is connected to the internet, download the `.whl` file from t
 ##### To upgrade the core Pioreactor software
 
 On a computer that is connected to the internet, download the `.whl` file from the under "Assets" from the [latest release on Github](https://github.com/Pioreactor/pioreactor/releases/latest). Then, connect that computer to your Pioreactor's local access point's network. To each Pioreactor you wish to update software on, transfer the `.whl` file to the Pioreactor (using SFTP or FTP). Then, run `pio update --app --source <path/to/local/.whl>`
+
+
+#### If I have multiple Pioreactor leaders on my network, what leader does `http://pioreactor.local` point to?
+
+If there are multiple leaders on the same network, then each will override the other's `pioreactor.local` alias, and the alias will be unreliable. You can either access the leaders by their hostnames: `http://<leader hostname>.local`, or you can change the alias in the config.ini, too, by editing `domain_alias` under section `[ui]` (changing this requires a restart of the machine).
