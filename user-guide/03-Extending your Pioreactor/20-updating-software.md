@@ -7,7 +7,7 @@ We publish new software occasionally that fixes bugs, adds new features, and imp
 
 ### How to update your software from the UI
 
-First, when a new software version is released by our team, you will see a red "badge" in your UI's sidebar:
+When a new software version is released by our team, you will see a red "badge" in your UI's sidebar:
 
 ![a red badge is beside the Update link](/img/user-guide/badge.png)
 
@@ -16,11 +16,17 @@ Upon visiting the _Updates_ page, you can see what version you have installed, a
 ![](/img/user-guide/version_installed_vs_latest.png)
 
 
-If you'd like to update, click on the "Update to latest release" button. Updating software doesn't interrupt experiments or activities, but we suggest waiting until between experiments to update.
+If you'd like to update, click on the "Update to next release" button. Updating software doesn't interrupt experiments or activities, but we suggest waiting until between experiments to update.
 
 ![](/img/user-guide/click_update.png)
 
 Updating from the UI will update all the Pioreactors in your cluster.
+
+:::info
+
+The updating process will update to the _next_ release, after your current version. So if your current version is 23.4.1, and there are _two_ more recent releases, say 23.5.1 and 23.6.1, then the update process will update to 23.5.1. You can run the update process _again_ to update to 23.6.1. We do this so that you will get changes folded in from each release we make.
+
+:::
 
 ### Installing previous versions or development versions
 

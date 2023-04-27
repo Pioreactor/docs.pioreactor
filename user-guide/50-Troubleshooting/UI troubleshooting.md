@@ -3,7 +3,7 @@ title: User interface
 slug: /troubleshooting-ui
 ---
 
-#### I'm not able to access `http://pioreactor.local`
+### I'm not able to access `http://pioreactor.local`
 
 
 - In your browser's address bar, add the `http://` infront of the url, like so: `http://pioreactor.local`.
@@ -15,7 +15,7 @@ slug: /troubleshooting-ui
  - Are you on an older Windows machine? You may need to install a DNS [service](https://learn.adafruit.com/bonjour-zeroconf-networking-for-windows-and-linux/overview#microsoft-windows-914263-8), but also see workarounds [here](https://github.com/OutsourcedGuru/octoprint-name-resolution-hacks).
 
 
-#### I see "Failed to connect to MQTT. Is configuration for leader_address correct? Currently set to ..." in a pop-up - what can I do?
+### I see "Failed to connect to MQTT. Is configuration for leader_address correct? Currently set to ..." in a pop-up - what can I do?
 
 This error occurs because your UI can't connect to an internal system, MQTT, that is used for displaying data and actions. Likely you also weren't able to access the UI with `http://pioreactor.local`, but had to use an IP address as the url.
 
@@ -36,13 +36,19 @@ Your IP may be different than the one above.
 4. [Power-cycle the Pioreactor](/user-guide/common-questions#how-can-i-restart-my-pioreactor-is-pulling-the-power-plug-out-safe).
 
 
-#### When I click an action in the UI, I don't see any response. Or the button just spins and does nothing.
+### When I click an action in the UI, I don't see any response. Or the button just spins and does nothing.
 
- - Is there a green icon in the top-left of the Pioreactor card? If not, or it's grey, either the Pioreactor is powered off, or the `monitor` job is not running. Try power-cycling the Pioreactor.
- - It's possible that the current experiment has changed - try refreshing the page.
- - If you had trouble accessing the UI (see question above), in your config.ini, change the `leader_address` field to whatever worked above, an IP for example.
+Any of the following could solve your problem:
+
+ - Is there a green icon in the top-left of the Pioreactor card? If not, or it's grey, either the Pioreactor is powered off, or the `monitor` job is not running. If so, [try power-cycling the Pioreactor](/user-guide/common-questions#how-can-i-restart-my-pioreactor-is-pulling-the-power-plug-out-safe).
+
+![Left image is green, right image is grey](/img/user-guide/monitor_on_off.png)
+
+
+ - It's possible that the experiment has changed while the page has been left open - try refreshing the page and try again.
+ - If you had trouble accessing the UI ([see question above](/user-guide/troubleshooting-ui#i-see-failed-to-connect-to-mqtt-is-configuration-for-leader_address-correct-currently-set-to--in-a-pop-up---what-can-i-do)), in your config.ini, change the `leader_address` field to whatever worked above, an IP for example.
  - Possibly the web server is off. Try logging into your leader and typing `sudo systemctl status lighttpd.service`
- - Do you also see a "Failed to connect to MQTT. Is configuration for leader_address correct?" error pop-up? If so, see question above.
-
+ - Do you also see a "Failed to connect to MQTT. Is configuration for leader_address correct?" error pop-up? If so, [see question above](/user-guide/troubleshooting-ui#i-see-failed-to-connect-to-mqtt-is-configuration-for-leader_address-correct-currently-set-to--in-a-pop-up---what-can-i-do0).
+ - Try power-cycling the Pioreactor.
 
 
