@@ -21,7 +21,7 @@ Calibrations should be specific to your experiment setup. Any changes to your me
 
 Calibrations should, on average, take approximately 10 minutes or less. 
 
-Connect to your Pioreactor by typing *`ssh pioreactor@<insert unit name>.local`*. For example, to calibrate on our Pioreactor named worker3, we typed *`ssh pioreactor@worker3.local`*. The default password is `raspberry`. To begin calibrations, type *`pio run od_calibration`*.
+Connect to your Pioreactor by typing *`ssh pioreactor@<insert unit name>.local`*. For example, to calibrate on our Pioreactor named worker3, we typed *`ssh pioreactor@worker3.local`*. The default password is `raspberry`. To begin calibrations, type `pio run od_calibration`.
 
 Start off by inputting some metadata of your calibration. Provide a descriptive and unique name to make it easier to find your calibration again, if needed. Follow the rest of the questions.
 
