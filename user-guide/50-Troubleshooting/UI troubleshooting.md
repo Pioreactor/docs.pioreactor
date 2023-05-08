@@ -32,8 +32,8 @@ leader_address=192.168.0.10
 
 Your IP may be different than the one above.
 
-3. Hit `Save`.
-4. [Power-cycle the Pioreactor](/user-guide/common-questions#how-can-i-restart-my-pioreactor-is-pulling-the-power-plug-out-safe).
+3. Hit `Save`. Wait a minute.
+4. Power-cycle the Pioreactor by unplugging the power and plugging back in.
 
 
 ### When I click an action in the UI, I don't see any response. Or the button just spins and does nothing.
