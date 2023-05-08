@@ -32,7 +32,7 @@ leader_address=192.168.0.10
 
 Your IP may be different than the one above.
 
-3. Hit `Save`. Wait a minute.
+3. Hit `Save`. Wait a minute for the save to confirm.
 4. Power-cycle the Pioreactor by unplugging the power and plugging back in.
 
 
