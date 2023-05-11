@@ -7,7 +7,7 @@ import Highlight from '@site/src/components/Highlight';
 import * as colors from '@site/src/components/constants';
 
 
-### UI is reporting "Stirring RPM is 0"
+### UI is reporting "Stirring RPM is 0", or stirring self-test failed.
 
 First, with the stirring activity running, carefully examine if the fan below is spinning.
  - If it's not spinning,

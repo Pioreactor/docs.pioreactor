@@ -7,11 +7,13 @@ When a Pioreactor successfully boots, the onboard blue LED will flash quickly fo
 
 | Number of flashes | Error                      |
 |-------------------|----------------------------|
-| 1                 | Can't connect to network (wifi)    |
+| 1                 | Can't connect to network   |
 | 2                 | Can't connect to leader    |
 | 3                 | SD card is almost full     |
 | 4                 | Stirring RPM is 0          |
 | 5                 | ADC input is very high     |
 | 6                 | Heating PCB is above 60 ℃  |
+| 7                 | Voltage problem            |
+| 8                 | Webserver offline          |
 
 

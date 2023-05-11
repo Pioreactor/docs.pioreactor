@@ -8,7 +8,9 @@ For more customization and control of your Pioreactor, you can access the Raspbe
 
 ## Access from Windows
 
-### Using the Command Prompt
+There are two simple ways to access the Raspberry Pi from a Windows desktop.
+
+### 1. Using the Command Prompt
 
 1. [Open the command prompt](https://support.kaspersky.com/common/windows/14637#block0).
 2. Type `ssh pioreactor@<insert unit name>.local`. For example, to access on our Pioreactor named _worker3_, we typed `ssh pioreactor@worker3.local`. The default password is `raspberry`.
@@ -17,7 +19,7 @@ For more customization and control of your Pioreactor, you can access the Raspbe
 If successful, try entering `pio blink` - your Pioreactor's blue LED should starting blinking. See [more commands here](/user-guide/cli).
 
 
-### Using PuTTY
+### 2. Using PuTTY
 
 Start by installing the program [PuTTY](https://www.putty.org/). Once downloaded, open PuTTY. Enter your Pioreactor's name as the hostname (if working with a cluster, enter your leader's hostname). Click "Open". If this is the first time to connect to the Raspberry Pi, you will have to accept its SSH certificate. On the next screen, use the username / password: `pioreactor` / `raspberry`.
 
