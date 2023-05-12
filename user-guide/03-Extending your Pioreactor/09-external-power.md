@@ -5,7 +5,9 @@ slug: /external-power
 
 Some applications require more power to your Pioreactor if it is using lots of peripherals. This may include using more powerful pumps, more powerful external LEDs, etc. Or, if you see warning messages that reference under voltage or throttling, you probably are asking the Pioreactor to do too much given its default 5V power supply.
 
-You can supply a higher voltage / amp power to the peripherals using the barrel jack connection. The barrel jack connection allows for power supply units of up to 18V to the PWM channels 1 through 4 (PWM channel 5, used for onboard heating, is not effected, and always tied to the 5V rail). **Please make sure your barrel jack connector is positive center. See notes below.**.
+You can supply a higher voltage / amp power to the peripherals using the barrel jack connection. The barrel jack connection allows for power supply units of up to 18V to the PWM channels 1 through 4 (PWM channel 5, used for onboard heating, is not effected, and always tied to the 5V rail). **Please make sure your barrel jack connector is positive center. Look for a symbol like the following, or confirm in some other manner**
+
+![positive center](https://upload.wikimedia.org/wikipedia/commons/2/2e/Polarity_marking_center_positive.svg)
 
 Finally, to enable the PWM channels to use the new auxiliary power supply, **you need to move the shunt connector to the position closest to the LED outputs**. (If the shunt connector is not present, the PWM rail is powered by the RPi's power supply, minus a diode drop. It's recommend to replace the shunt, however.)
 

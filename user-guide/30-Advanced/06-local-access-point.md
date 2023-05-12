@@ -8,7 +8,7 @@ import ButtonDownloadLocalAccessPointFile from '@site/src/components/ButtonDownl
 
 :::info
 
-This feature is currently disabled, but will be available in a few days! Follow at our [forums](https://forum.pioreactor.com/)
+This feature is currently experimentalgu
 :::
 
 For some use cases, you may want to create a local WiFi network just for your Pioreactors (this is called a local access point). Why might you want to do this?
