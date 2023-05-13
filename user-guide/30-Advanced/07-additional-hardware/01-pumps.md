@@ -9,3 +9,9 @@ The PWM output default to 5V (specifically, it's tied to the power supply, so it
 Pumps that we have used and we like:
 
 1. [Adafruit](https://www.adafruit.com/product/1150)
+
+:::note
+
+These pumps require some assembly to work with the Pioreactor
+
+:::
