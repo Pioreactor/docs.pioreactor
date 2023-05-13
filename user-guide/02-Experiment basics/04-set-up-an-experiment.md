@@ -13,11 +13,11 @@ import Admonition from '@theme/Admonition';
 
 ![](/img/user-guide/start_new_experiment.png)
 
-2. On the next screen, enter your new experiment name. This name should be unique from prior experiment names. Enter optional metadata about your experiment. The description can be changed later, too. Click "Save" when done.
+2. On the next screen, enter your new experiment name. This name should be unique from prior experiment names. Enter optional metadata about your experiment; you can modify the description later, if necessary. Click "Save" when done.
 
 ![](/img/user-guide/create_new_experiment_page.png)
 
-3. (Optional) If working with more than one Pioreactor in your cluster, it's useful to assign experiment-specific labels to them. These labels show up in the user interface, and make progress checking and updating easier. The labels can be changed later. Click "Assign" when done.
+3. (Optional) If working with more than one Pioreactor in your cluster, it's useful to assign experiment-specific labels to them. These labels appear in the user interface, making progress checking and updating easier. The labels can be changed later. Click "Assign" when done.
 
 :::tip
 Use these labels to keep track of treatments on multiple Pioreactors. For example, labels '15C', '25C' and '35C' can be used to differentiate temperature treatments. These labels will be shown on graphs generated in the _Overview_ page on the website. They can be changed in the UI later, too.
@@ -31,7 +31,7 @@ When starting, it's useful to run a _self test_ to confirm that your Pioreactors
 
 ### (Optional) Blanking
 
-When working with **small amounts** of a microorganism, or very turbid media, you can obtain more accurate growth rates by [blanking the vial](/user-guide/od-normal-growth-rate#blanking) before inoculation.
+When working with **small amounts** of a microorganism, or when using very turbid media, you can obtain more accurate growth rates by [blanking the vial](/user-guide/od-normal-growth-rate#blanking) before inoculation.
 
 <AssemblyInstructionBlock title="How to record a blank" images={["experiments/calibrate.png","experiments/blank.png"]}>
 
@@ -46,7 +46,7 @@ When working with **small amounts** of a microorganism, or very turbid media, yo
 
 ## Start activities from the Pioreactors page.
 
-On the _Pioreactors_ page, you should see at least one Pioreactor under _Active Pioreactors_. Using the "Manage" button, you can start an [activity](/user-guide/activities) . Once started, jobs can also be _paused_ (and then _resumed_) or _stopped_. Clicking the "Manage all Pioreactors" button will give you control to start and stop activities on all active Pioreactors.
+On the _Pioreactors_ page, you should see at least one Pioreactor under _Active Pioreactors_. You can start an [activity](/user-guide/activities) using the "Manage" button. Once started, you can pause (and then resume) or stop jobs. Clicking the "Manage all Pioreactors" button will give you control to start and stop activities on all active Pioreactors.
 
 
 ![](/img/user-guide/pioreactor_page_manage.png)

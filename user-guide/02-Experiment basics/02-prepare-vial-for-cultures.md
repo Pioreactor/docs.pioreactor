@@ -7,7 +7,7 @@ slug: /prepare-vial-for-cultures
 
 #### Cleaning the vial
 
-It's recommend to clean your vial before every use. The vial and cap can be cleaned with soapy water. A useful accessory for cleaning is a small bottle brush / test tube brush.
+It's recommend to clean your vial before every use. The vial and cap can be cleaned with soapy water. A useful accessory for cleaning is a small bottle brush / test tube brush. Rinse the vial to remove any soap residue.
 
 #### Choosing a volume for your culture
 
@@ -60,16 +60,16 @@ We recommend measuring with a scale and a micropipette. If you are using a dropp
 
 Keep the bottoms of the tubes in the cap from being submerged in your media to avoid creating a pressured environment. Adjust each luer lock end until the other end of the tube is above liquid level.
 
-### 6. Cleaning glass  (Optional)
+### 6. Handling the glass (Optional)
 
-Since light will be traveling through the glass, we recommend handling the vial with gloves, or minimizing touching the glass as much as possible. Before placing in the Pioreactor sleeve, wiping the surface of the glass with a kimwipe is a great idea!
+We recommend handling the vial with gloves, or minimizing touching the glass as much as possible to avoid getting oils and fingerprints on the glass. Before placing in the Pioreactor sleeve, wiping the surface of the glass with a kimwipe is a great idea!
 
 ### 7. Positioning glassware in the Pioreactor sleeve
 
-Place the glassware vial into the Pioreactor sleeve. The outside of the glassware vial should be clean and dry.
+Place the glassware vial into the Pioreactor sleeve. The outside of the glassware vial should be clean and dry. If the vial is wet, even with a drip, it can damage the electronics underneath.
 
 :::tip
-Ensure that the vial is pressed all the way down and is touching the bottom of the vial holder.
+Ensure that the vial is pressed all the way down and is touching the bottom of the vial holder. This ensures correct temperature regulation of the culture.
 :::
 
 

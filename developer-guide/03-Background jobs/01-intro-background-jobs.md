@@ -13,13 +13,23 @@ Typically, we structure background job code such that the Python file has a sing
 
 ### Logging
 
-All subclasses of `BackgroundJob` have the `logger` attribute that can be used to log messages. These messages are printed to the console, send to MQTT, _sometimes_ displayed in the UI, and stored permanently in the Pioreactor database. Here's how:
+All subclasses of `BackgroundJob` have the `logger` attribute that can be used to log messages. These messages are printed to the console, sent to MQTT, _sometimes_ displayed in the UI, and all are stored permanently in the Pioreactor database. Here's how:
 
 ```python
-job.logger.debug("A debug message")
-job.logger.info("An info message - this is display in the recent logs in the UI")
+
+# use for debugging
+job.logger.debug("A debug message - displayed in the console")
+
+# use for providing relevant updates
+job.logger.info("An info message - this is display in the Recent Logs table in the UI")
+
+# use for successes or important updates
 job.logger.notice("A notice message - this is displayed in the UI in a green popup")
+
+# use for when something doesn't look correct, but will continue.
 job.logger.warning("A debug message - this is displayed in the UI in a yellow popup")
+
+# use for when something is wrong and you take over control from the user
 job.logger.error("A debug message - this is displayed in the UI in a red popup")
 ```
 
@@ -121,11 +131,11 @@ class Stirrer(BackgroundJob):
 
 Thus the attributes `target_rpm`, `measured_rpm`, `duty_cycle` are all published to MQTT when they change, but only `duty_cycle` and `target_rpm` are able to be updated over MQTT (as defined by `settable`).
 
-The `"datatype"` field is normally one of: `"string"`, `"float"`, `"integer"`, `"json"`, `"boolean"` (full list in `pioreactor/types.py`).
+ - The `"datatype"` field is normally one of: `"string"`, `"float"`, `"integer"`, `"json"`, `"boolean"` (full list in `pioreactor/types.py`).
+ - The `"settable"` field sets whether this attribute can be changed externally.
+ -  The `"unit"` field is the unit of measurement, if any. This key is optional, and can be omitted.
+ -  Also, there is an optional `"persist"` key (not shown above), which contains a boolean describing if the value should be kept in MQTT after the job exits, default `False`.
 
-:::info
-The `unit` key is optional, and can be omitted. Also, there is an optional `persist` key (not shown above), which contains a boolean describing if the value should be kept in MQTT after the job exits, default `False`.
-:::
 
 When a class' attribute that's present in `published_settings` changes, a MQTT message is published under the topic `pioreactor/{self.unit}/{self.experiment}/{self.job_name}/{attr}` with payload equal to the new value of the attribute. This is how the web interface is provided real-time data.
 
@@ -145,18 +155,45 @@ When the job disconnects and cleans up, the published settings in MQTT are remov
 
 ### Uniqueness
 
-Only a single instance of a background job, modulo the job's name, can be running on a Raspberry Pi. For example, only a single `Monitor` background job can run, likewise only a single `ODReading` can run. (It's not clear what running multiple `ODReading`s means, or how they will interact with the hardware - poorly we expect).
+Only a single instance of a background job, indexed by the job's name, can be running on a Raspberry Pi. For example, only a single `Monitor` background job can run, likewise only a single `ODReading` can run. (It's not clear what running multiple `ODReading`s means, or how they will interact with the hardware - poorly we expect).
 
 The uniqueness is across processes, too. So if a script is running `ODReading`, then `pio run od_reading` will fail.
 
 :::note
-This uniqueness constraint is currently enforced. It's possible we will see a reason to remove the uniqueness constraint in a future version - let us know if you want to see this, too!
+This uniqueness constraint is enforced in the current version of the software. It's possible we will see a reason to remove the uniqueness constraint in a future version - let us know if you want to see this, too!
 :::
 
 
 ### Entry & exit
 
-It's important to treat background jobs as objects that need to be cleaned up properly. There are two traditional ways to use a background job:
+Background jobs make lots of connections to MQTT, GPIOs, hardware, and other external systems. It's important to treat background jobs as objects that need to be cleaned up these connections properly.
+
+If your jobs needs to clean up something, you can put it into the `on_disconnected` function:
+
+```python
+from pioreactor.background_jobs.base import BackgroundJob
+from pioreactor.actions.led_intensity import led_intensity
+
+class HappyJob(BackgroundJob):
+
+    def __init__(self, ...):
+        # connect to a hardware
+        self.hardware_connection = Hardware()
+        self.hardware_connection.connect()
+
+        # set LED on, too
+        led_intensity({"A": 10})
+
+
+    def on_disconnected(self):
+        self.hardware_connection.disconnect()
+        led_intensity({"A": 0})
+```
+
+`on_disconnected` is called and connections are closed when the job exits (see below).
+
+
+There are two ways to use a background job that will ensure jobs are cleaned up correctly on exit:
 
 ```python
 job = SomeBackgroundJob(unit, experiment)
@@ -203,7 +240,7 @@ value = function_that_does_clean_up()
 
 ### Blocking
 
-Often we want the job to pause (or a script to pause), and wait for commands or MQTT messages. We can accomplish this with
+Often we want the job to wait and blocks, so as to wait for user commands or MQTT messages. We can accomplish this with
 
 ```python
 job.block_until_disconnected()
