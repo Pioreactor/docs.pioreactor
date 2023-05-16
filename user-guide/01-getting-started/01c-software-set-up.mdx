@@ -64,7 +64,7 @@ What is an image file? It's a file that contains all the required software prein
 
     <img src="/img/user-guide/rpi-imager-settings.png" width="625" alt="Screenshot of what your settings should look like" style={{margin: "auto", display:"block"}} />
 
-6.  Click **Save** to save and exit the dialog box.
+    6.  Click **Save** to save and exit the dialog box.
 8.  Click **Write**. Writing will take up to 5 minutes. Perfect time for a tea break.
 7.  Once writing is complete, remove the microSD card, and place it (exposed copper side up) into the Raspberry Pi. **Your Raspberry Pi's power should be unplugged before inserting the microSD card**. The microSD slot is located on the PWM side of the Pioreactor, in the gap between the Raspberry Pi and the bottom faceplate. Reference the picture for the orientation.
 
@@ -132,7 +132,9 @@ On a successful start, the Pioreactor will flash its blue LED for about 4 second
 #### My RPi won't connect to my WiFi.
 
 *   Some Raspberry Pis can't connect to Wifi natively, and some Raspberry Pis can only connect to 2.4GHz connections. See table below: [![Rpi and wifi](https://user-images.githubusercontent.com/884032/105118696-e945dd00-5a9c-11eb-91f5-0cc77cdc1422.png)](https://user-images.githubusercontent.com/884032/105118696-e945dd00-5a9c-11eb-91f5-0cc77cdc1422.png)[](https://user-images.githubusercontent.com/884032/105118696-e945dd00-5a9c-11eb-91f5-0cc77cdc1422.png)
+*   If you are using the built-in WiFi in a Raspberry Pi-3, a Pi-3B+, or Pi-0W, be aware that the signal strength from the tiny internal antenna may be weaker than other WiFi devices. Try moving your Pioreactor closer to the router as a test.
 *   If your network hidden? You will need to check `hidden SSID` in the configuration in the Raspberry Pi imager. To fix this, you'll need to restart the image installation from the Raspberry Pi Imager.
+*   It's possible your SD card is damaged. This can cause all sorts of problems (including failing to boot), not just WiFi issues. The most common cause of SD card failure is probably inserting or removing the SD card while the Pi is powered up.
 *   Try power-cycling the Raspberry Pi (unplug and plug back in).
 *   If you are on a restrictive WiFi network (like at a university), and wish to avoid the network, [creating a local access point](/user-guide/local-access-point) may be a better option.
 *   You may have mis-typed your WiFi credentials. To fix this, you'll need to restart the image installation from the Raspberry Pi Imager.
