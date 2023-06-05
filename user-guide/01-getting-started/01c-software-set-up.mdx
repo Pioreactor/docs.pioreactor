@@ -126,25 +126,25 @@ We recommend running a [self-test](/user-guide/running-self-test) on all Pioreac
 ## Troubleshooting
 
 #### My Pioreactor keeps flashing the blue LED
-On a successful start, the Pioreactor will flash its blue LED for about 4 seconds. If you observe the blue LED flashing for longer, something may be wrong. You can diagnose the problem by [counting the number of flashes observed](/user-guide/error-codes).
+On a successful start, the Pioreactor will flash its blue LED for about 2 seconds. If you observe the blue LED flashing for longer, something may be wrong. You can diagnose the problem by [counting the number of flashes observed](/user-guide/error-codes).
 
 
 #### My RPi won't connect to my WiFi.
 
 *   Some Raspberry Pis can't connect to Wifi natively, and some Raspberry Pis can only connect to 2.4GHz connections. See table below: [![Rpi and wifi](https://user-images.githubusercontent.com/884032/105118696-e945dd00-5a9c-11eb-91f5-0cc77cdc1422.png)](https://user-images.githubusercontent.com/884032/105118696-e945dd00-5a9c-11eb-91f5-0cc77cdc1422.png)[](https://user-images.githubusercontent.com/884032/105118696-e945dd00-5a9c-11eb-91f5-0cc77cdc1422.png)
-*   If you are using the built-in WiFi in a Raspberry Pi-3, a Pi-3B+, or Pi-0W, be aware that the signal strength from the tiny internal antenna may be weaker than other WiFi devices. Try moving your Pioreactor closer to the router as a test.
+*   If you are using the built-in WiFi in a Raspberry Pi3, a Pi3B+, or Pi Zero W, be aware that the signal strength from the tiny internal antenna may be weaker than other WiFi devices. Try moving your Pioreactor closer to the router as a test.
 *   If your network hidden? You will need to check `hidden SSID` in the configuration in the Raspberry Pi imager. To fix this, you'll need to restart the image installation from the Raspberry Pi Imager.
-*   It's possible your SD card is damaged. This can cause all sorts of problems (including failing to boot), not just WiFi issues. The most common cause of SD card failure is probably inserting or removing the SD card while the Pi is powered up.
 *   Try power-cycling the Raspberry Pi (unplug and plug back in).
-*   If you are on a restrictive WiFi network (like at a university), and wish to avoid the network, [creating a local access point](/user-guide/local-access-point) may be a better option.
+*   If you are on a restrictive network (like at a university), and wish to avoid the network, [creating a local access point](/user-guide/local-access-point) may be a better option.
 *   You may have mis-typed your WiFi credentials. To fix this, you'll need to restart the image installation from the Raspberry Pi Imager.
 *   If connecting to a 5GHz WiFi connection, you _need_ to supply a valid country code. See the list here: [https://en.wikipedia.org/wiki/ISO\_3166-1\_alpha-2/](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 "Link to country codes on wikipedia")
+*   It's possible your SD card is damaged. This can cause all sorts of problems (including failing to boot), not just WiFi issues. The most common cause of SD card failure is probably inserting or removing the SD card while the Pi is powered up.
 *   Check out some other possibilities [here](https://community.octoprint.org/t/wifi-setup-and-troubleshooting/184#heading--troubleshooting).
 
 
 #### I want to change the Pioreactor name on installation of leader
 
-Easiest solution is to start over: reflashing the OS onto the microSD card will remove all previous data, and you can try again.
+Easiest solution is to start over. You can edit the name in the RPi Imager, and reflash the image onto the microSD card to remove all previous data.
 
 #### pioreactor.local in a web browser is not showing up
 

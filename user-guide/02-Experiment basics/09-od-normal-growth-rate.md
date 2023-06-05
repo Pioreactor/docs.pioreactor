@@ -26,7 +26,7 @@ $$
 
 For example: 
 
-| Pioreactor name | reference OD | latest OD|
+| Pioreactor name | Reference OD | Latest OD|
 |--------------|------------| --------------|
 | Pioreactor1  | 0.030		| 0.033 |
 | Pioreactor2  | 0.010		| 0.015 |
@@ -59,10 +59,10 @@ Blanking your vials is recommended for experiments that begin with low OD readin
 
 As an example, let's consider the same data as above, but this time we have information on the blank ODs: 
 
-| Pioreactor name | Blank OD | OD with culture (reference OD) | Difference (culture - blank) | Latest OD |
-|-----------------|----------|--------------------------------|------------------------------| -------|
-| Pioreactor1     |  0.025   | 0.030         		          | 0.005                        | 0.033  |
-| Pioreactor2     |  0.005   | 0.010	    			      | 0.005                        | 0.015  |
+| Pioreactor name | Blank OD (media) | Reference OD (media with culture) | Difference (reference - blank) | Latest OD |
+|-----------------|----------|--------------------------------|------------------------------| ----------|
+| Pioreactor1     |  0.025   | 0.030         		          | 0.005                        | 0.033     |
+| Pioreactor2     |  0.005   | 0.010	    			      | 0.005                        | 0.015     |
 
 We can now subtract the _blank_ values from the _latest OD_ and _reference OD_ values:
 

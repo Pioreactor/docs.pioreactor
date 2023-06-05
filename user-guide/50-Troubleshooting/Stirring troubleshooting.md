@@ -14,6 +14,7 @@ First, with the stirring activity running, carefully examine if the fan below is
     - Check to confirm that the fan's cable is in the right PMW channel. You can find the right PWM channel to use in the config.ini, under `[PWM]` (also check that it is not [overwritten in the unit specific config.ini](https://docs.pioreactor.com/user-guide/configuration#how-configuration-works-across-pioreactors))
     - Does the fan start to spin momentarily, but then stop? You may need to increase the target RPM in the UI. The lower limit of RPM is around 125. Target RPMs below 125 have a tendency to stall.
     - Visually inspect the fan. Is it touching the <Highlight color={colors.magenta}>screws above it (see image below)</Highlight>? Can it spin freely if you try to spin it with a pen or pencil?
+    - Very gently wiggle the connection between the stirring wires and the HAT - does the fan start? It may be a bad connection. Contact us at support@pioreactor.com
     - The fan may be damaged. Contact us at support@pioreactor.com
 - If the fan is spinning:
     - In most cases, this issue occurs when the fan is situated too far from the sensors on the PCB above it.

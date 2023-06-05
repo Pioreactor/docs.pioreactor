@@ -41,3 +41,7 @@ Below is a list of important locations and files on the filesystem for the Piore
  - `/home/pioreactor/.pioreactor/plugins/` is where Python files can be added.
  - `/home/pioreactor/.pioreactor/plugins/ui/contrib/` also holds UI yaml files for custom Python code.
 
+### Experiment profiles
+
+ - `/home/pioreactor/.pioreactor/experiment_profiles/` is where experiment profiles (yaml) are stored.
+
