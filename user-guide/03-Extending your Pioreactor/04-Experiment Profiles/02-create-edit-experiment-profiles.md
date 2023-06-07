@@ -19,7 +19,7 @@ common:
     actions:
       - type: start
         hours_elapsed: 0.0
-        parameters:
+        options:
           target_rpm: 500.0
   temperature_control:
     actions:
@@ -52,7 +52,7 @@ common:
     actions:
       - type: start
         hours_elapsed: 0.0
-        parameters:
+        options:
           target_rpm: 500.0
   temperature_control:
     actions:
@@ -89,7 +89,7 @@ common:
     actions:
       - type: start
         hours_elapsed: 0.0
-        parameters:
+        options:
           target_rpm: 500.0
 
 worker1:
