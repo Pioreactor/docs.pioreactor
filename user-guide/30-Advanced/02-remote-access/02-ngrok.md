@@ -46,9 +46,13 @@ nohup /opt/ngrok/ngrok start ui ws --config ~/.ngrok/ngrok.yml &
 Alternatively, if you wish to set this up as a service that will launch on start up, the following `sudo systemctl enable ngrok`
 
 10.  At [dashboard.ngrok.com](https://dashboard.ngrok.com/cloud-edge/endpoints), you'll see two urls. One of the unique urls should link to your Pioreactor dashboard (when asked for a name and password, use "pioreactor" and "raspberry" respectively).
-11.  The other url is added to your config.ini (under Configuration in the Pioreactor UI), without the `http://` infront. For example:
+11.  The other url is added to your config.ini section `[remote]` `ws_url`  (under Configuration in the Pioreactor UI), without the `http://` infront. For example:
 
-![](/img/user-guide/ngrok_url.png)
+```
+[remote]
+# see docs at https://docs.pioreactor.com/user-guide/remote-access
+ws_url=12a14e3bb.ngrok.io
+```
 
 12.  Save the configuration by clicking \[Save\].
     
