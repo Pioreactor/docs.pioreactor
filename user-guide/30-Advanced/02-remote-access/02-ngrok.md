@@ -1,6 +1,6 @@
 ---
-title: Setting up remote access to the web interface
-slug: /remote-access
+title: Ngrok
+slug: /ngrok-remote-access
 ---
 
 If you would like to expose the Pioreactor UI to view remotely, you can use a service like [Ngrok](https://ngrok.com/) to do so.
