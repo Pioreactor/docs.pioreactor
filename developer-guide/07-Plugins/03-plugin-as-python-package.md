@@ -7,7 +7,7 @@ If you'd like to contribute your plugin to the community, this is done easily by
 
 ## Choosing a plugin name
 
-Your plugin name should be _all lowercase_, and have _underscores_ divide any words. Ex: `pioreactor_gas_plugin` is fine, but `pioreactor-gas-plugin` is not, nor is `Pioreactor-gas-plugin`.
+Your plugin name should be _all lowercase_, and have _underscores_ divide any words. Ex: `pioreactor_gas_plugin` is fine, but `pioreactor-gas-plugin` is not, nor is `Pioreactor-Gas-Plugin`.
 
 ## Organizing your files
 
@@ -276,6 +276,19 @@ You'll need to make sure your database table has the necessary fields. See detai
 
 
 See an example plugin that uses this idea [here](https://github.com/Pioreactor/co2-reading-plugin).
+
+
+#### 7. Optional: adding post_install and pre_uninstall bash scripts.
+
+If your plugin needs to edit the operating system, you can include either of the following files: `post_install.sh`, or `pre_uninstall.sh`. We have used these files to enable systemd services such that the job being installed will start at startup. Example [post_install.sh](https://github.com/Pioreactor/pioreactor-logs2slack/blob/master/pioreactor_logs2slack/post_install.sh) and [pre_uninstall.sh](https://github.com/Pioreactor/pioreactor-logs2slack/blob/master/pioreactor_logs2slack/pre_uninstall.sh).
+
+You'll need to modify your MANIFEST.in, too:
+
+```
+include <PLUGIN_NAME>/post_install.sh
+include <PLUGIN_NAME>/pre_uninstall.sh
+```
+
 
 
 ## Create a Python package on PyPi

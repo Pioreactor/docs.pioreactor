@@ -12,7 +12,7 @@ Below is a list of important locations and files on the filesystem for the Piore
  - `/var/www/pioreactorui/` is the source of the web-app.
  - `/var/www/pioreactorui/.env` holds some configuration for the UI.
  - `/var/www/pioreactorui/contrib/` holds yaml files that display automation data, job data, and chart data.
- - `/home/pioreactor/.pioreactor/plugins/ui/contrib` also holds yaml files, like the above.
+ - `/home/pioreactor/.pioreactor/plugins/ui/contrib/` also holds yaml files, like the above.
 
 
 ### Logs
