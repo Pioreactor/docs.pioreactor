@@ -1,5 +1,5 @@
 ---
-title: Supplying auxiliary power to the Pioreactor's PWM channels
+title: Supplying more power to the PWM channels
 slug: /external-power
 ---
 

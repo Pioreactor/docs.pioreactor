@@ -31,7 +31,7 @@ This is optional, but can really help stirring performance. Creating a stirring 
 
 -----
 
-<AssemblyInstructionBlock title="Calibrating the stirring on the UI site" images={["user-guide/calibrate.png","user-guide/calibrate_stirring.png"]}>
+<AssemblyInstructionBlock title="Calibrating the stirring in the UI" images={["user-guide/calibrate.png","user-guide/calibrate_stirring.png"]}>
 
 1. Start by filling a Pioreactor vial about 3/4th with water, and place the stirbar inside. Close with lid. Place into the Pioreactor.
 2. From the web interface, in _Pioreactors_, find the Pioreactor you wish to calibrate. Click _Calibrate_.

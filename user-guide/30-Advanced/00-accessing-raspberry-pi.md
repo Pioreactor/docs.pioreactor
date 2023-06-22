@@ -20,7 +20,7 @@ When typing in the password, it may not show up as you type (this is a security 
 :::
 
 
-  ![](/img/experiments/turbidostat/ssh_into_unit.png)
+  ![A computer console with `ssh pioreactor@worker3.local` typed in, and the resulting active console on the Raspberry Pi.](/img/experiments/turbidostat/ssh_into_unit.png)
 
 If successful, try entering `pio blink` - your Pioreactor's blue LED should starting blinking. See [more commands here](/user-guide/cli).
 

@@ -1,5 +1,5 @@
 ---
-title: Introduction
+title: Assembly introduction
 slug: /getting-started
 ---
 

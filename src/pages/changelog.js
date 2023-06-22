@@ -20,7 +20,7 @@ function Changelog() {
   }, [])
 
   return (
-    <Layout title="Changelog">
+    <Layout title="Changelog" description="The software changelog for the Pioreactor system">
       <header>
         <h1 style={{
           display: 'flex',

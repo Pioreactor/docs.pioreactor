@@ -93,7 +93,7 @@ setup(
     url="<A HOMEPAGE>",
     packages=find_packages(),
     include_package_data=True,
-    install_requires=[], # PROVIDE OTHER PYTHON REQUIREMENTS
+    install_requires=[], # PROVIDE OTHER PYTHON REQUIREMENTS, ex: "pioreactor>=23.6.0", "numpy>=1.0"
     entry_points={
         "pioreactor.plugins": "<PLUGIN_NAME> = <PLUGIN_NAME>"
     },
