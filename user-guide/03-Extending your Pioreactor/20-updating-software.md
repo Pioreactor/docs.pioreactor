@@ -18,7 +18,7 @@ Upon visiting the _Updates_ page, you can see what version you have installed, a
 
 If you'd like to update, click on the "Update to next release" button. Updating software doesn't interrupt experiments or activities, but we suggest waiting until between experiments to update.
 
-![](/img/user-guide/click_update.png)
+![highlight of the webpage showing what to select to update](/img/user-guide/click_update.png)
 
 Updating from the UI will update all the Pioreactors in your cluster.
 
@@ -30,4 +30,12 @@ The updating process will update to the _next_ release, after your current versi
 
 ### Installing previous versions or development versions
 
-From the [command line](https://docs.pioreactor.com/user-guide/accessing-raspberry-pi), you can install specific versions. See `pio update app --help` for more.
+You can install the bleeding-edge software from this page as well. Just select the development build in the drop down. Warning: this version may be unstable (and fun!)
+
+
+![highlight of the webpage showing what to select to update to the development branch](/img/user-guide/click_update_develop.png)
+
+
+
+
+Simiarly, from the [command line](https://docs.pioreactor.com/user-guide/accessing-raspberry-pi), you can install specific versions. See `pio update app --help` for more.
