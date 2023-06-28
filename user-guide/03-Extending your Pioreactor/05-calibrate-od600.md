@@ -15,7 +15,7 @@ Depending on the purposes of your research, you may want to calibrate your Piore
 
 OD600 calibrations are straightforward, and only require one vial, your sample of interest, and an accurate way to measure liquids. We recommend a micropipette of volume range 100 to 1000 uL. 
 
-Calibrations should be specific to your experiment setup. Any changes to your media, culture, or optical setup (i.e. changing IR intensity, replacing pieces, or changing the angle) will require a new calibration. If everything remains consistant, then we recommend running calibrations every 6 months, or whatever suits your purposes. 
+Calibrations should be specific to your experiment setup. Any changes to your media, culture, or optical setup (i.e. changing IR intensity, replacing pieces, or changing the angle) will require a new calibration. If everything remains consistent, then we recommend running calibrations every 6 months, or whatever suits your purposes.
 
 ## Running the calibration
 

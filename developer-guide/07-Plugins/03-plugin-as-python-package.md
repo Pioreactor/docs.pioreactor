@@ -7,7 +7,9 @@ If you'd like to contribute your plugin to the community, this is done easily by
 
 ## Choosing a plugin name
 
-Your plugin name should be _all lowercase_, and have _underscores_ divide any words. Ex: `pioreactor_gas_plugin` is fine, but `pioreactor-gas-plugin` is not, nor is `Pioreactor-Gas-Plugin`.
+Your plugin name should be _all lowercase_, and have _underscores_ divide any words. Example: `pireactor_relay_plugin` is fine, but `pioreactor-relay-plugin` is not, nor is `Pioreactor-Relay-Plugin`.
+
+However, your _distribution package_ name should be lowercase and have dashes (it's a Python thing: I agree, this is confusing, I'll walk you through it). You can just replace any underscores with dashes: so our example distribution package name is `pioreactor-relay-plugin`.
 
 ## Organizing your files
 
@@ -15,12 +17,12 @@ Your plugin name should be _all lowercase_, and have _underscores_ divide any wo
 Note that the way files are organized may depend on if your plugin is an **automation** or a **job**. Plugins can install both automations and jobs.
 :::
 
-Consider an example plugin: a **job** called `pireactor_relay_plugin`, which just turns on or off a PWM channel. Follow the file organization here: [CamDavidsonPilon/pioreactor-relay-plugin](https://github.com/CamDavidsonPilon/pioreactor-relay-plugin).
+Consider an example plugin: a plugin named `pioreactor_relay_plugin` that implements a _background job_ which just turns on or off a PWM channel. Follow the file organization here: [CamDavidsonPilon/pioreactor-relay-plugin](https://github.com/CamDavidsonPilon/pioreactor-relay-plugin).
 
 Here's a general directory outline of how your files should be organized for a job:
 
 ```
-📁 <PLUGIN_NAME>
+📁 <DISTRIBUTION-NAME (with dashes)>
 ├─ 📁 <PLUGIN_NAME>
 │  ├─ 📁 ui
 │  │  ├─ 📁 contrib
@@ -38,7 +40,7 @@ Here's a general directory outline of how your files should be organized for a j
 The directory outline is very similar for an **automation plugin** &#151 the only difference is the location of the `.yaml` file.
 
 ```
-📁 <PLUGIN_NAME>
+📁 <DISTRIBUTION-NAME with dashes>
 ├─ 📁 <PLUGIN_NAME>
 │  ├─ 📁 ui
 │  │  ├─ 📁 contrib
@@ -54,13 +56,18 @@ The directory outline is very similar for an **automation plugin** &#151 the onl
 ├─ 📝 setup.py
 ```
 
-Start by creating a new folder for your plugin. In our case, we named it `pioreactor_relay_plugin`. This **top level folder** will contain 4 important parts:
+Start by creating a new folder for your plugin, equal to the distribution name (the name with dashes). In our case, we named it `pioreactor-relay-plugin`. This **top level folder** will contain five important parts:
 
-#### 1. A license text file, named `LICENSE.txt`
+#### 1. The subfolder `<PLUGIN_NAME>` containing your plugin's code
+
+Within the top level directory, we created a sub-directory called `<PLUGIN_NAME>`.
+
+
+#### 2. A license text file, named `LICENSE.txt`
 
 A common license for software is the [MIT license](https://opensource.org/licenses/MIT).
 
-#### 2. A MANIFEST file, named `MANIFEST.in`
+#### 3. A MANIFEST file, named `MANIFEST.in`
 
 When creating a Python package, there's a default set of files that are included. To assure that our additional configuration and yaml files are included, create a `MANIFEST.in` file and paste the following:
 
@@ -69,11 +76,11 @@ recursive-include <PLUGIN_NAME>/ui/ *.yaml
 include <PLUGIN_NAME>/additional_config.ini
 ```
 
-#### 3. A `README.md`
+#### 4. A `README.md`
 
 Write a few notes with general information on your plugin to guide users. Call out any additional installation steps, or hardware required. This is a markdown document.
 
-#### 4. A Python `setup.py` file
+#### 5. A Python `setup.py` file
 
 Create a Python file called `setup.py` and copy & paste the following. Make changes based on your own plugin information.
 
@@ -82,7 +89,7 @@ Create a Python file called `setup.py` and copy & paste the following. Make chan
 from setuptools import setup, find_packages
 
 setup(
-    name="<PLUGIN_NAME>",
+    name="<DISTRIBUTION-NAME (with dashes)>",
     version="<VERSION>",
     license_files = ('LICENSE.txt',),
     description="<DESCRIPTION OF PLUGIN>",
@@ -100,10 +107,6 @@ setup(
 )
 ```
 
-#### 5. The subfolder `<PLUGIN_NAME>` containing your plugin's code
-
-Within the top level directory, we created a sub-directory called `<PLUGIN_NAME>`.
-
 ### Contents of the subfolder, `<PLUGIN_NAME>`
 
 #### 1. Your plugins Python files
@@ -116,7 +119,7 @@ function decorated with `@click.command` at the bottom of the file. See example 
 - **If implementing an automation:**
   Import the Class of your automation file:
 
-  ```
+  ```python
   from <SUBFOLDER CONTAINING PLUGIN>.<PYTHON FILE NAME> import <CLASS NAME>
   ```
 
@@ -155,7 +158,7 @@ Within `<PLUGIN_NAME>` folder, create subfolders named `ui/contrib/jobs`. For a 
 ```
 ---
 display_name:  # human readable name
-job_name: # job name
+job_name: # `job_name` as defined in your Python file
 display: # bool; true to display on the /Pioreactors card
 source: # name of your plugin
 description: # description of what your plugin does
@@ -175,7 +178,6 @@ published_settings:
 There are lots of examples of job yaml files [here](https://github.com/Pioreactor/pioreactorui/tree/master/contrib/jobs).
 
 
-
 ##### If implementing an automation:
 
 In the case of creating an **automation plugin**, create subfolder(s) with `ui/contrib/automations/<AUTOMATION TYPE>`, where `AUTOMATION TYPE` is one of `dosing`, `led`, or `temperature` depending on your automation type. Create a yaml file with the following convention. The name of the yaml file can be anything, but by convention it's `<automation_name>.yaml`.
@@ -183,7 +185,7 @@ In the case of creating an **automation plugin**, create subfolder(s) with `ui/c
 ```
 ---
 display_name:  # human readable name
-automation_name: # automation name
+automation_name: # automation name as defined in your Python files
 source: # name of your plugin
 description: # description of your plugin
 fields:
@@ -290,7 +292,6 @@ include <PLUGIN_NAME>/pre_uninstall.sh
 ```
 
 
-
 ## Create a Python package on PyPi
 
 Create an account on [https://pypi.org/](https://pypi.org/). Make sure to verify your email.
@@ -313,23 +314,17 @@ This can be done using `python setup.py clean --all` on the command line.
 
 ## Installing your Python package on your cluster
 
-A plugin can be installed individually through the command line on a leader using `pio`:
-
-:::tip
-
-If your plugin name has underscores, Python packaging will convert the underscores to dashes. Ex: `pioreactor_relay_plugin` is converted to `pioreactor-relay-plugin` when you install it.
-
-:::
+A plugin can be installed through the command line on a leader using `pio`:
 
 
 ```
-pios install-plugin <PLUGIN-NAME>
+pio install-plugin <DISTRIBUTION-NAME OR PLUGIN_NAME>
 ```
 
 To install a given plugin on the leader and all workers connected to the leader in a cluster, `pios install-plugin` can be used. 
  
 ```
-pios install-plugin <PLUGIN-NAME>
+pios install-plugin <DISTRIBUTION-NAME OR PLUGIN_NAME>
 ```
 
 ## Sharing your plugin with the community

@@ -11,6 +11,9 @@ For example (and see image below), each unit will use the shared config.ini sett
 
 ![](/img/user-guide/configini.png)
 
+#### Last-occurrence wins
+
+The config.ini can have duplicate entries (though it's not recommended), but only the last occurrence in the file will be used.
 
 ### Editing the configuration files from the web interface
 
