@@ -37,5 +37,4 @@ You can install the bleeding-edge software from this page as well. Just select t
 
 
 
-
-Simiarly, from the [command line](https://docs.pioreactor.com/user-guide/accessing-raspberry-pi), you can install specific versions. See `pio update app --help` for more.
+Similarly, from the [command line](https://docs.pioreactor.com/user-guide/accessing-raspberry-pi), you can install specific versions. See `pio update app --help` for more.

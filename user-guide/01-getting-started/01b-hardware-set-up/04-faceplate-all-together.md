@@ -27,7 +27,7 @@ These come assembled - leave them together.
 1.	Place the vial holder on top of the four extruding screw ends. The screw ends should fit into four holes on the bottom of the vial holder. The flat flex cable should follow the <Highlight color={colors.red}>arrow on the faceplate</Highlight>.
 2.	Holding it together, finish screwing the bottom of the faceplate. The screws will enter square nuts in the vial holder. Do not overtighten.
 3. The screw heads will be flush with the faceplate, and there should be <Highlight color={colors.blue}>no screw threads</Highlight> showing between the vial holder and the faceplate.
-4. Use the screwdriver to check that the fan can spin freely without rubbing against the <Highlight color={colors.magenta}>screws above</Highlight>.
+4. Use the screwdriver to check that the fan can spin freely without rubbing against the <Highlight color={colors.magenta}>screws above. If there is contact, slightly unscrew the four screws underneath to provide clearance.</Highlight>.
 
 </AssemblyInstructionBlock>
 

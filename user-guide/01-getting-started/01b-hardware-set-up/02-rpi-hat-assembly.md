@@ -12,20 +12,23 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-<AssemblyInstructionBlock title="Step 1: Necessary parts" images={["user-guide/hardware-assembly/hat_pieces.jpg"]}>
+<AssemblyInstructionBlock title="Step 1: Necessary parts" images={["user-guide/hardware-assembly/hat_pieces.jpg", "user-guide/hardware-assembly/gpio_check_A.jpg", "user-guide/hardware-assembly/gpio_check_B.jpg"]}>
 
-You will need:
-*	A Raspberry Pi of your choosing
-*	<Highlight color={colors.blue}>Hex nuts (4x)</Highlight>
-*	<Highlight color={colors.red}>12mm hex standoffs (4x)</Highlight>
-*	<Highlight color={colors.magenta}>12mm hex standoffs-with-6mm-screws (4x)</Highlight>
-*	<Highlight color={colors.green}>10mm screws (4x)</Highlight>
-*	<Highlight color={colors.orange}>Bottom faceplate</Highlight>
-*	<Highlight color={colors.teal}>HAT PCB</Highlight>
+1. You will need:
+* A Raspberry Pi of your choosing
+* <Highlight color={colors.blue}>Hex nuts (4x)</Highlight>
+* <Highlight color={colors.red}>12mm hex standoffs (4x)</Highlight>
+* <Highlight color={colors.magenta}>12mm hex standoffs-with-6mm-screws (4x)</Highlight>
+* <Highlight color={colors.green}>10mm screws (4x)</Highlight>
+* <Highlight color={colors.orange}>Bottom faceplate</Highlight>
+* <Highlight color={colors.teal}>HAT PCB</Highlight>
+
 
 :::note
-Depending on if you are using a Raspberry Pi Zero (the right-most Raspberry Pi displayed), or Raspberry Pi A or B (the full and 3/4 size), the placement of the hex nuts will be slightly different. See below:
+  Depending on if you are using a Raspberry Pi Zero (the right-most Raspberry Pi displayed), or Raspberry Pi A or B (the full and 3/4 size), the placement of the hex nuts will be slightly different. See below:
 :::
+
+2. Check the GPIO pins on the <Highlight color={colors.teal}>HAT PCB</Highlight> to confirm that they are straight and not touching another GPIO pin.
 
 </AssemblyInstructionBlock>
 
@@ -41,10 +44,10 @@ Depending on if you are using a Raspberry Pi Zero (the right-most Raspberry Pi d
 The 40 GPIO pins (standing for general-purpose input/output) form a distinct row on one side of the Raspberry Pi. Note the orientation of these pins to help you assemble correctly!
 :::
 
-1.	Orientation: the base will have a flat edge and an edge with an indent. The GPIO pins sit along the <Highlight color={colors.blue}>indent</Highlight>, seen on the left in the images.
-2.	Insert the <Highlight color={colors.red}>10mm screws</Highlight> into the holes.
-3.	Hand screw a <Highlight color={colors.magenta}>hex nut</Highlight> onto each screw.
-4.	Place the Raspberry Pi on top, aligning the holes, with the <Highlight color={colors.green}>GPIO pins</Highlight> on the left. Note: your Raspberry Pi may look different than the one displayed.
+1.  Orientation: the base will have a flat edge and an edge with an indent. The GPIO pins sit along the <Highlight color={colors.blue}>indent</Highlight>, seen on the left in the images.
+2.  Insert the <Highlight color={colors.red}>10mm screws</Highlight> into the holes.
+3.  Hand screw a <Highlight color={colors.magenta}>hex nut</Highlight> onto each screw.
+4.  Place the Raspberry Pi on top, aligning the holes, with the <Highlight color={colors.green}>GPIO pins</Highlight> on the left. Note: your Raspberry Pi may look different than the one displayed.
 
 
 </AssemblyInstructionBlock>
@@ -53,20 +56,20 @@ The 40 GPIO pins (standing for general-purpose input/output) form a distinct row
 
 <AssemblyInstructionBlock title="Step 3: Placing the HAT PCB on top" images={["user-guide/hardware-assembly/rpi_with_standoffs.jpg","user-guide/hardware-assembly/gpio_unpushed.jpg","user-guide/hardware-assembly/gpio_pushed.jpg", "user-guide/hardware-assembly/standoff_on_hat.jpg"]}>
 
-1.	Hand screw on the <Highlight color={colors.blue}>12mm hex standoffs-with-6mm-screw</Highlight> in each corner.
-2.	Place the HAT PCB on top. <Highlight color={colors.red}>Push down *from the corners*</Highlight> to secure it in place.
+1.  Hand screw on the <Highlight color={colors.blue}>12mm hex standoffs-with-6mm-screw</Highlight> in each corner.
+2.  Place the HAT PCB on top. <Highlight color={colors.red}>Push down *from the corners*</Highlight> to secure it in place.
 
 :::note
 The HAT PCB's GPIO connector will line up with the RPi's GPIO pins, and may require a slight force to compress down. You can also use the next Tip below to help apply force.
 :::
 
-3.	Hand screw the <Highlight color={colors.green}>12mm hex standoffs</Highlight> in each corner, on top of the HAT.
+3.  Hand screw the <Highlight color={colors.green}>12mm hex standoffs</Highlight> in each corner, on top of the HAT.
 
 :::tip
 By screwing down the standoffs, they'll help compress the HAT onto the RPi, too.
 :::
 
-4.	Put this aside and proceed to the next page.
+4.  Put this aside and proceed to the next page.
 
 </AssemblyInstructionBlock>
 
@@ -90,7 +93,7 @@ The 40 GPIO pins (standing for general-purpose input/output) form a distinct row
 
 <AssemblyInstructionBlock title="Step 3: Placing the HAT PCB ontop" images={["user-guide/hardware-assembly/gpio_unpushed.jpg","user-guide/hardware-assembly/gpio_pushed.jpg", "user-guide/hardware-assembly/standoff_on_hat.jpg"]}>
 
-2.	Place the HAT on top. <Highlight color={colors.red}>Push down</Highlight> to secure it in place.
+2.  Place the HAT on top. <Highlight color={colors.red}>Push down</Highlight> to secure it in place.
 
 :::note
 The HAT PCB's GPIO connector will line up with the RPi's GPIO pins, and may require a slight force to compress down. You can also use the next Tip below to help apply force.
@@ -102,7 +105,7 @@ The HAT PCB's GPIO connector will line up with the RPi's GPIO pins, and may requ
 By screwing down the standoffs, you can use these standoffs to help compress the HAT onto the RPi, too.
 :::
 
-4.	Put this aside and proceed to the next page.
+4.  Put this aside and proceed to the next page.
 
 </AssemblyInstructionBlock>
 

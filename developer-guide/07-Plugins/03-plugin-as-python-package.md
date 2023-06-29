@@ -3,18 +3,24 @@ title: Turning your plugins into a Python package to share
 slug: /plugin-as-python-package
 ---
 
-If you'd like to contribute your plugin to the community, this is done easily by creating a Python package and uploading to PyPi. Let's walk through this!
+If you'd like to contribute your plugin to the community, this is done easily by creating a Python package and uploading to PyPI. Let's walk through this!
 
 ## Choosing a plugin name
 
 Your plugin name should be _all lowercase_, and have _underscores_ divide any words. Example: `pireactor_relay_plugin` is fine, but `pioreactor-relay-plugin` is not, nor is `Pioreactor-Relay-Plugin`.
 
-However, your _distribution package_ name should be lowercase and have dashes (it's a Python thing: I agree, this is confusing, I'll walk you through it). You can just replace any underscores with dashes: so our example distribution package name is `pioreactor-relay-plugin`.
+However, your _distribution package_ name should be lowercase and have _dashes_ instead of underscores (it's a Python thing: I agree, this is confusing, I'll walk you through it). You can just replace any underscores with dashes: so our example distribution package name is `pioreactor-relay-plugin`.
+
+Later in these steps, we'll reference these names as follows:
+
+- `PLUGIN_NAME`: should be the name in all lowercase with underscores. Example: `pioreactor_relay_plugin`
+- `DISTRIBUTION-NAME`: should be the name in all lowercase with dashes. Example: `pioreactor-relay-plugin`
+
 
 ## Organizing your files
 
 :::tip
-Note that the way files are organized may depend on if your plugin is an **automation** or a **job**. Plugins can install both automations and jobs.
+Note that the way files are organized may depend on if your plugin is an **automation** or a **background job**. Plugins can install both automations and jobs.
 :::
 
 Consider an example plugin: a plugin named `pioreactor_relay_plugin` that implements a _background job_ which just turns on or off a PWM channel. Follow the file organization here: [CamDavidsonPilon/pioreactor-relay-plugin](https://github.com/CamDavidsonPilon/pioreactor-relay-plugin).
@@ -292,7 +298,7 @@ include <PLUGIN_NAME>/pre_uninstall.sh
 ```
 
 
-## Create a Python package on PyPi
+## Create a Python package on PyPI
 
 Create an account on [https://pypi.org/](https://pypi.org/). Make sure to verify your email.
 
@@ -302,10 +308,15 @@ On your command line, type the following:
 pip install twine
 pip install --upgrade build
 python -m build --wheel		
-twine upload dist/<.WHL FILE>
 ```
 
-You will then be prompted for a username and password. Use the credentials for your PyPi account. Then, your package is uploaded and viewable at the link provided in the output!
+This creates a `.whl` file in a `dist/` folder (that will be created). Next, we upload the `whl` file to PyPI:
+
+```
+twine upload dist/<THE .WHL FILE>
+```
+
+You will then be prompted for a username and password. Use the credentials for your PyPI account. Then, your package is uploaded and viewable at the link provided in the output!
 
 :::tip Note
 Before you build a new wheel, it's good practice to clean up your previous build.  
