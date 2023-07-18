@@ -18,9 +18,12 @@ Alternatively,
 
 :::tip Watch an assembly video
 
-<video width="820" controls>
-  <source src="/vid/hardware_video.mp4"/>
-</video>
+<div class="responsive-video">
+    <video controls>
+        <source src="/vid/hardware_video.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+    </video>
+</div>
 
 :::
 
