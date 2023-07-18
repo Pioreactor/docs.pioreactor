@@ -27,14 +27,15 @@ If using pumps with your Pioreactor, see the note [below](/user-guide/prepare-vi
 
 Prepare your media as your protocol suggests. For example: in the our experiments, we typically showcase yeast grown in YPD broth. To create YPD broth, dissolve 50 grams YPD powder per 1 liter distilled water.
 
-Divide the mixture into the vials to the correct volume, and add the 15mm stir bar in the vial.
 
 ### 3. Sterilization
 
 
 #### Using heat
 
-The glassware vial, stirbar and vial cap that come with your Pioreactor are all fully autoclavable, and heat resistant up to 125℃. The luer lock ends can be covered with tin foil, or attached to air filters, or neither. Since the volume in the vial is so little, the autoclave only needs to be at its maximum temperature for a very short duration.
+Divide the mixture into the vials to the correct volume, and add the stir bar in the vial.
+
+The glassware vial, stir bar and vial cap that come with your Pioreactor are all fully autoclavable, and heat resistant up to 125℃. The luer lock ends can be covered with tin foil, or attached to air filters, or neither. Since the volume in the vial is so little, the autoclave only needs to be at its maximum temperature for a very short duration.
 
 :::tip
 Don't have an autoclave? A kitchen pressure cooker works just as well. Still don't have that? You can use a stove top or hotplate: heat on a medium-low heat until boiling, and let boil for a few minutes. However, an autoclave or a pressure cooker is a more effective sterilizer.
@@ -54,19 +55,19 @@ How much inoculant should you add? That depends on the concentration of your ino
 
 For example, we add 0.5 grams of dried Baker's yeast to 15 mL of YPD broth, then stored in a fridge for further use. 
 
-We recommend measuring with a scale and a micropipette. If you are using a dropper, hold it vertically for more accurate, consistent drops. 
+We recommend measuring with a micropipette. If you are using a dropper, hold it vertically for more accurate, consistent drops.
 
 ### 5. Adjusting tube lengths (Optional)
 
 Keep the bottoms of the tubes in the cap from being submerged in your media to avoid creating a pressured environment. Adjust each luer lock end until the other end of the tube is above liquid level.
 
-### 6. Handling the glass (Optional)
+### 6. Handling the glass
 
-We recommend handling the vial with gloves, or minimizing touching the glass as much as possible to avoid getting oils and fingerprints on the glass. Before placing in the Pioreactor sleeve, wiping the surface of the glass with a kimwipe is a great idea!
+We recommend handling the vial with gloves, or handling only the cap. Minimize touching the glass as much as possible to avoid getting oils and fingerprints on the glass. Before placing in the Pioreactor sleeve, wiping the surface of the glass with a kimwipe is a great idea!
 
 ### 7. Positioning glassware in the Pioreactor sleeve
 
-Place the glassware vial into the Pioreactor sleeve. The outside of the glassware vial should be clean and dry. If the vial is wet, even with a drip, it can damage the electronics underneath.
+Place the glassware vial into the Pioreactor sleeve. **The outside of the glassware vial should be clean and dry**. If the vial is wet, even with single droplet, it can damage the electronics underneath.
 
 :::tip
 Ensure that the vial is pressed all the way down and is touching the bottom of the vial holder. This ensures correct temperature regulation of the culture.

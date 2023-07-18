@@ -52,8 +52,9 @@ The test will also report any valid IR LED & photodiode relationships in the dia
  - If still failing, try reducing the value in `[od_config].[ir_led_intensity]`.
 
 
-**Reference photodiode is in the correct position** checks, if using the reference photodiode (REF), that the REF cable is inserted into the correct photodiode position (channel 1 or 2). The correct position is provided in the config.ini's `[od_config.photodiode_channel]` section. The test compares the variances of the two signals (from photodiode channels 1 and 2), and the lower variance one is usually the REF. **Note: this is a flakey test, and can fail even when position correctly**. Confirm that in your config.ini that `REF` is present for one of the channels under `[od_config.photodiode_channel]`
-
+**Reference photodiode is in the correct position** checks, if using the reference photodiode (REF), that the REF cable is inserted into the correct photodiode position (channel 1 or 2). The correct position is provided in the config.ini's `[od_config.photodiode_channel]` section. **Note: this is a flakey test, and can fail even when position correctly**. The test compares the variances of the two signals (from photodiode channels 1 and 2), and the lower variance one is usually the REF.  If this test fails,
+ - Is your vial in the Pioreactor? Does your vial have liquid and a stirbar in it?
+ - Confirm that in your config.ini that `REF` is present for one of the channels under `[od_config.photodiode_channel]`
 
 **Heating PCB is detected** checks that the heating PCB is correctly attached to the Pioreactor HAT. A non-trivial failure here suggests a problem when the i2c channel, a loose connection, or damage to the heating PCB.
 
