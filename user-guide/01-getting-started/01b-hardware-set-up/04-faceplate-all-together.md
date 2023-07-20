@@ -11,7 +11,7 @@ import * as colors from '@site/src/components/constants';
 <AssemblyInstructionBlock title="Step 1: Necessary parts" images={["user-guide/hardware-assembly/stirring_parts.jpg"]}>
 
 *	<Highlight color={colors.blue}>Fan</Highlight>
-*	<Highlight color={colors.red}>Top faceplate</Highlight>
+*	<Highlight color={colors.red}>Top faceplate (will have 4 x 30mm screws in it)</Highlight>
 
 :::info
 These come assembled - leave them together.
@@ -24,10 +24,10 @@ These come assembled - leave them together.
 
 <AssemblyInstructionBlock title="Step 2: Securing the vial holder" images={["user-guide/hardware-assembly/vial_holder_on_fan.jpg","user-guide/hardware-assembly/cable_orientation.jpg","user-guide/hardware-assembly/screw_vial_holder_faceplate.jpg","user-guide/hardware-assembly/vial_holder_alignment.jpg"]}>
 
-1.	Place the vial holder on top of the four extruding screw ends. The screw ends should fit into four holes on the bottom of the vial holder. The flat flex cable should follow the <Highlight color={colors.red}>arrow on the faceplate</Highlight>.
+1.	Place the vial holder on top of the four ends of the 30mm screws. The screw ends should fit into four holes on the bottom of the vial holder. The flat flex cable should follow the <Highlight color={colors.red}>arrow on the faceplate</Highlight>.
 2.	Holding it together, finish screwing the bottom of the faceplate. The screws will enter square nuts in the vial holder. Do not overtighten.
 3. The screw heads will be flush with the faceplate, and there should be <Highlight color={colors.blue}>no screw threads</Highlight> showing between the vial holder and the faceplate.
-4. Use the screwdriver to check that the fan can spin freely without rubbing against the <Highlight color={colors.magenta}>screws above. If there is contact, slightly unscrew the four screws underneath to provide clearance.</Highlight>.
+4. Use the screwdriver to check that the fan can spin freely without rubbing against the <Highlight color={colors.magenta}>screws above</Highlight>. **Important: If there is contact or _near_-contact, slightly unscrew the 30mm screws underneath to provide more clearance**.
 
 </AssemblyInstructionBlock>
 
