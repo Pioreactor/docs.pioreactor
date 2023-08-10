@@ -41,6 +41,10 @@ The glassware vial, stir bar and vial cap that come with your Pioreactor are all
 Don't have an autoclave? A kitchen pressure cooker works just as well. Still don't have that? You can use a stove top or hotplate: heat on a medium-low heat until boiling, and let boil for a few minutes. However, an autoclave or a pressure cooker is a more effective sterilizer.
 :::
 
+:::tip
+"Flick" away any trapped liquid in the cap's tubes.
+:::
+
 
 #### Using sterile filtration
 

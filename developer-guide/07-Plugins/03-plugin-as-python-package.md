@@ -290,13 +290,26 @@ See an example plugin that uses this idea [here](https://github.com/Pioreactor/c
 
 If your plugin needs to edit the operating system, you can include either of the following files: `post_install.sh`, or `pre_uninstall.sh`. We have used these files to enable systemd services such that the job being installed will start at startup. Example [post_install.sh](https://github.com/Pioreactor/pioreactor-logs2slack/blob/master/pioreactor_logs2slack/post_install.sh) and [pre_uninstall.sh](https://github.com/Pioreactor/pioreactor-logs2slack/blob/master/pioreactor_logs2slack/pre_uninstall.sh).
 
-You'll need to modify your MANIFEST.in, too:
+You'll need to append to your MANIFEST.in, too:
 
 ```
 include <PLUGIN_NAME>/post_install.sh
 include <PLUGIN_NAME>/pre_uninstall.sh
 ```
 
+For an example, see the [logs2slack](https://github.com/Pioreactor/pioreactor-logs2slack) plugin's repository.
+
+#### 8. Optional: only installing on leader Pioreactor.
+
+Some plugins may only want to be installed on the leader. For example, if they are changing the UI or database. To signal that a plugin should only be installed on the leader (and no-op on workers), add an empty file named `LEADER_ONLY` to the folder.
+
+You'll need to append to your MANIFEST.in, too:
+
+```
+include <PLUGIN_NAME>/LEADER_ONLY
+```
+
+For an example, see the [logs2slack](https://github.com/Pioreactor/pioreactor-logs2slack) plugin's repository.
 
 ## Create a Python package on PyPI
 
