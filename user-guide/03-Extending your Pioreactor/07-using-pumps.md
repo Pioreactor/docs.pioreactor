@@ -78,7 +78,7 @@ Read the [calibration instructions](/user-guide/hardware-calibrations#pump-calib
 ## Using pumps in experiments
 
 :::caution
-We strongly recommended you don't run peristaltic pumps *continuously* for hours at a time. The inner tubing has a lifetime and may wear out during operation, causing a leak. By continuously, we mean "always moving liquid". **If you need to move liquid continuously for long periods of time, you need a different pump design**.
+We strongly recommended you don't run peristaltic pumps *continuously* for hours at a time. By continuously, we mean "always moving liquid". The inner tubing has a lifetime and may wear out during operation, causing a leak. **If you need to move liquid continuously for long periods of time, you need a different pump design**.
 :::
 
 
@@ -91,8 +91,12 @@ To avoid cross contamination, pumps should be sterilized before and after use.
 2. On the UI, in the _Pioreactors_ tab, click _Manage_ and go to the _Dosing_ tab.
 3. _Run continuously_ to cycle the disinfectant solution through each pump that you're using.
 ![](/img/user-guide/dosing_in_ui.png)
-4. _Interrupt_ after sufficient cycling. In another beaker with DI water, place the tubes in and repeat the cycling to rinse out the pumps.
+4. _Interrupt_ after sufficient cycling. In another beaker with water, place the tubes in and repeat the cycling to rinse out the pumps.
 5. Your pumps are now ready to be attached to media, waste, or vials for your experiments.
+
+:::caution
+It's important to not store harsh chemicals like bleach in the tubing. Cleaning pumps should always end with flushing the tubes with water or something near inert.
+:::
 
 ### Running pumps from the web interface
 
