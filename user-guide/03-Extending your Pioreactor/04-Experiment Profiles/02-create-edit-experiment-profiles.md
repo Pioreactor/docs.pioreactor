@@ -66,7 +66,7 @@ common:
       - type: update
         hours_elapsed: 2.0
         options:
-          target_temperature: 30
+          target_temperature: 35
 ```
 
 ### Example: Pioreactors have common and different settings

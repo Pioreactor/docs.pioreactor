@@ -40,4 +40,4 @@ pioreactors: # Optional: jobs that are specific to some Pioreactors
 
 ### Examples
 
-See examples of experiment profiles [here](https://github.com/Pioreactor/experiment_profile_examples)
+See examples of experiment profiles [here](https://github.com/Pioreactor/experiment_profile_examples).

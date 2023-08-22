@@ -199,10 +199,9 @@ Yes, so long as the Raspberry Pi's are connected to the same network and discove
 
 Depending on your access to the Pioreactor, there are a few ways:
 
-1. If you can't access the Pioreactor's UI or SSH in: the software will write the IP address to the `/boot` directory on the SD card. After the Pioreactor's blue LED has blinked, you can unplug the Pioreactor, remove the SD card, and place the SD card in another computer. Navigate to the card, and in the directory you should see a file called `ip`. Open this file, and the IP address should be there. Place the SD card back into the Pioreactor and plug it back in.
-
-2. If you can access the Pioreactor: after SSH-ing into the Pioreactor, use `hostname -I | awk '{print $1}'` to print the IP address.
-
+1. In the UI's `/pioreactors` page, look under `Manage` -> `System` for the IP.
+2. After SSH-ing into the Pioreactor, use `hostname -I | awk '{print $1}'` to print the IP address.
+3. If you can't access the Pioreactor's UI or SSH in: the software will write the IP address to the `/boot` directory on the SD card. After the Pioreactor's blue LED has blinked, you can unplug the Pioreactor, remove the SD card, and place the SD card in another computer. Navigate to the card, and in the directory you should see a file called `ip`. Open this file, and the IP address should be there. Place the SD card back into the Pioreactor and plug it back in.
 
 #### I'm using a local access point, but I'd like to install plugins, update software, etc.
 

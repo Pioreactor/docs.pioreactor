@@ -29,14 +29,14 @@ The leader Pioreactor has the necessary software to create the local access poin
 
  - If starting with a new Pioreactor, during software set up:
     1. Leave the "Configure wireless LAN" unchecked. Continue with the instructions at [Setting up your Raspberry Pi](/user-guide/software-set-up#setting-up-your-raspberry-pi).
-    2. After the SD card has been written to, remove the SD card from your computer, and immediately insert it back in. A new `boot` device should appear.
+    2. After the SD card has been written to, remove the SD card from your computer, and immediately insert it back in. A `boot` (or `bootfs`) device should be present now that is your SD card. If asked to reformat the SD card, select NO.
     3. <ButtonDownloadLocalAccessPointFile/>
-    3. Drag/move the downloaded `local_access_point` file to your SD card (now called `boot`).
+    3. Drag/move the downloaded `local_access_point` file to the SD card directory.
     4. Eject the SD card safely, and continue with instructions at [Setting up your Raspberry Pi](/user-guide/software-set-up#setting-up-your-raspberry-pi).
  - If starting from an existing Pioreactor leader:
     1. with the power off remove the SD card from the leader and insert it into a computer.
     2. <ButtonDownloadLocalAccessPointFile/>
-    3. Drag/move the downloaded `local_access_point` file to your SD card (now called `boot`).
+    3. Drag/move the downloaded `local_access_point` file to your SD card (called `boot` or `bootfs`).
     4. Eject the SD card safely, and put back into the Pioreactor.
 
 ## Access the local access point
@@ -45,7 +45,7 @@ After plugging in the Pioreactor, the local access point will start and you shou
 
 <img src="/img/user-guide/pioreactor_ap.png" width="325" />
 
-Once connected, the usual urls should work: http://pioreactor.local will bring up the Pioreactor interface (having trouble? Try `http://<your_leaders_hostname>.local`). Still not working? Try `http://10.3.141.1`)
+Once connected, the usual urls should work: http://pioreactor.local will bring up the Pioreactor interface (having trouble? Try `http://<your_leaders_hostname>.local`. Still not working? Try `http://10.3.141.1`)
 
 ### Connecting workers to your local access point
 
@@ -60,7 +60,7 @@ Since this network is not connected to the internet, you won't be able to upgrad
 
  ## Turning off a local access point
 
-Simply delete the `local_access_point` file in the `/boot/` directory.
+After SSH-ing into your Pioreactor, simply delete the `local_access_point` file in the `/boot/` directory.
 
 
  ## Changing SSID name or password for your local access point
