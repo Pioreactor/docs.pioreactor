@@ -19,6 +19,9 @@ Interacting with the Pioreactor on the command line are through the `pio` tool. 
 *   `pio list-plugins` will list the currently installed plugins
 *   `pio blink` will blink the Pioreactor's onboard LED.
 *   `pio log -m <message>` will log a message
+*   `pio view-cache <cache>` will print out the contents of the specified cache.
+*   `pio clear-cache <cache> <key>` will remove `<key>` from cache `<cache>`.
+
 
 ### Leader-only commands
 

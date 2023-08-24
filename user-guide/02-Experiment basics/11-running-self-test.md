@@ -14,7 +14,7 @@ Start on the _Pioreactors_ page:
 ![](/img/user-guide/self_test_pre.png)
 
 
-Add your vial, with media / water (and possibly inoculated), and click "Start". The Pioreactor will start running tests against expected output and report back to you success and failures of those tests. 
+Insert a closed vial with water and stir bar into the Pioreactor, and click "Start". The Pioreactor will start running tests against expected output and report back to you success and failures of those tests.
 
 
 ![](/img/user-guide/self_test_running.png)
@@ -53,8 +53,11 @@ The test will also report any valid IR LED & photodiode relationships in the dia
 
 
 **Reference photodiode is in the correct position** checks, if using the reference photodiode (REF), that the REF cable is inserted into the correct photodiode position (channel 1 or 2). The correct position is provided in the config.ini's `[od_config.photodiode_channel]` section. **Note: this is a flakey test, and can fail even when position correctly**. The test compares the variances of the two signals (from photodiode channels 1 and 2), and the lower variance one is usually the REF.  If this test fails,
- - Is your vial in the Pioreactor? Does your vial have liquid and a stirbar in it?
+ - Is your vial in the Pioreactor? Does your vial have water and a stirbar in it?
  - Confirm that in your config.ini that `REF` is present for one of the channels under `[od_config.photodiode_channel]`
+
+**Photodiode measures near nil signal for aturbid water** checks that a non turbid liquid, like water, doesn't produce a signal (since there is no scatter). If this fails, confirm that your vial contains water (or any very clear liquid) and that your signal photodiode is positioned in 45°, 90°, or 135°.
+
 
 **Heating PCB is detected** checks that the heating PCB is correctly attached to the Pioreactor HAT. A non-trivial failure here suggests a problem when the i2c channel, a loose connection, or damage to the heating PCB.
 

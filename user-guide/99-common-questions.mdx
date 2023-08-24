@@ -25,7 +25,10 @@ There may be a problem. You can diagnose the problem by [counting the number of 
 
 #### What does the onboard button do?
 
-The button on the Pioreactor HAT sends a signal to the web UI to display a "hello" message. This is useful to know which Pioreactor in a cluster you are interacting with.
+The button on the Pioreactor HAT sends a signal to the web UI to display a "hello" message. This is useful to know which Pioreactor in a cluster you are interacting with. The button also will republish the state of the Pioreactor.
+
+The button can be [reprogrammed](/developer-guide/hat-button), too.
+
 
 
 Optical density and LEDs
@@ -39,10 +42,14 @@ The Pioreactor uses the concept of _scattering_ to measure optical density (othe
 
 The _uncalibrated_ optical densities reported the UI and recorded in the database are have an arbitrary unit, and are per Pioreactor (so they can't be compared to each other). However, the _normalized optical density_, generated after starting the activity **Growth rate** in the UI, is comparable, which is why we suggest using it for inferences (especially if you haven't calibrated to some OD600 machine). Read more about our [optical density measurements here](https://docs.pioreactor.com/user-guide/od-normal-growth-rate).
 
+#### How can I change the frequency (rate) of optical density measurements?
+
+In the configuration, you can edit the parameter `samples_per_second` to adjust the how often the Pioreactor takes an optical density snapshot. Note that this parameter is the inverse of "duration between readings". For example, if you wish to record a measurement every 60 seconds, then `samples_per_second=0.01666667` (which is 1/60).
+
 
 #### Why does the intensity for LED A turn on & off during an experiment?
 
-You may have noticed that the LED labelled A turns on & off every 5 seconds or so. This is (normally) the channel for the infrared (IR) LED, which is used in the optical density measurements. Since we only take reading every 5 seconds (normally, this can be changed), we don't need the IR LED on all the time. The Pioreactor will only turn on LED when needed. This preserves the strength of the LED over longer periods of time. For more advanced use cases, it also allows other optical measurements to take place without the IR LED interfering with them.
+You may have noticed that the LED labelled A turns on & off every 5 seconds or so. This is (normally) the channel for the infrared (IR) LED, which is used in the optical density measurements. We only take reading every 5 seconds (the default), we don't need the IR LED on all the time. The Pioreactor will only turn on LED when needed. This preserves the strength of the LED over longer periods of time. For more advanced use cases, it also allows other optical measurements to take place without the IR LED interfering with them.
 
 #### Why does my optical density flatten, or even decrease? What is a saturation point?
 

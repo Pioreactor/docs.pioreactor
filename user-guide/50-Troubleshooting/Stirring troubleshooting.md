@@ -22,7 +22,7 @@ First, with the stirring activity running, carefully examine if the fan below is
        - Try pushing the fan only slightly higher up using a pen, pencil or thin rod. Avoid moving the fan _too_ high up and hitting the <Highlight color={colors.magenta}>vial holder's screws</Highlight>.
        - Try _moderately_ tightening the screws on the bottom of the top faceplate.
     - Are the two magnets still present on the fan? Visually inspect from the side, or unscrew the top faceplate from the vial holder to see better.
-    - The heater PCB may be damaged. Contact us at support@pioreactor.com
+    - The heater PCB may be damaged. Contact us at support@pioreactor.com.
 
 
 <img src="/img/user-guide/hardware-assembly/vial_holder_alignment.jpg" width="465" style={{margin: "auto", display:"block"}} />
@@ -49,8 +49,9 @@ Detach the top faceplate. Under the faceplate, slightly unscrew each of the four
 1. Consider reducing your target RPM.
 2. Check if the vial is pushed all the way down.
 3. From the side profile, check that no metal from the screws is showing ⇒ the vial is straight vertically.
+4. Try another stir bar design, like a cross shape.
 
 
 ### Raspberry Pi shuts off or restarts when stirring is turned on from the UI
 
-This is likely caused by a short circuit in the fan's cable assembly. Remove the fan's power cable, and remove the plastic housing by applying pressure on the exposed metal tabs and gently pulling the wires out. Check for any stray wire strands.
+This is likely caused by a short circuit in the fan's cable assembly. Remove the fan's power cable, and remove the plastic housing by applying pressure on the exposed metal tabs and gently pulling the wires out. Check for any stray wire strands and remove them. Carefully put the plastic housing back on until it clicks (red wire should be positioned closer to the GPIO pins), and try  again.
