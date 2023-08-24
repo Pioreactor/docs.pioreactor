@@ -40,7 +40,7 @@ The leader also has their own unique set of `pio` commands (these commands do no
 The leader computer interacts with the worker computers using the `pios` command. Unless otherwise noted, the `pios` will target all worker computers. Available `pios` commands on the leader computer are the following:
 
 *   `pios kill <job> [<job>...]` terminate the job `<job>` on the workers. Ex: `pios kill dosing_control`. Multiple jobs can be killed, ex: `pios kill stirring dosing_control`
-*   `pios run <job>` on each worker, run the job `<job>` in the background. Job specific arguments can be specified after. Ex: `pios run add_media --ml 1`
+*   `pios run <job>` on each worker, run the job `<job>` in the background. Job specific arguments can be specified after. Ex: `pios run add_media --ml 1`. Use `-y` to skip confirmation.
 *   `pios update` install the latest PioreactorApp code on each worker.
 *   `pios sync-configs` deploy the config.ini files to workers.
 *   `pios install-plugin <plugin name>` will install the plugin on each worker _and_ the leader.
