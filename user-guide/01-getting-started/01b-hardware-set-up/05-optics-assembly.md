@@ -60,6 +60,7 @@ This window covering is optional. You can add it to maximize control of the ligh
 
 1. You will need <Highlight color={colors.orange}>4x 6mm screws</Highlight>, and the <Highlight color={colors.green}>window cover</Highlight>.
 2. Attach the window cover to the side of the vial holder using the screws.
+3. Insert the glass vial into the Pioreactor. The vial should feel snug, but not very tight. If it's too tight, loosen the <Highlight color={colors.orange}>four 6mm screws</Highlight> slightly.
 
 </AssemblyInstructionBlock>
 
@@ -67,7 +68,7 @@ This window covering is optional. You can add it to maximize control of the ligh
 
 <AssemblyInstructionBlock title="Step 4: Your done!" images={["user-guide/hardware-assembly/finished.jpg"]}>
 
-1.  Insert the glass vial into the Pioreactor. Your Pioreactor assembly is complete! 🚀
+1.  Your Pioreactor assembly is complete! 🚀
 2.  Leave the Pioreactor powered off, for now.
 3.  If you also have pumps, we'll assemble those later.
 3.  Next: begin installing the [software](/user-guide/software-set-up).
