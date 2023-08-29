@@ -85,18 +85,32 @@ We strongly recommended you don't run peristaltic pumps *continuously* for hours
 
 ### Sterilizing the pumps before and after experiments
 
-To avoid cross contamination, pumps should be sterilized before and after use.
+To avoid contamination, pumps should be sterilized before and after use.
 
 1. Create a 10% bleach dilution, or high concentration alcohol, in a container. Place the sink and source tubes of each pump you're sterilizing in the beaker.
 2. On the UI, in the _Pioreactors_ tab, click _Manage_ and go to the _Dosing_ tab.
 3. _Run continuously_ to cycle the disinfectant solution through each pump that you're using.
-![](/img/user-guide/dosing_in_ui.png)
-4. _Interrupt_ after sufficient cycling. In another beaker with water, place the tubes in and repeat the cycling to rinse out the pumps.
-5. Your pumps are now ready to be attached to media, waste, or vials for your experiments.
+<img src="/img/user-guide/dosing_in_ui.png" width="735" style={{margin: "15px auto", display:"block"}}/>
+4. _Interrupt_ after sufficient cycling, at least 2 minutes. Perform either of the following:
 
 :::caution
-It's important to not store harsh chemicals like bleach in the tubing. Cleaning pumps should always end with flushing the tubes with water or something near inert.
+It's important to not keep harsh chemicals, like bleach, in the silicone tubing for long. Cleaning pumps should always end with flushing the tubes with water or something inert. See below:
 :::
+
+
+#### A. Preparing for experiments
+
+5. From here, you can attach the source of your media pump to your media bottle and "prime" it by running the media pump until media, and not bleach solution, comes out. The sink end can be left in the bleach container, or attached to a Pioreactor vial.
+6. Likewise, the waste pump can flushed with water, and then attached to the Pioreactor vial and waste bottle.
+
+:::tip
+Before attaching to media, waste, or vials for your experiments, you can spray the luer lock ends with ethanol. Double check there's no liquid that may drip down.
+:::
+
+#### B. Cleaning
+5. In another beaker with water, place the tubes in and repeat the cycling to rinse out the pumps.
+6. Your pumps are now cleaned.
+
 
 ### Running pumps from the web interface
 
