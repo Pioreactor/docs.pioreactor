@@ -62,7 +62,7 @@ common:
           automation_name: thermostat
           target_temperature: 30
   temperature_automation: # pinging thermostat
-    action:
+    actions:
       - type: update
         hours_elapsed: 2.0
         options:

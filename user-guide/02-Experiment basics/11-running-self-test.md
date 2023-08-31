@@ -56,7 +56,7 @@ The test will also report any valid IR LED & photodiode relationships in the dia
  - Is your vial in the Pioreactor? Does your vial have water and a stirbar in it?
  - Confirm that in your config.ini that `REF` is present for one of the channels under `[od_config.photodiode_channel]`
 
-**Photodiode measures near nil signal for aturbid water** checks that a non turbid liquid, like water, doesn't produce a signal (since there is no scatter). If this fails, confirm that your vial contains water (or any very clear liquid) and that your signal photodiode is positioned in 45°, 90°, or 135°.
+**Photodiode measures near nil signal for aturbid water** checks that a non turbid liquid, like water, doesn't produce a signal (since there is no scatter). **This is a new test, and may fail even if everything is okay Check the following:** confirm that your vial contains water (or any very clear liquid) and that your signal photodiode is positioned in 45°, 90°, or 135°.
 
 
 **Heating PCB is detected** checks that the heating PCB is correctly attached to the Pioreactor HAT. A non-trivial failure here suggests a problem when the i2c channel, a loose connection, or damage to the heating PCB.
