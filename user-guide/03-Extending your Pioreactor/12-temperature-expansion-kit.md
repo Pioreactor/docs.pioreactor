@@ -68,14 +68,6 @@ What's needed to upgrade your Pioreactor with the Pioreactor Expansion Kit:
 </AssemblyInstructionBlock>
 
 
-<AssemblyInstructionBlock title="Step 4: Install the software"]}>
-
-1. SSH into the Pioreactor's Raspberry Pi.
-2. Install the plugin with `pio install-plugin `
-3. `sudo reboot`
-
-
-</AssemblyInstructionBlock>
 
 
 
