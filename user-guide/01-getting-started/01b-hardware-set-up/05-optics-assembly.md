@@ -44,23 +44,20 @@ Inspect each LED and PD to confirm that neither of the leads are touching.
 
 -----
 
-<AssemblyInstructionBlock title="Step 3: Add the rest of the LED caps" images={["user-guide/hardware-assembly/pockets_with_caps.jpg","user-guide/hardware-assembly/finished_pio.jpg"]}>
+<AssemblyInstructionBlock title="Step 3: Add the rest of the LED caps" images={["user-guide/hardware-assembly/pockets_with_caps.jpg"]}>
 
 1.  Push all remaining LED pocket caps onto each pocket.
-2.  Insert the glass vial into the Pioreactor.
-2.  Your Pioreactor assembly is complete! 🚀
-4.  Next: begin installing the [software](/user-guide/software-set-up).
 
 </AssemblyInstructionBlock>
 
 
 <AssemblyInstructionBlock title="Step 4: Add the window covering (optional)" images={["user-guide/hardware-assembly/window_screws.jpg","user-guide/hardware-assembly/window_placement.jpg", "user-guide/hardware-assembly/window_screwing.jpg"]}>
 
-This window covering is optional. You can add it to maximize control of the light in the bioreactor, or leave it open to inspect the culture.
+This window covering is optional. You can add it to further reduce the light in the bioreactor, or you may leave it off to inspect the culture.
 
 1. You will need <Highlight color={colors.orange}>4x 6mm screws</Highlight>, and the <Highlight color={colors.green}>window cover</Highlight>.
 2. Attach the window cover to the side of the vial holder using the screws.
-3. Insert the glass vial into the Pioreactor. The vial should feel snug, but not very tight. If it's too tight, loosen the <Highlight color={colors.orange}>four 6mm screws</Highlight> slightly.
+3. Insert the glass vial into the Pioreactor. The vial should feel snug, but not very tight. If it feels too tight, try loosening the <Highlight color={colors.orange}>four 6mm screws</Highlight> slightly.
 
 </AssemblyInstructionBlock>
 
