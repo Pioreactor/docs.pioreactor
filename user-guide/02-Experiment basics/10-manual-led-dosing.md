@@ -7,17 +7,19 @@ slug: /manual-dosing-leds
 
 ### Dosing
 
-You can run the pumps from the Pioreactor UI. These are NOT automations, but rather simple commands to use to set up an experiment, or perform cleaning.
+You can run the pumps from the Pioreactor UI. These are NOT automations, but rather simple actions to use to set up an experiment, perform cleaning, or intervene in an experiment.
 
 #### Cycling
 
-Under the _Dosing_ tab, you activate the media pump or the alt-media pump _and concurrently the waste pump_. This is called _cycling_. By running the waste pump simultaneously, the vial will avoids being overflowed. You can cycle for a set duration of time.
+Under the _Dosing_ tab, you run the media pump or the alt-media pump _and concurrently the waste pump_. This is called _cycling_. By running the waste pump simultaneously, the vial will avoid overflow. You can cycle for a set duration of time.
 
 ![UI showing how to cycle media.](/img/user-guide/cycle_media.png)
 
+Cycling is good for cleaning pumps, priming tubes with media, or filling your vial with media.
+
 #### Specific control of pumps
 
-Under the _Dosing_ tab, you can also run specific pumps (media, waste, and alt-media) for specific durations, volumes (if calibrated), or continuously. The latter will run until the Stop button is pressed.
+Under the _Dosing_ tab, you can also run specific pumps (media, waste, and alt-media) for a specific duration, volumes (if calibrated), or continuously. The latter will run until the *Stop* button is pressed.
 
 :::caution
 Careful not to overflow your vial! The vial can hold 20ml, but stay well below this.
