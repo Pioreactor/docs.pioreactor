@@ -1,7 +1,6 @@
 ---
 title: Adding the temperature expansion kit to your Pioreactor
 slug: /temperature-expansion-kit
-sidebar_class_name: hidden
 hide_table_of_contents: true
 
 ---
@@ -60,10 +59,52 @@ What's needed to upgrade your Pioreactor with the Pioreactor Expansion Kit:
 
 1. Attach the <Highlight color={colors.magenta}>Pt1000 probe's connector</Highlight> to the new Temperature Expansion HAT. The connector only has one orientation that works.
 2. In your Pioreactor's vial, screw in the <Highlight color={colors.red}>thermowell</Highlight>.
-3. Screw in the <Highlight color={colors.blue}>Pt1000 into the thermowell</Highlight>.
+
+:::info
+Make sure when the thermowell is **straight** when being screwed in (that is, perpendicular to the surface of the cap).
+
+It may be a tight squeeze. To help screw it in if it's difficult:
+ - Once a few threads are inserted, rotate the thermowell back and forwards a few times slowly to provide more clearance.
+ - You can use a pair of needle-nose pliers to hold secure the female end of the thermowell (i.e. one tip is inside the thermowell, and one outside), then twist the vial cap.
+
+:::
+
+3. If not already done so, screw in the <Highlight color={colors.blue}>Pt1000 into the thermowell</Highlight>.
 4. You're done the assembly! Next is to install the software.
 5. Power up the Pioreactor.
 
+
+</AssemblyInstructionBlock>
+
+
+<AssemblyInstructionBlock title="Step 4: Install the software" images={["user-guide/add-teh/install_from_ui.png", "user-guide/add-teh/config.png"]}>
+
+** 1. If you install the Kit across your entire Pioreactor cluster**
+
+ -  In your PioreactorUI, you can <Highlight color={colors.green}>install the plugin</Highlight> to all Pioreactors.
+
+
+** 2. If you installed the Kit on individual Pioreactors**
+
+ - [SSH](/user-guide/accessing-raspberry-pi) into the individual Pioreactor, and type `pio install-plugin temperature-expansion-kit-plugin`
+
+
+** Important: ** in either case,
+
+Confirm in your <Highlight color={colors.magenta}>configuration</Highlight> that the `[temperature_automation.thermostat]` values have been updated for the Pioreactors with the new hardware to be (exact values may vary slightly):
+
+```
+Kp=0.017
+Ki=0.0
+Kd=4.0
+```
+
+You can also update the following configuration:
+```
+[temperature_automation.config]
+# 50 or 60 only, depending on geographic location. This improves the accuracy.
+local_ac_hz=60
+```
 
 </AssemblyInstructionBlock>
 
