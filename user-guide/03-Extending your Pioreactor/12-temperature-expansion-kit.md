@@ -89,7 +89,7 @@ It may be a tight squeeze. To help screw it in if it's difficult:
  - [SSH](/user-guide/accessing-raspberry-pi) into the individual Pioreactor, and type `pio install-plugin temperature-expansion-kit-plugin`
 
 
-** Important: ** in either case,
+** Important:** in either case,
 
 Confirm in your <Highlight color={colors.magenta}>configuration</Highlight> that the `[temperature_automation.thermostat]` values have been updated for the Pioreactors with the new hardware to be (exact values may vary slightly):
 
@@ -109,7 +109,16 @@ local_ac_hz=60
 </AssemblyInstructionBlock>
 
 
+## Tips
 
 
 
+## Troubleshooting
+
+
+### I'm seeing "Record null temperature. Is the Pt1000 probe connected?" and the wire is connected.
+
+ - Try unplugging and plugging the probe back into the HAT.
+ - Try restarting the Pioreactor.
+ - If the error persists, contact us at `hello@pioreactor.com`
 

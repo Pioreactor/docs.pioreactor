@@ -12,7 +12,7 @@ In this section, we'll develop a simple dosing automation.
 Writing an automation involves creating a Python class and overriding specific methods. It would be helpful to be somewhat familiar with [Python classes](https://realpython.com/python3-object-oriented-programming/) before beginning. Here's an example of a (naive) turbidostat automation, i.e. it will add fresh media and remove old media when an optical density threshold is exceeded. The full code is below, and we'll go through each line of code after:
 
 ```python
-from pioreactor.automations import DosingAutomationJobContrib
+from pioreactor.automations.dosing.base import DosingAutomationJobContrib
 
 class NaiveTurbidostat(DosingAutomationJobContrib):
 
@@ -22,7 +22,7 @@ class NaiveTurbidostat(DosingAutomationJobContrib):
     }
     def __init__(self, target_od, **kwargs):
         super().__init__(**kwargs)
-        self.target_od = target_od
+        self.target_od = float(target_od)
 
     def execute(self):
         if self.latest_od > self.target_od:
@@ -32,7 +32,7 @@ class NaiveTurbidostat(DosingAutomationJobContrib):
 First important thing is to subclass from `DosingAutomationJobContrib`:
 
 ```python
-from pioreactor.automations import DosingAutomationJobContrib
+from pioreactor.automations.dosing.base import DosingAutomationJobContrib
 
 class NaiveTurbidostat(DosingAutomationJobContrib):
    ...
@@ -63,10 +63,10 @@ Next, we define how to initialize our automation class. Here we can add settings
 ```python
     def __init__(self, target_od, **kwargs):
         super().__init__(**kwargs)
-        self.target_od = target_od
+        self.target_od = float(target_od)
 ```
 
-Finally, every `duration` (specified in the controller, later in this section) minutes, the function `execute` will run. The `execute` contains the core logic of the automation. In our simple case, we want to dilute the vial if we have exceed the `latest_od`:
+Finally, every `duration` (specified in the controller, later in this section) minutes, the function `execute` will run. `duration` can be kept low (ex: to often check for some condition), or used to set some periodic task (ex: a chemostat doses every X minutes). The `execute` contains the core logic of the automation. In our simple case, we want to dilute the vial if we have exceed the `latest_od`:
 
 ```python
     def execute(self):
@@ -74,7 +74,7 @@ Finally, every `duration` (specified in the controller, later in this section) m
             self.execute_io_action(media_ml=1.0, waste_ml=1.0)
 ```
 
-Since we are working with a fixed volume, `media_ml` must equal `waste_ml`, else an error will be thrown. What is `latest_od`? Our class, when active, is listening to new optical densities being recorded. Hence when `execute` runs, we'll have access to the most up-to-date value of optical density. Likewise, there is a `latest_growth_rate` that updates when a new growth-rate value is produced. Both are defined and maintained in the parent class, so you don't have to worry about them in your code.
+Since we are working with a fixed volume, `media_ml` must equal `waste_ml`, else an error will be thrown. What is `latest_od` attribute? Our class, when active, is listening to new optical densities being recorded. Hence when `execute` runs, we'll have access to the most up-to-date value of optical density. Likewise, there are also `latest_normalized_od` and `latest_growth_rate` attributes that update when a new growth-rate value is calculated. All three attributes are defined and maintained in the parent class.
 
 ### Running the script
 
@@ -92,7 +92,7 @@ $ python3 naive_turbidostat.py
 
 Exit with ctrl-c
 """
-from pioreactor.automations import DosingAutomationJobContrib
+from pioreactor.automations.dosing.base import DosingAutomationJobContrib
 
 class NaiveTurbidostat(DosingAutomationJobContrib):
 
@@ -102,7 +102,7 @@ class NaiveTurbidostat(DosingAutomationJobContrib):
     }
     def __init__(self, target_od, **kwargs):
         super().__init__(**kwargs)
-        self.target_od = target_od
+        self.target_od = float(target_od)
 
     def execute(self):
         if self.latest_od > self.target_od:
@@ -112,11 +112,11 @@ if __name__=="__main__":
     from pioreactor.background_jobs.dosing_control import DosingController
 
     dc = DosingController(
-        "naive_turbidostat",
+        unit="test_unit",
+        experiment="test_experiment",
+        automation_name="naive_turbidostat",
         target_od=2.0,
         duration=1, # check every 1 minute
-        unit="test_unit",
-        experiment="test_experiment"
     )
     dc.block_until_disconnected()
 
@@ -124,7 +124,7 @@ if __name__=="__main__":
 This uses the dosing controller class, `DosingController`, which controls which dosing automation is running. By using `DosingAutomationJobContrib`, our new `NaiveTurbidostat` class is automatically discovered by `DosingController` and referenced by the `automation_name` we chose, `naive_turbidostat`.
 
 
-Run the script with `python3 naive_turbidostat.py`. This will start the job. After a minute, you may notice that errors are thrown - that's because there's no optical density measurements being sent!
+Run the script with `python3 naive_turbidostat.py`. This will start the job. After a minute, you may notice that errors are thrown - that's because there's no optical density measurements being produced!
 
 #### Editing attributes over MQTT (optional)
 
@@ -133,7 +133,7 @@ We'll demonstrate the ability to dynamically change the `target_od` attribute us
 pioreactor/<unit name>/<experiment>/dosing_automation/<attribute>/set
 ```
 
-We'll use `mosquitto_pub` to publish a message to this topic. So, with the python script running, open a new command line, and enter the following:
+We'll use `mosquitto_pub` to publish a message to this topic. So, with the Python script running, open a new command line, and enter the following:
 
 ```
 mosquitto_pub -t "pioreactor/test_unit/test_experiment/dosing_automation/target_od/set" -m 5.0 -u pioreactor -P raspberry
@@ -157,19 +157,19 @@ Below are some extensions, with additions highlighted
 Exchanging 1ml each time may not be enough, so we add `volume` to the `published_settings`. Now, from the UI, we can dynamically adjust the volume.
 
 ```python {8,10,13,17}
-from pioreactor.automations import DosingAutomationJobContrib
+from pioreactor.automations.dosing.base import DosingAutomationJobContrib
 
-class NaiveTurbidostat(DosingAutomationJobContrib):
+class NaiveTurbidostat2(DosingAutomationJobContrib):
 
-    automation_name = "naive_turbidostat"
+    automation_name = "naive_turbidostat2"
     published_settings = {
         "target_od": {"datatype": "float", "settable": True, "unit": "od600"},
         "volume": {"datatype": "float", "settable": True, "unit": "mL"},
     }
     def __init__(self, target_od, volume, **kwargs):
         super().__init__(**kwargs)
-        self.target_od = target_od
-        self.volume = volume
+        self.target_od = float(target_od)
+        self.volume = float(volume)
 
     def execute(self):
         if self.latest_od > self.target_od:
@@ -184,19 +184,19 @@ If our growth rate is high, we may want to modify the volume exchanged to keep u
 
 
 ```python {8,10,13,17}
-from pioreactor.automations import DosingAutomationJobContrib
+from pioreactor.automations.dosing.base import DosingAutomationJobContrib
 
-class NaiveTurbidostat(DosingAutomationJobContrib):
+class NaiveTurbidostat3(DosingAutomationJobContrib):
 
-    automation_name = "naive_turbidostat"
+    automation_name = "naive_turbidostat3"
     published_settings = {
         "target_od": {"datatype": "float", "settable": True, "unit": "od600"},
         "volume": {"datatype": "float", "settable": True, "unit": "mL"},
     }
     def __init__(self, target_od, volume, **kwargs):
         super().__init__(**kwargs)
-        self.target_od = target_od
-        self.volume = volume
+        self.target_od = float(target_od)
+        self.volume = float(volume)
 
     def execute(self):
         if self.latest_od > self.target_od:

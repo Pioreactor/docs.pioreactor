@@ -21,7 +21,7 @@ To see this in an example:
 
 
 ```python {10-16}
-from pioreactor.automations import DosingAutomationJob
+from pioreactor.automations.dosing.base import DosingAutomationJob
 
 class CustomPumper(DosingAutomationJob):
 
