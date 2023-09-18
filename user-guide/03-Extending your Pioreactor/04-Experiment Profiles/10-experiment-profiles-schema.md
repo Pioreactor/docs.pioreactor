@@ -3,6 +3,8 @@ title: Experiment profiles schema
 slug: /experiment-profiles-schema
 ---
 
+
+
 ```yaml
 # Main structure
 experiment_profile_name: <string> # Name of the experiment profile
@@ -37,6 +39,10 @@ pioreactors: # Optional: jobs that are specific to some Pioreactors
             options: # Optional: parameters for the action
               <option_name>: <value>
 ```
+
+### Max number of actions
+
+Currently, the max number of total actions is **248**. This may be relaxed in a future software version. Contact us if you need this done.
 
 ### Examples
 
