@@ -44,7 +44,8 @@ The leader computer interacts with the worker computers using the `pios` command
 *   `pios update` install the latest PioreactorApp code on each worker.
 *   `pios sync-configs` deploy the config.ini files to workers.
 *   `pios install-plugin <plugin name>` will install the plugin on each worker _and_ the leader.
-*   `pios reboot` will reboot all workers in the cluster
+*   `pios reboot` will reboot all workers, by default, in the cluster. See `--units` arg below.
+*   `pios shutdown` will shut down all workers, by default, in the cluster. See `--units` arg below.
 *   `pios cp <filepath>` will copy (and overwrite) `filepath` on the leader to all the workers.
 *   `pios rm <filepath>` will remove `filepath` on all the workers.
 
