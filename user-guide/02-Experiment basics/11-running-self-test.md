@@ -35,7 +35,7 @@ The self-test routine is optional. Even with test failures, the Pioreactor is st
 
 ### Explanation of each test
 
-**Pioreactor HAT is detected** checks if the Pioreactor HAT is correctly placed on top of the Raspberry Pi. A non-trivial failure here suggests a problem connection between the HAT and the RPi, a failure with the i2c channel, or a failure with the RP2040 chip on the HAT.
+**Pioreactor HAT is detected** checks if the Pioreactor HAT is correctly placed on top of the Raspberry Pi. A non-trivial failure here suggests a problem connection between the HAT and the RPi, a failure with the i2c channel, or a failure with the RP2040 chip on the HAT. If **Heating PCB is detected** also fails, try disconnecting the Heater PCB flat-flex cable from the HAT (unlock and pull straight out), and trying the test again.
 
 **Photodiodes are responsive to IR LED** checks to ensure that the IR photodiode(s) have a linear relationship with the IR LED's output. The linear relationship is important. Common reasons why this test fails include:
 
@@ -61,7 +61,7 @@ Try running this test again if it fails. If it continues to fail, contact us.
 **Photodiode measures near nil signal for aturbid water** checks that a non turbid liquid, like water, doesn't produce a signal (since there is no scatter). **This is a new test, and may fail even if everything is okay.** Check the following: confirm that your vial contains water (or any very clear liquid) and that your signal photodiode is positioned in 45°, 90°, or 135°. This test won't work for 180°.
 
 
-**Heating PCB is detected** checks that the heating PCB is correctly attached to the Pioreactor HAT. A non-trivial failure here suggests a problem when the i2c channel, a loose connection, or damage to the heating PCB.
+**Heating PCB is detected** checks that the heating PCB is correctly attached to the Pioreactor HAT. A non-trivial failure here suggests a problem when the i2c channel, a loose connection, or damage to the heating PCB. See notes for **Pioreactor HAT is detected**, too.
 
 **Heating is responsive** checks for a linear relationship between the temperature sensor and the PWM heating system.
 
