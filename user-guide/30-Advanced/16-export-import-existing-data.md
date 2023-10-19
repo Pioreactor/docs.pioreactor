@@ -27,7 +27,7 @@ Here's how I suggest your workflow be. We're here to help: we can offer email or
    scp <filename of export> pioreactor@<leader name>.local:/home/pioreactor/
    ```
    
-8. You may recieve an error: host key verification failed. Open the known_hosts file in your .ssh folder and delete the line containing your <leader name>. 
+8. You may recieve an error: host key verification failed. Open the known_hosts file in your .ssh folder and delete the line containing your `<leader name>`.
    When prompted, `are you sure you want to continue connecting?` enter `yes`.
    Enter password `raspberry` and continue.  
    
