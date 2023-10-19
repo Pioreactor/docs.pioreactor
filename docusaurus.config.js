@@ -172,7 +172,7 @@ const config = {
             title: 'Contributing to documentation',
             items: [
               {html: `
-              This entire site is open-source, and any suggestions or comments can be added to our <a href="https://github.com/Pioreactor/docs.pioreactor/issues">Issue Tracker</a>. If you're up for it, feel free to send a <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/getting-started/about-collaborative-development-models">pull request</a>, too!
+              Any suggestions or comments can be added to our <a href="https://github.com/Pioreactor/docs.pioreactor/issues">Issue Tracker</a>. If you're up for it, feel free to send a <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/getting-started/about-collaborative-development-models">pull request</a>, too!
               `}
             ],
           },

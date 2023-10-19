@@ -298,7 +298,7 @@ Finally, we need to think about changing states. What should our job do when the
         self.set_duty_cycle(self._previous_duty_cycle)
 
     def on_disconnected(self):
-        self.pwm.cleanup()
+        self.pwm.clean_up()
 ```
 After the job moves from `init` to `ready` (implicitly done after the `__init__` finishes), the function `on_init_to_ready` is called. This starts the PWM, which starts the motor.
 
@@ -368,7 +368,7 @@ class MotorDriver(BackgroundJob):
 
     def on_disconnected(self):
         self.logger.debug("disconnecting... will clean up PWM")
-        self.pwm.cleanup()
+        self.pwm.clean_up()
 ```
 
 
