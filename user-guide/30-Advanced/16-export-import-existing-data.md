@@ -20,7 +20,7 @@ Here's how I suggest your workflow be. We're here to help: we can offer email or
    scp pioreactor@<leader name>.local:/home/pioreactor/<filename of export> .
    ```
 5. Optional: do this for each Pioreactor worker in your cluster. Exporting workers will save data like calibrations, but we suggest you re-calibrate after anyways. Almost all important data, like historical experiments and logs, are stored on the leader, so you may be okay with just transferring leader data and wiping workers. It's up to you. Happy to chat further at hello@pioreactor.com.
-6. With the export file(s) local, you can now proceed with re-imaging your Pioreactors, by following the same [steps here](https://docs.pioreactor.com/user-guide/software-set-up). The images you download will be the latest image containing the new operating system and software.**Important**: choose the same Pioreactor names!
+6. With the export file(s) local, you can now proceed with re-imaging your Pioreactors, by following the same [steps here](https://docs.pioreactor.com/user-guide/software-set-up). The images you download will be the latest image containing the new operating system and software. **Important**: choose the same Pioreactor hostnames!
 7. Once your Pioreactor leader is running (check that you can access the UI at http://pioreactor.local), we'll upload the export with:
    ```
    # this is run on your local computer
@@ -28,7 +28,7 @@ Here's how I suggest your workflow be. We're here to help: we can offer email or
    ```
    
 8. You may recieve an error: host key verification failed. Open the known_hosts file in your .ssh folder and delete the line containing your `<leader name>`.
-   When prompted, `are you sure you want to continue connecting?` enter `yes`.
+   When prompted, `Are you sure you want to continue connecting?` enter `yes`.
    Enter password `raspberry` and continue.  
    
 9. SSH into the leader, and create a new file with:
