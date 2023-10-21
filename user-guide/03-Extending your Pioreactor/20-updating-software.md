@@ -53,11 +53,16 @@ This method is used if your using the local-access-point.
 For software versions 23.10.5 and beyond, there's a new way to update your Pioreactor software.
 
 1. On the [Releases page](https://github.com/Pioreactor/pioreactor/releases), download the `release_xx.xx.xx.zip` archive for the version you want.
-2. We need a software tool up upload this release to the Pioreactor. You can use `scp` on the command line:
-   ```
-   scp <path to release archive> pioreactor@<leader hostname>.local:/home/pioreactor
-   ```
-    , or a tool like FileZilla. We'll continue with FileZilla below.
+2. We need a software tool up upload this release to the Pioreactor.
+
+   1. You can use `scp` on the command line:
+      ```
+      scp <path to release archive> pioreactor@<leader hostname>.local:/home/pioreactor
+      ```
+      Skip to 8. below.
+
+   2. or a tool like FileZilla. We'll continue with FileZilla below.
+
 2. Download and open [FileZilla](https://filezilla-project.org/download.php?type=client).
 3. Connect to the Pioreactor's local-access-point, _pioreactor_.
 3. Enter the following credentials in the top-right:
