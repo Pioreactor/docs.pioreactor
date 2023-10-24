@@ -10,9 +10,11 @@ slug: /troubleshooting-ui
 - The UI is hosted on **http**, not **http_s_**. Check if you are accessing `http` `://pioreactor.local`, and _not_ `https` `://pioreactor.local`.
 - Try accessing using the url `http://<the permanent name of your Pioreactor aka hostname>.local`
 - If you know your Raspberry Pi's IP, try `http://<IP address of your Raspberry Pi>`. Here's [information to determine the IP address](/user-guide/common-questions#how-can-i-determine-the-pioreactors-ip-address)
-- When pressing the button on the HAT, does the blue LED show up? If not, installation may have failed. See notes [here](/user-guide/software-set-up#my-pioreactor-never-flashes-the-blue-led).
-- In your Raspberry Pi Imager settings, confirm that you clicked "Set username and password", and used the username `pioreactor`. If not, try [reinstalling the image](/user-guide/software-set-up#setting-up-your-raspberry-pi).
+- Errors during installation:
+    - When pressing the button on the HAT, does the blue LED show up? If not, installation may have failed. See notes [here](/user-guide/software-set-up#my-pioreactor-never-flashes-the-blue-led).
+    - In your Raspberry Pi Imager settings, confirm that you clicked "Set username and password", and used the username `pioreactor`. If not, try [reinstalling the image](/user-guide/software-set-up#setting-up-your-raspberry-pi).
  - Are you on an older Windows machine? You may need to install a DNS [service](https://learn.adafruit.com/bonjour-zeroconf-networking-for-windows-and-linux/overview#microsoft-windows-914263-8), but also see workarounds [here](https://github.com/OutsourcedGuru/octoprint-name-resolution-hacks).
+ - Try SSHing in and restarting the webserver: `sudo systemctl restart lighttpd.service && sudo systemctl status lighttpd.service`.
 
 
 ### I see "Failed to connect to MQTT. Is configuration for leader_address correct? Currently set to ..." in a pop-up - what can I do?
@@ -32,8 +34,12 @@ leader_address=192.168.0.10
 
 Your IP may be different than the one above.
 
-3. Hit `Save`. Wait a minute for the save to confirm.
+3. Hit `Save`.
 4. Power-cycle the Pioreactor by unplugging the power and plugging back in.
+
+#### If you are using a remote access service, like ngrok or tailscale
+
+Likely you didn't fill out the `ws` parameter in the configuration correctly. See the [remote access instructions](https://docs.pioreactor.com/user-guide/remote-access) again.
 
 
 ### When I click an action in the UI, I don't see any response. Or the button just spins and does nothing.
