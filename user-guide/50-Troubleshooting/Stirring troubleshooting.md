@@ -6,6 +6,10 @@ slug: /troubleshooting-stirring
 import Highlight from '@site/src/components/Highlight';
 import * as colors from '@site/src/components/constants';
 
+### Stirring is making a grinding noise.
+
+Likely the fan's magnets are striking the 4mm screws above it. See [this section](/user-guide/troubleshooting-stirring#the-magnets-rub-against-the-plastic-screws-above-them-causing-the-stirring-performance-to-be-degraded--stop) if so.
+
 
 ### UI is reporting "Stirring RPM is 0", or stirring self-test failed.
 
@@ -18,7 +22,7 @@ First, with the stirring activity running, carefully examine if the fan below is
     - The fan may be damaged. Contact us at support@pioreactor.com
 - If the fan is spinning:
     - In most cases, this issue occurs when the fan is positioned too far from the sensors on the heater PCB above it.
-       - There should be no visible metal from the screw at the <Highlight color={colors.blue}>interface between the vial holder and the top faceplate's arms</Highlight>. See image below.
+       - There should be no-to-very-little visible metal from the screw at the <Highlight color={colors.blue}>interface between the vial holder and the top faceplate's arms</Highlight>. See image below.
        - Try pushing the fan only slightly higher up using a pen, pencil or thin rod. Avoid moving the fan _too_ high up and hitting the <Highlight color={colors.magenta}>vial holder's screws</Highlight>.
        - Try _moderately_ tightening the screws on the bottom of the top faceplate.
     - Are the two magnets still present on the fan? Visually inspect from the side, or unscrew the top faceplate from the vial holder to see better.
