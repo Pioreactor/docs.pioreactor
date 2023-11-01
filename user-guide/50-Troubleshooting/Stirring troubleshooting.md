@@ -52,6 +52,6 @@ Detach the top faceplate. Under the faceplate, slightly unscrew each of the four
 4. Try another stir bar design, like a cross shape.
 
 
-### Raspberry Pi shuts off or restarts when stirring is turned on from the UI
+### Raspberry Pi shuts off or restarts when stirring is turned on
 
 This is likely caused by a short circuit in the fan's cable assembly. Remove the fan's power cable, and remove the plastic housing by applying pressure on the exposed metal tabs and gently pulling the wires out. Check for any stray wire strands and remove them. Carefully put the plastic housing back on until it clicks (red wire should be positioned closer to the GPIO pins), and try  again.

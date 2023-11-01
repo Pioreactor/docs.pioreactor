@@ -19,12 +19,12 @@ For some use cases, you may want to create a local WiFi network just for your Pi
 
 The Pioreactor comes with the ability to create its own local access point, which other Pioreactors can connect to. See image below:
 
-![Using the leader Pioreactor to create a local access point](/img/user-guide/local_access_point.png)
+![Using the Pioreactor to create a local access point](/img/user-guide/local_access_point.png)
 
 ## Starting a local access point
 
 
-The leader Pioreactor has the necessary software to create the local access point. To start the access point:
+The Pioreactor has the necessary software to create the local access point. To start the access point:
 
  - If starting with a new Pioreactor, during software set up:
     1. Leave the "Configure wireless LAN" unchecked. Continue with the instructions at [Setting up your Raspberry Pi](/user-guide/software-set-up#setting-up-your-raspberry-pi).
@@ -32,8 +32,8 @@ The leader Pioreactor has the necessary software to create the local access poin
     3. <ButtonDownloadLocalAccessPointFile/>
     3. Drag/move the downloaded `local_access_point` file to the SD card directory.
     4. Eject the SD card safely, and continue with instructions at [Setting up your Raspberry Pi](/user-guide/software-set-up#setting-up-your-raspberry-pi).
- - If starting from an existing Pioreactor leader:
-    1. with the power off remove the SD card from the leader and insert it into a computer.
+ - If starting from an existing Pioreactor:
+    1. with the power off remove the SD card from the Pioreactor and insert it into a computer.
     2. <ButtonDownloadLocalAccessPointFile/>
     3. Drag/move the downloaded `local_access_point` file to your SD card (called `boot` or `bootfs`).
     4. Eject the SD card safely, and put back into the Pioreactor.
@@ -46,9 +46,9 @@ After plugging in the Pioreactor, the local access point will start and you shou
 
 Once connected, the usual urls should work: http://pioreactor.local will bring up the Pioreactor interface (having trouble? Try `http://<your_leaders_hostname>.local`. Still not working? Try `http://10.42.0.1`)
 
-### Connecting workers to your local access point
+### Connecting more Pioreactors to your local access point
 
-Worker Pioreactors will need to be reconfigured to connect to this new access point. During worker set up in the Raspberry Pi Imager, using the ssid credentials: `pioreactor` and password `raspberry` in the wireless LAN section.
+Other Pioreactors will need to be reconfigured to connect to this new access point. During set up in the Raspberry Pi Imager, using the ssid credentials: `pioreactor` and password `raspberry` in the wireless LAN section. **You shouldn't add the `local_access_point` file to these other Pioreactors - you only need to do that once**.
 
 :::note
 Since this network may not be connected to the internet, so you won't be able to upgrade any software on the Pioreactors.
@@ -59,7 +59,7 @@ Since this network may not be connected to the internet, so you won't be able to
 If you are hosting the local access point on a Raspberry Pi that has an ethernet port (B models), you can plug this into a router that has access to the internet to provide internet to your entire cluster.
 
 
-![Using the leader Pioreactor to create a local access point, and the leader is connected to a router](/img/user-guide/lap_with_internet.png)
+![Using the Pioreactor to create a local access point, and the is connected to a router](/img/user-guide/lap_with_internet.png)
 
 
 ## Turning off a local access point
