@@ -38,7 +38,6 @@ These come assembled - leave them together.
 1.	Place the vial holder assembly onto the Raspberry Pi/HAT.
 	*	The <Highlight color={colors.blue}>GPIO pins</Highlight> align with the side notch of the faceplate.
 2.	Using the <Highlight color={colors.orange}>6mm screws</Highlight>, attach the top and bottom pieces in each corner.
-3.	Continue to the [next page](/user-guide/optics-assembly).
 
 
 </AssemblyInstructionBlock>
@@ -50,6 +49,7 @@ These come assembled - leave them together.
 2.  Insert the flex cable copper-side up.
 3.  Push the tabs inward to secure the flex cable.
 4.  Insert the stirring power connector into <Highlight color={colors.green}>PWM **channel 1**</Highlight> (unlabelled).
+3.	Continue to the [next page](/user-guide/optics-assembly).
 
 </AssemblyInstructionBlock>
 
