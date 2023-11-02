@@ -35,6 +35,8 @@ First, with the stirring activity running, carefully examine if the fan below is
 
 Detach the top faceplate. Under the faceplate, slightly unscrew each of the four metal screws. This action will create more space between the magnets and the plastic screws.
 
+<img src="/img/user-guide/hardware-assembly/vial_holder_alignment.jpg" width="465" style={{margin: "auto", display:"block"}} />
+
 ### Stir bar is not spinning
 
 1. Check that the vial is pushed down all the way.
