@@ -17,15 +17,15 @@ plugins: # Optional
   - name: <string> # Name of the plugin
     min_version: <string> # Minimum required version of the plugin
 
-aliases: # Optional: provide aliases
+labels: # Optional: provide aliases
     <pioreactor_unit_name>: <alias_name> # Optional: aliases for Pioreactors
 
 common: # Optional: jobs that are common for all Pioreactors
   <job_name>:
     actions:
-      - type: <string> # Type of action: "start", "pause", "resume", "stop", or "update"
+      - type: <string> # Type of action: "start", "pause", "resume", "stop", "update", or "log"
         hours_elapsed: <float> # When the action is scheduled (in hours after experiment start)
-        options: # Optional: parameters for the action
+        options: # Optional: parameters for the action. If type=log, message= is required here.
           <option_name>: <value>
         arguments: <list> # Optional: arguments for the action
 
