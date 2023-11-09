@@ -1,5 +1,5 @@
 ---
-title: Adding the temperature expansion kit to your Pioreactor
+title: Adding the Temperature Expansion Upgrade kit
 slug: /temperature-expansion-kit
 hide_table_of_contents: true
 
