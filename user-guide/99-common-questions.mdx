@@ -19,6 +19,10 @@ We suggest using the UI to reboot your Pioreactor's software:
 Pulling the plug is usually fine, but try to avoid doing it as much as possible.
 
 
+#### Can I still use the Pioreactor software without the hardware?
+
+Yes - the Pioreactor UI and software should still work. There will be warnings that there is no HAT attached, but those can be ignored.
+
 #### Why does the onboard blue LED keep flashing?
 
 There may be a problem. You can diagnose the problem by [counting the number of flashes observed](/user-guide/error-codes).
@@ -134,8 +138,7 @@ We've designed the hardware and software to be compatible with any Raspberry Pi 
 *   Raspberry Pi 400 ²
 
 
-
-Although you can use any above, **we like the Raspberry Pi 3 Model A+, and Raspberry Pi Zero 2 W** because of their low power consumption, slim build, and low price. Both have the necessary CPU power and memory for the Pioreactor workload, and are generally the cheapest on the list above (but see note on Zero W below).
+Although you can use any above, **we like the Raspberry Pi 3 Model A+, and Raspberry Pi Zero 2 W** because of their low power consumption, slim build, and low price. Both have the necessary CPU power and memory for the Pioreactor workload, and are generally easy to source.
 
 ¹ _Raspberry Pi Zero W_ is on the list above, and is very low cost compared to the others. They can absolutely be used for Pioreactors _as workers_ - we don't recommend them to be your _leader_ (note sure what these terms mean? Here's an introduction to [leader and workers](/user-guide/create-cluster)). As workers, Raspberry Pi Zero W perform just fine, but will respond slower to commands. Note that this does not include the Raspberry Pi Zero _2_ W model, which is fine for all roles.
 
@@ -147,18 +150,17 @@ Although you can use any above, **we like the Raspberry Pi 3 Model A+, and Raspb
 
 At least 16GB. We like 16GB or 32GB SanDisk Edge or Samsung microSD cards for their longevity, but any good quality, class 10 SD card will do.
 
-#### What power supply unit do I need?
+#### What power supply unit (PSU) do I need?
 
-If you look at the power rating, it should be about 5 V and at least 2.25 A, or above 12 W. We really like the official Raspberry Pi PSUs, available at most places you can buy Raspberry Pis.
+If you look at the power rating, it should be about 5 V and at least 2.25 A, or above 12 W. We really like the official Raspberry Pi PSUs, available at most places you can purchase Raspberry Pis.
 
 #### Do I need any cooling for the Raspberry Pi?
-
 
 Nope, you shouldn't, unless you are connecting an external monitor. However, extra heat sinks are never a bad idea!
 
 #### Could a Raspberry Pi-compatible board work, like Rock Pi 4?
 
-Probably. We haven't tested them, but so long as i) the GPIO pins are identical, and ii) Raspberry Pi OS can be installed, it should work.
+Maybe? We haven't tested them, but so long as i) the GPIO pins are identical, and ii) Raspberry Pi OS can be installed, it should work.
 
 #### Why are the Raspberry Pi LEDs/USB/Ethernet/etc. turned off?
 
