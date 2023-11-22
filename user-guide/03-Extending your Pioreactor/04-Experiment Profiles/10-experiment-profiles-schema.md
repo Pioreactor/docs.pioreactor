@@ -18,7 +18,7 @@ plugins: # Optional
     min_version: <string> # Minimum required version of the plugin
 
 labels: # Optional: provide aliases
-    <pioreactor_unit_name>: <alias_name> # Optional: aliases for Pioreactors
+  <pioreactor_unit_name>: <alias_name> # Optional: aliases for Pioreactors
 
 common: # Optional: jobs that are common for all Pioreactors
   <job_name>:
