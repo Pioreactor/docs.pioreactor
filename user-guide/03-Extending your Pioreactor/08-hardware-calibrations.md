@@ -53,7 +53,6 @@ There are three pumps on the Pioreactor: media, alt-media, and waste. You don't 
 
 :::info
 You'll need the following:
-1. A Pioreactor
 2. A pump, with power connection to Pioreactor's PWM outputs
 3. An accurate weighing scale
 4. Container of water
