@@ -6,11 +6,6 @@ slug: /local-access-point
 import ButtonDownloadLocalAccessPointFile from '@site/src/components/ButtonDownloadLocalAccessPointFile';
 
 
-:::info
-
-This feature is currently experimental
-:::
-
 For some use cases, you may want to create a local WiFi network just for your Pioreactors (this is called a local access point, or a hotspot). Why might you want to do this?
 
  - If you want to get started right away, without dealing with WiFi credentials.
@@ -40,6 +35,9 @@ The Pioreactor has the necessary software to create the local access point. To s
 
 ## Access the local access point
 
+
+
+
 After plugging in the Pioreactor, the local access point will start and you should see a new network called `pioreactor`, with password `raspberry`. You should be able to connect to this new access point with any computer, phone, tablet, etc.
 
 <img src="/img/user-guide/pioreactor_ap.png" width="325" />
@@ -47,6 +45,13 @@ After plugging in the Pioreactor, the local access point will start and you shou
 Once connected, the usual urls should work: http://pioreactor.local will bring up the Pioreactor interface (having trouble? Try `http://<your_leaders_hostname>.local`. Still not working? Try `http://10.42.0.1`)
 
 ### Connecting more Pioreactors to your local access point
+
+:::info
+
+Raspberry Pi 3B and Raspberry Pi Zero W have trouble connecting to these local access points. Follow instructions [here](https://github.com/Pioreactor/pioreactor/blob/master/CHANGELOG.md?plain=1#L31-L42).
+
+:::
+
 
 Other Pioreactors will need to be reconfigured to connect to this new access point. During set up in the Raspberry Pi Imager, using the ssid credentials: `pioreactor` and password `raspberry` in the wireless LAN section. **You shouldn't add the `local_access_point` file to these other Pioreactors - you only need to do that once**.
 
