@@ -91,11 +91,20 @@ We inoculated two vials with a drop of re-hydrated yeast, and tracked their grow
 ![](/img/experiments/temp_normal_od.png)
 
 
-From the normalized optical density, an implied growth rate graph is generated. The relationship between the implied growth rate and the normalized optical density is exponential, defined by the following equation:
+From the normalized optical density, an implied growth rate graph is generated. The relationship between the implied growth rate, $\text{gr}$ and the normalized optical density, $\text{nOD}$ is exponential, defined by the following equation:
 
 $$
-\text{NOD}=  \exp{ \left( \int_0^t \text{gr}(s)ds \right)}
+\text{nOD}(t) =  \exp{ \left( \int_0^t \text{gr}(s)ds \right)}
 $$ 
+
+We can rewrite this equation in terms of the growth rate:
+
+$$
+\text{gr}(t)= \frac{ \text{nOD}'(t)} {\text{nOD}(t)}
+$$
+
+which plainly states that the growth rate is the rate of change of the size of the culture, normalized by the size of the culture.
+
 
 This rate can give insight on the state of your culture under different external conditions.
 
@@ -114,7 +123,7 @@ Here's how these phases would apply to our graphs, focusing on the 35°C vial:
 ![](/img/user-guide/nod_interpretation.png)
 
 Some things to note: 
-* The lag phase can be detected easily in the growth rate graph, as the rate is stable and doesn't begin increasing until a bit after 6 PM. This is not easily determined in the NOD graph, since at this point the overall turbidity of the culture is low. 
+* The lag phase can be detected easily in the growth rate graph, as the rate is stable and doesn't begin increasing until a bit after 6 PM. This is not easily determined in the nOD graph, since at this point the overall turbidity of the culture is low.
 * The exponential phase occurs when the growth rate is high/increasing. 
 * When the culture reaches the stationary phase, growth rate drops to 0 since the culture is no longer growing in size. The turbidity is constant.
 * The decline phase is not represented in the graphs above, as yeast remain in the stationary phase over many days. 
