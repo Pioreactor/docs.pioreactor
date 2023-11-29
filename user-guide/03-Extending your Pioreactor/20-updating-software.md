@@ -3,12 +3,13 @@ title: Updating the Pioreactor software
 slug: /updating-software
 ---
 
-We publish new software occasionally that fixes bugs, adds new features, and improves performance. You can update your Pioreactor(s) to the latest software from the UI. **We highly recommend keeping your Pioreactor software up to date!**
+We publish new software occasionally that fixes bugs, adds new features, and improves performance. You can update your Pioreactor(s) to the latest software from the UI, or from the command line. **We highly recommend keeping your Pioreactor software up to date!**
 
-### How to update your software from the UI
+
+### Method 1: Updating from the UI
 
 :::info
-To use this update method, you Raspberry Pi must be able to access the internet
+To use this update method, you Raspberry Pi must be able to access the internet. Using a local access point, see method 2 below.
 :::
 
 When a new software version is released by our team, you will see a red "badge" in your UI's sidebar:
@@ -43,7 +44,7 @@ You can install the bleeding-edge software from this page as well. Just select t
 Similarly, from the [command line](https://docs.pioreactor.com/user-guide/accessing-raspberry-pi), you can install specific versions. See `pio update app --help` for more.
 
 
-### Update using release archives
+### Method 2: Update using release archives
 
 
 :::info
@@ -107,6 +108,5 @@ To update the UI, the steps are similar:
    pio update ui --source pioreactorui-xx.xx.xx.tar.gz -v xx.xx.xx
    ```
    where `xx.xx.xx` is the version number, (ex: `23.10.4`).
-
 
 
