@@ -3,7 +3,7 @@ title: Power and restarts
 slug: /troubleshooting-power
 ---
 
-#### Brown-outs
+#### Brown-outs and restarts
 
 If you find that your Pioreactor is halting jobs (eg: the UI says _lost_ and stirring/motors have stopped), or you find that your Pioreactor is restarting itself often, this could be due to _brown-outs_.
 

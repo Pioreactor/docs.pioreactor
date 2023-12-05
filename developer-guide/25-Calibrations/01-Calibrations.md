@@ -3,6 +3,10 @@ title: Adding a new calibration type
 slug: /adding-calibration-type
 ---
 
+:::info
+This is subject to change! Currently we don't like how much a developer has to implement (or copy and paste) to create a new calibration. We want to make it easier to design new calibrations.
+:::
+
 Ideally, all calibrations, including od_calibration and pump_calibration, should behave similarly:
 
 1. Interface should have the following:
