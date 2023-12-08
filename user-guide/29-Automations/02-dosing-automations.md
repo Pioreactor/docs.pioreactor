@@ -46,7 +46,9 @@ The chemostat automation is the second simplest dosing automation. Every `durati
     * one labelled "media"
 
 
-A turbidostat ("turbidity-static") tries to keep the turbidity (also called optical density, or OD), constant over time. This is usually accomplished by taking frequent measurements of the turbidity (every 1 minute), and performing a set media/waste pump cycle when the _normalized_ optical density exceeds some `target OD`. The amount exchanged is the `volume` parameter. For very fast growing cultures, we recommend a `volume` between 1.0 ml and 2.0 ml.
+A turbidostat ("turbidity-static") tries to keep the turbidity (the optical density, or OD), constant over time. This is usually accomplished by taking frequent measurements of the turbidity (every 30 seconds), and performing a set media/waste pump cycle if the optical density (or normalized optical density) exceeds a `target OD` (or `target nOD`). The amount exchanged is the `volume` parameter (mL). For very fast growing cultures, we recommend a `volume` between 1.0 ml and 2.0 ml.
+
+This automation will always dose the `volume` parameter, even if it's not enough for the OD to drop below the `target OD`. If that happens, then `OD > target OD`, and so the automation will trigger after the next check (30 seconds).
 
 ### PID Morbidostat
 
@@ -68,15 +70,6 @@ A turbidostat ("turbidity-static") tries to keep the turbidity (also called opti
 By introducing another pump (labelled "alt media"), another dimension of experiments opens up. We can exploit the short-time scale of adaption in microbes to evolve the culture from thriving in the original media to thriving in the alternative media, or some point in between the two. Think of it as slowly shifting the environment between the two media stocks so that the microbes are under constant evolutionary pressure. This is where the name morbidostat is from: "morbid-static".
 
 In the Pioreactor software, the transition between environments is controlled by observing the growth rate, and artificially keeping it suppressed (set to be `target growth rate`) by dynamically adjusting the ratio between the original media and the alternative media when a pump cycle is run. A pump cycle is run every `duration` minutes. Another parameter is the `target OD`, which should be low to keep the culture in a state of nutrient abundance (so that the _primary_ evolutionary pressure is the alternative media adaptation).
-
-### Continuous Cycle
-
-**Requires:**
-
-*   1 pump (not peristaltic: it will break, something like centrifugal pump is preferred)
-*   Another vessel, like a bioreactor or fermenter
-
-This keeps the pump on until stopped. You decide on the source and sink.
 
 ### Fed batch
 
