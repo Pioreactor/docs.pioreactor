@@ -6,7 +6,7 @@ slug: /updating-software
 We publish new software occasionally that fixes bugs, adds new features, and improves performance. You can update your Pioreactor(s) to the latest software from the UI, or from the command line. **We highly recommend keeping your Pioreactor software up to date!**
 
 
-### Method 1: Updating from the UI
+### Method 1: Updating over the internet
 
 :::info
 To use this update method, you Raspberry Pi must be able to access the internet. Using a local access point, see method 2 below.
@@ -44,16 +44,35 @@ You can install the bleeding-edge software from this page as well. Just select t
 Similarly, from the [command line](https://docs.pioreactor.com/user-guide/accessing-raspberry-pi), you can install specific versions. See `pio update app --help` for more.
 
 
-### Method 2: Update using release archives
 
+### Method 3: Update using the UI to upload a zip file
 
 :::info
-This method is used if your using the local-access-point.
+Available in versions >= 23.12.11
 :::
 
-For software versions 23.10.5 and beyond, there's a new way to update your Pioreactor software.
+Each time we release a new Pioreactor version, we create a bundle of the required files as a zip file. This zip file can be uploaded to your Pioreactor cluster via the UI.
 
-1. On the [Releases page](https://github.com/Pioreactor/pioreactor/releases), download the `release_xx.xx.xx.zip` archive for the version you want.
+1. On the [Releases page](https://github.com/Pioreactor/pioreactor/releases), download the `release_xx.xx.xx.zip` file for the version you want onto a computer with access to the Pioreactor web UI.
+
+2. In the web UI, visit _Uploads_. In the drop down in the top right, select "Update from zip file".
+
+3. Select the zip file from step 1.
+
+4. Click update.
+
+<div class="responsive-video">
+    <video controls>
+        <source src="/vid/update_software_zip.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+    </video>
+</div>
+
+
+### Method 2: Update using a zip file over scp or sftp
+
+
+1. On the [Releases page](https://github.com/Pioreactor/pioreactor/releases), download the `release_xx.xx.xx.zip` file for the version you want.
 2. We need a software tool up upload this release to the Pioreactor.
 
    1. You can use `scp` on the command line:
@@ -96,17 +115,5 @@ For software versions 23.10.5 and beyond, there's a new way to update your Piore
    ```
    pios update app --source release_xx.xx.xx.zip
    ```
-
------
-
-To update the UI, the steps are similar:
-
-1. On the [releases page](https://github.com/Pioreactor/pioreactorui/releases), download the `Source code (tag.gz)` for the release you want.
-2. Using FileZilla, upload this archive to your leader's Raspberry Pi.
-3. SSH into your Raspberry Pi, and run:
-   ```
-   pio update ui --source pioreactorui-xx.xx.xx.tar.gz -v xx.xx.xx
-   ```
-   where `xx.xx.xx` is the version number, (ex: `23.10.4`).
 
 

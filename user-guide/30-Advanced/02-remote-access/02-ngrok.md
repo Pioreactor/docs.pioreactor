@@ -26,7 +26,7 @@ tunnels:
         proto: http
         addr: 80
         inspect: false
-        basic_auth: ["pioreactor:vogue-awesome-brag"]
+        basic_auth: ["pioreactor:vogue-awesome-brag"] #change this
         schemes:
             - http
     ws:
@@ -51,7 +51,7 @@ Alternatively, if you wish to set this up as a service that will launch on start
 ```
 [remote]
 # see docs at https://docs.pioreactor.com/user-guide/remote-access
-ws_url=12a14e3bb.ngrok.io
+ws_url=wss://12a14e3bb.ngrok.io
 ```
 
 12.  Save the configuration by clicking \[Save\].
@@ -63,7 +63,7 @@ ws_url=12a14e3bb.ngrok.io
 
 Set up a domain in the ngrok UI, and follow the steps to add it to you your domain provider. Then in your `ngrok.yml`, add `hostname` fields, example:
 
-```
+```yaml
 authtoken: ...
 tunnels:
   ui:
