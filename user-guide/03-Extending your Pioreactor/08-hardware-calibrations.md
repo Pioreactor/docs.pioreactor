@@ -48,15 +48,12 @@ You're done! Your stirring RPM should be much more responsive now.
 
 Calibrating a pump, like a low-volume peristaltic pump, is very important to accurately dispense or remove a target volume. There is no liquid feedback loop in the Pioreactor (unlike in the stirring & RPM relationship), so this calibration curve is important.
 
-There are three pumps on the Pioreactor: media, alt-media, and waste. You don't need to have all three available, and can calibrate them one at a time.
+There are three pumps on the Pioreactor: media, alt-media, and waste. You don't need to have all three available, and can calibrate them one at a time. For calibration, you'll need the following:
 
+1. A pump, with power connection to Pioreactor's PWM outputs
+2. An accurate weighing scale, with accuracy of 0.1g or better.
+3. Container of water
 
-:::info
-You'll need the following:
-2. A pump, with power connection to Pioreactor's PWM outputs
-3. An accurate weighing scale
-4. Container of water
-:::
 
 
 :::tip
@@ -76,3 +73,13 @@ You'll need the following:
 5. Calibrations can be performed depending on the frequency of your Pioreactor use.
 
 </AssemblyInstructionBlock>
+
+### Made a mistake, or want to change some data?
+
+Starting in software version 23.12.11, you can edit your calibration, too. At the end of the calibration, your data is listed (or use `pio run pump_calibration display` to see the data again). Copy the json data (between `{` and `}`) into new json file on the Raspberry Pi, say `~/pump_data.json` for example. Make any edits you wish to the data. Then you can "rerun" the calibration with data from that file:
+
+```
+pio run pump_calbration -f ~/pump_data.json
+```
+
+

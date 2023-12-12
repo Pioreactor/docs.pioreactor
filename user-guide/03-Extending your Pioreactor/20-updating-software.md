@@ -45,10 +45,10 @@ Similarly, from the [command line](https://docs.pioreactor.com/user-guide/access
 
 
 
-### Method 3: Update using the UI to upload a zip file
+### Method 2: Update using a zip file and the UI
 
 :::info
-Available in versions >= 23.12.11
+Available in versions ≥ 23.12.11
 :::
 
 Each time we release a new Pioreactor version, we create a bundle of the required files as a zip file. This zip file can be uploaded to your Pioreactor cluster via the UI.
@@ -69,7 +69,7 @@ Each time we release a new Pioreactor version, we create a bundle of the require
 </div>
 
 
-### Method 2: Update using a zip file over scp or sftp
+### Method 3: Update using a zip file over scp or sftp
 
 
 1. On the [Releases page](https://github.com/Pioreactor/pioreactor/releases), download the `release_xx.xx.xx.zip` file for the version you want.
