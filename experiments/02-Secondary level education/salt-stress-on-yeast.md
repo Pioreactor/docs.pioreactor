@@ -44,14 +44,14 @@ Increasing salt content to create a hypertonic solution will slow the yeast's fe
 We performed this experiment using five Pioreactors and vials containing 15 mL of sterile YPD stock and salt concentrations of 0%, 1.5%, 3%, 4.5%, and 6% w/v. 
 A sample calculation is as follows:
 $$
-\text {w/v \%}= \frac {\text{mass}}{\text {volume}} 
+\text \{w/v \%\}= \frac \{\text\{mass\}\}\{\text \{volume\}\}
 $$
 To create a salt concentration of **3% w/v** for **15 mL** of media:
 $$
-0.03 = \frac {\text{mass}}{15 mL} 
+0.03 = \frac \{\text\{mass\}\}\{15 mL\}
 $$
 $$
-\text {mass} = 0.45 g
+\text \{mass\} = 0.45 g
 $$
 Therefore, **0.45 grams** of table salt is needed for 3% w/v of salt.
 To each vial, 0g, 0.225g, 0.45g, 0.675g and 0.9g of table salt were added, repectively. They were then innoculated with one drop of rehydrated active yeast (0.500 g of dry yeast in a 15 mL YPD broth vial). The _Temperature automation_ was set on _Thermostat_ at 32.5°C.

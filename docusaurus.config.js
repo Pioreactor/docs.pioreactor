@@ -116,9 +116,9 @@ const config = {
             label: 'Experiments',
           },
           {
-            to: 'changelog',
+            to: 'https://github.com/Pioreactor/pioreactor/blob/master/CHANGELOG.md',
             position: 'left',
-            label: 'Change log',
+            label: 'Changelog',
           },
           {
             href: 'https://pioreactor.com',
@@ -146,8 +146,8 @@ const config = {
                 to: '/experiments/introduction',
               },
               {
-                label: 'Change log',
-                to: '/changelog',
+                label: 'Changelog',
+                to: 'https://github.com/Pioreactor/pioreactor/blob/master/CHANGELOG.md',
               },
             ],
           },

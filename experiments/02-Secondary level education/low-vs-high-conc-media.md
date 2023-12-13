@@ -16,7 +16,7 @@ Conduct a simple comparison of yeast growth between a low percent and high perce
 
 ## Requirements
 
-<AssemblyInstructionBlock images={["experiments/media_exp.jpg"]}>
+<AssemblyInstructionBlock images={['experiments/media_exp.jpg']}>
 
 *   At least two available Pioreactors
 *   Dry baker's yeast
@@ -39,16 +39,14 @@ Discuss with your students the following ideas:
 
 We created 1% YPD by adding 0.15 grams of YPD broth powder to 15 mL:
 
+$$\text \{w/v \%\}= \frac \{\text\{mass\}\}\{\text \{volume\}\}$$
+
 $$
-\text {w/v \%}= \frac {\text{mass}}{\text {volume}} 
+\text \{mass\} = \{0.01\} \times \{15 \:\text \{mL\}\}
 $$
 
 $$
-\text {mass} = {0.01} \times {15 \:\text {mL}} 
-$$
-
-$$
-\text {mass} = 0.15 \:\text {grams} 
+\text \{mass\} = 0.15 \:\text \{grams\}
 $$
 
 Using the same logic, 5% YPD was created by adding 0.75 grams to 15 mL.

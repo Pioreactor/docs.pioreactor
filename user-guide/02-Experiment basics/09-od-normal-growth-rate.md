@@ -20,7 +20,7 @@ Due to manufacturing variables such as differences in LED strength and sensitivi
 A series of initial OD readings are averaged to produce a _reference value_ (denominator). New OD readings after the reference value are normalized using the following simple equation: 
 
 $$
-\frac{\normalsize \text{latest\thickspace OD}}{\normalsize \text{reference\thickspace OD}}=\text{normalized\thickspace OD}
+\frac\{\normalsize \text\{latest\thickspace OD\}\}\{\normalsize \text\{reference\thickspace OD\}\}=\text\{normalized\thickspace OD\}
 $$ 
 
 
@@ -35,13 +35,13 @@ It's difficult to compare raw OD readings since the starting values are differen
 
 ###### Pioreactor1
 
-$\frac{\small 0.033}{\small 0.030}=1.1$
+$\frac\{\small 0.033\}\{\small 0.030\}=1.1$
 
 Culture growth by 1.1x. 
 
 ###### Pioreactor2
 
-$\frac{\small 0.015}{\small 0.010}=1.5$
+$\frac\{\small 0.015\}\{\small 0.010\}=1.5$
 
 Culture growth by 1.5x. 
 
@@ -67,18 +67,18 @@ As an example, let's consider the same data as above, but this time we have info
 We can now subtract the _blank_ values from the _latest OD_ and _reference OD_ values:
 
 $$
-\frac{\normalsize \text{latest\thickspace OD}-\text{blank\thickspace OD}}{\normalsize \text{reference\thickspace OD}-\text{blank\thickspace OD}}=\text{blanked\thickspace normalized\thickspace OD}
+\frac\{\normalsize \text\{latest\thickspace OD\}-\text\{blank\thickspace OD\}\}\{\normalsize \text\{reference\thickspace OD\}-\text\{blank\thickspace OD\}\}=\text\{blanked\thickspace normalized\thickspace OD\}
 $$ 
 
 ###### Pioreactor1
 
-$\frac{\small 0.033-0.025}{\small 0.030-0.025}=1.6x$ 
+$\frac\{\small 0.033-0.025\}\{\small 0.030-0.025\}=1.6x$
 
 Culture growth by 1.6x. 
 
 ###### Pioreactor2
 
-$\frac{\small 0.015-0.005}{\small 0.010-0.005}=2x$ 
+$\frac\{\small 0.015-0.005\}\{\small 0.010-0.005\}=2x$
 
 Culture growth by 2x.
 
@@ -94,13 +94,13 @@ We inoculated two vials with a drop of re-hydrated yeast, and tracked their grow
 From the normalized optical density, an implied growth rate graph is generated. The relationship between the implied growth rate, $\text{gr}$ and the normalized optical density, $\text{nOD}$ is exponential, defined by the following equation:
 
 $$
-\text{nOD}(t) =  \exp{ \left( \int_0^t \text{gr}(s)ds \right)}
+\text\{nOD\}(t) =  \exp\{ \left( \int_0^t \text\{gr\}(s)ds \right)\}
 $$ 
 
 We can rewrite this equation in terms of the growth rate:
 
 $$
-\text{gr}(t)= \frac{ \text{nOD}'(t)} {\text{nOD}(t)}
+\text\{gr\}(t)= \frac\{ \text\{nOD\}'(t)\} \{\text\{nOD\}(t)\}
 $$
 
 which plainly states that the growth rate is the rate of change of the size of the culture, normalized by the size of the culture.

@@ -43,17 +43,17 @@ We conducted an experiment using 4 Pioreactors and vials with ethanol concentrat
 The first concentration of 0% ethanol is easy &#151 we just add 1 mL of distilled water. For the rest, the following calculations were done to determine the volume of ethanol to add to each vial: 
 
 $$
-\frac{[\text{ethanol}]}{\text{media\thickspace volume + ethanol\thickspace volume}}=\text{ethanol \%}
+\frac\{[\text\{ethanol\}]\}\{\text\{media\thickspace volume + ethanol\thickspace volume\}\}=\text\{ethanol \%\}
 $$ 
 
 In our case, we have **15 mL** of YPD broth per vial, and want to add **1 mL** of diluted ethanol; we want to determine our final concentration of ethanol **in 1 mL** to get an overall 2% concentration in our complete, 16 mL of media. 
 
 For 2%: 
 $$
-\frac{[\text{ethanol}]}{\text{15 mL + 1 mL}}=\text{2\%}
+\frac\{[\text\{ethanol\}]\}\{\text\{15 mL + 1 mL\}\}=\text\{2\%\}
 $$
 $$
-[\text{ethanol}]=32\%
+[\text\{ethanol\}]=32\%
 $$
 
 Now, we know we want our 1 mL of dilute ethanol concentration to equal 32%. Since we're starting with an initial concentration of 95%, we can apply the following dilution equation to figure out the concentration of 95% ethanol to use: 
@@ -66,10 +66,10 @@ Final concentration (C<sub>f</sub>)= 32%
 Now we substitute our variables into the equation C<sub>i</sub> V<sub>i</sub> = C<sub>f</sub> V<sub>f</sub>:
 
 $$
-V_i = \frac{(32\%)(\text{1 mL})}{95\%}
+V_i = \frac\{(32\%)(\text\{1 mL\})\}\{95\%\}
 $$ 
 $$
-V_i = \text{0.34 mL} 
+V_i = \text\{0.34 mL\}
 $$
 
 So the composition to create 2% ethanol media is: 
@@ -94,16 +94,16 @@ Vial 4: 1 mL distilled water
 
 To calculate the resulting ethanol percentage: 
 $$
-\frac{[\text{ethanol}]}{\text{media\thickspace volume + ethanol\thickspace volume}}=\text{ethanol \%}
+\frac\{[\text\{ethanol\}]\}\{\text\{media\thickspace volume + ethanol\thickspace volume\}\}=\text\{ethanol \%\}
 $$ 
 
 Substitute the [ethanol] value for half of 95% (or 47.5%):
 
 $$
-\frac{47.5\%}{\text{15 mL + 1 mL}} = \text{ethanol \%}
+\frac\{47.5\%\}\{\text\{15 mL + 1 mL\}\} = \text\{ethanol \%\}
 $$
 $$
-\text{ethanol \%} \approx 3\%
+\text\{ethanol \%\} \approx 3\%
 $$
 
 This technique produces halving ethanol percentages of 0%, 1.5%, 3%, and 6% to be studied on a cluster of 4 Pioreactors. 
