@@ -45,18 +45,26 @@ nohup /opt/ngrok/ngrok start ui ws --config ~/.ngrok/ngrok.yml &
 ```
 Alternatively, if you wish to set this up as a service that will launch on start up, the following `sudo systemctl enable ngrok`
 
-10.  At [dashboard.ngrok.com](https://dashboard.ngrok.com/cloud-edge/endpoints), you'll see two urls. One of the unique urls should link to your Pioreactor dashboard (when asked for a name and password, use "pioreactor" and "raspberry" respectively).
-11.  The other url is added to your config.ini section `[remote]` `ws_url`  (under Configuration in the Pioreactor UI), without the `http://` infront. For example:
+10.  At [dashboard.ngrok.com](https://dashboard.ngrok.com/cloud-edge/endpoints), you'll see two urls. *One of the unique urls* should link to your Pioreactor dashboard (when asked for a name and password, use the user name and the password used in the config above). **However, the UI will crash - this is expected. Continue on.**
+11.  The *other url* is added to your config.ini. While SSH'd into your leader, open the config.ini:
+
+```
+nano ~/.pioreactor/config.ini
+```
+
+And edit the following section (but put in your unique url)
 
 ```
 [remote]
 # see docs at https://docs.pioreactor.com/user-guide/remote-access
-ws_url=wss://12a14e3bb.ngrok.io
+ws_url=wss://<your url>.ngrok-free.app
 ```
 
-12.  Save the configuration by clicking \[Save\].
+Notice that we dropped the `https` and put in `wss`. Save and exit.
+
+12.  Deploy your config with `pios sync-configs`, and refresh your UI that previously crashed.
     
-13.  You're all done! You can now access the Pioreactor UI anywhere at `http://some_address.ngrok.io`. The username and password are the same you added to your yaml file above.
+13.  You're all done! You can now access the Pioreactor UI anywhere. The username and password are the same you added to your yaml file above.
 
 
 ### Custom domain (if using Pro plan)
@@ -74,7 +82,7 @@ tunnels:
     hostname: dev.pioreactor.com
     bind_tls: false
     schemes:
-        - http
+        - https
   ws:
     proto: http
     addr: 9001
@@ -82,7 +90,7 @@ tunnels:
     inspect: false
     bind_tls: false
     schemes:
-        - http
+        - https
 version: "2"
 region: us
 ```
