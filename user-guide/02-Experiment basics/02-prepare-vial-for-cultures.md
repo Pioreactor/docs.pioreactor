@@ -25,7 +25,7 @@ If using pumps with your Pioreactor, see the note [below](/user-guide/prepare-vi
 
 ### 2. Preparing media 
 
-Prepare your media as your protocol suggests. For example: in the our experiments, we typically showcase yeast grown in YPD broth. To create YPD broth, dissolve 50 grams YPD powder per 1 liter distilled water.
+Prepare your media as your protocol suggests. For example: in the our experiments, we typically showcase yeast grown in YPD broth. To create YPD broth, mix YPD and water at a ratio of 50 grams YPD powder to 1 liter distilled water.
 
 
 ### 3. Sterilization

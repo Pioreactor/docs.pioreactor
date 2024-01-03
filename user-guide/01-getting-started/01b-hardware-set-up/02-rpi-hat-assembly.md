@@ -24,10 +24,6 @@ import TabItem from '@theme/TabItem';
 * <Highlight color={colors.teal}>HAT PCB</Highlight>
 
 
-:::note
-  Depending on if you are using a Raspberry Pi Zero (the right-most Raspberry Pi displayed), or Raspberry Pi A or B (the full and 3/4 size), the placement of the hex nuts will be slightly different. See below:
-:::
-
 2. Check the GPIO pins on the <Highlight color={colors.teal}>HAT PCB</Highlight> to confirm that they are straight and not touching another GPIO pin.
 
 </AssemblyInstructionBlock>
@@ -35,19 +31,22 @@ import TabItem from '@theme/TabItem';
 -----
 
 <Tabs>
-  <TabItem value="a_or_b" label="Raspberry Pi A or B" default>
+  <TabItem value="a_or_b" label="Raspberry Pi A or B instructions" default>
 
 
 <AssemblyInstructionBlock title="Step 2: Assemble the bottom faceplate" images={["user-guide/hardware-assembly/bottom_faceplate.jpg","user-guide/hardware-assembly/bot_faceplate_screwed.jpg","user-guide/hardware-assembly/rpi_no_standoffs.jpg"]}>
+
+
+1.  If using a half-size Raspberry Pi (aka a Zero model), switch to the tab above called "Raspberry Pi Zero" to see Zero specific instructions.
 
 :::tip
 The 40 GPIO pins (standing for general-purpose input/output) form a distinct row on one side of the Raspberry Pi. Note the orientation of these pins to help you assemble correctly!
 :::
 
-1.  Orientation: the base will have a flat edge and an edge with an indent. The GPIO pins sit along the <Highlight color={colors.blue}>indent</Highlight>, seen on the left in the images.
-2.  Insert the <Highlight color={colors.red}>10mm screws</Highlight> into the holes.
-3.  Hand screw a <Highlight color={colors.magenta}>hex nut</Highlight> onto each screw.
-4.  Place the Raspberry Pi on top, aligning the holes, with the <Highlight color={colors.green}>GPIO pins</Highlight> on the left. Note: your Raspberry Pi may look different than the one displayed.
+2.  Orientation: the base will have a flat edge and an edge with an indent. The GPIO pins sit along the <Highlight color={colors.blue}>indent</Highlight>, seen on the left in the images.
+3.  Insert the <Highlight color={colors.red}>10mm screws</Highlight> into the holes.
+4.  Hand screw a <Highlight color={colors.magenta}>hex nut</Highlight> onto each screw.
+5.  Place the Raspberry Pi on top, aligning the holes, with the <Highlight color={colors.green}>GPIO pins</Highlight> on the left. Note: your Raspberry Pi may look different than the one displayed.
 
 
 </AssemblyInstructionBlock>
@@ -57,11 +56,7 @@ The 40 GPIO pins (standing for general-purpose input/output) form a distinct row
 <AssemblyInstructionBlock title="Step 3: Placing the HAT PCB on top" images={["user-guide/hardware-assembly/rpi_with_standoffs.jpg","user-guide/hardware-assembly/gpio_unpushed.jpg","user-guide/hardware-assembly/gpio_pushed.jpg", "user-guide/hardware-assembly/standoff_on_hat.jpg"]}>
 
 1.  Hand screw on the <Highlight color={colors.blue}>12mm hex standoffs-with-6mm-screw</Highlight> in each corner.
-2.  Place the HAT PCB on top. <Highlight color={colors.red}>Push down *from the corners*</Highlight> to secure it in place.
-
-:::note
-The HAT PCB's GPIO connector will line up with the RPi's GPIO pins, and may require a slight force to compress down. You can also use the next Tip below to help apply force.
-:::
+2.  Place the HAT PCB on top. <Highlight color={colors.red}>Push down *from the corners*</Highlight> to secure it in place. The HAT PCB's GPIO connector will line up with the RPi's GPIO pins, and may require a slight force to compress down. You can also use the next Tip below to help apply force.
 
 3.  Hand screw the <Highlight color={colors.green}>12mm hex standoffs</Highlight> in each corner, on top of the HAT.
 
@@ -76,9 +71,12 @@ By screwing down the standoffs, they'll help compress the HAT onto the RPi, too.
 
 
   </TabItem>
-  <TabItem value="zero" label="Raspberry Pi Zero">
+  <TabItem value="zero" label="Raspberry Pi Zero / Zero 2 instructions">
 <AssemblyInstructionBlock title="Step 2: Assemble the bottom faceplate" images={["user-guide/hardware-assembly/bottom_faceplate.jpg","user-guide/hardware-assembly/hex_one_side.jpg","user-guide/hardware-assembly/rpi_zero.jpg"]}>
-The 40 GPIO pins (standing for general-purpose input/output) form a distinct row on one side of the RPi. Note the orientation of these pins to help you assemble correctly!
+
+:::tip
+The 40 GPIO pins (standing for general-purpose input/output) form a distinct row on one side of the Raspberry Pi. Note the orientation of these pins to help you assemble correctly!
+:::
 
 1.  Orientation: the base will have a flat edge and an edge with an indent. The GPIO pins sit along the <Highlight color={colors.blue}>indent</Highlight>, seen on the left in the images.
 2.  Insert the 10mm screws into the <Highlight color={colors.red}>holes</Highlight>.
@@ -93,19 +91,15 @@ The 40 GPIO pins (standing for general-purpose input/output) form a distinct row
 
 <AssemblyInstructionBlock title="Step 3: Placing the HAT PCB ontop" images={["user-guide/hardware-assembly/gpio_unpushed.jpg","user-guide/hardware-assembly/gpio_pushed.jpg", "user-guide/hardware-assembly/standoff_on_hat.jpg"]}>
 
-2.  Place the HAT on top. <Highlight color={colors.red}>Push down</Highlight> to secure it in place.
+1.  Place the HAT on top. <Highlight color={colors.red}>Push down</Highlight> to secure it in place. The HAT PCB's GPIO connector will line up with the RPi's GPIO pins, and may require a slight force to compress down. You can also use the next Tip below to help apply force.
 
-:::note
-The HAT PCB's GPIO connector will line up with the RPi's GPIO pins, and may require a slight force to compress down. You can also use the next Tip below to help apply force.
-:::
-
-3.  Hand screw the <Highlight color={colors.green}>12mm hex standoffs</Highlight> in each corner, on top of the HAT.
+2.  Hand screw the <Highlight color={colors.green}>12mm hex standoffs</Highlight> in each corner, on top of the HAT.
 
 :::tip
 By screwing down the standoffs, you can use these standoffs to help compress the HAT onto the RPi, too.
 :::
 
-4.  Put this aside and proceed to the next page.
+3.  Put this aside and proceed to the next page.
 
 </AssemblyInstructionBlock>
 

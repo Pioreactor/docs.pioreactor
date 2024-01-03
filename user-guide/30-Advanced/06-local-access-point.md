@@ -8,8 +8,8 @@ import ButtonDownloadLocalAccessPointFile from '@site/src/components/ButtonDownl
 
 For some use cases, you may want to create a local WiFi network just for your Pioreactors (this is called a local access point, or a hotspot). Why might you want to do this?
 
- - If you want to get started right away, without dealing with WiFi credentials.
- - If your usual WiFi network is restrictive (doesn't allow Raspberry Pis, or requires IT support to host them).
+ - If you want to get started right away, without dealing with exiting WiFi networks.
+ - If your usual WiFi network is restrictive (ex: doesn't allow Raspberry Pis, or requires IT support to host them).
  - If you want to take the Pioreactor, or cluster of Pioreactors, out into the field where there is no network.
 
 The Pioreactor comes with the ability to create its own local access point, which other Pioreactors can connect to. See image below:
@@ -17,7 +17,6 @@ The Pioreactor comes with the ability to create its own local access point, whic
 ![Using the Pioreactor to create a local access point](/img/user-guide/local_access_point.png)
 
 ## Starting a local access point
-
 
 The Pioreactor has the necessary software to create the local access point. To start the access point:
 
@@ -36,8 +35,6 @@ The Pioreactor has the necessary software to create the local access point. To s
 ## Access the local access point
 
 
-
-
 After plugging in the Pioreactor, the local access point will start and you should see a new network called `pioreactor`, with password `raspberry`. You should be able to connect to this new access point with any computer, phone, tablet, etc.
 
 <img src="/img/user-guide/pioreactor_ap.png" width="325" />
@@ -47,17 +44,15 @@ Once connected, the usual urls should work: http://pioreactor.local will bring u
 ### Connecting more Pioreactors to your local access point
 
 :::info
-
 Raspberry Pi 3B and Raspberry Pi Zero W have trouble connecting to these local access points. Follow instructions [here](https://github.com/Pioreactor/pioreactor/blob/master/CHANGELOG.md?plain=1#L31-L42).
-
 :::
 
 
-Other Pioreactors will need to be reconfigured to connect to this new access point. During set up in the Raspberry Pi Imager, using the ssid credentials: `pioreactor` and password `raspberry` in the wireless LAN section. **You shouldn't add the `local_access_point` file to these other Pioreactors - you only need to do that once**.
+Other Pioreactors will need to be reconfigured to connect to this new access point. During set up in the Raspberry Pi Imager, using the ssid credentials: `pioreactor` and password `raspberry` in the wireless LAN section. **Don't add the `local_access_point` file to these other Pioreactors - you only need to do that once**.
 
-:::note
-Since this network may not be connected to the internet, so you won't be able to upgrade any software on the Pioreactors.
-:::
+The maximum number of machines (Pioreactors and computers) that can be connected to a local access point on a Pioreactor is ~8. There is a possibility to add more, see [issue here](https://github.com/Pioreactor/pioreactor/issues/442).
+
+This network may not be connected to the internet, so you won't be able to upgrade any software on the Pioreactors. See section below on how to add internet.
 
 ## Adding internet access to your local access point
 
