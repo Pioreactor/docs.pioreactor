@@ -49,7 +49,7 @@ Here are some tips to prevent damage to the electronics:
 
 
 
-<AssemblyInstructionBlock title="Step 4: We are here for you!" images={["user-guide/hardware-assembly/help.png"]}>
+<AssemblyInstructionBlock title="Step 4: We are here for you!" images={["user-guide/hardware-assembly/finished.jpg"]}>
 
 
 -  If you get stuck, missing a piece, or are unsure of something, **let us know**!
