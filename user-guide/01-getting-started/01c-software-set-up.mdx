@@ -167,7 +167,7 @@ On a successful start, the Pioreactor will flash its blue LED for about 2 second
 
 Easiest solution is to start over. You can edit the name in the RPi Imager, and reflash the image onto the microSD card to remove all previous data.
 
-#### pioreactor.local in a web browser is not showing up
+#### http://pioreactor.local in a web browser is not showing up
 
 *   In your browser's address bar, add the `http://` in front of the url, like so: `http://pioreactor.local`.
 *   Try appending a backslash as well: `http://pioreactor.local/`
@@ -179,3 +179,7 @@ Easiest solution is to start over. You can edit the name in the RPi Imager, and 
 *   In your Raspberry Pi Imager settings, confirm that you clicked "Set username and password", and used the username `pioreactor`. If not, try [reinstalling the image](/user-guide/software-set-up#setting-up-your-raspberry-pi).
 *   Are you on an older Windows machine? You may need to install a DNS [service](https://learn.adafruit.com/bonjour-zeroconf-networking-for-windows-and-linux/overview#microsoft-windows-914263-8), but also see workarounds [here](https://github.com/OutsourcedGuru/octoprint-name-resolution-hacks).
 
+
+#### Can I plug a monitor into the Raspberry Pi's HDMI port?
+
+Our current software turns off all external displays (for power and compute reasons), so any external monitor attached to the Pi won't work.
