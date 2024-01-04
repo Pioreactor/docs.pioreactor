@@ -79,17 +79,17 @@ It may be a tight squeeze. To help screw it in if it's difficult:
 
 <AssemblyInstructionBlock title="Step 4: Install the software" images={["user-guide/add-teh/install_from_ui.png", "user-guide/add-teh/config.png"]}>
 
-** 1. If you install the Kit across your entire Pioreactor cluster**
+**1. If you install the Kit across your entire Pioreactor cluster**
 
- -  In your PioreactorUI, you can <Highlight color={colors.green}>install the plugin</Highlight> to all Pioreactors.
+ -  In your PioreactorUI, you can install the <Highlight color={colors.green}>temperature-expansion-kit-plugin</Highlight> to all Pioreactors in your cluster.
 
 
-** 2. If you installed the Kit on individual Pioreactors**
+**2. If you installed the Kit on individual Pioreactors**
 
  - [SSH](/user-guide/accessing-raspberry-pi) into the individual Pioreactor, and type `pio install-plugin temperature-expansion-kit-plugin`
 
 
-** Important:** in either case,
+**Important:** in either case,
 
 Confirm in your <Highlight color={colors.magenta}>configuration</Highlight> that the `[temperature_automation.thermostat]` values have been updated for the Pioreactors with the new hardware to be (exact values may vary slightly):
 
@@ -109,12 +109,12 @@ local_ac_hz=60
 </AssemblyInstructionBlock>
 
 
-## Tips
-
-
 
 ## Troubleshooting
 
+### I don't have internet access - how can I install the plugin?
+
+ - contact us at `hello@pioreactor.com` - we'll help you out!
 
 ### I'm seeing "Record null temperature. Is the Pt1000 probe connected?" and the wire is connected.
 
