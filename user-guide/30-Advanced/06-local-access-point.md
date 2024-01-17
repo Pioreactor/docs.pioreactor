@@ -39,16 +39,16 @@ After plugging in the Pioreactor, the local access point will start and you shou
 
 <img src="/img/user-guide/pioreactor_ap.png" width="325" />
 
-Once connected, the usual urls should work: http://pioreactor.local will bring up the Pioreactor interface (having trouble? Try `http://<your_leaders_hostname>.local`. Still not working? Try `http://10.42.0.1`)
+Once connected, the usual urls should work: http://pioreactor.local will bring up the Pioreactor interface (having trouble? Not working? Try our troubleshooting steps below.
 
 ### Connecting more Pioreactors to your local access point
 
 :::info
-Raspberry Pi 3B and Raspberry Pi Zero W have trouble connecting to these local access points. Follow instructions [here](https://github.com/Pioreactor/pioreactor/blob/master/CHANGELOG.md?plain=1#L31-L42).
+Raspberry Pi 3B and Raspberry Pi Zero W have trouble connecting to these local access points. Follow instructions [here](https://github.com/Pioreactor/pioreactor/blob/992d986881f3a3504a08b781a494b1a6e3b5a0e3/CHANGELOG.md?plain=1#L110C11-L121).
 :::
 
 
-Other Pioreactors will need to be reconfigured to connect to this new access point. During set up in the Raspberry Pi Imager, using the ssid credentials: `pioreactor` and password `raspberry` in the wireless LAN section. **Don't add the `local_access_point` file to these other Pioreactors - you only need to do that once**.
+Other Pioreactors will need to be reconfigured to connect to this new access point. During set up in the Raspberry Pi Imager, using the ssid / wifi credentials: `pioreactor` and password `raspberry` in the wireless LAN section. **Don't add the `local_access_point` file to these other Pioreactors - you only need to do that once**.
 
 The maximum number of machines (Pioreactors and computers) that can be connected to a local access point on a Pioreactor is ~8. There is a possibility to add more, see [issue here](https://github.com/Pioreactor/pioreactor/issues/442).
 
@@ -70,3 +70,21 @@ After SSH-ing into your Pioreactor, simply delete the `local_access_point` file 
 ## Changing SSID name or password for your local access point
 
 In the `config.ini`, the SSID and password are editable under the section `local_access_point`. This requires a power-cycle to take effect.
+
+
+## Troubleshooting
+
+### My computer can't connect to the local-access-point
+
+#### Do you see the `pioreactor` network in the list of available wifi networks?
+ - If presented, use the option "Use security key to connect" (this is an alias for the password).
+ - Try power-cycling your Pioreactor
+
+#### Alternatively, do you *not* see the `pioreactor` network in the list of available wifi networks?
+ - Try power-cycling the Raspberry Pi
+ - If you unplug the Pioreactor, and place the SD card back into your computer, do you see the `local_access_point` file? If not, try adding the file again, inserting the SD card in the Pioreactor, and restarting the Pioreactor.
+
+
+### I'm on the network, but can't load the Pioreactor UI
+
+Try `http://<your_leaders_hostname>.local`. Still not working? Try `http://10.42.0.1`)

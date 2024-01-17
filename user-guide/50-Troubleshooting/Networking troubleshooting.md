@@ -15,6 +15,6 @@ Also, if you are able to provide a permanent IPv4 address to your leader, you ca
 leader_address=192.168.0.3
 ```
 
-### I can't connect to my Pioreactor's local access point anymore (previously I could)
+### I'm having trouble with the local access point
 
-
+See our troubleshooting documentation [here](/user-guide/local-access-point#troubleshooting).
