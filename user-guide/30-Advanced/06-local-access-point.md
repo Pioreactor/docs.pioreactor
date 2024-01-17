@@ -88,3 +88,7 @@ In the `config.ini`, the SSID and password are editable under the section `local
 ### I'm on the network, but can't load the Pioreactor UI
 
 Try `http://<your_leaders_hostname>.local`. Still not working? Try `http://10.42.0.1`)
+
+### I can't connect a worker to my local access point
+
+ - confirm that you are using the right wifi name and password in the Imager (default `pioreactor` and `raspberry`)
