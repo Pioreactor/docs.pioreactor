@@ -41,6 +41,13 @@ After plugging in the Pioreactor, the local access point will start and you shou
 
 Once connected, the usual urls should work: http://pioreactor.local will bring up the Pioreactor interface (having trouble? Not working? Try our troubleshooting steps below.
 
+:::info
+
+Without access to the internet, the Pioreactor will have the wrong internal time. You can change this [using this method](/user-guide/common-questions#how-do-i-change-the-date-or-time-on-the-pioreactor)
+
+:::
+
+
 ### Connecting more Pioreactors to your local access point
 
 :::info
