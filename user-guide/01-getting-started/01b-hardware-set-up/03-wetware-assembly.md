@@ -14,7 +14,7 @@ import * as colors from '@site/src/components/constants';
 You will need:
 *	<Highlight color={colors.blue}>Vial holder</Highlight>
 *	<Highlight color={colors.orange}>Heating PCB</Highlight>
-*	<Highlight color={colors.magenta}>Thermal pad</Highlight>(contains blue cover on one side and clear plastic on the other)
+*	<Highlight color={colors.magenta}>Thermal pad</Highlight> (contains blue cover on one side and clear plastic on the other)
 *	<Highlight color={colors.green}>Flat flex cable</Highlight>
 *	<Highlight color={colors.teal}>4mm screws (2x)</Highlight>
 

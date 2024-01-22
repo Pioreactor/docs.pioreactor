@@ -13,7 +13,7 @@ import * as colors from '@site/src/components/constants';
 <AssemblyInstructionBlock title="Step 1: Optic cables assembly" images={["user-guide/hardware-assembly/three_bulbs.jpg","user-guide/hardware-assembly/cable_channels.jpg"]}>
 
 1.  You will need both <Highlight color={colors.blue}>PD cables (dark bulbs)</Highlight> and <Highlight color={colors.red}>IR cable (clear bulb)</Highlight>.
-2.  Insert the connector of either <Highlight color={colors.blue}>PD cable</Highlight> into **PD channel 1** (labelled on the faceplate)
+2.  Insert the connector of either <Highlight color={colors.blue}>PD cable</Highlight> into **PD channel 1** (labelled on the faceplate).
 3.  Place the connector of the other <Highlight color={colors.blue}>PD cable</Highlight> into **PD channel 2**.
 4.  Insert the connector of the <Highlight color={colors.red}>IR cable</Highlight> into **channel A** (labelled on the faceplate).
 
