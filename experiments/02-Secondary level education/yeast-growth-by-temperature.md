@@ -56,7 +56,7 @@ Though subtle, non-linear patterns of growth rate are observed between the tempe
 |36°C|0.76|7.5 hours|
 |40°C|0.59|9.5 hours|
 
-Rather than increasing as temperature increases, the higherst growth rates form a bell-curve, with the highest overall growth rate of **0.76 h⁻¹** occuring at 36°C. It decreases at 40°C, since this temperature lies outside of the ideal temperature range for yeast. 
+Rather than increasing as temperature increases, the highest growth rates form a bell curve, with the highest overall growth rate of **0.76 h⁻¹** occurring at 36°C. It decreases at 40°C since this temperature lies outside of the ideal temperature range for yeast. 
 
 The time it takes for each culture to reach the stationary phase is also related to the peak growth rates. Cultures that peaked higher did so in a quicker time frame, thus reaching the stationary phase sooner! Consider the extremes in this case: what would happen if we drop the temperature? Increased it to 50°C? How does this relate to cooking and food storage? 
 

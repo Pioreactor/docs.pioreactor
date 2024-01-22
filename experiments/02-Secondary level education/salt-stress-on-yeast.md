@@ -31,13 +31,13 @@ Use your Pioreactor to model how cells are affected by high salt (hypertonic) so
 
 ## Introduction
 
-In early biology classes, students learn the core concepts of osmolarity across a cell's membrane. The cell's environment can contain different concentrations of impermeable molecules, creating osmotic pressure and resulting in water entering or leaving the cell. You can quantitatively measure the effect this has on growth rate using your Pioreactor!
+In early biology classes, students learn the core concepts of osmolarity across a cell's membrane. The cell's environment can contain different concentrations of impermeable molecules, creating osmotic pressure and resulting in water entering or leaving the cell. You can quantitatively measure this effect on growth rate using your Pioreactor!
 
 The inside and outside of a cell are separated by the cell's **semi-permeable** membrane. Only water and certain molecules can pass through via active or passive transport (diffusion). All other molecules are **impermeable** and cannot pass through the membrane. We'll refer to these as **solutes**. 
 
-Through the process of osmosis, water (our **solvent**) is drawn across a cell's membrane towards higher concentrations of solutes, until an equilibrium is reached. If the concentration of solutes inside and outside of a cell are the same, then the cell is in an **isotonic** solution. Less external solutes or more solutes create **hypotonic** and **hypertonic** solutions, respectively. 
+Through the process of osmosis, water (our **solvent**) is drawn across a cell's membrane towards higher concentrations of solutes, until an equilibrium is reached. If the concentration of solutes inside and outside a cell is the same, then the cell is in an **isotonic** solution. Less external solutes or more solutes create **hypotonic** and **hypertonic** solutions, respectively. 
 
-Increasing salt content to create a hypertonic solution will slow the yeast's fermentation or reproductive activities, leading to slower growth. As salt is addded in excess, yeast cells will fail to grow; yeast needs water and their cell volume eventually becomes too small for growth.  
+Increasing salt content to create a hypertonic solution will slow the yeast's fermentation or reproductive activities, leading to slower growth. As salt is added in excess, yeast cells will fail to grow; yeast needs water and their cell volume eventually becomes too small for growth.  
 
 ## Experiment
 

@@ -56,4 +56,3 @@ These kinds of tests make it easy to identify any unusual activity occuring in a
 7. Confirm that everything looks normal (ex: receiving optical density signal).
 8.	Back on the _Pioreactors_ page, select _Manage all Pioreactors_ and start _Growth rate_. It will take a minute for results to begin showing up. 
 9. Watch growth progress on the _Overview_ page.
-
