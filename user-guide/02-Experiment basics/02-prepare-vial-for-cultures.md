@@ -57,7 +57,7 @@ Ideally in a sterile environment, the vial's lid can be removed and the inoculan
 
 How much inoculant should you add? That depends on the concentration of your inoculant. From our experience, we create a dense culture/stock culture by adding some amount of culture to sterile media or water, and then inoculate our vials from this stock. 
 
-For example, we add 0.5 grams of dried Baker's yeast to 15 mL of YPD broth, then stored in a fridge for further use. 
+For example, we add 0.5 grams of dried Baker's yeast to 15 mL of YPD broth, then store it in a fridge for further use. 
 
 We recommend measuring with a micropipette. If you are using a dropper, hold it vertically for more accurate, consistent drops.
 
@@ -86,7 +86,7 @@ Next, you can [start your experiment](/user-guide/set-up-an-experiment) in the b
 
 When using the Pioreactor with pumps, you'll be using the four luer lock tubes as influx and efflux. The tubes, which are identical lengths, can be moved up and down, and we suggest using this as a way to "label" tubes, and to control the maximum volume in the vial. This can be done before sterilization. Here's how:
 
-One tube can be pulled high up, so that about a millimeter is showing on the underside of the cap. This will be our air influx and efflux (recall that when liquid is added or removed, air is needs to be removed or added respectively to not create a pressure difference).
+One tube can be pulled high up, so that about a millimeter is showing on the underside of the cap. This will be our air influx and efflux (recall that when liquid is added or removed, air needs to be removed or added respectively to not create a pressure difference).
 
 Two tubes can be pulled such they are aligned with the bottom rim of the cap. These two tubes will be the liquid influx tubes. For some operations, like a chemostat, you'll only be using one of these tubes, but some operations require more than one influx.
 
