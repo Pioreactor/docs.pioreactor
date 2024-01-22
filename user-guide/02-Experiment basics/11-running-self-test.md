@@ -42,21 +42,21 @@ The self-test routine is optional. Even with test failures, the Pioreactor is st
 - The IR LED connected to the the wrong LED output. Make sure that the IR LED is identified correctly in the config.ini
 - A loose (or absent) connection to the Pioreactor HAT, either in the photodiode(s) or the IR LED.
 
-The test will also report any valid IR LED & photodiode relationships in the dialog box. For example, `IR ⇝ REF` means that the REF photodiode has a linear relationship with the IR LED. Similarly, `IR ⇝ 45` means the the photodiode in the 45° pocket has a linear relationship with the IR LED. The absent of a relationship here can tell you about what might be wrong.
+The test will also report any valid IR LED & photodiode relationships in the dialog box. For example, `IR ⇝ REF` means that the REF photodiode has a linear relationship with the IR LED. Similarly, `IR ⇝ 45` means the the photodiode in the 45° pocket has a linear relationship with the IR LED. The absence of a relationship here can tell you about what might be wrong.
 
 Try running this test again if it fails. If it continues to fail, contact us.
 
 **No ambient IR light detected** checks that the photodiodes are detecting a near-0 signal when the IR LED is completely off. This test may fail if a powerful IR signal is shining into or onto the Pioreactor's body (aka the Sun - don't put the Pioreactor in direct sunlight and avoid windows). Also make sure that the caps are on all the Pioreactor's LED pockets.
 
 **Reference photodiode is the correct magnitude** checks, if using the reference photodiode (REF), that the REF signal is less than 0.256 volts when the IR LED is at the level specified in the config.ini's `[od_config].[ir_led_intensity]` section. If this test fails,
- - confirm that in your config.ini that `REF` is present for one of the channels under `[od_config.photodiode_channel]`
+ - confirm that in your config.ini that `REF` is present for one of the channels under `[od_config.photodiode_channel]`.
  - check the positioning of the REF photodiode (should be adjacent the the IR LED, snugly inserted, and with a cap).
  - If still failing, try reducing the value in `[od_config].[ir_led_intensity]`.
 
 
 **Reference photodiode is in the correct position** checks, if using the reference photodiode (REF), that the REF cable is inserted into the correct photodiode position (channel 1 or 2). The correct position is provided in the config.ini's `[od_config.photodiode_channel]` section. **Note: this is a flakey test, and can fail even when position correctly**. The test compares the variances of the two signals (from photodiode channels 1 and 2), and the lower variance one is usually the REF.  If this test fails,
  - Is your vial in the Pioreactor? Does your vial have water and a stirbar in it?
- - Confirm that in your config.ini that `REF` is present for one of the channels under `[od_config.photodiode_channel]`
+ - Confirm that in your config.ini that `REF` is present for one of the channels under `[od_config.photodiode_channel]`.
 
 **Photodiode measures near nil signal for aturbid water** checks that a non turbid liquid, like water, doesn't produce a signal (since there is no scatter). **This is a new test, and may fail even if everything is okay.** Check the following: confirm that your vial contains water (or any very clear liquid) and that your signal photodiode is positioned in 45°, 90°, or 135°. This test won't work for 180°.
 
