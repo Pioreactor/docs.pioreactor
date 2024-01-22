@@ -62,7 +62,7 @@ Over time, we expect faster growing yeast to out-compete slower growing yeast, r
 
 ## Recommendations 
 
-There are a myriad of further applications for turbidostats, such as characterization of species, directed evolution, responses to stimuli (gene regulating metabolites) and so much more. 
+There is a myriad of further applications for turbidostats, such as characterization of species, directed evolution, responses to stimuli (gene-regulating metabolites) and so much more. 
 
 We encourage you to choose species and media compositions to suit your interests. Have fun! 
 
