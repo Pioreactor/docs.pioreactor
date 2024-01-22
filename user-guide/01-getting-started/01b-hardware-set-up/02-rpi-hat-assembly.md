@@ -56,7 +56,7 @@ The 40 GPIO pins (standing for general-purpose input/output) form a distinct row
 <AssemblyInstructionBlock title="Step 3: Placing the HAT PCB on top" images={["user-guide/hardware-assembly/rpi_with_standoffs.jpg","user-guide/hardware-assembly/gpio_unpushed.jpg","user-guide/hardware-assembly/gpio_pushed.jpg", "user-guide/hardware-assembly/standoff_on_hat.jpg"]}>
 
 1.  Hand screw on the <Highlight color={colors.blue}>12mm hex standoffs-with-6mm-screw</Highlight> in each corner.
-2.  Place the HAT PCB on top. <Highlight color={colors.red}>Push down *from the corners*</Highlight> to secure it in place. The HAT PCB's GPIO connector will line up with the RPi's GPIO pins, and may require a slight force to compress down. You can also use the next Tip below to help apply force.
+2.  Place the HAT PCB on top. <Highlight color={colors.red}>Push down *from the corners*</Highlight> to secure it in place. The HAT PCB's GPIO connector will line up with the RPi's GPIO pins and may require a slight force to compress down. You can also use the next Tip below to help apply force.
 
 3.  Hand screw the <Highlight color={colors.green}>12mm hex standoffs</Highlight> in each corner, on top of the HAT.
 

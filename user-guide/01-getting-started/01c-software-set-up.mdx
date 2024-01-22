@@ -55,10 +55,10 @@ What is an image file? It's a file that contains all the required software prein
 
     1. Check **Set hostname**. Input a unique name for this Pioreactor. Some names that we use for our first Pioreactor: `pioreactor1`, or `leader`, or `pio1`. _Don't_ use `pioreactor`.
     3. Check **Set username and password**. Enter the following:
-        -   **username**: `pioreactor`
+        -   **username**: `pioreactor`.
         -   **password**: `raspberry`.
         -   Note: You can change the username and password later.
-    4. Check **Configure wireless LAN** and enter your network name into SSID network name, WiFi password, and country. Or leave blank if using ethernet,
+    4. Check **Configure wireless LAN** and enter your network name into SSID network name, WiFi password, and country. Or leave blank if using ethernet.
 	:::tip
     If you are having difficulty connecting to a network, like at a university that may not easily allow Raspberry Pi's, [there's a built-in solution for creating a local access point](/user-guide/local-access-point)).
 	:::
@@ -143,7 +143,7 @@ We recommend running a [self-test](/user-guide/running-self-test) on all Pioreac
 #### My Leader Pioreactor never flashes the blue LED
  - First, confirm that when you press the HAT button, the blue LED does not show up. If it does, you're good to go.
  - It's likely that the installation failed (due to a settings issue), or there is a problem with the SD card. Double check the settings that you used and try reinstalling the image.
- - Are you using a microSD card with size *larger* than 32GB? You may need to reformat it to FAT32. To do this, in the Rasbperry Pi Imager, first select "Erase: format card as FAT32" under "Choose OS". Then proceed with writing the image.
+ - Are you using a microSD card with a size *larger* than 32GB? You may need to reformat it to FAT32. To do this, in the Raspberry Pi Imager, first select "Erase: format card as FAT32" under "Choose OS". Then proceed with writing the image.
 
 
 #### My Pioreactor keeps flashing the blue LED
@@ -158,7 +158,7 @@ On a successful start, the Pioreactor will flash its blue LED for about 2 second
 *   Try power-cycling the Raspberry Pi (unplug and plug back in).
 *   If you are on a restrictive network (like at a university), and wish to avoid the network, [creating a local access point](/user-guide/local-access-point) may be a better option.
 *   You may have mis-typed your WiFi credentials. To fix this, you'll need to restart the image installation from the Raspberry Pi Imager.
-*   If connecting to a 5GHz WiFi connection, you _need_ to supply a valid country code. See the list here: [https://en.wikipedia.org/wiki/ISO\_3166-1\_alpha-2/](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 "Link to country codes on wikipedia")
+*   If connecting to a 5GHz WiFi connection, you _need_ to supply a valid country code. See the list here: [https://en.wikipedia.org/wiki/ISO\_3166-1\_alpha-2/](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 "Link to country codes on wikipedia").
 *   It's possible your SD card is damaged. This can cause all sorts of problems (including failing to boot), not just WiFi issues. The most common cause of SD card failure is probably inserting or removing the SD card while the Pi is powered up.
 *   Check out some other possibilities [here](https://community.octoprint.org/t/wifi-setup-and-troubleshooting/184#heading--troubleshooting).
 
@@ -170,10 +170,10 @@ Easiest solution is to start over. You can edit the name in the RPi Imager, and 
 #### http://pioreactor.local in a web browser is not showing up
 
 *   In your browser's address bar, add the `http://` in front of the url, like so: `http://pioreactor.local`.
-*   Try appending a backslash as well: `http://pioreactor.local/`
+*   Try appending a backslash as well: `http://pioreactor.local/`.
 *   The UI is hosted on **http**, not **https**. Check if you are accessing `http` `://pioreactor.local`, and _not_ `https` `://pioreactor.local`.
-*   Try accessing using the url `http://<the name of your leader Pioreactor aka hostname>.local`
-*   If you know your Raspberry Pi's IP, try `http://<IP address of your Raspberry Pi>`. Here's [information to determine the IP address](/user-guide/common-questions#how-can-i-determine-the-pioreactors-ip-address)
+*   Try accessing using the url `http://<the name of your leader Pioreactor aka hostname>.local`.
+*   If you know your Raspberry Pi's IP, try `http://<IP address of your Raspberry Pi>`. Here's [information to determine the IP address](/user-guide/common-questions#how-can-i-determine-the-pioreactors-ip-address).
 *   When pressing the button on the HAT, does the blue LED show up? If not, installation may have failed. Try installing the image again, and double check the settings.
 *   Try power-cycling the Raspberry Pi (unplug and plug back in).
 *   In your Raspberry Pi Imager settings, confirm that you clicked "Set username and password", and used the username `pioreactor`. If not, try [reinstalling the image](/user-guide/software-set-up#setting-up-your-raspberry-pi).

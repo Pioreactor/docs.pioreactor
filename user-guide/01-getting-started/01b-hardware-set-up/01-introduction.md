@@ -20,7 +20,7 @@ import * as colors from '@site/src/components/constants';
 You will need the following tools to assemble your Pioreactor:
 
 1. Your own Raspberry Pi (RPi). Displayed are three examples.
-2. A Philip's head screwdriver
+2. A Philip's head screwdriver.
 
 </AssemblyInstructionBlock>
 
@@ -29,7 +29,7 @@ You will need the following tools to assemble your Pioreactor:
 
 <AssemblyInstructionBlock title="Step 2: Use labels for reference" images={["user-guide/hardware-assembly/label_reference.jpg"]}>
 
-- Most of the labels are scaled 1:1 and can be used to identify the part
+- Most of the labels are scaled 1:1 and can be used to identify the part.
 - Missing a part? Email us at `hello@pioreactor.com`, we're happy to help.
 
 </AssemblyInstructionBlock>
@@ -39,7 +39,7 @@ You will need the following tools to assemble your Pioreactor:
 
 Here are some tips to prevent damage to the electronics:
 - **Keep the electronics inside the ESD bag** right until you are asked to install them.
-- **Always touch the sides of the board** while manipulating with it. Avoid touching the chips, capacitors and other parts of the electronics.
+- **Always touch the sides of the board** while manipulating with it. Avoid touching the chips, capacitors, and other parts of the electronics.
 - **Before you touch the electronics**, use any conductive (steel) structure nearby to neutralize any electro-static energy.
 - **Be extra cautious in rooms with carpets**, which are a source of electrostatic energy.
 - Clothes made of wool and certain synthetic fabrics can easily gather static electricity. It is safer to wear **cotton clothing**.
