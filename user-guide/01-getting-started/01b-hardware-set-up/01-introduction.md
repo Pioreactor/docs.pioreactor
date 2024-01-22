@@ -40,7 +40,7 @@ You will need the following tools to assemble your Pioreactor:
 Here are some tips to prevent damage to the electronics:
 - **Keep the electronics inside the ESD bag** right until you are asked to install them.
 - **Always touch the sides of the board** while manipulating with it. Avoid touching the chips, capacitors and other parts of the electronics.
-- **Before you touch the electronics** use any conductive (steel) structure nearby to neutralize any electro-static energy.
+- **Before you touch the electronics**, use any conductive (steel) structure nearby to neutralize any electro-static energy.
 - **Be extra cautious in rooms with carpets**, which are a source of electrostatic energy.
 - Clothes made of wool and certain synthetic fabrics can easily gather static electricity. It is safer to wear **cotton clothing**.
 
