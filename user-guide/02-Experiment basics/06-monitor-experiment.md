@@ -48,7 +48,7 @@ This type of noise is typically caused by bubbling in the media due to metabolis
 ### Initial noise in OD 
 
 :::note
-Optical density can decrease early => growth rates can dip negative early on &#151 this is an artifact of turbidity measurements!
+Optical density can decrease early => growth rates can dip negative early on & this is an artifact of turbidity measurements!
 :::
 
 
