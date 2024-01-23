@@ -4,6 +4,7 @@ slug: /experiment-profiles-schema
 ---
 
 
+Below is a schema for experiment profiles. We also do a run-time check
 
 ```yaml
 # Main structure
@@ -17,20 +18,20 @@ plugins: # Optional
   - name: <string> # Name of the plugin
     min_version: <string> # Minimum required version of the plugin
 
-labels: # Optional: provide aliases
-  <pioreactor_unit_name>: <alias_name> # Optional: aliases for Pioreactors
-
 common: # Optional: jobs that are common for all Pioreactors
-  <job_name>:
-    actions:
-      - type: <string> # Type of action: "start", "pause", "resume", "stop", "update", or "log"
-        hours_elapsed: <float> # When the action is scheduled (in hours after experiment start)
-        options: # Optional: parameters for the action. If type=log, message= is required here.
-          <option_name>: <value>
-        arguments: <list> # Optional: arguments for the action
+  jobs:
+    <job_name>:
+      actions:
+        - type: <string> # Type of action: "start", "pause", "resume", "stop", "update", or "log"
+          hours_elapsed: <float> # When the action is scheduled (in hours after experiment start)
+          if: <string> # optional
+          options: # Optional: parameters for the action. If type=log, message= is required here.
+            <option_name>: <value>
+          arguments: <list> # Optional: arguments for the action
 
 pioreactors: # Optional: jobs that are specific to some Pioreactors
-  <alias_name or pioreactor_unit_name>:
+  label: <string> # optional
+  <pioreactor_unit_name>:
     jobs:
       <job_name>:
         actions:
@@ -39,10 +40,6 @@ pioreactors: # Optional: jobs that are specific to some Pioreactors
             options: # Optional: parameters for the action
               <option_name>: <value>
 ```
-
-### Max number of actions
-
-Currently, the max number of total actions is **248**. This may be relaxed in a future software version. Contact us if you need this done.
 
 ### Examples
 

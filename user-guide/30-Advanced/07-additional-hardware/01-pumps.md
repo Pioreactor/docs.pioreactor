@@ -7,8 +7,9 @@ The PWM output default to 5V (specifically, it's tied to the power supply, so it
 
 Note that the inner tubing on pumps is often different from the outer tubing. For example, for the peristaltic pumps that we supply:
 
-Interior tubing dimensions: 1/8" OD, **1/32" ID**
-Exterior tubing dimensions: 1/8" OD, **1/16" ID**
+- Interior tubing dimensions: **1/8" OD, **1/32" ID** or **3mm OD, 1mm ID**
+
+- Exterior tubing dimensions: **1/8" OD, 1/16" ID**
 
 
 ----
