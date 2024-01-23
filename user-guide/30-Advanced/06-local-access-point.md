@@ -92,7 +92,7 @@ In the `config.ini`, the SSID and password are editable under the section `local
  - If you unplug the Pioreactor, and place the SD card back into your computer, do you see the `local_access_point` file? If not, try adding the file again, inserting the SD card in the Pioreactor, and restarting the Pioreactor.
 
 
-### I'm on the network, but can't load the Pioreactor UI
+### I'm on the network, but can't load the Pioreactor UI at `http://pioreactor.local`
 
 Try `http://<your_leaders_hostname>.local`. Still not working? Try `http://10.42.0.1`)
 

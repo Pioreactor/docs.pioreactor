@@ -56,7 +56,7 @@ will get the `target_rpm` from `pio1`'s `stirring` job _at the time the action i
        hours_elapsed: 6.0
        if: pio1::stirring::target_rpm >= 500
        options:
-         - target_rpm: 400
+         target_rpm: 400
 
 ```
 
@@ -86,7 +86,7 @@ Some published settings have are actually nested json blobs, but we need either 
        hours_elapsed: 6.0
        if: pio1::temperature_control::temperature.temperature <= 30
        options:
-        - target_temperature: 32
+         target_temperature: 32
 ```
 
 
@@ -111,11 +111,11 @@ pioreactors:
           - type: start
             hours_elapsed: 0
             options:
-              - target_rpm: 500
+              target_rpm: 500
           - type: update
             hours_elapsed: 12
             options:
-              - target_rpm: ${{ worker1:stirring:target_rpm + 50 }}
+              target_rpm: ${{ worker1:stirring:target_rpm + 50 }}
 
 ```
 
@@ -132,11 +132,11 @@ pioreactors:
           - type: start
             hours_elapsed: 0
             options:
-              - target_rpm: 500
+              target_rpm: 500
           - type: update
             hours_elapsed: 12
             options:
-              - target_rpm: ${{ worker1:stirring:target_rpm + worker1:od_reading:od1.od * 10 }}
+              target_rpm: ${{ worker1:stirring:target_rpm + worker1:od_reading:od1.od * 10 }}
 ```
 
 
@@ -155,7 +155,7 @@ common:
         - type: start
           hours_elapsed: 0.0
           options:
-            - target_temperature: 30
+            target_temperature: 30
 
 ```
 
@@ -171,8 +171,8 @@ common:
         - type: start
           hours_elapsed: 0.0
           options:
-            - automation_name: thermostat
-            - target_temperature: 30
+            automation_name: thermostat
+            target_temperature: 30
 
 ```
 
@@ -189,8 +189,8 @@ common:
         - type: start
           hours_elapsed: 0.0
           options:
-            - automation_name: thermostat
-            - target_temperature: 30
+            automation_name: thermostat
+            target_temperature: 30
         - type: stop
           hours_elapsed: 12.0
 
@@ -211,19 +211,19 @@ common:
         - type: start
           hours_elapsed: 0.0
           options:
-            - automation_name: thermostat
-            - target_temperature: 30
+            automation_name: thermostat
+            target_temperature: 30
         - type: stop
           hours_elapsed: 12.0
     temperature_automation: # this is thermostat
         - type: update
           hours_elapsed: 1.0
           options:
-            - target_temperature: 32
+            target_temperature: 32
         - type: update
           hours_elapsed: 2.0
           options:
-            - target_temperature: 34
+            target_temperature: 34
 
 ```
 
@@ -242,8 +242,8 @@ common:
         - type: start
           hours_elapsed: 0.0
           options:
-        - automation_name: thermostat # this should be indented to align with options
-        - target_temperature: 30      # this should be indented to align with options
+          automation_name: thermostat # this should be indented to align with options
+          target_temperature: 30      # this should be indented to align with options
 
 ```
 
@@ -256,7 +256,38 @@ common:
         - type: start
           hours_elapsed: 0.0
           options:
-          - automation_name: thermostat # lined up!
-          - target_temperature: 30
+            automation_name: thermostat # lined up!
+            target_temperature: 30
 
+```
+
+
+####  ``` Expected `object`, got `array` - at ` ... .options` ```
+
+This is likely because you are using `-` where you shouldn't:
+
+```yaml
+# wrong ❌
+common:
+  jobs:
+    temperature_control:
+      actions:
+        - type: start
+          hours_elapsed: 0.0
+          options:
+            - automation_name: thermostat # don't put - here
+            - target_temperature: 30 # don't put - here
+```
+
+```yaml
+# correct ✅
+common:
+  jobs:
+    temperature_control:
+      actions:
+        - type: start
+          hours_elapsed: 0.0
+          options:
+            automation_name: thermostat # don't put - here
+            target_temperature: 30 # don't put - here
 ```
