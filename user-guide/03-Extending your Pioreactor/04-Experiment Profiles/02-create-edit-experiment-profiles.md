@@ -41,13 +41,15 @@ Also included are numbers (floats), and strings (examples later). The comparison
  - `>=` and `<=`
  - `>` and `<`
 
-Also available is dynamic data, provided from jobs. For example:
+The operators addition `+`, subtraction `-`, multiplication `*`, and division `/` are allowed on floats, as well.
+
+Also available is dynamic data, provided from jobs. For example, the following:
 
 ```
 pio1::stirring::target_rpm
 ```
 
-will get the `target_rpm` from `pio1`'s `stirring` job _at the time the action is to be executed_. To use this in an example:
+will fetch the `target_rpm` from `pio1`'s `stirring` job _at the time the action is to be executed_. To use this in an example:
 
 ```yaml
     stirring:
@@ -74,7 +76,6 @@ You can also compare against strings. For example, to stop a job if the temperat
 
 ```
 
-
 Where do these dynamic values come from? Each job has `published_settings` that can be referenced (refer to the job's source code to all `published_settings` for a job, or they are published in MQTT).
 
 Some published settings have are actually nested json blobs, but we need either numbers or strings to compare in our boolean expression. You can index these json blobs in the boolean expression using `.`, for example:
@@ -100,7 +101,7 @@ We use `temperature.temperature` because the `temperature` published setting is 
 
 #### Expressions in options
 
-Similar to an `if` directive using dynamic data, options can also have dynamic data. However, to distinguish between a string and an expression, an expression must be wrapped in `${{ ... }}`. For example, consider the following `update` action:
+Similar to an `if` directive using dynamic data, options can also have dynamic data (see notes above for syntax, too). However, to distinguish between a string and an expression, an expression **must** be wrapped in `${{ ... }}`. For example, consider the following `update` action:
 
 ```yaml
 pioreactors:
@@ -119,9 +120,9 @@ pioreactors:
 
 ```
 
-This will update the value of `target_rpm` to whatever its current value is (after 1 hour), and added 50 to it.
+This will update the value of `target_rpm` to whatever its current value is (after 1 hour), and add 50 to it.
 
-You don't need to use the same pioreactor or job in an expression. For example, the `update` below will dynamically set the `target_rpm` to a function of optical density.
+You can use the any pioreactor and any job in an expression - you aren't limited to the `job` your editing. For example, the `update` below will dynamically set the `target_rpm` to a function of optical density.
 
 ```yaml
 pioreactors:
