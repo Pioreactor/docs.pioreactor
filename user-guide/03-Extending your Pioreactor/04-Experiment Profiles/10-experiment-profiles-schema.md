@@ -24,8 +24,8 @@ common: # Optional: jobs that are common for all Pioreactors
       actions:
         - type: <string> # Type of action: "start", "pause", "resume", "stop", "update", or "log"
           hours_elapsed: <float> # When the action is scheduled (in hours after experiment start)
-          if: <string> # optional
           options: # Optional: parameters for the action. If type=log, message= is required here.
+            <option_name>: <value>
             <option_name>: <value>
           arguments: <list> # Optional: arguments for the action
 
@@ -37,7 +37,9 @@ pioreactors: # Optional: jobs that are specific to some Pioreactors
         actions:
           - type: <string> # Type of action: "start", "pause", "resume", "stop", or "update"
             hours_elapsed: <float> # When the action is scheduled (in hours after experiment start)
+            if: <string> # Optional, can be an expression
             options: # Optional: parameters for the action
+              <option_name>: <value> # value can be an expression, but use ${{ }}
               <option_name>: <value>
 ```
 

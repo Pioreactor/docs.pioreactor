@@ -17,3 +17,9 @@ When a Pioreactor successfully boots, the onboard blue LED will flash quickly fo
 | 8                 | Webserver offline          |
 
 
+
+-----
+
+### The blue LED is constantly on?
+
+If your blue LED is constantly on, it suggests either an hardware error, or that your Pioreactor is missing it's config.ini. Try a reboot, and if it persists, SSH in and check for the file `~/.pioreactor/config.ini`. If that file is missing, it's either a worker that hasn't been connected to a cluster, or some part of the installation has gone wrong.
