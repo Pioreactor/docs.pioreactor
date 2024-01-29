@@ -4,7 +4,7 @@ slug: /create-edit-experiment-profiles
 ---
 
 
-#### Using the UI
+### Using the UI
 
 Experiment profiles can be managed in the UI at `/experiment-profiles`. See video below for a demonstration.
 
@@ -12,15 +12,15 @@ Experiment profiles can be managed in the UI at `/experiment-profiles`. See vide
 <iframe width="560" height="315" src="https://www.youtube.com/embed/yxxj0ncTxws?si=42eGY8yIt5D84qUA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 
-#### On the command line
+### On the command line
 
 All profiles are stored on the leader's disk under `~/.pioreactor/experiment_profiles/`. You can create and edit profiles in this directory, as well.
 
 
-### Tips to writing profiles
+## Tips to writing profiles
 
 
-#### How the `if` directive works
+### How the `if` directive works
 
 :::info
 Currently the `if` directive is only available in the `pioreactors` block, and _not_ the `common` block.
@@ -99,7 +99,7 @@ We use `temperature.temperature` because the `temperature` published setting is 
     }
 ```
 
-#### Expressions in options
+### Expressions in options
 
 Similar to an `if` directive using dynamic data, options can also have dynamic data (see notes above for syntax, too). However, to distinguish between a string and an expression, an expression **must** be wrapped in `${{ ... }}`. For example, consider the following `update` action:
 
@@ -142,7 +142,7 @@ pioreactors:
 
 
 
-#### Start/stop controllers instead of automations
+### Start/stop controllers instead of automations
 
 A common task is to start the thermostat, and you may want to do something like:
 
@@ -199,7 +199,7 @@ common:
 
 How do you update `target_temperature`, see below.
 
-#### Update automations instead of controllers
+### Update automations instead of controllers
 
 A setting like `target_temperature` or `volume` is attached to the automation, not a controller, so you need to update the automation:
 
@@ -229,7 +229,7 @@ common:
 ```
 
 
-#### YAML syntax check, and indentation problems
+### YAML syntax check, and indentation problems
 
 1. Check your YAML syntax with a tool like: https://www.yamllint.com/
 2. Note that indentation matters! For example, these mean different things, and only the second one is correct:
@@ -263,7 +263,7 @@ common:
 ```
 
 
-####  ``` Expected `object`, got `array` - at ` ... .options` ```
+###  ``` Expected `object`, got `array` - at ` ... .options` ```
 
 This is likely because you are using `-` where you shouldn't:
 
