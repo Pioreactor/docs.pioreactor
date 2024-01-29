@@ -7,39 +7,50 @@ slug: /experiment-profiles-schema
 Below is a schema for experiment profiles. We also do a run-time check
 
 ```yaml
-# Main structure
-experiment_profile_name: <string> # Name of the experiment profile
+# Main structure of the experiment profile
+experiment_profile_name: <string>  # Name of the experiment profile
 
-metadata: # Optional
-  author: <string> # Author of the experiment profile
+# Metadata section (optional)
+metadata:
+  author: <string>      # Author of the experiment profile
   description: <string> # Description of the experiment profile
 
-plugins: # Optional
-  - name: <string> # Name of the plugin
+# Plugins section (optional)
+plugins:
+  - name: <string>        # Name of the plugin
     min_version: <string> # Minimum required version of the plugin
 
-common: # Optional: jobs that are common for all Pioreactors
+# Common jobs section (optional)
+# Jobs that are common for all Pioreactors
+common:
   jobs:
     <job_name>:
       actions:
-        - type: <string> # Type of action: "start", "pause", "resume", "stop", "update", or "log"
-          hours_elapsed: <float> # When the action is scheduled (in hours after experiment start)
-          options: # Optional: parameters for the action. If type=log, message= is required here.
+        - type: <string>     # Type of action: "start", "pause", "resume", "stop", "update", or "log"
+          hours_elapsed: <float> # Time when the action is scheduled (in hours after experiment start)
+          # Options for the action (optional)
+          # If type is 'log', a 'message' parameter is required here
+          options:
             <option_name>: <value>
-            <option_name>: <value>
-          arguments: <list> # Optional: arguments for the action
+          # Arguments for the action (optional)
+          arguments: <list>
 
-pioreactors: # Optional: jobs that are specific to some Pioreactors
-  label: <string> # optional
+# Pioreactors section (optional)
+# Jobs that are specific to some Pioreactors
+pioreactors:
   <pioreactor_unit_name>:
+    # Optional label for the Pioreactor
+    label: <string>
     jobs:
       <job_name>:
         actions:
-          - type: <string> # Type of action: "start", "pause", "resume", "stop", or "update"
-            hours_elapsed: <float> # When the action is scheduled (in hours after experiment start)
-            if: <string> # Optional, can be an expression
-            options: # Optional: parameters for the action
-              <option_name>: <value> # value can be an expression, but use ${{ }}
+          - type: <string>     # Type of action: "start", "pause", "resume", "stop", or "update"
+            hours_elapsed: <float> # Time when the action is scheduled (in hours after experiment start)
+            # Optional 'if' directive for conditional execution of actions
+            if: <string> # Can be an expression
+            # Options for the action (optional)
+            # Values can be expressions, denoted with ${{ }}
+            options:
               <option_name>: <value>
 ```
 

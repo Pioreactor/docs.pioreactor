@@ -6,7 +6,7 @@ slug: /create-edit-experiment-profiles
 
 ### Using the UI
 
-Experiment profiles can be managed in the UI at `/experiment-profiles`. See video below for a demonstration.
+Experiment profiles can be managed in the UI at http://pioreactor.local/experiment-profiles. See video below for a demonstration.
 
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/yxxj0ncTxws?si=42eGY8yIt5D84qUA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
