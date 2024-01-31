@@ -57,7 +57,7 @@ Raspberry Pi 3B and Raspberry Pi Zero W have trouble connecting to these local a
 
 Other Pioreactors will need to be reconfigured to connect to this new access point. During set up in the Raspberry Pi Imager, using the ssid / wifi credentials: `pioreactor` and password `raspberry` in the wireless LAN section. **Don't add the `local_access_point` file to these other Pioreactors - you only need to do that once**.
 
-The maximum number of machines (Pioreactors and computers) that can be connected to a local access point on a Pioreactor is ~8. There is a possibility to add more, see [issue here](https://github.com/Pioreactor/pioreactor/issues/442).
+The maximum number of machines (Pioreactors and computers) that can be connected to a local access point on a Pioreactor is ~4-8. There is a possibility to add more, see [issue here](https://github.com/Pioreactor/pioreactor/issues/442).
 
 This network may not be connected to the internet, so you won't be able to upgrade any software on the Pioreactors. See section below on how to add internet.
 
@@ -86,6 +86,7 @@ In the `config.ini`, the SSID and password are editable under the section `local
 #### Do you see the `pioreactor` network in the list of available wifi networks?
  - If presented, use the option "Use security key to connect" (this is an alias for the password).
  - Try power-cycling your Pioreactor
+ - The maximum number of machines (Pioreactors and computers) that can be connected to a local access point on a Pioreactor is ~4-8. There is a possibility to add more, see [issue here](https://github.com/Pioreactor/pioreactor/issues/442).
 
 #### Alternatively, do you *not* see the `pioreactor` network in the list of available wifi networks?
  - Try power-cycling the Raspberry Pi
@@ -99,3 +100,9 @@ Try `http://<your_leaders_hostname>.local`. Still not working? Try `http://10.42
 ### I can't connect a worker to my local access point
 
  - confirm that you are using the right wifi name and password in the Imager (default `pioreactor` and `raspberry`)
+ - The maximum number of access point clients (Pioreactors and computers) that can be connected to a local access point on a Pioreactor is ~4-8. There is a possibility to add more, see [issue here](https://github.com/Pioreactor/pioreactor/issues/442).
+
+ ### I'm pretty sure I'm at the limit of ~4-8 clients on my access point - what can I do?
+
+  - You can purchase a cheap wifi router and use that as the access point. Note that you don't need to connect this router to the internet - it will operate a network regardless.
+  - You can purchase a WIFI USB stick to improve the clients and range of your Pioreactor. For example, the Alfa AWUS036AC (take note to confirm your Raspberry Pi can has the correct USB connection).
