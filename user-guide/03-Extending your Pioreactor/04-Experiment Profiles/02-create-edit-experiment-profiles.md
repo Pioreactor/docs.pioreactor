@@ -22,9 +22,6 @@ All profiles are stored on the leader's disk under `~/.pioreactor/experiment_pro
 
 ### How the `if` directive works
 
-:::info
-Currently the `if` directive is only available in the `pioreactors` block, and _not_ the `common` block.
-:::
 
 The `if` directive can be included in any action to conditionally execute it or not. The `if` statement is evaluated _when the action is to be executed_ (i.e., when `elapsed_hours` has passed).
 
@@ -41,9 +38,12 @@ Also included are numbers (floats), and strings (examples later). The comparison
  - `>=` and `<=`
  - `>` and `<`
 
-The operators addition `+`, subtraction `-`, multiplication `*`, and division `/` are allowed on floats, as well.
+The operators addition `+`, subtraction `-`, multiplication `*`, and division `/` are allowed on floats, as well. The power of `if` comes when you combine it with expressions, see below:
 
-Also available is dynamic data, provided from jobs. For example, the following:
+### How expressions work
+
+
+Expressions are the method used to get is dynamic data, provided from jobs, during execution of profiles. For example, the following:
 
 ```
 pio1::stirring::target_rpm
@@ -141,6 +141,94 @@ pioreactors:
 ```
 
 
+### Expressions in the `common` block
+
+Expressions can reference individual Pioreactors, for example `worker1:stirring:target_rpm`, but what if you want to specify all Pioreactors in an expression? This is useful for using expressions in the `common` block. The syntax for this is to use the following
+```
+::<job_name>:setting
+```
+
+For example, to conditionally change the stirring RPM in all Pioreactors, and to update it:
+
+```yaml
+common:
+  jobs:
+    stirring:
+      actions:
+        - type: update
+          hours_elapsed: 6
+          if: ${{ ::stirring:target_rpm <= 500 }}
+          options:
+            target_rpm: 500
+```
+
+You can also use this syntax in `options`:
+
+```yaml
+common:
+  jobs:
+    stirring:
+      actions:
+        - type: update
+          hours_elapsed: 6
+          if: ${{ ::stirring:target_rpm <= 500 }}
+          options:
+            target_rpm: ${{ ::stirring:target_rpm + 10 * ::od_reading:od1.od }}
+```
+
+
+### The `repeat` action
+
+
+The `repeat` directive is the most powerful action, as it allows you loop actions over and over again to check for a condition change, update based on state, etc.
+
+
+The `repeat` action requires two new necessary fields:
+
+ - `actions`: a list of actions (`start`, `stop`, `update`, etc.) that you want to repeat.
+ - `repeat_every_hours`: this is a float describing how long, in hours, the loop should last for. For example,  repeat an action every 2 hours, or generally: repeat a sequence of actions every X hours.
+
+At minimum, your `repeat` action should look like, for example:
+```yaml
+ - type: repeat
+   hours_elapsed: 6.0 # when to start the looping, 6 hours
+   repeat_every_hours: 0.5 # perform the actions every 30 minutes
+   actions:
+     - type: update
+       ...
+     - type: update
+       ...
+```
+
+You can also use the `if` directive to skip running loops.
+
+Finally, there is more control using the other optional fields:
+
+ - `max_hours`: this controls how long the loop should run for. For example, if `repeat_every_hours` is `0.5` (or 30 minutes), and `max_hours` is `6`, then the loop will repeat 12 times before exiting.
+ - `while`: this is an expression, like `if`, that runs at the start of each loop, including the first. For example, the following profile will run media until the OD is less than 3.0. We also remove waste so we don't overflow the vial. This is a really coarse turbidostat, and is just for demonstration - don't use this:
+
+   ```yaml
+   add_media:
+     actions:
+       - type: repeat
+         hours_elapsed: 6.0
+         repeat_every_hours: 0.0025 # every 9 seconds
+         while: ${{ worker1:od_reading:od1.od > 3.0 }}
+         actions:
+           - type: start
+             options:
+               volume: 1
+   remove_waste:
+     actions:
+       - type: repeat
+         hours_elapsed: 6.0
+         repeat_every_hours: 0.0025 # every 9 seconds
+         while: ${{ worker1:od_reading:od1.od > 3.0 }}
+         actions:
+           - type: start
+             options:
+               volume: 1.5
+   ```
 
 ### Start/stop controllers instead of automations
 
