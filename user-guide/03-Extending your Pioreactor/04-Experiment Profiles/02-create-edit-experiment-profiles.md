@@ -185,27 +185,29 @@ The `repeat` directive is the most powerful action, as it allows you loop action
 
 The `repeat` action requires two new necessary fields:
 
- - `actions`: a list of actions (`start`, `stop`, `update`, etc.) that you want to repeat.
+ - `actions`: a list of actions (`start`, `stop`, `update`, etc.) that you want to repeat. The field `hours_elapsed` refers to the start of the loop, _not_ when the profile starts.
  - `repeat_every_hours`: this is a float describing how long, in hours, the loop should last for. For example,  repeat an action every 2 hours, or generally: repeat a sequence of actions every X hours.
 
-At minimum, your `repeat` action should look like, for example:
+Your `repeat` action should look like, for example:
 ```yaml
  - type: repeat
    hours_elapsed: 6.0 # when to start the looping, 6 hours
    repeat_every_hours: 0.5 # perform the actions every 30 minutes
    actions:
      - type: update
+       hours_elapsed: 0.0
        ...
      - type: update
+       hours_elapsed: 0.1
        ...
 ```
 
-You can also use the `if` directive to skip running loops.
 
 Finally, there is more control using the other optional fields:
 
  - `max_hours`: this controls how long the loop should run for. For example, if `repeat_every_hours` is `0.5` (or 30 minutes), and `max_hours` is `6`, then the loop will repeat 12 times before exiting.
  - `while`: this is an expression, like `if`, that runs at the start of each loop, including the first. For example, the following profile will run media until the OD is less than 3.0. We also remove waste so we don't overflow the vial. This is a really coarse turbidostat, and is just for demonstration - don't use this:
+ - You can also use the `if` directive to skip running the entire `repeat` action, too.
 
    ```yaml
    add_media:

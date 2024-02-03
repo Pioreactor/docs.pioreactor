@@ -17,7 +17,7 @@ import * as colors from '@site/src/components/constants';
 
 <AssemblyInstructionBlock title="Step 1: Necessary tools" images={["user-guide/hardware-assembly/rpi_types.jpg","user-guide/hardware-assembly/screwdriver.jpg"]}>
 
-You will need the following tools to assemble your Pioreactor:
+You will need the following items to assemble your Pioreactor:
 
 1. Your own Raspberry Pi (RPi). Displayed are three examples.
 2. A Philip's head screwdriver.
@@ -27,10 +27,14 @@ You will need the following tools to assemble your Pioreactor:
 
 
 
-<AssemblyInstructionBlock title="Step 2: Use labels for reference" images={["user-guide/hardware-assembly/label_reference.jpg"]}>
+<AssemblyInstructionBlock title="Step 2: Use all the information available to you" images={["user-guide/hardware-assembly/instructions.png", "user-guide/hardware-assembly/label_reference.jpg"]}>
 
-- Most of the labels are scaled 1:1 and can be used to identify the part.
-- Missing a part? Email us at `hello@pioreactor.com`, we're happy to help.
+- Before staring a step, read all instructions and view all photos at the bottom of each step
+- Most of the labels are scaled 1:1 and can be used to identify parts.
+
+:::info
+Missing a part? Email us at `hello@pioreactor.com`, we're happy to help.
+:::
 
 </AssemblyInstructionBlock>
 

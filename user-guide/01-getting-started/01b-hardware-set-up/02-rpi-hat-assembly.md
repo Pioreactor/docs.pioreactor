@@ -15,7 +15,7 @@ import TabItem from '@theme/TabItem';
 <AssemblyInstructionBlock title="Step 1: Necessary parts" images={["user-guide/hardware-assembly/hat_pieces.jpg", "user-guide/hardware-assembly/gpio_check_A.jpg", "user-guide/hardware-assembly/gpio_check_B.jpg"]}>
 
 1. You will need:
-* A Raspberry Pi of your choosing
+* A Raspberry Pi of your choosing. Displayed are three options - you just need one.
 * <Highlight color={colors.blue}>Hex nuts (4x)</Highlight>
 * <Highlight color={colors.red}>12mm hex standoffs (4x)</Highlight>
 * <Highlight color={colors.magenta}>12mm hex standoffs-with-6mm-screws (4x)</Highlight>
