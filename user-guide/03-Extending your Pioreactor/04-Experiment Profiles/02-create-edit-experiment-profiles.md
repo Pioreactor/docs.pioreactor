@@ -20,6 +20,11 @@ All profiles are stored on the leader's disk under `~/.pioreactor/experiment_pro
 ## Tips to writing profiles
 
 
+### `hours_elapsed` refers to the profile start time
+
+When writing a profile, note that the `hours_elapsed` field refers to when the experiment profile started, and not when the experiment started.
+
+
 ### How the `if` directive works
 
 
