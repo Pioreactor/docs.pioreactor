@@ -54,11 +54,11 @@ Try running this test again if it fails. If it continues to fail, contact us.
  - If still failing, try reducing the value in `[od_config].[ir_led_intensity]`.
 
 
-**Reference photodiode is in the correct position** checks, if using the reference photodiode (REF), that the REF cable is inserted into the correct photodiode position (channel 1 or 2). The correct position is provided in the config.ini's `[od_config.photodiode_channel]` section. **Note: this is a flakey test, and can fail even when position correctly**. The test compares the variances of the two signals (from photodiode channels 1 and 2), and the lower variance one is usually the REF.  If this test fails,
+**Reference photodiode is in the correct position** checks, if using the reference photodiode (REF), that the REF cable is inserted into the correct photodiode position (channel 1 or 2). The correct position is provided in the config.ini's `[od_config.photodiode_channel]` section. **Note: this is a flakey test, and can fail even when positioned correctly**. The test compares the variances of the two signals (from photodiode channels 1 and 2), and the lower variance one is usually the REF.  If this test fails,
  - Is your vial in the Pioreactor? Does your vial have water and a stirbar in it?
  - Confirm that in your config.ini that `REF` is present for one of the channels under `[od_config.photodiode_channel]`.
 
-**Photodiode measures near nil signal for aturbid water** checks that a non turbid liquid, like water, doesn't produce a signal (since there is no scatter). **This is a new test, and may fail even if everything is okay.** Check the following: confirm that your vial contains water (or any very clear liquid) and that your signal photodiode is positioned in 45°, 90°, or 135°. This test won't work for 180°.
+**Photodiode measures near zero signal for clear water** checks that a non turbid liquid, like water, doesn't produce a signal (since there is no scatter). **This is a new test, and may fail even if everything is okay.** Check the following: confirm that your vial contains water (or any very clear liquid) and that your signal photodiode is positioned in 45°, 90°, or 135°. This test won't work for 180°.
 
 
 **Heating PCB is detected** checks that the heating PCB is correctly attached to the Pioreactor HAT. A non-trivial failure here suggests a problem when the i2c channel, a loose connection, or damage to the heating PCB. See notes for **Pioreactor HAT is detected**, too.

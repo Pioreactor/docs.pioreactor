@@ -102,19 +102,18 @@ Workers are additional Pioreactors that you can control from a single UI. Togeth
 
 1. Follow the same instructions above, but use a [Pioreactor Worker image](https://github.com/pioreactor/custopizer/releases/latest/download/pioreactor_worker.zip) instead. All the settings are the same, including *username* and *password*, **but choose a new hostname**. See note below:
 
-:::note 
-Choose a hostname that isn't currently being used in your cluster, ex: `worker1`, `worker2`, etc.
-:::
+   :::note
+   Choose a hostname that isn't currently being used in your cluster, ex: `worker1`, `worker2`, etc.
+   :::
 
-Below is a screenshot of example settings, your settings might be slightly different.
-
-
-<img src="/img/user-guide/rpi-imager-settings-worker.png" width="625" alt="Screenshot of what your settings should look like" style={{margin: "auto", display:"block"}} />
+   Below is a screenshot of example settings, your settings might be slightly different.
 
 
-2. After the image is written to the microSD card, place the microSD card into the Raspberry Pi and power it on.
+   <img src="/img/user-guide/rpi-imager-settings-worker.png" width="625" alt="Screenshot of what your settings may look like" style={{margin: "auto", display:"block"}} />
 
-3. The Pioreactor's blue LED will light up and stay on, indicating that it's ready to be connected. Move onto the next step.
+2. If using a local-access-point on your leader Pioreactor, use the wifi ssid `pioreactor` and password `raspberry`.
+3. After the image is written to the microSD card, place the microSD card into the Raspberry Pi and power it on.
+4. The Pioreactor's blue LED will light up and stay on, indicating that it's ready to be connected. Move onto the next step.
 
 #### Step 2. Add worker to cluster using the UI
 
@@ -139,7 +138,7 @@ We recommend running a [self-test](/user-guide/running-self-test) on all Pioreac
 
 ## Troubleshooting
 
-#### My Leader Pioreactor never flashes the blue LED
+#### My leader Pioreactor never flashes the blue LED
  - First, confirm that when you press the HAT button, the blue LED does not show up. If it does, you're good to go.
  - It's likely that the installation failed (due to a settings issue), or there is a problem with the SD card. Double check the settings that you used and try reinstalling the image.
  - Are you using a microSD card with a size *larger* than 32GB? You may need to reformat it to FAT32. To do this, in the Raspberry Pi Imager, first select "Erase: format card as FAT32" under "Choose OS". Then proceed with writing the image.
