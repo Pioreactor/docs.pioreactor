@@ -71,11 +71,11 @@ We recommend handling the vial with gloves, or handling only the cap. Minimize t
 
 ### 7. Positioning glassware in the Pioreactor sleeve
 
-Place the glassware vial into the Pioreactor sleeve. **The outside of the glassware vial should be clean and dry**. If the vial is wet, even with single droplet, it can damage the electronics underneath.
-
-:::tip
-Ensure that the vial is pressed all the way down and is touching the bottom of the vial holder. This ensures correct temperature regulation of the culture.
+:::danger
+The outside of the glassware vial should be **dry**. If the vial is wet, even with single droplet, it can damage the electronics underneath.
 :::
+
+Place the glassware vial into the Pioreactor sleeve. Ensure that the vial is pressed all the way down and is touching the bottom of the vial holder. This ensures correct temperature regulation of the culture.
 
 
 Next, you can [start your experiment](/user-guide/set-up-an-experiment) in the browser.
