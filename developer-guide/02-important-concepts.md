@@ -9,9 +9,9 @@ The Pioreactor software works as follows:
 
 1. Different jobs, like stirring, OD reading, dosing, etc. are controlled by separate Python objects. Some jobs will passively listen for events from other jobs, and change their behavior in response, for example, dosing automations listen to OD readings, and may respond by dosing (or not dosing).
 
-2. New Python classes can be created by developers to control the bioreactor behaviour. This includes custom dosing, temperature or LED programs. Furthermore, users can write new classes that integrate with external hardware (pumps, circuit boards, etc.), or external software (cloud APIs, etc.)
+2. The main "control plane" for the Pioreactor software is the command line interface, `pio`. For example, when the user starts a activity from the UI, the web server will run `pio run <some activity> --arguments`, which launches a Python process that will instantiate the object the controls the activity.
 
-3. The main "control plane" for the Pioreactor software is the command line. The `pio` command will list all the commands available. When the user starts a job from the UI, the UI backend will run `pio run <some activity> --arguments`, which launches a Python snippet that will instantiate the object the controls the activity.
+3. Because each activity is a separate Python process, we can modify an activity before running it by changing files on the filesystem.
 
 
 ### Cluster topology

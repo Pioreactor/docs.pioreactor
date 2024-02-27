@@ -21,10 +21,11 @@ First, with the stirring activity running, carefully examine if the fan below is
     - Very gently wiggle the connection between the stirring wires and the HAT - does the fan start? It may be a bad connection. Contact us at support@pioreactor.com
     - The fan may be damaged. Contact us at support@pioreactor.com
 - If the fan is spinning:
-    - In most cases, this issue occurs when the fan is positioned too far from the RPM sensors on the heater PCB above it.
+    - This issue may occur if the fan is positioned too far from the RPM sensors on the heater PCB above it.
        - There should be no-to-very-little visible metal from the screw at the <Highlight color={colors.blue}>interface between the vial holder and the top faceplate's arms</Highlight>. See image below.
        - Try pushing the fan only slightly higher up using a pen, pencil or thin rod. Avoid moving the fan _too_ high up and hitting the <Highlight color={colors.magenta}>vial holder's screws</Highlight>.
        - Try _moderately_ tightening the screws on the bottom of the top faceplate.
+    - Try lowering the `initial_duty_cycle` in the config.ini to a value like ~20.
     - Are the two magnets still present on the fan? Visually inspect from the side, or unscrew the top faceplate from the vial holder to see better.
     - The heater PCB may be damaged. Contact us at support@pioreactor.com.
     - You can turn off the feedback loop by setting `use_rpm=0` in the `[stirring]` section of your configuration. Set the `initial_duty_cycle` to some appropriate value (20 to 40), as well.

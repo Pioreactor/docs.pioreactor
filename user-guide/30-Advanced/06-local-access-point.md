@@ -16,9 +16,15 @@ The Pioreactor comes with the ability to create its own local access point, whic
 
 ![Using the Pioreactor to create a local access point](/img/user-guide/local_access_point.png)
 
+
+:::info
+The built-in local access point is meant for small clusters of Pioreactors, and it's range and stability is limited. If you want a proper local access point, we suggest purchasing an inexpensive wifi router and using that (the router does not need to be connected to the internet - it will still create a wifi network you can connect Pioreactors to regardless).
+:::
+
+
 ## Starting a local access point
 
-The Pioreactor has the necessary software to create the local access point. To start the access point:
+The Pioreactor has the necessary software and hardware to create the local access point. To start the access point:
 
  - If starting with a new Pioreactor, during software set up:
     1. Leave the "Configure wireless LAN" unchecked. Continue with the instructions at [Setting up your Raspberry Pi](/user-guide/software-set-up#setting-up-your-raspberry-pi).
@@ -104,5 +110,5 @@ Try `http://<your_leaders_hostname>.local`. Still not working? Try `http://10.42
 
  ### I'm pretty sure I'm at the limit of ~4-8 clients on my access point - what can I do?
 
-  - You can purchase a cheap wifi router and use that as the access point. Note that you don't need to connect this router to the internet - it will operate a network regardless.
+  - You can purchase an inexpensive wifi router and use that as the access point. Note that you don't need to connect this router to the internet - it will operate a network regardless.
   - You can purchase a WIFI USB stick to improve the clients and range of your Pioreactor. For example, the Alfa AWUS036AC (take note to confirm your Raspberry Pi can has the correct USB connection).
