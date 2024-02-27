@@ -17,10 +17,12 @@ Tailscale is a really really cool service! You may find yourself using it for ot
 4. [SSH into your leader Pioreactor](/user-guide/accessing-raspberry-pi). Install Tailscale for Raspberry Pi with the following: `curl -fsSL https://tailscale.com/install.sh | sh`. You don't need to install anything on the workers.
 5. Back in your [Tailscale admin](https://login.tailscale.com/admin/machines), you should see two machines: your computer and the leader Pioreactor. Make note of the ipv4 address for the leader - we will use it below.
 6. You should still be able to access `http://pioreactor.local` without any problems.
-8. In your config.ini, add your ip4v address to::
+8. In your config.ini, add your ipv4 address to::
 ```
-[remote]
-ws_url=ws://<ip4 address>:9001
+[mqtt]
+...
+broker_address=<ipv4 address>
+...
 ```
-7. Now, when you leave the local network, and if you have internet access, you can turn your VPN on and still access `http://<ip4 address>`. Troubleshooting: try `http://<hostname>`, but confirm that magicDNS is on, too.
+7. Now, when you leave the local network, and if you have internet access, you can turn your VPN on and still access `http://<ipv4 address>`. Troubleshooting: try `http://<hostname>`, but confirm that magicDNS is on, too.
 8. You can use the Tailscale admin to add users to your VPN, too.

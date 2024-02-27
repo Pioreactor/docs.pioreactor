@@ -55,42 +55,14 @@ nano ~/.pioreactor/config.ini
 And edit the following section (but put in your unique url)
 
 ```
-[remote]
-# see docs at https://docs.pioreactor.com/user-guide/remote-access
-ws_url=wss://<your url>.ngrok-free.app
+[mqtt]
+...
+# this should not have any https:// infront:
+ws_url=<your url>.ngrok-free.app
+ws_protocol=wss
+...
 ```
-
-Notice that we dropped the `https` and put in `wss`. Save and exit.
 
 12.  Deploy your config with `pios sync-configs`, and refresh your UI that previously crashed.
     
 13.  You're all done! You can now access the Pioreactor UI anywhere. The username and password are the same you added to your yaml file above.
-
-
-### Custom domain (if using Pro plan)
-
-Set up a domain in the ngrok UI, and follow the steps to add it to you your domain provider. Then in your `ngrok.yml`, add `hostname` fields, example:
-
-```yaml
-authtoken: ...
-tunnels:
-  ui:
-    proto: http
-    addr: 80
-    inspect: false
-    basic_auth: ["pioreactor:vogue-awesome-brag"]
-    hostname: dev.pioreactor.com
-    bind_tls: false
-    schemes:
-        - https
-  ws:
-    proto: http
-    addr: 9001
-    hostname: dev.ws.pioreactor.com
-    inspect: false
-    bind_tls: false
-    schemes:
-        - https
-version: "2"
-region: us
-```
