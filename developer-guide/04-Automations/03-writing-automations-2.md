@@ -193,7 +193,5 @@ pio run led_control --automation-name light_dark_cycle --light_intensity 45 --li
 
 ### Adding the automation to the UI
 
-To add your automation to the UI so it appears in the automation drop-down, follow the the steps [here](/
-dev
-eloper-guide/adding-plugins-to-ui#adding-a-custom-automation-to-the-drop-down-of-automations).
+To add your automation to the UI so it appears in the automation drop-down, follow the the steps [here](/developer-guide/adding-plugins-to-ui#adding-a-custom-automation-to-the-drop-down-of-automations).
 

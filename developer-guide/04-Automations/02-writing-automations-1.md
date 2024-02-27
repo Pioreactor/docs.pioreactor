@@ -134,7 +134,6 @@ To add your automation to the UI so it appears in the automation drop-down, foll
 
 
 
-
 ### Extensions of our custom automation
 
 Below are some extensions, with additions highlighted.
