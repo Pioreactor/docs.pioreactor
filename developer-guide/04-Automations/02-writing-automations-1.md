@@ -18,7 +18,7 @@ class NaiveTurbidostat(DosingAutomationJobContrib):
 
     automation_name = "naive_turbidostat"
     published_settings = {
-        "target_od": {"datatype": "float", "settable": True, "unit": "od600"},
+        "target_od": {"datatype": "float", "settable": True, "unit": "od"},
     }
     def __init__(self, target_od, **kwargs):
         super().__init__(**kwargs)
@@ -51,12 +51,12 @@ The `published_settings` tells the Pioreactor software what class attributes are
 ```python
 ...
     published_settings = {
-        "target_od": {"datatype": "float", "settable": True, "unit": "od600"},
+        "target_od": {"datatype": "float", "settable": True, "unit": "od"},
     }
 ...
 ```
 
-The associated metadata says that the class attribute `target_od` is a float, is editable via MQTT (so it can be changed using the web interface), and it has units `od600`.
+The associated metadata says that the class attribute `target_od` is a float, is editable via MQTT (so it can be changed using the web interface), and it has units `od`.
 
 Next, we define how to initialize our automation class. Here we can add settings we want to accept from the user: what is our initial target optical density. Note the boilerplate `**kwargs`, and `super()` are important.
 
@@ -76,29 +76,23 @@ Finally, every `duration` (specified in the controller, later in this section) m
 
 Since we are working with a fixed volume, `media_ml` must equal `waste_ml`, else an error will be thrown. What is `latest_od` attribute? Our class, when active, is listening to new optical densities being recorded. Hence when `execute` runs, we'll have access to the most up-to-date value of optical density. Likewise, there are also `latest_normalized_od` and `latest_growth_rate` attributes that update when a new growth-rate value is calculated. All three attributes are defined and maintained in the parent class.
 
-### Running the script
+### Running the automation
 
-How do we run this automation now? Let's put the code into a file called `naive_turbidostat.py`
+How do we run this automation now? Let's copy the code into a file called `naive_turbidostat.py` and place it into the folder `~/.pioreactor/plugins`.
 
 :::info
-You can create this file on your Pioreactor's Raspberry Pi: after accessing the Raspberry Pi's command line, typing `nano naive_turbidostat.py`, and pasting in the code below.
+You can create this file on your Pioreactor's Raspberry Pi: after [accessing the Raspberry Pi's command line](https://docs.pioreactor.com/user-guide/accessing-raspberry-pi), typing `nano ~/.pioreactor/plugins/naive_turbidostat.py`, and pasting in the code below.
 :::
 
 ```python
 # -*- coding: utf-8 -*-
-"""
-run on the command line with
-$ python3 naive_turbidostat.py
-
-Exit with ctrl-c
-"""
 from pioreactor.automations.dosing.base import DosingAutomationJobContrib
 
 class NaiveTurbidostat(DosingAutomationJobContrib):
 
     automation_name = "naive_turbidostat"
     published_settings = {
-        "target_od": {"datatype": "float", "settable": True, "unit": "od600"},
+        "target_od": {"datatype": "float", "settable": True, "unit": "od"},
     }
     def __init__(self, target_od, **kwargs):
         super().__init__(**kwargs)
@@ -108,23 +102,9 @@ class NaiveTurbidostat(DosingAutomationJobContrib):
         if self.latest_od > self.target_od:
             self.execute_io_action(media_ml=1.0, waste_ml=1.0)
 
-if __name__=="__main__":
-    from pioreactor.background_jobs.dosing_control import DosingController
-
-    dc = DosingController(
-        unit="test_unit",
-        experiment="test_experiment",
-        automation_name="naive_turbidostat",
-        target_od=2.0,
-        duration=1, # check every 1 minute
-    )
-    dc.block_until_disconnected()
-
 ```
-This uses the dosing controller class, `DosingController`, which controls which dosing automation is running. By using `DosingAutomationJobContrib`, our new `NaiveTurbidostat` class is automatically discovered by `DosingController` and referenced by the `automation_name` we chose, `naive_turbidostat`.
 
-
-Run the script with `python3 naive_turbidostat.py`. This will start the job. After a minute, you may notice that errors are thrown - that's because there's no optical density measurements being produced!
+Run the script with `pio run dosing_control --automation-name naive_turbidostat --target-od 0.5`. This will start the job. After a moment, you may notice that warnings are thrown - that's because there's no optical density measurements being produced! You can use crtl-c to stop the job.
 
 #### Editing attributes over MQTT (optional)
 
@@ -148,9 +128,16 @@ Why is this useful?
 3. External programs or apps can monitor and update settings this way, too.
 
 
+### Adding the automation to the UI
+
+To add your automation to the UI so it appears in the automation drop-down, follow the the steps [here](/developer-guide/adding-plugins-to-ui#adding-a-custom-automation-to-the-drop-down-of-automations).
+
+
+
+
 ### Extensions of our custom automation
 
-Below are some extensions, with additions highlighted
+Below are some extensions, with additions highlighted.
 
 #### Dynamic volume exchanged
 
@@ -159,11 +146,11 @@ Exchanging 1ml each time may not be enough, so we add `volume` to the `published
 ```python {8,10,13,17}
 from pioreactor.automations.dosing.base import DosingAutomationJobContrib
 
-class NaiveTurbidostat2(DosingAutomationJobContrib):
+class NaiveTurbidostat(DosingAutomationJobContrib):
 
-    automation_name = "naive_turbidostat2"
+    automation_name = "naive_turbidostat"
     published_settings = {
-        "target_od": {"datatype": "float", "settable": True, "unit": "od600"},
+        "target_od": {"datatype": "float", "settable": True, "unit": "od"},
         "volume": {"datatype": "float", "settable": True, "unit": "mL"},
     }
     def __init__(self, target_od, volume, **kwargs):
@@ -186,11 +173,11 @@ If our growth rate is high, we may want to modify the volume exchanged to keep u
 ```python {8,10,13,17}
 from pioreactor.automations.dosing.base import DosingAutomationJobContrib
 
-class NaiveTurbidostat3(DosingAutomationJobContrib):
+class NaiveTurbidostat(DosingAutomationJobContrib):
 
-    automation_name = "naive_turbidostat3"
+    automation_name = "naive_turbidostat"
     published_settings = {
-        "target_od": {"datatype": "float", "settable": True, "unit": "od600"},
+        "target_od": {"datatype": "float", "settable": True, "unit": "od"},
         "volume": {"datatype": "float", "settable": True, "unit": "mL"},
     }
     def __init__(self, target_od, volume, **kwargs):

@@ -111,28 +111,7 @@ Updates over MQTT either update the attribute directly, i.e. :`self.<attr> = new
 :::
 
 
-That's the end of the class! We turn it into a runnable script with the following, at the end of the file:
-
-```python
-if __name__ == "__main__":
-    from pioreactor.background_jobs.led_control import LEDController
-    from pioreactor.whoami import get_unit_name, get_latest_experiment_name
-
-    lc = LEDController(
-        led_automation="light_dark_cycle",
-        light_intensity=45.0,
-        light_duration_hours=16,
-        dark_duration_hours=8,
-        duration=60, # every 60min we "wake up" and decide what to do.
-        skip_first_run=False,
-        unit=get_unit_name(),
-        experiment=get_latest_experiment_name()
-    )
-
-    lc.block_until_disconnected()
-```
-
-In total, our file looks like:
+That's the end of the class! In total, our file looks like:
 
 ```python
 # -*- coding: utf-8 -*-
@@ -195,24 +174,6 @@ class LightDarkCycle(LEDAutomationJobContrib):
         event = self.trigger_leds(self.hours_online)
         return event
 
-
-
-if __name__ == "__main__":
-    from pioreactor.background_jobs.led_control import LEDController
-    from pioreactor.whoami import get_unit_name, get_latest_experiment_name
-
-    lc = LEDController(
-        led_automation="light_dark_cycle",
-        light_intensity=45.0,
-        light_duration_hours=16,
-        dark_duration_hours=8,
-        duration=60, # every 60min we "wake up" and decide what to do.
-        skip_first_run=False,
-        unit=get_unit_name(),
-        experiment=get_latest_experiment_name()
-    )
-
-    lc.block_until_disconnected()
 ```
 
 ### Setting up the Pioreactor
@@ -222,9 +183,17 @@ Setting up your Pioreactor is easy: attach LEDs to LED channels `B` and `C`, and
 
 ### Running the automation
 
-Let's save this file to our Pioreactor, by accessing the Pioreactor's command line, typing `nano light_dark_cycle.py`, and pasting in the code above. 
+Let's save this file to our Pioreactor plugin folder, by accessing the Pioreactor's command line, typing `nano ~/.pioreactor/plugins/light_dark_cycle.py`, and pasting in the code above.
 
-You can test the automation from the Pioreactor's command line by executing (you may want to change the `duration` to something like 0.5, so you're not waiting hours to see it change):
+You can test the automation from the Pioreactor's command line by executing:
 ```
-python3 light_dark_cycle.py
+pio run led_control --automation-name light_dark_cycle --light_intensity 45 --light_duration_hours 16 --dark_duration_hours 8
 ```
+
+
+### Adding the automation to the UI
+
+To add your automation to the UI so it appears in the automation drop-down, follow the the steps [here](/
+dev
+eloper-guide/adding-plugins-to-ui#adding-a-custom-automation-to-the-drop-down-of-automations).
+
