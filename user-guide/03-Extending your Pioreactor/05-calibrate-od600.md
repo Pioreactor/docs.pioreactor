@@ -15,11 +15,11 @@ Depending on the purposes of your research, you may want to calibrate your Piore
 
 OD600 calibrations are straightforward, and only require one vial, your sample of interest, and an accurate way to measure liquids. We recommend a micropipette of volume range 100 to 1000 uL. 
 
+The calibration works by reading a dilution series. You will start with 10mL of your sample of interest cultivated in your media, at the highest density you expect to observe. During the calibration, you will specify and add an amount of your media to dilute your sample. To avoid overflowing, the program will prompt you to reduce the volume in your vial to 10mL at set intervals. 
+
 Calibrations should be specific to your experiment setup. Any changes to your media, culture, or optical setup (i.e. changing IR intensity, replacing pieces, or changing the angle) will require a new calibration. If everything remains consistent, then we recommend running calibrations every 6 months, or whatever suits your purposes.
 
 ## Running the calibration
-
-Calibrations should, on average, take approximately 10 minutes or less. 
 
 Connect to your Pioreactor by typing *`ssh pioreactor@<insert unit name>.local`*. For example, to calibrate on our Pioreactor named worker3, we typed *`ssh pioreactor@worker3.local`*. The default password is `raspberry`. To begin calibrations, type `pio run od_calibration`.
 
