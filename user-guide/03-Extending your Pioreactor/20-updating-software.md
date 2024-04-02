@@ -108,7 +108,7 @@ Each time we release a new Pioreactor version, we create a bundle of the require
 
 8. To update your workers, first we will distribute the release file to all workers:
    ```
-   pios cp release_xx.xx.xx.zip
+   pios cp release_xx.xx.xx.zip -y
    ```
 
 9. Finally, run the following to update the software on the workers:

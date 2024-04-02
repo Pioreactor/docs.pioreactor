@@ -79,3 +79,11 @@ In the Pioreactor software, the transition between environments is controlled by
 *   A source and sink, with the pump in-between.
 
 This automation moves a preset amount of `volume` every `duration` minutes using a pump. You choose the start and end points of the tube!
+
+
+:::info
+
+How does the vial maintain a constant volume throughout operation? When liquid is added, say 1ml, the volume rises an additional 1ml. Then 1ml of liquid is removed via efflux, but **then the efflux pump runs again for an additional few seconds**. The efflux pump is run for an additional few seconds to eliminate any volume deltas (for example, if the volume added is greater than the volume removed due to pumping errors). Otherwise, the deltas accumulate and the vial can overflow. This additional step helps guarantee
+ that that volume of liquid never exceeds the end of the efflux tube.
+
+:::

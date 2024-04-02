@@ -41,10 +41,14 @@ You can create custom automations, too:
 ```python
 From pioreactor.automations.events import AutomationEvent
 
-class ExampleEvent(AutomationEvent):
+class MyExampleEvent(AutomationEvent):
     pass
 
 
-event = ExampleEvent("my message", {'some_data': 1.0})
+class MyAutomation(...):
+    ...
 
-
+    def execute(self):
+        ...
+        event = MyExampleEvent("my message", {'some_data': 1.0})
+        return event
