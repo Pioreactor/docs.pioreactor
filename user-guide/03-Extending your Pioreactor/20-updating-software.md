@@ -55,7 +55,7 @@ Each time we release a new Pioreactor version, we create a bundle of the require
 
 1. On the [Releases page](https://github.com/Pioreactor/pioreactor/releases), download the `release_xx.xx.xx.zip` file for the version you want onto a computer with access to the Pioreactor web UI.
 
-2. In the web UI, visit _Uploads_. In the drop down in the top right, select "Update from zip file".
+2. In the web UI, visit _Updates_. In the drop down in the top right, select "Update from zip file".
 
 3. Select the zip file from step 1.
 
