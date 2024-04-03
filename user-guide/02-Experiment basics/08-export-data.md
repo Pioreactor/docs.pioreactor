@@ -21,8 +21,6 @@ Select the datasets you would like to download.
 
 Click the _Export_ button to download the raw data as **.csv** files. Each dataset on the list will export as its own .csv file.
 
-![](/img/user-guide/export_data_downloading.png)
-
 
 :::note
 Is a dataset not available in the list? Is there a specific data point you'd like but can't find? Feel free to ask about it on our [forums](https://forum.pioreactor.com/).

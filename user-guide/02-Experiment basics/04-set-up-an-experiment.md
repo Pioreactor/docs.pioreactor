@@ -9,7 +9,7 @@ import Admonition from '@theme/Admonition';
 
 ### Creating an experiment
 
-1. To create a new experiment, use the "New experiment" button at the top of the _Experiment Overview_ page.
+1. To create a new experiment, click on the drop-down menu on the top of the left-hand bar. Click the "New experiment" button.
 
 ![](/img/user-guide/start_new_experiment.png)
 
@@ -17,17 +17,31 @@ import Admonition from '@theme/Admonition';
 
 ![](/img/user-guide/create_new_experiment_page.png)
 
-3. (Optional) If working with more than one Pioreactor in your cluster, it's useful to assign experiment-specific labels to them. These labels appear in the user interface, making progress checking and updating easier. The labels can be changed later. Click "Assign" when done.
+### Adding Pioreactors to your inventory
 
-:::tip
-Use these labels to keep track of treatments on multiple Pioreactors. For example, labels '15C', '25C' and '35C' can be used to differentiate temperature treatments. These labels will be shown on graphs generated in the _Overview_ page on the website. They can be changed in the UI later, too.
-::: 
+In the _Inventory_ tab, you can search for and add worker Pioreactors to your cluster. Click "Add new Pioreactor" at the top right corner of this tab. 
 
-![](/img/user-guide/assign_labels_bulk.png)
+![](/img/user-guide/inventory-tab.png)
 
-:::tip
-When starting, it's useful to run a _self test_ to confirm that your Pioreactors are all working as expected. [How to run a self-test.](/user-guide/running-self-test)
-:::
+In the popup, search for the name of your worker and click "Add Pioreactor". 
+
+![](/img/user-guide/add-new-pioreactor.png)
+
+Once a new Pioreactor is added, you will need to refresh the page to see the new worker in the cluster. 
+
+This Inventory tab will display metadata pertaining to each of your Pioreactors. You can use this page to identify a Pioreactor (causes the blue LED on the HAT to blink), unassign a Pioreactor from any experiment, reboot a Pioreactor, or remove it from your cluster. This page also provides a summary of which Pioreactors are assigned to which experiment, as highlighted in yellow in the image below. 
+
+![](/img/user-guide/inventory-multiple-pios.png)
+
+### Assigning Pioreactors to your experiment
+
+The _Pioreactors_ tab will display any active and inactive Pioreactors assigned to the experiment. Click on "Assign Pioreactors" to assign pioreactors to the current experiment. 
+
+![](/img/user-guide/pioreactors-tab.png)
+
+Pioreactors that are assigned to another experiment will be unavailable, unless unassigned through the _Inventory_ tab or through it's assigned experiment's _Pioreactors_ tab. 
+
+![](/img/user-guide/assign-pios-to-another-experiment.png)
 
 ### (Optional) Blanking
 
@@ -44,12 +58,17 @@ When working with **small amounts** of a microorganism, or when using very turbi
 
 </AssemblyInstructionBlock>
 
-## Start activities from the Pioreactors page.
+## Start activities from the Pioreactors page
+
+:::tip
+When starting, it's useful to run a _self test_ to confirm that your Pioreactors are all working as expected. [How to run a self-test.](/user-guide/running-self-test)
+:::
 
 On the _Pioreactors_ page, you should see at least one Pioreactor under _Active Pioreactors_. You can start an [activity](/user-guide/activities) using the "Manage" button. Once started, you can pause (and then resume) or stop jobs. Clicking the "Manage all Pioreactors" button will give you control to start and stop activities on all active Pioreactors.
 
 
 ![](/img/user-guide/pioreactor_page_manage.png)
+
 ![](/img/user-guide/pioreactor_page_activities.png)
 
 
@@ -68,7 +87,24 @@ If you'd like to **change the settings** of your activities after you start, nav
 
 ![](/img/user-guide/manage_ui.png)
 
-Here you can change the settings of your activities (such as temperature, RPM, and dosing volume) without pausing or stopping the activity.
-
 ![](/img/user-guide/settings.png)
 
+Here you can change the settings of your activities (such as temperature, RPM, and dosing volume) without pausing or stopping the activity.
+
+(Optional) If working with more than one Pioreactor in your cluster, it's useful to assign experiment-specific labels in these settings. These labels appear in the user interface, making progress checking and updating easier. The labels can be changed later. Click "Assign" when done.
+
+:::tip
+Use these labels to keep track of treatments on multiple Pioreactors. For example, labels '15C', '25C' and '35C' can be used to differentiate temperature treatments. These labels will be shown on graphs generated in the _Overview_ page on the website. They can be changed in the UI later, too.
+::: 
+
+#### Ending your experiment
+
+On the _Overview_, _Pioreactors_, and _Profiles_ tabs, the option to _Manage experiment_ is located in the top left corner.
+
+![](/img/user-guide/end-or-delete-experiment.png)
+
+The option _End experiment_ will stop all running activities and unassign all Pioreactors from the experiment. 
+
+:::warning
+The option _Delete experiment_ will do the same, while also deleting all experiment data. Note that you will not be able to export any data from a deleted experiment. 
+:::
