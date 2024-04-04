@@ -10,7 +10,7 @@ For those interested, you can use the command line to interact with the Pioreact
 Interacting with the Pioreactor on the command line are through the `pio` tool. Available arguments are:
 
 *   `pio logs` will produce a stream of recent logs events. Logs are stored in `/var/log/pioreactor.log`.
-*   `pio kill <job> [<job>...]` will safely terminate a `<job>`. Can kill multiple jobs, ex: `pio kill stirring dosing_control`
+*   `pio kill --name <job> --experiment <exp>` or `pio kill --all-jobs` to end jobs.
 *   `pio run <job> <options>` will run the `<job>`. Each job may have specific command line arguments.
 *   `pio version` print the version of the PioreactorApp software.
 *   `pio update app` will update the software to the latest app version.
@@ -29,17 +29,18 @@ The leader also has their own unique set of `pio` commands (these commands do no
 
 *   `pio db`: open the sqlite3 CLI of the Pioreactor database.
 *   `pio mqtt`: tail the MQTT broker.
-*   `pio add-pioreactor <hostname>`: add a Pioreactor to your cluster, with given (unique) name. Need a worker Pioreactor on the network first. See instructions [here](https://github.com/Pioreactor/pioreactor/wiki/Installation).
 *   `pio update ui` will update the UI software to the latest version and adding `--app` will upgrade the Pioreactor Python app (repo: pioreactor/pioreactor).
 *   `pio update app` will update the software to the latest version.
 *   `pio cluster-status` will report to the user each Pioreactor in the cluster, and metadata like status, IP, and state.
-*   `pio discover-workers` will return a list of workers on the network (may be a superset of the current cluster.)
+*   `pio workers` has many subcommands for manager your cluster. For example:
+    *   `pio workers add <hostname>`: add a Pioreactor to your cluster, with given (unique) name. Need a worker Pioreactor on the network first. See instructions [here](https://github.com/Pioreactor/pioreactor/wiki/Installation).
+    *   `pio workers discover` will return a list of workers on the network (may be a superset of the current cluster.)
 
 #### Leader-only commands to control workers
 
 The leader computer interacts with the worker computers using the `pios` command. Unless otherwise noted, the `pios` will target all worker computers. Available `pios` commands on the leader computer are the following:
 
-*   `pios kill <job> [<job>...]` terminate the job `<job>` on the workers. Ex: `pios kill dosing_control`. Multiple jobs can be killed, ex: `pios kill stirring dosing_control`
+*   `pios kill --name <job>` terminate the job `<job>` on the workers. Ex: `pios kill --name dosing_control`.
 *   `pios run <job>` on each worker, run the job `<job>` in the background. Job specific arguments can be specified after. Ex: `pios run add_media --ml 1`. Use `-y` to skip confirmation.
 *   `pios update` install the latest PioreactorApp code on each worker.
 *   `pios sync-configs` deploy the config.ini files to workers.

@@ -17,21 +17,6 @@ import Admonition from '@theme/Admonition';
 
 ![](/img/user-guide/create_new_experiment_page.png)
 
-### Adding Pioreactors to your inventory
-
-In the _Inventory_ tab, you can search for and add worker Pioreactors to your cluster. Click "Add new Pioreactor" at the top right corner of this tab. 
-
-![](/img/user-guide/inventory-tab.png)
-
-In the popup, search for the name of your worker and click "Add Pioreactor". 
-
-![](/img/user-guide/add-new-pioreactor.png)
-
-Once a new Pioreactor is added, you will need to refresh the page to see the new worker in the cluster. 
-
-This Inventory tab will display metadata pertaining to each of your Pioreactors. You can use this page to identify a Pioreactor (causes the blue LED on the HAT to blink), unassign a Pioreactor from any experiment, reboot a Pioreactor, or remove it from your cluster. This page also provides a summary of which Pioreactors are assigned to which experiment, as highlighted in yellow in the image below. 
-
-![](/img/user-guide/inventory-multiple-pios.png)
 
 ### Assigning Pioreactors to your experiment
 

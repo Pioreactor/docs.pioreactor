@@ -3,21 +3,34 @@ title: Creating a Pioreactor cluster
 slug: /create-cluster
 ---
 
-Pioreactors are able to be used as individual units, or in concert with other Pioreactors. In either case, a Pioreactor needs to be assigned as a _leader_. The leader unit controls other Pioreactors (and that may include itself), stores the database, hosts the web interface, and is the interface between users and the hardware.
+Pioreactors are able to be used as individual units, or in concert with other Pioreactors. In either case, a Pioreactor needs to be assigned as a _leader_. The leader unit controls other Pioreactors (and that may include itself), stores the database, hosts the web interface, and is the interface between users and the hardware. A leader will communicate and control all the _workers_ (non-leader Pioreactors) in the _inventory_.
 
 :::info
 When you set up your first Pioreactor using our [software installation guide](/user-guide/software-set-up), your Pioreactor was set up to be a leader already. You only need one leader in a Pioreactor cluster.
 :::
 
 
-A leader will communicate and control all the _workers_ (non-leader Pioreactors) in the _inventory_. The inventory is a list of workers in your cluster, defined in the section `cluster.inventory` in the `config.ini`.
+### Adding Pioreactors to your cluster
 
-![](https://user-images.githubusercontent.com/884032/103158311-5316e380-478a-11eb-9425-6bb0df079d58.png)
+After installing the worker image onto your additional Pioreactor (see the instructions [here](/user-guide/software-set-up#adding-additional-workers-to-your-cluster)), visit the Inventory page.
+
+On the _Inventory_ page, you can search for and add worker Pioreactors to your cluster. Click "Add new Pioreactor" at the top right corner of this tab.
+
+![](/img/user-guide/inventory-tab.png)
+
+In the popup, add the name of your worker and click "Add Pioreactor".
+
+![](/img/user-guide/add-new-pioreactor.png)
+
+Once a new Pioreactor is added, you may need to refresh the page to see the new worker in the cluster.
+
+This Inventory tab will display metadata pertaining to each of your Pioreactors. You can use this page to identify a Pioreactor (causes the blue LED on the HAT to blink), unassign a Pioreactor from any experiment, reboot a Pioreactor, or remove it from your cluster. This page also provides a summary of which Pioreactors are assigned to which experiment, as highlighted in yellow in the image below.
+
+![](/img/user-guide/inventory-multiple-pios.png)
 
 
-Workers can be *active* (available for running activities and housing cultures), or inactive. This is set with `1` or `0` respectively in the `cluster.inventory` section.
 
-When you want to remove a Pioreactor from your cluster, you can remove it from the list in available inventory in `cluster.inventory` section in `config.ini`.
+Workers can be *active* (available for running activities and cultures), or inactive. Inactive Pioreactors can still be assigned to experiments, but won't response to commands to run activities or participate in experiment profiles.
 
 
 ### Possible cluster topologies
@@ -44,16 +57,4 @@ You can also choose not to have the leader be a worker. This is useful if you ha
 
 ![leader not worker](/img/user-guide/leader_cluster.png)
 
-### How to edit roles
 
-To tell the cluster which computer is the leader, you edit the `config.ini`'s `leader_hostname` section (under `cluster.topology`):
-
-![where to edit the leader](https://user-images.githubusercontent.com/884032/103158348-b43eb700-478a-11eb-80d9-883458107f31.png)
-
-Inventory is assigned in `config.ini` under `cluster.inventory`:
-
-![](https://user-images.githubusercontent.com/884032/103158311-5316e380-478a-11eb-9425-6bb0df079d58.png)
-
-### Adding new workers
-
-See the instructions [here](/user-guide/software-set-up#adding-workers-to-your-cluster) to add new workers to your cluster.
