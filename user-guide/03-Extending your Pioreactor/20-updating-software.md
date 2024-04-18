@@ -47,9 +47,6 @@ Similarly, from the [command line](https://docs.pioreactor.com/user-guide/access
 
 ### Method 2: Update using a zip file and the UI
 
-:::info
-Available in versions ≥ 23.12.11
-:::
 
 Each time we release a new Pioreactor version, we create a bundle of the required files as a zip file. This zip file can be uploaded to your Pioreactor cluster via the UI.
 
