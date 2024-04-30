@@ -1,4 +1,12 @@
+.cardLink {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  position: relative; /* Ensures that positioning is relative to the card */
+}
+
 .card {
+  position: relative; /* Needed for absolute positioning of the label */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -6,11 +14,18 @@
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   overflow: hidden;
   margin: 10px;
-  transition: transform 0.3s ease; /* Optional: adds animation */
 }
 
-.card:hover {
-  transform: scale(1.05); /* Optional: scale up on hover */
+.newLabel {
+  position: absolute;
+  top: 10px; /* Adjust as necessary */
+  right: 10px; /* Adjust as necessary */
+  background-color: #5332CD; /* Choose color based on your design */
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px; /* Rounded corners */
+  font-size: 0.9em;
+  font-weight: bold;
 }
 
 .cardImage {
@@ -23,8 +38,3 @@
   padding: 10px;
   text-align: center;
 }
-.cardLink {
-  text-decoration: none; /* Removes underline */
-  color: inherit; /* Inherits text color from parent */
-}
-
