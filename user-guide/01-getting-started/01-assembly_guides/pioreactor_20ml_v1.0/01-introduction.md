@@ -23,7 +23,7 @@ You will need the following items to assemble your Pioreactor:
 
 1. Your own Raspberry Pi (RPi). Displayed are three examples.
 2. A Philip's head screwdriver.
-3. The Pioreactor 20ml v1.0 kit. This kit was sold between 2023 to May 2024. All kits sold after that were v1.1. You can also check by checking you have v1.0 if your plastic pieces have de-dented text, and note white text.
+3. The Pioreactor 20ml v1.0 kit. This kit was sold between 2023 to May 2024. All kits sold after that were v1.1. You can also check by checking you have v1.0 if your plastic pieces have indented text, and not white text.
 
 </AssemblyInstructionBlock>
 

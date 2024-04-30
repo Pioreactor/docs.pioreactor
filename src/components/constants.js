@@ -4,3 +4,5 @@ export const magenta = 'rgb(220, 84, 183)';
 export const green = 'rgb(19, 173, 102)';
 export const orange = 'rgb(255, 144, 36)';
 export const teal = 'rgb(0,139,139)';
+export const purple = 'rgb(111,7,111)';
+export const brown = '#6C4F24';
