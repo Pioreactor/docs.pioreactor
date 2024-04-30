@@ -58,6 +58,6 @@ Here are some tips to prevent damage to the electronics:
 
 -  If you get stuck, missing a piece, or are unsure of something, **let us know**!
 -  You can reach out to us at `hello@pioreactor.com`!
--  Continue to the [next assembly instructions](/user-guide/rpi-hat-assembly).
+-  Continue to the [next assembly instructions](/user-guide/pioreactor-disassembly).
 
 </AssemblyInstructionBlock>
