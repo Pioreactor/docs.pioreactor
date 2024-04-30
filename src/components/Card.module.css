@@ -34,6 +34,10 @@
   object-fit: cover;
 }
 
+.card:hover {
+  transform: scale(1.05); /* Optional: scale up on hover */
+}
+
 .cardHeader {
   padding: 10px;
   text-align: center;
