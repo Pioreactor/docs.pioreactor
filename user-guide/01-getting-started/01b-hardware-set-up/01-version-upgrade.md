@@ -11,8 +11,6 @@ import * as colors from '@site/src/components/constants';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Upgrade to v1.1 from v1.0
-
 <AssemblyInstructionBlock title="Step 1: Upgrade parts" images={["user-guide/hardware-assembly/upgrade-version/upgrade-parts.png"]}>
 
 You will need:
@@ -85,7 +83,7 @@ The following items should be set aside from the disassembled v1.0 Pioreactor, t
 
 ## Assembling the v1.1 Pioreactor 
 
-<AssemblyInstructionBlock title="Step 1: Inserting the o-rings" images={["user-guide/hardware-assembly/upgrade-version/oring-to-vial-holder.png", "user-guide/hardware-assembly/upgrade-version/oring-groove.png", "user-guide/hardware-assembly/upgrade-version/thin-oring-on-top.png", "user-guide/hardware-assembly/upgrade-version/thick-oring-on-bottom.png",
+<AssemblyInstructionBlock title="Step 1: Inserting the o-rings" images={["user-guide/hardware-assembly/upgrade-version/oring-to-vial-holder.png", "user-guide/hardware-assembly/upgrade-version/oring-groove.png", "user-guide/hardware-assembly/upgrade-version/thin-oring-into-top.png", "user-guide/hardware-assembly/upgrade-version/thick-oring-into-bottom.png",
 "user-guide/hardware-assembly/upgrade-version/vial-holders-with-orings.png"]}>
 
 The vial holder of the v1.1 now comes in two halves; a top vial holder and a bottom vial holder. Both have sections to insert o-rings for a more secure hold on your vials and increased protection against leaks. 
@@ -154,7 +152,7 @@ The top faceplate now comes with a button extension to provide easier access whe
 
 </AssemblyInstructionBlock>
 
-<AssemblyInstructionBlock title="Step 5: Putting it all together, part 1" images={["user-guide/hardware-assembly/upgrade-version/attach-assembly-to-hat.png", "user-guide/hardware-assembly/upgrade-version/screw-assembly-to-hat.png",
+<AssemblyInstructionBlock title="Step 5: ..." images={["user-guide/hardware-assembly/upgrade-version/attach-assembly-to-hat.png", "user-guide/hardware-assembly/upgrade-version/screw-assembly-to-hat.png",
 "user-guide/hardware-assembly/upgrade-version/fasten-heater-cable.png", "user-guide/hardware-assembly/upgrade-version/connect-pwm-one.png"]}>
 
 1. Place the vial holder assembly onto the Raspberry Pi/HAT. The GPIO pins align with the side notch of the faceplate.
@@ -166,14 +164,12 @@ The top faceplate now comes with a button extension to provide easier access whe
 5. Push the tabs inward to secure the flex cable.
 6. Insert the stirring power connector into PWM channel 1 (unlabelled). 
 
-Your new v1.1 Pioreactor is now assembled! 
-
 
 </AssemblyInstructionBlock>
 
 
 
-<AssemblyInstructionBlock title="Step 5: Putting it all together, part 2" images={["user-guide/hardware-assembly/upgrade-version/attach-assembly-to-hat.png"]}>
+<AssemblyInstructionBlock title="Step 5: Assembling the optics system" images={["user-guide/hardware-assembly/upgrade-version/attach-assembly-to-hat.png"]}>
 
 1. Insert the connector of either PD cable into PD channel 1 (labelled on the faceplate).
 2. Place the connector of the other PD cable into PD channel 
