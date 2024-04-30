@@ -5,11 +5,11 @@ slug: /introduction
 
 # Pioreactor user guide
 
-The Pioreactor is an open-source, affordable, and extensible bioreactor platform. The goal is to enable biologists, educators, DIYers, biohackers, and enthusiasts to be able to reliably control and study the growth of microorganisms.
+The Pioreactor is an *mostly* open source, affordable, and extensible bioreactor platform. The goal is to enable biologists, educators, DIYers, biohackers, and enthusiasts to be able to reliably control and study the growth of microorganisms.
 
 ### Need to assemble your Pioreactor?
 
-To start assembling your Pioreactor, check out our [Getting Started](/user-guide/hardware-setup-intro) guide.
+To start assembling your Pioreactor, check out our [Getting Started](/user-guide/getting-started) guides.
 
 ### Help with your first experiment?
 

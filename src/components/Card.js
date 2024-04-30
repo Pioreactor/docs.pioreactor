@@ -7,7 +7,7 @@ import Link from '@docusaurus/Link'; // Import Link component for internal navig
 const Card = ({ imageUrl, headerText, linkUrl, isNew }) => (
   <Link to={linkUrl} className={styles.cardLink}>
     <div className={styles.card}>
-      {isNew && <div className={styles.newLabel}>New</div>}
+      {isNew && <div className={styles.newLabel}>✨New</div>}
       <img src={require(`/static/img/${imageUrl}`).default} alt={headerText} className={styles.cardImage} />
       <h3 className={styles.cardHeader}>{headerText}</h3>
     </div>
