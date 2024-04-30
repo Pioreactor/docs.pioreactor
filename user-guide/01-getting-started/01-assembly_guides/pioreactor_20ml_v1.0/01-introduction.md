@@ -15,6 +15,8 @@ import * as colors from '@site/src/components/constants';
   You can expect the assembly to take approximately 20-30 minutes.
 </Admonition>
 
+
+
 <AssemblyInstructionBlock title="Step 1: Necessary tools" images={["user-guide/hardware-assembly/rpi_types.jpg","user-guide/hardware-assembly/screwdriver.jpg"]}>
 
 You will need the following items to assemble your Pioreactor:
@@ -52,10 +54,7 @@ Here are some tips to prevent damage to the electronics:
 </AssemblyInstructionBlock>
 
 
-
-
 <AssemblyInstructionBlock title="Step 4: We are here for you!" images={["user-guide/hardware-assembly/finished.jpg"]}>
-
 
 -  If you get stuck, missing a piece, or are unsure of something, **let us know**!
 -  You can reach out to us at `hello@pioreactor.com`!

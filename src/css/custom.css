@@ -87,3 +87,9 @@ h1 {
 .hidden {
 display: none !important;
 }
+
+.cardGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Creates three columns */
+  gap: 20px; /* Space between the cards */
+}
