@@ -29,7 +29,7 @@ You will need the following items to assemble your Pioreactor:
 
 <AssemblyInstructionBlock title="Step 2: Use all the information available to you" images={["user-guide/hardware-assembly/instructions.png", "user-guide/hardware-assembly/label_reference.jpg"]}>
 
-- Before staring a step, read all instructions and view all photos at the bottom of each step
+- Before starting a step, read all instructions and view all photos at the bottom of each step.
 - Most of the labels are scaled 1:1 and can be used to identify parts.
 
 :::info
