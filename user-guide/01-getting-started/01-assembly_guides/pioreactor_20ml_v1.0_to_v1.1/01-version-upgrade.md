@@ -1,5 +1,5 @@
 ---
-title: Upgrading to v1.1
+title: Before you begin
 slug: /hardware-setup-upgrade-version
 hide_table_of_contents: true
 ---
