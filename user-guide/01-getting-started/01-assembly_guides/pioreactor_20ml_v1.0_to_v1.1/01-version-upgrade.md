@@ -24,7 +24,7 @@ You will need:
 * <Highlight color={colors.teal}>Flat headed 5mm screws (2x)</Highlight>
 * <Highlight color={colors.purple}>4mm screws (2x)</Highlight>
 * <Highlight color={colors.brown}>10mm screw (1x)</Highlight>
-2. Your v1.0 Pioreactor, to be upgraded. 
+2. Your original Pioreactor v1.0, to be upgraded.
 3. A Philip's head screwdriver. 
 
 </AssemblyInstructionBlock>

@@ -94,6 +94,15 @@ Waited, but didn't see a blue LED blink, or maybe you missed it? Try pressing on
 9. After observing the blue LED flashing, navigate to [http://pioreactor.local](http://pioreactor.local) in a web browser to visit the web interface. If you are using local-access-point, looking for a `pioreactor` wifi network and then visit the link. (Not able to load http://pioreactor.local? Read [Troubleshooting](#pioreactorlocal-in-a-web-browser-is-not-showing-up) below).
 10. The Pioreactor is now ready for use! Follow [this guide](/user-guide/prepare-vial-for-cultures) to set up your first experiment.
 
+10. **If you're using a Pioreactor 20ml v1.0, edit your config.ini to**
+    ```
+    [pioreactor]
+    model=pioreactor_20ml
+    version=1.0
+    ```
+    and then reboot.
+
+
 ## Adding additional workers to your cluster
 
 Workers are additional Pioreactors that you can control from a single UI. Together, a leader and workers form a Pioreactor cluster.
