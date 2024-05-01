@@ -54,8 +54,8 @@ The vial holder of the v1.1 comes in two halves; a top vial holder and a bottom 
 
 1. Insert the other end of the flex cable <Highlight color={colors.red}>below the O-ring and into the groove</Highlight>. Pull it through. 
 2. <Highlight color={colors.magenta}>Apply pressure</Highlight> on the back of the heater PCB so that it lies flat on the O-ring. Maintain this pressure for the next steps.
-3. Flip the holder and insert the <Highlight color={colors.green}>two flat M2.5-CS 5mm screws</Highlight> into the holes. 
-4. **While maintaining pressure**, take turns screwing each in until both are secure, and the heater pcb is securely attached to the bottom vial holder. 
+3.  **While maintaining pressure**, flip the holder and insert the two <Highlight color={colors.green}>M2.5-CS 5mm screws</Highlight> into the holes.
+4. **While maintaining pressure**, take turns screwing each in until both are secure, and the heater PCB is securely attached to the bottom vial holder.
 
 </AssemblyInstructionBlock>
 
@@ -63,8 +63,8 @@ The vial holder of the v1.1 comes in two halves; a top vial holder and a bottom 
 
 <AssemblyInstructionBlock title="Step 5: Placing the heating pad" images={["user-guide/hardware-assembly/upgrade-version/sticky-side.png","user-guide/hardware-assembly/upgrade-version/remove-blue.png","user-guide/hardware-assembly/upgrade-version/remove-blue-2.png"]}>
 
-1.	Remove the _clear_ plastic from one side of the thermal pad.
-2.	Place on the flat (aluminum) part of the heating PCB. Apply downwards pressure to secure it.
+1.	Remove the _clear_ plastic from one side of the thermal pad. This exposes a sticky side on the thermal pad.
+2.	Place on the flat (aluminum) part of the heating PCB. Lightly apply downwards pressure to secure it.
 3.	Remove the blue protective plastic on top of the thermal pad.
 
 
