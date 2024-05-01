@@ -23,9 +23,9 @@ You should not feel resistance when tightening the screws into the square nuts. 
 
 4. The screw heads will be flush with the faceplate, and there should be no screw threads showing between the vial holder and the faceplate.
 
-
 </AssemblyInstructionBlock>
 
+-------
 
 <AssemblyInstructionBlock title="Step 2: Button extension" images={["user-guide/hardware-assembly/upgrade-version/apply-force-button-extension.png", "user-guide/hardware-assembly/upgrade-version/completed-button-extension.png"]}>
 
@@ -37,6 +37,7 @@ The top faceplate now comes with a button extension to provide easier access whe
 
 </AssemblyInstructionBlock>
 
+-------
 
 <AssemblyInstructionBlock title="Step 3: Putting it all together" images={["user-guide/hardware-assembly/upgrade-version/attach-assembly-to-hat.png", "user-guide/hardware-assembly/upgrade-version/screw-assembly-to-hat.png",
 "user-guide/hardware-assembly/upgrade-version/fasten-heater-cable.png", "user-guide/hardware-assembly/upgrade-version/connect-pwm-one.png"]}>
@@ -47,34 +48,5 @@ The top faceplate now comes with a button extension to provide easier access whe
 4. Open the <Highlight color={colors.orange}>flat flex cable connector</Highlight> on the HAT by pulling the tabs outward, like done previously. Insert the flex cable copper-side up.
 5. <Highlight color={colors.green}>Push the tabs inward</Highlight> to secure the flex cable.
 6. Insert the stirring power connector into <Highlight color={colors.magenta}>PWM channel 1</Highlight> (unlabelled).
-
-
-</AssemblyInstructionBlock>
-
-
-
-<AssemblyInstructionBlock title="Step 4: Assembling the optics system" images={["user-guide/hardware-assembly/upgrade-version/led-to-channel-a.png", "user-guide/hardware-assembly/upgrade-version/pds-to-channel.png", "user-guide/hardware-assembly/upgrade-version/led-to-ir.png", "user-guide/hardware-assembly/upgrade-version/pd-to-ref-and-90.png", "user-guide/hardware-assembly/upgrade-version/fasten-with-caps.png"]}>
-
-1. Insert the connector of the <Highlight color={colors.magenta}>IR cable</Highlight> into <Highlight color={colors.magenta}>channel A</Highlight> (labelled on the faceplate).
-2. Insert the connector of <Highlight color={colors.red}>either PD cable</Highlight> into <Highlight color={colors.red}>PD channel 1</Highlight> (labelled on the faceplate).
-3. Place the connector of the <Highlight color={colors.blue}> other PD cable</Highlight> into <Highlight color={colors.blue}>PD channel 2.</Highlight>
-4. Insert the bulb of the <Highlight color={colors.magenta}>IR cable</Highlight> into the pocket labeled <Highlight color={colors.magenta}>IR</Highlight>.
-5. Insert the bulb of the <Highlight color={colors.red}>PD cable</Highlight> in channel 1 into the pocket labeled <Highlight color={colors.red}>REF</Highlight>.
-6. Insert the bulb of the <Highlight color={colors.blue}>PD cable</Highlight> in channel 2 into the pocket labeled <Highlight color={colors.blue}>90°</Highlight>.
-
-:::caution
-Avoid over-stressing the leads, or applying too much force too quickly. After bending once, it's ill-advised to bend them again.
-:::
-
-7. Secure all bulbs with LED caps. 
-7. Push all remaining LED caps onto each pocket.
-
-</AssemblyInstructionBlock>
-
-
-<AssemblyInstructionBlock title="Step 5: You're done!" images={["user-guide/hardware-assembly/upgrade-version/finished-upgraded-version.png"]}>
-
-Your new v1.1 Pioreactor is now assembled! 
-
 
 </AssemblyInstructionBlock>

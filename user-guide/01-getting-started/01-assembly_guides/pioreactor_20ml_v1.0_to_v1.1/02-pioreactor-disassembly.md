@@ -26,7 +26,7 @@ If the LEDs/PDs are stuck in the socket, **do not pull!** Gently twist the bulb 
 
 </AssemblyInstructionBlock>
 
-
+-------
 
 <AssemblyInstructionBlock title="Step 2: Remove the top assembly from the base" images={["user-guide/hardware-assembly/upgrade-version/remove-6mm-screws.png", "user-guide/hardware-assembly/upgrade-version/set-aside-6mm-screws.png", "user-guide/hardware-assembly/upgrade-version/remove-vial-holder-from-hat.png", "user-guide/hardware-assembly/upgrade-version/untighten-30mm-screws.png", "user-guide/hardware-assembly/upgrade-version/remove-vial-holder.png"] }>
 
@@ -34,9 +34,9 @@ If the LEDs/PDs are stuck in the socket, **do not pull!** Gently twist the bulb 
 2. Unscrew the <Highlight color={colors.green}>silver 30mm screws</Highlight> from the bottom of the faceplate, <Highlight color={colors.blue}>separating it from the vial holder</Highlight>.
 3. Remove the fan from the fanplate. Set aside for later.
 
-
 </AssemblyInstructionBlock>
 
+-------
 
 <AssemblyInstructionBlock title="Step 3: Remove the heater PCB from the vial holder" images={["user-guide/hardware-assembly/upgrade-version/unscrew-4mm-screws.png", "user-guide/hardware-assembly/upgrade-version/set-aside-heater.png"]}>
 
@@ -45,6 +45,7 @@ If the LEDs/PDs are stuck in the socket, **do not pull!** Gently twist the bulb 
 
 </AssemblyInstructionBlock>
 
+-------
 
 <AssemblyInstructionBlock title="Step 4: Items to be reused" images={["user-guide/hardware-assembly/upgrade-version/set-aside-materials.png"]}>
 

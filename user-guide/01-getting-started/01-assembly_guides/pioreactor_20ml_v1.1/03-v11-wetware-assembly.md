@@ -8,41 +8,73 @@ import AssemblyInstructionBlock from '@site/src/components/AssemblyInstructionBl
 import Highlight from '@site/src/components/Highlight';
 import * as colors from '@site/src/components/constants';
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-<AssemblyInstructionBlock title="Step 1: Necessary parts" images={["user-guide/hardware-assembly/square_nuts.jpg", "user-guide/hardware-assembly/heating_parts.jpg"]}>
+<AssemblyInstructionBlock title="Step 1: Inserting the O-rings" images={["user-guide/hardware-assembly/upgrade-version/oring-to-vial-holder.png", "user-guide/hardware-assembly/upgrade-version/oring-groove.png", "user-guide/hardware-assembly/upgrade-version/thin-oring-into-top.png", "user-guide/hardware-assembly/upgrade-version/thick-oring-into-bottom.png",
+"user-guide/hardware-assembly/upgrade-version/vial-holders-with-orings.png"]}>
 
-You will need:
-*	<Highlight color={colors.blue}>Vial holder</Highlight>
-*	<Highlight color={colors.orange}>Heating PCB</Highlight>
-*	<Highlight color={colors.magenta}>Thermal pad</Highlight> (contains blue cover on one side and clear plastic on the other)
-*	<Highlight color={colors.green}>Flat flex cable</Highlight>
-*	<Highlight color={colors.teal}>4mm screws (2x)</Highlight>
+:::note
+The vial holder of the v1.1 comes in two halves; a top vial holder and a bottom vial holder. Both have sections to insert O-rings for a more secure hold on your vials and increased protection against leaks. The <Highlight color={colors.magenta}>thinner O-ring (#024)</Highlight> fits into the top piece. The <Highlight color={colors.orange}>thicker O-ring (#121)</Highlight> lines the bottom piece. The O-rings are lubricated with a silicone-based lube. 
+:::
+
+1. The top vial holder has <Highlight color={colors.blue}>a groove within the body</Highlight> where the <Highlight color={colors.magenta}>thinner #024 O-ring</Highlight> sits. Carefully insert the O-ring using your fingers. Make sure to not twist the O-ring.
+2. Run your finger inside the vial holder, pushing the O-ring into place to ensure a snug fit. 
+3. The bottom vial holder has a groove for the <Highlight color={colors.orange}>thicker #121 O-ring</Highlight>. The O-ring will sit between the base of the holder and the heater PCB. Carefully insert the O-ring using your fingers. Make sure to not twist the O-ring.
+4. Push the O-ring into place to ensure a snug fit. 
+
+</AssemblyInstructionBlock>
+
+-------
+
+<AssemblyInstructionBlock title="Step 2: Attach the window cover" images={["user-guide/hardware-assembly/upgrade-version/window-cover-parts.png", "user-guide/hardware-assembly/upgrade-version/window-screw.png"]}>
+
+1. Place the window cover over the window. It should fit snuggly.
+2. Attach it using <Highlight color={colors.red}>four 4mm screws</Highlight> (2 provided in the upgrade kit, and 2 previously used in the old v1.0). 
+
+</AssemblyInstructionBlock>
+
+-------
+
+<AssemblyInstructionBlock title="Step 3: Connect the flex cable" images={["user-guide/hardware-assembly/upgrade-version/non-attached-heater-pcb.png","user-guide/hardware-assembly/upgrade-version/attached-heater-pcb.png"]}>
+
+
+1.	On the heater PCB, locate the white-&-beige cable connector, <Highlight color={colors.red}>pull the beige-colored tabs outward</Highlight> to open it.
+2.	<Highlight color={colors.green}>Insert the flex cable</Highlight> blue side down, copper side up, into the cable connector.
+3.  Then <Highlight color={colors.orange}>push the beige tabs back in</Highlight> to secure the flex cable.
+
+
+</AssemblyInstructionBlock>
+
+------
+
+<AssemblyInstructionBlock title="Step 4: Place and secure the heater PCB" images={["user-guide/hardware-assembly/upgrade-version/heater-cable-hole.png", "user-guide/hardware-assembly/upgrade-version/pull-heater-cable.png", "user-guide/hardware-assembly/upgrade-version/apply-pressure.png", "user-guide/hardware-assembly/upgrade-version/screw-in-flat-5mm.png", "user-guide/hardware-assembly/upgrade-version/replace-thermal-pad.png"]}>
+
+
+
+1. Insert the other end of the flex cable <Highlight color={colors.red}>below the O-ring and into the groove</Highlight>. Pull it through. 
+2. <Highlight color={colors.magenta}>Apply pressure</Highlight> on the back of the heater PCB so that it lies flat on the O-ring. Maintain this pressure for the next steps.
+3. Flip the holder and insert the <Highlight color={colors.green}>two flat M2.5-CS 5mm screws</Highlight> into the holes. 
+4. **While maintaining pressure**, take turns screwing each in until both are secure, and the heater pcb is securely attached to the bottom vial holder. 
 
 </AssemblyInstructionBlock>
 
 -----
 
-<AssemblyInstructionBlock title="Step 2: Placing the heating pad" images={["user-guide/hardware-assembly/sticky_side.jpg","user-guide/hardware-assembly/remove_blue.jpg","user-guide/hardware-assembly/remove_blue_2.jpg","user-guide/hardware-assembly/cable_connector_open.jpg","user-guide/hardware-assembly/cable_connector_closed.jpg"]}>
+<AssemblyInstructionBlock title="Step 5: Placing the heating pad" images={["user-guide/hardware-assembly/upgrade-version/sticky-side.jpg","user-guide/hardware-assembly/upgrade-version/remove-blue.jpg","user-guide/hardware-assembly/upgrade-version/remove-blue-2.jpg"]}>
 
 1.	Remove the _clear_ plastic from one side of the thermal pad.
-2.	Place the side on the flat (aluminum) part of the heating PCB. Apply downwards pressure to secure it.
+2.	Place on the flat (aluminum) part of the heating PCB. Apply downwards pressure to secure it.
 3.	Remove the blue protective plastic on top of the thermal pad.
-4.	Flip the PCB over. On the white-&-beige cable connector, <Highlight color={colors.red}>pull the beige-colored tabs outward</Highlight> to open it.
-5.	<Highlight color={colors.green}>Insert the flex cable</Highlight> blue side down, copper side up, into the cable connector.
-6.  Then <Highlight color={colors.orange}>push the beige tabs back in</Highlight> to secure the flex cable.
+
 
 </AssemblyInstructionBlock>
 
 -----
 
-<AssemblyInstructionBlock title="Step 3: Securing the heating PCB into the vial holder" images={["user-guide/hardware-assembly/insert_heating_cable.jpg","user-guide/hardware-assembly/inserted_heating_cable.jpg","user-guide/hardware-assembly/heating_bottom_screws.jpg"]}>
+<AssemblyInstructionBlock title="Step 6: Complete the vial holder" images={["user-guide/hardware-assembly/upgrade-version/twist-vial-holders-together.png"]}>
 
-1.	Identify the <Highlight color={colors.magenta}>slot</Highlight> on the vial holder where the flex cable will go through.
-2.	Insert the flex cable in the vial holder, and through the slot, with the blue side of the cable facing upwards.
-3.	Pull the cable through until the heating PCB is flat with the bottom of the vial holder.
-4.	Secure the PCB from the bottom using the <Highlight color={colors.teal}>two 4mm screws</Highlight>.
-5.  **Important**: the screw heads should be flush against the bottom of the vial holder, that is, no gap. You may need to unscrew and screw in again, or use pliers.
-6.	Continue to the [next page](/user-guide/putting-it-together).
-
+1. Screw the top and bottom vial holder sections together.
+2. Set this aside and proceed to the next page. 
 
 </AssemblyInstructionBlock>

@@ -12,7 +12,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-<AssemblyInstructionBlock title="Step 1: Necessary parts" images={["user-guide/hardware-assembly/hat_pieces.jpg", "user-guide/hardware-assembly/gpio_check_A.jpg", "user-guide/hardware-assembly/gpio_check_B.jpg"]}>
+<AssemblyInstructionBlock title="Step 1: Necessary parts" images={["user-guide/hardware-assembly/upgrade-version/hat-pieces.png", "user-guide/hardware-assembly/gpio_check_A.jpg", "user-guide/hardware-assembly/gpio_check_B.jpg"]}>
 
 1. You will need:
 * A Raspberry Pi of your choosing. Displayed are three options - you just need one.
@@ -34,7 +34,7 @@ import TabItem from '@theme/TabItem';
   <TabItem value="a_or_b" label="Raspberry Pi A or B instructions" default>
 
 
-<AssemblyInstructionBlock title="Step 2: Assemble the bottom faceplate" images={["user-guide/hardware-assembly/bottom_faceplate.jpg","user-guide/hardware-assembly/bot_faceplate_screwed.jpg","user-guide/hardware-assembly/rpi_no_standoffs.jpg"]}>
+<AssemblyInstructionBlock title="Step 2: Assemble the bottom faceplate" images={["user-guide/hardware-assembly/upgrade-version/bottom-faceplate.png","user-guide/hardware-assembly/upgrade-version/bottom-faceplate-screwed.png","user-guide/hardware-assembly/upgrade-version/rpi-no-standoffs.png"]}>
 
 
 1.  If using a half-size Raspberry Pi (aka a Zero model), switch to the tab above called "Raspberry Pi Zero" to see Zero specific instructions.
@@ -53,7 +53,7 @@ The 40 GPIO pins (standing for general-purpose input/output) form a distinct row
 
 -----
 
-<AssemblyInstructionBlock title="Step 3: Placing the HAT PCB on top" images={["user-guide/hardware-assembly/rpi_with_standoffs.jpg","user-guide/hardware-assembly/gpio_unpushed.jpg","user-guide/hardware-assembly/gpio_pushed.jpg", "user-guide/hardware-assembly/standoff_on_hat.jpg"]}>
+<AssemblyInstructionBlock title="Step 3: Placing the HAT PCB on top" images={["user-guide/hardware-assembly/upgrade-version/rpi-with-standoffs.png","user-guide/hardware-assembly/upgrade-version/gpio-unpushed.png","user-guide/hardware-assembly/upgrade-version/gpio-pushed.png", "user-guide/hardware-assembly/upgrade-version/standoff-on-hat.png"]}>
 
 1.  Hand screw on the <Highlight color={colors.blue}>12mm hex standoffs-with-6mm-screw</Highlight> in each corner.
 2.  Place the HAT PCB on top. <Highlight color={colors.red}>Push down *from the corners*</Highlight> to secure it in place. The HAT PCB's GPIO connector will line up with the RPi's GPIO pins and may require a slight force to compress down. You can also use the next Tip below to help apply force.
@@ -72,7 +72,7 @@ By screwing down the standoffs, they'll help compress the HAT onto the RPi, too.
 
   </TabItem>
   <TabItem value="zero" label="Raspberry Pi Zero / Zero 2 instructions">
-<AssemblyInstructionBlock title="Step 2: Assemble the bottom faceplate" images={["user-guide/hardware-assembly/bottom_faceplate.jpg","user-guide/hardware-assembly/hex_one_side.jpg","user-guide/hardware-assembly/rpi_zero.jpg"]}>
+<AssemblyInstructionBlock title="Step 2: Assemble the bottom faceplate" images={["user-guide/hardware-assembly/upgrade-version/bottom-faceplate.png","user-guide/hardware-assembly/upgrade-version/hex-one-side.png","user-guide/hardware-assembly/upgrade-version/rpi-zero.png"]}>
 
 :::tip
 The 40 GPIO pins (standing for general-purpose input/output) form a distinct row on one side of the Raspberry Pi. Note the orientation of these pins to help you assemble correctly!
@@ -89,7 +89,7 @@ The 40 GPIO pins (standing for general-purpose input/output) form a distinct row
 
 -----
 
-<AssemblyInstructionBlock title="Step 3: Placing the HAT PCB ontop" images={["user-guide/hardware-assembly/gpio_unpushed.jpg","user-guide/hardware-assembly/gpio_pushed.jpg", "user-guide/hardware-assembly/standoff_on_hat.jpg"]}>
+<AssemblyInstructionBlock title="Step 3: Placing the HAT PCB ontop" images={["user-guide/hardware-assembly/upgrade-version/gpio-unpushed.png","user-guide/hardware-assembly/upgrade-version/gpio-pushed.png", "user-guide/hardware-assembly/upgrade-version/standoff-on-hat.png"]}>
 
 1.  Place the HAT on top. <Highlight color={colors.red}>Push down</Highlight> to secure it in place. The HAT PCB's GPIO connector will line up with the RPi's GPIO pins, and may require a slight force to compress down. You can also use the next Tip below to help apply force.
 

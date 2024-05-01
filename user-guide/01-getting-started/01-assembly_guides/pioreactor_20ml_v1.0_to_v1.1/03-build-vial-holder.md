@@ -25,6 +25,7 @@ The vial holder of the v1.1 now comes in two halves; a top vial holder and a bot
 
 </AssemblyInstructionBlock>
 
+-------
 
 <AssemblyInstructionBlock title="Step 2: Attach the window cover" images={["user-guide/hardware-assembly/upgrade-version/window-cover-parts.png", "user-guide/hardware-assembly/upgrade-version/window-screw.png"]}>
 
@@ -33,6 +34,7 @@ The vial holder of the v1.1 now comes in two halves; a top vial holder and a bot
 
 </AssemblyInstructionBlock>
 
+-------
 
 <AssemblyInstructionBlock title="Step 3: Place and secure the heater PCB" images={["user-guide/hardware-assembly/upgrade-version/remove-thermal-pad.png", "user-guide/hardware-assembly/upgrade-version/heater-cable-hole.png", "user-guide/hardware-assembly/upgrade-version/pull-heater-cable.png", "user-guide/hardware-assembly/upgrade-version/apply-pressure.png", "user-guide/hardware-assembly/upgrade-version/screw-in-flat-5mm.png", "user-guide/hardware-assembly/upgrade-version/replace-thermal-pad.png"]}>
 
@@ -45,6 +47,8 @@ The vial holder of the v1.1 now comes in two halves; a top vial holder and a bot
 7. Stick the thermal pad back onto the heater PCB. 
 
 </AssemblyInstructionBlock>
+
+-------
 
 <AssemblyInstructionBlock title="Step 4: Complete the vial holder" images={["user-guide/hardware-assembly/upgrade-version/twist-vial-holders-together.png"]}>
 

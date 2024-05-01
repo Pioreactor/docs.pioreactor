@@ -29,6 +29,8 @@ You will need:
 
 </AssemblyInstructionBlock>
 
+-------
+
 <AssemblyInstructionBlock title="Step 2: Use all the information available to you" images={["user-guide/hardware-assembly/instructions.png", "user-guide/hardware-assembly/label_reference.jpg"]}>
 
 - Before starting a step, read all instructions and view all photos at the bottom of each step.
@@ -41,6 +43,7 @@ Missing a part? Email us at `hello@pioreactor.com`, we're happy to help.
 
 </AssemblyInstructionBlock>
 
+-------
 
 <AssemblyInstructionBlock title="Step 3: Electronics protection" images={["user-guide/hardware-assembly/nav_antistatic_polyzip_bags.png"]}>
 
@@ -53,6 +56,7 @@ Here are some tips to prevent damage to the electronics:
 
 </AssemblyInstructionBlock>
 
+-------
 
 <AssemblyInstructionBlock title="Step 4: We are here for you!" images={["user-guide/hardware-assembly/upgrade-version/finished-upgraded-version.png"]}>
 
