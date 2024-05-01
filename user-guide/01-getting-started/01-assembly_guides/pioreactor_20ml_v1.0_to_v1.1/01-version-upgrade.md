@@ -1,5 +1,5 @@
 ---
-title: Upgrading to v1.1
+title: Before you begin
 slug: /hardware-setup-upgrade-version
 hide_table_of_contents: true
 ---
@@ -24,7 +24,7 @@ You will need:
 * <Highlight color={colors.teal}>Flat headed 5mm screws (2x)</Highlight>
 * <Highlight color={colors.purple}>4mm screws (2x)</Highlight>
 * <Highlight color={colors.brown}>10mm screw (1x)</Highlight>
-2. Your v1.0 Pioreactor, to be upgraded. 
+2. Your original Pioreactor v1.0, to be upgraded.
 3. A Philip's head screwdriver. 
 
 </AssemblyInstructionBlock>
@@ -62,6 +62,6 @@ Here are some tips to prevent damage to the electronics:
 
 -  If you get stuck, missing a piece, or are unsure of something, **let us know**!
 -  You can reach out to us at `hello@pioreactor.com`!
--  Continue to the [next assembly instructions](/user-guide/rpi-hat-assembly).
+-  Continue to the [next assembly instructions](/user-guide/pioreactor-disassembly).
 
 </AssemblyInstructionBlock>
