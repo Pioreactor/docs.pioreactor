@@ -30,7 +30,7 @@ Tailscale is a really really cool service! You may find yourself using it for ot
    [mqtt]
    broker_address=<leader name>.local
    ```
-   And save. This means that your workers will connect "locally" (over the local network), but the UI and will connect "remotely".
+   And save. This means that your workers will connect "locally" (over the local network), but the UI  will connect "remotely".
 
 7. Now, when you leave the local network, and if you have internet access, you can turn your VPN on and still access `http://<ipv4 address>`. Troubleshooting: try `http://<hostname>`, but confirm that magicDNS is on, too.
 8. You can use the Tailscale admin to add users to your VPN, too.
