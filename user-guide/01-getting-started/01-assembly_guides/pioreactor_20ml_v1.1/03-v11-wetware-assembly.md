@@ -61,7 +61,7 @@ The vial holder of the v1.1 comes in two halves; a top vial holder and a bottom 
 
 -----
 
-<AssemblyInstructionBlock title="Step 5: Placing the heating pad" images={["user-guide/hardware-assembly/upgrade-version/sticky-side.jpg","user-guide/hardware-assembly/upgrade-version/remove-blue.jpg","user-guide/hardware-assembly/upgrade-version/remove-blue-2.jpg"]}>
+<AssemblyInstructionBlock title="Step 5: Placing the heating pad" images={["user-guide/hardware-assembly/upgrade-version/sticky-side.png","user-guide/hardware-assembly/upgrade-version/remove-blue.png","user-guide/hardware-assembly/upgrade-version/remove-blue-2.png"]}>
 
 1.	Remove the _clear_ plastic from one side of the thermal pad.
 2.	Place on the flat (aluminum) part of the heating PCB. Apply downwards pressure to secure it.
