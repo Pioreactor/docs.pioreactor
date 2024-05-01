@@ -8,7 +8,7 @@ import AssemblyInstructionBlock from '@site/src/components/AssemblyInstructionBl
 import Highlight from '@site/src/components/Highlight';
 import * as colors from '@site/src/components/constants';
 
-<AssemblyInstructionBlock title="Step 1: Necessary parts" images={["user-guide/hardware-assembly/stirring_parts.jpg"]}>
+<AssemblyInstructionBlock title="Step 1: Necessary parts" images={["user-guide/hardware-assembly/upgrade-version/stirring-parts.jpg"]}>
 
 *	<Highlight color={colors.blue}>Fan</Highlight>
 *	<Highlight color={colors.red}>Top faceplate</Highlight> (will have 4 x 30mm screws in it)
