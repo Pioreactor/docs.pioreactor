@@ -17,6 +17,7 @@ import * as colors from '@site/src/components/constants';
 3.  Insert the connector of either <Highlight color={colors.red}>PD cable</Highlight> into **PD channel 1** (labelled on the faceplate).
 4.  Place the connector of the other <Highlight color={colors.blue}>PD cable</Highlight> into **PD channel 2**.
 
+
 </AssemblyInstructionBlock>
 
 -----
@@ -25,11 +26,19 @@ import * as colors from '@site/src/components/constants';
 <AssemblyInstructionBlock title="Step 2: Secure bulbs into pockets" images={[ "user-guide/hardware-assembly/upgrade-version/led-to-ir.png", "user-guide/hardware-assembly/upgrade-version/pd-to-ref-and-90.png", "user-guide/hardware-assembly/upgrade-version/fasten-with-caps.png"]}>
 
 1. Insert the bulb of the <Highlight color={colors.magenta}>IR cable</Highlight> into the pocket labeled <Highlight color={colors.magenta}>IR</Highlight>.
-2. Insert the bulb of the <Highlight color={colors.red}>PD cable</Highlight> in channel 1 into the pocket labeled <Highlight color={colors.red}>REF</Highlight>.
-3. Insert the bulb of the <Highlight color={colors.blue}>PD cable</Highlight> in channel 2 into the pocket labeled <Highlight color={colors.blue}>90°</Highlight>.
+2. _Slowly_ bend the bulb's leads 90 degrees, as seen.
 
 :::caution
 Avoid over-stressing the leads, or applying too much force too quickly. After bending once, it's ill-advised to bend them again.
+:::
+
+3. Insert the bulb of the <Highlight color={colors.red}>PD cable</Highlight> in channel 1 into the pocket labeled <Highlight color={colors.red}>REF</Highlight>.
+4. Orient the bulb's leads such that when bent 90 degrees, it does not interfere with the IR LED bulb next to it.
+5. Insert the bulb of the <Highlight color={colors.blue}>PD cable</Highlight> in channel 2 into the pocket labeled <Highlight color={colors.blue}>90°</Highlight>. 
+6. Bend the leads 90 degrees.
+
+:::tip
+Inspect each LED and PD to confirm that neither of the leads are touching.
 :::
 
 7. Secure all bulbs with LED caps. 

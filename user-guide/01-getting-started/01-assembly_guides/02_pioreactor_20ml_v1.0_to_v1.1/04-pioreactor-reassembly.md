@@ -33,7 +33,7 @@ The top faceplate now comes with a button extension to provide easier access whe
 
 1. Flip over the assembly.
 2. Insert the 10mm screw into the hole under the button extension.
-3. Place <Highlight color={colors.red}>one finger behind the extension</Highlight> and <Highlight color={colors.magenta}>apply force and torque</Highlight> with the other hand until the screw is secure in the hole. Once established, a screwdriver can finish the job. Tightening until you feel resistance.
+3. Place <Highlight color={colors.red}>one finger behind the extension</Highlight> and <Highlight color={colors.magenta}>apply force and torque</Highlight> with the other hand until the screw is secure in the hole. Once established, a screwdriver can finish the job. Tighten until you feel resistance.
 
 </AssemblyInstructionBlock>
 
