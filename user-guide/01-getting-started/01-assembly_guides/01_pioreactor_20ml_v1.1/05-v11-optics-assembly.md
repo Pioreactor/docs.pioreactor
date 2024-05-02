@@ -2,6 +2,7 @@
 title: Connect the optics system
 slug: /20ml-v11-optics-assembly
 hide_table_of_contents: true
+pagination_next: null
 ---
 
 import AssemblyInstructionBlock from '@site/src/components/AssemblyInstructionBlock';
@@ -33,12 +34,12 @@ Avoid over-stressing the leads, or applying too much force too quickly. After be
 :::
 
 3. Insert the bulb of the <Highlight color={colors.red}>PD cable</Highlight> in channel 1 into the pocket labeled <Highlight color={colors.red}>REF</Highlight>.
-4. Orient the bulb's leads such that when bent 90 degrees, it does not interfere with the IR LED bulb next to it.
+2. _Slowly_ bend the bulb's leads 90 degrees, as seen.
 5. Insert the bulb of the <Highlight color={colors.blue}>PD cable</Highlight> in channel 2 into the pocket labeled <Highlight color={colors.blue}>90°</Highlight>. 
-6. Bend the leads 90 degrees.
+2. _Slowly_ bend the bulb's leads 90 degrees, as seen.
 
 :::tip
-Inspect each LED and PD to confirm that neither of the leads are touching.
+Inspect each LED and PD to confirm that their leads are not touching each other.
 :::
 
 7. Secure all bulbs with LED caps. 
