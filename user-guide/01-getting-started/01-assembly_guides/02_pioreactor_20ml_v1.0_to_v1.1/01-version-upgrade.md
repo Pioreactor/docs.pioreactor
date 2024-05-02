@@ -1,6 +1,6 @@
 ---
 title: Before you begin
-slug: /hardware-setup-upgrade-version
+slug: /v11-upgrade-hardware-setup
 hide_table_of_contents: true
 ---
 
@@ -62,6 +62,6 @@ Here are some tips to prevent damage to the electronics:
 
 -  If you get stuck, missing a piece, or are unsure of something, **let us know**!
 -  You can reach out to us at `hello@pioreactor.com`!
--  Continue to the [next assembly instructions](/user-guide/pioreactor-disassembly).
+-  Continue to the [next assembly instructions](/user-guide/v11-upgrade-pioreactor-disassembly).
 
 </AssemblyInstructionBlock>
