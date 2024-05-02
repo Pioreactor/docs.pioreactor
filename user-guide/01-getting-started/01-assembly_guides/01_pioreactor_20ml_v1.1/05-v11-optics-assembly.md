@@ -1,6 +1,6 @@
 ---
 title: Connect the optics system
-slug: /20m-v11-optics-assembly
+slug: /20ml-v11-optics-assembly
 hide_table_of_contents: true
 ---
 

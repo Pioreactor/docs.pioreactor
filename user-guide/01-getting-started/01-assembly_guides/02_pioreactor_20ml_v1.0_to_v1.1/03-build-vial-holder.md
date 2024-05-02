@@ -1,6 +1,6 @@
 ---
 title: Building the vial holder
-slug: /building-vial-holder
+slug: /v11-upgrade-building-vial-holder
 hide_table_of_contents: true
 ---
 

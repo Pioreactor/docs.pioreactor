@@ -1,6 +1,6 @@
 ---
 title: Disassembling the old Pioreactor
-slug: /pioreactor-disassembly
+slug: /v11-upgrade-pioreactor-disassembly
 hide_table_of_contents: true
 ---
 
@@ -47,7 +47,16 @@ If the LEDs/PDs are stuck in the socket, **do not pull!** Gently twist the bulb 
 
 -------
 
-<AssemblyInstructionBlock title="Step 4: Items to be reused" images={["user-guide/hardware-assembly/upgrade-version/set-aside-materials.png"]}>
+<AssemblyInstructionBlock title="Step 4: Remove the window cover" images={["user-guide/hardware-assembly/upgrade-version/unscrew-window-cover.png", "user-guide/hardware-assembly/upgrade-version/set-aside-window-cover.png"]}>
+
+1. Unscrew the <Highlight color={colors.red}>6mm screws</Highlight> that secure the window cover to the vial holder. 
+2. Set aside the window cover. 
+
+</AssemblyInstructionBlock>
+
+-------
+
+<AssemblyInstructionBlock title="Step 5: Items to be reused" images={["user-guide/hardware-assembly/upgrade-version/set-aside-materials.png"]}>
 
 The following items from the disassembled v1.0 Pioreactor should be set aside to be used for the upgrade: 
 * <Highlight color={colors.blue}>LED (1x) and PDs (2x)</Highlight>
@@ -56,6 +65,7 @@ The following items from the disassembled v1.0 Pioreactor should be set aside to
 * <Highlight color={colors.green}>4mm screws (2x)</Highlight>
 * <Highlight color={colors.orange}>Fan PCB</Highlight>
 * <Highlight color={colors.purple}>Heater PCB</Highlight>
+* <Highlight color={colors.brown}>Window cover</Highlight>
 
 Proceed to the next page to continue. 
 
