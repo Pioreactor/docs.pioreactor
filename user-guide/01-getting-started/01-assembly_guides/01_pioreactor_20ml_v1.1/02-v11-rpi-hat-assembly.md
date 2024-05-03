@@ -17,9 +17,9 @@ import TabItem from '@theme/TabItem';
 1. You will need:
 * A Raspberry Pi of your choosing. Displayed are three options - you just need one.
 * <Highlight color={colors.blue}>Hex nuts (4x)</Highlight>
-* <Highlight color={colors.red}>12mm hex standoffs (4x)</Highlight>
-* <Highlight color={colors.magenta}>12mm hex standoffs-with-6mm-screws (4x)</Highlight>
-* <Highlight color={colors.green}>10mm screws (4x)</Highlight>
+* <Highlight color={colors.red}>M2.5 12mm hex standoffs (4x)</Highlight>
+* <Highlight color={colors.magenta}>M2.5 12mm hex standoffs-with-6mm-screws (4x)</Highlight>
+* <Highlight color={colors.green}>M2.5 10mm screws (4x)</Highlight>
 * <Highlight color={colors.orange}>Bottom faceplate</Highlight>
 * <Highlight color={colors.teal}>HAT PCB</Highlight>
 
@@ -44,7 +44,7 @@ The 40 GPIO pins (standing for general-purpose input/output) form a distinct row
 :::
 
 2.  Orientation: the base will have a flat edge and an edge with an indent. The GPIO pins sit along the <Highlight color={colors.blue}>indent</Highlight>, seen on the left in the images.
-3.  Insert the <Highlight color={colors.red}>10mm screws</Highlight> into the holes.
+3.  Insert the <Highlight color={colors.red}>M2.5 10mm screws</Highlight> into the holes.
 4.  Hand screw a <Highlight color={colors.magenta}>hex nut</Highlight> onto each screw.
 5.  Place the Raspberry Pi on top, aligning the holes, with the <Highlight color={colors.green}>GPIO pins</Highlight> on the left. Note: your Raspberry Pi may look different than the one displayed.
 
@@ -55,10 +55,10 @@ The 40 GPIO pins (standing for general-purpose input/output) form a distinct row
 
 <AssemblyInstructionBlock title="Step 3: Placing the HAT PCB on top" images={["user-guide/hardware-assembly/upgrade-version/rpi-with-standoffs.png","user-guide/hardware-assembly/upgrade-version/gpio-unpushed.png","user-guide/hardware-assembly/upgrade-version/gpio-pushed.png", "user-guide/hardware-assembly/upgrade-version/standoff-on-hat.png"]}>
 
-1.  Hand screw on the <Highlight color={colors.blue}>12mm hex standoffs-with-6mm-screw</Highlight> in each corner.
+1.  Hand screw on the <Highlight color={colors.blue}>M2.5 12mm hex standoffs-with-6mm-screw</Highlight> in each corner.
 2.  Place the HAT PCB on top. <Highlight color={colors.red}>Push down *from the corners*</Highlight> to secure it in place. The HAT PCB's GPIO connector will line up with the RPi's GPIO pins and may require a slight force to compress down. You can also use the next Tip below to help apply force.
 
-3.  Hand screw the <Highlight color={colors.green}>12mm hex standoffs</Highlight> in each corner, on top of the HAT.
+3.  Hand screw the <Highlight color={colors.green}>M2.5 12mm hex standoffs</Highlight> in each corner, on top of the HAT.
 
 :::tip
 By screwing down the standoffs, they'll help compress the HAT onto the RPi, too.
@@ -82,7 +82,7 @@ The 40 GPIO pins (standing for general-purpose input/output) form a distinct row
 2.  Insert the 10mm screws into the <Highlight color={colors.red}>holes</Highlight>.
 3.  Hand screw the <Highlight color={colors.magenta}>hexnuts</Highlight> on the screws along the flat edge of the bottom faceplate. Hexnuts are only needed on one side because of the size of the Raspberry Pi Zero.
 4.  Place the Raspberry Pi along the indented edge of the faceplate, with the <Highlight color={colors.green}>GPIO pins</Highlight> on the left.
-5.  Hand screw on the <Highlight color={colors.blue}>12mm hex standoffs-with-6mm-screw</Highlight> in each corner.
+5.  Hand screw on the <Highlight color={colors.blue}>M2.5 12mm hex standoffs-with-6mm-screw</Highlight> in each corner.
 
 </AssemblyInstructionBlock>
 
@@ -93,7 +93,7 @@ The 40 GPIO pins (standing for general-purpose input/output) form a distinct row
 
 1.  Place the HAT on top. <Highlight color={colors.red}>Push down</Highlight> to secure it in place. The HAT PCB's GPIO connector will line up with the RPi's GPIO pins, and may require a slight force to compress down. You can also use the next Tip below to help apply force.
 
-2.  Hand screw the <Highlight color={colors.green}>12mm hex standoffs</Highlight> in each corner, on top of the HAT.
+2.  Hand screw the <Highlight color={colors.green}>M2.5 12mm hex standoffs</Highlight> in each corner, on top of the HAT.
 
 :::tip
 By screwing down the standoffs, you can use these standoffs to help compress the HAT onto the RPi, too.

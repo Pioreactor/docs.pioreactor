@@ -16,7 +16,7 @@ You will need:
 *	<Highlight color={colors.orange}>Heating PCB</Highlight>
 *	<Highlight color={colors.magenta}>Thermal pad</Highlight> (contains blue cover on one side and clear plastic on the other)
 *	<Highlight color={colors.green}>Flat flex cable</Highlight>
-*	<Highlight color={colors.teal}>4mm screws (2x)</Highlight>
+*	<Highlight color={colors.teal}>M2.5 4mm screws (2x)</Highlight>
 
 </AssemblyInstructionBlock>
 
@@ -40,7 +40,7 @@ You will need:
 1.	Identify the <Highlight color={colors.magenta}>slot</Highlight> on the vial holder where the flex cable will go through.
 2.	Insert the flex cable in the vial holder, and through the slot, with the blue side of the cable facing upwards.
 3.	Pull the cable through until the heating PCB is flat with the bottom of the vial holder.
-4.	Secure the PCB from the bottom using the <Highlight color={colors.teal}>two 4mm screws</Highlight>.
+4.	Secure the PCB from the bottom using the two <Highlight color={colors.teal}>M2.5 4mm screws</Highlight>.
 5.  **Important**: the screw heads should be flush against the bottom of the vial holder, that is, no gap. You may need to unscrew and screw in again, or use pliers.
 6.	Continue to the [next page](/user-guide/putting-it-together).
 

@@ -30,8 +30,8 @@ The vial holder of the v1.1 now comes in two halves; a top vial holder and a bot
 
 <AssemblyInstructionBlock title="Step 2: Attach the window cover" images={["user-guide/hardware-assembly/upgrade-version/window-cover-parts.png", "user-guide/hardware-assembly/upgrade-version/window-screw.png"]}>
 
-1. Place the window cover over the window. It should fit snuggly.
-2. Attach it using four <Highlight color={colors.red}>4mm screws</Highlight> (2 provided in the upgrade kit, and 2 previously used in the old v1.0).
+1. Place the window cover over the window. It should fit snugly.
+2. Attach it using four <Highlight color={colors.red}>M2.5 4mm screws</Highlight> (2 provided in the upgrade kit, and 2 previously used in the old v1.0).
 
 </AssemblyInstructionBlock>
 
