@@ -18,11 +18,11 @@ import TabItem from '@theme/TabItem';
 The vial holder of the v1.1 comes in two halves; a top vial holder and a bottom vial holder. Both have sections to insert O-rings for a more secure hold on your vials and increased protection against leaks. The <Highlight color={colors.magenta}>thinner O-ring (#024)</Highlight> fits into the top piece. The <Highlight color={colors.orange}>thicker O-ring (#121)</Highlight> lines the bottom piece.
 :::
 
-0. The O-rings are pre-lubricated with a silicone-based lubricant. Remove any excess lubricant from the O-rings.
-1. The top vial holder has <Highlight color={colors.blue}>a groove within the body</Highlight> where the <Highlight color={colors.magenta}>thinner #024 O-ring</Highlight> sits. Carefully insert the O-ring using your fingers. Make sure to not twist the O-ring.
-2. Run your finger inside the vial holder, pushing the O-ring into place to ensure a snug fit. 
-3. The bottom vial holder has a groove for the <Highlight color={colors.orange}>thicker #121 O-ring</Highlight>. The O-ring will sit between the base of the holder and the heater PCB. Carefully insert the O-ring using your fingers. Make sure to not twist the O-ring.
-4. Push the O-ring into place to ensure a snug fit. 
+1. The O-rings are pre-lubricated with a silicone-based lubricant. If needed, remove any excess lubricant from the O-rings.
+2. The top vial holder has <Highlight color={colors.blue}>a groove within the body</Highlight> where the <Highlight color={colors.magenta}>thinner #024 O-ring</Highlight> sits. Carefully insert the O-ring using your fingers. Make sure to not twist the O-ring.
+3. Run your finger inside the vial holder, pushing the O-ring into place to ensure a snug fit.
+4. The bottom vial holder has a groove for the <Highlight color={colors.orange}>thicker #121 O-ring</Highlight>. The O-ring will sit between the base of the holder and the heater PCB. Carefully insert the O-ring using your fingers. Make sure to not twist the O-ring.
+5. Push the O-ring into place to ensure a snug fit.
 
 </AssemblyInstructionBlock>
 
