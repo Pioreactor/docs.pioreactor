@@ -72,7 +72,7 @@ class DemoJob(BackgroundJob):
     def on_ready(self):
         self.logger.debug("Hello, world!")
 
-    def on_disconnect(self):
+    def on_disconnected(self):
         self.logger.debug("Goodbye, world!")
 
 
