@@ -86,6 +86,11 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      colorMode: {
+        defaultMode: 'light',
+        disableSwitch: false,
+        respectPrefersColorScheme: true,
+      },
       metadata: [{name: 'keywords', content: 'documentation, bioreactor, pioreactor, experiments, user-guide'}],
       navbar: {
         hideOnScroll: true,
