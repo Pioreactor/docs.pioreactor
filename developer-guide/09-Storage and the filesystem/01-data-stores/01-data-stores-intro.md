@@ -1,13 +1,13 @@
 ---
-title: Data stores in the Pioreactor
-slug: /data-stores
+title: Introduction
+slug: /data-stores-intro
 ---
 
 The Pioreactor has a few different ways to store data (depending on the requirements). They are:
 
 ## SQLite3
 
-The most important datastore is the SQLite3 database on the _leader_, located at `/home/pioreactor/.pioreactor/storage/`. This database stores historical data, jobs changes, logs, experiments, etc. The background job `mqtt_to_database_streaming` picks up data from MQTT (like OD readings), and puts them into the database.
+The most important datastore is the SQLite3 database on the _leader_, located at `/home/pioreactor/.pioreactor/storage/`. This database stores historical data, jobs changes, logs, experiments, etc. The background job `mqtt_to_db_streaming` picks up data from MQTT (like OD readings), and puts them into the database.
 
 The CLI command `pio db` will open up the SQLite terminal to query the database directly.
 
@@ -15,7 +15,7 @@ The CLI command `pio db` will open up the SQLite terminal to query the database 
 
 The Pioreactor software will automatically backup the SQLite database via a scheduale `cron` job. The backup is hosted locally on the Raspberry Pi, however if there if the cluster has active worker Pioreactors, the database backup is duplicated to (at most) two workers as well. This level of redundancy means that if the leader's microSD card fails, the database can be recovered from backups stored off the card.
 
-#### Key-value datastore
+## Local key-value datastore
 
 SQLite3 is also used by the library *diskcache*. This is essentially a fast key-value store on the Raspberry Pi. For Pioreactor, we use it to store "machine-specific" data, like calibration curves, locks on GPIOs, state of LEDs, jobs running, etc. Instead of one large file containing all these keys, we have split them into multiple locations based on category and level of persistence. The persistent databases are stored in `/home/pioreactor/.pioreactor/storage` and the temporary databases are in `/tmp`. You can access them from Python using `pioreactor.utils.local_persistant_storage` and `pioreactor.utils.local_intermittent_storage`, respectively.
 
@@ -23,7 +23,7 @@ SQLite3 is also used by the library *diskcache*. This is essentially a fast key-
 What are temporary and persistent? Something like GPIO locks or LED state are physically reset between cycles of the Raspberry Pi. So when the Pi power-cycles, the state is wiped, and by have the database in `/tmp`, the databases are wiped as well.
 :::
 
-You can use `pio view-cache <name>` to view the contents of `<name>`.
+You can use `pio view-cache <name>` to view the contents of `<name>`, and `pio clear-cache <name> <key>` to clear contents.
 
 
 ## MQTT
@@ -32,15 +32,14 @@ The inter- and intra-Pioreactor communications are handled by MQTT, a pub/sub se
 
 A principle we have stood by is to not let MQTT turn into our database. That is,
 
-1. we shouldn't store important information in MQTT _only_,
-2. we shouldn't store information in MQTT that is "machine-specific",
-3. we shouldn't use MQTT as a source of truth.
+1. we shouldn't store important information in MQTT _only_ (also use `mqtt_to_db_streaming` job to store important data in the SQLite3 database, or handle it locally using `local_intermitant_storage` or `local_persistance_storage`),
+2. we shouldn't store information in MQTT that is "machine-specific", like calibrations (better to use  `local_intermitant_storage` or `local_persistance_storage`)
+3. we shouldn't use MQTT as a source of truth (trust the database, `local_intermitant_storage` or `local_persistance_storage` more).
 
 
 #### Serialization of MQTT messages
 
-Every 25 minutes (set by the MQTT configuration file), MQTT will serialize its _retained_ messages to disk.
-
+We make a configuration change so MQTT data is not persisted through leader power-cycles.
 
 #### Authentication
 

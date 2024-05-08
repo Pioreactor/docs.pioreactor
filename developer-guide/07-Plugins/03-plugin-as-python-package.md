@@ -130,20 +130,21 @@ function decorated with `@click.command` at the bottom of the file. See example 
   ```
 
  - **If implementing a job:**
-  This will contain an `import` statement such as the following:
+   This will contain an `import` statement such as the following:
 
-  ```python
-  from <PLUGIN_NAME>.<PYTHON FILE NAME> import <PLUGIN CLICK FUNCTION>
-  ```
-  This imports the function within our plugin file that executes our plugin action.
+   ```python
+   from <PLUGIN_NAME>.<PYTHON FILE NAME> import <PLUGIN CLICK FUNCTION>
+   ```
+   This imports the function within our plugin file that executes our plugin action.
 
-  Example for the relay plugin:
+   Example for the relay plugin:
 
-  ```python
-  from pioreactor_relay_plugin.relay import click_relay
-  ```
+   ```python
+   from pioreactor_relay_plugin.relay import click_relay
+   ```
 
-  where `click_relay` is the function decorated with `@click.command`.
+   where `click_relay` is the function decorated with `@click.command`.
+
 
 #### 3. Optional: A configuration file, named `additional_config.ini`
 
