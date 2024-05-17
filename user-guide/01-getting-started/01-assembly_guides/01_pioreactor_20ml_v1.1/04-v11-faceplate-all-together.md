@@ -12,7 +12,7 @@ import * as colors from '@site/src/components/constants';
 
  * <Highlight color={colors.blue}>Fan</Highlight>
  * <Highlight color={colors.red}>Top faceplate</Highlight> (will have 4 x 30mm screws in it)
- * <Highlight color={colors.orange}>One 5mm screw</Highlight>
+ * <Highlight color={colors.orange}>1x M2.5 10mm screw</Highlight>
 
    :::info
    The fan and top faceplate come assembled - leave them together. If they are not assembled, attach the fan onto the faceplate with the cable oriented toward the side labelled "PWM".

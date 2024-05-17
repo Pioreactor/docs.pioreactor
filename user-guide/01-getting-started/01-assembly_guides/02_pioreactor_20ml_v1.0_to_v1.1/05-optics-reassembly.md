@@ -29,9 +29,9 @@ import * as colors from '@site/src/components/constants';
 2. Insert the bulb of the <Highlight color={colors.red}>PD cable</Highlight> in channel 1 into the pocket labeled <Highlight color={colors.red}>REF</Highlight>.
 3. Insert the bulb of the <Highlight color={colors.blue}>PD cable</Highlight> in channel 2 into the pocket labeled <Highlight color={colors.blue}>90°</Highlight>.
 
-:::caution
-Avoid over-stressing the leads, or applying too much force too quickly. After bending once, it's ill-advised to bend them again.
-:::
+   :::caution
+   Avoid over-stressing the leads, or applying too much force too quickly. After bending    once, it's ill-advised to bend them again.
+   :::
 
 7. Secure all bulbs with LED caps. 
 8. Push all remaining LED caps onto each pocket.

@@ -26,9 +26,9 @@ import * as colors from '@site/src/components/constants';
 1.  Insert the bulb of the PD cable in <Highlight color={colors.blue}>**channel 2**</Highlight> into the <Highlight color={colors.blue}>pocket labeled **90°**</Highlight>.
 2. _Slowly_ bend the bulb's leads 90 degrees, as seen. Secure with a LED pocket cap.
 
-:::caution
-Avoid over-stressing the leads, or applying too much force too quickly. After bending once, it's ill-advised to bend them again.
-:::
+   :::caution
+   Avoid over-stressing the leads, or applying too much force too quickly. After bending once, it's ill-advised to bend them again.
+   :::
 
 
 3.  Insert the bulb of the IR cable in <Highlight color={colors.red}>**channel A**</Highlight> into the <Highlight color={colors.red}>pocket labeled **IR**</Highlight>.
