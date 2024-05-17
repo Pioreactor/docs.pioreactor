@@ -8,9 +8,11 @@ The web UI is hosted on the leader Pioreactor. Here are the details:
 
 ### Web server
 
-The web server we use is lighttp, and hosted from `/var/www/pioreactorui`. This folder is actually a git repo, and pulls from [pioreactorui](https://github.com/pioreactor/pioreactorui) GH repo. Systemd controls starting and restarting lighttp.
+The web server we use is lighttpd, and hosted from `/var/www/pioreactorui`. This folder is actually a git repo, and pulls from [pioreactorui](https://github.com/pioreactor/pioreactorui) GH repo. Systemd controls starting and restarting lighttpd.
 
-The lighttp conf file is located in `/etc/lighttpd/conf-enabled/50-pioreactorui.conf`. Error logs (though not helpful) are in `/var/log/lighttpd/error.log`.
+The lighttpd conf file is located in `/etc/lighttpd/conf-enabled/50-pioreactorui.conf`. Error logs (though not helpful) are in `/var/log/lighttpd/error.log`.
+
+The default protocol is `http` served on port `80`. To use `https` requires a certificate, and is out of scope for this project. If you'd change the protocol or the port, you'll need up tell the software too: look in the config.ini under `[ui]` section.
 
 
 ### Backend

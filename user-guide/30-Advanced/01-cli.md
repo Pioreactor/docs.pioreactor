@@ -14,9 +14,9 @@ Interacting with the Pioreactor on the command line are through the `pio` tool. 
 *   `pio run <job> <options>` will run the `<job>`. Each job may have specific command line arguments.
 *   `pio version` print the version of the PioreactorApp software.
 *   `pio update app` will update the software to the latest app version.
-*   `pio install-plugin <plugin name>` will install a plugin
-*   `pio uninstall-plugin <plugin name>` will uninstall a plugin
-*   `pio list-plugins` will list the currently installed plugins
+*   `pio plugins install <plugin name>` will install a plugin
+*   `pio plugins uninstall <plugin name>` will uninstall a plugin
+*   `pio plugins list` will list the currently installed plugins
 *   `pio blink` will blink the Pioreactor's onboard LED.
 *   `pio log -m <message>` will log a message
 *   `pio view-cache <cache>` will print out the contents of the specified cache.
@@ -51,7 +51,7 @@ The leader computer interacts with the worker computers using the `pios` command
 *   `pios rm <filepath>` will remove `filepath` on all the workers.
 
 :::tip
-In each of the above commands, specific workers can be invoked with `--units` (which can be used multiple times. Ex: `pios run stirring --units 1 --units 2`.
+In each of the above commands, specific workers can be invoked with `--units` (which can be used multiple times. Ex: `pios run stirring --units pio1 --units pio2`.
 :::
 
 :::tip

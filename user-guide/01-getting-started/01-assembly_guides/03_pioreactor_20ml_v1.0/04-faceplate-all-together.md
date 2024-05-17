@@ -10,12 +10,12 @@ import * as colors from '@site/src/components/constants';
 
 <AssemblyInstructionBlock title="Step 1: Necessary parts" images={["user-guide/hardware-assembly/stirring_parts.jpg"]}>
 
-*	<Highlight color={colors.blue}>Fan</Highlight>
-*	<Highlight color={colors.red}>Top faceplate</Highlight> (will have 4 x 30mm screws in it)
+ * <Highlight color={colors.blue}>Fan</Highlight>
+ * <Highlight color={colors.red}>Top faceplate</Highlight> (will have 4 x 30mm screws in it)
 
-:::info
-These come assembled - leave them together. If they are not assembled, attach the fan onto the faceplate with the cable oriented toward the side labelled "PWM".
-:::
+   :::info
+   These come assembled - leave them together. If they are not assembled, attach the fan onto the    faceplate with the cable oriented toward the side labelled "PWM".
+   :::
 
 </AssemblyInstructionBlock>
 

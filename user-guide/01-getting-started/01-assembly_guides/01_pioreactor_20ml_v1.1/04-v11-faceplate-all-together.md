@@ -10,13 +10,13 @@ import * as colors from '@site/src/components/constants';
 
 <AssemblyInstructionBlock title="Step 1: Necessary parts" images={["user-guide/hardware-assembly/upgrade-version/stirring-parts.png"]}>
 
-*	<Highlight color={colors.blue}>Fan</Highlight>
-*	<Highlight color={colors.red}>Top faceplate</Highlight> (will have 4 x 30mm screws in it)
-*	<Highlight color={colors.orange}>One 5mm screw</Highlight>
+ * <Highlight color={colors.blue}>Fan</Highlight>
+ * <Highlight color={colors.red}>Top faceplate</Highlight> (will have 4 x 30mm screws in it)
+ * <Highlight color={colors.orange}>One 5mm screw</Highlight>
 
-:::info
-The fan and top faceplate come assembled - leave them together. If they are not assembled, attach the fan onto the faceplate with the cable oriented toward the side labelled "PWM".
-:::
+   :::info
+   The fan and top faceplate come assembled - leave them together. If they are not assembled, attach the fan onto the faceplate with the cable oriented toward the side labelled "PWM".
+   :::
 
 </AssemblyInstructionBlock>
 
@@ -27,11 +27,11 @@ The fan and top faceplate come assembled - leave them together. If they are not 
 
 1. Push the <Highlight color={colors.red}>fan onto the top faceplate</Highlight>, orienting it such that the wire is pointing towards the button. 
 2. Place the vial holder on top of the <Highlight color={colors.green}>four ends of the 30mm screws</Highlight>. The screw ends should fit into four holes on the bottom of the vial holder. The flat flex cable should follow the <Highlight color={colors.orange}>arrow on the faceplate</Highlight>.
-3. Holding it together, finish screwing the <Highlight color={colors.blue}>30mm screws</Highlight> on the bottom of the faceplate. The screws will enter square nuts in the vial holder. Do not overtighten.
+3. Holding it together, finish screwing the <Highlight color={colors.blue}>M3 30mm screws</Highlight> on the bottom of the faceplate. The screws will enter square nuts in the vial holder. Do not overtighten.
 
-:::caution
-You should not feel resistance when tightening the screws into the square nuts. If you encounter resistance, unscrew and inspect the screw for any plastic debris. 
-:::
+   :::caution
+   You should not feel resistance when tightening the screws into the square nuts. If you encounter resistance, unscrew partially and inspect the end of the screw for any plastic debris.
+   :::
 
 4. The screw heads will be flush with the faceplate, and there should be no screw threads showing between the vial holder and the faceplate.
 
@@ -46,7 +46,7 @@ The top faceplate comes with a button extension to provide easier access to push
 
 1. Flip over the assembly.
 2. Insert the 10mm screw into the hole under the button extension.
-3. Place <Highlight color={colors.red}>one finger behind the extension</Highlight> and <Highlight color={colors.magenta}>apply torque with the other hand</Highlight> until the screw is secure in the hole. This may require some force. Once established, you can use a screwdriver to finish screwing it in under you feel sufficient resistance.
+3. Place <Highlight color={colors.red}>one finger behind the extension</Highlight> and <Highlight color={colors.magenta}>apply torque with the other hand</Highlight> until the screw is secure in the hole. This may require some force. Once established, you can use a screwdriver to finish screwing it in under you feel sufficient resistance. Don't over-tighten!
 
 </AssemblyInstructionBlock>
 

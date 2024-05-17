@@ -86,7 +86,7 @@ It may be a tight squeeze. To help screw it in if it's difficult:
 
 **2. If you installed the Kit on individual Pioreactors**
 
- - [SSH](/user-guide/accessing-raspberry-pi) into the individual Pioreactor, and type `pio install-plugin temperature-expansion-kit-plugin`
+ - [SSH](/user-guide/accessing-raspberry-pi) into the individual Pioreactor, and type `pio plugins install temperature-expansion-kit-plugin`
 
 
 **Important:** in either case,
@@ -118,7 +118,7 @@ local_ac_hz=60
  2. To get this .whl file onto a Pioreactor, use either `scp`, or FileZilla.
  3. Once the .whl file is on the Pioreactor, use
     ```
-    pio install-plugin temperature_expansion_kit_plugin --source <location of whl file>
+    pio plugin install temperature_expansion_kit_plugin --source <location of whl file>
 
     ```
 

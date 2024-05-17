@@ -231,6 +231,7 @@ You also need to tell Pioreactor software how to populate this table from your s
 from pioreactor.background_jobs.leader.mqtt_to_db_streaming import produce_metadata
 from pioreactor.background_jobs.leader.mqtt_to_db_streaming import register_source_to_sink
 from pioreactor.background_jobs.leader.mqtt_to_db_streaming import TopicToParserToTable
+from pioreactor.utils import timing
 
 ...
 
@@ -343,13 +344,13 @@ A plugin can be installed through the command line on a leader using `pio`:
 
 
 ```
-pio install-plugin <DISTRIBUTION-NAME OR PLUGIN_NAME>
+pio plugin install <DISTRIBUTION-NAME OR PLUGIN_NAME>
 ```
 
-To install a given plugin on the leader and all workers connected to the leader in a cluster, `pios install-plugin` can be used. 
+To install a given plugin on the leader and all workers connected to the leader in a cluster, `pios plugins install` can be used.
  
 ```
-pios install-plugin <DISTRIBUTION-NAME OR PLUGIN_NAME>
+pios plugin install <DISTRIBUTION-NAME OR PLUGIN_NAME>
 ```
 
 ## Sharing your plugin with the community

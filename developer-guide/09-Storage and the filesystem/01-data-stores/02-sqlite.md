@@ -33,6 +33,7 @@ The Pioreactor job `mqtt_to_db_streaming` handles how to get data into the sqlit
 from pioreactor.background_jobs.leader.mqtt_to_db_streaming import produce_metadata
 from pioreactor.background_jobs.leader.mqtt_to_db_streaming import register_source_to_sink
 from pioreactor.background_jobs.leader.mqtt_to_db_streaming import TopicToParserToTable
+from pioreactor.utils import timing
 
 ...
 

@@ -17,9 +17,9 @@ import TabItem from '@theme/TabItem';
 2. Place the vial holder on top of the <Highlight color={colors.green}>ends of the M3 30mm screws</Highlight>. The screw ends should fit into four holes on the bottom of the vial holder. The flat flex cable should follow the <Highlight color={colors.orange}>arrow on the faceplate</Highlight>.
 3. Holding it together, finish screwing the <Highlight color={colors.blue}>M3 30mm screws</Highlight> on the bottom of the faceplate. The screws will enter square nuts in the vial holder. Do not overtighten.
 
-:::caution
-You should not feel resistance when tightening the screws into the square nuts. If you encounter resistance, unscrew and inspect the screw for any plastic debris. 
-:::
+   :::caution
+   You should not feel resistance when tightening the screws into the square nuts. If you encounter resistance, unscrew partially and inspect the end of the screw for any plastic debris.
+   :::
 
 4. The screw heads will be flush with the faceplate, and there should be no screw threads showing between the vial holder and the faceplate.
 
@@ -33,7 +33,7 @@ The top faceplate now comes with a button extension to provide easier access whe
 
 1. Flip over the assembly.
 2. Insert the 10mm screw into the hole under the button extension.
-3. Place <Highlight color={colors.red}>one finger behind the extension</Highlight> and <Highlight color={colors.magenta}>apply force and torque</Highlight> with the other hand until the screw is secure in the hole. Once established, a screwdriver can finish the job. Tighten until you feel resistance.
+3. Place <Highlight color={colors.red}>one finger behind the extension</Highlight> and <Highlight color={colors.magenta}>apply force and torque</Highlight> with the other hand until the screw is secure in the hole. Once established, a screwdriver can finish the job. Tighten until you feel resistance. Don't over-tighten!
 
 </AssemblyInstructionBlock>
 
