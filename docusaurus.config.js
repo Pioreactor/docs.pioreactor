@@ -188,6 +188,10 @@ const config = {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
       },
+      gtag: {
+        trackingID: 'G-SPL5BKMWP8',
+        anonymizeIP: true,
+      },
     }),
   themes: [
     [

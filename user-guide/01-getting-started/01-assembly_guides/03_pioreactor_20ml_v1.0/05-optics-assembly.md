@@ -40,6 +40,7 @@ import * as colors from '@site/src/components/constants';
 Inspect each LED and PD to confirm that neither of the leads are touching.
 :::
 
+
 </AssemblyInstructionBlock>
 
 -----
@@ -60,6 +61,8 @@ This window covering is optional. You can add it to further reduce the light in 
 3. Insert the glass vial into the Pioreactor. The vial should feel snug, but not very tight. If it feels too tight, try loosening the <Highlight color={colors.orange}>four 6mm screws</Highlight> slightly.
 
 </AssemblyInstructionBlock>
+
+
 
 
 
