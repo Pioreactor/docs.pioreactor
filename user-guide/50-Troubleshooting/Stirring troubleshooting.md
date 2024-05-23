@@ -17,7 +17,10 @@ First, with the stirring activity running, carefully examine if the fan below is
  - If the fan is not spinning,
     - Check to confirm that the fan's cable is in the right PMW channel. You can find the right PWM channel to use in the config.ini, under `[PWM]` (also check that it is not [overwritten in the unit specific config.ini](https://docs.pioreactor.com/user-guide/configuration#how-configuration-works-across-pioreactors))
     - Does the fan start to spin momentarily, but then stop? You may need to increase the target RPM in the UI. The lower limit of RPM is around 125. Target RPMs below 125 have a tendency to stall. Alternatively, increase the `initial_duty_cycle` by 10 units or so and try again.
-    - Visually inspect the top of the fan from the side. If you rotate the fan with a pen, is it touching (or nearly touching) the <Highlight color={colors.magenta}>screws above it</Highlight> (see image below)? See [this section](/user-guide/troubleshooting-stirring#the-magnets-rub-against-the-plastic-screws-above-them-causing-the-stirring-performance-to-be-degraded--stop) if so.
+    - for Pioreactor 20ml 1.0:
+       - Visually inspect the top of the fan from the side. If you rotate the fan with a pen, is it touching (or nearly touching) the <Highlight color={colors.magenta}>screws above it</Highlight> (see image below)? See [this section](/user-guide/troubleshooting-stirring#the-magnets-rub-against-the-plastic-screws-above-them-causing-the-stirring-performance-to-be-degraded--stop) if so.
+    - for Pioreactor 20ml 1.1:
+       - you may need to _increase_ the distance between the fan and the vial holder. You can unscrew the M3 30mm screws slightly to increase the distance.
     - Very gently wiggle the connection between the stirring wires and the HAT - does the fan start? It may be a bad connection. Contact us at support@pioreactor.com
     - The fan may be damaged. Contact us at support@pioreactor.com
 - If the fan is spinning:

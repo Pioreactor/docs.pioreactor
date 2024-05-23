@@ -17,25 +17,24 @@ slug: /troubleshooting-ui
  - Try SSHing in and restarting the webserver: `sudo systemctl restart lighttpd.service && sudo systemctl status lighttpd.service`.
 
 
-### I see "Failed to connect to MQTT. Is configuration for leader_address correct? Currently set to ..." in a pop-up - what can I do?
+### I see "Failed to connect to MQTT. ..." in a pop-up - what can I do?
 
 This error occurs because your UI can't connect to an internal system, MQTT, that is used for displaying data and actions. Likely you also weren't able to access the UI with `http://pioreactor.local`, but had to use an IP address as the url.
 
 To fix this:
 
-1. Navigate to the `Configuration` page in the side bar.
-2. Find the `[cluster.topology]` section, and change the `leader_address` configuration to your Pioreactor's IP. Ex:
+1. Navigate to the Configuration page in the side bar.
+2. Find the `[mqtt]` section, and change the `broker_address` configuration to your Pioreactor's IP. Ex:
 
 ```
-[cluster.topology]
-leader_hostname=leader
-leader_address=192.168.0.10
+[mqtt]
+broker_address=192.168.0.10
 ```
 
 Your IP may be different than the one above.
 
 3. Hit `Save`.
-4. Power-cycle the Pioreactor by unplugging the power and plugging back in.
+4. Power-cycle the Pioreactor by rebooting it from the Inventory page.
 
 #### If you are using a remote access service, like ngrok or tailscale
 

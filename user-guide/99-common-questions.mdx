@@ -12,7 +12,7 @@ Pioreactor operation
 
 #### How can I restart my Pioreactor? Is pulling the power plug out safe?
 
-We suggest using the UI to reboot your Pioreactor's software:
+We suggest using the UI to reboot a Pioreactor:
 
 ![Rebooting your pi](/img/user-guide/reboot.png)
 
@@ -21,7 +21,8 @@ Pulling the plug is usually fine, but try to avoid doing it as much as possible.
 
 #### Can I still use the Pioreactor software without the hardware?
 
-Yes - the Pioreactor UI and software should still work. There will be warnings that there is no HAT attached, but those can be ignored.
+Yes - the Pioreactor UI and software will still work. We provide a "leader-only" image that is designed to only host a cluster, and not be an active worker. The leader-only image, `pioreactor_leader.zip
+`, are available [here](https://github.com/Pioreactor/CustoPiZer/releases).
 
 #### Why does the onboard blue LED keep flashing?
 
@@ -40,8 +41,6 @@ The button can be [reprogrammed](/developer-guide/hat-button), too.
 sudo date --set "Thu Nov  2 09:46:50 EDT 2023"
 
 ```
-
-
 
 
 
@@ -88,9 +87,9 @@ Turbidity is a measure of optical density, like how decibels are a measurement o
 Heating and Temperature control
 ---------------------------------
 
-#### Why does the Pioreactor only provide a temperature reading every 4 minutes?
+#### Why does the Pioreactor only provide a temperature reading every few minutes?
 
-We made a design choice early on to make preparation as error-free as possible. This involved thinking about sensors being _in situ_ (in place), versus the sensors being on the outside of the vial. The temperature sensor in the Pioreactor is outside the vial, which means less chance of contamination, but there's a tradeoff (as you could guess): we have to rely on an estimation algorithm that requires 4 minutes to gather data on. We think this is a fair trade-off, as high frequency temperature readings are not that important in an experiment that lasts 12 hours or more.
+We made a design choice early on to make preparation as error-free as possible. This involved thinking about sensors being _in situ_ (in place), versus the sensors being on the outside of the vial. The temperature sensor in the Pioreactor is outside the vial, which means less chance of contamination, but there's a tradeoff (as you could guess): we have to rely on an estimation algorithm that requires a gew minutes to gather data on. We think this is a fair trade-off, as high frequency temperature readings are not that important in an experiment that lasts 12 hours or more.
 
 #### Why does the Pioreactor's heating keep shutting off?
 
@@ -139,8 +138,7 @@ Raspberry Pi Hardware
 
 We've designed the hardware and software to be compatible with any Raspberry Pi that has onboard Wifi and a 40 pin header. That includes (at the time of writing):
 
-*   Raspberry Pi 3 Model B
-*   Raspberry Pi 3 Model B+
+*   Raspberry Pi 3 Model B & B+
 *   Raspberry Pi 3 Model A+
 *   Raspberry Pi 4 Model B ³
 *   Raspberry Pi Zero W (with header) ¹
@@ -148,7 +146,7 @@ We've designed the hardware and software to be compatible with any Raspberry Pi 
 *   Raspberry Pi 400 ²
 
 
-Although you can use any above, **we like the Raspberry Pi 3 Model A+, and Raspberry Pi Zero 2 W** because of their low power consumption, slim build, and low price. Both have the necessary CPU power and memory for the Pioreactor workload, and are generally easy to source.
+Although you can use any above, **we like the Raspberry Pi 3 Model A+, and Raspberry Pi Zero 2 W** because of their low power consumption, slim build, and low price. Both have the necessary CPU power and memory for the Pioreactor workload, and are generally easy to source. However, they don't have ethernet connections! So talk to your team about if you need to use ethernet or wifi. If you need ethernet, we like the model 3B.
 
 ¹ _Raspberry Pi Zero W_ is on the list above, and is very low cost compared to the others. They can absolutely be used for Pioreactors _as workers_ - we don't recommend them to be your _leader_ (note sure what these terms mean? Here's an introduction to [leader and workers](/user-guide/create-cluster)). As workers, Raspberry Pi Zero W perform just fine, but will respond slower to commands. Note that this does not include the Raspberry Pi Zero _2_ W model, which is fine for all roles.
 
@@ -172,9 +170,9 @@ Nope, you shouldn't, unless you are connecting an external monitor. However, ext
 
 Maybe? We haven't tested them, but so long as i) the GPIO pins are identical, and ii) Raspberry Pi OS can be installed, it should work.
 
-#### Why are the Raspberry Pi LEDs/USB/Ethernet/etc. turned off?
+#### Why are the Raspberry Pi LEDs/USB/etc. turned off?
 
-We turn off the "activity" LED (usually the green one) to save some power for the Pioreactor's peripherals. We do the same for USB and Ethernet. You can turn these back on by editing the `/boot/config.txt` file on the RPi.
+We turn off the "activity" LED (usually the green one) to save some power for the Pioreactor's peripherals. You can turn these back on by editing the `/boot/config.txt` file on the RPi.
 
 #### What is the username/password for the Raspberry Pi?
 
@@ -230,12 +228,11 @@ Networking
 
 Yes, so long as the Raspberry Pi's are connected to the same network and discoverable, this should work. Even mixing Ethernet and WIFI is fine.
 
-#### How can I determine the Pioreactor's IP address?
+#### How can I determine the Pioreactor's IP address? Or the MAC address?
 
 Depending on your access to the Pioreactor, there are a few ways:
 
-1. In the UI's `/pioreactors` page, look under `Manage` -> `System` for the IP.
-2. After SSH-ing into the Pioreactor, use `hostname -I | awk '{print $1}'` to print the IP address.
+1. In the UI's Inventory page.
 3. If you can't access the Pioreactor's UI or SSH in: the software will write the IP address to the `/boot` directory on the SD card. After the Pioreactor's blue LED has blinked, you can unplug the Pioreactor, remove the SD card, and place the SD card in another computer. Navigate to the card, and in the directory you should see a file called `ip`. Open this file, and the IP address should be there. Place the SD card back into the Pioreactor and plug it back in.
 
 #### I'm using a local access point, but I'd like to install plugins, update software, etc.
