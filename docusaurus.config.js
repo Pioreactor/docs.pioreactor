@@ -189,7 +189,7 @@ const config = {
         darkTheme: darkCodeTheme,
       },
       gtag: {
-        trackingID: 'G-SPL5BKMWP8',
+        trackingID: 'G-KR7J91QFT2',
         anonymizeIP: true,
       },
     }),
