@@ -26,6 +26,14 @@ const config = {
       '@docusaurus/preset-classic',
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
+        googleAnalytics: {
+          trackingID: 'G-KR7J91QFT2',
+          anonymizeIP: true,
+        },
+        gtag: {
+          trackingID: 'G-KR7J91QFT2',
+          anonymizeIP: true,
+        },
         docs: {
           routeBasePath: 'user-guide',
           path: 'user-guide',
@@ -187,10 +195,6 @@ const config = {
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
-      },
-      gtag: {
-        trackingID: 'G-KR7J91QFT2',
-        anonymizeIP: true,
       },
     }),
   themes: [
