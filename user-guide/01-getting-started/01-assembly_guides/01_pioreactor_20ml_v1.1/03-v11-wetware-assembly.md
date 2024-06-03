@@ -75,7 +75,7 @@ The vial holder of the v1.1 comes in two halves; a top vial holder and a bottom 
 
 <AssemblyInstructionBlock title="Step 6: Complete the vial holder" images={["user-guide/hardware-assembly/upgrade-version/twist-vial-holders-together.png"]}>
 
-1. Screw the top and bottom vial holder sections together.
+1. Screw the top and bottom vial holder sections together so that the IR label is positioned above the flat-flex-cable.
 2. Set this aside and proceed to the next page. 
 
 </AssemblyInstructionBlock>
