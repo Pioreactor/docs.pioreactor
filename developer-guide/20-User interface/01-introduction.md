@@ -12,7 +12,7 @@ The web server we use is lighttpd, and hosted from `/var/www/pioreactorui`. This
 
 The lighttpd conf file is located in `/etc/lighttpd/conf-enabled/50-pioreactorui.conf`. Error logs (though not helpful) are in `/var/log/lighttpd/error.log`.
 
-The default protocol is `http` served on port `80`. To use `https` requires a certificate, and is out of scope for this project. If you'd change the protocol or the port, you'll need up tell the software too: look in the config.ini under `[ui]` section.
+The default protocol is `http` served on port `80`. To use `https` requires a certificate, and is out of scope for this project. If you'd change the protocol or the port, you'll need up tell the software too: look in the config.ini under `[ui]` section. [How to change the web UI port](/user-guide/networking#changing-web-ui-port-from-80-to-something-else)
 
 
 ### Backend
