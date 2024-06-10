@@ -39,12 +39,19 @@ The self-test routine is optional. Even with test failures, the Pioreactor is st
 
 **Photodiodes are responsive to IR LED** checks to ensure that the IR photodiode(s) have a linear relationship with the IR LED's output. The linear relationship is important. Common reasons why this test fails include:
 
+- Not enough light is entering the PD position (see below for resolutions)
 - The IR LED connected to the the wrong LED output. Make sure that the IR LED is identified correctly in the config.ini
 - A loose (or absent) connection to the Pioreactor HAT, either in the photodiode(s) or the IR LED.
 
 The test will also report any valid IR LED & photodiode relationships in the dialog box. For example, `IR ⇝ REF` means that the REF photodiode has a linear relationship with the IR LED. Similarly, `IR ⇝ 45` means the the photodiode in the 45° pocket has a linear relationship with the IR LED. The absence of a relationship here can tell you about what might be wrong.
 
-Try running this test again if it fails. If it continues to fail, contact us.
+Tips:
+
+ - Try running this test again.
+ - Add a slight amount of turbid liquid (milk, culture, tea) to slightly increase the turbidity of the liquid inside. This increases the scatter of the liquid, and will help this test.
+
+
+If it continues to fail, contact us.
 
 **No ambient IR light detected** checks that the photodiodes are detecting a near-0 signal when the IR LED is completely off. This test may fail if a powerful IR signal is shining into or onto the Pioreactor's body (aka the Sun - don't put the Pioreactor in direct sunlight and avoid windows). Also make sure that the caps are on all the Pioreactor's LED pockets.
 

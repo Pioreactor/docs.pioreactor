@@ -54,7 +54,7 @@ What is an image file? It's a file that contains all the required software prein
 6. Click **Edit settings**:
     <img src="/img/user-guide/choose-edit-settings.png" width="525" alt="Click edit settings" style={{margin: "auto", display:"block"}} />
 
-    1. Check **Set hostname**. Input a unique name for this Pioreactor. Some names that we use for our first Pioreactor: `pioreactor1`, or `leader`, or `pio1`. _Don't_ use `pioreactor` or `raspberrypi`.
+    1. Check **Set hostname**. Input a unique name for this Pioreactor. Some names that we use for our first Pioreactor: `pioreactor01`, or `leader`, or `pio01`. _Don't_ use `pioreactor` or `raspberrypi`.
     3. Check **Set username and password**. Enter the following:
         -   **username**: `pioreactor`.
         -   **password**: `raspberry`.
@@ -115,7 +115,9 @@ Workers are additional Pioreactors that you can control from a single UI. Togeth
 1. Follow the same instructions above, but use a [Pioreactor Worker image](https://github.com/pioreactor/custopizer/releases/latest/download/pioreactor_worker.zip) instead. All the settings are the same, including *username* and *password*, **but choose a new hostname**. See note below:
 
    :::note
-   Choose a hostname that isn't currently being used in your cluster, ex: `worker1`, `worker2`, etc. Re-using old names is fine, so long as that worker isn't present in your cluster.
+   Choose a hostname that isn't currently being used in your cluster, ex: `worker01`, `worker02`, etc. Re-using old names is fine, so long as that worker isn't present in your cluster.
+
+   **Tip**: if you plan to have many Pioreactors, use a leading zero in any numbers, like `pio01`, or `worker01`, etc.
    :::
 
    Below is a screenshot of example settings, your settings might be slightly different.
