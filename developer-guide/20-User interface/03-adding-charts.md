@@ -22,7 +22,7 @@ Create a yaml file with the following fields, and place it in `/home/pioreactor/
 - `y_axis_domain`: (Optional) specify a starting y-axis domain. Must be an array, like `[0.0, 0.5]`.
 - `y_transformation`: (Optional) an inline JS function to transform the y data. Default is the identity function, string.
 
-See examples of yaml files [here](https://github.com/Pioreactor/pioreactorui/tree/master/contrib/charts).
+See examples of yaml files [here](https://github.com/Pioreactor/pioreactorui/tree/master/contrib/charts) and [here](https://forum.pioreactor.com/t/creating-stirring-rpm-and-pwm-duty-cycle-charts-on-the-ui/339).
 
 
 

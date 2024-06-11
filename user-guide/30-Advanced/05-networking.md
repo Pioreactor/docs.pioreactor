@@ -10,8 +10,9 @@ Previously, Raspberry Pis used a file called `wpa_supplicant.conf` to handle wif
 
 ## General networking tools
 
-### Connecting to a wifi network using `nmcli`
+The main "entry point" for networking on the Pioreactor (and Raspberry Pi's in general) is the tool `nmcli`. This controls discovering networks, connecting to them, and editing connections. For example, running `nmcli con` will diplay a list of possible networking connections, and connected ones in green.
 
+### Connecting to a wifi network using `nmcli`
 
 You can first discover all the visible networks with:
 
