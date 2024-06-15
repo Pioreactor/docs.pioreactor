@@ -58,6 +58,25 @@ The _uncalibrated_ optical densities reported the UI and recorded in the databas
 
 In the configuration, you can edit the parameter `samples_per_second` to adjust the how often the Pioreactor takes an optical density snapshot. Note that this parameter is the inverse of "duration between readings". For example, if you wish to record a measurement every 60 seconds, then `samples_per_second=0.01666667` (which is 1/60).
 
+:::tip
+If you put a large gap between readings, like 1 reading / 60 seconds, then we also suggest turning off the _downsampling_ on the UI's charts (it's on by default to avoid plotting thousands of points). To do this, [SSH](/user-guide/accessing-raspberry-pi) into your leader, and we'll edit the following files:
+
+```
+nano /var/www/pioreactorui/contrib/charts/05_od.yaml
+```
+
+And change the field `down_sample` from `true` to `false`. Do the same for the following files:
+
+```
+nano /var/www/pioreactorui/contrib/charts/01_implied_growth_rate.yaml
+```
+
+```
+nano /var/www/pioreactorui/contrib/charts/04_normalized_od.yaml
+```
+
+:::
+
 
 #### Why does the intensity for LED A turn on & off during an experiment?
 
@@ -80,7 +99,7 @@ When you are using additional LEDs outside of the optical density LED & photodio
 
 #### Is optical density the same as turbidity?
 
-Turbidity is a measure of optical density, like how decibels are a measurement of sound intensity. Likewise, absorbance is a measure of optical density.
+Turbidity is a measure of optical density, like how decibels are a measurement of sound intensity. Similarly, absorbance is a measure of optical density.
 
 
 Heating and Temperature control
@@ -98,7 +117,7 @@ To avoid this occurring, we suggest not setting the target temperature too high 
 
 #### How does heating work on the Pioreactor?
 
-The Pioreactor has an onboard PCB, called the heating PCB, that sits below the glass vial. On the PCB are resistors that convert current from PWM outputs into heat. By varying the duty cycle of the PWM, we vary the amount of heat converted.
+The Pioreactor has an onboard PCB, called the heating PCB, that sits below the glass vial. On the PCB are resistors that convert current from PWM outputs into heat. By varying the duty cycle of the PWM, we vary the amount of energy converted to heat.
 
 Mixing and stirring in the Pioreactor
 ---------------------------------------
@@ -128,6 +147,9 @@ If the standard mixing and aeration with the stir bar is not enough for your app
 4. Add a [baffle](https://www.printables.com/model/575292-baffle-for-pioreactor-vial-cap-a/files) to the vial cap. A simple cylinder that rests into the liquid causes disturbance in the rotating liquid that both mixing and aeration are significantly improved. A tube can be removed from the cap, and a autoclavable rod can be inserted such that it enters the media, but won't interfere with the optics.
 5. Adding external aeration to your Pioreactor. In the simplest case, using an air pump.
 
+### Can I plot the RPM in a chart in the UI?
+
+Yes, follow the instructions [here](https://forum.pioreactor.com/t/creating-stirring-rpm-and-pwm-duty-cycle-charts-on-the-ui/339).
 
 
 Raspberry Pi Hardware
@@ -141,12 +163,13 @@ We've designed the hardware and software to be compatible with any Raspberry Pi 
 *   Raspberry Pi 3 Model A+
 *   Raspberry Pi 4 Model B ³
 *   Raspberry Pi 5 Model B
-*   Raspberry Pi Zero W (with header) ¹
-*   Raspberry Pi Zero 2 W (with header)
+*   Raspberry Pi Zero W (with headers) ¹
+*   Raspberry Pi Zero 2 (with headers)
 *   Raspberry Pi 400 ²
 
 
-Although you can use any above, **we like the Raspberry Pi 3 Model A+, and Raspberry Pi Zero 2 W** because of their low power consumption, slim build, and low price. Both have the necessary CPU power and memory for the Pioreactor workload, and are generally easy to source. However, they don't have ethernet connections! So talk to your team about if you need to use ethernet or wifi. If you need ethernet, we like the model 3B.
+Although you can use any above, **we like the Raspberry Pi 3 Model A+, and Raspberry Pi Zero 2** because of their low power consumption, slim build, and low price. Both have the necessary CPU power and memory for the Pioreactor workload, and are generally easy to source. However, they don't have ethernet connections! So talk to your team about if you need to use ethernet or wifi. If you need ethernet, we like the model RPi
+3B.
 
 ¹ _Raspberry Pi Zero W_ is on the list above, and is very low cost compared to the others. They can absolutely be used for Pioreactors _as workers_ - we don't recommend them to be your _leader_ (note sure what these terms mean? Here's an introduction to [leader and workers](/user-guide/create-cluster)). As workers, Raspberry Pi Zero W perform just fine, but will respond slower to commands. Note that this does not include the Raspberry Pi Zero _2_ W model, which is fine for all roles.
 
