@@ -16,7 +16,7 @@ We suggest using the UI to reboot a Pioreactor:
 
 ![Rebooting your pi](/img/user-guide/reboot.png)
 
-Pulling the plug is usually fine, but try to avoid doing it as much as possible.
+Pulling the plug is usually fine, but try to avoid doing it as it does risk data corruption.
 
 
 #### Can I still use the Pioreactor software without the hardware?
@@ -30,7 +30,7 @@ There may be a problem. You can diagnose the problem by [counting the number of 
 
 #### What does the onboard button do?
 
-The button on the Pioreactor HAT sends a signal to the web UI to display a "hello" message. This is useful to know which Pioreactor in a cluster you are interacting with. The button also will republish the state of the Pioreactor.
+The button on the Pioreactor HAT sends a signal to the web UI to display a "hello" message. This is useful to know which Pioreactor in a cluster you are interacting with.
 
 The button can be [reprogrammed](/developer-guide/hat-button), too.
 
@@ -38,7 +38,7 @@ The button can be [reprogrammed](/developer-guide/hat-button), too.
 
 [SSH](/user-guide/accessing-raspberry-pi) into your Pioreactor, and run:
 ```
-sudo date --set "Thu Nov  2 09:46:50 EDT 2023"
+sudo date --set "2023-11-02 09:46:50"
 
 ```
 
@@ -232,7 +232,7 @@ More granular logs per Pioreactor are available in `/var/log/pioreactor.log` on 
 
 #### How do I access raw experiment data?
 
-1.  The _Download experiment data_ page in the Pioreactor web interface provides CSV exports of common datasets from a pre-selected experiment.
+1.  The  _Export data_ page in the Pioreactor UI provides CSV exports of common datasets from a pre-selected experiment.
 2.  All data eventually lands in a SQLite3 database on the leader Pioreactor, by default located in `/home/pioreactor/.pioreactor/storage/pioreactor.sqlite`. This can be download using a tool like `scp`.
 3. To access the SQLite3 database from the command line, try `pio db`.
 
@@ -249,7 +249,7 @@ Networking
 
 #### How do I change/edit the network the Pioreactor on?
 
-With modern Raspberry Pis,
+See documentation on networking [here](/user-guide/networking#general-networking-tools).
 
 #### Can I use Ethernet cable connections instead of Wifi connections?
 
