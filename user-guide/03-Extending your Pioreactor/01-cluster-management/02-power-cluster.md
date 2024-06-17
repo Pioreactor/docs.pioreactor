@@ -3,9 +3,14 @@ title: Powering your Pioreactor cluster
 slug: /powering-cluster
 ---
 
-Since each Pioreactor requires a running Raspberry Pi, you'll need to provide power to each Raspberry Pi. For small clusters, this can be accomplished by buying individual power supply units that connect from the wall or power-bar to each Raspberry Pi. This doesn't scale very well, so below are some other options for powering many Pioreactors with a single PSU.
+### Powering your Pioreactor
 
-### 1 to ~6 Pioreactors
+Each Pioreactor requires a Raspberry Pi, so you'll need to provide power to each Raspberry Pi. For small clusters, this can be accomplished by buying individual power supply units that connect from the wall or power-bar to each Raspberry Pi. We really like the [official Raspberry Pi Power Supply](https://www.raspberrypi.com/products/#power-supplies-and-cables), available at most places you can purchase a Raspberry Pi. In general, look for 5V and _at least_ 2.25 A (or _atleast 12 W_).
+
+
+### Powering 2 to ~6 Pioreactors
+
+Individual PSUs don't scale very well, so below are some other options for powering many Pioreactors with a single PSU.
 
 You can purchase USB hubs from sites like Amazon. They may look something like below:
 
