@@ -16,6 +16,8 @@ import TabItem from '@theme/TabItem';
 
 :::note
 The vial holder of the v1.1 comes in two halves; a top vial holder and a bottom vial holder. Both have sections to insert O-rings for a more secure hold on your vials and increased protection against leaks. The <Highlight color={colors.magenta}>thinner O-ring (#024)</Highlight> fits into the top piece. The <Highlight color={colors.orange}>thicker O-ring (#121)</Highlight> lines the bottom piece.
+
+**The <Highlight color={colors.magenta}>#024 O-ring</Highlight> has been switched to a version with an X-shaped cross section in recently shipped v1.1 Pioreactors.**
 :::
 
 1. The O-rings are pre-lubricated with a silicone-based lubricant. If needed, remove any excess lubricant from the O-rings.
