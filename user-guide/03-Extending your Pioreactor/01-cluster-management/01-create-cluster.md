@@ -61,3 +61,14 @@ You can also choose not to have the leader be a worker. This is useful if you ha
 ![leader not worker](/img/user-guide/leader_cluster.png)
 
 
+### Common questions
+
+
+#### Can I change the name of a _worker_?
+
+Yes, so long as that worker isn't the leader. Note: this doesn't change historical data.
+
+1. Remove the worker from your cluster using the Inventory page.
+2. SSH into the worker (it should still be on your network, even if not part of the cluster).
+3. Run `sudo hostnamectl set-hostname <new-worker-name> && sudo reboot`
+4. After a moment, the worker will turn back on with the new name. You can then use the Inventory page to add the worker again.

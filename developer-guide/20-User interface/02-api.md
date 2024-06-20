@@ -9,18 +9,15 @@ slug: /web-ui-api
 ```
 Endpoint                                 Methods  Rule
 ---------------------------------------  -------  -------------------------------------------------------------------------
-able_to_install_plugins_from_ui          GET      /api/alllow_ui_installs
+able_to_install_plugins_from_ui          GET      /api/allow_ui_installs
 create_or_update_new_calibrations        PUT      /api/calibrations
 get_available_calibrations_type_by_unit  GET      /api/calibrations/<pioreactor_unit>
 get_available_calibrations_of_type       GET      /api/calibrations/<pioreactor_unit>/<calibration_type>
 get_calibration_by_name                  GET      /api/calibrations/<pioreactor_unit>/<calibration_type>/<calibration_name>
 patch_calibrations                       PATCH    /api/calibrations/<pioreactor_unit>/<calibration_type>/<calibration_name>
 get_current_calibrations_of_type         GET      /api/calibrations/<pioreactor_unit>/<calibration_type>/current
-get_custer_time                          GET      /api/cluster_time
-set_cluster_time                         POST     /api/cluster_time
 get_configs                              GET      /api/configs
 get_config                               GET      /api/configs/<filename>
-delete_config                            DELETE   /api/configs/<filename>
 update_config                            PATCH    /api/configs/<filename>
 get_automation_contrib                   GET      /api/contrib/automations/<automation_type>
 get_charts_contrib                       GET      /api/contrib/charts
@@ -31,35 +28,38 @@ delete_experiment_profile                DELETE   /api/contrib/experiment_profil
 get_job_contrib                          GET      /api/contrib/jobs
 get_experiments                          GET      /api/experiments
 create_experiment                        POST     /api/experiments
+delete_experiment                        DELETE   /api/experiments/<experiment>
 update_experiment                        PATCH    /api/experiments/<experiment>
 get_logs                                 GET      /api/experiments/<experiment>/logs
 get_media_rates                          GET      /api/experiments/<experiment>/media_rates
+get_fallback_time_series                 GET      /api/experiments/<experiment>/time_series/<data_source>/<column>
+get_growth_rates                         GET      /api/experiments/<experiment>/time_series/growth_rates
+get_od_readings                          GET      /api/experiments/<experiment>/time_series/od_readings
+get_od_readings_filtered                 GET      /api/experiments/<experiment>/time_series/od_readings_filtered
+get_temperature_readings                 GET      /api/experiments/<experiment>/time_series/temperature_readings
 get_unit_labels                          GET      /api/experiments/<experiment>/unit_labels
 upsert_unit_labels                       PUT      /api/experiments/<experiment>/unit_labels
-delete_experiment                        DELETE   /api/experiments/<experiment_id>
-get_list_of_workers_for_experiment       GET      /api/experiments/<experiment_id>/workers
-add_worker_to_experiment                 PUT      /api/experiments/<experiment_id>/workers
-remove_workers_from_experiment           DELETE   /api/experiments/<experiment_id>/workers
-remove_worker_from_experiment            DELETE   /api/experiments/<experiment_id>/workers/<pioreactor_unit>
-stop_all_in_experiment                   POST     /api/experiments/<experiment_id>/workers/stop
+get_logs_for_unit_and_experiment         GET      /api/experiments/<experiment>/units/<unit>/logs
+get_list_of_workers_for_experiment       GET      /api/experiments/<experiment>/workers
+add_worker_to_experiment                 PUT      /api/experiments/<experiment>/workers
+remove_workers_from_experiment           DELETE   /api/experiments/<experiment>/workers
+remove_worker_from_experiment            DELETE   /api/experiments/<experiment>/workers/<pioreactor_unit>
+stop_worker_in_experiment                POST     /api/experiments/<experiment>/workers/<worker>/stop
+stop_all_in_experiment                   POST     /api/experiments/<experiment>/workers/stop
+get_experiments_worker_assignments       GET      /api/experiments/assignment_count
 get_latest_experiment                    GET      /api/experiments/latest
 export_datasets                          POST     /api/export_datasets
 get_historical_config_for                GET      /api/historical_configs/<filename>
 get_historical_media_used                GET      /api/historical_media
 get_historical_organisms_used            GET      /api/historical_organisms
-install_plugin                           POST     /api/install_plugin
-get_installed_plugins                    GET      /api/installed_plugins
-get_plugin                               GET      /api/installed_plugins/<filename>
 is_local_access_point_active             GET      /api/is_local_access_point_active
-reboot_unit                              POST     /api/reboot/<unit>
+install_plugin                           POST     /api/plugins/install
+get_installed_plugins                    GET      /api/plugins/installed
+get_plugin                               GET      /api/plugins/installed/<filename>
+uninstall_plugin                         POST     /api/plugins/uninstall
 setup_worker_pioreactor                  POST     /api/setup_worker_pioreactor
-shutdown_unit                            POST     /api/shutdown/<unit>
-get_fallback_time_series                 GET      /api/time_series/<data_source>/<experiment>/<column>
-get_growth_rates                         GET      /api/time_series/growth_rates/<experiment>
-get_od_readings                          GET      /api/time_series/od_readings/<experiment>
-get_od_readings_filtered                 GET      /api/time_series/od_readings_filtered/<experiment>
-get_temperature_readings                 GET      /api/time_series/temperature_readings/<experiment>
-uninstall_plugin                         POST     /api/uninstall_plugin
+reboot_unit                              POST     /api/units/<unit>/reboot
+shutdown_unit                            POST     /api/units/<unit>/shutdown
 update_app                               POST     /api/update_app
 update_app_from_release_archive          POST     /api/update_app_from_release_archive
 update_app_to_develop                    POST     /api/update_app_to_develop
@@ -76,6 +76,7 @@ run_job_on_unit                          PATCH    /api/workers/<unit>/experiment
 stop_job_on_unit                         PATCH    /api/workers/<unit>/jobs/<job>/stop
 get_workers_and_experiment_assignments   GET      /api/workers/assignments
 static                                   GET      /static/<path:filename>
+
 ```
 
 From `python3 -m flask --debug --app main routes -s rule`

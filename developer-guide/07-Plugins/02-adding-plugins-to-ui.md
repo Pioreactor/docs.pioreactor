@@ -116,7 +116,7 @@ fields:
     label: Intensity of PWM
 ```
 
-If this file was saved to the folder `/home/pioreactor/.pioreactor/plugins/ui/automations/dosing`, we would see the following in the web interface (after refreshing):
+If this file was saved to the folder `/home/pioreactor/.pioreactor/plugins/ui/contrib/automations/dosing`, we would see the following in the web interface (after refreshing):
 
 ![](/img/developer-guide/dropdown_automations_with_example.png)
 

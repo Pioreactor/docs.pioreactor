@@ -8,7 +8,7 @@ You can add custom charts to the UI. Below is an example of adding a chart that 
 ![custom chart of CO2 reading](/img/developer-guide/custom_chart.png)
 
 ### Step 1
-Create a yaml file with the following fields, and place it in `/home/pioreactor/.pioreactor/plugins/ui/charts`. (Plugins can put the yaml file under `ui/contrib/charts` in there project folder - it will be added upon installation.)
+Create a yaml file with the following fields, and place it in `/home/pioreactor/.pioreactor/plugins/ui/contrib/charts`. (Plugins can put the yaml file under `ui/contrib/charts` in there project folder - it will be added upon installation.)
 
 - `chart_key`: a unique identifier for the chart being added, string.
 - `data_source`: the SQL table to read historical data from. The data source must have a `timestamp`, `pioreactor_unit`, and `experiment` column, along with a numeric column to plot (see below), string.
@@ -22,7 +22,7 @@ Create a yaml file with the following fields, and place it in `/home/pioreactor/
 - `y_axis_domain`: (Optional) specify a starting y-axis domain. Must be an array, like `[0.0, 0.5]`.
 - `y_transformation`: (Optional) an inline JS function to transform the y data. Default is the identity function, string.
 
-See examples of yaml files [here](https://github.com/Pioreactor/pioreactorui/tree/master/contrib/charts).
+See examples of yaml files [here](https://github.com/Pioreactor/pioreactorui/tree/master/contrib/charts) and [here](https://forum.pioreactor.com/t/creating-stirring-rpm-and-pwm-duty-cycle-charts-on-the-ui/339).
 
 
 

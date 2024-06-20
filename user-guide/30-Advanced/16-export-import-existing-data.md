@@ -3,13 +3,12 @@ title: Export and import your data
 slug: /export-import-existing-data
 ---
 
-### Export your data
+### Export your data from a Pioreactor to use in another Pioreactor
 
 :::tip
 We're here to help: we can offer email or live support, just email us at hello@pioreactor.com.
 :::
 
-Here's how we suggest your workflow be.
 
 1. Starting with your leader Pioreactor, make note of the name of it. The next steps will turn off all data collection, so do this outside of any running experiments.
 2. [SSH](https://docs.pioreactor.com/user-guide/accessing-raspberry-pi) into the leader, and create a new file with:
@@ -28,7 +27,7 @@ Here's how we suggest your workflow be.
 6. With the export file(s) local, you may now proceed with re-imaging your Pioreactors, by following the same [steps here](https://docs.pioreactor.com/user-guide/software-set-up). **Important**: choose the same Pioreactor hostnames!
 
 
-### Import your data to a new, fresh, Pioreactor
+### Importing your data to a new, fresh, Pioreactor
 
 
 7. Once your new Pioreactor leader is running (check that you can access the UI at http://pioreactor.local), we'll upload the export with:
