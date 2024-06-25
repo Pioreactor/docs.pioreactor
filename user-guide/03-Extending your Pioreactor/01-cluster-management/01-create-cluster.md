@@ -12,7 +12,7 @@ When you set up your first Pioreactor using our [software installation guide](/u
 
 ### Adding Pioreactors to your cluster
 
-After installing the worker image onto your additional Pioreactor (see the instructions [here](/user-guide/software-set-up#adding-additional-workers-to-your-cluster)), visit the Inventory page.
+After installing the _worker_ image onto your additional Pioreactor (see the instructions [here](/user-guide/software-set-up#adding-additional-workers-to-your-cluster)), visit the Inventory page.
 
 On the _Inventory_ page, you can search for and add worker Pioreactors to your cluster. Click "Add new Pioreactor" at the top right corner of this tab.
 
@@ -42,7 +42,7 @@ A cluster can be made up of a single Pioreactor, or can be scaled to as many Pio
 
 #### Single Pioreactor
 
-The simplest topology is when you have a single Pioreactor, and so by default the Pioreactor is both the leader and the only worker.
+The simplest topology is when you have a single Pioreactor, and by default it is both the leader and the only worker.
 
 <img src="/img/user-guide/single_pioreactor_cluster.png" width="335" style={{margin: "auto", display:"block"}}/>
 
@@ -56,7 +56,7 @@ When you have multiple Pioreactors, you can nominate one to be the leader, and r
 
 #### Cluster, and leader is _not_ a worker
 
-You can also choose not to have the leader be a worker. This is useful if you have a spare Raspberry Pi without the Pioreactor hardware, or the number of Pioreactors grows large and you wish to keep one out of the inventory to focus on being a leader only.
+You can also choose not to have the leader be a worker. This is useful if you have a spare Raspberry Pi without the Pioreactor hardware, or the number of Pioreactors grows large and you wish to keep one out of the inventory to focus on being a leader only. We provide custom images for this [here, titled `pioreactor_leader.zip`](https://github.com/Pioreactor/CustoPiZer/releases)
 
 ![leader not worker](/img/user-guide/leader_cluster.png)
 
@@ -72,3 +72,7 @@ Yes, so long as that worker isn't the leader. Note: this doesn't change historic
 2. SSH into the worker (it should still be on your network, even if not part of the cluster).
 3. Run `sudo hostnamectl set-hostname <new-worker-name> && sudo reboot`
 4. After a moment, the worker will turn back on with the new name. You can then use the Inventory page to add the worker again.
+
+#### Can I change the name of a _leader_?
+
+This is more difficult, and our suggestion is to restart the cluster.
