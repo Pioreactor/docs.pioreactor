@@ -29,7 +29,7 @@ sudo nmcli device wifi connect <ssid name> password <ssid password> ifname wlan0
 
 (If you get a "Can't find" error, try running the above `list` command again.)
 
-### Connecting to multiple networks
+### Connecting to multiple networks simultaneously
 
 First, some terminology and understanding for us: a computer, like a Pi, has networking interfaces. For example, the onboard wifi on RPi’s is one such interface. The larger, model Bs, have an ethernet connector, which is another interface. Each interface can connect to 0 or 1 networks.
 
@@ -42,15 +42,13 @@ nmcli device
 
 The right hand side shows your connected interfaces. For example, if have a ethernet connection to a router, you'll see an `eth0` connection active. If you have an additional wifi hardware device attached to your Pi, you'll see `wlan1`.
 
-----
-
-To connect to another wifi network using `wlan1`, use:
+:::tip
+To connect to another wifi network using an external `wlan1` interface, use:
 
 ```
 sudo nmcli device wifi connect <ssid name> password <ssid password> ifname wlan1
 ```
-
-----
+:::
 
 If your leader is connected to multiple networks `A` and `B`, and you access the UI over network `A`, but your workers access over network `B`, the leader is in the position called a "gateway". You'll need to make some configuration changes to your cluster. Since the leader is attached to networks `A` and `B`, it has two IPs (use `hostname -I` to see all the ips), let's call them `ipA` and `ipB` respectively.
 
@@ -75,7 +73,16 @@ sudo nmcli con up PioreactorAP
 ```
 
 
-#### Setting `leader_address` and MQTT `broker` in your config.ini
+#### Changing `leader_address` and MQTT `broker` in your config.ini
+
+You may need to change the `leader_address` in your config.ini: this is the address where workers will communicate with your leader.
+
+Likewise, you may need to change the mqtt `broker` in your config.ini for the same reason. It may be required to change it in the unit specific config.inis.
+
+```ini title="config_worker01.ini"
+[mqtt]
+broker=leader.local
+```
 
 
 ### Changing web UI port from `80` to something else
@@ -104,3 +111,20 @@ To change the web UI port from the default of `80`, following these instructions
 This is a work-in-progress, but here's [one example](https://forum.pioreactor.com/t/connecting-more-workers-to-cluster/330/3#connecting-to-eduroam-2).
 
 
+## Common questions
+
+### My Pioreactor activities start very slowly from the UI
+
+It is possible that your mDNS is being blocked or restricted. If possible, log into your router and enable settings that allow "multicast", or "mDNS", or "IGMP proxing". If you are using a the builtin [local access point](/user-guide/local-access-point), this solution is not the correct one.
+
+Also, if you are able to provide a permanent IPv4 address to your leader, you can get a significant performance boost by setting the configuration some config parameters to the IPv4 address.
+
+```
+[cluster.topology]
+# below is an example, your IPv4 may differ:
+leader_address=192.168.0.3
+
+[mqtt]
+broker_address=192.168.0.3
+
+```

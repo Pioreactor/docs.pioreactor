@@ -49,7 +49,7 @@ if __name__ == "__main__":
 
 Here's an example: place the following code into the file `/home/pioreactor/.pioreactor/plugins/demo_job.py`
 
-```python
+```python title="/home/pioreactor/.pioreactor/plugins/demo_job.py"
 # -*- coding: utf-8 -*-
 import click
 from pioreactor.whoami import get_unit_name, get_latest_experiment_name
@@ -101,7 +101,7 @@ How do you add this to your /pioreactors page in the UI? See [here](/developer-g
 
 If you are interested in creating a Python script to control multiple jobs, like in a [previous Python scripting example](/user-guide/intro-python-scripting), you can create a file called `example_script.py` in the `/home/pioreactor/.pioreactor/plugins/` folder:
 
-```python
+```python title="/home/pioreactor/.pioreactor/plugins/example_script.py"
 import time
 import click
 from pioreactor.background_jobs.stirring import start_stirring
@@ -147,7 +147,7 @@ How do you add this to your /pioreactors page in the UI? See [here](/developer-g
 
 Here's an example of adding a custom automation: place the following code into the file `/home/pioreactor/.pioreactor/plugins/demo_automation.py`
 
-```python
+```python title="/home/pioreactor/.pioreactor/plugins/demo_automation.py"
 # -*- coding: utf-8 -*-
 from pioreactor.automations.dosing.base import DosingAutomationContrib
 

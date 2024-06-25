@@ -97,11 +97,11 @@ Some published settings have are actually nested json blobs, but we need either 
 
 
 We use `temperature.temperature` because the `temperature` published setting is a json blob that looks like the following, and we wish to reference the "temperature" field in the blob:
-```
-    {
-        "temperature": <float>,
-        "timestamp": <ISO 8601 timestamp>
-    }
+```json
+{
+    "temperature": <float>,
+    "timestamp": <ISO 8601 timestamp>
+}
 ```
 
 ### Expressions in options
@@ -330,20 +330,6 @@ common:
 2. Note that indentation matters! For example, these mean different things, and only the second one is correct:
 
 ```yaml
-# wrong ❌
-common:
-  jobs:
-    temperature_control:
-      actions:
-        - type: start
-          hours_elapsed: 0.0
-          options:
-          automation_name: thermostat # this should be indented to align with options
-          target_temperature: 30      # this should be indented to align with options
-
-```
-
-```yaml
 # correct ✅
 common:
   jobs:
@@ -357,6 +343,20 @@ common:
 
 ```
 
+
+```yaml
+# wrong ❌
+common:
+  jobs:
+    temperature_control:
+      actions:
+        - type: start
+          hours_elapsed: 0.0
+          options:
+          automation_name: thermostat # this should be indented to be a part of options
+          target_temperature: 30      # this should be indented to be a part of options
+
+```
 
 ###  ``` Expected `object`, got `array` - at ` ... .options` ```
 
