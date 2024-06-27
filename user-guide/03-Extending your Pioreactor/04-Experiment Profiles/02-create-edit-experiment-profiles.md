@@ -181,6 +181,43 @@ common:
             target_rpm: ${{ ::stirring:target_rpm + 10 * ::od_reading:od1.od }}
 ```
 
+### The  `when` action
+
+The `when` action is used to trigger an actions(s) _the first time_ the condition is satisfied. For example, you could start a chemostat when the OD rises above a threshold, or turn off heating when the temperature exceed some threshold, or log a message when some condition is met.
+
+The `when` action has a few required fields:
+
+- `condition`: this is an expression (see above) that when evaluated to `true`, will execute the `actions`
+- `actions`: this is a list of `actions` to run when the expression evaluates to true.
+
+For example, the following section would start a chemostat when the OD reading is greater than 2.0 in all workers:
+
+```yaml
+common:
+  jobs:
+    od_reading:
+      actions:
+        - type: start
+    dosing_control:
+      actions:
+        - type: when
+          condition: ${{::od_reading:od1.od > 2.0}}
+          hours_elapsed: 0
+          actions:
+            - type: start
+              hours_elapsed: 0
+              options:
+                automation_name: chemostat
+                volume: 0.6
+                duration: 10
+
+
+```
+
+The `hours_elapsed` works like an other action: it'll only start to check after `hours_elapsed` hours have occurred since the start of execution.
+
+After the condition is met, the actions run, and the condition is never checked again. The `when` is said to be _exhausted_.
+
 
 ### The `repeat` action
 

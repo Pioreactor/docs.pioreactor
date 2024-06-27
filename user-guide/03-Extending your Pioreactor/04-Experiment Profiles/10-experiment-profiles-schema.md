@@ -4,7 +4,7 @@ slug: /experiment-profiles-schema
 ---
 
 
-Below is a schema for experiment profiles. We also do a run-time check
+Below is a schema for experiment profiles. We also do a run-time check.
 
 ```yaml
 # Main structure of the experiment profile
@@ -26,7 +26,7 @@ common:
   jobs:
     <job_name>:
       actions:
-        - type: <string>     # Type of action: "start", "pause", "resume", "stop", "update", or "log"
+        - type: <string>     # Type of action: "start", "pause", "resume", "stop", "update", "repeat", "when", or "log"
           hours_elapsed: <float> # Time when the action is scheduled (in hours after experiment start)
           # Options for the action (optional)
           # If type is 'log', a 'message' parameter is required here
@@ -44,7 +44,7 @@ pioreactors:
     jobs:
       <job_name>:
         actions:
-          - type: <string>     # Type of action: "start", "pause", "resume", "stop", or "update"
+          - type: <string>     # Type of action: "start", "pause", "resume", "stop", "update", "repeat", "when", or "log"
             hours_elapsed: <float> # Time when the action is scheduled (in hours after experiment start)
             # Optional 'if' directive for conditional execution of actions
             if: <string> # Can be an expression
