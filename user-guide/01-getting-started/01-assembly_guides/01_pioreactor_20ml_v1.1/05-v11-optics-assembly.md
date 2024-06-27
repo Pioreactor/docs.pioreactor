@@ -39,7 +39,13 @@ Avoid over-stressing the leads, or applying too much force too quickly. After be
 
 1. Plug the connector of <Highlight color={colors.red}>one PD cable</Highlight> into **channel 1**.
 2. Insert the bulb of that cable into the **REF pocket**. 
-3. Secure the bulb with an LED cap. 
+3. _Slowly_ bend the bulb's leads 90 degrees, as seen.
+
+:::caution
+Avoid over-stressing the leads, or applying too much force too quickly. After bending once, it's ill-advised to bend them again.
+:::
+
+4. Secure the bulb with an LED cap.
 
 </AssemblyInstructionBlock>
 
@@ -62,7 +68,7 @@ Avoid over-stressing the leads, or applying too much force too quickly. After be
 <AssemblyInstructionBlock title="Step 4: You're done!" images={["user-guide/hardware-assembly/upgrade-version/finished-upgraded-version.png"]}>
 
 
-Your new v1.1 Pioreactor is now assembled! 🚀
+Your new Pioreactor 20ml is now assembled! 🚀
 
 Next: begin installing the [software](/user-guide/software-set-up).
 
