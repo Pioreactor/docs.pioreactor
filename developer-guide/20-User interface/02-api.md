@@ -3,7 +3,6 @@ title: API
 slug: /web-ui-api
 ---
 
-
 ### All endpoints
 
 ```
