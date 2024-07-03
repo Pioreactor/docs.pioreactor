@@ -51,17 +51,17 @@ The operators addition `+`, subtraction `-`, multiplication `*`, and division `/
 Expressions are the method used to get is dynamic data, provided from jobs, during execution of profiles. For example, the following:
 
 ```
-pio1::stirring::target_rpm
+pio1:stirring:target_rpm >= 500
 ```
 
-will fetch the `target_rpm` from `pio1`'s `stirring` job _at the time the action is to be executed_. To use this in an example:
+will fetch the `target_rpm` from `pio1`'s `stirring` job _at the time the action is to be executed_,  compare it to `500`, and return true or false. To use this in an example:
 
 ```yaml
     stirring:
      ...
      - type: update
        hours_elapsed: 6.0
-       if: pio1::stirring::target_rpm >= 500
+       if: pio1:stirring:target_rpm >= 500
        options:
          target_rpm: 400
 
@@ -76,7 +76,7 @@ You can also compare against strings. For example, to stop a job if the temperat
      ...
      - type: stop
        hours_elapsed: 6.0
-       if: pio1::temperature_control::automation_name == thermostat
+       if: pio1:temperature_control:automation_name == thermostat
 
 
 ```
@@ -90,7 +90,7 @@ Some published settings have are actually nested json blobs, but we need either 
      ...
      - type: update
        hours_elapsed: 6.0
-       if: pio1::temperature_control::temperature.temperature <= 30
+       if: pio1:temperature_control:temperature.temperature <= 30
        options:
          target_temperature: 32
 ```
@@ -180,6 +180,15 @@ common:
           options:
             target_rpm: ${{ ::stirring:target_rpm + 10 * ::od_reading:od1.od }}
 ```
+
+### Built-in functions in expressions
+
+There's also some built-in functions you can use in expressions:
+
+ - `random()` produces a random number between 0 and 1.
+ - `unit()` returns the unit the expression is evaluated for.
+ - `job_name()` returns the job name the expression is evaluated for.
+ - `experiment()` returns the experiment the expression is evaluated for.
 
 ### The  `when` action
 
