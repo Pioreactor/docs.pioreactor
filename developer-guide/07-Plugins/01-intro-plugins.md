@@ -107,7 +107,7 @@ import click
 from pioreactor.background_jobs.stirring import start_stirring
 from pioreactor.background_jobs.od_reading import start_od_reading
 from pioreactor.actions.led_intensity import led_intensity
-from pioreactor.background_jobs.temperature_control import start_temperature_control
+from pioreactor.background_jobs.temperature_automation import start_temperature_automation
 
 
 __plugin_summary__ = "My example script to control stirring, OD and temperature"
@@ -124,7 +124,7 @@ def click_my_script():
 
     stirrer = start_stirring(target_rpm=400)
     od_reader = start_od_reading("90", "REF")
-    temp_controller = start_temperature_control("thermostat", target_temperature=32)
+    temp_automation = start_temperature_automation("thermostat", target_temperature=32)
 
     time.sleep(10)
     stirrer.set_target_rpm(300)
@@ -172,7 +172,7 @@ class DemoAutomation(DosingAutomationContrib):
 
 You should be able to execute the following from the command line now:
 ```
-pio run dosing_control --automation-name demo --volume 10
+pio run dosing_automation --automation-name demo --volume 10
 ```
 
 

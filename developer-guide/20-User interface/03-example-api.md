@@ -32,7 +32,7 @@ curl -H "Content-Type: application/json" \
 # START THERMOSTAT AT 35C
 curl -H "Content-Type: application/json" \
      --data '{"options": {"automation_name": "thermostat", "target_temperature": 35}}' \
-     -X PATCH "http://leader.local/api/workers/worker02/experiments/Demo%20experiment%206/jobs/temperature_control/run"
+     -X PATCH "http://leader.local/api/workers/worker02/experiments/Demo%20experiment%206/jobs/temperature_automation/run"
 
 # CHANGE TARGET TEMP TO 32C
 curl -H "Content-Type: application/json" \
@@ -40,7 +40,7 @@ curl -H "Content-Type: application/json" \
      -X PATCH "http://leader.local/api/workers/worker02/experiments/Demo%20experiment%206/jobs/temperature_automation/update"
 
 # STOP THERMOSTAT
-curl -X PATCH "http://leader.local/api/workers/worker02/experiments/Demo%20experiment%206/jobs/temperature_control/stop"
+curl -X PATCH "http://leader.local/api/workers/worker02/experiments/Demo%20experiment%206/jobs/temperature_automation/stop"
 
 ```
 

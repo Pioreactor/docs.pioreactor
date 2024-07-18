@@ -187,7 +187,7 @@ Let's save this file to our Pioreactor plugin folder, by accessing the Pioreacto
 
 You can test the automation from the Pioreactor's command line by executing:
 ```
-pio run led_control --automation-name light_dark_cycle --light_intensity 45 --light_duration_hours 16 --dark_duration_hours 8
+pio run led_automation --automation-name light_dark_cycle --light_intensity 45 --light_duration_hours 16 --dark_duration_hours 8
 ```
 
 

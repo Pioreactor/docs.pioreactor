@@ -33,37 +33,6 @@ What is `get_unit_name` and `get_latest_experiment_name`? These are helper funct
 :::
 
 
-#### Automations
-
-Using automations requires you to invoke them with a `Controller`. For example, below we start a chemostat with some specific parameters, and set the target temperature to 30C.
-
-```python
-from pioreactor.background_jobs.dosing_control import DosingController
-from pioreactor.background_jobs.temperature_control import TemperatureController
-from pioreactor.whoami import get_latest_experiment_name
-
-unit = get_unit_name()
-experiment = get_latest_experiment_name()
-
-dc = DosingController(
-    "chemostat", # automation name
-    duration=1, # every minute,
-    volume=1, # dose 1mL
-    unit=unit,
-    experiment=experiment,
-)
-
-tc = TemperatureController(
-    "thermostat",
-    target_temperature=30,
-    unit=unit,
-    experiment=experiment
-)
-
-dc.block_until_disconnected()
-```
-
-
 ### Starting a long-running script
 
 On the command line, you can run your script with

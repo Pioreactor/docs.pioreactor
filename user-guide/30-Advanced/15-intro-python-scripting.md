@@ -93,13 +93,13 @@ import time
 from pioreactor.background_jobs.stirring import start_stirring
 from pioreactor.background_jobs.od_reading import start_od_reading
 from pioreactor.actions.led_intensity import led_intensity
-from pioreactor.background_jobs.temperature_control import start_temperature_control
+from pioreactor.background_jobs.temperature_automation import start_temperature_automation
 
 led_intensity({'B': 50})
 
 stirrer = start_stirring(target_rpm=400)
 od_reader = start_od_reading("90", "REF")
-temp_controller = start_temperature_control("thermostat", target_temperature=32)
+thermostat = start_temperature_automation("thermostat", target_temperature=32)
 
 time.sleep(10)
 stirrer.set_target_rpm(300)

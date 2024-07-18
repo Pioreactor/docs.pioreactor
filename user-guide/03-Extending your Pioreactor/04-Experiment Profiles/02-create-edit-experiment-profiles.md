@@ -12,12 +12,57 @@ Experiment profiles can be managed in the UI at http://pioreactor.local/experime
 <iframe width="560" height="315" src="https://www.youtube.com/embed/yxxj0ncTxws?si=42eGY8yIt5D84qUA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 
-### On the command line
+#### Alternatively: On the command line
 
-All profiles are stored on the leader's disk under `~/.pioreactor/experiment_profiles/`. You can create and edit profiles in this directory, as well.
+All profiles are stored on the leader's disk under `~/.pioreactor/experiment_profiles/`, allowing you can create and edit profiles in this directory, as well.
 
 
-## Tips to writing profiles
+## Writing profiles
+
+### Adding a name, author, and description
+
+It's a good idea to give your profile a descriptive and unique name. This way it will be easier to find later. Also providing a detailed description will help your colleagues (and future self!) understand what the profile accomplishes.
+
+
+### `common` and `pioreactors` blocks
+
+
+Any tasks in the `common` block will execute that task for _all_ workers assigned to the current experiment. The `pioreactors` block is where you can write tasks for specific Pioreactors. For example, you may want the stirring to be on for all Pioreactors, but you want the temperature to be different for your two workers:
+
+```
+experiment_profile_name: stirring with different temperatures
+
+metadata:
+  author: Cameron DP
+  description: turn on stirring for all workers, but set the temperature to be different between them.
+
+common:
+  jobs:
+    stirring:
+      actions:
+        - type: start
+          hours_elapsed: 0
+
+pioreactors:
+   pio001:
+     jobs:
+       temperature_automation:
+         actions:
+           - type: start
+             hours_elapsed: 0.0
+             options:
+               automation_name: thermostat
+               target_temperature: 35
+   pio002:
+    jobs:
+      temperature_automation:
+        actions:
+          - type: start
+            hours_elapsed: 0.0
+            options:
+              automation_name: thermostat
+              target_temperature: 32
+```
 
 
 ### `hours_elapsed` refers to the profile start time
@@ -72,11 +117,11 @@ will check, after 6 hours, if the `target_rpm` is above 500, and if true, will u
 You can also compare against strings. For example, to stop a job if the temperature automation running is equal to `thermostat`, use:
 
 ```yaml
-    temperature_control:
+    temperature_automation:
      ...
      - type: stop
        hours_elapsed: 6.0
-       if: pio1:temperature_control:automation_name == thermostat
+       if: pio1:temperature_automation:automation_name == thermostat
 
 
 ```
@@ -90,7 +135,7 @@ Some published settings have are actually nested json blobs, but we need either 
      ...
      - type: update
        hours_elapsed: 6.0
-       if: pio1:temperature_control:temperature.temperature <= 30
+       if: pio1:temperature_automation:temperature.temperature <= 30
        options:
          target_temperature: 32
 ```
@@ -207,7 +252,7 @@ common:
     od_reading:
       actions:
         - type: start
-    dosing_control:
+    dosing_automation:
       actions:
         - type: when
           condition: ${{::od_reading:od1.od > 2.0}}
@@ -283,92 +328,6 @@ Finally, there is more control using the other optional fields:
                volume: 1.5
    ```
 
-### Start/stop controllers instead of automations
-
-A common task is to start the thermostat, and you may want to do something like:
-
-
-```yaml
-# wrong, this won't work  ❌
-common:
-  jobs:
-    thermostat:
-      actions:
-        - type: start
-          hours_elapsed: 0.0
-          options:
-            target_temperature: 30
-
-```
-
-
-However, to start (and stop) automations (which the `thermostat` is), you actually need to use the controllers:
-
-```yaml
-# correct ✅
-common:
-  jobs:
-    temperature_control:
-      actions:
-        - type: start
-          hours_elapsed: 0.0
-          options:
-            automation_name: thermostat
-            target_temperature: 30
-
-```
-
-
-Likewise, to _stop_ a automation, you need to stop the controller:
-
-
-```yaml
-# correct ✅
-common:
-  jobs:
-    temperature_control:
-      actions:
-        - type: start
-          hours_elapsed: 0.0
-          options:
-            automation_name: thermostat
-            target_temperature: 30
-        - type: stop
-          hours_elapsed: 12.0
-
-```
-
-How do you update `target_temperature`, see below.
-
-### Update automations instead of controllers
-
-A setting like `target_temperature` or `volume` is attached to the automation, not a controller, so you need to update the automation:
-
-```yaml
-# correct  ✅
-common:
-  jobs:
-    temperature_control:
-      actions:
-        - type: start
-          hours_elapsed: 0.0
-          options:
-            automation_name: thermostat
-            target_temperature: 30
-        - type: stop
-          hours_elapsed: 12.0
-    temperature_automation: # this is thermostat
-        - type: update
-          hours_elapsed: 1.0
-          options:
-            target_temperature: 32
-        - type: update
-          hours_elapsed: 2.0
-          options:
-            target_temperature: 34
-
-```
-
 
 ### YAML syntax check, and indentation problems
 
@@ -379,7 +338,7 @@ common:
 # correct ✅
 common:
   jobs:
-    temperature_control:
+    temperature_automation:
       actions:
         - type: start
           hours_elapsed: 0.0
@@ -394,7 +353,7 @@ common:
 # wrong ❌
 common:
   jobs:
-    temperature_control:
+    temperature_automation:
       actions:
         - type: start
           hours_elapsed: 0.0
@@ -412,7 +371,7 @@ This is likely because you are using `-` where you shouldn't:
 # wrong ❌
 common:
   jobs:
-    temperature_control:
+    temperature_automation:
       actions:
         - type: start
           hours_elapsed: 0.0
@@ -425,7 +384,7 @@ common:
 # correct ✅
 common:
   jobs:
-    temperature_control:
+    temperature_automation:
       actions:
         - type: start
           hours_elapsed: 0.0

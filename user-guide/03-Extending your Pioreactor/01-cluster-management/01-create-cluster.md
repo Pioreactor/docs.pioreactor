@@ -31,9 +31,9 @@ This Inventory tab will display metadata pertaining to each of your Pioreactors.
 
 ### Active and inactive
 
-Workers can be *active* (available for running activities and cultures), or inactive. Inactive Pioreactors can still be assigned to experiments, but won't response to commands to run activities or participate in experiment profiles.
+Workers can be *active* (available for running activities), or inactive. Inactive Pioreactors can still be assigned to experiments, but won't respond to commands to run activities or participate in experiment profiles. Inactive is a useful tool for taking a Pioreactor temporarily out of an experiment or cluster.
 
-Turning a worker to inactive will halt all it's activities.
+Turning a worker to inactive will halt all its activities.
 
 
 ### Possible cluster topologies
