@@ -12,7 +12,7 @@ Let's design a simple LED automation for Light/Dark cycles. The basic idea is th
 # -*- coding: utf-8 -*-
 from __future__ import annotations
 from pioreactor.automations.led.base import LEDAutomationJobContrib
-from pioreactor.whoami import get_unit_name, get_latest_experiment_name
+from pioreactor.whoami import get_unit_name, get_assigned_experiment_name
 from pioreactor.automations import events
 ```
 

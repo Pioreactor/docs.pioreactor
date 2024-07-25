@@ -32,13 +32,13 @@ import board
 import adafruit_scd4x
 
 from pioreactor.pubsub import publish
-from pioreactor.whoami import get_unit_name, get_latest_experiment_name
+from pioreactor.whoami import get_unit_name, get_assigned_experiment_name
 
 i2c = board.I2C()
 scd4x = adafruit_scd4x.SCD4X(i2c)
 
-exp = get_latest_experiment_name()
 unit = get_unit_name()
+exp = get_assigned_experiment_name(unit)
 
 scd4x.start_periodic_measurement()
 

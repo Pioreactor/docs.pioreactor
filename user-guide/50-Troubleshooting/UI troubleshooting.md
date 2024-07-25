@@ -38,7 +38,7 @@ Your IP may be different than the one above.
 
 #### If you are using a remote access service, like ngrok or tailscale
 
-Likely you didn't fill out the `ws` parameter in the configuration correctly. See the [remote access instructions](https://docs.pioreactor.com/user-guide/remote-access) again.
+Likely you didn't fill out the `mqtt` `broker_address` parameter in the configuration correctly. See the [remote access instructions](https://docs.pioreactor.com/user-guide/remote-access) again.
 
 
 ### When I click an action in the UI, I don't see any response. Or the button just spins and does nothing.

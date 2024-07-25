@@ -36,15 +36,18 @@ An example to pause a job over MQTT:
 ```python
 from pioreactor.background_jobs.monitor import  Monitor
 from pioreactor.pubsub import publish
-from pioreactor.whoami import get_latest_experiment_name, get_unit_name
+from pioreactor.whoami import get_assigned_experiment_name, get_unit_name
 
 target="od_reading"
 
 def pause(*args):
-    publish(f"pioreactor/{get_unit_name()}/{get_latest_experiment_name()}/{target}/$state/set", "sleeping")
+    unit = get_unit_name()
+    experiment = get_assigned_experiment_name(unit)
+
+    publish(f"pioreactor/{unit}/{experiment}/{target}/$state/set", "sleeping")
 
 def unpause(*args):
-    publish(f"pioreactor/{get_unit_name()}/{get_latest_experiment_name()}/{target}/$state/set", "ready")
+    publish(f"pioreactor/{unit}/{experiment}/{target}/$state/set", "ready")
 
 Monitor.add_pre_button_callback(pause)
 Monitor.add_post_button_callback(unpause)

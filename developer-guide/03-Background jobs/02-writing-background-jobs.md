@@ -140,9 +140,12 @@ class IntroJob(BackgroundJob):
 
 if __name__ == "__main__":
     from pioreactor.whoami import get_unit_name
-    from pioreactor.whoami import get_latest_experiment_name
+    from pioreactor.whoami import get_assigned_experiment_name
 
-    job = IntroJob(unit=get_unit_name(), experiment=get_latest_experiment_name())
+    unit = get_unit_name()
+    experiment = get_unit_name(unit)
+
+    job = IntroJob(unit=unit, experiment=experiment)
 
 
     job.block_until_disconnected()
@@ -163,9 +166,12 @@ Adding an additional line in `intro_job.py`:
 ```python {6}
 if __name__ == "__main__":
     from pioreactor.whoami import get_unit_name
-    from pioreactor.whoami import get_latest_experiment_name
+    from pioreactor.whoami import get_assigned_experiment_name
 
-    job = IntroJob(unit=get_unit_name(), experiment=get_latest_experiment_name())
+    unit = get_unit_name()
+    experiment = get_assigned_experiment_name(unit)
+
+    job = IntroJob(unit=unit, experiment=experiment)
     job.set_intensity(10)
 
     job.block_until_disconnected()
@@ -396,18 +402,21 @@ def click_motor_driver(initial_dc, hz):
     """
     Start the external motor
     """
-    from pioreactor.whoami import get_unit_name, get_latest_experiment_name
+    from pioreactor.whoami import get_unit_name, get_assigned_experiment_name
+
+    unit = get_unit_name()
+    experiment = get_assigned_experiment_name(unit)
 
     job = MotorDriver(
         hz=hz,
         initial_duty_cycle=initial_dc,
-        unit=get_unit_name(),
-        experiment=get_latest_experiment_name(),
+        unit=unit,
+        experiment=experiment,
     )
     job.block_until_disconnected()
 ```
 
-Note the helper functions `get_unit_name` and `get_latest_experiment_name` to get the metadata for the class. The method `block_until_disconnected` will halt the program at that line (and only continue when a keyboard interrupt is detected).
+Note the helper functions `get_unit_name` and `get_assigned_experiment_name` to get the metadata for the class. The method `block_until_disconnected` will halt the program at that line (and only continue when a keyboard interrupt is detected).
 
 If you save it in the `plugins` folder, you can now execute: `pio run motor_driver --initial-dc 10` and it should just work! You can exit with ctrl-c, and note that the `on_disconnect` is called when you do this.
 

@@ -8,10 +8,10 @@ Since the behaviour of the Pioreactor is controlled by Python objects, you can w
 ```python
 from pioreactor.background_jobs.stirring import Stirrer, RpmFromFrequency
 from pioreactor.whoami import get_unit_name
-from pioreactor.whoami import get_latest_experiment_name
+from pioreactor.whoami import get_assigned_experiment_name
 
 unit = get_unit_name()
-experiment = get_latest_experiment_name()
+experiment = get_assigned_experiment_name(unit)
 
 st = Stirrer(
     target_rpm=300,
@@ -29,7 +29,7 @@ st.block_until_disconnected() # pauses the execution, but stirring continues
 Save this code to a local file on your Pioreactor's Raspberry Pi called `stirring_script.py`. Then, running `python stirring_scripy.py`, you should see that stirring on the Pioreactor starts. With the script running, you should also updates on the Pioreactor UI (ex: see [pioreactor.local/pioreactors](http://pioreactor.local/pioreactors) page). Typing `ctrl-c` will exit the script.
 
 :::info
-What is `get_unit_name` and `get_latest_experiment_name`? These are helper functions that get the current name of the Pioreactor, and the current experiment name, respectively. Using the current experiment name will ensure that your data shows up in the UI, and is correctly stored in the database.
+What is `get_unit_name` and `get_assigned_experiment_name`? These are helper functions that get the current name of the Pioreactor, and the current experiment name, respectively. Using the current experiment name will ensure that your data shows up in the UI, and is correctly stored in the database.
 :::
 
 

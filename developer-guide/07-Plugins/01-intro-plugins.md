@@ -52,7 +52,7 @@ Here's an example: place the following code into the file `/home/pioreactor/.pio
 ```python title="/home/pioreactor/.pioreactor/plugins/demo_job.py"
 # -*- coding: utf-8 -*-
 import click
-from pioreactor.whoami import get_unit_name, get_latest_experiment_name
+from pioreactor.whoami import get_unit_name, get_assigned_experiment_name
 from pioreactor.background_jobs.base import BackgroundJob
 
 __plugin_summary__ = "Just a demo job"
@@ -78,9 +78,12 @@ class DemoJob(BackgroundJob):
 
 @click.command(name="demo_job", help=__plugin_summary__)
 def click_demo_job():
+
+    unit = get_unit_name()
+    experiment = get_assigned_experiment_name(unit)
     job = DemoJob(
-        unit=get_unit_name(),
-        experiment=get_latest_experiment_name(),
+        unit=unit,
+        experiment=experiment,
     )
     job.block_until_disconnected()
 ```
