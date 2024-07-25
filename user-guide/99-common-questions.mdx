@@ -161,21 +161,18 @@ We've designed the hardware and software to be compatible with any Raspberry Pi 
 
 *   Raspberry Pi 3 Model B & B+
 *   Raspberry Pi 3 Model A+
-*   Raspberry Pi 4 Model B ³
-*   Raspberry Pi 5 Model B ³
+*   Raspberry Pi 4 Model B ²
+*   Raspberry Pi 5 ²
 *   Raspberry Pi Zero W (with headers) ¹
 *   Raspberry Pi Zero 2 (with headers)
-*   Raspberry Pi 400 ²
 
 
 Although you can use any above, **we like the Raspberry Pi 3 Model A+, and Raspberry Pi Zero 2** because of their low power consumption, slim build, and low price. Both have the necessary CPU power and memory for the Pioreactor workload, and are generally easy to source. However, they don't have ethernet connections! So talk to your team about if you need to use ethernet or wifi. If you need ethernet, we like the model RPi
-3B.
+3 B or 4 B.
 
 ¹ _Raspberry Pi Zero W_ is on the list above, and is very low cost compared to the others. They can absolutely be used for Pioreactors _as workers_ - we don't recommend them to be your _leader_ (note sure what these terms mean? Here's an introduction to [leader and workers](/user-guide/create-cluster)). As workers, Raspberry Pi Zero W perform just fine, but will respond slower to commands. Note that this does not include the Raspberry Pi Zero _2_ W model, which is fine for all roles.
 
-² The Raspberry Pi 400 has its 40 pin header exposed in a different orientation, so your Pioreactor won't be able to sit on top like for other RPi versions. Take a [look at this forum post](https://forum.pioreactor.com/t/using-a-raspberry-pi-400/113/8) to see how another user used the Raspberry Pi 400 with their Pioreactor.
-
-³ Note that you don't need a lot of RAM for the Pioreactor, so we recommend getting the lower RAM option RPi (1GB or 2GB) to save some money. However, anything above is fine, too.
+² You don't need a lot of RAM for the Pioreactor, so we recommend getting the lower RAM RPi if offered a choice. 1GB is fine.
 
 #### What microSD cards do you recommend?
 
@@ -189,15 +186,11 @@ If you need to power multiple Pioreactors, you might consider a single PSU with 
 
 #### Do I need any cooling for the Raspberry Pi?
 
-Nope, you shouldn't, unless you are connecting an external monitor. However, extra heat sinks are never a bad idea!
+Nope, you shouldn't. However, extra heat sinks are never a bad idea!
 
 #### Could a Raspberry Pi-compatible board work, like Rock Pi 4?
 
 Maybe? We haven't tested them, but so long as i) the GPIO pins are identical, and ii) Raspberry Pi OS can be installed, it should work.
-
-#### Why are the Raspberry Pi LEDs/USB/etc. turned off?
-
-We turn off the "activity" LED (usually the green one) to save some power for the Pioreactor's peripherals. You can turn these back on by editing the `/boot/config.txt` file on the RPi.
 
 #### What is the username/password for the Raspberry Pi?
 
