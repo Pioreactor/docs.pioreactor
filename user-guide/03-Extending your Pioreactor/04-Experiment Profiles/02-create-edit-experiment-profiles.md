@@ -29,7 +29,7 @@ It's a good idea to give your profile a descriptive and unique name. This way it
 
 Any tasks in the `common` block will execute that task for _all_ workers assigned to the current experiment. The `pioreactors` block is where you can write tasks for specific Pioreactors. For example, you may want the stirring to be on for all Pioreactors, but you want the temperature to be different for your two workers:
 
-```
+```yaml
 experiment_profile_name: stirring with different temperatures
 
 metadata:
@@ -70,6 +70,9 @@ pioreactors:
 When writing a profile, note that the `hours_elapsed` field refers to when the experiment profile started, and not when the experiment started.
 
 
+## Conditionals and expressions
+
+
 ### How the `if` directive works
 
 
@@ -88,10 +91,12 @@ Also included are numbers (floats), and strings (examples later). The comparison
  - `>=` and `<=`
  - `>` and `<`
 
-The operators addition `+`, subtraction `-`, multiplication `*`, and division `/` are allowed on floats, as well. The power of `if` comes when you combine it with expressions, see below:
+The operators addition `+`, subtraction `-`, multiplication `*`, and division `/` are allowed on floats, as well.
+
+
+The power of `if` comes when you combine it with expressions, see the next section.
 
 ### How expressions work
-
 
 Expressions are our way to fetch dynamic data, provided from jobs, during execution of profiles. For example, the following:
 
@@ -247,14 +252,14 @@ There's also some built-in functions you can use in expressions:
 
 ### `log`
 
-Log a message, and specify its logging level.
+Log a message, and specify its logging level. `options` is required to provide the `message` field, and optionally the `level` field.
 
-```
-actions:
-  - type: log
-    options:
-      message: "This is a message, and it can contain expressions like ${{unit()}}".
-      level: info
+```yaml
+  actions:
+    - type: log
+      options:
+        message: "This is a message, and it can contain expressions like ${{unit()}}".
+        level: info
 
 ```
 
