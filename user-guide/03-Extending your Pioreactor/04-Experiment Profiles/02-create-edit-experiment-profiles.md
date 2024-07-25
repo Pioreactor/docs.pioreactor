@@ -93,7 +93,7 @@ The operators addition `+`, subtraction `-`, multiplication `*`, and division `/
 ### How expressions work
 
 
-Expressions are the method used to get is dynamic data, provided from jobs, during execution of profiles. For example, the following:
+Expressions are our way to fetch dynamic data, provided from jobs, during execution of profiles. For example, the following:
 
 ```
 pio1:stirring:target_rpm >= 500
@@ -172,7 +172,7 @@ pioreactors:
 
 This will update the value of `target_rpm` to whatever its current value is (after 1 hour), and add 50 to it.
 
-You can use the any pioreactor and any job in an expression - you aren't limited to the `job` your editing. For example, the `update` below will dynamically set the `target_rpm` to a function of optical density.
+You can use any pioreactor and any job in an expression - you aren't limited to the `job` your editing. For example, the `update` below will dynamically set the `target_rpm` to a function of optical density.
 
 ```yaml
 pioreactors:
@@ -235,7 +235,30 @@ There's also some built-in functions you can use in expressions:
  - `job_name()` returns the job name the expression is evaluated for.
  - `experiment()` returns the experiment the expression is evaluated for.
 
-### The  `when` action
+## Different action types
+
+### `start` and `stop`
+
+`start` will start a job or action, and `stop` will stop an job or action.
+
+### `pause` and `resume`
+
+`pause` will pause a job or action, and `resume` will resume a paused job or action.
+
+### `log`
+
+Log a message, and specify its logging level.
+
+```
+actions:
+  - type: log
+    options:
+      message: "This is a message, and it can contain expressions like ${{unit()}}".
+      level: info
+
+```
+
+###  `when`
 
 The `when` action is used to trigger an actions(s) _the first time_ the condition is satisfied. For example, you could start a chemostat when the OD rises above a threshold, or turn off heating when the temperature exceed some threshold, or log a message when some condition is met.
 
@@ -273,7 +296,7 @@ The `hours_elapsed` works like an other action: it'll only start to check after 
 After the condition is met, the actions run, and the condition is never checked again. The `when` is said to be _exhausted_.
 
 
-### The `repeat` action
+### `repeat`
 
 
 The `repeat` directive is the most powerful action, as it allows you loop actions over and over again to check for a condition change, update based on state, etc.
@@ -329,7 +352,9 @@ Finally, there is more control using the other optional fields:
    ```
 
 
-### YAML syntax check, and indentation problems
+## YAML syntax check, and indentation problems
+
+### Tips
 
 1. Check your YAML syntax with a tool like: https://www.yamllint.com/
 2. Note that indentation matters! For example, these mean different things, and only the second one is correct:
