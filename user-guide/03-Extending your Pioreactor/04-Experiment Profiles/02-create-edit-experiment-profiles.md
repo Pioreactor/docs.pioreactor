@@ -250,6 +250,20 @@ There's also some built-in functions you can use in expressions:
 
 `pause` will pause a job or action, and `resume` will resume a paused job or action.
 
+
+### `update`
+
+The `update` action can be used to make changes to settings in a job. The settings you can change are defined in the job itself, and are a superset of the settings you can change in the UI. Specify the (setting, new value) pairs in an `options` block:
+
+```yaml
+  actions:
+    - type: update
+      options:
+        volume: 0.75
+        duration: 15
+
+```
+
 ### `log`
 
 Log a message, and specify its logging level. `options` is required to provide the `message` field, and optionally the `level` field.

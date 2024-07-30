@@ -22,6 +22,10 @@ Experiment profiles are written as a YAML file (rhymes with "camel"). A YAML fil
 You can browse experiment profile examples below.
 
 
+### Looks great! Where do I start?
+
+Visit our docs on writing experiment profiles [here](/user-guide/create-edit-experiment-profiles).
+
 ### Examples
 
 See examples of experiment profiles [here](https://github.com/Pioreactor/experiment_profile_examples).

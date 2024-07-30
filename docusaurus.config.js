@@ -177,16 +177,8 @@ const config = {
               },
             ],
           },
-          {
-            title: 'Contributing to documentation',
-            items: [
-              {html: `
-              Any suggestions or comments can be added to our <a href="https://github.com/Pioreactor/docs.pioreactor/issues">Issue Tracker</a>. If you're up for it, feel free to send a <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/getting-started/about-collaborative-development-models">pull request</a>, too!
-              `}
-            ],
-          },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} Pioreactor, Inc. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} Pioreactor, Inc.`,
       },
       prism: {
         theme: lightCodeTheme,
