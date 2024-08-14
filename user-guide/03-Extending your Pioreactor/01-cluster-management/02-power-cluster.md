@@ -23,9 +23,15 @@ You can purchase USB hubs from sites like Amazon. They may look something like b
  - Connection type: Raspberry Pis models have different power connectors. RPi 4 and 5 use USB-C, and everything else uses microUSB. You may need to purchase USB-C to microUSB wires.
  - Speaking of the wires from the PSU to the Raspberry Pi: make them **as short as possible**. Longer cables increase resistance, leading to unnecessary power loss. 
 
-### More than ~6 Pioreactors
+### More than ~6 Pioreactors and beyond
 
-For more than 6 Pioreactors, we recommend looking into more reputable and reliable power supply unit. TBD
+For more than 6 Pioreactors, we recommend looking into more reputable and reliable power supply units. We have seen the following model in action and can recommend it:
+
+ - [SIIG Industrial USB-C PD Charging Station](https://www.siig.com/16-port-industrial-usb-c-pd-charging-station-600w.html)
+
+
+Generally, for any power supply, the same ideas apply as above: look for at minimum 15 W per output. Also look for certifications and over heating protection.
+
 
 
 
