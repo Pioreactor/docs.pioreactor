@@ -41,4 +41,4 @@ sudo systemctl restart lighttp && sudo systemctl restart huey
 
 ### Logs
 - Start up logs from systemd are in `sudo systemctl status lighttpd.service`.
-- Logs for the backend and background workers are located in `/var/log/pioreactorui.log`.
+- Logs for the backend and background workers are located in `/var/log/pioreactor.log`.

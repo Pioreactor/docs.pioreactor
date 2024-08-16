@@ -20,3 +20,33 @@ This automation will turn the LEDs in channels C & D on and off on a predetermin
 The LEDs should go in pockets X2 and X3 on the Pioreactor.
 
 
+:::tip
+
+If using the Light/Dark cycle, you can add the settings to be displayed in the UI by editing the following file on your leader:
+
+```
+nano /var/www/pioreactorui/contrib/jobs/06_led_automation.yaml
+```
+
+And adding the following to the bottom of that file:
+```
+  - key: light_intensity
+    type: numeric
+    display: true
+    unit: "%"
+    label: Light intensity
+    description: The light intensity when light is ON.
+  - key: light_duration_minutes
+    type: numeric
+    display: true
+    unit: m
+    label: "Light ON for"
+  - key: dark_duration_minutes
+    type: numeric
+    display: true
+    unit: m
+    label: "Light OFF for"
+```
+
+Save and exit, and refresh the UI.
+:::

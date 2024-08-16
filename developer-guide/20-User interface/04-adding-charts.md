@@ -45,7 +45,7 @@ co2_readings=1
 
  - If the UI stops displaying data, you may have introduced a yaml file that is not being read correctly. Check out the Pioreactor UI logs by sshing into the leader, and running:
   ```
-  tail /var/log/pioreactorui.log
+  tail /var/log/pioreactor.log
   ```
   The last few lines should tell you about if a field is missing, a wrong type, etc.
  - There is a 30sec cache, so it may take up to 30sec to see new changes in the UI.

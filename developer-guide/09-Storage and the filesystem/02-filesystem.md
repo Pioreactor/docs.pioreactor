@@ -18,7 +18,7 @@ Below is a list of important locations and files on the filesystem for the Piore
 ### Logs
 
  - `/var/log/pioreactor.log` is the log file for the Pioreactor app
- - `/var/log/pioreactorui.log` is the log file for the Pioreactor UI
+ - `/var/log/pioreactorui.log` is the (deprecated) log file for the Pioreactor UI. It's now the same as above.
 
 
 ### Storage
