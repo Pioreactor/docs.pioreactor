@@ -370,6 +370,33 @@ Finally, there is more control using the other optional fields:
                volume: 1.5
    ```
 
+### Defining top-level parameters with `inputs`
+
+Your experiment profile might have some important constants that you want to share across sections, or have colleagues modify. You can provide these in the `inputs` section, and use the constants in any expression:
+
+```
+inputs:
+  growth_phase_temp: 37.0
+  stationary_phase_temp: 30.0
+  od_threshold: 1.6
+
+common:
+  jobs:
+    temperature_automation:
+      actions:
+        - type: update
+          hours_elapsed: 12.0
+          if: ${{ ::od_reading:od1.od < od_threshold }}
+          options:
+            target_temperature: ${{ stationary_phase_temp }}
+        - type: update
+          hours_elapsed: 12.0
+          if: ${{ ::od_reading:od1.od >= od_threshold }}
+          options:
+            target_temperature: ${{ growth_phase_temp }}
+
+```
+
 
 ## YAML syntax check, and indentation problems
 

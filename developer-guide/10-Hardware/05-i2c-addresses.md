@@ -5,6 +5,6 @@ slug: /i2c-addresses
 
 | Name | Chip     | Address |
 |------|----------|---------|
-| ADC  | RP2040   | 0x30    |
-| DAC  | RP2040   | 0x30    |
+| ADC  | RP2040   | 0x2C    |
+| DAC  | RP2040   | 0x2C    |
 | TEMP | TMP1075  | 0x4F    |

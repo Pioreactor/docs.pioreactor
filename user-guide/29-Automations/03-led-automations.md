@@ -34,18 +34,20 @@ And adding the following to the bottom of that file:
     type: numeric
     display: true
     unit: "%"
-    label: Light intensity
-    description: The light intensity when light is ON.
+    label: Light ON intensity
+    description: The intensity when light is ON.
   - key: light_duration_minutes
     type: numeric
     display: true
-    unit: m
+    unit: min
     label: "Light ON for"
+    description: How long should the light be ON for?
   - key: dark_duration_minutes
     type: numeric
     display: true
-    unit: m
+    unit: min
     label: "Light OFF for"
+    description: How long should the light be OFF for?
 ```
 
 Save and exit, and refresh the UI.
