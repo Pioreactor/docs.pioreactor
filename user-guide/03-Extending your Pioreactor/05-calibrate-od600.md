@@ -53,7 +53,7 @@ By default, we fit the calibration curve with a polynomial. You can choose the d
 
 Calibrations are applied automatically. That is, after performing a calibration, your future experiments that use optical density readings will use the post-calibration values and be displayed in the UI and saved to the database.
 
-If you wish to stop using calibrations, you can switch if off in the config.ini by setting adding `use_calibations=0` under the  `[od_config]` section.
+If you wish to stop using calibrations, you can switch if off in the config.ini by setting adding `use_calibations=0` under the  `[od_reading.config]` section.
 
 
 ## Viewing your previous calibrations

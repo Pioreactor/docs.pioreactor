@@ -1,5 +1,5 @@
 ---
-title: Networking 
+title: Networking tools
 slug: /networking
 ---
 

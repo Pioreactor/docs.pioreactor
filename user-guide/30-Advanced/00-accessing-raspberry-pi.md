@@ -16,7 +16,7 @@ There are two simple ways to access the Raspberry Pi from a Windows desktop.
 2. Type `ssh pioreactor@<insert unit name>.local`. For example, to access on our Pioreactor named _worker3_, we typed `ssh pioreactor@worker3.local`. The default password is `raspberry` (see "info" below). If asked "The authenticity of host...", enter "yes".
 
 :::info
-When typing in the password, characters may not show up as you type - that's normal. This is a security feature.
+When typing in the password, characters may not appear up as you type - that's expected. This is a security feature.
 :::
 
 

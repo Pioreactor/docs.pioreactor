@@ -16,7 +16,7 @@ Finally, to enable the PWM channels to use the new auxiliary power supply, **you
 
 
 :::note
-When changing the default power supply, any stirring calibration and pump calibrations will need to be updated. Also, the `initial_duty_cycle` under `stirring` in the configuration may need to change.
+When changing the default power supply, any stirring calibration and pump calibrations will need to be updated. Also, the `initial_duty_cycle` under `stirring.config` in the configuration may need to change.
 :::
 
 :::caution

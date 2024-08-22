@@ -31,7 +31,7 @@ First, with the stirring activity running, carefully examine if the fan below is
     - Try lowering the `initial_duty_cycle` in the config.ini to a value like ~20.
     - Are the two magnets still present on the fan? Visually inspect from the side, or unscrew the top faceplate from the vial holder to see better.
     - The heater PCB may be damaged. Contact us at support@pioreactor.com.
-    - You can turn off the feedback loop by setting `use_rpm=0` in the `[stirring]` section of your configuration. Set the `initial_duty_cycle` to some appropriate value (20 to 40), as well.
+    - You can turn off the feedback loop by setting `use_rpm=0` in the `[stirring.config]` section of your configuration. Set the `initial_duty_cycle` to some appropriate value (20 to 40), as well.
 
 
 <img src="/img/user-guide/hardware-assembly/vial_holder_alignment.jpg" width="465" style={{margin: "auto", display:"block"}} />
