@@ -3,16 +3,34 @@ title: Internet sharing between a PC and a Pioreactor
 slug: /internet-sharing
 ---
 
-Below is a way to physically connect your PC to your Pioreactor and be able to control the Pioreactor from your PC, without needing any wifi or external router. This is called _internet sharing_. Note that this method _does_ scale to larger clusters, but below is only how to connect a single Pioreactor. A simple way to set up a cluster of Pioreactor is to use internet sharing between your PC and the leader Pioreactor, and use a [local access point](/user-guide/local-access-point) between the leader Pioreactor and the worker Pioreactors.
+Below is a way to physically connect your PC to your Pioreactor and be able to control the Pioreactor from your PC, without needing any wifi or external router. This is called _internet sharing_. Note that this method _does_ scale to larger clusters, but below is only how to connect a single Pioreactor.
 
-#### Requirements
+
+Below is a simple diagram of how this might look (these are faked IPs).
+```
+
++---------------------+
+|  Sharing PC         |
+|  IP: 192.168.137.1  |
++----------+----------+
+           |
+           | Ethernet Cable
+           |
++----------+----------+
+|  leader             |
+|  IP: 192.168.137.2  |
++---------------------+
+
+```
+
+### Requirements
 
 1. The Pioreactor requires an ethernet port. Any Raspberry Pi B models have this, but also you can purchase inexpensive (micro)USB-to-ethernet dongles.
 2. You can use a freshly installed Pioreactor, or an existing Pioreactor.
 2. An ethernet cable
 3. A PC with an available ethernet connector (again, you can purchase dongles to connect ethernet to PC's that don't have an available ethernet port).
 
-#### Steps
+### Steps
 
 1. Power off the Pioreactor.
 2. Connect the ethernet cable to the Pi.
@@ -35,3 +53,60 @@ Below is a way to physically connect your PC to your Pioreactor and be able to c
 
 
 And you're done! Your Pioreactor should be able to be both accessed by the local PC, and be able to ping the internet (for updates, plugins, etc). You can also disconnect the ethernet cable as well, and your Pioreactor will still function (albeit it will lose internet connectivity).
+
+
+### Connecting multiple Pioreactors
+
+From here, there are two ways to add more Pioreactors:
+
+1. A simple way to set up a cluster of Pioreactor is to use internet sharing between your PC and the leader Pioreactor (see above), and use a [local access point](/user-guide/local-access-point) between the leader Pioreactor and the worker Pioreactors. Note this will not provide internet access to the other Pioreactors (by default).
+   ```
+    +---------------------+
+    |  Sharing PC         |
+    |  IP: 192.168.137.1  |
+    +----------+----------+
+               |
+               | Ethernet Cable
+               |
+    +----------+----------+
+    |  leader with LAP    |
+    |  IP: 192.168.137.2  |
+    +----------+----------+
+               |
+               |  Wireless AP (192.168.4.x subnet)
+               |
+       +-------+-------+
+       |               |
+       |  Wi-Fi        |
+       |               |
+    +--+---+        +--+---+
+    | pio1 |        | pio2 |
+    | IP:  |        | IP:  |
+    | 192.168.4.2   | 192.168.4.3
+    +------+        +------+
+   ```
+
+
+2. Alternatively, you can extend the above technique to multiple Pioreactors. Instead of connecting the ethernet directly to the Pioreactor, you can connect it to a network switch¹, and connect your Pioreactors to that switch (via ethernet).
+
+   ```
+    +---------------------+
+    |  Sharing PC         |
+    |  IP: 192.168.137.1  |
+    +----------+----------+
+               |
+               | Ethernet Cable
+               |
+        +------+------+
+        |   Switch    |
+        +------+------+
+               |
+       +-------+--------------+---------------+ Ethernet Cables
+       |                      |               |
+       |                      |               |
+    +--+---------+         +--+-=-+         +--+---+
+    | leader     |         | pio1 |         | pio2 |
+    | IP:        |         | IP:  |         | IP:  |
+    | 192.168.137.2        | 192.168.137.3  | 192.168.137.4
+    +------------+         +------+         +------+
+   ```
