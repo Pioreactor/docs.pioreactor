@@ -17,9 +17,13 @@ slug: /troubleshooting-ui
  - Try SSHing in and restarting the webserver: `sudo systemctl restart lighttpd.service && sudo systemctl status lighttpd.service`.
 
 
+### No information is shown on the Inventory page / no green dot / no response when I click some buttons.
+
+See [question below](#i-see-failed-to-connect-to-mqtt--in-a-pop-up---what-can-i-do).
+
 ### I see "Failed to connect to MQTT. ..." in a pop-up - what can I do?
 
-This error occurs because your UI can't connect to an internal system, MQTT, that is used for displaying data and actions. Likely you also weren't able to access the UI with `http://pioreactor.local`, but had to use an IP address as the url.
+This error likely occurs because your browser can't connect to an internal system, MQTT, that is used for displaying data and actions. Possibly you also weren't able to access the UI with `http://pioreactor.local`, but had to use an IP address as the url.
 
 To fix this:
 
@@ -35,6 +39,12 @@ Your IP may be different than the one above.
 
 3. Hit `Save`.
 4. Power-cycle the Pioreactor by rebooting it from the Inventory page.
+
+:::note
+
+Another reason might be that your institution's firewall is blocking port 9001. Ask your IT department about this. The web UI requires port 80 and port 9001 open to use.
+
+:::
 
 #### If you are using a remote access service, like ngrok or tailscale
 

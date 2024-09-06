@@ -12,9 +12,9 @@ Ideally, all calibrations, including od_calibration and pump_calibration, should
 1. Interface should have the following:
    - `pio run <x>_calibration` starts the calibration and saves it keyed by a unique name (see 2. for storage)
    - `pio run <x>_calibration list` lists all saved calibrations, keyed by their unique name.
-   - `pio run <x>_calibration display ?name?` displays information about the current calibration to be used, or the calibration ?name? if provided
-   - `pio run <x>_calibration change_current <name>` changes the current calibration to `<name>` calibration.
-   - `pio run <x>_calibration publish <name>` publishes the calibration to the leader.
+   - `pio run <x>_calibration display "<name>"` displays information about the current calibration to be used, or the calibration ?name? if provided
+   - `pio run <x>_calibration change_current "<name>"` changes the current calibration to `<name>` calibration.
+   - `pio run <x>_calibration publish "<name>"` publishes the calibration to the leader.
 
 2. On disk, all run calibrations should be stored in local persistent storage under `<x>_calibrations` keyed by a unique name, and the current calibration
 should be stored in `<x>_current_calibration`, with appropriate key (can use `<calibration_type>`) that is not the unique name, but something consistent. Note: The name cannot be `current`.

@@ -64,5 +64,5 @@ To see a full list of all previous calibrations, use `pio run od_calibration lis
 
 ## Changing a calibration
 
-If you wish to change your calibration to a previous version, use `pio run od_calibrations change_current <name>` where `<name>` is some previous calibration you've run (i.e from `pio run od_calibration list`).
+If you wish to change your calibration to a previous version, use `pio run od_calibrations change_current "<name>"` where `<name>` is some previous calibration you've run (i.e from `pio run od_calibration list`).
 
