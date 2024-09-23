@@ -3,8 +3,7 @@ title: Overview
 slug: /web-ui-introduction
 ---
 
-
-The web UI is hosted on the leader Pioreactor. Here are the details:
+Every Pioreactor, either worker or leader, have a web server on them. However, only the leader has an associated website (ex: http://pioreactor.local). Here are the details:
 
 ### Web server
 
@@ -19,9 +18,15 @@ The default protocol is `http` served on port `80`. To use `https` requires a ce
 
 The backend app is a Flask app, with entry point in `/var/www/pioreactorui/main.fcgi`. The app uses Huey as background workers to perform `pio` tasks, save to disk, etc. Huey is controlled by systemd `huey.service`. The API is [available here](/developer-guide/web-ui-api)
 
+:::info
+Both workers and leaders have this backend. However, workers only use expose the `/unit_api/` endpoints. See full list [here](/developer-guide/web-ui-api).
+:::
+
 ### Frontend
 
-The frontend is a React app, built with Material UI components. The source code is at [pioreactorui_frontend](https://github.com/Pioreactor/pioreactorui_frontend). A lot of the "data" for the frontend comes from YAML files on the RPi's filesystem. For example, all the charts, activities, and automations are defined in their own YAML file in a `contrib` folder on the filesystem. This way, it's easy to add new data to the frontend without having to write new JS.
+The frontend is a React app, built with Material UI. The source code is at [pioreactorui_frontend](https://github.com/Pioreactor/pioreactorui_frontend). A lot of the "data" for the frontend comes from YAML files on the RPi's filesystem. For example, all the charts, activities, and automations are defined in their own YAML file in a `contrib` folder on the filesystem. This way, it's easy to add new data to the frontend without having to write new JS.
+
+A lot of the live data
 
 
 ### DNS name resolution to `pioreactor.local`

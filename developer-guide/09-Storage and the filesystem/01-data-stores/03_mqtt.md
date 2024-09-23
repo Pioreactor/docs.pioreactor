@@ -71,6 +71,6 @@ pioreactor/{unit name or $broadcast}/{experiment name or $experiment}/...
 2. If writing a script:
 
     ```python
-    from pioreactor.utils import subscribe, subscribe_and_callback
+    from pioreactor.pubsub import subscribe, subscribe_and_callback
 
     ```

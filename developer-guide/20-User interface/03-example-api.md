@@ -14,33 +14,33 @@ This controls a pioreactor called `worker02`, part of a cluster controlled by th
 # RUN STIRRING
 curl -H "Content-Type: application/json" \
      --data '{"options": {"target_rpm": "600"}}' \
-     -X PATCH "http://leader.local/api/workers/worker02/experiments/Demo%20experiment%206/jobs/stirring/run"
+     -X PATCH "http://leader.local/api/workers/worker02/jobs/run/job_name/stirring/experiments/Demo%20experiment%206"
 
 # UPDATE STIRRING RPM
 curl -H "Content-Type: application/json" \
      --data '{"settings": {"target_rpm": "500"}}' \
-     -X PATCH "http://leader.local/api/workers/worker02/experiments/Demo%20experiment%206/jobs/stirring/update"
+     -X PATCH "http://leader.local/api/workers/worker02/jobs/update/job_name/stirring/experiments/Demo%20experiment%206"
 
 # STOP STIRRING
-curl -X PATCH "http://leader.local/api/workers/worker02/experiments/Demo%20experiment%206/jobs/stirring/stop"
+curl -X PATCH "http://leader.local/api/workers/worker02/jobs/stop/job_name/stirring/experiments/Demo%20experiment%206"
 
 # CHANGE LEDS
 curl -H "Content-Type: application/json" \
      --data '{"options": {"A": 60}}' \
-     -X PATCH "http://leader.local/api/workers/worker02/experiments/Demo%20experiment%206/jobs/led_intensity/run"
+     -X PATCH "http://leader.local/api/workers/worker02/jobs/run/job_name/led_intensity/experiments/Demo%20experiment%206"
 
 # START THERMOSTAT AT 35C
 curl -H "Content-Type: application/json" \
      --data '{"options": {"automation_name": "thermostat", "target_temperature": 35}}' \
-     -X PATCH "http://leader.local/api/workers/worker02/experiments/Demo%20experiment%206/jobs/temperature_automation/run"
+     -X PATCH "http://leader.local/api/workers/worker02/jobs/run/job_name/temperature_automation/experiments/Demo%20experiment%206"
 
 # CHANGE TARGET TEMP TO 32C
 curl -H "Content-Type: application/json" \
      --data '{"settings": {"target_temperature": 32}}' \
-     -X PATCH "http://leader.local/api/workers/worker02/experiments/Demo%20experiment%206/jobs/temperature_automation/update"
+     -X PATCH "http://leader.local/api/workers/worker02/jobs/update/job_name/temperature_automation/experiments/Demo%20experiment%206"
 
 # STOP THERMOSTAT
-curl -X PATCH "http://leader.local/api/workers/worker02/experiments/Demo%20experiment%206/jobs/temperature_automation/stop"
+curl -X PATCH "http://leader.local/api/workers/worker02/jobs/stop/job_name/temperature_automation/experiments/Demo%20experiment%206"
 
 ```
 
