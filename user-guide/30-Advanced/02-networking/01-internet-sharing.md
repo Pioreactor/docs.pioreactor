@@ -3,10 +3,10 @@ title: Internet sharing between a PC and a Pioreactor
 slug: /internet-sharing
 ---
 
-Below is a way to physically connect your PC to your Pioreactor and be able to control the Pioreactor from your PC, without needing any wifi or external router. This is called _internet sharing_. Note that this method _does_ scale to larger clusters, but below is only how to connect a single Pioreactor.
+Below is a way to physically connect your PC to your Pioreactor and be able to control the Pioreactor from your PC, without needing any wifi or external router. This is called _internet sharing_. Note that this method _does_ scale to larger clusters (see below).
 
 
-Below is a simple diagram of how this might look (these are faked IPs).
+Below is a simple diagram of how this might look (these are random IPs, yours may be different).
 ```
 
 +---------------------+

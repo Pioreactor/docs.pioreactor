@@ -42,6 +42,19 @@ Managing on/off and settings are done just like any other job, in the Manage dia
 
 You can uninstall plugins from the same page, too. These will remove the action on the Pioreactor's card, but won't delete the section in your config.ini. Also, if a SQL table was installed with the plugin, the table will not be deleted.
 
+## I don't have internet access - how can I install the plugin?
+
+ 1. First, get the latest .whl file [here](https://pypi.org/) onto any computer that can SSH into the Pioreactor.
+ 2. To get this .whl file onto a Pioreactor, use either `scp`, WinSCP, or FileZilla. Note: if you upload the .whl file to your leader Pioreactor first, you can distribute the .whl file to all your workers with `pios cp <location of .whl file>`
+ 3. Once the .whl file is on the Pioreactor, use the following to install the plugin:
+    ```
+    pio plugin install <name-of-plugin> --source <location of .whl file>
+    ```
+    For example:
+    ```
+    pio plugins install pioreactor-air-bubbler --source ~/pioreactor_air_bubbler-0.3.1-py3-none-any.whl
+    ```
+
 ## Alternative: putting Python files in the the `plugins` folder
 
 An alternative way to install a plugin is to place a Python file in the `/home/pioreactor/.pioreactor/plugins` directory on the Raspberry Pi. This is good for one-off scripts or plugins you are demoing or testing. See more [about writing and distributing plugins](/developer-guide/intro-plugins).
