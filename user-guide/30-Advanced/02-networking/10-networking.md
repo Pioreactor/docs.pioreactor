@@ -66,9 +66,16 @@ You may need to restart your cluster for these to take full effect.
 
 ### Starting the [Pioreactor local access](/user-guide/local-access-point) point using `nmcli`
 
-Note that you can only have 1 network connection for each network interface. So if you have only 1 wifi device (by default, RPi's only have 1 wifi device on them -> only 1 wifi interface), the following will replace any existing wifi connection.
+Note that you can only have one network connection for each network interface. So if you have only one wifi device (by default, RPi's only have one wifi device on them, which implies only one wifi interface), the following will replace any existing wifi connection.
 
 ```
+sudo nmcli con up PioreactorAP
+```
+
+If have a second wifi device with interface `wlan1`, you can change the interface of the local access point using:
+
+```
+sudo nmcli connection modify PioreactorAP ifname wlan1
 sudo nmcli con up PioreactorAP
 ```
 

@@ -111,4 +111,7 @@ Try `http://<your_leaders_hostname>.local`. Still not working? Try `http://10.42
  ### I'm pretty sure I'm at the limit of ~4-8 clients on my access point - what can I do?
 
   - You can purchase an inexpensive wifi router and use that as the access point. Note that you don't need to connect this router to the internet - it will operate a network regardless.
-  - You can purchase a WIFI USB stick to improve the clients and range of your Pioreactor. For example, the Alfa AWUS036AC (take note to confirm your Raspberry Pi can has the correct USB connection).
+  - You can purchase a Wifi USB stick to improve the number clients and range of your local-access-point. For example, the Alfa AWUS036AC (take note to confirm your Raspberry Pi can has the correct USB connection). To check if the device is active, use `nmcli device` and look for a `wlan1` (which represents the USB stick). To move the local access point to this USB stick, use
+    ```
+    sudo nmcli connection modify PioreactorAP ifname wlan1
+    ```
