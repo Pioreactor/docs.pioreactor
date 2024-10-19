@@ -8,7 +8,7 @@ export default function ButtonDownloadVersionedImage({type}){
     React.useEffect(() => {
         const fetchReleases = async () => {
             try {
-                const response = await fetch("https://api.github.com/repos/pioreactor/custopizer/releases");
+                const response = await fetch("https://api.github.com/repos/pioreactor/custopizer/releases?per_page=40");
                 if (!response.ok) {
                     throw new Error("Failed to fetch releases");
                 }
@@ -41,7 +41,7 @@ export default function ButtonDownloadVersionedImage({type}){
             <select name="version" onChange={e => setSelectedVersion(e.target.value)} style={{ width: "100px" }}>
                 <option value="">version</option>
                 {versions.map((blob, index) => (
-                    <option key={index} value={blob.version}>{blob.version}</option>
+                    <option key={index} value={blob.version}>{blob.version}{index === 0 ? " (latest)" : ""}</option>
                 ))}
             </select>
             <button onClick={handleDownload} disabled={selectedVersion === ''} style={{"marginLeft": "10px"}}>
