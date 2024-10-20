@@ -18,7 +18,7 @@ The Pioreactor comes with the ability to create its own local access point, whic
 
 
 :::info
-The built-in local access point is meant for small clusters of Pioreactors, and it's range and stability is limited. If you want a proper local access point, we suggest purchasing an inexpensive wifi router and using that (the router does not need to be connected to the internet - it will still create a wifi network you can connect Pioreactors to regardless).
+The built-in local access point is meant for small clusters of Pioreactors, and it's range and stability is limited. If you want a proper local access point, we suggest purchasing an inexpensive Wifi router and using that, or a Wifi USB device (the router does not need to be connected to the internet - it will still create a wireless network you can connect Pioreactors to regardless).
 :::
 
 
@@ -57,7 +57,7 @@ Without access to the internet, the Pioreactor will have the wrong internal time
 ### Connecting more Pioreactors to your local access point
 
 :::info
-Raspberry Pi 3B and Raspberry Pi Zero W have trouble connecting to these local access points. Follow instructions [here](https://github.com/Pioreactor/pioreactor/blob/992d986881f3a3504a08b781a494b1a6e3b5a0e3/CHANGELOG.md?plain=1#L110C11-L121).
+Raspberry Pi 3B (not B+) and Raspberry Pi Zero W (not Zero 2) have trouble connecting to these local access points. Follow instructions [here](https://github.com/Pioreactor/pioreactor/blob/992d986881f3a3504a08b781a494b1a6e3b5a0e3/CHANGELOG.md?plain=1#L110C11-L121).
 :::
 
 
@@ -69,7 +69,7 @@ This network may not be connected to the internet, so you won't be able to upgra
 
 ## Adding internet access to your local access point
 
-If you are hosting the local access point on a Raspberry Pi that has an ethernet port (B models), you can plug this into a router that has access to the internet to provide internet to your entire cluster.
+If you are hosting the local access point on a Raspberry Pi that has an ethernet port (B models, or via a usb-ethernet gadget), you can plug this into a router that has access to the internet to provide internet to your entire cluster.
 
 
 ![Using the Pioreactor to create a local access point, and the is connected to a router](/img/user-guide/lap_with_internet.png)
@@ -78,11 +78,14 @@ If you are hosting the local access point on a Raspberry Pi that has an ethernet
 ## Turning off a local access point
 
 After SSH-ing into your Pioreactor, simply delete the `local_access_point` file in the `/boot/firmware/` directory, and reboot.
+```
+sudo rm /boot/firmware/local_access_point
+```
 
 
 ## Changing SSID name or password for your local access point
 
-In the `config.ini`, the SSID and password are editable under the section `local_access_point`. This requires a power-cycle to take effect.
+In the `config.ini`, the SSID and password are editable under the section `local_access_point`. This requires a power-cycle to take effect, and any other workers in the cluster will need to be updated.
 
 
 ## Troubleshooting
@@ -105,13 +108,14 @@ Try `http://<your_leaders_hostname>.local`. Still not working? Try `http://10.42
 
 ### I can't connect a worker to my local access point
 
- - confirm that you are using the right wifi name and password in the Imager (default `pioreactor` and `raspberry`)
- - The maximum number of access point clients (Pioreactors and computers) that can be connected to a local access point on a Pioreactor is ~4-8. There is a possibility to add more, see [issue here](https://github.com/Pioreactor/pioreactor/issues/442).
+ - confirm that you are using the right wifi name and password in the Imager (default `pioreactor` and `raspberry`), and the hostname is correct and unique.
+ - The maximum number of access point clients (Pioreactors and computers) that can be connected to a local access point on a Pioreactor is ~4-8. See question below.
 
  ### I'm pretty sure I'm at the limit of ~4-8 clients on my access point - what can I do?
 
-  - You can purchase an inexpensive wifi router and use that as the access point. Note that you don't need to connect this router to the internet - it will operate a network regardless.
+  - You can purchase an inexpensive wifi router and use that as the access point. Note that you don't need to connect this router to the internet - it will operate a wireless network regardless.
   - You can purchase a Wifi USB stick to improve the number clients and range of your local-access-point. For example, the Alfa AWUS036AC (take note to confirm your Raspberry Pi can has the correct USB connection). To check if the device is active, use `nmcli device` and look for a `wlan1` (which represents the USB stick). To move the local access point to this USB stick, use
     ```
     sudo nmcli connection modify PioreactorAP ifname wlan1
     ```
+  - Another possible option is purely software based: There is a possibility to add more, see [issue here](https://github.com/Pioreactor/pioreactor/issues/442).

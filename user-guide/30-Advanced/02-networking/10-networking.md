@@ -75,7 +75,7 @@ sudo nmcli con up PioreactorAP
 If have a second wifi device with interface `wlan1`, you can change the interface of the local access point using:
 
 ```
-sudo nmcli connection modify PioreactorAP ifname wlan1
+sudo nmcli con modify PioreactorAP ifname wlan1
 sudo nmcli con up PioreactorAP
 ```
 
@@ -96,7 +96,11 @@ broker=leader.local
 
 To change the web UI port from the default of `80`, following these instructions:
 
-1. SSH into your leader Pioreactor.
+:::note
+This will change the web server port for all leaders and workers. There is currently not a way to have different ports on different Pioreactors. See [this issue](https://github.com/Pioreactor/pioreactor/issues/526).
+:::
+
+1. SSH into each Pioreactor in your cluster, leader and workers.
 2. We'll edit the lighttpd configuration first: 
    ```
    sudo nano /etc/lighttpd/lighttpd.conf
@@ -110,7 +114,9 @@ To change the web UI port from the default of `80`, following these instructions
    ```
    You should be able to access the web UI only on http://`leader name`:`new port`, for example: http://leader.local:8080
 
-4. In your configuration, under the `[ui]` section, change the `port` option from `80` to your new port value. Save. You may need to restart your cluster for this new port to propagate to all machines correctly. 
+4. In your configuration, under the `[ui]` section, change the `port` option from `80` to your new port value. Save. You may need to restart your cluster for this new port to propagate to all Pioreactors correctly.
+
+
 
 
 ## Connecting to eduroam
