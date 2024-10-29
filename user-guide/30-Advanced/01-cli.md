@@ -10,7 +10,7 @@ For those interested, you can use the command line to interact with the Pioreact
 Interacting with the Pioreactor on the command line are through the `pio` tool. Available arguments are:
 
 *   `pio logs` will produce a stream of recent logs events. Logs are stored in `/var/log/pioreactor.log`.
-*   `pio kill --name <job> --experiment <exp>` or `pio kill --all-jobs` to end jobs.
+*   `pio kill --job-name <job> --experiment <exp>` or `pio kill --all-jobs` to end jobs.
 *   `pio run <job> <options>` will run the `<job>`. Each job may have specific command line arguments.
 *   `pio version` print the version of the PioreactorApp software.
 *   `pio update app` will update the software to the latest version.
@@ -41,7 +41,7 @@ The leader also has their own unique set of `pio` commands (these commands do no
 
 The leader Pioreactor interacts with the worker computers using the `pios` command. Unless otherwise noted, the `pios` will target all worker computers. Available `pios` commands on the leader Pioreactor are the following:
 
-*   `pios kill --name <job>` terminate the job `<job>` on the workers. Ex: `pios kill --name dosing_automation`.
+*   `pios kill --job-name <job>` terminate the job `<job>` on the workers. Ex: `pios kill --job-name dosing_automation`.
 *   `pios run <job>` on each worker, run the job `<job>` in the background. Job specific arguments can be specified after. Ex: `pios run add_media --ml 1`.
 *   `pios update` install the latest Pioreactor software on each worker.
 *   `pios sync-configs` deploy the config.ini files to workers.
@@ -49,7 +49,7 @@ The leader Pioreactor interacts with the worker computers using the `pios` comma
 *   `pios plugins uninstall <plugin name>` will uninstall the plugin on each worker _and_ the leader.
 *   `pios reboot` will reboot all workers, by default, in the cluster. See `--units` arg below.
 *   `pios shutdown` will shut down all workers, by default, in the cluster. See `--units` arg below.
-*   `pios cp <filepath>` will copy (and overwrite) `filepath` on the leader to all the workers.
+*   `pios cp <filepath>` will copy (and possibly overwrite) `filepath` on the leader to all the workers.
 *   `pios rm <filepath>` will remove `filepath` on all the workers.
 
 :::tip

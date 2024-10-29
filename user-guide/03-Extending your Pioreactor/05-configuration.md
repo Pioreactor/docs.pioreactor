@@ -35,19 +35,15 @@ Pioreactor also stores a history of changes to each configuration file. You can 
 ![Select historical versions of config.ini's](/img/user-guide/choose_config_version2.png)
 
 
-
 ### Editing the configuration files from the command line
 
-All the `.ini` files come from the leader unit. They are stored in `/home/pioreactor/.pioreactor` - one `config.ini` and a `config_<unitName>.ini` for each Pioreactor unit. The command `pios sync-configs` will deploy the `.ini` files to their correct unit. Editing the `.ini` files on the leader is correct workflow, as any edits on the worker units will be overwritten on the next `pios sync-configs`.
-
-One can programmatically, or by hand, edit the `config_<unitName>.ini` files to create varying parameters in an experiment. Running `pios sync-configs` will deploy the config files.
-
+All the `.ini` files come from the leader unit. They are stored in `/home/pioreactor/.pioreactor` - the `config.ini` and a `config_<unitName>.ini` for each Pioreactor unit. The command `pios sync-configs` will deploy the `.ini` files to their correct unit. Editing the `.ini` files on the leader is correct workflow, as any edits on the worker units will be overwritten on the next `pios sync-configs`.
 
 ### Editing the `config.ini` before booting
 
 Sometimes it's desirable to make changes to the `config.ini` without having to boot the Pioreactor first. You can do this by plugging the microSD card into your computer, and adding a `config.ini` to the `boot/` folder on it. This `config.ini` doesn't need to have all the fields, only the fields you wish to change. At start up, the Pioreactor will merge `/boot/config.ini` into the Pioreactor's `config.ini`, and then delete `/boot/config.ini`.
 
 
-### Example `config.ini`
+### Default `config.ini`
 
-If you need a reference config.ini, or to replace parts of yours, here's our [default one](https://raw.githubusercontent.com/Pioreactor/CustoPiZer/pioreactor/workspace/scripts/files/config.example.ini) that ships with the Raspberry Pi image. To use it, you'll need to make some changes, specifically to \`cluster.leader\` and \`inventory\`.
+If you need a reference config.ini, or to replace parts of yours, here's our [default one](https://raw.githubusercontent.com/Pioreactor/CustoPiZer/pioreactor/workspace/scripts/files/config.example.ini) that ships with the Raspberry Pi image. To use it, you'll need to make some changes to populate the leader, specifically to \`cluster.topology\` and \`mqtt\`.
