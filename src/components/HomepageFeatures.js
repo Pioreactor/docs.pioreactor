@@ -7,7 +7,7 @@ import { useColorMode } from '@docusaurus/theme-common';
 const FeatureList = [
   {
     title: 'User Guide',
-    Svg: require('@site/static/img/misc/undraw_scientist_ft0o.svg').default,
+    Svg: require('@site/static/img/misc/scientist_holding_pioreactor_right.svg').default,
     link: "/user-guide/introduction",
     description: (
       <>
@@ -27,7 +27,7 @@ const FeatureList = [
   },
   {
     title: 'Experiments',
-    Svg: require('@site/static/img/misc/undraw_professor_re_mj1s.svg').default,
+    Svg: require('@site/static/img/misc/prof_teaching_right.svg').default,
     link: "/experiments/introduction",
     description: (
       <>
@@ -39,15 +39,15 @@ const FeatureList = [
 
 function Feature({Svg, title, description, link}) {
   return (
-    <div className={clsx('col col--4')}>
-      <div className="text--center">
+    <div className={clsx('col col--4', styles.featureCard)}>
+      <div className={clsx('text--center')}>
         <a href={link}>
           <Svg
-           className={styles.featureSvg}
-           stroke={useColorMode().colorMode === "dark" ? "white" : "#5332CA"}
-           fill={useColorMode().colorMode === "dark" ? "white" : "#5332CA"}
-           alt={title} />
-           </a>
+            className={styles.featureSvg}
+            stroke={useColorMode().colorMode === "dark" ? "white" : "#5332CA"}
+            fill={useColorMode().colorMode === "dark" ? "white" : "#5332CA"}
+            alt={title} />
+        </a>
       </div>
       <div className="text--center padding-horiz--md">
         <h3><a href={link} style={{textDecoration: "none", color: "inherit"}}>{title}</a></h3>
