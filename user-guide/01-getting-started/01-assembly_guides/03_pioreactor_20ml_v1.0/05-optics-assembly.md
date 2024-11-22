@@ -66,9 +66,9 @@ This window covering is optional. You can add it to further reduce the light in 
 
 
 
-<AssemblyInstructionBlock title="Step 4: Your done!" images={["user-guide/hardware-assembly/finished.jpg"]}>
+<AssemblyInstructionBlock title="Step 4: You're done!" images={["user-guide/hardware-assembly/finished.jpg"]}>
 
-1.  Your Pioreactor assembly is complete! 🚀
+1.  Your Pioreactor assembly is complete! ✨🚀✨
 2.  Leave the Pioreactor powered off, for now.
 3.  If you also have pumps, we'll assemble those later.
 3.  Next: begin installing the [software](/user-guide/software-set-up).
