@@ -21,3 +21,6 @@ query: SELECT * FROM the_target_table WHERE reading < 4 AND ... # optional: you 
 ```
 
 After adding this file, visit the Export Page in the UI.
+
+
+You can see more examples [here](https://github.com/Pioreactor/CustoPiZer/tree/pioreactor/workspace/scripts/files/pioreactor/exportable_datasets).
