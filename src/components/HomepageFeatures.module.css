@@ -10,23 +10,28 @@
   width: auto;
   margin-bottom: 10px;
   transition: transform 0.4s ease, fill 0.4s ease;
+}
 
+.featureSvg, .featureCard {
+  transition: transform 0.3s ease, box-shadow 0.3s ease, fill 0.3s ease;
 }
 
 .featureCard {
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-  border-radius: 8px; /* Optional: for rounded corners */
-  padding: 16px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 8px;
+  padding: 24px; /* Increased padding for more breathing room */
+  text-align: center; /* Ensure content stays centered */
 }
 
+
 .featureCard:hover {
-  transform: translateY(-2px); /* Less lift */
-  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1); /* Softer shadow */
+  transform: translateY(-1px); /* Slight hover effect */
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.08); /* Softer shadow */
 }
 
 
 .featureCard:hover .featureSvg {
-  transform: scale(1.05); /* Slightly smaller scale */
-  fill: #FFB84D; /* Subtle color change */
+  transform: scale(1.03); /* Even smaller scale */
+  fill: #FFCC80; /* Softer, lighter color */
 }
 

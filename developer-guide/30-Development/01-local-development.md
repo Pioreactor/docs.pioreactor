@@ -14,12 +14,12 @@ slug: /local-development
     pip3 install -e .
     pip3 install -r requirements/requirements_dev.txt
     ```
-4. In the pioreactor folder, create a folder called `.pioreactor/` and `.pioreactor/storage`.
+4. In the pioreactor folder, create a folder called `.pioreactor/` and other important subdirectories.
     ```
     mkdir .pioreactor
-    mkdir .pioreactor/storage
+    mkdir .pioreactor/storage .pioreactor/plugins .pioreactor/exportable_datasets
     ```
-5. The configuration file that is used is `config.dev.ini`, and is provided  in the repository.
+5. The configuration file that is used is `config.dev.ini`, and is provided  in the repository. Move this to `.pioreactor/`.
 
 ### MQTT
 

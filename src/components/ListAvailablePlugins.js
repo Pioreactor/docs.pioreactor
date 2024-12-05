@@ -1,6 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
-import { Hashicon } from "@emeraldpay/hashicon-react";
+import Avatar from "boring-avatars";
 
 export default function ListAvailablePlugins(){
 
@@ -28,7 +28,7 @@ export default function ListAvailablePlugins(){
               <li style={{listStyle: "none", marginBottom: "25px"}}>
                   <div>
                     <div style={{display: "flex", alignItems: "center"}}>
-                      <Hashicon  value={plugin.name} size={28} />
+                      <Avatar  name={plugin.name + "seed1"} size={40} colors={["#5332ca", "#856edb", "#94ccc1", "#d8535e", "#f0b250"]} variant="bauhaus"  />
                       <h3 style={{marginBottom: "5px", marginLeft: "10px"}}>{plugin.name}</h3>
                     </div>
                     <a href={plugin.homepage} target="_blank">View homepage ↗</a>

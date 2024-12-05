@@ -36,7 +36,33 @@ class JustPause(BackgroundJobWithDodgingContrib):
 
 ```
 
-3. We also want some "buffer" time before and after an OD reading. For example, if using a bubbler, we want the bubbles to dissipate completely before taking an OD reading. We should stop bubbling early then. To set these times, add the following to your config.ini:
+3. You should also consider what the job should do if OD reading isn't turned on. That is, what should the default behaviour be without OD reading. Also, what should occur when the OD reading is turned on _late_.
+
+You can handle the "dodging" case and "continuous" with the `initialize_*` methods:
+
+```python
+class JustPause(BackgroundJobWithDodgingContrib):
+
+    ...
+
+    def initialize_dodging_operation(self):
+        self.logger("OD reading is ON and I'm enabled for dodging, so set up what I need...")
+
+    def initialize_continuous_operation(self):
+        self.logger("OD reading is off, or being ignored, so set up what I need for that...")
+
+    def action_to_do_before_od_reading(self):
+        # example
+        self.logger.debug("Pausing")
+        self.stop_pumping()
+
+    def action_to_do_after_od_reading(self):
+        # example
+        self.logger.debug("Unpausing")
+        self.start_pumping()
+```
+
+4. We also want some "buffer" time before and after an OD reading. For example, if using a bubbler, we want the bubbles to dissipate completely before taking an OD reading. We should stop bubbling early then. To set these times, add the following to your config.ini:
 
 ```
 [<job_name>]

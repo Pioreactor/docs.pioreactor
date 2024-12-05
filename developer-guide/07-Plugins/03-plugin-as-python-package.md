@@ -206,7 +206,7 @@ fields:
 
 There are lots of examples of automation yaml files [here](https://github.com/Pioreactor/pioreactorui/tree/master/contrib/automations).
 
-#### 5. Optional: adding tables to the SQL store
+#### 5. Optional: adding tables to the SQL database and exposing them on the Export Data page
 
 You can also add a file called `additional_sql.sql` that will run against the SQLite database. For example, a CO₂ sensor may want to create a new table in the database to store its sensor data. It's `additional_sql.sql` may look like:
 
@@ -267,6 +267,33 @@ include <PLUGIN_NAME>/additional_sql.sql
 
 See an example plugin that uses this idea [here](https://github.com/Pioreactor/co2-reading-plugin).
 
+----
+
+Now that you've added the code for adding to the database, you can also allow users to export your data from the UI's Export Data page. To do this, added a new folder `/exportable_datasets` to your project's source folder (along side the `__init__.py` file), and add a YAML file:
+
+```yaml
+dataset_name: some_unique_dataset_name
+default_order_by: timestamp # for example
+description: A lovely description which shows up in the UI
+display_name: A lovely name which shows up in the UI
+has_experiment: true # does your SQL table have an experiment column.?
+has_unit: true # does your SQL table have an pioreactor_unit column.?
+source: your_plugin_name
+table: the_target_table # see also query below
+timestamp_columns:
+- timestamp
+always_partition_by_unit: false
+query: SELECT * FROM the_target_table WHERE reading < 4 AND ... # optional: you can specify a query.
+```
+
+You can add multiple dataset YAML files, too.
+
+:::note
+Include the following in your MANIFEST.IN:
+```
+recursive-include your_plugin_name/exportable_datasets *.yaml
+```
+:::
 
 #### 6. Optional: adding a custom chart to the UI
 
