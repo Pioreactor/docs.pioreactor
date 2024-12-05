@@ -13,14 +13,23 @@ display_name: A lovely name which shows up in the UI
 has_experiment: true # does your SQL table have an experiment column.?
 has_unit: true # does your SQL table have an pioreactor_unit column.?
 source: app
-table: the_target_table # see also query below
+table: the_target_table # optional: see note below
 timestamp_columns:
 - timestamp
 always_partition_by_unit: false
-query: SELECT * FROM the_target_table WHERE reading < 4 AND ... # optional: you can specify a query.
+query: SELECT * FROM the_target_table WHERE reading < 4 AND ...  # optional: see note below
 ```
+
+:::note
+Either `table` or `query` is required. If you provide a `table`, the `query` field is ignored. The usecase for `query` is when you need to join multiple tables, use `WHERE` clauses, or do some other complex SQL operation.
+:::
 
 After adding this file, visit the Export Page in the UI.
 
+You can see more examples [here](
+:::
 
-You can see more examples [here](https://github.com/Pioreactor/CustoPiZer/tree/pioreactor/workspace/scripts/files/pioreactor/exportable_datasets).
+
+After adding this file, visit the Export Page in the UI.
+
+You can see more examples [here](https://github.com/Pioreactor/CustoPiZer/tree/pioreactor/workspace/scripts/files/pioreactor/exportable_datasets) and [here](https://github.com/Pioreactor/spectrometer-reading-plugin/tree/main/spectrometer_reading_plugin/exportable_datasets)
