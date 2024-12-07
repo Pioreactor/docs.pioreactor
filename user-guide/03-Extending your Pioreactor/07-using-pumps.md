@@ -120,7 +120,7 @@ Before attaching to media, waste, or vials for your experiments, you can spray t
 
 ### Running pumps from the web interface
 
-See documentation on [how to run pumps manually from the UI](http://localhost:3001/user-guide/manual-dosing-leds#dosing).
+See documentation on [how to run pumps manually from the UI](/user-guide/manual-dosing-leds#dosing).
 
 ### Running pumps from the command line
 

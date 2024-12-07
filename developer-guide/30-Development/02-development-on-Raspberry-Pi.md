@@ -9,7 +9,7 @@ If you have a Raspberry Pi available, you can quickly boot up a near-exact envir
 
 1. Install the Pioreactor software on to a microSD card by following the instructions [here](/user-guide/software-set-up).
 2. Power the Raspberry Pi. Since there's no HAT hardware, there won't be a blue blinking LED. The Raspberry Pi will still connect to the network you provided in the setup.
-3. SSH into the Raspberry Pi. [Instructions on how to SSH in](http://localhost:3001/user-guide/accessing-raspberry-pi).
+3. SSH into the Raspberry Pi. [Instructions on how to SSH in](/user-guide/accessing-raspberry-pi).
     - You should also be able to visit http://pioreactor.local
 4. Once SSH'ed in, we need to add some "mocking" packages. Enter the following:
     - `sudo pip3 install fake-rpi`

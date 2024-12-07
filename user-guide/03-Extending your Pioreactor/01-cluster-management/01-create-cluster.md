@@ -56,7 +56,7 @@ When you have multiple Pioreactors, you can nominate one to be the leader, and r
 
 #### Cluster, and leader is _not_ a worker
 
-You can also choose not to have the leader be a worker. This is useful if you have a spare Raspberry Pi without the Pioreactor hardware, or the number of Pioreactors grows large and you wish to keep one out of the inventory to focus on being a leader only. We provide custom images for this [here](http://localhost:3001/user-guide/software-set-up#id-like-to-have-the-leader-not-be-a-worker-and-only-a-standalone-leader-can-i-do-that).
+You can also choose not to have the leader be a worker. This is useful if you have a spare Raspberry Pi without the Pioreactor hardware, or the number of Pioreactors grows large and you wish to keep one out of the inventory to focus on being a leader only. We provide custom images for this [here](/user-guide/software-set-up#id-like-to-have-the-leader-not-be-a-worker-and-only-a-standalone-leader-can-i-do-that).
 
 ![leader not worker](/img/user-guide/leader_cluster.png)
 
