@@ -132,12 +132,23 @@ It is possible that your mDNS is being blocked or restricted. If possible, log i
 
 Also, if you are able to provide a permanent IPv4 address to your leader, you can get a significant performance boost by setting the configuration some config parameters to the IPv4 address.
 
-```
+```ini
 [cluster.topology]
 # below is an example, your IPv4 may differ:
+leader_hostname=... # your leader's hostname
 leader_address=192.168.0.3
 
 [mqtt]
 broker_address=192.168.0.3
 
 ```
+
+### I am using static IPv4s, how do I set this up?
+
+You can put worker ipv4s in the shared config.ini file under `cluster_addresses` section. For example, for worker01:
+
+```ini
+[cluster.addresses]
+worker01=192.1.1.1
+```
+
