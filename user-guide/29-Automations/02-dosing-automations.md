@@ -9,6 +9,9 @@ When pairing the Pioreactor with dosing pumps, there are new capabilities and ex
 
 <TOCInline toc={toc} />
 
+## Available dosing automations
+
+
 ### Silent
 
 **Requires:** None
@@ -92,9 +95,12 @@ When liquid is added, say 1ml, the volume rises an additional 1ml. Then 1ml of l
 
 To further avoid overflow, we limit how much liquid is added in a single pump cycle. If the amount of liquid to be added is greater than the `max_dose_volume`, then the liquid is divided into smaller doses (halved until those new doses are less than `max_subdose` parameter), with the waste-pump run in between to avoid overflow. These small doses are called _subdoses_. You can change the maximum subdose value with the parameter `max_subdose`, see below.
 
-### Useful configuration parameters
+###  Configuration parameters
 
-#### `dosing_auomation.config`
+You can edit these parameters in your config.ini files.
+
+
+#### Section `[dosing_auomation.config]`
 
  - `pause_between_subdoses_seconds`: time to wait between doses - this is useful if you want to be sure the newly added liquid is sufficiently mixed before running the waste pump.
  - `waste_removal_multiplier`: the amount of additional time to run the waste pump after the influx pump has run. This is to ensure that the volume of liquid in the vial never exceeds the end of the efflux tube. Ex: if media ran for `0.75` seconds, then the waste will run for `waste_removal_multiplier * 0.75 seconds`
@@ -102,7 +108,7 @@ To further avoid overflow, we limit how much liquid is added in a single pump cy
  - `max_subdose`: the maximum volume to add in a single dose. If the volume to add is greater than this value, the volume will be divided into smaller doses.
 
 
-#### `bioreactor`
+#### Section `[bioreactor]`
 
  - `max_volume_ml`: determined by the volume that just touches the outflow tube. I.e. if you where to keep running the waste pump, what would the stable volume be.
  - `initial_volume_ml`: the initial volume of liquid in the vial. This is used to calculate the volume of liquid in the vial at any given time.
