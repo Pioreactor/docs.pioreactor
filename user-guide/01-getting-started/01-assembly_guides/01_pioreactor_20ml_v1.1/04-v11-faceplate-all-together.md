@@ -17,14 +17,14 @@ import TabItem from '@theme/TabItem';
 <AssemblyInstructionBlock title="Step 1: Necessary parts" images={["user-guide/hardware-assembly/upgrade-version/stirring-parts.png"]}>
 
 :::note
-Newer versions of the top faceplate will come with <Highlight color={colors.magenta}>2x risers</Highlight> to secure the fan to the faceplate. See _Version 2_ tab for assembly instructions.
+Newer versions of the top faceplate will come with <Highlight color={colors.magenta}>risers (2x)</Highlight> to secure the fan to the faceplate. See _Version 2_ tab for assembly instructions.
 :::
 
 1. For this version, you will need:
 
   * <Highlight color={colors.blue}>Fan</Highlight>
   * <Highlight color={colors.red}>Top faceplate</Highlight> (will have 4x 30mm screws in it)
-  * <Highlight color={colors.orange}>1x M2.5 10mm screw</Highlight>
+  * <Highlight color={colors.orange}>M2.5 10mm screw (1x)</Highlight>
 
 
 :::info
@@ -89,9 +89,9 @@ The top faceplate comes with a button extension to provide easier access to push
 
   * <Highlight color={colors.blue}>Fan</Highlight>
   * <Highlight color={colors.red}>Top faceplate</Highlight>
-  * <Highlight color={colors.orange}>1x M2.5 10mm screw</Highlight>
-  * <Highlight color={colors.green}>4x 30mm screws</Highlight>
-  * <Highlight color={colors.magenta}>2x Risers</Highlight>
+  * <Highlight color={colors.orange}>M2.5 10mm screw (1x)</Highlight>
+  * <Highlight color={colors.green}>30mm screws (4x)</Highlight>
+  * <Highlight color={colors.magenta}>Risers (2x)</Highlight>
 
 </AssemblyInstructionBlock>
 

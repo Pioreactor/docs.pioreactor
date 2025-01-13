@@ -12,7 +12,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-<AssemblyInstructionBlock title="Step 1: Upgrade parts" images={["user-guide/hardware-assembly/upgrade-version/upgrade-parts.png", "user-guide/hardware-assembly/upgrade-version/old-pioreactor.png", "user-guide/hardware-assembly/screwdriver.jpg"]}>
+<AssemblyInstructionBlock title="Step 1: Upgrade parts" images={["user-guide/hardware-assembly/upgrade-version/upgrade-parts.png", "user-guide/hardware-assembly/upgrade-version/new-fan-version.png", "user-guide/hardware-assembly/upgrade-version/old-pioreactor.png", "user-guide/hardware-assembly/screwdriver.jpg"]}>
 
 You will need:
 1. The parts provided in your upgrade kit: 
@@ -26,6 +26,10 @@ You will need:
 * <Highlight color={colors.brown}>M2.5 10mm screw (1x)</Highlight>
 2. Your original Pioreactor v1.0, to be upgraded.
 3. A Philip's head screwdriver. 
+
+:::note
+Newer versions of the <Highlight color={colors.orange}>top faceplate</Highlight> will come disassembled, with <Highlight color={colors.magenta}>risers (2x)</Highlight> to secure the fan to the faceplate with <Highlight color={colors.green}>30mm screws (4x)</Highlight>. See image 2. 
+:::
 
 </AssemblyInstructionBlock>
 
