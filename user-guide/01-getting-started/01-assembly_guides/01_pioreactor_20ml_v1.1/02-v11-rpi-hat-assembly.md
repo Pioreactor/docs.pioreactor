@@ -68,7 +68,7 @@ By screwing down the standoffs, they'll help compress the HAT onto the RPi, too.
 
 </AssemblyInstructionBlock>
 
-
+-----
 
   </TabItem>
   <TabItem value="zero" label="Raspberry Pi Zero / Zero 2 instructions">
