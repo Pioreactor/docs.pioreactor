@@ -12,7 +12,7 @@ Below is a list of important locations and files on the filesystem for the Piore
  - `/var/www/pioreactorui/` is the source of the web-app.
  - `/var/www/pioreactorui/.env` holds some configuration for the UI.
  - `/var/www/pioreactorui/contrib/` holds yaml files that display automation data, job data, and chart data.
- - `/home/pioreactor/.pioreactor/plugins/ui/contrib/` also holds yaml files, like the above.
+ - Note: `/home/pioreactor/.pioreactor/plugins/ui/contrib/` also holds yaml files, like the above.
 
 
 ### Logs
@@ -24,7 +24,7 @@ Below is a list of important locations and files on the filesystem for the Piore
 ### Storage
 
  - `/home/pioreactor/.pioreactor/storage/` holds the main database, backup of the database, and persistent caches.
- - `/tmp/` holds temporary caches. Files in here are not kept between reboots.
+ - `/tmp/pioreactor_cache/` holds temporary caches. Files in here are not kept between reboots.
 
 
 ### Bash scripts
@@ -44,4 +44,8 @@ Below is a list of important locations and files on the filesystem for the Piore
 ### Experiment profiles
 
  - `/home/pioreactor/.pioreactor/experiment_profiles/` is where experiment profiles (yaml) are stored.
+
+### Calibrations
+
+ - `/home/pioreactor/.pioreactor/storage/calibrations/` is where calibrations are stored.
 

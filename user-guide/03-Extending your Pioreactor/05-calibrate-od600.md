@@ -17,16 +17,20 @@ OD600 calibrations are straightforward, and only require one vial, your sample o
 
 The calibration works by reading a dilution series. You will start with 10mL of your sample of interest cultivated in your media, at the highest density you expect to observe. During the calibration, you will specify and add an amount of your media to dilute your sample. To avoid overflowing, the program will prompt you to reduce the volume in your vial to 10mL at set intervals. 
 
-Calibrations should be specific to your experiment setup. Any changes to your media, culture, or optical setup (i.e. changing IR intensity, replacing pieces, or changing the angle) will require a new calibration. If everything remains consistent, then we recommend running calibrations every 6 months, or whatever suits your purposes.
+Calibrations should be specific to your experiment setup. Any changes to your media, culture, or optical setup (i.e. changing IR intensity, replacing pieces, or changing the angle) may require a new calibration. If everything remains consistent, then we recommend running calibrations every 6 months, or whatever suits your purposes.
+
+:::info
+All your OD calibrations are saved to disk, and can be edited afterwards.
+:::
 
 ## Running the calibration
 
-Connect to your Pioreactor by typing *`ssh pioreactor@<insert unit name>.local`*. For example, to calibrate on our Pioreactor named worker3, we typed *`ssh pioreactor@worker3.local`*. The default password is `raspberry`. To begin calibrations, type `pio run od_calibration`.
+Connect to your Pioreactor by typing *`ssh pioreactor@<insert unit name>.local`*. For example, to calibrate on our Pioreactor named worker3, we typed *`ssh pioreactor@worker3.local`*. The default password is `raspberry`. To begin calibrations, type `pio calibrations run --device od`.
 
 Start off by inputting some metadata of your calibration. Provide a descriptive and unique name to make it easier to find your calibration again, if needed. Follow the rest of the questions.
 
 :::info
-One of your photodiodes will be located in the 45°, 90°, or 135° pocket on the vial holder. You will be prompted to confirm the angle of your PD cable. If this is incorrect, go to the _Configuration_ tab on the Pioreactor UI and under _od_config.photodiode_channel_, change to your angle of choice, then restart your OD calibration.
+One of your photodiodes will be located in the 90° or 135° pocket on the vial holder. You will be prompted to confirm the angle of your PD cable. If this is incorrect, go to the _Configuration_ tab on the Pioreactor UI and under _od_config.photodiode_channel_, change to your angle of choice, then restart your OD calibration.
 ![Change the angle through the UI configuration tab.](/img/user-guide/change_angle.png)
 :::
 
@@ -51,18 +55,25 @@ By default, we fit the calibration curve with a polynomial. You can choose the d
 
 ## Using calibrations in your experiments
 
-Calibrations are applied automatically. That is, after performing a calibration, your future experiments that use optical density readings will use the post-calibration values and be displayed in the UI and saved to the database.
+Calibrations are applied automatically during OD Readings. That is, after performing a calibration, your future experiments that use optical density readings will use the post-calibration values and be displayed in the UI and saved to the database.
 
-If you wish to stop using calibrations, you can switch if off in the config.ini by setting adding `use_calibations=0` under the  `[od_reading.config]` section.
+To change the OD calibration you wish to use for an experiment, visit the Calibrations page, select the calibration you wish to use, and select "Set Active". Only one calibration can be Active at a time.
+
+![Final data points on OD calibration.](/img/user-guide/od_cal_active.png)
 
 
-## Viewing your previous calibrations
+You can disable calibrations by changing the OD device to have no _Active_ calibration in the Calibrations page.
 
-On the command line, you can display your current calibrations using `pio run od_calibration display_current`). This will display the calibration graphs and metadata for each angle (45°, 90°, and 135°). Setting a new calibration would replace the information shown here, and be applied to new experiments that use the given angle.
+## Editing your previous calibrations
 
-To see a full list of all previous calibrations, use `pio run od_calibration list`.
+The calibrations are saved as a YAML file on your Pioreactor. You can edit these files directly on the command line. If you want to re-analyze the dataset, you can use the following tool:
+```
+pio calibrations analyze --device od --name <name of your calibration>
+```
 
-## Changing a calibration
+## Sharing calibrations
 
-If you wish to change your calibration to a previous version, use `pio run od_calibrations change_current "<name>"` where `<name>` is some previous calibration you've run (i.e from `pio run od_calibration list`).
+Since the calibrations are just YAML files, you can easily share existing calibrations to other Pioreactors.
+```
+
 

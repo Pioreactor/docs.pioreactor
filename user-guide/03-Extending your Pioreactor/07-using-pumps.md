@@ -113,7 +113,7 @@ You can attach the source of your media pump to your media bottle and "prime" it
 Likewise, the waste pump can flushed with water, and then attached to the Pioreactor vial and waste bottle.
 
 :::tip
-Before attaching to media, waste, or vials for your experiments, you can spray the luer lock ends with ethanol. **Be careful that no liquid that drips down into the Pioreactor vial holder.**
+Before attaching to media, waste, or vials for your experiments, you can spray the luer lock ends with ethanol. **Be careful that no liquid drips down into the Pioreactor vial holder.**
 :::
 
 

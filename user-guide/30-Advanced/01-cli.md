@@ -10,19 +10,18 @@ For those interested, you can use the command line to interact with the Pioreact
 Interacting with the Pioreactor on the command line are through the `pio` tool. Available arguments are:
 
 *   `pio logs` will produce a stream of recent logs events. Logs are stored in `/var/log/pioreactor.log`.
-*   `pio kill --job-name <job> --experiment <exp>` or `pio kill --all-jobs` to end jobs.
+*   `pio kill --job-name <job>` or `pio kill --all-jobs` to end jobs.
 *   `pio run <job> <options>` will run the `<job>`. Each job may have specific command line arguments.
 *   `pio version` print the version of the PioreactorApp software.
 *   `pio update app` will update the software to the latest version.
 *   `pio update ui` will update the ui to the latest version.
 *   `pio update` will update both the app and ui to the latest version.
-*   `pio plugins install <plugin name>` will install a plugin
-*   `pio plugins uninstall <plugin name>` will uninstall a plugin
-*   `pio plugins list` will list the currently installed plugins
 *   `pio blink` will blink the Pioreactor's onboard LED.
 *   `pio log -m <message>` will log a message
 *   `pio cache view <cache>` will print out the contents of the specified cache.
 *   `pio cache clear <cache> <key>` will remove `<key>` from cache `<cache>`.
+*   `pio plugins --help` for managing plugins
+*   `pio calibrations --help` for managing calibrations.
 
 
 ### Leader-only commands

@@ -5,15 +5,11 @@ slug: /web-ui-api
 
 ### All endpoints
 
+In most cases, where you see `<pioreactor_unit>`, you can use the key `$broadcast` to send the command to all units.
+
 ```
 Endpoint                                               Methods      Rule
 -----------------------------------------------------  -----------  ----------------------------------------------------------------------------------
-api.create_or_update_new_calibrations                  PUT          /api/calibrations
-api.get_available_calibrations_type_by_unit            GET          /api/calibrations/<pioreactor_unit>
-api.get_available_calibrations_of_type                 GET          /api/calibrations/<pioreactor_unit>/<calibration_type>
-api.get_calibration_by_name                            GET          /api/calibrations/<pioreactor_unit>/<calibration_type>/<calibration_name>
-api.patch_calibrations                                 PATCH        /api/calibrations/<pioreactor_unit>/<calibration_type>/<calibration_name>
-api.get_current_calibrations_of_type                   GET          /api/calibrations/<pioreactor_unit>/<calibration_type>/current
 api.get_configs                                        GET          /api/configs
 api.get_config                                         GET          /api/configs/<filename>
 api.update_config                                      PATCH        /api/configs/<filename>
@@ -25,14 +21,21 @@ api.update_experiment_profile                          PATCH        /api/contrib
 api.get_experiment_profiles                            GET          /api/contrib/experiment_profiles
 api.get_experiment_profile                             GET          /api/contrib/experiment_profiles/<filename>
 api.delete_experiment_profile                          DELETE       /api/contrib/experiment_profiles/<filename>
+api.get_exportable_datasets                            GET          /api/contrib/exportable_datasets
+api.preview_exportable_datasets                        GET          /api/contrib/exportable_datasets/<target_dataset>/preview
 api.get_job_contrib                                    GET          /api/contrib/jobs
 api.get_experiments                                    GET          /api/experiments
 api.create_experiment                                  POST         /api/experiments
 api.delete_experiment                                  DELETE       /api/experiments/<experiment>
 api.update_experiment                                  PATCH        /api/experiments/<experiment>
 api.get_experiment                                     GET          /api/experiments/<experiment>
-api.get_logs                                           GET          /api/experiments/<experiment>/logs
+api.get_list_of_historical_workers_for_experiment      GET          /api/experiments/<experiment>/historical_worker_assignments
+api.get_jobs_running_across_cluster_in_experiment      GET          /api/experiments/<experiment>/jobs/running
+api.get_settings_for_job_across_cluster_in_experiment  GET          /api/experiments/<experiment>/jobs/settings/job_name/<job_name>
+api.get_setting_for_job_across_cluster_in_experiment   GET          /api/experiments/<experiment>/jobs/settings/job_name/<job_name>/setting/<setting>
+api.get_exp_logs                                       GET          /api/experiments/<experiment>/logs
 api.get_media_rates                                    GET          /api/experiments/<experiment>/media_rates
+api.get_recent_logs                                    GET          /api/experiments/<experiment>/recent_logs
 api.get_fallback_time_series                           GET          /api/experiments/<experiment>/time_series/<data_source>/<column>
 api.get_growth_rates                                   GET          /api/experiments/<experiment>/time_series/growth_rates
 api.get_od_readings                                    GET          /api/experiments/<experiment>/time_series/od_readings
@@ -50,47 +53,63 @@ api.export_datasets                                    POST         /api/export_
 api.get_historical_media_used                          GET          /api/historical_media
 api.get_historical_organisms_used                      GET          /api/historical_organisms
 api.is_local_access_point_active                       GET          /api/is_local_access_point_active
-api.get_jobs_running_across_cluster                    GET          /api/jobs/running
-api.get_jobs_running_across_cluster_in_experiment      GET          /api/jobs/running/experiments/<experiment>
-api.get_settings_for_job_across_cluster_in_experiment  GET          /api/jobs/settings/job_name/<job_name>/experiments/<experiment>
-api.get_setting_for_job_across_cluster_in_experiment   GET          /api/jobs/settings/job_name/<job_name>/experiments/<experiment>/setting/<setting>
-api.get_setting_for_job_across_cluster                 GET          /api/jobs/settings/job_name/<job_name>/setting/<setting>
-api.get_job_settings_for_worker                        GET          /api/jobs/settings/workers/<pioreactor_unit>/job_name/<job_name>
-api.get_job_setting_for_worker                         GET          /api/jobs/settings/workers/<pioreactor_unit>/job_name/<job_name>/setting/<setting>
-api.install_plugin_across_cluster                      PATCH, POST  /api/plugins/install
-api.get_plugins_across_cluster                         GET          /api/plugins/installed
-api.uninstall_plugin_across_cluster                    PATCH, POST  /api/plugins/uninstall
+api.get_logs                                           GET          /api/logs
 api.update_app_from_release_archive                    POST         /api/system/update_from_archive
 api.update_app                                         POST         /api/system/update_next_version
 api.upload                                             POST         /api/system/upload
+api.set_clocktime                                      POST         /api/system/utc_clock
+api.get_list_of_units                                  GET          /api/units
 api.run_job_on_unit_in_experiment                      PATCH, POST  /api/units/<pioreactor_unit>/jobs/run/job_name/<job>/experiments/<experiment>
 api.get_running_jobs_on_unit                           GET          /api/units/<pioreactor_unit>/jobs/running
+api.get_jobs_running                                   GET          /api/units/<pioreactor_unit>/jobs/running
 api.stop_job_on_unit                                   PATCH, POST  /api/units/<pioreactor_unit>/jobs/stop/job_name/<job>/experiments/<experiment>
 api.update_job_on_unit                                 PATCH        /api/units/<pioreactor_unit>/jobs/update/job_name/<job>/experiments/<experiment>
+api.get_logs_for_unit                                  GET          /api/units/<pioreactor_unit>/logs
+api.install_plugin_across_cluster                      PATCH, POST  /api/units/<pioreactor_unit>/plugins/install
+api.get_plugins_on_machine                             GET          /api/units/<pioreactor_unit>/plugins/installed
+api.uninstall_plugin_across_cluster                    PATCH, POST  /api/units/<pioreactor_unit>/plugins/uninstall
 api.reboot_unit                                        POST         /api/units/<pioreactor_unit>/system/reboot
 api.shutdown_unit                                      POST         /api/units/<pioreactor_unit>/system/shutdown
-api.get_app_versions_across_cluster                    GET          /api/versions/app
-api.get_ui_versions_across_cluster                     GET          /api/versions/ui
+api.get_clocktime                                      GET          /api/units/<pioreactor_unit>/system/utc_clock
+api.get_app_versions                                   GET          /api/units/<pioreactor_unit>/versions/app
+api.get_ui_versions_across_cluster                     GET          /api/units/<pioreactor_unit>/versions/ui
 api.get_list_of_workers                                GET          /api/workers
 api.add_worker                                         PUT          /api/workers
 api.delete_worker                                      DELETE       /api/workers/<pioreactor_unit>
 api.get_worker                                         GET          /api/workers/<pioreactor_unit>
+api.get_all_active_calibrations                        GET          /api/workers/<pioreactor_unit>/active_calibrations
+api.remove_active_status_calibration                   DELETE       /api/workers/<pioreactor_unit>/active_calibrations/<device>
+api.set_active_calibration                             PATCH        /api/workers/<pioreactor_unit>/active_calibrations/<device>/<cal_name>
 api.blink_worker                                       POST         /api/workers/<pioreactor_unit>/blink
+api.get_all_calibrations                               GET          /api/workers/<pioreactor_unit>/calibrations
+api.get_calibrations                                   GET          /api/workers/<pioreactor_unit>/calibrations/<device>
+api.get_calibration                                    GET          /api/workers/<pioreactor_unit>/calibrations/<device>/<cal_name>
+api.remove_calibration                                 DELETE       /api/workers/<pioreactor_unit>/calibrations/<device>/<cal_name>
 api.get_experiment_assignment_for_worker               GET          /api/workers/<pioreactor_unit>/experiment
 api.get_logs_for_unit_and_experiment                   GET          /api/workers/<pioreactor_unit>/experiments/<experiment>/logs
+api.publish_new_log                                    POST         /api/workers/<pioreactor_unit>/experiments/<experiment>/logs
+api.get_recent_logs_for_unit_and_experiment            GET          /api/workers/<pioreactor_unit>/experiments/<experiment>/recent_logs
 api.change_worker_status                               PUT          /api/workers/<pioreactor_unit>/is_active
 api.run_job_on_unit_in_experiment                      PATCH, POST  /api/workers/<pioreactor_unit>/jobs/run/job_name/<job>/experiments/<experiment>
 api.get_running_jobs_on_unit                           GET          /api/workers/<pioreactor_unit>/jobs/running
+api.get_job_settings_for_worker                        GET          /api/workers/<pioreactor_unit>/jobs/settings/job_name/<job_name>
+api.get_job_setting_for_worker                         GET          /api/workers/<pioreactor_unit>/jobs/settings/job_name/<job_name>/setting/<setting>
 api.stop_all_jobs_on_worker_for_experiment             PATCH, POST  /api/workers/<pioreactor_unit>/jobs/stop/experiments/<experiment>
 api.stop_job_on_unit                                   PATCH, POST  /api/workers/<pioreactor_unit>/jobs/stop/job_name/<job>/experiments/<experiment>
 api.update_job_on_unit                                 PATCH        /api/workers/<pioreactor_unit>/jobs/update/job_name/<job>/experiments/<experiment>
+api.get_all_calibrations_as_yamls                      GET          /api/workers/<pioreactor_unit>/zipped_calibrations
 api.get_workers_and_experiment_assignments             GET          /api/workers/assignments
 api.remove_all_workers_from_all_experiments            DELETE       /api/workers/assignments
 api.stop_all_jobs_in_experiment                        PATCH, POST  /api/workers/jobs/stop/experiments/<experiment>
 api.setup_worker_pioreactor                            POST         /api/workers/setup
-api.reboot_units                                       POST         /api/workers/system/reboot
-api.shutdown_units                                     POST         /api/workers/system/shutdown
 static                                                 GET          /static/<path:filename>
+unit_api.get_all_active_calibrations                   GET          /unit_api/active_calibrations
+unit_api.remove_active_status_calibration              DELETE       /unit_api/active_calibrations/<device>
+unit_api.set_active_calibration                        PATCH        /unit_api/active_calibrations/<device>/<cal_name>
+unit_api.get_all_calibrations                          GET          /unit_api/calibrations
+unit_api.get_calibrations_by_device                    GET          /unit_api/calibrations/<device>
+unit_api.get_calibration                               GET          /unit_api/calibrations/<device>/<cal_name>
+unit_api.remove_calibration                            DELETE       /unit_api/calibrations/<device>/<cal_name>
 unit_api.run_job                                       PATCH, POST  /unit_api/jobs/run/job_name/<job>
 unit_api.get_all_running_jobs                          GET          /unit_api/jobs/running
 unit_api.get_running_jobs_for_experiment               GET          /unit_api/jobs/running/experiments/<experiment>
@@ -101,18 +120,24 @@ unit_api.stop_all_jobs                                 PATCH, POST  /unit_api/jo
 unit_api.stop_all_jobs_by_experiment                   PATCH, POST  /unit_api/jobs/stop/experiment/<experiment>
 unit_api.stop_job_by_name                              PATCH, POST  /unit_api/jobs/stop/job_name/<job_name>
 unit_api.stop_all_jobs_by_source                       PATCH, POST  /unit_api/jobs/stop/job_source/<job_source>
+unit_api.get_all_long_running_jobs                     GET          /unit_api/long_running_jobs/running
 unit_api.install_plugin                                PATCH, POST  /unit_api/plugins/install
 unit_api.get_installed_plugins                         GET          /unit_api/plugins/installed
 unit_api.get_plugin                                    GET          /unit_api/plugins/installed/<filename>
 unit_api.uninstall_plugin                              PATCH, POST  /unit_api/plugins/uninstall
+unit_api.dir_listing                                   GET          /unit_api/system/path/
+unit_api.dir_listing                                   GET          /unit_api/system/path/<path:req_path>
 unit_api.reboot                                        PATCH, POST  /unit_api/system/reboot
 unit_api.remove_file                                   PATCH, POST  /unit_api/system/remove_file
 unit_api.shutdown                                      PATCH, POST  /unit_api/system/shutdown
 unit_api.update_app_and_ui                             PATCH, POST  /unit_api/system/update
 unit_api.update_target                                 PATCH, POST  /unit_api/system/update/<target>
+unit_api.get_clock_time                                GET          /unit_api/system/utc_clock
+unit_api.set_clock_time                                PATCH, POST  /unit_api/system/utc_clock
 unit_api.task_status                                   GET          /unit_api/task_results/<task_id>
 unit_api.get_app_version                               GET          /unit_api/versions/app
 unit_api.get_ui_version                                GET          /unit_api/versions/ui
+unit_api.get_all_calibrations_as_yaml                  GET          /unit_api/zipped_calibrations
 ```
 
 From `python3 -m flask --debug --app main routes -s rule`

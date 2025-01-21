@@ -19,7 +19,7 @@ Select the datasets you would like to download.
 
 ![](/img/user-guide/export_data_selections.png)
 
-Click the _Export_ button to download the raw data as **.csv** files. Each dataset on the list will export as its own .csv file.
+Click the _Export_ button to download the raw data as **.csv** files.
 
 
 :::note

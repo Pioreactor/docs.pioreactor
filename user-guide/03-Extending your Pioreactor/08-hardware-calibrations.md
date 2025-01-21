@@ -34,9 +34,13 @@ This is optional, but can really help stirring performance. Creating a stirring 
 <AssemblyInstructionBlock title="Calibrating the stirring in the UI" images={["user-guide/calibrate.png","user-guide/calibrate_stirring.png"]}>
 
 1. Start by filling a Pioreactor vial about 3/4th with water, and place the stirbar inside. Close with lid. Place into the Pioreactor.
-2. From the web interface, in _Pioreactors_, find the Pioreactor you wish to calibrate. Click _Calibrate_.
-3. Click _stirring_.
-4. Click _Start_. The Pioreactor will increment the voltage applied to the motor, and record the RPM. After it's done, it will collect this data into a calibration curve, and store it locally.
+1. We'll perform this routine through your computer's command line. Need help [accessing it](/user-guide/accessing-raspberry-pi)?
+2.  Enter **`ssh pioreactor@<insert unit name>.local`**.
+    *   For example, to calibrate on our Pioreactor named _worker3_, we typed **`ssh pioreactor@worker3.local`**.
+    *   The default password is `raspberry`.
+2. After SSHing into your Pioreactor, enter `pio calibrations run --device stirring`.
+4. The Pioreactor will increment the voltage applied to the motor, and record the RPM. After it's done, it will collect this data into a calibration curve, and store it locally.
+4. At the end, you'll be prompted to set this as the "active" calibration. Select "Yes".
 
 </AssemblyInstructionBlock>
 
@@ -55,7 +59,6 @@ There are three pumps on the Pioreactor: media, alt-media, and waste. You don't 
 3. Container of water
 
 
-
 :::tip
 [Supplying external power](/user-guide/external-power)? Make sure to plug in your external power **before** pump calibration!
 :::
@@ -65,21 +68,15 @@ There are three pumps on the Pioreactor: media, alt-media, and waste. You don't 
 
 
 1. We'll perform this routine through your computer's command line. Need help [accessing it](/user-guide/accessing-raspberry-pi)?
-2.	Enter **`ssh pioreactor@<insert unit name>.local`**.
-	*	For example, to calibrate on our Pioreactor named _worker3_, we typed **`ssh pioreactor@worker3.local`**.
-	*	The default password is `raspberry`.
-3. Enter **`pio run pump_calibration`**.
-4. Follow the prompts to calibrate your media, waste, and/or alternate media pumps.
-5. Calibrations can be performed depending on the frequency of your Pioreactor use.
+2.  Enter **`ssh pioreactor@<insert unit name>.local`**.
+    *   For example, to calibrate on our Pioreactor named _worker3_, we typed **`ssh pioreactor@worker3.local`**.
+    *   The default password is `raspberry`.
+3. To calibrate the `media_pump`, enter `pio calibrations run --device media_pump`. Likewise for `waste_pump` and `alt_media_pump.`
+4. Follow the prompts to calibrate your pump.
+4. At the end, you'll be prompted to set this as the "active" calibration. Select "Yes".
 
 </AssemblyInstructionBlock>
 
-### Made a mistake, or want to change some data?
+## Managing calibrations
 
-Starting in software version 23.12.11, you can edit your calibration, too. At the end of the calibration, your data is listed (or use `pio run pump_calibration display` to see the data again). Copy the json data (between `{` and `}`) into new json file on the Raspberry Pi, say `~/pump_data.json` for example. Make any edits you wish to the data. Then you can "rerun" the calibration with data from that file:
-
-```
-pio run pump_calbration -f ~/pump_data.json
-```
-
-
+From both the UI and the command line, you can manage your Pioreactor's calibrations.
