@@ -118,7 +118,7 @@ setup(
 #### 1. Your plugins Python files
 
 This Python file contains the core code for your plugin. If your plugin is implementing a background job, then there should be a
-function decorated with `@click.command` at the bottom of the file. See example [here](https://github.com/CamDavidsonPilon/pioreactor-relay-plugin/blob/e25b46997d6e6b3b1b2e2bf1141299ddba4eaa49/pioreactor_relay_plugin/relay.py#L79-L93). For discovery reasons, this function's name **should start with `click_`**.
+function decorated with `@run.command` at the bottom of the file. See example [here](https://github.com/CamDavidsonPilon/pioreactor-relay-plugin/blob/e25b46997d6e6b3b1b2e2bf1141299ddba4eaa49/pioreactor_relay_plugin/relay.py#L79-L93).
 
 #### 2. A Python `__init__.py` file
 
@@ -140,10 +140,10 @@ function decorated with `@click.command` at the bottom of the file. See example 
    Example for the relay plugin:
 
    ```python
-   from pioreactor_relay_plugin.relay import click_relay
+   from pioreactor_relay_plugin.relay import start_relay
    ```
 
-   where `click_relay` is the function decorated with `@click.command`.
+   where `start_relay` is the function decorated with `@run.command`.
 
 
 #### 3. Optional: A configuration file, named `additional_config.ini`

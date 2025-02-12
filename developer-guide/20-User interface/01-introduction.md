@@ -26,8 +26,6 @@ Both workers and leaders have this backend. However, workers only use expose the
 
 The frontend is a React app, built with Material UI. The source code is at [pioreactorui_frontend](https://github.com/Pioreactor/pioreactorui_frontend). A lot of the "data" for the frontend comes from YAML files on the RPi's filesystem. For example, all the charts, activities, and automations are defined in their own YAML file in a `contrib` folder on the filesystem. This way, it's easy to add new data to the frontend without having to write new JS.
 
-A lot of the live data
-
 
 ### DNS name resolution to `pioreactor.local`
 
@@ -41,7 +39,7 @@ To update on the UI on Pioreactor leader, use `pio update ui`. This also restart
 To restart:
 
 ```
-sudo systemctl restart lighttp && sudo systemctl restart huey
+sudo systemctl restart lighttpd && sudo systemctl restart huey
 ```
 
 ### Logs

@@ -17,7 +17,7 @@ The Pioreactor software will automatically backup the SQLite database via a sche
 
 ## Local key-value datastore
 
-SQLite3 is also used by the library *diskcache*. This is essentially a fast key-value store on the Raspberry Pi. For Pioreactor, we use it to store "machine-specific" data, like calibration curves, locks on GPIOs, state of LEDs, jobs running, etc. Instead of one large file containing all these keys, we have split them into multiple locations based on category and level of persistence. The persistent databases are stored in `/home/pioreactor/.pioreactor/storage` and the temporary databases are in `/tmp`. You can access them from Python using `pioreactor.utils.local_persistant_storage` and `pioreactor.utils.local_intermittent_storage`, respectively.
+SQLite3 is also used by the library *diskcache*. This is essentially a fast key-value store on the Raspberry Pi. For Pioreactor, we use it to store "machine-specific" data, like calibration curves, locks on GPIOs, state of LEDs, jobs running, etc. Instead of one large file containing all these keys, we have split them into multiple locations based on category and level of persistence. The persistent databases are stored in `/home/pioreactor/.pioreactor/storage` and the temporary databases are in `/tmp`. You can access them from Python using `pioreactor.utils.local_persistent_storage` and `pioreactor.utils.local_intermittent_storage`, respectively.
 
 :::info
 What are temporary and persistent? Something like GPIO locks or LED state are physically reset between cycles of the Raspberry Pi. So when the Pi power-cycles, the state is wiped, and by have the database in `/tmp`, the databases are wiped as well.

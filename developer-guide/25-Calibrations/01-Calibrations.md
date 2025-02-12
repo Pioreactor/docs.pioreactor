@@ -49,17 +49,20 @@ class PHCalibration(CalibrationBase, kw_only=True, tag="ph"):
 
     # not required, but helpful
     def voltage_to_ph(self, voltage: float) -> float:
-        return self.predict(voltage)
+        return self.y_to_x(voltage)
 
     def ph_to_voltage(self, ph: float) -> float:
-        return self.ipredict(ph)
+        return self.x_to_y(ph)
 ```
 
 The `predict` and `ipredict` functions are used to convert between the two variables. The `i` in `ipredict` stands for "inverse".
 
 
 
-## Creating a new protocol for an existing device
+## (Optional) Creating a new protocol for an existing device
+
+If you want to add a custom script to create a calibration on the Pioreactor, you can do that by creating a new protocol.
+
 
 Define a `CalibrationProtocol` subclass that will hold metadata for your protocol. It should have a `run` method that returns a calibration (a subclass of `CalibrationBase` - see above).
 
@@ -70,6 +73,7 @@ from pioreactor.utils.timing import current_utc_datetime
 class BufferBasedPHProtocol(CalibrationProtocol):
     target_device = "ph"
     protocol_name = "buffer_based"
+    description = "Calibrate the pH sensor using buffer solutions"
 
     def run(self, target_device: str) -> PHCalibration:
         return run_ph_calibration()
@@ -94,7 +98,7 @@ def run_ph_calibration() -> PHCalibration:
 ```
 
 
-### Adding it to the plugins folder
+## Adding it to the plugins folder
 
 You can add your code to the `~/.pioreactor/plugins` folder on the Pioreactor, it will auto-magically populate the CLI
 and UI. To complete our pH example, add the following to a new Python file in the `~/.pioreactor/plugins` folder:
@@ -111,14 +115,15 @@ class PHCalibration(CalibrationBase, kw_only=True, tag="ph"):
     y: str = "Voltage"
 
     def voltage_to_ph(self, voltage: float) -> float:
-        return self.predict(voltage)
+        return self.y_to_x(voltage)
 
     def ph_to_voltage(self, ph: float) -> float:
-        return self.ipredict(ph)
+        return self.x_to_y(ph)
 
 class BufferBasedPHProtocol(CalibrationProtocol):
     target_device = "ph"
     protocol_name = "buffer_based"
+    description = "Calibrate the pH sensor using buffer solutions"
 
     def run(self, target_device: str) -> PHCalibration:
         return run_ph_calibration()
@@ -145,10 +150,10 @@ def run_ph_calibration() -> PHCalibration:
 
 And run it with:
 ```
-pio calibrations run --device ph --protocol-name buffer_based
+pio calibrations run --device ph
 ```
 
-### Tips
+## Tips
 
  - use the Python library `click` to create an interactive CLI for your calibration protocol.
  - the pair `(device, calibration_name)` must be unique. The final directory structure looks like `~/.pioreactor/storage/calibrations/<device>/<calibration_name>.yaml`
