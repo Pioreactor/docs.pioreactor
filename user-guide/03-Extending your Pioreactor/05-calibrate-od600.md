@@ -15,11 +15,10 @@ Depending on the purposes of your research, you may want to calibrate your Piore
 
 There are two protocols to create an OD calibration.
 
-The first requires only require one vial, your sample of interest, and an accurate way to measure liquids (we recommend a micropipette of volume range 100 to 1000 uL). The protocol works by reading a dilution series. You will start with 10mL of your sample of interest cultivated in your media, at the highest density you expect to observe. During the calibration, you will specify and add an amount of your media to dilute your sample. To avoid overflowing, the program will prompt you to reduce the volume in your vial to 10mL at set intervals. Depending on your number of measurements, you may be prompted to reduce your vial volume to 10 mL. _OPTIONAL_: At this point, you may take the OD600 reading of your vial on a different instrument and input this OD600 value for the current measurement.
+1.  The `single_vial` protocol requires only require one vial, your sample of interest, and an accurate way to measure liquids (we recommend a micropipette of volume range 100 to 1000 uL). The protocol works by reading a dilution series. You will start with 10mL of your sample of interest cultivated in your media, at the highest density you expect to observe. During the calibration, you will specify and add an amount of your media to dilute your sample. To avoid overflowing, the program will prompt you to reduce the volume in your vial to 10mL at set intervals. Depending on your number of measurements, you may be prompted to reduce your vial volume to 10 mL. _OPTIONAL_: At this point, you may take the OD600 reading of your vial on a different instrument and input this OD600 value for the current measurement.
 
 
-
-The second requires multiple vials that will work as standards. This option is quicker for calibrating multiple Pioreactors, too.
+The other protocol, `standards`, requires multiple vials that each contain a liquid with measured OD600. They act as standards. This option is quicker for calibrating multiple Pioreactors, too.
 
 
 Calibrations should be specific to your experiment setup. Any changes to your media, culture, or optical setup (i.e. changing IR intensity, replacing pieces, or changing the angle) may require a new calibration. If everything remains consistent, then we recommend running calibrations every 6 months, or whatever suits your purposes.
@@ -30,9 +29,9 @@ All your OD calibrations are saved to disk, and can be edited afterwards.
 
 ## Running the calibration
 
-Connect to your Pioreactor by typing *`ssh pioreactor@<insert unit name>.local`*. For example, to calibrate on our Pioreactor named worker3, we typed *`ssh pioreactor@worker3.local`*. The default password is `raspberry`. To begin calibrations, type `pio calibrations run --device od`.
+Connect to your Pioreactor by typing *`ssh pioreactor@<insert unit name>.local`*. For example, to calibrate on our Pioreactor named worker3, we typed *`ssh pioreactor@worker3.local`*. The default password is `raspberry`.
 
-Start off by inputting some metadata of your calibration. Provide a descriptive and unique name to make it easier to find your calibration again, if needed. Follow the rest of the questions.
+To begin calibrations, type `pio calibrations run --device od`, and choose the protocol. Start off by inputting some metadata of your calibration. Provide a descriptive and unique name to make it easier to find your calibration again, if needed. Follow the rest of the questions.
 
 :::info
 One of your photodiodes will be located in the 90° or 135° pocket on the vial holder. You will be prompted to confirm the angle of your PD cable. If this is incorrect, go to the _Configuration_ tab on the Pioreactor UI and under _od_config.photodiode_channel_, change to your angle of choice, then restart your OD calibration.
@@ -62,7 +61,6 @@ Calibrations are applied automatically during OD Readings. That is, after perfor
 To change the OD calibration you wish to use for an experiment, visit the Calibrations page, select the calibration you wish to use, and select "Set Active". Only one calibration can be Active at a time.
 
 ![Final data points on OD calibration.](/img/user-guide/od_cal_active.png)
-
 
 You can disable calibrations by changing the OD device to have no _Active_ calibration in the Calibrations page.
 
