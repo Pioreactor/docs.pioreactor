@@ -15,7 +15,7 @@ import * as colors from '@site/src/components/constants';
 
 :::tip Success Goal
 Demonstrate the effect of temperature on yeast growth. 
-:::tip
+:::
 
 ## Requirements
 
