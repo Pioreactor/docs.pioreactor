@@ -14,10 +14,11 @@ Individual PSUs don't scale very well, so below are some other options for power
 
 You can purchase USB hubs from sites like Amazon. They may look something like below:
 
-![Example of a USB hub with 6 ports](/img/user-guide/usb_hub.png)
+
 
 **Important**: use the following guidelines before making a purchase. 
 
+ - Use a reliable brand: HyperJuice, Anker, UGREEN, Belkin.
  - Advertised max wattage: each Pioreactor requires up to 15 W, so  [number of Pioreactors] * 15 W should be less than the max wattage (plus some extra).
  - Wattage per port: Make sure each port can supply at least 15 W.  **Do not get 5V 1A power supplies**.
  - Connection type: Raspberry Pis models have different power connectors. RPi 4 and 5 use USB-C, and everything else uses microUSB. You may need to purchase USB-C to microUSB wires.
