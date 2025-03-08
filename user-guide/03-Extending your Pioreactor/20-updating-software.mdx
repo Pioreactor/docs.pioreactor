@@ -3,6 +3,9 @@ title: Updating the Pioreactor software
 slug: /updating-software
 ---
 
+import ButtonDownloadVersionedReleaseZip from '@site/src/components/ButtonDownloadVersionedReleaseZip';
+
+
 We publish new software occasionally that fixes bugs, adds new features, and improves performance. You can update your Pioreactor(s) to the latest software from the UI, or from the command line. **We highly recommend keeping your Pioreactor software up to date!**
 
 
@@ -37,10 +40,6 @@ The updating process will update to the _next_ release, after your current versi
 
 You can install the bleeding-edge software from this page as well. Just select the development build in the drop down. Warning: this version may be unstable (and fun!)
 
-
-![highlight of the webpage showing what to select to update to the development branch](/img/user-guide/click_update_develop.png)
-
-
 Similarly, from the [command line](https://docs.pioreactor.com/user-guide/accessing-raspberry-pi), you can install specific versions. See `pio update app --help` for more.
 
 
@@ -50,7 +49,13 @@ Similarly, from the [command line](https://docs.pioreactor.com/user-guide/access
 
 Each time we release a new Pioreactor version, we create a bundle of the required files as a zip file. This zip file can be uploaded to your Pioreactor cluster via the UI.
 
-1. On the [Releases page](https://github.com/Pioreactor/pioreactor/releases?q=prerelease%3Afalse&expanded=true), download the `release_xx.xx.xx.zip` file for the version you want onto a computer with access to the Pioreactor web UI.
+:::info
+
+We highly recommend updating incrementally. That is, update to the _next_ version, and continue only if it succeeds.
+
+:::
+
+1. Download the release you wish to update to: <ButtonDownloadVersionedReleaseZip/>
 
 2. In the web UI, visit _Updates_. In the drop down in the top right, select "Update from zip file".
 
@@ -69,7 +74,8 @@ Each time we release a new Pioreactor version, we create a bundle of the require
 ### Method 3: Update using a zip file over scp or sftp
 
 
-1. On the [Releases page](https://github.com/Pioreactor/pioreactor/releases?q=prerelease%3Afalse&expanded=true), download the `release_xx.xx.xx.zip` file for the version you want.
+1. Download the release you wish to update to: <ButtonDownloadVersionedReleaseZip/>
+
 2. We need a software tool up upload this release to the Pioreactor.
 
    1. You can use `scp` on the command line:

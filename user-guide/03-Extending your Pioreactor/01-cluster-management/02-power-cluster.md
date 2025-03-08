@@ -10,9 +10,7 @@ Each Pioreactor requires a Raspberry Pi, so you'll need to provide power to each
 
 ### Powering 2 to ~6 Pioreactors
 
-Individual PSUs don't scale very well, so below are some other options for powering many Pioreactors with a single PSU.
-
-You can purchase USB hubs from sites like Amazon. They may look something like below:
+Individual PSUs don't scale very well, so below are some other options for powering many Pioreactors with a single PSU. You can purchase USB hubs from sites like Amazon.
 
 
 
