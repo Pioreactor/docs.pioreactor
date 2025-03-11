@@ -67,7 +67,7 @@ If you want to add a custom script to create a calibration on the Pioreactor, yo
 Define a `CalibrationProtocol` subclass that will hold metadata for your protocol. It should have a `run` method that returns a calibration (a subclass of `CalibrationBase` - see above).
 
 ```python
-from pioreactor.calibration import CalibrationProtocol
+from pioreactor.calibrations import CalibrationProtocol
 from pioreactor.utils.timing import current_utc_datetime
 
 class BufferBasedPHProtocol(CalibrationProtocol):
@@ -104,9 +104,10 @@ You can add your code to the `~/.pioreactor/plugins` folder on the Pioreactor, i
 and UI. To complete our pH example, add the following to a new Python file in the `~/.pioreactor/plugins` folder:
 
 ```python
-from pioreactor.calibration import CalibrationProtocol
+from pioreactor.calibrations import CalibrationProtocol
 from pioreactor.structs import CalibrationBase
 from pioreactor.utils.timing import current_utc_datetime
+import typing as t
 
 class PHCalibration(CalibrationBase, kw_only=True, tag="ph"):
     buffer_solution: t.Literal["4.01", "7.00", "10.01"]
