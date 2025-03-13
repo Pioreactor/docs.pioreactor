@@ -26,7 +26,7 @@ export default function AssemblyInstructionBlock({children, title, images}) {
       <div id="mainImage" style={{width: "55%", float: "left", marginRight: "10px"}}>
         <h2>{title}  <a href={url + "#" + process(title)}>#</a></h2>
         <img
-          maxHeight={240}
+          style={{maxHeight: 440}}
           src={require(`/static/img/${mainImage}`).default}
         />
         {images.length > 1  && 
