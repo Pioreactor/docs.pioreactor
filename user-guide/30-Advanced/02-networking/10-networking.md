@@ -145,7 +145,7 @@ broker_address=192.168.0.3
 
 ### I am using static IPv4s, how do I set this up?
 
-You can put worker ipv4s in the shared config.ini file under `cluster_addresses` section. For example, for worker01:
+You can put worker ipv4s in the shared config.ini file under `cluster.addresses` section. For example, for worker01:
 
 ```ini
 [cluster.addresses]

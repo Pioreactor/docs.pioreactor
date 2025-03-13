@@ -11,8 +11,8 @@ import * as colors from '@site/src/components/constants';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-<AssemblyInstructionBlock title="Step 1: Inserting the O-rings" images={["user-guide/hardware-assembly/40ml/oring-in-holder.png", "user-guide/hardware-assembly/40ml/oring-groove.png", "user-guide/hardware-assembly/40ml/oring-in-top.png", "user-guide/hardware-assembly/40ml/oring-in-bottom.png",
-"user-guide/hardware-assembly/40ml/vial-holders-with-orings.png"]}>
+<AssemblyInstructionBlock title="Step 1: Inserting the O-rings" images={["user-guide/hardware-assembly/40ml/oring-in-holder.jpg", "user-guide/hardware-assembly/40ml/oring-groove.jpg", "user-guide/hardware-assembly/40ml/oring-in-top.jpg", "user-guide/hardware-assembly/40ml/oring-in-bottom.jpg",
+"user-guide/hardware-assembly/40ml/vial-holders-with-orings.jpg"]}>
 
 :::note
 The vial holder comes in two halves; a top vial holder and a bottom vial holder. Both have sections to insert O-rings for a more secure hold on your vials and increased protection against leaks. The <Highlight color={colors.magenta}>thinner O-ring (#024) with an X-shaped cross section</Highlight> fits into the top piece. The <Highlight color={colors.orange}>thicker O-ring (#121)</Highlight> lines the bottom piece.
@@ -28,7 +28,7 @@ The vial holder comes in two halves; a top vial holder and a bottom vial holder.
 
 -------
 
-<AssemblyInstructionBlock title="Step 2: Attach the window cover" images={["user-guide/hardware-assembly/40ml/window-pieces.png", "user-guide/hardware-assembly/40ml/screw-on-window.png"]}>
+<AssemblyInstructionBlock title="Step 2: Attach the window cover" images={["user-guide/hardware-assembly/40ml/window-pieces.jpg", "user-guide/hardware-assembly/40ml/screw-on-window.jpg"]}>
 
 1. Place the window cover over the window. It should fit snugly.
 2. Attach it using four <Highlight color={colors.red}>M2.5 4mm screws</Highlight>.
@@ -62,7 +62,7 @@ The vial holder comes in two halves; a top vial holder and a bottom vial holder.
 
 -----
 
-<AssemblyInstructionBlock title="Step 5: Placing the heating pad" images={["user-guide/hardware-assembly/upgrade-version/sticky-side.png","user-guide/hardware-assembly/upgrade-version/remove-blue.png","user-guide/hardware-assembly/upgrade-version/remove-blue-2.png"]}>
+<AssemblyInstructionBlock title="Step 5: Placing the heating pad" images={["user-guide/hardware-assembly/upgrade-version/sticky-side.jpg","user-guide/hardware-assembly/upgrade-version/remove-blue.jpg","user-guide/hardware-assembly/upgrade-version/remove-blue-2.jpg"]}>
 
 1.	Remove the _clear_ plastic from one side of the thermal pad. This exposes a sticky side on the thermal pad.
 2.	Place on the flat (aluminum) part of the heating PCB. Lightly apply downwards pressure to secure it and remove any air bubbles trapped..
@@ -73,7 +73,7 @@ The vial holder comes in two halves; a top vial holder and a bottom vial holder.
 
 -----
 
-<AssemblyInstructionBlock title="Step 6: Complete the vial holder" images={["user-guide/hardware-assembly/40ml/twist-top-and-bottom.png"]}>
+<AssemblyInstructionBlock title="Step 6: Complete the vial holder" images={["user-guide/hardware-assembly/40ml/twist-top-and-bottom.jpg"]}>
 
 1. Screw the top and bottom vial holder sections together so that the IR label is positioned above the flat-flex-cable.
 2. Set this aside and proceed to the next page. 

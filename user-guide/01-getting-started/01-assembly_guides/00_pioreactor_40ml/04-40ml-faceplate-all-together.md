@@ -36,7 +36,7 @@ The fan and top faceplate come assembled - leave them together. If they are not 
 
 -----
 
-<AssemblyInstructionBlock title="Step 2: Securing the vial holder" images={["user-guide/hardware-assembly/upgrade-version/fan-onto-top-faceplate.png", "user-guide/hardware-assembly/upgrade-version/completed-fan-assembly.png", "user-guide/hardware-assembly/40ml/align-fan-and-holder.png", "user-guide/hardware-assembly/40ml/direction-of-flex.png", "user-guide/hardware-assembly/40ml/screw-in-fan.png"]}>
+<AssemblyInstructionBlock title="Step 2: Securing the vial holder" images={["user-guide/hardware-assembly/upgrade-version/fan-onto-top-faceplate.png", "user-guide/hardware-assembly/upgrade-version/completed-fan-assembly.png", "user-guide/hardware-assembly/40ml/align-fan-and-holder.jpg", "user-guide/hardware-assembly/40ml/direction-of-flex.jpg", "user-guide/hardware-assembly/40ml/screw-in-fan.jpg"]}>
 
 1. Push the <Highlight color={colors.red}>fan onto the top faceplate</Highlight>, orienting it such that the wire is pointing towards the button. 
 2. Place the vial holder on top of the <Highlight color={colors.green}>four ends of the 30mm screws</Highlight>. The screw ends should fit into four holes on the bottom of the vial holder. The flat flex cable should follow the <Highlight color={colors.orange}>arrow on the faceplate</Highlight>.
@@ -65,7 +65,7 @@ The top faceplate comes with a button extension to provide easier access to push
 
 -----
 
-<AssemblyInstructionBlock title="Step 4: Putting it all together" images={["user-guide/hardware-assembly/40ml/connect-top-and-hat.png", "user-guide/hardware-assembly/upgrade-version/screw-assembly-to-hat.png",
+<AssemblyInstructionBlock title="Step 4: Putting it all together" images={["user-guide/hardware-assembly/40ml/connect-top-and-hat.jpg", "user-guide/hardware-assembly/upgrade-version/screw-assembly-to-hat.png",
 "user-guide/hardware-assembly/upgrade-version/fasten-heater-cable.png", "user-guide/hardware-assembly/upgrade-version/connect-pwm-one.png"]}>
 
 1. Place the vial holder assembly onto the <Highlight color={colors.blue}>Raspberry Pi/HAT's corners</Highlight>. The GPIO pins align with the side notch of the faceplate.
@@ -108,7 +108,7 @@ The top faceplate comes with a button extension to provide easier access to push
 
 -----
 
-<AssemblyInstructionBlock title="Step 3: Securing the vial holder" images={["user-guide/hardware-assembly/40ml/align-fan-and-holder.png", "user-guide/hardware-assembly/40ml/direction-of-flex.png", "user-guide/hardware-assembly/40ml/screw-in-fan.png"]}>
+<AssemblyInstructionBlock title="Step 3: Securing the vial holder" images={["user-guide/hardware-assembly/40ml/align-fan-and-holder.jpg", "user-guide/hardware-assembly/40ml/direction-of-flex.jpg", "user-guide/hardware-assembly/40ml/screw-in-fan.jpg"]}>
 
 
 1. Place the vial holder on top of the <Highlight color={colors.green}>four ends of the 30mm screws</Highlight>. The screw ends should fit into four holes on the bottom of the vial holder. The flat flex cable should follow the <Highlight color={colors.orange}>arrow on the faceplate</Highlight>.
@@ -137,7 +137,7 @@ The top faceplate comes with a button extension to provide easier access to push
 
 -----
 
-<AssemblyInstructionBlock title="Step 5: Putting it all together" images={["user-guide/hardware-assembly/40ml/connect-top-and-hat.png", "user-guide/hardware-assembly/upgrade-version/screw-assembly-to-hat.png",
+<AssemblyInstructionBlock title="Step 5: Putting it all together" images={["user-guide/hardware-assembly/40ml/connect-top-and-hat.jpg", "user-guide/hardware-assembly/upgrade-version/screw-assembly-to-hat.png",
 "user-guide/hardware-assembly/upgrade-version/fasten-heater-cable.png", "user-guide/hardware-assembly/upgrade-version/connect-pwm-one.png"]}>
 
 1. Place the vial holder assembly onto the <Highlight color={colors.blue}>Raspberry Pi/HAT's corners</Highlight>. The GPIO pins align with the side notch of the faceplate.

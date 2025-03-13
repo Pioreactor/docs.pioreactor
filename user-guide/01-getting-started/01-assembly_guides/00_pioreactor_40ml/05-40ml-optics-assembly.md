@@ -11,7 +11,7 @@ import Highlight from '@site/src/components/Highlight';
 import * as colors from '@site/src/components/constants';
 
 
-<AssemblyInstructionBlock title="Step 1: Connect the IR cable (IR → Channel A) " images={["user-guide/hardware-assembly/upgrade-version/led-and-pd.jpg","user-guide/hardware-assembly/upgrade-version/led-to-channel-a.png", "user-guide/hardware-assembly/40ml/led-to-ir.png", "user-guide/hardware-assembly/40ml/ir-with-cap.png"]}>
+<AssemblyInstructionBlock title="Step 1: Connect the IR cable (IR → Channel A) " images={["user-guide/hardware-assembly/upgrade-version/led-and-pd.jpg","user-guide/hardware-assembly/upgrade-version/led-to-channel-a.png", "user-guide/hardware-assembly/40ml/led-to-ir.jpg", "user-guide/hardware-assembly/40ml/ir-with-cap.jpg"]}>
 
 1.  You will need both PD cables (dark bulbs) and IR cable (clear bulb). _Note that PD cables are now 3.5" long instead of 4"_. 
 
@@ -35,7 +35,7 @@ Avoid over-stressing the leads, or applying too much force too quickly. After be
 -----
 
 
-<AssemblyInstructionBlock title="Step 2: Connect PD cable (REF → Channel 1) " images={[ "user-guide/hardware-assembly/40ml/pd-1.png", "user-guide/hardware-assembly/40ml/pd-in-ref.png", "user-guide/hardware-assembly/40ml/ref-with-cap.png"]}>
+<AssemblyInstructionBlock title="Step 2: Connect PD cable (REF → Channel 1) " images={[ "user-guide/hardware-assembly/40ml/pd-1.jpg", "user-guide/hardware-assembly/40ml/pd-in-ref.jpg", "user-guide/hardware-assembly/40ml/ref-with-cap.jpg"]}>
 
 1. Plug the connector of <Highlight color={colors.red}>one PD cable</Highlight> into **channel 1**.
 2. Insert the bulb of that cable into the **REF pocket**. 
@@ -51,7 +51,7 @@ Avoid over-stressing the leads, or applying too much force too quickly. After be
 
 -------
 
-<AssemblyInstructionBlock title="Step 3: Connect PD cable (90° → Channel 2)" images={["user-guide/hardware-assembly/40ml/direction-of-pd-2.png", "user-guide/hardware-assembly/40ml/secure-90-bend-cable.png", "user-guide/hardware-assembly/40ml/completed-optics.png", "user-guide/hardware-assembly/40ml/40ml.png"]}>
+<AssemblyInstructionBlock title="Step 3: Connect PD cable (90° → Channel 2)" images={["user-guide/hardware-assembly/40ml/direction-of-pd-2.jpg", "user-guide/hardware-assembly/40ml/secure-90-bend-cable.jpg", "user-guide/hardware-assembly/40ml/completed-optics.jpg", "user-guide/hardware-assembly/40ml/40ml.jpg"]}>
 
 1. Take a moment to orient the <Highlight color={colors.blue}>other PD cable</Highlight> such that it bends in the right direction for the black connector to insert into **channel 2**. See the image for more detail. 
 2. In this orientation, **_but without connecting the cable to the channel_**, insert the bulb into the pocket labeled 90°. 
@@ -65,7 +65,7 @@ Avoid over-stressing the leads, or applying too much force too quickly. After be
 
 -------------------
 
-<AssemblyInstructionBlock title="Step 4: You're done!" images={["user-guide/hardware-assembly/40ml/40ml-and-vial.png"]}>
+<AssemblyInstructionBlock title="Step 4: You're done!" images={["user-guide/hardware-assembly/40ml/40ml-and-vial.jpg"]}>
 
 
 Your new 40ml Pioreactor is now assembled! 🚀
