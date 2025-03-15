@@ -3,12 +3,12 @@ title: Experiment profiles schema
 slug: /experiment-profiles-schema
 ---
 
-
 Below is a schema for experiment profiles. We also do a run-time check.
 
 ```yaml
 # Main structure of the experiment profile
 experiment_profile_name: <string>  # Name of the experiment profile
+
 
 # Metadata section (optional)
 metadata:
@@ -19,6 +19,12 @@ metadata:
 plugins:
   - name: <string>        # Name of the plugin
     min_version: <string> # Minimum required version of the plugin
+
+# inputs for variables that can be used in expressions (optional)
+inputs:
+  var1: value1
+  var2: value2
+
 
 # Common jobs section (optional)
 # Jobs that are common for all Pioreactors
