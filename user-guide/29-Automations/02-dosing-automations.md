@@ -88,7 +88,7 @@ This automation moves a preset amount of `volume` every `duration` minutes using
 
 When liquid is added, say 1ml, the volume rises an additional 1ml. Then 1ml of liquid is removed via efflux, but **then the efflux pump runs again for an additional few seconds**. The efflux pump is run for an additional few seconds to eliminate any volume deltas (for example, if the volume added is greater than the volume removed due to pumping errors). Otherwise, the deltas accumulate and the vial can overflow. This additional step helps guarantee that that volume of liquid never exceeds the end of the efflux tube. See `waste_removal_multiplier` parameter below.
 
-### Why does my influx pump only partially add what's required? What are subdoses?
+### Why does my influx pump only partially add the amount of liquid required? What are subdoses?
 
 To further avoid overflow, we limit how much liquid is added in a single pump cycle. If the amount of liquid to be added is greater than the `max_dose_volume`, then the liquid is divided into smaller doses (halved until those new doses are less than `max_subdose` parameter), with the waste-pump run in between to avoid overflow. These small doses are called _subdoses_. You can change the maximum subdose value with the parameter `max_subdose`, see below.
 

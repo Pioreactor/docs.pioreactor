@@ -22,7 +22,7 @@ Cycling is good for cleaning pumps, priming tubes with media, or filling your vi
 Under the _Dosing_ tab, you can also run specific pumps (media, waste, and alt-media) for a specific duration, volumes (if calibrated), or continuously. The latter will run until the *Stop* button is pressed.
 
 :::caution
-Careful not to overflow your vial! The vial can hold 20ml, but stay well below this.
+Careful not to overflow your vial! The Pioreactor doesn't know how much liquid is currently in the vial. Stay well below the max volume of the vial for safety.
 :::
 
 ![UI showing how to add media.](/img/user-guide/add_media.png)

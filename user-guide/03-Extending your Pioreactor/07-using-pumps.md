@@ -78,14 +78,14 @@ Read the [calibration instructions](/user-guide/hardware-calibrations#pump-calib
 ## Using pumps in experiments
 
 :::caution
-We strongly recommended you don't run peristaltic pumps *continuously* for hours at a time. By continuously, we mean "always moving liquid". The inner tubing has a lifetime and may wear out during operation, causing a leak. **If you need to move liquid continuously for long periods of time, you need a different pump design**.
+We strongly recommended you don't run peristaltic pumps *continuously* for hours at a time. By continuously, we mean "the pump motor is always on". The inner tubing has a lifetime and may wear out during operation, causing a leak. **If you need to move liquid continuously for long periods of time, you need a different pump design**.
 :::
 
 
 
 ### Sterilizing the pumps before and after experiments
 
-To avoid contamination, pumps should be sterilized before and after use.
+To avoid contamination, pump tubing and connectors should be sterilized before and after use.
 
 #### Using heat
 
@@ -94,16 +94,17 @@ To avoid contamination, pumps should be sterilized before and after use.
 
 #### Using bleach and ethanol
 
+:::caution
+It's important to not keep harsh chemicals, like bleach, in the tubing and stainless steel needles for long. Cleaning should always end with flushing the tubes with water or something inert.
+:::
+
 1. Create a 10% bleach dilution, or high concentration alcohol, in a container. Place the sink and source tubes of each pump you're sterilizing in the beaker.
 2. On the UI, in the _Pioreactors_ tab, click _Manage_ and go to the _Dosing_ tab.
 3. _Run continuously_ to cycle the disinfectant solution through each pump that you're using.
 <img src="/img/user-guide/dosing_in_ui.png" width="735" style={{margin: "15px auto", display:"block"}}/>
-4. _Interrupt_ after sufficient cycling, at least 2 minutes.
-5. If finishing an experiment, repeat the above with water. If starting an experiment, you'll need to prime the pumps, see the next section.
-
-:::caution
-It's important to not keep harsh chemicals, like bleach, in the silicone tubing for long. Cleaning pumps should always end with flushing the tubes with water or something inert.
-:::
+4. _Stop_ after sufficient cycling, at least 2 minutes, but no more than 5 minutes.
+5. **Important**: If finishing an experiment, repeat the above with water to purge the harsh chemicals from the lines.
+6. If starting an experiment, you'll need to prime the pumps, see the next section.
 
 
 ### Preparing for experiments
