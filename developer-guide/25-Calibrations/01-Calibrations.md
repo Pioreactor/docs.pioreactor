@@ -39,7 +39,7 @@ Continuing our pH example, the calibration type for it might look like:
 ```python
 from pioreactor.structs import CalibrationBase # see this class for the full list of fields
 
-class PHCalibration(CalibrationBase, kw_only=True, tag="ph"):
+class PHBufferCalibration(CalibrationBase, kw_only=True, tag="ph_buffer"):
     x: str = "pH"       # required
     y: str = "Voltage"  # required
 
@@ -55,7 +55,15 @@ class PHCalibration(CalibrationBase, kw_only=True, tag="ph"):
         return self.x_to_y(ph)
 ```
 
-The `predict` and `ipredict` functions are used to convert between the two variables. The `i` in `ipredict` stands for "inverse".
+The `tag` should be unique for this calibration type. For example, if we instead had another pH calibration type that used optics instead of buggers, we could define another pH calibration type as follows:
+
+```python
+class PHOpticsCalibration(CalibrationBase, kw_only=True, tag="optical_ph"):
+    x: str = "pH"
+    y: str = "Lumens"
+```
+
+It's optional, but we also defined some helper functions `voltage_to_ph` and `ph_to_voltage` to easily map between the variables. Internally, They call `x_to_y` and `y_to_x` functions which are always available on a calibration object. They do the hard math behind mapping variables to each other.
 
 
 
@@ -69,23 +77,25 @@ Define a `CalibrationProtocol` subclass that will hold metadata for your protoco
 ```python
 from pioreactor.calibrations import CalibrationProtocol
 from pioreactor.utils.timing import current_utc_datetime
+from pioreactor import whoami
+
 
 class BufferBasedPHProtocol(CalibrationProtocol):
     target_device = "ph"
     protocol_name = "buffer_based"
     description = "Calibrate the pH sensor using buffer solutions"
 
-    def run(self, target_device: str) -> PHCalibration:
-        return run_ph_calibration()
+    def run(self, target_device: str):
+        return run_ph_buffer_calibration()
 
 
-def run_ph_calibration() -> PHCalibration:
+def run_ph_buffer_calibration():
     # run the calibration, look at other calibration examples to re use code.
     ...
 
-    return PHCalibration(
+    return PHBufferCalibration(
         calibration_name="ph_calibration",
-        calibrated_on_pioreactor_unit="unit1",
+        calibrated_on_pioreactor_unit=whoami.get_unit_name(),
         created_at=current_utc_datetime(),
         curve_data_=[2, 3, 5],
         curve_type="poly",
@@ -104,21 +114,24 @@ You can add your code to the `~/.pioreactor/plugins` folder on the Pioreactor, i
 and UI. To complete our pH example, add the following to a new Python file in the `~/.pioreactor/plugins` folder:
 
 ```python
+from __future__ import annotations
 from pioreactor.calibrations import CalibrationProtocol
 from pioreactor.structs import CalibrationBase
 from pioreactor.utils.timing import current_utc_datetime
+from pioreactor import whoami
 import typing as t
 
-class PHCalibration(CalibrationBase, kw_only=True, tag="ph"):
+class PHBufferCalibration(CalibrationBase, kw_only=True, tag="ph_buffer"):
+    x: str = "pH"       # required
+    y: str = "Voltage"  # required
+
     buffer_solution: t.Literal["4.01", "7.00", "10.01"]
     electrode_type: str
-    x: str = "pH"
-    y: str = "Voltage"
 
-    def voltage_to_ph(self, voltage: float) -> float:
+    def voltage_to_ph(self, voltage: float):
         return self.y_to_x(voltage)
 
-    def ph_to_voltage(self, ph: float) -> float:
+    def ph_to_voltage(self, ph: float):
         return self.x_to_y(ph)
 
 class BufferBasedPHProtocol(CalibrationProtocol):
@@ -126,17 +139,16 @@ class BufferBasedPHProtocol(CalibrationProtocol):
     protocol_name = "buffer_based"
     description = "Calibrate the pH sensor using buffer solutions"
 
-    def run(self, target_device: str) -> PHCalibration:
-        return run_ph_calibration()
+    def run(self, target_device: str):
+        return run_ph_buffer_calibration()
 
-
-def run_ph_calibration() -> PHCalibration:
-    # run the calibration
+def run_ph_buffer_calibration():
+    # run the calibration to get data
     ...
 
-    return PHCalibration(
+    return PHBufferCalibration(
         calibration_name="ph_calibration",
-        calibrated_on_pioreactor_unit="unit1",
+        calibrated_on_pioreactor_unit=whoami.get_unit_name(),
         created_at=current_utc_datetime(),
         curve_data_=[2, 3, 5],
         curve_type="poly",
@@ -158,6 +170,6 @@ pio calibrations run --device ph
 
  - use the Python library `click` to create an interactive CLI for your calibration protocol.
  - the pair `(device, calibration_name)` must be unique. The final directory structure looks like `~/.pioreactor/storage/calibrations/<device>/<calibration_name>.yaml`
- - The `x` variable should be the independent variable - the variable that can (in theory) be set by you, and the response variable `y` follows. For example, in the default OD calibration, the independent variable is the OD, and the dependent variable is the Pioreactor's sensor's voltage. This is because we can vary the OD as we wish (add more culture...), and the Pioreactor's sensor will detect different values.
- - Another way to look at this is: "where does error exist"? Typically, there will be error "measurement" variable (voltage for OD calibration, RPM measurement for stirring calibration, etc.)
+ - The `x` variable should be the independent variable - the variable that can (in theory) be set by you, and the measurement variable `y` follows. For example, in the default OD calibration, the independent variable is the OD, and the dependent variable is the Pioreactor's sensor's voltage. This is because we can vary the OD as we wish (add more culture...), and the Pioreactor's sensor will detect different values.
+ - Another way to look at this is: "where does error exist"? Typically, there will be error in the "measurement" variable (voltage for OD calibration, RPM measurement for stirring calibration, etc.). In practice, we only have the measurement variable, and wish to go "back" to the original variable.
 

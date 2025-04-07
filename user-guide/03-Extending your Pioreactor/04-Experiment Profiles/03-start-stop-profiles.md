@@ -35,7 +35,7 @@ From the command line, you can run:
 pio kill --job-name experiment_profiles
 ```
 
-This will actually kill _all_ experiment profiles running. To specify a specific profile, use it's job-id:
+This will actually kill _all_ experiment profiles running. To specify a specific profile, use its job-id:
 
 ```bash
 pio kill --job-id <job-id>
