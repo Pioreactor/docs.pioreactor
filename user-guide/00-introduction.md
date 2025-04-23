@@ -28,3 +28,8 @@ If you are interested in the software internals, take a look at our [developer g
 2. Ask a question on our [community forums](https://forum.pioreactor.com/)
 2. Contact us at support@pioreactor.com
 
+
+### Compliance
+
+ - [EU Declaration of Conformity](https://cdn.shopify.com/s/files/1/0678/1739/files/EU_Declaration_of_Conformity.pdf?v=1745430430)
+ -
