@@ -192,7 +192,7 @@ pioreactors:
           - type: update
             hours_elapsed: 12
             options:
-              target_rpm: ${{ worker1:stirring:target_rpm + worker1:od_reading:od1.od * 10 }}
+              target_rpm: ${{ worker1:stirring:target_rpm + worker1:od_reading:od2.od * 10 }}
 ```
 
 
@@ -228,7 +228,7 @@ common:
           hours_elapsed: 6
           if: ${{ ::stirring:target_rpm <= 500 }}
           options:
-            target_rpm: ${{ ::stirring:target_rpm + 10 * ::od_reading:od1.od }}
+            target_rpm: ${{ ::stirring:target_rpm + 10 * ::od_reading:od2.od }}
 ```
 
 ### Built-in functions in expressions
@@ -297,7 +297,7 @@ common:
     dosing_automation:
       actions:
         - type: when
-          condition: ${{::od_reading:od1.od > 2.0}}
+          condition: ${{::od_reading:od2.od > 2.0}}
           hours_elapsed: 0
           actions:
             - type: start
@@ -353,7 +353,7 @@ Finally, there is more control using the other optional fields:
        - type: repeat
          hours_elapsed: 6.0
          repeat_every_hours: 0.0025 # every 9 seconds
-         while: ${{ worker1:od_reading:od1.od > 3.0 }}
+         while: ${{ worker1:od_reading:od2.od > 3.0 }}
          actions:
            - type: start
              options:
@@ -363,7 +363,7 @@ Finally, there is more control using the other optional fields:
        - type: repeat
          hours_elapsed: 6.0
          repeat_every_hours: 0.0025 # every 9 seconds
-         while: ${{ worker1:od_reading:od1.od > 3.0 }}
+         while: ${{ worker1:od_reading:od2.od > 3.0 }}
          actions:
            - type: start
              options:
@@ -386,12 +386,12 @@ common:
       actions:
         - type: update
           hours_elapsed: 12.0
-          if: ${{ ::od_reading:od1.od < od_threshold }}
+          if: ${{ ::od_reading:od2.od < od_threshold }}
           options:
             target_temperature: ${{ stationary_phase_temp }}
         - type: update
           hours_elapsed: 12.0
-          if: ${{ ::od_reading:od1.od >= od_threshold }}
+          if: ${{ ::od_reading:od2.od >= od_threshold }}
           options:
             target_temperature: ${{ growth_phase_temp }}
 
