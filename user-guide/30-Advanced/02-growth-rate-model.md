@@ -95,7 +95,7 @@ To upload your optical density and dosing events data to the Pioreactor, you nee
 
 :::tip
 
-If using the Pioreactor UI to export datasets, these already have the required schema.
+If using the Pioreactor UI to export datasets _Optical density_ and _Dosing event log_, these already have the correct schema.
 
 :::
 
@@ -127,8 +127,8 @@ od_reading,hours_since_experiment_created
 
 | **Column**                       | **Required?** | **Expected dtype**    | **Description**                                                                               |
 | -------------------------------- | ------------- | --------------------- | --------------------------------------------------------------------------------------------- |
-| `event`                          | Yes             | **category** (string) | Either `add_media`, `add_alt_media`, or `remove_waste`. Other strings are treated as distinct categories.       |
-| `volume_change_ml`               | Yes             | **float**           | Signed volume change (mL). Convention: positive for **additions**, negative for **removals**. |
+| `event`                          | Yes             | **category** (string) | Either `add_media`, `add_alt_media`, or `remove_waste`.      |
+| `volume_change_ml`               | Yes             | **float**           | volume change (mL) |
 | `hours_since_experiment_created` | Yes             | **float**           | Timestamp in **hours**, exactly matching the OD clock.                                        |
 
 #### Minimal example
@@ -136,8 +136,8 @@ od_reading,hours_since_experiment_created
 ```csv
 event,volume_change_ml,hours_since_experiment_created
 add_media,1.0,1.533
-remove_waste,-1.0,1.544
-remove_waste,-2.0,1.567
+remove_waste,1.0,1.544
+remove_waste,2.0,1.567
 ```
 
 ---
@@ -145,18 +145,9 @@ remove_waste,-2.0,1.567
 ### Common pitfalls
 
 * **Header spelling matters** – `odReading`, `OD_reading`, or trailing spaces will fail validation.
-* **Mixed delimiters** – Ensure you’re saving with commas; semicolons require a manual find-&-replace.
+* **Mixed delimiters** – Ensure you’re saving with commas.
 * **Units** – `volume_change_ml` must be millilitres; convert L → mL beforehand.
 * **Consistent clock** – Both files must use the same `hours_since_experiment_created` reference, or dilution jumps won’t align.
-
----
-
-### Quick checklist before uploading
-
-1. **Open in a plain-text editor** – Verify the first line matches the header tables above.
-2. **Scan for blank lines** – Delete empty rows at the end; they sometimes appear after Excel saves.
-3. **Check decimals** – European locales may export `0,1725`; switch to `.` decimal point.
-4. **Save as UTF-8 CSV** – Most editors do this by default; avoid Excel’s “CSV (Macintosh)” variant.
 
 
 
