@@ -9,3 +9,6 @@ The PWM outputs on the Pioreactor are 0.100" (2.54mm) pitch connectors, with the
 
 The nice connectors we use for LEDs, the stirring motor and our pumps are [TE Connectivity AMP connectors 487526-1](https://www.digikey.ca/en/products/detail/te-connectivity-amp-connectors/487526-1/469847). These also require a specific [socket connector](https://www.digikey.ca/en/products/detail/te-connectivity-amp-connectors/1-104479-0/1125892).
 
+
+We sell [4" of 22 awg cable with the connectors pre-crimped](https://pioreactor.com/collections/accessories-and-parts/products/wired-connector), so you can easily connect your hardware to the Pioreactor.
+

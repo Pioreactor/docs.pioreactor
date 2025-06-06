@@ -95,7 +95,8 @@ To upload your optical density and dosing events data to the Pioreactor, you nee
 
 :::tip
 
-If using the Pioreactor UI to export datasets _Optical density_ and _Dosing event log_, these already have the correct schema.
+If using the Pioreactor UI to export datasets _Optical density_ and _Dosing event log_, these already have the correct schema. Use the "Partition output files by Pioreactor" to split the exports into individual CSV files per Pioreactor unit.
+
 
 :::
 
@@ -108,7 +109,9 @@ If using the Pioreactor UI to export datasets _Optical density_ and _Dosing even
 
 :::info
 
-Additional columns (sensor angle, experiment name, etc.) are ignored by the parser, so feel free to keep them—just make sure the two required columns exist and are spelled exactly as above (case-sensitive).
+Additional columns (sensor angle, experiment name, etc.) are ignored by the parser, so feel free to keep them. Also, the uploaded CSV should only reference a single unit, so if you have multiple units, you should have multiple CSVs.
+
+
 
 :::
 
