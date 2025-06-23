@@ -54,7 +54,7 @@ $$
 \text{mass} = 0.45 \text{ g}
 $$
 Therefore, **0.45 grams** of table salt is needed for 3% w/v of salt.
-To each vial, 0g, 0.225g, 0.45g, 0.675g and 0.9g of table salt were added, repectively. They were then innoculated with one drop of rehydrated active yeast (0.500 g of dry yeast in a 15 mL YPD broth vial). The _Temperature automation_ was set on _Thermostat_ at 32.5°C.
+To each vial, 0g, 0.225g, 0.45g, 0.675g and 0.9g of table salt were added, respectively. They were then inoculated with one drop of rehydrated active yeast (0.500 g of dry yeast in a 15 mL YPD broth vial). The _Temperature automation_ was set on _Thermostat_ at 32.5°C.
 
 ### Results
 
@@ -72,7 +72,7 @@ We can summarize our results in the following table to highlight our data:
 |4.5%|0.29|17 hours|
 |6%|0.22|24 hours|
 
-The highest growth was recorded in the vial at 0% salt w/v (no salt stress), at approximately **0.78 h⁻¹**. The phases of growth (lag, log phase) occured quickly and the stationary phase was reached in the smallest time frame of about **8 hours**. 
+The highest growth was recorded in the vial at 0% salt w/v (no salt stress), at approximately **0.78 h⁻¹**. The phases of growth (lag, log phase) occurred quickly and the stationary phase was reached in the smallest time frame of about **8 hours**. 
 
 As the salt percentage increased, the peak growth rate decreased and the time to reach the stationary phase was extended. These time increases are non-linear; between 0% and 1.5% salt, the stationary phase was reached within an increment of half an hour &#151 however 4.5% and 6% salt had a large increment of 7 hours (from 17 to 24 hours). 
 

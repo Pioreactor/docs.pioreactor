@@ -42,7 +42,7 @@ Here are graphs we generated though our A/A test:
 
 ![](/img/experiments/aa-test-results.png)
 
-These kinds of tests make it easy to identify any unusual activity occuring in a specific Pioreactor (i.e, if it is missing an LED, temperature malfunctions, etc). In our case, though, both ran almost identically! Thus, we conclude that reliable comparisons can be drawn between these Pioreactors. 
+These kinds of tests make it easy to identify any unusual activity occurring in a specific Pioreactor (i.e, if it is missing an LED, temperature malfunctions, etc). In our case, though, both ran almost identically! Thus, we conclude that reliable comparisons can be drawn between these Pioreactors. 
 
 ## Detailed procedure
 

@@ -37,7 +37,7 @@ We used two Pioreactors and two vials containing 15 mL of YPD media. We added 1 
 
 ### Results 
 
-The growth rate chart clearly demonstrates an inhibition of growth occuring in the sample containing tea:  
+The growth rate chart clearly demonstrates an inhibition of growth occurring in the sample containing tea:  
 
 ![](/img/experiments/tea2-exp-results.png)
 
