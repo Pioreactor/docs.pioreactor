@@ -54,7 +54,7 @@ The following normalized OD graph resulted from our turbidostat using salted med
 
 ![](/img/experiments/turbidostat/salt_turbidostat.png)
 
-A maximum growth rate of **0.6 h⁻¹** was reached. In contrast, when you look back at our [secondary level salt experiment](/experiments/salt-stress-on-yeast), the 4.5% w/v salt vial only reached **0.29 h⁻¹** before the stationary phase occured. This is because our previous experiment **selected** for salt tolerant yeast, but the culture reached stationary phase before any **long term adaptation** could be observed. 
+A maximum growth rate of **0.6 h⁻¹** was reached. In contrast, when you look back at our [secondary level salt experiment](/experiments/salt-stress-on-yeast), the 4.5% w/v salt vial only reached **0.29 h⁻¹** before the stationary phase occurred. This is because our previous experiment **selected** for salt tolerant yeast, but the culture reached stationary phase before any **long term adaptation** could be observed. 
 
 Using the turbidostat system to supply new nutrients and keep the population low, we were able to _double_ the maximum growth rate! 
 

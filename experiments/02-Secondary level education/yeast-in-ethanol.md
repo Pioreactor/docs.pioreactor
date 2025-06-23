@@ -4,7 +4,7 @@ slug: /yeast-in-ethanol
 tags: 
   - Yeast
   - Ethanol
-  - Seconday education
+  - Secondary education
 ---
 
 import AssemblyInstructionBlock from '@site/src/components/AssemblyInstructionBlock';
@@ -32,7 +32,7 @@ While we have found many applications for yeast products, yeasts themselves see 
 
 We know that most yeasts can tolerate an alcohol concentration of 10-15% before dying. Now, let's choose some alcohol concentrations and explore this inhibition using our Pioreactor! 
 
-We've included two methods to calculate ethanol precentages; teachers can prepare this beforehand or allow their students to calculate it themselves.
+We've included two methods to calculate ethanol percentages; teachers can prepare this beforehand or allow their students to calculate it themselves.
 
 ## Experiment
 
@@ -78,7 +78,7 @@ So the composition to create 2% ethanol media is:
 *	0.66 mL distilled water (1 mL - 0.34 mL)
 
 :::tip
-If you don't have a small enough resolution on your measuring tools, you can increase the total amount of ethanol dilution. For example, instead of making 1 mL diluted ethanol, we used **3.4 mL** of 95% ethanol and **6.6 mL** of distilled water measured in a graduated cylindar to create a total 10 mL diluted ethanol. From that, we mixed well and added 1 mL into our vial.
+If you don't have a small enough resolution on your measuring tools, you can increase the total amount of ethanol dilution. For example, instead of making 1 mL diluted ethanol, we used **3.4 mL** of 95% ethanol and **6.6 mL** of distilled water measured in a graduated cylinder to create a total 10 mL diluted ethanol. From that, we mixed well and added 1 mL into our vial.
 :::
 
 We repeated this for 4% and 6% ethanol concentrations. 
@@ -138,7 +138,7 @@ Plenty of yeast strains are available at your local breweries. You can do the sa
 2. Prepare 1 mL of each ethanol concentration you would like to use.  
    * Detailed calculations are found in the example above. Aim for an end ethanol concentration between 0-10%. 
 3. Evenly divide the YPD stock into the vials you’d like to use (ie. 15 mL in each vial). 
-4. Add the mililitre of ethanol solution into the respective vial. Mix with gentle shaking. 
+4. Add the millilitre of ethanol solution into the respective vial. Mix with gentle shaking. 
 5. Inoculate the stock with a very small amount of baker's yeast using best practices to avoid other contamination. Wait for the yeast granules to dissolve, aided by gentle rocking or stirring.
    * Alternatively, a yeast stock solution can be made by diluting a small amount of yeast in 15 mL of YPD stock, then 1 drop of this stock solution can be added to your vials.
 6. Wipe the vials and place them in the Pioreactors. 
