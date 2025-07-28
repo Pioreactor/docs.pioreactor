@@ -21,7 +21,8 @@ class JustPause(BackgroundJobWithDodgingContrib):
 ```python
 class JustPause(BackgroundJobWithDodgingContrib):
 
-    ...
+    def __init__(self, ...):
+        super().__init__(..., enable_dodging_od=True or False) # set to True if you want the dodging behaviour right away.
 
 
     def action_to_do_before_od_reading(self):
@@ -42,6 +43,9 @@ You can handle the "dodging" case and "continuous" with the `initialize_*` metho
 
 ```python
 class JustPause(BackgroundJobWithDodgingContrib):
+
+    def __init__(self, ...):
+        super().__init__(..., enable_dodging_od=True or False) # set to True if you want the dodging behaviour right away.
 
     ...
 
@@ -68,7 +72,7 @@ class JustPause(BackgroundJobWithDodgingContrib):
 [<job_name>]
 pre_delay_duration=<float>
 post_delay_duration=<float>
-enable_dodging_od=1 # 1 if you want the behaviour, 0 to disable it.
+enable_dodging_od=1
 ```
 
 The diagram of timing, actions, and OD reading, looks like the following:

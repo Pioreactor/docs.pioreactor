@@ -14,7 +14,7 @@ may be provided via another system, for example an Arduino.
 The first thing to do is to add a hook to your custom pump into Pioreactor's software. To do this, we attach new functions to a dosing automation that are invoked when `execute_io_action` is called. These functions will call your logic that runs the external pump. Specifically, if we wish to overwrite the `media` pump, we create a function called `add_media_to_bioreactor`, with signature
 
 ```
-(cls, ml: float, unit: str, experiment: str, source_of_event: str, mqtt_client: pioreactor.pubsub.Client) -> float)
+(cls, ml: float, unit: str, experiment: str, source_of_event: str, mqtt_client: pioreactor.pubsub.Client, logger: logger) -> float)
 ```
 
 To see this in an example:
@@ -30,12 +30,12 @@ class CustomPumper(DosingAutomationJob):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
 
-    def add_media_to_bioreactor(self, ml: float, unit: str, experiment: str, source_of_event: str, mqtt_client) -> float:
+    def add_media_to_bioreactor(self, ml: float, unit: str, experiment: str, source_of_event: str, mqtt_client, logger) -> float:
         # overrides the built in add_media_to_bioreactor
         # add your custom logic here. Example could be interfacing with i2c, serial, PWM, etc.
         ...
         pwm = PWM(...)
-        self.logger.info(f"pumping {ml}")
+        logger.info(f"pumping {ml}")
         return ml
 
     def execute(self):
@@ -49,17 +49,17 @@ class CustomPumper(DosingAutomationJob):
 
     automation_name = "custom_pumper"
 
-    def add_media_to_bioreactor(self, ml: float, unit: str, experiment: str, source_of_event: str, mqtt_client) -> float:
+    def add_media_to_bioreactor(self, ml: float, unit: str, experiment: str, source_of_event: str, mqtt_client, logger) -> float:
         # overrides the built in add_media_to_bioreactor
         ...
         return ml
 
-    def add_alt_media_to_bioreactor(self, ml: float, unit: str, experiment: str, source_of_event: str, mqtt_client) -> float:
+    def add_alt_media_to_bioreactor(self, ml: float, unit: str, experiment: str, source_of_event: str, mqtt_client, logger) -> float:
         # overrides the built in remove_waste_from_bioreactor
         ...
         return ml
 
-    def remove_waste_from_bioreactor(self, ml: float, unit: str, experiment: str, source_of_event: str, mqtt_client) -> float:
+    def remove_waste_from_bioreactor(self, ml: float, unit: str, experiment: str, source_of_event: str, mqtt_client, logger) -> float:
         # overrides the built in remove_waste_from_bioreactor
         ...
         return ml
@@ -83,7 +83,7 @@ class ThreePumps(DosingAutomationJob):
 
     automation_name = "three_pumps"
 
-    def add_salty_media_to_bioreactor(self, ml: float, unit: str, experiment: str, source_of_event: str, mqtt_client) -> float:
+    def add_salty_media_to_bioreactor(self, ml: float, unit: str, experiment: str, source_of_event: str, mqtt_client, logger) -> float:
         # call an external pump, via i2c, serial, GPIO, etc.,
         # or pumping_functions.add_salt_media
         ...
