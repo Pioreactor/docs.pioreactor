@@ -95,7 +95,7 @@ To upload your optical density and dosing events data to the Pioreactor, you nee
 
 :::tip
 
-If using the Pioreactor UI to export datasets _Optical density_ and _Dosing event log_, these already have the correct schema. Use the "Partition output files by Pioreactor" to split the exports into individual CSV files per Pioreactor unit.
+If using the Pioreactor UI to export datasets _Optical density_ and _Dosing event log_, these already have the correct schema.
 
 
 :::
@@ -106,10 +106,11 @@ If using the Pioreactor UI to export datasets _Optical density_ and _Dosing even
 | -------------------------------- | ------------- | ------------------ | ------------------------------------------------------------------------------------------------------------- |
 | `od_reading`                     | Yes             | **float**        | Raw or pre-normalized optical-density measurement.                                                            |
 | `hours_since_experiment_created` | Yes             | **float**        | Elapsed hours since the experiment’s “time 0”. Use decimals for sub-hour resolution (e.g. `0.4167` ≈ 25 min). |
+| `pioreactor_unit` | No             | **string**        | use this column to partition different experiments or units |
 
 :::info
 
-Additional columns (sensor angle, experiment name, etc.) are ignored by the parser, so feel free to keep them. Also, the uploaded CSV should only reference a single unit, so if you have multiple units, you should have multiple CSVs.
+Additional columns (sensor angle, experiment name, etc.) are ignored by the parser, so feel free to keep them.
 
 
 
@@ -124,6 +125,16 @@ od_reading,hours_since_experiment_created
 0.1749,0.402
 ```
 
+#### Multiple units example
+
+```csv
+pioreactor_unit,od_reading,hours_since_experiment_created
+A,0.1725,0.397
+A,0.1735,0.399
+B,0.1249,0.397
+B,0.1280,0.399
+```
+
 ---
 
 ### 2. Dosing-events CSV
@@ -133,6 +144,8 @@ od_reading,hours_since_experiment_created
 | `event`                          | Yes             | **category** (string) | Either `add_media`, `add_alt_media`, or `remove_waste`.      |
 | `volume_change_ml`               | Yes             | **float**           | volume change (mL) |
 | `hours_since_experiment_created` | Yes             | **float**           | Timestamp in **hours**, exactly matching the OD clock.                                        |
+| `pioreactor_unit` | No             | **string**        | use this column to partition different experiments or units |
+
 
 #### Minimal example
 
