@@ -340,6 +340,15 @@ include <PLUGIN_NAME>/LEADER_ONLY
 
 For an example, see the [logs2slack](https://github.com/Pioreactor/pioreactor-logs2slack) plugin's repository.
 
+## Install package from source
+
+It isn't enough to just `pip install` your package, as this will only add the script to the pioreactor system, not any extra configs you may have added. 
+If you want to install the whole package from source you can simply run:
+
+```
+pio plugins install <PLUGIN_NAME> --source <PLUGIN_FOLDER>
+```
+
 ## Create a Python package on PyPI
 
 Create an account on [https://pypi.org/](https://pypi.org/). Make sure to verify your email.
