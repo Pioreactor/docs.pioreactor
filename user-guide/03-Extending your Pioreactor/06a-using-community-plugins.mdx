@@ -48,7 +48,7 @@ You can uninstall plugins from the same page, too. These will remove the action 
  2. To get this .whl file onto a Pioreactor, use either `scp`, WinSCP, or FileZilla. Note: if you upload the .whl file to your leader Pioreactor first, you can distribute the .whl file to all your workers with `pios cp <location of .whl file>`
  3. Once the .whl file is on the Pioreactor, use the following to install the plugin:
     ```
-    pio plugin install <name-of-plugin> --source <location of .whl file>
+    pio plugins install <name-of-plugin> --source <location of .whl file>
     ```
     For example:
     ```
