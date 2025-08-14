@@ -24,84 +24,94 @@ import TabItem from '@theme/TabItem';
 * <Highlight color={colors.teal}>HAT PCB</Highlight>
 
 
-2. Check the GPIO pins on the <Highlight color={colors.teal}>HAT PCB</Highlight> to confirm that they are straight and not touching another GPIO pin.
+2. Check the <Highlight color={colors.teal}>GPIO pins</Highlight> on the HAT PCB to confirm that they are straight and not touching another GPIO pin.
 
 </AssemblyInstructionBlock>
 
+
+
 -----
 
-<Tabs>
-  <TabItem value="a_or_b" label="Raspberry Pi A or B instructions" default>
+
+<AssemblyInstructionBlock title="Step 1.5: Identify your Raspberry Pi type" images={["user-guide/hardware-assembly/upgrade-version/4B-vs-faceplate.png","user-guide/hardware-assembly/upgrade-version/zero-vs-faceplate.png"]}>
+
+Raspberry Pi types can be identified by the width of the Pi, in comparison to the bottom faceplate.
+
+- For Raspberry Pi A or B assembly (full-sized Pi): [Go to section](#raspberry-pi-a-or-b-instructions)
+- For Raspberry Pi Zero / Zero 2 assembly (half-sized Pi): [Go to section](#raspberry-pi-zero-zero-2-instructions)
+</AssemblyInstructionBlock>
 
 
-<AssemblyInstructionBlock title="Step 2: Assemble the bottom faceplate" images={["user-guide/hardware-assembly/upgrade-version/bottom-faceplate.png","user-guide/hardware-assembly/upgrade-version/bottom-faceplate-screwed.png","user-guide/hardware-assembly/upgrade-version/rpi-no-standoffs.png"]}>
+-----
 
 
-1.  If using a half-size Raspberry Pi (aka a Zero model), switch to the tab above called "Raspberry Pi Zero" to see Zero specific instructions.
+<h2 id="raspberry-pi-a-or-b-instructions">Raspberry Pi A or B instructions</h2>
+<AssemblyInstructionBlock title="Step 2: Assemble the bottom faceplate" images={["user-guide/hardware-assembly/upgrade-version/4B-10mm-screws.png","user-guide/hardware-assembly/upgrade-version/4B-hexnuts.png","user-guide/hardware-assembly/upgrade-version/4B-gpios.png"]}>
+
 
 :::tip
 The 40 GPIO pins (standing for general-purpose input/output) form a distinct row on one side of the Raspberry Pi. Note the orientation of these pins to help you assemble correctly!
 :::
 
-2.  Orientation: the base will have a flat edge and an edge with an indent. The GPIO pins sit along the <Highlight color={colors.blue}>indent</Highlight>, seen on the left in the images.
-3.  Insert the <Highlight color={colors.red}>M2.5 10mm screws</Highlight> into the holes.
-4.  Hand screw a <Highlight color={colors.magenta}>hex nut</Highlight> onto each screw.
-5.  Place the Raspberry Pi on top, aligning the holes, with the <Highlight color={colors.green}>GPIO pins</Highlight> on the left. Note: your Raspberry Pi may look different than the one displayed.
+1.  Orientation: the base will have a flat edge and an edge with an indent. The GPIO pins sit along the <Highlight color={colors.orange}>indent</Highlight>, seen on the left in the images.
+2.  Insert the <Highlight color={colors.green}>M2.5 10mm screws</Highlight> into the holes.
+3.  Hand screw a <Highlight color={colors.blue}>hex nut</Highlight> onto each screw.
+4.  Place the Raspberry Pi on top, aligning the holes, with the <Highlight color={colors.purple}>GPIO pins</Highlight> on the left. Note: your Raspberry Pi may look different than the one displayed.
 
 
 </AssemblyInstructionBlock>
 
 -----
 
-<AssemblyInstructionBlock title="Step 3: Placing the HAT PCB on top" images={["user-guide/hardware-assembly/upgrade-version/rpi-with-standoffs.png","user-guide/hardware-assembly/upgrade-version/gpio-unpushed.png","user-guide/hardware-assembly/upgrade-version/gpio-pushed.png", "user-guide/hardware-assembly/upgrade-version/standoff-on-hat.png"]}>
+<AssemblyInstructionBlock title="Step 3: Placing the HAT PCB on top" images={["user-guide/hardware-assembly/upgrade-version/4B-standoffs.png","user-guide/hardware-assembly/upgrade-version/4B-hat.png","user-guide/hardware-assembly/upgrade-version/4B-hat-2.png","user-guide/hardware-assembly/upgrade-version/4B-standoffs-with-screws.png"]}>
 
-1.  Hand screw on the <Highlight color={colors.blue}>M2.5 12mm hex standoffs-with-6mm-screw</Highlight> in each corner.
-2.  Place the HAT PCB on top. <Highlight color={colors.red}>Push down *from the corners*</Highlight> to secure it in place. The HAT PCB's GPIO connector will line up with the RPi's GPIO pins and may require a slight force to compress down. You can also use the next Tip below to help apply force.
+1.  Hand screw on the <Highlight color={colors.red}>M2.5 12mm hex standoffs</Highlight> in each corner.
+2.  Place the HAT PCB on top. <Highlight color={colors.teal}>Push down *from the corners*</Highlight> to secure it in place. The HAT PCB's GPIO connector will line up with the RPi's GPIO pins and may require a slight force to compress down. You can also use the next Tip below to help apply force.
 
-3.  Hand screw the <Highlight color={colors.green}>M2.5 12mm hex standoffs</Highlight> in each corner, on top of the HAT.
+3.  Hand screw the <Highlight color={colors.magenta}>M2.5 12mm hex standoffs-with-6mm-screws</Highlight> in each corner, on top of the HAT.
 
 :::tip
 By screwing down the standoffs, they'll help compress the HAT onto the RPi, too.
 :::
 
-4.  Put this aside and proceed to the next page.
+4.  Put this aside and proceed to the [next page](40ml-wetware-assembly).
 
 </AssemblyInstructionBlock>
 
 -----
+<h2 id="raspberry-pi-zero-zero-2-instructions">Raspberry Pi Zero / Zero 2 instructions</h2>
 
-  </TabItem>
-  <TabItem value="zero" label="Raspberry Pi Zero / Zero 2 instructions">
-<AssemblyInstructionBlock title="Step 2: Assemble the bottom faceplate" images={["user-guide/hardware-assembly/upgrade-version/bottom-faceplate.png","user-guide/hardware-assembly/upgrade-version/hex-one-side.png","user-guide/hardware-assembly/upgrade-version/rpi-zero.png"]}>
+<AssemblyInstructionBlock title="Step 2: Assemble the bottom faceplate" images={["user-guide/hardware-assembly/upgrade-version/zero-10mm-screws.png","user-guide/hardware-assembly/upgrade-version/zero-hexnuts.png","user-guide/hardware-assembly/upgrade-version/zero-level-check.png","user-guide/hardware-assembly/upgrade-version/zero-gpios.png"]}>
 
 :::tip
 The 40 GPIO pins (standing for general-purpose input/output) form a distinct row on one side of the Raspberry Pi. Note the orientation of these pins to help you assemble correctly!
 :::
 
-1.  Orientation: the base will have a flat edge and an edge with an indent. The GPIO pins sit along the <Highlight color={colors.blue}>indent</Highlight>, seen on the left in the images.
-2.  Insert the 10mm screws into the <Highlight color={colors.red}>holes</Highlight>.
-3.  Hand screw the <Highlight color={colors.magenta}>hexnuts</Highlight> on the screws along the flat edge of the bottom faceplate. Hexnuts are only needed on one side because of the size of the Raspberry Pi Zero.
-4.  Place the Raspberry Pi along the indented edge of the faceplate, with the <Highlight color={colors.green}>GPIO pins</Highlight> on the left.
-5.  Hand screw on the <Highlight color={colors.blue}>M2.5 12mm hex standoffs-with-6mm-screw</Highlight> in each corner.
+1.  Orientation: the base will have a flat edge and an edge with an indent. The GPIO pins sit along the <Highlight color={colors.orange}>indent</Highlight>, seen on the left in the images.
+2.  Insert the 10mm screws into the <Highlight color={colors.green}>holes</Highlight>.
+3.  Hand screw the <Highlight color={colors.blue}>hexnuts</Highlight> on the screws along the flat edge of the bottom faceplate. Hexnuts are only needed on one side because of the size of the Raspberry Pi Zero.
+4.  View the assembly from the side. Ensure that the Pi lies flat on the bottom faceplate.
+5.  Place the Raspberry Pi along the indented edge of the faceplate, with the <Highlight color={colors.purple}>GPIO pins</Highlight> on the left.
 
 </AssemblyInstructionBlock>
 
 
 -----
 
-<AssemblyInstructionBlock title="Step 3: Placing the HAT PCB ontop" images={["user-guide/hardware-assembly/upgrade-version/gpio-unpushed.png","user-guide/hardware-assembly/upgrade-version/gpio-pushed.png", "user-guide/hardware-assembly/upgrade-version/standoff-on-hat.png"]}>
 
-1.  Place the HAT on top. <Highlight color={colors.red}>Push down</Highlight> to secure it in place. The HAT PCB's GPIO connector will line up with the RPi's GPIO pins, and may require a slight force to compress down. You can also use the next Tip below to help apply force.
+<AssemblyInstructionBlock title="Step 3: Placing the HAT PCB on top" images={["user-guide/hardware-assembly/upgrade-version/zero-standoffs.png","user-guide/hardware-assembly/upgrade-version/zero-hat.png","user-guide/hardware-assembly/upgrade-version/zero-hat-2.png", "user-guide/hardware-assembly/upgrade-version/zero-standoffs-with-screws.png"]}>
 
-2.  Hand screw the <Highlight color={colors.green}>M2.5 12mm hex standoffs</Highlight> in each corner, on top of the HAT.
+
+1.  Hand screw on the <Highlight color={colors.red}>M2.5 12mm hex standoffs</Highlight> in each corner.
+
+2.  Place the HAT on top. <Highlight color={colors.teal}>Push down</Highlight> to secure it in place. The HAT PCB's GPIO connector will line up with the RPi's GPIO pins, and may require a slight force to compress down. You can also use the next Tip below to help apply force.
+
+3.  Hand screw the <Highlight color={colors.magenta}>M2.5 12mm hex standoffs-with-6mm-screws</Highlight> in each corner, on top of the HAT.
 
 :::tip
 By screwing down the standoffs, you can use these standoffs to help compress the HAT onto the RPi, too.
 :::
 
-3.  Put this aside and proceed to the next page.
+4.  Put this aside and proceed to the [next page](40ml-wetware-assembly).
 
 </AssemblyInstructionBlock>
-
-  </TabItem>
-</Tabs>

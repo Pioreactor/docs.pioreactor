@@ -11,23 +11,36 @@ import Highlight from '@site/src/components/Highlight';
 import * as colors from '@site/src/components/constants';
 
 
-<AssemblyInstructionBlock title="Step 1: Connect the IR cable (IR → Channel A) " images={["user-guide/hardware-assembly/upgrade-version/led-and-pd.jpg","user-guide/hardware-assembly/upgrade-version/led-to-channel-a.png", "user-guide/hardware-assembly/40ml/led-to-ir.jpg", "user-guide/hardware-assembly/40ml/ir-with-cap.jpg"]}>
+<AssemblyInstructionBlock title="Step 1: Necessary parts" images={["user-guide/hardware-assembly/40ml/optics/optic-parts-needed.png"]}>
 
-1.  You will need both PD cables (dark bulbs) and IR cable (clear bulb). _Note that PD cables are now 3.5" long instead of 4"_. 
+1.  You will need:
+* <Highlight color={colors.blue}>PD cables (2x)</Highlight>
+* <Highlight color={colors.magenta}>IR cable (1x)</Highlight>
+* <Highlight color={colors.orange}>LED caps</Highlight>
 
 :::tip
-Inspect each LED and PD to confirm that their leads are not touching each other.
+Inspect each IR and PD to confirm that their leads are not touching each other.
 :::
 
-2.  Insert the connector of the <Highlight color={colors.magenta}>IR cable</Highlight> into **channel A** (labelled on the faceplate).
-3. Insert the bulb of the IR cable into the **pocket labeled IR**. 
-4. _Slowly_ bend the bulb's leads 90 degrees, as seen. 
+
+</AssemblyInstructionBlock>
+
+
+-------
+
+
+<AssemblyInstructionBlock title="Step 2: Connect the IR cable (IR → Channel A) " images={["user-guide/hardware-assembly/40ml/optics/x1-x2.png", "user-guide/hardware-assembly/40ml/optics/ir-bulb.png", "user-guide/hardware-assembly/40ml/optics/ir-bend-90.png", "user-guide/hardware-assembly/40ml/optics/ir-connected.png"]}>
+
+1. Secure LED caps over the <Highlight color={colors.orange}>X1 and X2 pockets</Highlight> on the vial holder. 
+2. With the tab of the black connector pointed left, insert the bulb of the IR cable into the <Highlight color={colors.magenta}>pocket labeled IR</Highlight>. See image.
+3. _Slowly_ bend the bulb's leads 90 degrees towards the left. The black connector tab should be facing away. 
 
 :::caution
 Avoid over-stressing the leads, or applying too much force too quickly. After bending once, it's ill-advised to bend them again. 
 :::
 
-5. Secure the bulb in place with an LED cap. 
+4. Secure the bulb with an LED cap.
+5. Insert the connector of the IR cable into <Highlight color={colors.magenta}>channel A</Highlight> (labelled on the faceplate).
 
 
 </AssemblyInstructionBlock>
@@ -35,30 +48,26 @@ Avoid over-stressing the leads, or applying too much force too quickly. After be
 -----
 
 
-<AssemblyInstructionBlock title="Step 2: Connect PD cable (REF → Channel 1) " images={[ "user-guide/hardware-assembly/40ml/pd-1.jpg", "user-guide/hardware-assembly/40ml/pd-in-ref.jpg", "user-guide/hardware-assembly/40ml/ref-with-cap.jpg"]}>
+<AssemblyInstructionBlock title="Step 3: Connect PD cable (REF → Channel 1) " images={[ "user-guide/hardware-assembly/40ml/optics/ref-bend-90.png", "user-guide/hardware-assembly/40ml/optics/ref-connected.png", "user-guide/hardware-assembly/40ml/optics/ref-capped.png"]}>
 
-1. Plug the connector of <Highlight color={colors.red}>one PD cable</Highlight> into **channel 1**.
-2. Insert the bulb of that cable into the **REF pocket**. 
-3. _Slowly_ bend the bulb's leads 90 degrees, as seen.
 
-:::caution
-Avoid over-stressing the leads, or applying too much force too quickly. After bending once, it's ill-advised to bend them again.
-:::
+1. With the tab of the black connector pointed left, insert the bulb of one PD cable into the <Highlight color={colors.red}>pocket labeled REF</Highlight>. See image.
+2. _Slowly_ bend the bulb's leads 90 degrees towards the left. The black connector tab should be facing away. 
+3. Secure the bulb with an LED cap.
+4. Insert the connector of the IR cable into <Highlight color={colors.red}>PD channel 1</Highlight> (labelled on the faceplate).
 
-4. Secure the bulb with an LED cap.
 
 </AssemblyInstructionBlock>
 
 -------
 
-<AssemblyInstructionBlock title="Step 3: Connect PD cable (90° → Channel 2)" images={["user-guide/hardware-assembly/40ml/direction-of-pd-2.jpg", "user-guide/hardware-assembly/40ml/secure-90-bend-cable.jpg", "user-guide/hardware-assembly/40ml/completed-optics.jpg", "user-guide/hardware-assembly/40ml/40ml.jpg"]}>
+<AssemblyInstructionBlock title="Step 4: Connect PD cable (90° → Channel 2)" images={["user-guide/hardware-assembly/40ml/optics/90-bend-90.png", "user-guide/hardware-assembly/40ml/optics/90-connected.png", "user-guide/hardware-assembly/40ml/completed-optics.jpg", "user-guide/hardware-assembly/40ml/optics/135-capped.png", "user-guide/hardware-assembly/40ml/40ml.jpg"]}>
 
-1. Take a moment to orient the <Highlight color={colors.blue}>other PD cable</Highlight> such that it bends in the right direction for the black connector to insert into **channel 2**. See the image for more detail. 
-2. In this orientation, **_but without connecting the cable to the channel_**, insert the bulb into the pocket labeled 90°. 
-3. Bend the leads gently in the direction of the channel. 
+1. Take the other PD cable and insert the bulb into the <Highlight color={colors.blue}>pocket labeled 90°</Highlight>. 
+3. Bend the leads gently to the left. The tab of the black connector should be facing away. 
 4. Secure the bulb with an LED cap. 
-5. Plug the connector into **channel 2**. 
-6. Push all remaining LED caps onto each pocket.
+5. Plug the connector into <Highlight color={colors.blue}>channel 2</Highlight>. 
+6. Push the remaining LED cap onto the pocket <Highlight color={colors.green}>labeled 135°</Highlight>.
 
 
 </AssemblyInstructionBlock>
