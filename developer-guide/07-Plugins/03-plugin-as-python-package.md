@@ -405,3 +405,18 @@ In both cases, we will evaluate your plugin to ensure code quality and all requi
 Once your plugin is accepted, it will appear on the Plugins tab on the Pioreactor web interface. Users in the community can now easily click _Install_ to download your plugin onto their Pioreactors!
 
 ![](/img/developer-guide/python-package-plugins.png)
+
+
+### Troubleshooting
+
+ - Do you see an error like?
+   ```
+   WARNING: Skipping /usr/local/lib/python3.11/site-packages/X due to invalid metadata entry 'Y'
+   ```
+   Try the following:
+   ```
+   sudo rm -rf /usr/local/lib/python3.11/site-packages/X
+   ```
+
+   and then reinstall the plugin.
+

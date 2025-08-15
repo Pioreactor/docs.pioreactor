@@ -95,8 +95,8 @@ To further avoid overflow, we limit how much liquid is added in a single pump cy
 ###  Volume parameters
 
 
- - **Initial liquid volume**: this is how much liquid is initially in the vial
- - **Max liquid volume**: the efflux tube's position determines the maximum volume your liquid volume will reach.
+ - **Initial volume**: this is how much liquid is initially in the vial
+ - **Max working volume**: the efflux tube's position determines the maximum volume your liquid volume will reach.
 
 
 ###  Configuration parameters
