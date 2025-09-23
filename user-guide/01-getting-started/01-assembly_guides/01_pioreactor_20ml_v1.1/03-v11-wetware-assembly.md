@@ -58,6 +58,11 @@ The vial holder of the v1.1 comes in two halves; a top vial holder and a bottom 
 1. Insert the other end of the flex cable below the O-ring and into <Highlight color={colors.red}>the groove</Highlight>. Pull it through.
 2. <Highlight color={colors.magenta}>Apply pressure</Highlight> on the back of the heater PCB so that it lies flat on the O-ring. Maintain this pressure for the next steps.
 3.  **While maintaining pressure**, flip the holder and insert the two <Highlight color={colors.green}>M2.5-CS 5mm screws</Highlight> into the holes - **don't tighten fully yet**.
+
+:::info
+Newer versions may come with brass M2.5-CS 5mm screws.
+:::
+
 4. **While maintaining pressure**, take turns screwing each in until both are reasonably tight, and the heater PCB is securely attached to the bottom vial holder.
 
 </AssemblyInstructionBlock>
