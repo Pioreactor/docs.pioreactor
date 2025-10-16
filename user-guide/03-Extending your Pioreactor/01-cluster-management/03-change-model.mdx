@@ -1,0 +1,71 @@
+---
+id: change-model
+title: Change your Pioreactor model
+sidebar_label: Change Pioreactor model
+description: Adjust the Pioreactor model in the Inventory page and register custom models that appear in the UI.
+---
+
+
+## Update a Pioreactor's model from the UI
+
+You can update the model that the software uses for each unit from the **Inventory** page.
+
+1. Navigate to **Inventory** in the sidebar.
+2. Locate the Pioreactor you want to configure and open the **Model** dropdown.
+3. Pick the correct entry. The change is saved immediately.
+
+![The Inventory page with the Model dropdown highlighted.](/img/user-guide/inventory-model-overview.png)
+
+Changes to the model update any UI text, configuration safety limits, and workflows that depend on vessel geometry.
+
+## Add a custom model
+
+The UI lists every YAML definition stored in `.pioreactor/models/`. Each file represents a single model.
+
+1. Create the directory if it does not already exist:
+
+   ```bash
+   mkdir -p ~/.pioreactor/models
+   ```
+
+2. Add a new YAML file. Use a descriptive file name such as `my_custom_model.yaml`.
+
+   ```yaml
+   model_name: custom_100ml
+   model_version: "1.0"
+   display_name: "Custom 100 mL, v1.0"
+   reactor_capacity_ml: 100.0
+   reactor_max_fill_volume_ml: 95.0
+   reactor_diameter_mm: 50.0
+   max_temp_to_reduce_heating: 80.0
+   max_temp_to_disable_heating: 85.0
+   max_temp_to_shutdown: 90.0
+   ```
+
+### Required fields
+
+| Field | Description |
+| --- | --- |
+| `model_name` | A unique identifier. Use lowercase letters, numbers, and underscores. Example `pioreactor_20ml` |
+| `model_version` | Semantic version string that differentiates variants of the same model. Example: `1.1` |
+| `display_name` | What appears in the UI dropdown. Example: `Pioreactor 20ml, v1.1`|
+| Capacity and geometry fields | Used by dosing and safety calculations. Provide real measurements in millilitres and millimetres. |
+| Temperature limits | Guardrails for the heater. Adjust them to match your hardware. |
+
+If any field fails validation, the Pioreactor logs an error in `pioreactor.log` and skips the file. Double-check spelling and numeric values if your model does not appear.
+
+### Reload the web UI
+
+After adding or editing model files, restart the web UI service so it picks up the new definitions:
+
+```bash
+sudo systemctl restart pioreactor-web.target
+```
+
+Return to the Inventory page and reopen the **Model** dropdown. Your custom entry should now be available alongside the built-in models.
+
+## Troubleshooting
+
+- **No new dropdown entries:** confirm the YAML file lives in `/home/pioreactor/.pioreactor/models/` on the leader and that the file extension is `.yaml` or `.yml`. Restart the `pioreactor-web.target` service once more.
+- **Validation errors in the logs:** open `pioreactor.log` or run `journalctl -u pioreactor-web.target` to view the message, then update the YAML file accordingly.
+- **Distribute to workers**: workers need these files to, so if you've added it to your leader, you can run `pios cp ~/.pioreactor/models/my_custom_model.yaml` to distribute it to workers.

@@ -104,7 +104,7 @@ class NaiveTurbidostat(DosingAutomationJobContrib):
 
 ```
 
-Run the script with `pio run dosing_atomation --automation-name naive_turbidostat --target-od 0.5`. This will start the job. After a moment, you may notice that warnings are thrown - that's because there's no optical density measurements being produced! You can use crtl-c to stop the job.
+Run the script with `pio run dosing_automation --automation-name naive_turbidostat --target-od 0.5`. This will start the job. After a moment, you may notice that warnings are thrown - that's because there's no optical density measurements being produced! You can use crtl-c to stop the job.
 
 #### Editing attributes over MQTT (optional)
 

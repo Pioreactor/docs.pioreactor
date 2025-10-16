@@ -52,7 +52,7 @@ pio run experiment_profile execute /home/pioreactor/.pioreactor/experiment_profi
 Stop all running profiles from the CLI with:
 
 ```bash
-pio kill --job-name experiment_profiles
+pio kill --job-name experiment_profile
 ```
 
 Or target a specific profile by its job ID:

@@ -152,7 +152,7 @@ Here's an example of adding a custom automation: place the following code into t
 
 ```python title="/home/pioreactor/.pioreactor/plugins/demo_automation.py"
 # -*- coding: utf-8 -*-
-from pioreactor.automations.dosing.base import DosingAutomationContrib
+from pioreactor.automations.dosing.base import DosingAutomationJobContrib
 
 __plugin_summary__ = "A demo dosing automation"
 __plugin_version__ = "0.0.1"
@@ -160,7 +160,7 @@ __plugin_name__ = "Demo Dosing Automation"
 __plugin_author__ = "Cam Davidson-Pilon"
 __plugin_homepage__ = "https://docs.pioreactor.com"
 
-class DemoAutomation(DosingAutomationContrib):
+class DemoAutomation(DosingAutomationJobContrib):
 
     automation_name = "demo"
 
@@ -169,7 +169,7 @@ class DemoAutomation(DosingAutomationContrib):
         self.volume = volume
 
     def execute(self):
-        self.logger("Here I would execute...")
+        self.logger.debug("Here I would execute...")
 
 ```
 

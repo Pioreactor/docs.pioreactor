@@ -22,7 +22,7 @@ class JustPause(BackgroundJobWithDodgingContrib):
 class JustPause(BackgroundJobWithDodgingContrib):
 
     def __init__(self, ...):
-        super().__init__(..., enable_dodging_od=True or False) # set to True if you want the dodging behaviour right away.
+        super().__init__(..., enable_dodging_od=False, plugin_name="just-pause") # set to True if you want the dodging behaviour right away.
 
 
     def action_to_do_before_od_reading(self):
@@ -45,15 +45,15 @@ You can handle the "dodging" case and "continuous" with the `initialize_*` metho
 class JustPause(BackgroundJobWithDodgingContrib):
 
     def __init__(self, ...):
-        super().__init__(..., enable_dodging_od=True or False) # set to True if you want the dodging behaviour right away.
+        super().__init__(..., enable_dodging_od=False, plugin_name="just-pause") # set to True if you want the dodging behaviour right away.
 
     ...
 
     def initialize_dodging_operation(self):
-        self.logger("OD reading is ON and I'm enabled for dodging, so set up what I need...")
+        self.logger.debug("OD reading is ON and I'm enabled for dodging, so set up what I need...")
 
     def initialize_continuous_operation(self):
-        self.logger("OD reading is off, or being ignored, so set up what I need for that...")
+        self.logger.debug("OD reading is off, or being ignored, so set up what I need for that...")
 
     def action_to_do_before_od_reading(self):
         # example
@@ -69,7 +69,7 @@ class JustPause(BackgroundJobWithDodgingContrib):
 4. We also want some "buffer" time before and after an OD reading. For example, if using a bubbler, we want the bubbles to dissipate completely before taking an OD reading. We should stop bubbling early then. To set these times, add the following to your config.ini:
 
 ```
-[<job_name>]
+[<job_name>.config]
 pre_delay_duration=<float>
 post_delay_duration=<float>
 enable_dodging_od=1

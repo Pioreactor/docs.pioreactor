@@ -27,7 +27,7 @@ To run the script, you'll first need to install the Python library:
 
 
 ```python
-import sleep
+import time
 import board
 import adafruit_scd4x
 

@@ -83,7 +83,7 @@ class IntroJob(BackgroundJob):
 
     def set_intensity(self, intensity):
         self.intensity = intensity
-        led_intensity(channels=self.LED_channel, intensities=self.intensity)
+        led_intensity({self.LED_channel: self.intensity})
 ```
 
 Next, we create the "on exit" behaviour (turn off LED) by overwriting the `on_disconnected` function.
@@ -107,7 +107,7 @@ class IntroJob(BackgroundJob):
 
     def set_intensity(self, intensity):
         self.intensity = intensity
-        led_intensity(channels=self.LED_channel, intensities=self.intensity)
+        led_intensity({self.LED_channel: self.intensity})
 
     def on_disconnected(self):
         self.set_intensity(0)
@@ -133,7 +133,7 @@ class IntroJob(BackgroundJob):
 
     def set_intensity(self, intensity):
         self.intensity = intensity
-        led_intensity(channels=self.LED_channel, intensities=self.intensity)
+        led_intensity({self.LED_channel: self.intensity})
 
     def on_disconnected(self):
         self.set_intensity(0)
@@ -143,7 +143,7 @@ if __name__ == "__main__":
     from pioreactor.whoami import get_assigned_experiment_name
 
     unit = get_unit_name()
-    experiment = get_unit_name(unit)
+    experiment = get_assigned_experiment_name(unit)
 
     job = IntroJob(unit=unit, experiment=experiment)
 
@@ -210,7 +210,7 @@ We see that the `__init__` requires the two parameters for PWM: `hz` and an `ini
 We next initialize the PWM code (this is still in the `__init__`) that controls the PWM outputs on the HAT, and add more imports:
 
 ```python
-from pioreactor.hardware_mappings import PWM_TO_PIN
+from pioreactor.hardware import PWM_TO_PIN
 from pioreactor.utils.pwm import PWM
 from pioreactor.config import config
 
@@ -220,7 +220,7 @@ from pioreactor.config import config
     def __init__(...)
         ...
 
-        pwm_pin = PWM_TO_PIN[config["PWM_reverse", "motor_driver"]]
+        pwm_pin = PWM_TO_PIN[config.get("PWM_reverse", "motor_driver")]
         self.pwm = PWM(pwm_pin, self.hz)
         self.pwm.lock()
 
@@ -318,7 +318,7 @@ import json
 
 from pioreactor.config import config
 from pioreactor.background_jobs.base import BackgroundJob
-from pioreactor.hardware_mappings import PWM_TO_PIN
+from pioreactor.hardware import PWM_TO_PIN
 from pioreactor.utils.pwm import PWM
 from pioreactor.utils import clamp
 
@@ -337,7 +337,7 @@ class MotorDriver(BackgroundJob):
         self._initial_duty_cycle = initial_duty_cycle
         self.duty_cycle = initial_duty_cycle
 
-        self.pwm_pin = PWM_TO_PIN[config["PWM_reverse", "motor_driver"]]
+        self.pwm_pin = PWM_TO_PIN[config.get("PWM_reverse", "motor_driver")]
 
         self.pwm = PWM(self.pwm_pin, self.hz)
         self.pwm.lock()

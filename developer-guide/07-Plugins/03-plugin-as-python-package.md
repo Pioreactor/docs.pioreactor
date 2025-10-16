@@ -43,7 +43,7 @@ Here's a general directory outline of how your files should be organized for a j
 ├─ 📝 setup.py
 ```
 
-The directory outline is very similar for an **automation plugin** &#151 the only difference is the location of the `.yaml` file.
+The directory outline is very similar for an **automation plugin**, the only difference is the location of the `.yaml` file.
 
 ```
 📁 <DISTRIBUTION-NAME with dashes>

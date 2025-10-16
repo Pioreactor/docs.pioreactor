@@ -46,7 +46,7 @@ The chemostat automation is the second simplest dosing automation. Every `durati
     * one labelled "media"
 
 
-A turbidostat ("turbidity-static") tries to keep the turbidity (the optical density, or OD), constant over time. This is usually accomplished by taking frequent measurements of the turbidity (every 30 seconds), and performing a set media/waste pump cycle if the optical density (or normalized optical density) exceeds a `target OD` (or `target nOD`). The amount exchanged is the `volume` parameter (mL). For very fast growing cultures, we recommend a `volume` between 1.0 ml and 2.0 ml.
+A turbidostat ("turbidity-static") tries to keep the turbidity (the optical density, or OD), constant over time. This is usually accomplished by taking frequent measurements of the turbidity (every 15 seconds), and performing a set media/waste pump cycle if the optical density (or normalized optical density) exceeds a `target OD` (or `target nOD`). The amount exchanged is the `volume` parameter (mL). For very fast growing cultures, we recommend a `volume` between 1.0 ml and 2.0 ml.
 
 This automation will always dose the `volume` parameter, even if it's not enough for the OD to drop below the `target OD`. If that happens, then `OD > target OD`, and so the automation will trigger after the next check (30 seconds).
 
@@ -104,7 +104,7 @@ To further avoid overflow, we limit how much liquid is added in a single pump cy
 You can edit these parameters in your config.ini files.
 
 
-#### Section `[dosing_auomation.config]`
+#### Section `[dosing_automation.config]`
 
  - `pause_between_subdoses_seconds`: time to wait between doses - this is useful if you want to be sure the newly added liquid is sufficiently mixed before running the waste pump.
  - `waste_removal_multiplier`: the amount of additional time to run the waste pump after the influx pump has run. This is to ensure that the volume of liquid in the vial never exceeds the end of the efflux tube. Ex: if media ran for `0.75` seconds, then the waste will run for `waste_removal_multiplier * 0.75 seconds`
