@@ -24,7 +24,7 @@ In the popup, add the name of your worker and click "Add Pioreactor".
 
 Once a new Pioreactor is added, you may need to refresh the page to see the new worker in the cluster.
 
-This Inventory tab will display metadata pertaining to each of your Pioreactors. You can use this page to identify a Pioreactor (causes the blue LED on the HAT to blink), unassign a Pioreactor from any experiment, reboot a Pioreactor, or remove it from your cluster. This page also provides a summary of which Pioreactors are assigned to which experiment, as highlighted in yellow in the image below.
+This Inventory tab will display metadata pertaining to each of your Pioreactors. You can use this page to identify a Pioreactor (causes the blue LED on the HAT to blink), unassign a Pioreactor from any experiment, reboot a Pioreactor, or remove it from your cluster. This page also provides a summary of which Pioreactors are assigned to which experiment, as shown in the image below.
 
 ![](/img/user-guide/inventory-multiple-pios.png)
 
