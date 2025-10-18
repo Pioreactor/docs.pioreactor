@@ -16,17 +16,17 @@ After installing the _worker_ image onto your additional Pioreactor (see the ins
 
 On the _Inventory_ page, you can search for and add worker Pioreactors to your cluster. Click "Add new Pioreactor" at the top right corner of this tab.
 
-![](/img/user-guide/inventory-tab.png)
+![Inventory tab with the Add new Pioreactor button highlighted](/img/user-guide/inventory-add-pioreactor.png)
 
 In the popup, add the name of your worker and click "Add Pioreactor".
 
-![](/img/user-guide/add-new-pioreactor.png)
+![Add Pioreactor modal with hostname and Add Pioreactor button highlighted](/img/user-guide/inventory-add-modal.png)
 
 Once a new Pioreactor is added, you may need to refresh the page to see the new worker in the cluster.
 
 This Inventory tab will display metadata pertaining to each of your Pioreactors. You can use this page to identify a Pioreactor (causes the blue LED on the HAT to blink), unassign a Pioreactor from any experiment, reboot a Pioreactor, or remove it from your cluster. This page also provides a summary of which Pioreactors are assigned to which experiment, as shown in the image below.
 
-![](/img/user-guide/inventory-multiple-pios.png)
+![Inventory card with action buttons highlighted](/img/user-guide/inventory-actions.png)
 
 
 ### Active and inactive

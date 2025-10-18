@@ -35,6 +35,10 @@ When you need to stop a profile early, use the **Stop** button in that table. Co
 
 ![Stop button highlighted in the Profiles Running table](/img/user-guide/experiment-profiles/profile-stop.png)
 
+Confirm the prompt to finish shutting the profile down.
+
+![Stop profile confirmation dialog with the Stop Profile button highlighted](/img/user-guide/experiment-profiles/profile-stop-dialog.png)
+
 ## Run profiles from the CLI
 
 You can also launch profiles from the leader's terminal:
