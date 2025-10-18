@@ -1,6 +1,7 @@
 ---
 title: MCP and AI integrations
 slug: /mcp
+hide_table_of_contents: true
 ---
 
 :::danger

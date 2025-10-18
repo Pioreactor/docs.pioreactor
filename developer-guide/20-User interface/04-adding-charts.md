@@ -1,6 +1,7 @@
 ---
 title: Adding basic time series charts
 slug: /chart-to-ui
+hide_table_of_contents: true
 ---
 
 You can add custom charts to the UI. Below is an example of adding a chart that displays historical and real-time CO2 sensor data.

@@ -1,6 +1,7 @@
 ---
 title: Power and restarts
 slug: /troubleshooting-power
+hide_table_of_contents: true
 ---
 
 #### Brown-outs and restarts

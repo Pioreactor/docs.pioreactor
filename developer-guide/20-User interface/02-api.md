@@ -1,6 +1,7 @@
 ---
 title: API
 slug: /web-ui-api
+hide_table_of_contents: true
 ---
 
 ### All endpoints

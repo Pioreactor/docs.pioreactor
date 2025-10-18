@@ -1,6 +1,7 @@
 ---
 title: I²C addresses
 slug: /i2c-addresses
+hide_table_of_contents: true
 ---
 
 | Name | Chip     | Address |

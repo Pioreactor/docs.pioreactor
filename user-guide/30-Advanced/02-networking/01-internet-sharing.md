@@ -1,6 +1,7 @@
 ---
 title: Internet sharing between a PC and a Pioreactor
 slug: /internet-sharing
+hide_table_of_contents: true
 ---
 
 Below is a way to physically connect your PC to your Pioreactor and be able to control the Pioreactor from your PC, without needing any wifi or external router. This is called _internet sharing_. Note that this method _does_ scale to larger clusters (see below).

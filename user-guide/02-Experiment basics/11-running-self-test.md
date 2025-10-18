@@ -1,6 +1,7 @@
 ---
 title: Running a self-test
 slug: /running-self-test
+hide_table_of_contents: true
 ---
 
 To get the best results and confirm your Pioreactor is working as expected, it's advisable to run a self-test on your Pioreactor after setting it up initially. The self-test routine can catch common errors that may compromise your data collection.

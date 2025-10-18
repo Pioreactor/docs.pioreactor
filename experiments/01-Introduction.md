@@ -1,6 +1,7 @@
 ---
 title: Biology experiments and protocols
 slug: /introduction
+hide_table_of_contents: true
 ---
 
 import AssemblyInstructionBlock from '@site/src/components/AssemblyInstructionBlock';

@@ -1,6 +1,7 @@
 ---
 title: Optical density, normalization, and growth rates
 slug: /od-normal-growth-rate
+hide_table_of_contents: true
 ---
 
 ### Background on optical density 

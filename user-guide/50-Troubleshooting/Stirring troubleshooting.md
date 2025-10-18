@@ -1,6 +1,7 @@
 ---
 title: Stirring
 slug: /troubleshooting-stirring
+hide_table_of_contents: true
 ---
 
 import Highlight from '@site/src/components/Highlight';

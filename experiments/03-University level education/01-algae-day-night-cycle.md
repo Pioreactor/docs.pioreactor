@@ -1,6 +1,7 @@
 ---
 title: Algae day and night cycles
 slug: /algae-day-night-cycle
+hide_table_of_contents: true
 ---
 
 import AssemblyInstructionBlock from '@site/src/components/AssemblyInstructionBlock';

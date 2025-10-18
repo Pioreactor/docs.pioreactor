@@ -1,6 +1,7 @@
 ---
 title: Adding your plugins to the web interface
 slug: /adding-plugins-to-ui
+hide_table_of_contents: true
 ---
 
 

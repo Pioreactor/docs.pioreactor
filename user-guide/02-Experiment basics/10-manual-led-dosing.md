@@ -1,6 +1,7 @@
 ---
 title: Dosing and LED updates
 slug: /manual-dosing-leds
+hide_table_of_contents: true
 ---
 
 

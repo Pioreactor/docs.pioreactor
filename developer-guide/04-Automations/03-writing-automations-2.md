@@ -1,6 +1,7 @@
 ---
 title: Another example writing a new automation
 slug: /writing-automations-2
+hide_table_of_contents: true
 ---
 
 Let's design a simple LED automation for Light/Dark cycles. The basic idea is that the LED automation "wakes up" (specifically: it runs its `execute` method) every hour, and on specific hours, turns on or turns off the white light LEDs.

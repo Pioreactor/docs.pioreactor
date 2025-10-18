@@ -1,6 +1,7 @@
 ---
 title: Avoiding when optical density is run
 slug: /avoiding-od
+hide_table_of_contents: true
 ---
 
 It's common to want a feature to turn off, or more generally change behaviour, when a sensitive optical density reading is taken. For example, if running an air bubbler, you may want to turn it off before an OD reading is taken, and then turn if back on after.

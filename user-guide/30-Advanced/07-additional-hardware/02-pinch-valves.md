@@ -1,6 +1,7 @@
 ---
 title: Pinch valves
 slug: /pinch-valves
+hide_table_of_contents: true
 ---
 
 

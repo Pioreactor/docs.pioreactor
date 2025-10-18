@@ -1,6 +1,7 @@
 ---
 title: Adding behaviour to the HAT's button
 slug: /hat-button
+hide_table_of_contents: true
 ---
 
 

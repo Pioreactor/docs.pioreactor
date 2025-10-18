@@ -1,6 +1,7 @@
 ---
 title: Automations architecture
 slug: /intro-automations
+hide_table_of_contents: true
 ---
 
 ### Automations

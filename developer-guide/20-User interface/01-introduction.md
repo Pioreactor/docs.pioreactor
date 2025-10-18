@@ -1,6 +1,7 @@
 ---
 title: Overview
 slug: /web-ui-introduction
+hide_table_of_contents: true
 ---
 
 Every Pioreactor, either worker or leader, have a web server on them. However, only the leader has an associated website (ex: http://pioreactor.local). Here are the details:

@@ -1,6 +1,7 @@
 ---
 title: Writing a new automation
 slug: /writing-automations-1
+hide_table_of_contents: true
 ---
 
 An automation is a hands-off way to adjust the environment for the microbes. We currently support three types of automations: dosing, LED, and temperature.

@@ -1,6 +1,7 @@
 ---
 title: Command line interface
 slug: /cli
+hide_table_of_contents: true
 ---
 
 For those interested, you can use the command line to interact with the Pioreactors. This is called the command line interface (CLI). Log onto either the [leader or worker](/user-guide/create-cluster) and you can execute the following commands. Full options and up-to-date documentation are available with `pio <command> --help`.

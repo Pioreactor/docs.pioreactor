@@ -4,6 +4,7 @@ slug: /control-testing
 tags: 
   - Yeast
   - Control
+hide_table_of_contents: true
 ---
 
 import AssemblyInstructionBlock from '@site/src/components/AssemblyInstructionBlock';

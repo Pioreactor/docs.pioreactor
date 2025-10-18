@@ -1,6 +1,7 @@
 ---
 title: Monitoring your experiment
 slug: /monitor-experiment
+hide_table_of_contents: true
 ---
 
 Navigate to the _Overview_ page on the Pioreactor web interface. Here you can view live charts for growth rate, OD, normalized OD, and temperature. These overview graphs are used to monitor collected data during the experiment runtime.

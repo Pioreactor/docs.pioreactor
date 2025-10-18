@@ -1,6 +1,7 @@
 ---
 title: Setting up an experiment
 slug: /set-up-an-experiment
+hide_table_of_contents: true
 ---
 
 import AssemblyInstructionBlock from '@site/src/components/AssemblyInstructionBlock';

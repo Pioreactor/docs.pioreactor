@@ -1,6 +1,7 @@
 ---
 title: Working with plugins
 slug: /intro-plugins
+hide_table_of_contents: true
 ---
 
 Pioreactor plugins are a way to distribute code to others (or yourself), and avoid having to use the command line each time you invoke your custom code - you should be able to just use the web interface.

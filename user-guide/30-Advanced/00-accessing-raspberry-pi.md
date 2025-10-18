@@ -1,6 +1,7 @@
 ---
 title: Accessing the Raspberry Pi
 slug: /accessing-raspberry-pi
+hide_table_of_contents: true
 ---
 
 

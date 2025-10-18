@@ -1,6 +1,7 @@
 ---
 title: More about local storage on the Pioreactor
 slug: /local-storage
+hide_table_of_contents: true
 ---
 
 ### How do I write and read from the local storage?

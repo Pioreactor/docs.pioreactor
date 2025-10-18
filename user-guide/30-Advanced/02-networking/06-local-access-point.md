@@ -1,6 +1,7 @@
 ---
 title: Local access points
 slug: /local-access-point
+hide_table_of_contents: true
 ---
 
 import ButtonDownloadLocalAccessPointFile from '@site/src/components/ButtonDownloadLocalAccessPointFile';

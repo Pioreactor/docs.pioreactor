@@ -1,6 +1,7 @@
 ---
 title: Development on a Raspberry Pi
 slug: /pi-development
+hide_table_of_contents: true
 ---
 
 ### Developing without hardware

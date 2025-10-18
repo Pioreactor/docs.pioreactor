@@ -1,6 +1,7 @@
 ---
 title: More about MQTT on the Pioreactor
 slug: /mqtt
+hide_table_of_contents: true
 ---
 
 You can view the MQTT data using

@@ -1,6 +1,7 @@
 ---
 title: Local development of Pioreactor
 slug: /local-development
+hide_table_of_contents: true
 ---
 
 ### Local development

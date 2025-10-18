@@ -4,6 +4,7 @@ slug: /low-vs-high-conc-media
 tags: 
   - Yeast
   - nutrient
+hide_table_of_contents: true
 ---
 
 import AssemblyInstructionBlock from '@site/src/components/AssemblyInstructionBlock';

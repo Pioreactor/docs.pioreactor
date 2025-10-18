@@ -1,6 +1,7 @@
 ---
 title: Introduction
 slug: /data-stores-intro
+hide_table_of_contents: true
 ---
 
 The Pioreactor has a few different ways to store data (depending on the requirements). They are:

@@ -1,6 +1,7 @@
 ---
 title: Intro to experiment profiles
 slug: /experiment-profiles
+hide_table_of_contents: true
 ---
 
 ### What are experiment profiles?

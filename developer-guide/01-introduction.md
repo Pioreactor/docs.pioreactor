@@ -1,6 +1,7 @@
 ---
 title: Introduction for developers
 slug: /introduction
+hide_table_of_contents: true
 ---
 
 This documentation is for those who want to

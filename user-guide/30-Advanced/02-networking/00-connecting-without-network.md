@@ -1,6 +1,7 @@
 ---
 title: Connecting to the Pioreactor without any networks
 slug: /zeroconf-networking
+hide_table_of_contents: true
 ---
 
 

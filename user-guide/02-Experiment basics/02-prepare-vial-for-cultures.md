@@ -1,6 +1,7 @@
 ---
 title: Preparing your vial for cultures
 slug: /prepare-vial-for-cultures
+hide_table_of_contents: true
 ---
 
 ### 1. Preparing the vial

@@ -1,6 +1,7 @@
 ---
 title: Configuration via config.ini
 slug: /configuration
+hide_table_of_contents: true
 ---
 
 ### How configuration works across Pioreactors

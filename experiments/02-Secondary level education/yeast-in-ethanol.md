@@ -5,6 +5,7 @@ tags:
   - Yeast
   - Ethanol
   - Secondary education
+hide_table_of_contents: true
 ---
 
 import AssemblyInstructionBlock from '@site/src/components/AssemblyInstructionBlock';

@@ -1,6 +1,7 @@
 ---
 title: Writing scripts
 slug: /writing-scripts
+hide_table_of_contents: true
 ---
 
 Since the behaviour of the Pioreactor is controlled by Python objects, you can write Python scripts that use those objects. Here's a simple example of starting the stirring by creating the `Stirrer` object:

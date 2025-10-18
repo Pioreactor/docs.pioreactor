@@ -1,6 +1,7 @@
 ---
 title: Introduction
 slug: /introduction
+hide_table_of_contents: true
 ---
 
 # Pioreactor user guide

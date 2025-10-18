@@ -1,6 +1,7 @@
 ---
 title: User interface
 slug: /troubleshooting-ui
+hide_table_of_contents: true
 ---
 
 ### I'm not able to access `http://pioreactor.local`

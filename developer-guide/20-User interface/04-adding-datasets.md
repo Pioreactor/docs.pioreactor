@@ -1,6 +1,7 @@
 ---
 title: Adding datasets to the Export Data page
 slug: /dataset-to-ui
+hide_table_of_contents: true
 ---
 
 You can  allow users to export your data from the UI's Export Data page. To do this, add a YAML file to `~/.pioreactor/plugins/exportable_datasets` with the following information:

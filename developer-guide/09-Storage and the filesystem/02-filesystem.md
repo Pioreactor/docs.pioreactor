@@ -1,6 +1,7 @@
 ---
 title: Important locations on the filesystem
 slug: /filesystem-locations
+hide_table_of_contents: true
 ---
 
 

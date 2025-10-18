@@ -1,6 +1,7 @@
 ---
 title: Important concepts
 slug: /important-concepts
+hide_table_of_contents: true
 ---
 
 ### Operating system

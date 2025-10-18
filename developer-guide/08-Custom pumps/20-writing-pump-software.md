@@ -1,6 +1,7 @@
 ---
 title: Custom & additional pumps for dosing automations
 slug: /writing-pump-software
+hide_table_of_contents: true
 ---
 
 The following provides solutions to:

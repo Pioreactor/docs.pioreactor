@@ -1,6 +1,7 @@
 ---
 title: Running and stopping experiment profiles
 slug: /start-stop-experiment-profiles
+hide_table_of_contents: true
 ---
 
 Experiment profiles let you automate repeatable routines across your Pioreactor cluster. The UI is the fastest way to launch, monitor, and stop those routines.

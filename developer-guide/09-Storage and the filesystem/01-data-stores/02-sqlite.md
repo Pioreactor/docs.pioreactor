@@ -1,6 +1,7 @@
 ---
 title: More about SQLite3 on the Pioreactor
 slug: /sqlite3
+hide_table_of_contents: true
 ---
 
 

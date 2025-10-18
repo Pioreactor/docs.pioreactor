@@ -1,6 +1,7 @@
 ---
 title: Introduction to automations
 slug: /intro-to-automations
+hide_table_of_contents: true
 ---
 
 So far, we have worked with basic activities that you can directly set as a one time thing, typically at the beginning of your experiment (starting stirring, OD readings, etc.). For more advanced experiments, we introduce automations.

@@ -1,6 +1,7 @@
 ---
 title: Writing a custom background job
 slug: /writing-background-jobs
+hide_table_of_contents: true
 ---
 
 ## Introductory example

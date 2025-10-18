@@ -1,6 +1,7 @@
 ---
 title: Setting up remote access
 slug: /remote-access
+hide_table_of_contents: true
 ---
 
 

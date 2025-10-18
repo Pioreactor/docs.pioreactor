@@ -1,6 +1,7 @@
 ---
 title: Hardware and operation
 slug: /troubleshooting-hardware
+hide_table_of_contents: true
 ---
 
 ### My Pioreactor isn't responsive anymore

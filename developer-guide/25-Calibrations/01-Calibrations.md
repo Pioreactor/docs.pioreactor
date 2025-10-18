@@ -1,6 +1,7 @@
 ---
 title: Adding a new calibration type
 slug: /adding-calibration-type
+hide_table_of_contents: true
 ---
 
 Calibrations went through a major rewrite in the 25.1.x release of Pioreactor. The current design is much more adaptable and simple than the previous design. Let's discuss the key points of the current calibration design:

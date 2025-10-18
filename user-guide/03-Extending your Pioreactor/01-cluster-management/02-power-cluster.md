@@ -1,6 +1,7 @@
 ---
 title: Powering your Pioreactor cluster
 slug: /powering-cluster
+hide_table_of_contents: true
 ---
 
 ### Powering your Pioreactor

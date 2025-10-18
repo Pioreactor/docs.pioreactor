@@ -1,6 +1,7 @@
 ---
 title: Custom bioreactor models
 slug: /custom-bioreactor-models
+hide_table_of_contents: true
 ---
 
 :::tip

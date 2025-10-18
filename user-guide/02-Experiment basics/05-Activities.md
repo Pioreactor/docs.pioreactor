@@ -1,6 +1,7 @@
 ---
 title: Activities
 slug: /activities
+hide_table_of_contents: true
 ---
 
 Below is a list of activities that come available with the Pioreactor. Additionally, you can add activities using plugins. [Read more about using plugins](/user-guide/using-community-plugins).

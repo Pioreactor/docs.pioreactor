@@ -1,6 +1,7 @@
 ---
 title: Growth rate cuve modelling
 slug: /growth-rate-modelling
+hide_table_of_contents: true
 ---
 
 

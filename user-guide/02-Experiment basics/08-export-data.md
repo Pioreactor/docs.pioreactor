@@ -1,6 +1,7 @@
 ---
 title: Exporting data
 slug: /export-data
+hide_table_of_contents: true
 ---
 
 Experiment data can be exported using the _Export data_ tab on the Pioreactor site.

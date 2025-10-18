@@ -1,6 +1,7 @@
 ---
 title: Hardware connection assembly
 slug: /hardware-connection-assembly
+hide_table_of_contents: true
 ---
 
 Normally, the external hardware will have two terminals, corresponding to positive and ground. The positive terminal may be marked by a dot, or "+" symbol, or be colored red. Make note of this terminal.

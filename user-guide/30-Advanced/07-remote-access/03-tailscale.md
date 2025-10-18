@@ -1,6 +1,7 @@
 ---
 title: Tailscale
 slug: /tailscale-remote-access
+hide_table_of_contents: true
 ---
 
 

@@ -1,6 +1,7 @@
 ---
 title: Introduction to background jobs
 slug: /intro-background-jobs
+hide_table_of_contents: true
 ---
 
 The core unit of "work" in the Pioreactor software is a background job (called _activities_ in the web interface). Background jobs include `od_reading`, `monitor`, automation controllers, all the _automations_ themselves, etc. Often, a community plugin is a background job (or multiple jobs) that gives your bioreactor new abilities. There are a few important features of background jobs to be highlighted if you intend on working with them.
