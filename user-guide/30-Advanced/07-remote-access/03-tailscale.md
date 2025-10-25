@@ -5,7 +5,7 @@ hide_table_of_contents: true
 ---
 
 
-Unlike using Ngrok, this method does not expose your UI to the public internet. To access the UI remotely, you need to join an authenticated VPN. This greatly improves security, but adds a bit of additional work for users.
+To access the UI remotely, you can join an authenticated VPN using Tailscale. This greatly improves security, but adds a bit of additional work for users.
 
 :::info
 Tailscale is a really cool service! You may find yourself using it for other projects, too.
