@@ -384,20 +384,21 @@ This class works as is, but we also want to develop a command line interface for
 At the bottom of the file, we add:
 
 ```python
+from pioreactor.cli.run import run
 import click
 
-@click.command(name="motor_driver")
-@click.option(
+@run.command(name="motor_driver")
+@run.option(
     "--initial-dc",
     default=config.getfloat("motor_driver", "initial_duty_cycle"),
     show_default=True,
     type=click.FloatRange(0, 100, clamp=True),
 )
-@click.option(
+@run.option(
     "--hz",
     default=config.getfloat("motor_driver", "hz"),
     show_default=True,
-    type=click.FloatRange(1, 10_000, clamp=True),
+    type=click.FloatRange(1, 50_000, clamp=True),
 )
 def click_motor_driver(initial_dc, hz):
     """

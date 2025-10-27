@@ -5,11 +5,9 @@ hide_table_of_contents: true
 ---
 
 
-info
-:::
 
+:::info
 This is still a bit experimental and may not work on all systems
-
 :::
 
 
@@ -25,7 +23,7 @@ This might work on Windows, too.
 5. Open up your terminal, and try the following:
     
    ```
-   ssh pioreactor@your leaders name.local
+   ssh pioreactor@your_leaders_name.local
    ``` 
    
    example:
@@ -41,7 +39,7 @@ This might work on Windows, too.
    hostname -I
    ```
     
-   This should provide an IP address. Try that in your browser's URL bar. Example: http://169.254.189.106. Then try: http://your leaders name.local.
+   This should provide an IP address. Try that in your browser's URL bar. Example: http://169.254.189.106. Then try: http://your_leaders_name.local.
     
  
 6. You can disconnect your Mac from the Pi's ethernet whenever and things will keep running on it, but note, when you reconnect, it may take a minute again to establish a connection. You should be able then view the UI and also SSH in.

@@ -55,6 +55,7 @@ Here's an example: place the following code into the file `/home/pioreactor/.pio
 import click
 from pioreactor.whoami import get_unit_name, get_assigned_experiment_name
 from pioreactor.background_jobs.base import BackgroundJob
+from pioreactor.cli.run import run
 
 __plugin_summary__ = "Just a demo job"
 __plugin_version__ = "0.0.1"
@@ -77,7 +78,7 @@ class DemoJob(BackgroundJob):
         self.logger.debug("Goodbye, world!")
 
 
-@click.command(name="demo_job", help=__plugin_summary__)
+@run.command(name="demo_job", help=__plugin_summary__)
 def click_demo_job():
 
     unit = get_unit_name()
@@ -87,11 +88,18 @@ def click_demo_job():
         experiment=experiment,
     )
     job.block_until_disconnected()
+
 ```
 
 You should be able to execute the following from the command line now: `pio run demo_job`.
 
 Finally, in your [web interface under plugins](http://pioreactor.local/plugins), you should see "Demo Job" installed.
+
+
+:::important
+Using `run.command` ensures `pio run` can discover your command.
+:::
+
 
 :::info
 [A full introduction to writing jobs](/developer-guide/writing-background-jobs) is available.
@@ -112,6 +120,7 @@ from pioreactor.background_jobs.stirring import start_stirring
 from pioreactor.background_jobs.od_reading import start_od_reading
 from pioreactor.actions.led_intensity import led_intensity
 from pioreactor.background_jobs.temperature_automation import start_temperature_automation
+from pioreactor.cli.run import run
 
 
 __plugin_summary__ = "My example script to control stirring, OD and temperature"
@@ -121,7 +130,7 @@ __plugin_author__ = "Cam Davidson-Pilon"
 __plugin_homepage__ = "https://docs.pioreactor.com"
 
 
-@click.command(name="my_script", help=__plugin_summary__) # the name field is used in the invocation `pio run X`
+@run.command(name="my_script", help=__plugin_summary__) # the name field is used in the invocation `pio run X`
 def click_my_script():
 
     led_intensity({"B": 50})
@@ -135,13 +144,10 @@ def click_my_script():
 
     stirrer.block_until_disconnected()
 
+
 ```
 
 You should be able to execute the following from the command line now: `pio run my_script`. (The `my_script` is from the `@click.command` line, you can change it there).
-
-:::important
-The function that `click.command` wraps should have it's name prepended by `click_`. Ex: `def click_my_script` is okay, but `def my_script` is not.
-:::
 
 :::info
 How do you add this to your /pioreactors page in the UI? See [here](/developer-guide/adding-plugins-to-ui).
