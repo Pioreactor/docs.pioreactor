@@ -26,6 +26,7 @@
   border-radius: 5px; /* Rounded corners */
   font-size: 0.9em;
   font-weight: bold;
+  z-index: 1; /* Keep the badge above the zoomed image */
 }
 
 .cardImage {
