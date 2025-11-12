@@ -4,49 +4,30 @@ slug: /filesystem-locations
 hide_table_of_contents: true
 ---
 
+# Important Raspberry Pi Locations for Pioreactor Images
 
-Below is a list of important locations and files on the filesystem for the Pioreactor:
+Reference list of on-device paths that matter once a custom Pioreactor Raspberry Pi OS image is flashed and running.
 
-
-### UI
-
- - `/var/www/pioreactorui/` is the source of the web-app.
- - `/var/www/pioreactorui/.env` holds some configuration for the UI.
- - `/var/www/pioreactorui/contrib/` holds yaml files that display automation data, job data, and chart data.
- - Note: `/home/pioreactor/.pioreactor/plugins/ui/contrib/` also holds yaml files, like the above.
-
-
-### Logs
-
- - `/var/log/pioreactor.log` is the log file for the Pioreactor app
- - `/var/log/pioreactorui.log` is the (deprecated) log file for the Pioreactor UI. It's now the same as above.
-
-
-### Storage
-
- - `/home/pioreactor/.pioreactor/storage/` holds the main database, backup of the database, and persistent caches.
- - `/tmp/pioreactor_cache/` holds temporary caches. Files in here are not kept between reboots.
-
-
-### Bash scripts
- - `/usr/local/bin/` store bash scripts that are used when working with the filesystem: installing plugins, updating code, etc.
-
-
-### Config
-
- - `/home/pioreactor/.pioreactor/` holds all configuration files for the Pioreactor UI and app, the main one being `config.ini`
-
-
-### Plugins
-
- - `/home/pioreactor/.pioreactor/plugins/` is where Python files can be added.
- - `/home/pioreactor/.pioreactor/plugins/ui/contrib/` also holds UI yaml files for custom Python code.
-
-### Experiment profiles
-
- - `/home/pioreactor/.pioreactor/experiment_profiles/` is where experiment profiles (yaml) are stored.
-
-### Calibrations
-
- - `/home/pioreactor/.pioreactor/storage/calibrations/` is where calibrations are stored.
-
+| Path | What lives here | Notes |
+| --- | --- | --- |
+| `/etc/pioreactor.env` | Shared environment file exported to services | Provides canonical `DOT_PIOREACTOR`, `RUN_PIOREACTOR`, `LG_WD`, and virtualenv paths so systemd units pick up the same locations. |
+| `/home/pioreactor/.pioreactor/` | Pioreactor home (`$DOT_PIOREACTOR`) | Contains configs, plugins, storage, hardware definitions, logs, and other per-device state. Ensure ownership stays `pioreactor:pioreactor`. |
+| `/home/pioreactor/.pioreactor/config.ini` | Cluster-wide configuration | Holds network, MQTT, UI, logging, and automation settings replicated to workers. |
+| `/home/pioreactor/.pioreactor/unit_config.ini` | Unit overrides | Optional per-device overrides synced from the leader when a worker is added. |
+| `/home/pioreactor/.pioreactor/plugins/` | Plugin root | Mirrors the `.pioreactor` layout for plugin-provided files; typically subdivided into `python/`, `ui/`, `exportable_datasets/`, etc. |
+| `/home/pioreactor/.pioreactor/plugins/ui/` | UI plugin assets | Static contrib YAML, templates, and other UI resources merged into the Pioreactor UI. |
+| `/home/pioreactor/.pioreactor/plugins/exportable_datasets/` | Exportable dataset plugins | Each plugin ships SQL queries or serializers that surface new datasets to the UI. |
+| `/home/pioreactor/.pioreactor/storage/` | Persistent databases | Holds SQLite data such as `pioreactor.sqlite` (experiments) and `local_persistent_pioreactor_metadata.sqlite`. |
+| `/home/pioreactor/.pioreactor/storage/pioreactor.sqlite` | Primary experiment database | Used by the leader, replicated to workers for durability. Back up before major upgrades. |
+| `/home/pioreactor/.pioreactor/storage/local_persistent_pioreactor_metadata.sqlite` | Persistent cache | Stores long-lived metadata that survives reboots. |
+| `/home/pioreactor/.pioreactor/hardware/` | Hardware definition packs | YAML that describes hats, models, sensors, and calibration values consumed by the Pioreactor hardware subsystem. |
+| `/home/pioreactor/.pioreactor/experiment_profiles/` | User experiment profiles | Drop `.py` / `.json` profile definitions here so they show up in the UI for scheduling. |
+| `/home/pioreactor/.pioreactor/logs/` | Optional per-user logs | Custom scripts can log here when `/var/log/pioreactor.log` is unsuitable. |
+| `/home/pioreactor/.ssh/` | Device SSH keys | Created during image build so leaders can add workers securely. |
+| `/run/pioreactor/` | Runtime scratch space (`$RUN_PIOREACTOR`) | tmpfs directory for caches, sockets, Huey queues, and general runtime coordination. Cleared on reboot. |
+| `/run/pioreactor/cache/` | Volatile caches | Includes `local_intermittent_pioreactor_metadata.sqlite` and UI/Huey cache files that can be safely discarded. |
+| `/run/pioreactor/exports/` | Web export staging | Lighttpd serves `/exports/` from here so downloads never touch persistent storage. |
+| `/var/log/pioreactor.log` | System log for Pioreactor services | Configured via `config.ini` and read by both CLI and UI. Rotate with journald/logrotate as needed. |
+| `/opt/pioreactor/venv/` | System Python virtual environment | Hosts the Pioreactor Python installation (`pio`, `pios`, services). Activate manually for debugging. |
+| `/home/pioreactor/.local/bin/` | User-level executables | Supplementary scripts installed via `pip --user`. |
+| `/tmp/` | Temporary workspace | Referenced by `TMPDIR` in `pioreactor.env` for short-lived files outside tmpfs. |
