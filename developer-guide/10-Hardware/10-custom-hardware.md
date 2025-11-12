@@ -1,6 +1,6 @@
 ---
 title: Customize the hardware interface
-slug: /developer-guide/custom-hardware
+slug: /custom-hardware
 description: Extend or override Pioreactor hardware definitions by layering YAML files that hardware.py reads.
 hide_table_of_contents: true
 ---
