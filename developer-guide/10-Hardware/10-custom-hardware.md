@@ -1,11 +1,11 @@
 ---
-title: Customize your Pioreactor hardware
+title: Customize the hardware interface
 slug: /developer-guide/custom-hardware
 description: Extend or override Pioreactor hardware definitions by layering YAML files that hardware.py reads.
 hide_table_of_contents: true
 ---
 
-Pioreactor's hardware layer is intentionally data-driven. Everything in [`core/pioreactor/hardware.py`](https://github.com/pioreactor/pioreactor/blob/main/core/pioreactor/hardware.py) loads user-editable YAML files from `~/.pioreactor/hardware/` (or the folder pointed to by the `DOT_PIOREACTOR` env var). By editing these files you can rewire pins, add new peripherals, or describe an entirely new bioreactor model without touching the Python code. Pair these configs with [custom bioreactor model definitions](/custom-bioreactor-models) so the UI, safety limits, and wiring stay in sync.
+Pioreactor's hardware layer is intentionally data-driven. Everything in [`core/pioreactor/hardware.py`](https://github.com/pioreactor/pioreactor/blob/main/core/pioreactor/hardware.py) loads user-editable YAML files from `~/.pioreactor/hardware/` (or the folder pointed to by the `DOT_PIOREACTOR` env var). By editing these files you can rewire pins, add new peripherals, or describe an entirely new bioreactor model without touching the Python code. Pair these configs with [custom bioreactor model definitions](/developer-guide/custom-bioreactor-models) so the UI, safety limits, and wiring stay in sync.
 
 ## How the loader works
 
@@ -78,6 +78,6 @@ You can add additional mods with any key/value structure—`get_layered_mod_conf
 - Use integers for all addresses and pins; `hardware.py` casts everything via `int()` and will raise if parsing fails.
 - Keep YAML minimal—only override keys that differ from the hat defaults to take advantage of deep-merge layering.
 - The helper predicates (`is_ADC_present`, `is_heating_pcb_present`, etc.) are safe ways to gate optional hardware in your jobs.
-- Store supporting scripts, cad files, or calibration notes under `~/.pioreactor/hardware/<...>/README.md` so teammates know how to reproduce the wiring.
+
 
 Once you describe the hardware this way, the rest of the stack—jobs, automations, plugins—just asks `hardware.py` for the capabilities it needs, so new hardware becomes a configuration exercise instead of a fork of the core codebase.
