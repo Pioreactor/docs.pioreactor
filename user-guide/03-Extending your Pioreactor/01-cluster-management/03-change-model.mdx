@@ -70,3 +70,4 @@ Return to the Inventory page and reopen the **Model** dropdown. Your custom entr
 - **No new dropdown entries:** confirm the YAML file lives in `/home/pioreactor/.pioreactor/models/` on the leader and that the file extension is `.yaml` or `.yml`. Restart the `pioreactor-web.target` service once more.
 - **Validation errors in the logs:** open `pioreactor.log` or run `journalctl -u pioreactor-web.target` to view the message, then update the YAML file accordingly.
 - **Distribute to workers**: workers need these files to, so if you've added it to your leader, you can run `pios cp ~/.pioreactor/models/my_custom_model.yaml` to distribute it to workers.
+- **Hardware directory in sync:** if your hardware definitions live outside the default location, update the contents of `$DOT_PIOREACTOR/hardware/` (typically `~/.pioreactor/hardware/`) so every unit uses the same model metadata.
