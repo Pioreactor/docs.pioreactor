@@ -55,7 +55,12 @@ The top faceplate comes with a button extension to provide easier access to push
 <AssemblyInstructionBlock title="Step 4: Putting it all together" images={["user-guide/hardware-assembly/40ml-v15/place-top-on-hat.jpg", "user-guide/hardware-assembly/40ml-v15/connect-top-and-hat.jpg", "user-guide/hardware-assembly/upgrade-version/fasten-heater-cable.png", "user-guide/hardware-assembly/40ml-v15/fan-pwm.jpg"]}>
 
 1. Place the vial holder assembly onto the <Highlight color={colors.blue}>Raspberry Pi/HAT's corners</Highlight>. The GPIO pins align with the side notch of the faceplate.
-2. Using the <Highlight color={colors.red}>M2.5 6mm screws</Highlight>, attach the top and bottom pieces in each corner.
+2. Using 4x of the <Highlight color={colors.red}>M2.5 8mm screws</Highlight>, attach the top and bottom pieces in each corner.
+
+:::info
+Older kits may contain 4x M2.5 6mm screws instead. Double check using the sticker guide on the bag containing the fasteners. 
+:::
+
 3. Check that the screw for the button extension is in the right position and not prematurely compressing the button under it (you should feel a "click" when pressing the button extension). Remove the top and screw in the M2.5 10mm screw more if you detect a problem.
 4. Open the <Highlight color={colors.orange}>flat flex cable connector</Highlight> on the HAT by pulling the tabs outward, like done previously. Insert the flex cable copper-side up.
 5. <Highlight color={colors.green}>Push the tabs inward</Highlight> to secure the flex cable.
