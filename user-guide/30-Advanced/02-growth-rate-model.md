@@ -1,5 +1,5 @@
 ---
-title: Growth rate cuve modelling
+title: Growth rate curve modelling
 slug: /growth-rate-modelling
 hide_table_of_contents: true
 ---
@@ -43,7 +43,7 @@ $$\text{OD}(t) = \exp{\left(\text{gr}_0 \Delta t  + \text{gr}_1 \Delta t + ...  
 If we think more about this, and we keep shrinking our time interval towards zero, this is just an integral:
 
 $$
-\text{nOD}(t) = \exp{ \left( \int_0^t \text{gr}(s)ds \right)}
+\text{OD}(t) = \exp{ \left( \int_0^t \text{gr}(s)ds \right)}
 $$
 
 There's still no particular assumption about the shape of the growth rate function, $gr(s)$. For example, consider the following ODs from a batch experiment:

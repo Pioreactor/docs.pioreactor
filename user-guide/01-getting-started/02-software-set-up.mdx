@@ -15,8 +15,6 @@ import ButtonDownloadVersionedImage from '@site/src/components/ButtonDownloadVer
 You can expect the setup process to take 10-15 minutes. If you encounter any problems, feel free to email us for support at hello@pioreactor.com.
 
 
-:::info
-
 Before you get started, you'll need to have the following:
 
 1.  A Raspberry Pi (our list of recommended Raspberry Pis is [here](/user-guide/common-questions#what-raspberry-pi-hardware-can-i-use-i-see-raspberry-pi-1-2-3-4-a-b--zero---its-confusing))
@@ -24,7 +22,6 @@ Before you get started, you'll need to have the following:
 3.  A suitable power supply for the Raspberry Pi (our recommended power supply units are [here](/user-guide/common-questions#what-power-supply-unit-do-i-need)). You don't need to plug power in yet.
 4.  A computer with internet access and ability to read & write to a microSD card
 
-:::
 
 ### Setting up your Raspberry Pi's SD Card
 
@@ -39,9 +36,9 @@ What is an image file? It's a file that contains all the required software prein
 
 2.  Download the latest version of [Raspberry Pi Imager](https://www.raspberrypi.org/software/) for your operating system and install it.
 3.  Open the newly-installed Raspberry Pi Imager.
-3.  Click **Choose Device**, and "No filtering" at the top.
+4.  Click **Choose Device**, and "No filtering" at the top.
     ![Click "Choose Device"](/img/user-guide/choose_device.png)
-3.  Click **Choose OS**. Click on **Use custom** towards the bottom:
+5.  Click **Choose OS**. Click on **Use custom** towards the bottom:
     ![Click "Choose OS"](/img/user-guide/choose-os.png)
     ![Select the "Use custom" option](/img/user-guide/use_custom_image.png)
     Select the downloaded Pioreactor image from step 1.
@@ -49,25 +46,25 @@ What is an image file? It's a file that contains all the required software prein
     <img src="/img/user-guide/select_new_image.png" alt="Screenshot of the local computer's directory, selecting the downloaded image" width="555" style={{margin: "auto", display:"block"}} />
 
 
-4. Insert your microSD card to your computer. After your microSD card is recognized by your computer, click **Choose Storage** and select it.
+6. Insert your microSD card to your computer. After your microSD card is recognized by your computer, click **Choose Storage** and select it.
     ![Click "Choose storage"](/img/user-guide/choose-storage.png)
-5. Click **Next**.
+7. Click **Next**.
 	![Click Next](/img/user-guide/choose-next.png)
-6. Click **Edit settings**:
+8. Click **Edit settings**:
     <img src="/img/user-guide/choose-edit-settings.png" width="525" alt="Click edit settings" style={{margin: "auto", display:"block"}} />
 
     1. Check **Set hostname**. Input a unique name for this Pioreactor. Some names that we use for our first Pioreactor: `pioreactor01`, or `leader`, or `pio01`. _Don't_ use `pioreactor` or `raspberrypi`.
-    3. Check **Set username and password**. Enter the following:
+    2. Check **Set username and password**. Enter the following:
         -   **username**: `pioreactor`.
         -   **password**: `raspberry`.
         -   Note: You can change the username and password later.
-    4. Check **Configure wireless LAN** and enter your network name into SSID network name, WiFi password, and country. Or leave blank if using ethernet.
+    3. Check **Configure wireless LAN** and enter your network name into SSID network name, WiFi password, and country. Or leave blank if using ethernet.
 	:::tip
     If you are having difficulty connecting to a network, like at a university that may not easily incorporate Raspberry Pi's, [there's a built-in solution for creating a local access point](/user-guide/local-access-point)) and a [solution for internet-sharing from a PC via ethernet](/user-guide/internet-sharing).
 	:::
 	
-    5. Change timezone to your local timezone.
-    6. Under the "Services" tab, check **Enable SSH**, and select **Use password authentication**.
+    4. Change timezone to your local timezone.
+    5. Under the "Services" tab, check **Enable SSH**, and select **Use password authentication**.
 
     Your settings should look something like this:
 
@@ -75,37 +72,37 @@ What is an image file? It's a file that contains all the required software prein
 
     <img src="/img/user-guide/rpi-imager-settings-2.png" width="625" alt="Screenshot of what your settings should look like" style={{margin: "auto", display:"block"}} />
 
-    6.  Click **Save** to save and exit the dialog box.
+    6. Click **Save** to save and exit the dialog box.
 
-7. Click "Yes" to begin writing. A prompt *may* appear asking for permission to write, accept it. Writing will take up to 5 minutes. Perfect time for a tea break.
+9. Click "Yes" to begin writing. A prompt *may* appear asking for permission to write, accept it. Writing will take up to 5 minutes. Perfect time for a tea break.
 
     <img src="/img/user-guide/coffee.svg" width="250" alt="Screenshot of what your settings should look like" style={{margin: "auto", display:"block"}} />
 
 
-8.  Once writing is complete, remove the microSD card, and place it into the Raspberry Pi. **Your Raspberry Pi's power should be unplugged before inserting the microSD card**. The microSD slot is located on the PWM side of the Pioreactor. Example for a Raspberry Pi A model:
+10.  Once writing is complete, remove the microSD card, and place it into the Raspberry Pi. **Your Raspberry Pi's power should be unplugged before inserting the microSD card**. The microSD slot is located on the PWM side of the Pioreactor. Example for a Raspberry Pi A model:
 
     ![Insert the microSD card into a Raspberry Pi A model](/img/user-guide/place-micro-sd-card.JPG)
 
-8.  Plug power into your Raspberry Pi. LEDs onboard the Raspberry Pi may start to light up momentarily. After **a few minutes**, your Pioreactor HAT will briefly blink a blue LED, telling us it is ready.
+11. Plug power into your Raspberry Pi. LEDs onboard the Raspberry Pi may start to light up momentarily. After **a few minutes**, your Pioreactor HAT will briefly blink a blue LED, telling us it is ready.
 
-<p align="center">
-    <video width="520" muted loop={true} autoPlay="autoplay">
-      <source src="/vid/flashing.mp4" type="video/mp4" />
-    </video>
-</p>
+    <p align="center">
+        <video width="520" muted loop={true} autoPlay="autoplay">
+          <source src="/vid/flashing.mp4" type="video/mp4" />
+        </video>
+    </p>
 
-:::info
-Waited, but didn't see a blue LED blink, or maybe you missed it? Try pressing on the onboard button, near the side labelled "PWM", and pictured above. If this lights up the blue LED, you're good to move on. Still not working? Try power-cycling the Raspberry Pi, or email us at hello@pioreactor.com.
-:::
+    :::info
+    Waited, but didn't see a blue LED blink, or maybe you missed it? Try pressing on the onboard button, near the side labelled "PWM", and pictured above. If this lights up the blue LED, you're good to move on. Still not working? Try power-cycling the Raspberry Pi, or email us at hello@pioreactor.com.
+    :::
 
-9. After observing the blue LED flashing, navigate to [http://pioreactor.local](http://pioreactor.local) in a web browser to visit the web interface. If you are using local-access-point, looking for a `pioreactor` wifi network and then visit the link. (Not able to load http://pioreactor.local? Read [Common Questions](#pioreactorlocal-in-a-web-browser-is-not-showing-up) below).
+12. After observing the blue LED flashing, navigate to [http://pioreactor.local](http://pioreactor.local) in a web browser to visit the web interface. If you are using local-access-point, looking for a `pioreactor` wifi network and then visit the link. (Not able to load http://pioreactor.local? Read [Common Questions](#pioreactorlocal-in-a-web-browser-is-not-showing-up) below).
 
-10. Once you're on the UI, visit the Inventory page and confirm the model of Pioreactor you are using.
+13. When the UI loads for the first time you'll be prompted by the **Update Pioreactor model** dialog. Select the correct model and hardware version for each Pioreactor listed, then click **Save** to continue.
 
-    ![Choose your correct Pioreactor model](/img/user-guide/pioreactor_model.png)
+    ![Select the Pioreactor model and version for each unit](/img/user-guide/pioreactor-model-version-modal.png)
 
 
-11. The Pioreactor is now ready for use! Follow [this guide](/user-guide/prepare-vial-for-cultures) to set up your first experiment.
+14. The Pioreactor is now ready for use! Follow [this guide](/user-guide/prepare-vial-for-cultures) to set up your first experiment.
 
 
 ## Adding additional workers to your cluster
@@ -133,9 +130,9 @@ Workers are additional Pioreactors that you can control from a single UI. Togeth
 
    <img src="/img/user-guide/rpi-imager-settings-worker.png" width="625" alt="Screenshot of what your settings may look like" style={{margin: "auto", display:"block"}} />
 
-2. If using a local-access-point on your leader Pioreactor, use the wifi ssid `pioreactor` and password `raspberry`. Otherwise, use the same wifi credentials are your leader Pioreactor.
-3. After the image is written to the microSD card, place the microSD card into the Raspberry Pi and power it on.
-4. After a few minutes, the Pioreactor's blue LED will light up and stay on, indicating that it's ready to be connected. Move onto the next step.
+3. If using a local-access-point on your leader Pioreactor, use the wifi ssid `pioreactor` and password `raspberry`. Otherwise, use the same wifi credentials are your leader Pioreactor.
+4. After the image is written to the microSD card, place the microSD card into the Raspberry Pi and power it on.
+5. After a few minutes, the Pioreactor's blue LED will light up and stay on, indicating that it's ready to be connected. Move onto the next step.
 
 #### Step 2. Add worker to cluster using the UI
 
