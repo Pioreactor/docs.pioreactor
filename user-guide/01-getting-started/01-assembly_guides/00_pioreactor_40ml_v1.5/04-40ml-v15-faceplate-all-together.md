@@ -56,7 +56,7 @@ The top faceplate comes with a button extension to provide easier access to push
 2. Using 4x of the <Highlight color={colors.red}>M2.5 8mm screws</Highlight>, attach the top and bottom pieces in each corner.
 
 :::info
-Older kits may contain 4x M2.5 6mm screws instead. Double check using the sticker guide on the bag containing the fasteners.
+Older kits may contain 4x M2.5 6mm screws instead. Use theses instead. Double check using the sticker guide on the bag containing the fasteners.
 :::
 
 3. Check that the screw for the button extension is in the right position and not prematurely compressing the button under it (you should feel a "click" when pressing the button extension). Remove the top and screw in the M2.5 10mm screw more if you detect a problem.
