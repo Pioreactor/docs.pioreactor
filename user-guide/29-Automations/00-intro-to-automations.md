@@ -1,22 +1,39 @@
 ---
 title: Introduction to automations
 slug: /intro-to-automations
+description: Automations let Pioreactor run dosing, temperature, LED, and growth workflows for you.
 hide_table_of_contents: true
 ---
 
-So far, we have worked with basic activities that you can directly set as a one time thing, typically at the beginning of your experiment (starting stirring, OD readings, etc.). For more advanced experiments, we introduce automations.
+Automations are Pioreactor’s presets for running repeatable tasks without babysitting every step. Instead of manually toggling stirring, repeatedly starting a pump, or scheduling LED cycles, you can hand those decisions to an automation and focus on interpreting the experiment.
 
-Automations are preset functions that are _automated_, or performed by the Pioreactor without the need of your intervention. This is great for when you want to change the environment of your experiment in some way, whether periodically or at a given time  — and you don't want to change your settings each time!
+Use an automation when:
 
-Some examples:  
-*	Every 15 minutes, you want to introduce new media and remove old media using [pumps](/user-guide/dosing-automations#chemostat).
-*	When working with phototrophs (such as algae), you want to create “day/night” cycles by [turning on/off your LEDs](/user-guide/led-automations). 
+* You need to maintain a culture state (for example, chemostat or turbidostat modes).
+* The experiment requires timed cycles such as day/night lighting or periodic dosing.
+* You want Pioreactor to react to sensor data (growth rate calculations, temperature feedback loops, etc.).
 
-Setting automations can be done so that the Pioreactor performs these tasks automatically. These automations can be found under _Activities_, when you _Manage_ your Pioreactor. 
+## Start an automation from the UI
 
-![](/img/user-guide/automations.png)
+1. Open **Pioreactors** → choose the reactor you want to configure.
+2. Click **Manage** (or **Control**) to open the activities drawer.
+3. In **Activities**, locate the automation you need and use **Start**.
 
+![Activities drawer showing available automations](/img/user-guide/automations-panel.png)
+_Highlighted rows show where temperature, dosing, and LED automations live inside the Activities dialog._
 
-### `Skip first run`?
+Each automation runs as its own background job, so you can mix and match—for example, keep stirring and growth-rate measurements active while only dosing automatically.
 
-When starting an automation, like a chemostat, it is ambiguous whether to start dosing (or checking whether to dose) _immediately_, or wait _N_ minutes to start. Checking `Skip first run` will choose the latter: wait _N_ minutes, and then begin.
+## Available automation types
+
+The three most common automation families live in this drawer:
+
+* **Temperature automation** – closes the loop on vial temperature using the heater. Options include thermostat-style control or logging-only mode. See [Temperature automations](/user-guide/temperature-automations).
+* **Dosing automation** – runs pumps in chemostat, turbidostat, or fed-batch patterns and logs media usage automatically. See [Dosing automations](/user-guide/dosing-automations).
+* **LED automation** – coordinates LED intensity and scheduling (for example day/night cycles for phototrophs). See [LED automations](/user-guide/led-automations).
+
+You can also create custom automations or profiles (see [Writing automations](/user-guide/writing-automations)) when your experiment requires bespoke logic.
+
+## `Skip first run`
+
+When you start an automation, Pioreactor needs to know whether it should execute immediately or after the first interval. Selecting **Skip first run** delays the initial action by one full interval (_N_ minutes) before beginning the loop. Use this when the culture needs to equilibrate before the automation intervenes, or when you schedule automations ahead of time and do not want them to fire right away.
