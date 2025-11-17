@@ -372,54 +372,118 @@ The UI validates profiles against this schema and performs an additional run-tim
 experiment_profile_name: <string>  # Name of the experiment profile
 
 
-# Metadata section (optional)
+# Metadata (optional)
 metadata:
-  author: <string>      # Author of the experiment profile
-  description: <string> # Description of the experiment profile
+  author: <string>
+  description: <string>
 
-# Plugins section (optional)
+# Plugins (optional)
 plugins:
-  - name: <string>        # Name of the plugin
-    min_version: <string> # Minimum required version of the plugin
+  - name: <string>
+    version: <string>  # version or constraint, e.g. "1.2.3" or ">=1.2.3"
 
-# inputs for variables that can be used in expressions (optional)
+# Inputs available to expressions (optional)
 inputs:
-  var1: value1
-  var2: value2
+  <input_name>: <value>
 
 
-# Common jobs section (optional)
-# Jobs that are common for all Pioreactors
+# Jobs common to all Pioreactors (optional)
 common:
   jobs:
     <job_name>:
+      description: <string>
       actions:
-        - type: <string>     # Type of action: "start", "pause", "resume", "stop", "update", "repeat", "when", or "log"
-          hours_elapsed: <float> # Time when the action is scheduled (in hours after experiment start)
-          # Options for the action (optional)
-          # If type is 'log', a 'message' parameter is required here
-          options:
-            <option_name>: <value>
-          # Arguments for the action (optional)
-          arguments: <list>
+        - # see Action definitions below
 
-# Pioreactors section (optional)
-# Jobs that are specific to some Pioreactors
+# Jobs per Pioreactor (optional)
 pioreactors:
   <pioreactor_unit_name>:
-    # Optional label for the Pioreactor
     label: <string>
     jobs:
       <job_name>:
+        description: <string>
         actions:
-          - type: <string>     # Type of action: "start", "pause", "resume", "stop", "update", "repeat", "when", or "log"
-            hours_elapsed: <float> # Time when the action is scheduled (in hours after experiment start)
-            # Optional 'if' directive for conditional execution of actions
-            if: <string> # Can be an expression
-            # Options for the action (optional)
-            # Values can be expressions, denoted with ${{ }}
-            options:
-              <option_name>: <value>
+          - # see Action definitions below
+
+
+# Action definitions
+- type: log
+  hours_elapsed: <float>
+  if: <bool_or_expression>
+  options:
+    message: <string>
+    level: DEBUG|debug|WARNING|warning|INFO|info|NOTICE|notice|ERROR|error (default: notice)
+
+- type: start
+  hours_elapsed: <float>
+  if: <bool_or_expression>
+  options: {<option_name>: <value>}  # expressions allowed via ${{ }}
+  args: [<string>, ...]
+  config_overrides: {<config_name>: <value>}
+
+- type: update
+  hours_elapsed: <float>
+  if: <bool_or_expression>
+  options: {<option_name>: <value>}  # expressions allowed via ${{ }}
+
+- type: pause
+  hours_elapsed: <float>
+  if: <bool_or_expression>
+
+- type: resume
+  hours_elapsed: <float>
+  if: <bool_or_expression>
+
+- type: stop
+  hours_elapsed: <float>
+  if: <bool_or_expression>
+
+- type: repeat
+  hours_elapsed: <float>
+  if: <bool_or_expression>
+  repeat_every_hours: <float>  # default: 1.0
+  while: <bool_or_expression>  # optional stop condition
+  max_hours: <float>           # optional cap on total hours
+  actions:
+    - # basic action only (log, start, pause, resume, stop, update)
+
+- type: when
+  hours_elapsed: <float>
+  if: <bool_or_expression>
+  condition: <bool_or_expression>
+  actions:
+    - # any action (including repeat/when)
+
+
+# Profile expression syntax (used in ${{ ... }} in options/conditions)
+#
+# Literals
+# - Numbers: integer or float (e.g., 1, -2.5)
+# - Booleans: true, false (case-insensitive)
+# - Names resolve to values provided in the expression environment (inputs, etc.); otherwise they remain strings.
+#
+# Operators
+# - Arithmetic: +, -, *, / (raises on division by zero), ** (exponent)
+# - Comparisons: <, <=, ==, >=, >
+# - Logical: and, or, not
+# - Parentheses for precedence
+#
+# Functions
+# - random(): float in [0,1)
+# - unit(): current unit name
+# - hours_elapsed(): current action time
+# - experiment(): current experiment name
+# - job_name(): current job name
+#
+# MQTT lookups
+# - <unit>:<job>:<setting>[.<nested_key>]*
+# - ::<job>:<setting>[.<nested_key>]* (uses current unit)
+#   Examples: unit():od_reading:od600, ::stirring:setting.target_rpm
+#   Fails if worker is inactive or topic missing.
+#
+# Conversion rules
+# - Numeric strings become floats; "true"/"false" become booleans; otherwise strings stay strings.
+
 ```
 
 ### Examples

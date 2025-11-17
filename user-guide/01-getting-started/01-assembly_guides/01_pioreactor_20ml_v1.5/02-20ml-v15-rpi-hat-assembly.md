@@ -74,7 +74,7 @@ The 40 GPIO pins (standing for general-purpose input/output) form a distinct row
 By screwing down the standoffs, they'll help compress the HAT onto the RPi, too.
 :::
 
-4.  Put this aside and proceed to the [next page](20ml-v11-wetware-assembly).
+4.  Put this aside and proceed to the [next page](20ml-v15-wetware-assembly).
 
 </AssemblyInstructionBlock>
 
@@ -112,6 +112,6 @@ The 40 GPIO pins (standing for general-purpose input/output) form a distinct row
 By screwing down the standoffs, you can use these standoffs to help compress the HAT onto the RPi, too.
 :::
 
-4.  Put this aside and proceed to the [next page](20ml-v11-wetware-assembly).
+4.  Put this aside and proceed to the [next page](20ml-v15-wetware-assembly).
 
 </AssemblyInstructionBlock>

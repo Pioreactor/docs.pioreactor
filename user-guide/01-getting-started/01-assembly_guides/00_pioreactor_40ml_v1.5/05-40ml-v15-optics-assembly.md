@@ -35,7 +35,7 @@ Each eye-spy is unique. The one used for REF has a white mark in the upper-left 
 -------
 
 
-<AssemblyInstructionBlock title="Step 2: Install the eye-spies" images={["user-guide/hardware-assembly/40ml-v15/eye-spy-cover.jpg", "user-guide/hardware-assembly/40ml-v15/eye-spy-into-ref.jpg", "user-guide/hardware-assembly/40ml-v15/secure-ref.jpg", "user-guide/hardware-assembly/40ml-v15/secure-all-eye-spy.jpg"]}>
+<AssemblyInstructionBlock title="Step 2: Install the eye-spys" images={["user-guide/hardware-assembly/40ml-v15/eye-spy-cover.jpg", "user-guide/hardware-assembly/40ml-v15/eye-spy-into-ref.jpg", "user-guide/hardware-assembly/40ml-v15/secure-ref.jpg", "user-guide/hardware-assembly/40ml-v15/secure-all-eye-spy.jpg"]}>
 
 1. Place an eye-spy cover over the REF eye-spy. 
 2. With the tan connectors towards the top, place the eye-spy into the REF socket on the vial holder. Secure it with <Highlight color={colors.red}>4x 8mm screws</Highlight>.
@@ -53,15 +53,11 @@ The measuring eye-spy can be placed in either the 90 or 135 degree pocket. For m
 
 -----
 
-<AssemblyInstructionBlock title="Step 3: Connect eye-spies to HAT" images={["user-guide/hardware-assembly/40ml-v15/connect-stemma-to-hat.jpg", "user-guide/hardware-assembly/40ml-v15/connect-stemma-on-eye-spy.jpg"]}>
+<AssemblyInstructionBlock title="Step 3: Connect eye-spys to HAT" images={["user-guide/hardware-assembly/40ml-v15/connect-stemma-to-hat.jpg", "user-guide/hardware-assembly/40ml-v15/connect-stemma-on-eye-spy.jpg"]}>
 
 1. Locate the <Highlight color={colors.teal}>STEMMA-QT connector</Highlight> on the HAT and connect the 100mm STEMMA-QT wire, with the yellow wire furthest from the heater flat flex cable. 
 2. Connect the other end to the leftmost eye-spy. Use the colors of the wire to orient the connector correctly. 
 3. Use the <Highlight color={colors.magenta}>50mm STEMMA-QT wire</Highlight> to connect each eye-spy. 
-
-:::tip
-Extra eye-spies can be daisy chained using consecutive STEMMA-QT cables! 
-:::
 
 :::tip
 It does not matter which wires are connected to either eye-spy sockets. However, organize the wires neatly and avoid crossing over when possible.
