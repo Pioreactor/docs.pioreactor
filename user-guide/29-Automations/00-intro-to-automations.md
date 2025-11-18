@@ -32,7 +32,7 @@ The three most common automation families live in this drawer:
 * **Dosing automation** – runs pumps in chemostat, turbidostat, or fed-batch patterns and logs media usage automatically. See [Dosing automations](/user-guide/dosing-automations).
 * **LED automation** – coordinates LED intensity and scheduling (for example day/night cycles for phototrophs). See [LED automations](/user-guide/led-automations).
 
-You can also create custom automations or profiles (see [Writing automations](/user-guide/writing-automations)) when your experiment requires bespoke logic.
+You can also create custom automations or profiles (see [Writing automations](/developer-guide/writing-automations-1)) when your experiment requires bespoke logic.
 
 ## `Skip first run`
 
