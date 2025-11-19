@@ -4,18 +4,32 @@
  * work well for content-centric websites.
  */
 
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Source+Code+Pro:wght@400;600&display=swap");
+
 /* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #5835D4;
-  --ifm-color-primary-dark: #361d8d;
-  --ifm-color-primary-darker: #2c1773;
-  --ifm-color-primary-darkest: #221159;
-  --ifm-color-primary-light: #3b209a;
-  --ifm-color-primary-lighter: #4526b4;
-  --ifm-color-primary-lightest: #4f2cce;
+  --ifm-color-primary: #5331ca;
+  --ifm-color-primary-dark: #4a2bb9;
+  --ifm-color-primary-darker: #4125a3;
+  --ifm-color-primary-darkest: #332083;
+  --ifm-color-primary-light: #6a47d7;
+  --ifm-color-primary-lighter: #7b59e0;
+  --ifm-color-primary-lightest: #8c6be9;
+  --ifm-color-secondary: #df1a0c;
   --ifm-code-font-size: 95%;
-  --ifm-navbar-link-color: #646464;
-  --ifm-hero-banner-bg: #6343d1;
+  --ifm-navbar-link-color: #4a4a4a;
+  --ifm-hero-banner-bg: #5331ca;
+  --ifm-background-color: #f6f6f7;
+  --ifm-font-family-base: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --ifm-font-family-monospace: "Source Code Pro", "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --color-status-ready: #176114;
+  --color-status-ready-bg: #ddffdc;
+  --color-status-disconnected: #585858;
+  --color-status-lost: #de3618;
+  --color-status-inactive: #99999b;
+  --color-alert-error: #ff8f7b;
+  --color-alert-warning: #ffefa4;
+  --color-alert-notice: #addcaf;
   --docusaurus-highlighted-code-line-bg: #dae1f3;
 }
 
@@ -38,15 +52,24 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
   --ifm-navbar-link-color: #eeee;
   --ifm-hero-banner-bg: linear-gradient(13deg, rgb(24 25 26) 49%, rgba(99,67,209,1) 100%);
   --docusaurus-highlighted-code-line-bg: #37393f;
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: rgb(33, 175, 144);
-  --ifm-color-primary-darker: rgb(31, 165, 136);
-  --ifm-color-primary-darkest: rgb(26, 136, 112);
-  --ifm-color-primary-light: rgb(70, 203, 174);
-  --ifm-color-primary-lighter: rgb(102, 212, 189);
-  --ifm-color-primary-lightest: rgb(146, 224, 208);
+  --ifm-color-primary: #b7a6ff;
+  --ifm-color-primary-dark: #a590ff;
+  --ifm-color-primary-darker: #947bff;
+  --ifm-color-primary-darkest: #7b5be5;
+  --ifm-color-primary-light: #c2b4ff;
+  --ifm-color-primary-lighter: #cec3ff;
+  --ifm-color-primary-lightest: #dcd5ff;
 }
 
+body {
+  background-color: var(--ifm-background-color);
+  font-family: var(--ifm-font-family-base);
+}
+
+code,
+pre {
+  font-family: var(--ifm-font-family-monospace);
+}
 
 h1 {
   font-size:  2.3rem;
@@ -74,6 +97,82 @@ h1 {
   background: var(--ifm-menu-link-sublist-icon) 50% / 1.5rem 1.5rem;
 }
 
+.button, button {
+  text-transform: none;
+}
+
+[contenteditable="true"] {
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  padding: 2px 4px;
+}
+
+[contenteditable="true"]:hover {
+  border-color: #51a7e8;
+  box-shadow: 0 0 0 2px rgba(81, 167, 232, 0.15);
+}
+
+.underline-dotted {
+  text-decoration: underline dotted rgba(0, 0, 0, 0.87);
+  text-underline-offset: 0.18em;
+}
+
+.indicator-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #ea4c89;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1), 0 0 6px 1px rgba(234, 76, 137, 0.45);
+}
+
+.indicator-dot.is-online {
+  background: #2fbb39;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1), 0 0 6px 1px rgba(47, 187, 57, 0.5);
+}
+
+.badge--ready {
+  color: var(--color-status-ready);
+  background: var(--color-status-ready-bg);
+  border: 1px solid var(--color-status-ready);
+}
+
+.badge--disconnected {
+  color: var(--color-status-disconnected);
+  background: #f0f0f0;
+}
+
+.badge--lost {
+  color: #fff;
+  background: var(--color-status-lost);
+}
+
+.badge--inactive {
+  color: #fff;
+  background: var(--color-status-inactive);
+}
+
+.alert-fill--error {
+  background: var(--color-alert-error);
+}
+
+.alert-fill--warning {
+  background: var(--color-alert-warning);
+}
+
+.alert-fill--notice {
+  background: var(--color-alert-notice);
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.2; }
+}
+
+.blink {
+  animation: blink 1s linear infinite;
+}
 
 .responsive-video {
     position: relative;
@@ -92,7 +191,7 @@ h1 {
 }
 
 .hidden {
-display: none !important;
+  display: none !important;
 }
 
 .cardGrid {
