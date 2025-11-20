@@ -28,7 +28,7 @@ common:
     stirring:
       actions:
         - type: start
-          t: 0
+          t: 0s
 
 pioreactors:
   pio001:
@@ -36,7 +36,7 @@ pioreactors:
       temperature_automation:
         actions:
           - type: start
-            t: 0.0
+            t: 0s
             options:
               automation_name: thermostat
               target_temperature: 35
@@ -45,7 +45,7 @@ pioreactors:
       temperature_automation:
         actions:
           - type: start
-            t: 0.0
+            t: 0s
             options:
               automation_name: thermostat
               target_temperature: 32
@@ -77,7 +77,7 @@ fetches the `target_rpm` from `pio1`'s stirring job at execution time, compares 
     stirring:
       actions:
         - type: update
-          t: 6.0
+          t: 6h
           if: pio1:stirring:target_rpm >= 500
           options:
             target_rpm: 400
@@ -89,7 +89,7 @@ You can also compare against strings. For example, to stop a job if the temperat
     temperature_automation:
       actions:
         - type: stop
-          t: 6.0
+          t: 6h
           if: pio1:temperature_automation:automation_name == thermostat
 ```
 
@@ -99,7 +99,7 @@ Many published settings are nested JSON blobs. Use `.` to index into them:
     temperature_automation:
       actions:
         - type: update
-          t: 6.0
+          t: 6h
           if: pio1:temperature_automation:temperature.temperature <= 30
           options:
             target_temperature: 32
@@ -116,11 +116,11 @@ pioreactors:
       stirring:
         actions:
           - type: start
-            t: 0
+            t: 0s
             options:
               target_rpm: 500
           - type: update
-            t: 12
+            t: 12h
             options:
               target_rpm: ${{ worker1:stirring:target_rpm + 50 }}
 ```
@@ -129,7 +129,7 @@ You can reference other jobs, too. The example below adjusts stirring based on o
 
 ```yaml
           - type: update
-            t: 12
+            t: 12h
             options:
               target_rpm: ${{ worker1:stirring:target_rpm + worker1:od_reading:od2.od * 10 }}
 ```
@@ -150,7 +150,7 @@ common:
     stirring:
       actions:
         - type: update
-          t: 6
+          t: 6h
           if: ${{ ::stirring:target_rpm <= 500 }}
           options:
             target_rpm: 500
@@ -164,7 +164,7 @@ common:
     stirring:
       actions:
         - type: update
-          t: 6
+          t: 6h
           if: ${{ ::stirring:target_rpm <= 500 }}
           options:
             target_rpm: ${{ ::stirring:target_rpm + 10 * ::od_reading:od2.od }}
@@ -227,10 +227,10 @@ common:
       actions:
         - type: when
           wait_until: ${{ ::od_reading:od2.od > 2.0 }}
-          t: 0
+          t: 0s
           actions:
             - type: start
-              t: 0
+              t: 0s
               options:
                 automation_name: chemostat
                 volume: 0.6
@@ -248,11 +248,11 @@ common:
 
 ```yaml
 - type: repeat
-  t: 6.0 # start looping after 6 hours
+  t: 6h # start looping after 6 hours
   every: 0.5h # run every 30 minutes
   actions:
     - type: update
-      t: 0.0
+      t: 0s
       ...
     - type: update
       t: 0.1h
@@ -271,7 +271,7 @@ A coarse turbidostat example:
 add_media:
   actions:
     - type: repeat
-      t: 6.0
+      t: 6h
       every: 9s
       while: ${{ worker1:od_reading:od2.od > 3.0 }}
       actions:
@@ -281,7 +281,7 @@ add_media:
 remove_waste:
   actions:
     - type: repeat
-      t: 6.0
+      t: 6h
       every: 9s
       while: ${{ worker1:od_reading:od2.od > 3.0 }}
       actions:
@@ -305,12 +305,12 @@ common:
     temperature_automation:
       actions:
         - type: update
-          t: 12.0
+          t: 12h
           if: ${{ ::od_reading:od2.od < od_threshold }}
           options:
             target_temperature: ${{ stationary_phase_temp }}
         - type: update
-          t: 12.0
+          t: 12h
           if: ${{ ::od_reading:od2.od >= od_threshold }}
           options:
             target_temperature: ${{ growth_phase_temp }}
@@ -328,7 +328,7 @@ common:
     temperature_automation:
       actions:
         - type: start
-          t: 0.0
+          t: 0s
           options:
             automation_name: thermostat
             target_temperature: 30
@@ -341,7 +341,7 @@ common:
     temperature_automation:
       actions:
         - type: start
-          t: 0.0
+          t: 0s
           options:
           automation_name: thermostat
           target_temperature: 30

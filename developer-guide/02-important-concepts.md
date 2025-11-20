@@ -6,7 +6,7 @@ hide_table_of_contents: true
 
 ### Operating system
 
-The Pioreactor runs ontop of a Raspberry Pi. We provide the operating system that runs on the Raspberry Pi as downloadable images. The operating system the latest version of _Raspberry Pi OS_ (a fork of _Debian Bookworm_ at the time of writing) with our custom modifications.
+The Pioreactor runs ontop of a Raspberry Pi. We provide the operating system that runs on the Raspberry Pi as downloadable images. The operating system the latest version of _Raspberry Pi OS_ (a fork of _Debian Trixie_ at the time of writing) with our custom modifications.
 
 ### An initial mental model of Pioreactor software
 
