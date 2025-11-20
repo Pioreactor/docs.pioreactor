@@ -29,7 +29,7 @@ common:
     stirring:
       actions:
         - type: start
-          hours_elapsed: 0
+          t: 0
           options:
             target_rpm: 600
 
@@ -39,9 +39,9 @@ pioreactors:
       od_reading:
         actions:
           - type: start
-            hours_elapsed: 0
+            t: 0
           - type: stop
-            hours_elapsed: 1
+            t: 1h
 ```
 
 4. Click **Search jobs and automations** if you want to insert additional sample actions—results paste directly into the editor.
@@ -51,9 +51,9 @@ pioreactors:
 
 ### How the example works
 
-- `common` tasks run for **every** worker in the experiment. Here we start the stirring job everywhere at `0` hours elapsed.
+- `common` tasks run for **every** worker in the experiment. Here we start the stirring job everywhere at `0` time elapsed.
 - `pioreactors` lets you target individual workers. Swap `pio001` for your unit name (the UI autocompletes known workers) to start and stop OD readings only on that Pioreactor.
-- `hours_elapsed` is relative to when the profile starts. Setting `1` means "one hour after I launch this profile".
+- `t` is relative to when the profile starts. Use hours by default (`1` means "one hour after launch") or add units like `30s`, `2m`, `1h`, or `2d`.
 - You can add as many jobs as you like. Keep related actions in chronological order so they are easy to read later.
 
 ## Edit and iterate on a profile

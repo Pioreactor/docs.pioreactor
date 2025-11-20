@@ -28,7 +28,7 @@ common:
     stirring:
       actions:
         - type: start
-          hours_elapsed: 0
+          t: 0
 
 pioreactors:
   pio001:
@@ -36,7 +36,7 @@ pioreactors:
       temperature_automation:
         actions:
           - type: start
-            hours_elapsed: 0.0
+            t: 0.0
             options:
               automation_name: thermostat
               target_temperature: 35
@@ -45,21 +45,21 @@ pioreactors:
       temperature_automation:
         actions:
           - type: start
-            hours_elapsed: 0.0
+            t: 0.0
             options:
               automation_name: thermostat
               target_temperature: 32
 ```
 
-### `hours_elapsed` refers to the profile start time
+### Times refer to the profile start time
 
-When writing a profile, note that the `hours_elapsed` field refers to when the experiment profile started, and not when the experiment started.
+When writing a profile, note that any `t` field refers to when the experiment profile started, and not when the experiment started. Use either a bare number (interpreted in hours) or a string with a unit suffix (`s`, `m`, `h`, or `d`, such as `30s`, `0.5h`, or `2d`); negative values are rejected.
 
 ## Conditionals and expressions
 
 ### How the `if` directive works
 
-The `if` directive can be included in any action to conditionally execute it or not. The expression is evaluated _when the action is scheduled_ (that is, after `hours_elapsed` hours have passed since the profile started).
+The `if` directive can be included in any action to conditionally execute it or not. The expression is evaluated _when the action is scheduled_ (that is, after `t` time has passed since the profile started).
 
 The `if` directive supports the boolean operators `and`, `or`, and `not`, parentheses, the literals `True` and `False`, comparisons (`==`, `>=`, `<=`, `>`, `<`), and basic arithmetic on floats (`+`, `-`, `*`, `/`). Strings must be bare words without spaces.
 
@@ -77,7 +77,7 @@ fetches the `target_rpm` from `pio1`'s stirring job at execution time, compares 
     stirring:
       actions:
         - type: update
-          hours_elapsed: 6.0
+          t: 6.0
           if: pio1:stirring:target_rpm >= 500
           options:
             target_rpm: 400
@@ -89,7 +89,7 @@ You can also compare against strings. For example, to stop a job if the temperat
     temperature_automation:
       actions:
         - type: stop
-          hours_elapsed: 6.0
+          t: 6.0
           if: pio1:temperature_automation:automation_name == thermostat
 ```
 
@@ -99,7 +99,7 @@ Many published settings are nested JSON blobs. Use `.` to index into them:
     temperature_automation:
       actions:
         - type: update
-          hours_elapsed: 6.0
+          t: 6.0
           if: pio1:temperature_automation:temperature.temperature <= 30
           options:
             target_temperature: 32
@@ -116,11 +116,11 @@ pioreactors:
       stirring:
         actions:
           - type: start
-            hours_elapsed: 0
+            t: 0
             options:
               target_rpm: 500
           - type: update
-            hours_elapsed: 12
+            t: 12
             options:
               target_rpm: ${{ worker1:stirring:target_rpm + 50 }}
 ```
@@ -129,7 +129,7 @@ You can reference other jobs, too. The example below adjusts stirring based on o
 
 ```yaml
           - type: update
-            hours_elapsed: 12
+            t: 12
             options:
               target_rpm: ${{ worker1:stirring:target_rpm + worker1:od_reading:od2.od * 10 }}
 ```
@@ -150,7 +150,7 @@ common:
     stirring:
       actions:
         - type: update
-          hours_elapsed: 6
+          t: 6
           if: ${{ ::stirring:target_rpm <= 500 }}
           options:
             target_rpm: 500
@@ -164,7 +164,7 @@ common:
     stirring:
       actions:
         - type: update
-          hours_elapsed: 6
+          t: 6
           if: ${{ ::stirring:target_rpm <= 500 }}
           options:
             target_rpm: ${{ ::stirring:target_rpm + 10 * ::od_reading:od2.od }}
@@ -203,7 +203,7 @@ There are a few helper functions you can call inside `${{ ... }}`:
 
 ### `log`
 
-`log` writes a message to the event log. `options.message` is required, and `options.level` defaults to `info`.
+`log` writes a message to the event log. `options.message` is required, and `options.level` defaults to `notice`.
 
 ```yaml
   actions:
@@ -226,42 +226,42 @@ common:
     dosing_automation:
       actions:
         - type: when
-          condition: ${{ ::od_reading:od2.od > 2.0 }}
-          hours_elapsed: 0
+          wait_until: ${{ ::od_reading:od2.od > 2.0 }}
+          t: 0
           actions:
             - type: start
-              hours_elapsed: 0
+              t: 0
               options:
                 automation_name: chemostat
                 volume: 0.6
                 duration: 10
 ```
 
-`hours_elapsed` delays evaluation until the specified time. Once the condition fires, the `when` action is exhausted and will not run again.
+`t` delays evaluation until the specified time. Once the condition fires, the `when` action is exhausted and will not run again.
 
 ### `repeat`
 
 `repeat` loops a block of actions. It requires two fields:
 
-- `actions`: the actions to perform each iteration. Their `hours_elapsed` values are relative to the start of the loop.
-- `repeat_every_hours`: how long, in hours, between iterations.
+- `actions`: the actions to perform each iteration. Their `t` values are relative to the start of the loop.
+- `every`: how long between iterations.
 
 ```yaml
 - type: repeat
-  hours_elapsed: 6.0 # start looping after 6 hours
-  repeat_every_hours: 0.5 # run every 30 minutes
+  t: 6.0 # start looping after 6 hours
+  every: 0.5h # run every 30 minutes
   actions:
     - type: update
-      hours_elapsed: 0.0
+      t: 0.0
       ...
     - type: update
-      hours_elapsed: 0.1
+      t: 0.1h
       ...
 ```
 
 Optional fields provide stricter control:
 
-- `max_hours`: total runtime of the loop. With `repeat_every_hours: 0.5` and `max_hours: 6`, the loop runs 12 times.
+- `max_time`: total runtime of the loop. With `every: 0.5h` and `max_time: 6h`, the loop runs 12 times.
 - `while`: an expression evaluated at the start of each iteration. If it returns `False`, the loop exits.
 - `if`: skip the entire `repeat` block when the expression is `False`.
 
@@ -271,8 +271,8 @@ A coarse turbidostat example:
 add_media:
   actions:
     - type: repeat
-      hours_elapsed: 6.0
-      repeat_every_hours: 0.0025 # every 9 seconds
+      t: 6.0
+      every: 9s
       while: ${{ worker1:od_reading:od2.od > 3.0 }}
       actions:
         - type: start
@@ -281,8 +281,8 @@ add_media:
 remove_waste:
   actions:
     - type: repeat
-      hours_elapsed: 6.0
-      repeat_every_hours: 0.0025
+      t: 6.0
+      every: 9s
       while: ${{ worker1:od_reading:od2.od > 3.0 }}
       actions:
         - type: start
@@ -305,12 +305,12 @@ common:
     temperature_automation:
       actions:
         - type: update
-          hours_elapsed: 12.0
+          t: 12.0
           if: ${{ ::od_reading:od2.od < od_threshold }}
           options:
             target_temperature: ${{ stationary_phase_temp }}
         - type: update
-          hours_elapsed: 12.0
+          t: 12.0
           if: ${{ ::od_reading:od2.od >= od_threshold }}
           options:
             target_temperature: ${{ growth_phase_temp }}
@@ -328,7 +328,7 @@ common:
     temperature_automation:
       actions:
         - type: start
-          hours_elapsed: 0.0
+          t: 0.0
           options:
             automation_name: thermostat
             target_temperature: 30
@@ -341,7 +341,7 @@ common:
     temperature_automation:
       actions:
         - type: start
-          hours_elapsed: 0.0
+          t: 0.0
           options:
           automation_name: thermostat
           target_temperature: 30
@@ -408,49 +408,49 @@ pioreactors:
 
 # Action definitions
 - type: log
-  hours_elapsed: <float>
+  t: <time_string_or_float>
   if: <bool_or_expression>
   options:
     message: <string>
     level: DEBUG|debug|WARNING|warning|INFO|info|NOTICE|notice|ERROR|error (default: notice)
 
 - type: start
-  hours_elapsed: <float>
+  t: <time_string_or_float>
   if: <bool_or_expression>
   options: {<option_name>: <value>}  # expressions allowed via ${{ }}
   args: [<string>, ...]
   config_overrides: {<config_name>: <value>}
 
 - type: update
-  hours_elapsed: <float>
+  t: <time_string_or_float>
   if: <bool_or_expression>
   options: {<option_name>: <value>}  # expressions allowed via ${{ }}
 
 - type: pause
-  hours_elapsed: <float>
+  t: <time_string_or_float>
   if: <bool_or_expression>
 
 - type: resume
-  hours_elapsed: <float>
+  t: <time_string_or_float>
   if: <bool_or_expression>
 
 - type: stop
-  hours_elapsed: <float>
+  t: <time_string_or_float>
   if: <bool_or_expression>
 
 - type: repeat
-  hours_elapsed: <float>
+  t: <time_string_or_float>
   if: <bool_or_expression>
-  repeat_every_hours: <float>  # default: 1.0
-  while: <bool_or_expression>  # optional stop condition
-  max_hours: <float>           # optional cap on total hours
+  every: <time_string_or_float>
+  while: <bool_or_expression>       # optional stop condition
+  max_time: <time_string_or_float>  # optional cap on total time loops run for
   actions:
     - # basic action only (log, start, pause, resume, stop, update)
 
 - type: when
-  hours_elapsed: <float>
+  t: <time_string_or_float>
   if: <bool_or_expression>
-  condition: <bool_or_expression>
+  wait_until: <bool_or_expression>
   actions:
     - # any action (including repeat/when)
 
@@ -483,6 +483,11 @@ pioreactors:
 #
 # Conversion rules
 # - Numeric strings become floats; "true"/"false" become booleans; otherwise strings stay strings.
+# 
+# Time strings
+# Accepted formats are either a number (float/int) meaning hours, or a string that is a number immediately followed by a unit:
+#    s, m, h, or d (case-insensitive). Examples: 0.5 (30min), "30s", "2m", "1.5h", "2d". Whitespace or extra text is rejected, and
+#    negative values are disallowed
 
 ```
 
