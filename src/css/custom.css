@@ -15,7 +15,7 @@
   --ifm-color-primary-light: #6a47d7;
   --ifm-color-primary-lighter: #7b59e0;
   --ifm-color-primary-lightest: #8c6be9;
-  --ifm-color-secondary: #df1a0c;
+  --ifm-color-secondary: #6a47d7;
   --ifm-code-font-size: 95%;
   --ifm-navbar-link-color: #4a4a4a;
   --ifm-hero-banner-bg: #5331ca;
@@ -151,6 +151,18 @@ h1 {
 .badge--inactive {
   color: #fff;
   background: var(--color-status-inactive);
+}
+
+.footer--dark .footer__link-item {
+  color: var(--ifm-color-primary-lightest);
+}
+
+.footer--dark .footer__link-item:hover {
+  color: var(--ifm-color-primary-lighter);
+}
+
+.footer--dark .footer__copyright {
+  color: #efeef7;
 }
 
 .alert-fill--error {
