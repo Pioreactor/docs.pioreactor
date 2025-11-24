@@ -31,16 +31,16 @@ We'll start with your blank microSD card.
 3.  Open the newly-installed Raspberry Pi Imager.
 4.  Immediately, click **"App Options"**
     ![Click "App options"](/img/user-guide/app_options.png)
-4.  Click **Edit** next to _Content Repository_
+4.  Click **Edit** next to _Content Repository_.
     ![Click "Edit" to choose repository](/img/user-guide/content_repo.png)
-5.  Choose **Use Custom URL**, and enter into the box: `https://pioreactor.com/imager/os-list.json`
+5.  Choose **Use Custom URL**, and enter into the box: `https://pioreactor.com/imager/os-list.json`.
     ![Add our repo URL](/img/user-guide/edit_repo.png)
 6.  Click **Apply & restart**.
-7.  Choose your RPi model
+7.  Choose your RPi model. Select **Next**.
     ![Choose your RPi model](/img/user-guide/choose_rpi.png)
-8.  Choose the operating system **Pioreactor**
+8.  Choose the operating system **Pioreactor**.
     ![Choose your Pioreactor](/img/user-guide/choose_pio_os.png)
-9.  Choose the **latest** OS on the list (at the top)
+9.  Choose the **latest** OS on the list (at the top).
     ![Choose latest](/img/user-guide/latest_os.png)
 10. Choose the **Leader + Worker**. Click **Next**.
     ![Choose leader + worker](/img/user-guide/pio_lw_os.png)
@@ -48,19 +48,22 @@ We'll start with your blank microSD card.
     ![Choose storage](/img/user-guide/choose_storage.png)
 12. Input a unique name for this Pioreactor. Some names that we use for our first Pioreactor: `pioreactor01`, or `leader`, or `pio01`. _Don't_ use `pioreactor` or `raspberrypi`.
     ![Choose hostname](/img/user-guide/choose_hostname.png)
-13. Change localization preferences
+    Click **Next**.
+13. Change localization preferences. Click **Next**.
+    ![Choose localization](/img/user-guide/choose_localization.png)
 14. Check **Set username and password**. Enter the following:
         -   **username**: `pioreactor`.
         -   **password**: `raspberry`.
         -   Note: You can change the password later.
     ![Choose username](/img/user-guide/choose_username.png)
-15. Enter your network name into SSID network name, and WiFi password. Optional: leave blank if using ethernet.
+    Click **Next**.
+15. Enter your network name into SSID network name, and WiFi password. Optional: leave blank if using ethernet. Click **Next**.
 	:::tip
     If you are having difficulty connecting to a network, like at a university that may not easily incorporate Raspberry Pi's, [there's a built-in solution for creating a local access point](/user-guide/local-access-point)) and a [solution for internet-sharing from a PC via ethernet](/user-guide/internet-sharing).
 	:::
 	
     ![Choose wifi](/img/user-guide/choose_wifi.png)
-16. Confirm that **Enable SSH** is active, and **Use password authentication**.
+16. Confirm that **Enable SSH** is active, and **Use password authentication**. Click **Next**.
     ![Choose ssh](/img/user-guide/choose_ssh.png)
 17. Click **Write** to begin writing your image to the micro SD card.
     ![write image](/img/user-guide/write_image.png)
@@ -117,7 +120,7 @@ Workers are additional Pioreactors that you can control from a single UI. Togeth
 #### Step 1. Install the worker software
 
 
-1. Follow the same instructions above, but instead of choosing **Leader + Worker**, choose **Worker**
+1. Follow the same instructions above, but instead of choosing **Leader + Worker**, choose **Worker**.
 
    :::tip
    Check the software version of your leader first (you can find that on the Updates page, or the Inventory Page, or use `pio version` on the command line). It's recommended to download the associated worker image for that same version.
