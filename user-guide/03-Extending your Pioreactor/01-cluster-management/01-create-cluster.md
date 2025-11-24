@@ -30,6 +30,13 @@ This Inventory tab will display metadata pertaining to each of your Pioreactors.
 ![Inventory card with action buttons highlighted](/img/user-guide/inventory-actions.png)
 
 
+#### From the command line with an ipv4 address
+
+Sometimes, you need to pass in an ipv4 instead of discovering a worker via it's hostname. To do this, SSH into your leader and run:
+```
+pio workers add <hostname> -a <ipv4>
+```
+
 ### Active and inactive
 
 Workers can be *active* (available for running activities), or inactive. Inactive Pioreactors can still be assigned to experiments, but won't respond to commands to run activities or participate in experiment profiles. Inactive is a useful tool for taking a Pioreactor temporarily out of an experiment or cluster.

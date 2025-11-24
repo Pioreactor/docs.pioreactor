@@ -178,6 +178,7 @@ There are a few helper functions you can call inside `${{ ... }}`:
 - `unit()` returns the unit the expression is evaluated for.
 - `job_name()` returns the job the expression is evaluated for.
 - `experiment()` returns the name of the current experiment.
+- `hours_elapsed()` returns the time (in hours) since the profile began.
 
 ## Action reference
 
