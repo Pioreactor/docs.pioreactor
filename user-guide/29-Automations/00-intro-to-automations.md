@@ -3,6 +3,7 @@ title: Introduction to automations
 slug: /intro-to-automations
 description: Automations let Pioreactor run dosing, temperature, LED, and growth workflows for you.
 hide_table_of_contents: true
+sidebar_class_name: sidebar-item--updated
 ---
 
 Automations are Pioreactor’s presets for running repeatable tasks without babysitting every step. Instead of manually toggling stirring, repeatedly starting a pump, or scheduling LED cycles, you can hand those decisions to an automation and focus on interpreting the experiment.

@@ -211,3 +211,64 @@ h1 {
   grid-template-columns: repeat(3, 1fr); /* Creates three columns */
   gap: 20px; /* Space between the cards */
 }
+
+.menu__list-item.sidebar-item--new > .menu__link,
+.menu__list-item.sidebar-item--new > .menu__list-item-collapsible > .menu__link,
+.menu__list-item.sidebar-item--updated > .menu__link,
+.menu__list-item.sidebar-item--updated > .menu__list-item-collapsible > .menu__link {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.menu__list-item.sidebar-item--new > .menu__link::before,
+.menu__list-item.sidebar-item--new > .menu__list-item-collapsible > .menu__link::before {
+  order: 1;
+  content: "New";
+  padding: 2px 6px;
+  background-color: rgba(83, 49, 202, 0.06);
+  color: #4a3c82;
+  border: 1px solid rgba(83, 49, 202, 0.16);
+  border-radius: 999px;
+  font-size: 0.72em;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+html[data-theme='dark'] .menu__list-item.sidebar-item--new > .menu__link::before,
+html[data-theme='dark'] .menu__list-item.sidebar-item--new > .menu__list-item-collapsible > .menu__link::before {
+  background-color: rgba(183, 166, 255, 0.12);
+  color: #dcd5ff;
+  border-color: rgba(183, 166, 255, 0.35);
+}
+
+.menu__list-item.sidebar-item--new > .menu__list-item-collapsible > .menu__link.menu__link--sublist-caret::after {
+  order: 3;
+  margin-left: auto;
+}
+
+.menu__list-item.sidebar-item--updated > .menu__link::before,
+.menu__list-item.sidebar-item--updated > .menu__list-item-collapsible > .menu__link::before {
+  order: 1;
+  content: "Updated";
+  padding: 2px 6px;
+  background-color: rgba(247, 173, 65, 0.1);
+  color: #8a5800;
+  border: 1px solid rgba(247, 173, 65, 0.4);
+  border-radius: 999px;
+  font-size: 0.72em;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+html[data-theme='dark'] .menu__list-item.sidebar-item--updated > .menu__link::before,
+html[data-theme='dark'] .menu__list-item.sidebar-item--updated > .menu__list-item-collapsible > .menu__link::before {
+  background-color: rgba(247, 199, 120, 0.18);
+  color: #ffdca6;
+  border-color: rgba(247, 199, 120, 0.5);
+}
+
+.menu__list-item.sidebar-item--updated > .menu__list-item-collapsible > .menu__link.menu__link--sublist-caret::after {
+  order: 3;
+  margin-left: auto;
+}
