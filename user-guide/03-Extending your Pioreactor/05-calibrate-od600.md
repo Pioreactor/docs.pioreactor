@@ -34,11 +34,6 @@ Connect to your Pioreactor by typing *`ssh pioreactor@<insert unit name>.local`*
 
 To begin calibrations, type `pio calibrations run --device od`, and choose the protocol. Start off by inputting some metadata of your calibration. Provide a descriptive and unique name to make it easier to find your calibration again, if needed. Follow the rest of the questions.
 
-:::info
-One of your photodiodes will be located in the 90° or 135° pocket on the vial holder. You will be prompted to confirm the angle of your PD cable. If this is incorrect, go to the _Configuration_ tab on the Pioreactor UI and under _od_config.photodiode_channel_, change to your angle of choice, then restart your OD calibration.
-![Change the angle through the UI configuration tab.](/img/user-guide/change_angle.png)
-:::
-
 
 Following the questions, stirring and optical density reading will begin. A graph is generated as you calibrate so you can see your progress.
 

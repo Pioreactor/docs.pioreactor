@@ -14,24 +14,11 @@ import * as colors from '@site/src/components/constants';
 Hardware calibrations serve as a method to get accurate performance from your Pioreactor.
 
 
-### Stirring calibration (optional)
+### Stirring calibrations
 
-:::info
-You'll need the following:
-1. Pioreactor HAT
-2. Pioreactor sleeve
-3. Vial and stirbar
-:::
-
-Internally, the Pioreactor will vary the amount of voltage to apply to the stirring motor to reach the desired RPM, however, this can take a few minutes. We can significantly improve this by asking the Pioreactor to create a "map" between voltage and RPM beforehand. Then the Pioreactor only needs to perform a lookup in the map to hit the desired RPM.
-
-:::note
+:::tip
 This is optional, but can really help stirring performance. Creating a stirring calibration is also very easy, so we recommend it.
 :::
-
------
-
-<AssemblyInstructionBlock title="Calibrating the stirring in the UI" images={["user-guide/calibrate.png","user-guide/calibrate_stirring.png"]}>
 
 1. Start by filling a Pioreactor vial about 3/4th with water, and place the stirbar inside. Close with lid. Place into the Pioreactor.
 1. We'll perform this routine through your computer's command line. Need help [accessing it](/user-guide/accessing-raspberry-pi)?
@@ -41,8 +28,6 @@ This is optional, but can really help stirring performance. Creating a stirring 
 2. After SSHing into your Pioreactor, enter `pio calibrations run --device stirring`.
 4. The Pioreactor will increment the voltage applied to the motor, and record the RPM. After it's done, it will collect this data into a calibration curve, and store it locally.
 4. At the end, you'll be prompted to set this as the "active" calibration. Select "Yes".
-
-</AssemblyInstructionBlock>
 
 You're done! Your stirring RPM should be much more responsive now.
 
@@ -80,3 +65,15 @@ There are three pumps on the Pioreactor: media, alt-media, and waste. You don't 
 ## Managing calibrations
 
 From both the UI and the command line, you can manage your Pioreactor's calibrations.
+
+![Calibrations page showing filters, table, and chart.](/img/user-guide/calibrations-page.png)
+
+**In the UI**
+- Use the `Pioreactor` and `Device` filters at the top of the Calibrations page to focus on a specific unit and hardware type. Toggle **Only Active calibrations** to hide everything except the curve currently in use.
+- Click any calibration row to open its detail view. Use **Set active** to mark that calibration as the one the Pioreactor will use for that device (only one calibration can be active per device per Pioreactor). Use **Set inactive** to clear it and disable calibration for that device.
+- The chart in both the list view and detail view has a download icon—click it to export a PNG of the calibration curve for lab notes. The top-level **Download all calibrations** button grabs all calibration YAML files for backup.
+- To edit a calibration, open its detail view and choose **View YAML**. Make small changes, save the YAML, and re-upload it via **Upload calibration** (or edit the YAML on-disk and use `pio calibrations display` to confirm before setting it active).
+
+**From the command line**
+- List what you have with `pio calibrations list` or scope to a single device with `pio calibrations list --device <device>`.
+- Set which calibration is active with `pio calibrations set-active --device <device> --name <calibration_name>`. Omit `--name` to clear the active calibration for that device.
