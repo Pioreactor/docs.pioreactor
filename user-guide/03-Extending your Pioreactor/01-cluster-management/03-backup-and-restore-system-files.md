@@ -4,6 +4,7 @@ title: Back up and restore Pioreactor system files
 slug: /backup-system-files
 description: Export and import a Pioreactor’s ~/.pioreactor directory from the Inventory page.
 hide_table_of_contents: true
+sidebar_class_name: sidebar-item--updated
 ---
 
 Each Pioreactor keeps its configuration, calibration data, and persistent state inside `~/.pioreactor`. The Inventory page now lets you export that directory as a system archive (`.zip`) for safekeeping and import it onto the same unit when you need to restore or clone a setup.
