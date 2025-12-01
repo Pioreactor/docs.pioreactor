@@ -75,7 +75,7 @@ It does not matter which wires are connected to either eye-spy sockets. However,
 
 1. Connect the LED cable to the <Highlight color={colors.green}>Channel A connector</Highlight>.
 2. Secure an<Highlight color={colors.purple}>LED cap over the unused pocket</Highlight>. 
-3. Insert the LED bulb into the pocket labeled IR. _Slowly_ bend the bulb's leads 90 degrees towards the left.
+3. Insert the LED bulb into the pocket labeled **IR**. _Slowly_ bend the bulb's leads 90 degrees towards the left such that the bend is near the LED bulb.
 4. Secure the bulb with an LED cap. 
 
 

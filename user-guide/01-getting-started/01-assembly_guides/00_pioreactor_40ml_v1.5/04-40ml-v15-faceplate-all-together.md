@@ -44,7 +44,7 @@ The top faceplate comes with a button extension to provide easier access to push
 
 1. Flip over the assembly.
 2. Insert the 10mm screw into the hole under the button extension.
-3. Place <Highlight color={colors.red}>one finger behind the extension</Highlight> and <Highlight color={colors.magenta}>apply torque with the other hand</Highlight> until the screw is secure in the hole. This may require some force. Once established, you can use a screwdriver to finish screwing it in until you feel sufficient resistance. Don't over-tighten!
+3. Place <Highlight color={colors.red}>one finger behind the extension</Highlight> and <Highlight color={colors.magenta}>rotate with the other hand</Highlight> until the screw is secure in the hole. Don't over-tighten! Once established, you can use a screwdriver to finish screwing it in until you feel sufficient resistance. Don't over-tighten!
 
 </AssemblyInstructionBlock>
 

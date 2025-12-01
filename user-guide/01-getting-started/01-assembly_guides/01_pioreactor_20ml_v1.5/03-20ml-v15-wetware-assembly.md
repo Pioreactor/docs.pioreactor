@@ -18,7 +18,8 @@ import TabItem from '@theme/TabItem';
 1. Gather the 20ml vial, stirbar, and stainless steel ports.
 2. Remove the cap from the vial.
 3. Gently but firmly push the stainless steel ports into the four holes. The two straight ports are placed in the <Highlight color={colors.blue}>outer holes</Highlight>, and the two bent ports are placed in the <Highlight color={colors.orange}>inner holes</Highlight>. 
-4. Place the stirbar in the vial and secure the cap. 
+4. Position the ports about **half way** through the vial cap for now. These can be adjusted later.
+5. Place the stirbar in the vial and secure the cap.
 
 </AssemblyInstructionBlock>
 
@@ -57,7 +58,7 @@ import TabItem from '@theme/TabItem';
 
 1. Insert the other end of the flex cable below the O-ring and into <Highlight color={colors.red}>the groove</Highlight>. Pull it through.
 2. <Highlight color={colors.magenta}>Apply pressure</Highlight> on the back of the heater PCB so that it lies flat on the O-ring. Maintain this pressure for the next steps.
-3.  **While maintaining pressure**, flip the holder and insert the two <Highlight color={colors.green}>M2.5-CS 5mm screws</Highlight> into the holes - **don't tighten fully yet**.
+3.  **While maintaining pressure**, flip the holder and insert the two <Highlight color={colors.green}>M2.5-CS 4mm screws</Highlight> into the holes - **don't tighten fully yet**.
 4. **While maintaining pressure**, take turns screwing each in until both are reasonably tight, and the heater PCB is securely attached to the bottom vial holder.
 
 </AssemblyInstructionBlock>
