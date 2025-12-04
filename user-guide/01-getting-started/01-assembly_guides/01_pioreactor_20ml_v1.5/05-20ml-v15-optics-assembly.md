@@ -37,6 +37,9 @@ Each eye-spy is unique. The one used for REF has a white mark in the upper-left 
 <AssemblyInstructionBlock title="Step 2: Install the eye-spys" images={["user-guide/hardware-assembly/40ml-v15/eye-spy-cover.jpg", "user-guide/hardware-assembly/20ml-v15/eye-spy-into-ref.jpg", "user-guide/hardware-assembly/20ml-v15/secure-ref.jpg", "user-guide/hardware-assembly/20ml-v15/secure-all-eye-spy.jpg"]}>
 
 1. Place an eye-spy cover over the REF eye-spy. 
+:::tip
+Each eye-spy is unique. The one used for REF has a white mark in the upper-left corner.
+:::
 2. With the tan connectors towards the top, place the eye-spy into the REF socket on the vial holder. Secure it with <Highlight color={colors.red}>4x 8mm screws</Highlight>.
 3. Place an eye-spy cover over the other eye-spy. 
 
