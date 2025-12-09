@@ -30,11 +30,8 @@ import TabItem from '@theme/TabItem';
 <AssemblyInstructionBlock title="Step 2: Inserting the O-rings" images={["user-guide/hardware-assembly/20ml-v15/oring-in-holder.jpg", "user-guide/hardware-assembly/20ml-v15/oring-groove.jpg", "user-guide/hardware-assembly/20ml-v15/oring-in-top.jpg", "user-guide/hardware-assembly/upgrade-version/thick-oring-into-bottom.png",
 "user-guide/hardware-assembly/20ml-v15/vial-holders-with-oring.jpg"]}>
 
-1. The O-rings are pre-lubricated with a silicone-based lubricant. If needed, remove any excess lubricant from the O-rings.
 2. The top vial holder has <Highlight color={colors.blue}>a groove within the body</Highlight> where the <Highlight color={colors.magenta}>thinner #024 O-ring</Highlight> sits. Carefully insert the O-ring using your fingers. Make sure to not twist the O-ring.
 3. Run your finger inside the vial holder, pushing the O-ring into place to ensure a snug fit.
-4. The bottom vial holder has a groove for the <Highlight color={colors.orange}>thicker #121 O-ring</Highlight>. The O-ring will sit between the base of the holder and the heater PCB. Carefully insert the O-ring using your fingers. Make sure to not twist the O-ring.
-5. Push the O-ring into place to ensure a snug fit.
 
 </AssemblyInstructionBlock>
 
@@ -79,6 +76,6 @@ import TabItem from '@theme/TabItem';
 <AssemblyInstructionBlock title="Step 6: Complete the vial holder" images={["user-guide/hardware-assembly/20ml-v15/twist-top-and-bottom.jpg"]}>
 
 1. Screw the top and bottom vial holder sections together so that the IR label is positioned above the flat-flex-cable.
-2. Set this aside and proceed to the next page. 
+2. Set this aside and proceed to the next page.
 
 </AssemblyInstructionBlock>
