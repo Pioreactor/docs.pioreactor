@@ -1,6 +1,7 @@
 ---
 title: Disassembly
 slug: /40ml-v10-upgrade-v15-upgrade-disassembly
+hide_table_of_contents: true
 ---
 
 import AssemblyInstructionBlock from '@site/src/components/AssemblyInstructionBlock';
