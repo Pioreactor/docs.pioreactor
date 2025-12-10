@@ -1,11 +1,11 @@
 ---
-title: Accessing the Raspberry Pi
+title: Accessing the Pioreactor via SSH
 slug: /accessing-raspberry-pi
 hide_table_of_contents: true
 ---
 
 
-For more customization and control of your Pioreactor, you can access the Raspberry Pi's command line. From the command line, you can view more logs, control individual Pioreactors, and more.
+For more customization and control of your Pioreactor, you can access the Pioreactor's (Raspberry Pi's) command line. From the command line, you can view more logs, control individual Pioreactors, and more.
 
 ## Access from Windows
 
