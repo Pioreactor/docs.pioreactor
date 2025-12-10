@@ -17,11 +17,6 @@ import * as colors from '@site/src/components/constants';
 * <Highlight color={colors.blue}>Eye-spy covers (3x)</Highlight>
 * <Highlight color={colors.red}>8mm screws (12x)</Highlight>
 * <Highlight color={colors.magenta}>Eye-spies (2x)</Highlight>
-
-:::tip
-Each eye-spy is unique. The one used for REF has a white mark in the upper-left corner. 
-:::
-
 * <Highlight color={colors.teal}>100mm STEMMA-QT wire</Highlight>
 * <Highlight color={colors.orange}>50mm STEMMA-QT wire</Highlight>
 * <Highlight color={colors.green}>LED cable</Highlight>
