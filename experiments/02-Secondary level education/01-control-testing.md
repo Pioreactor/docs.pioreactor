@@ -17,7 +17,7 @@ Conduct a simple control test to evaluate results between Pioreactors, using the
 
 ## Requirements
 
-<AssemblyInstructionBlock images={["experiments/three_pioreactors.jpg"]}>
+<AssemblyInstructionBlock images={["experiments/02-secondary-level-education/01-control-testing/three_pioreactors.jpg"]}>
 
 *   At least two available Pioreactors
 *   Dry baker's yeast
@@ -41,7 +41,7 @@ With all factors the same, you should see similar normalized OD and growth rate 
 
 Here are graphs we generated though our A/A test: 
 
-![](/img/experiments/aa-test-results.png)
+![](/img/experiments/02-secondary-level-education/01-control-testing/aa-test-results.png)
 
 These kinds of tests make it easy to identify any unusual activity occurring in a specific Pioreactor (i.e, if it is missing an LED, temperature malfunctions, etc). In our case, though, both ran almost identically! Thus, we conclude that reliable comparisons can be drawn between these Pioreactors. 
 

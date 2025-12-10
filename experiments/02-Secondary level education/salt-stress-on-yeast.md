@@ -20,7 +20,7 @@ Use your Pioreactor to model how cells are affected by high salt (hypertonic) so
 
 ## Requirements
 
-<AssemblyInstructionBlock images={["experiments/salt_materials.jpg"]}>
+<AssemblyInstructionBlock images={["experiments/02-secondary-level-education/salt-stress-on-yeast/salt_materials.jpg"]}>
 
 *	At least two available Pioreactors
 *	Dry baker's yeast
@@ -61,7 +61,7 @@ To each vial, 0g, 0.225g, 0.45g, 0.675g and 0.9g of table salt were added, respe
 
 After approximately 26 hours, the following growth rates were recorded: 
 
-![](/img/experiments/salt_growth_rate.png)
+![](/img/experiments/02-secondary-level-education/salt-stress-on-yeast/salt_growth_rate.png)
 
 We can summarize our results in the following table to highlight our data: 
 
@@ -104,4 +104,3 @@ The flexibility of the Pioreactor means you can do much more with this simple co
 11.  Confirm that everything looks normal on the _Overview_ page (ex: receiving optical density signal).
 12.	Back on the _Pioreactors_ page, select _Manage all Pioreactors_ and start _Growth rate_. 
 13.  Watch the growth progress on the _Overview_ page! 
-

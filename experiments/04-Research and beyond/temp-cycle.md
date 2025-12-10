@@ -42,7 +42,7 @@ Check out our [blog post](https://pioreactor.com/blogs/pioreactor/using-custom-a
 
 Once we [exported our data](/user-guide/export-data), we charted our yeast growth rate against the temperature readings to generate the following graph:
 
-![](/img/experiments/yeast_growth_vs_temp.png)
+![](/img/experiments/04-research-and-beyond/temp-cycle/yeast_growth_vs_temp.png)
 
 ## Recommendations 
 

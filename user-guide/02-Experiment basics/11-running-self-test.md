@@ -11,21 +11,21 @@ To get the best results and confirm your Pioreactor is working as expected, it's
 
 Start on the _Pioreactors_ page: 
 
-![](/img/user-guide/pioreactors_page_self_test.png)
-![](/img/user-guide/self_test_pre.png)
+![](/img/user-guide/02-experiment-basics/11-running-self-test/pioreactors_page_self_test.png)
+![](/img/user-guide/02-experiment-basics/11-running-self-test/self_test_pre.png)
 
 
 Insert a closed vial with water and stir bar into the Pioreactor, and click "Start". The Pioreactor will start running tests against expected output and report back to you success and failures of those tests.
 
 
-![](/img/user-guide/self_test_running.png)
+![](/img/user-guide/02-experiment-basics/11-running-self-test/self_test_running.png)
 
 
 
 Depending on the results of each test, you'll see success and failures:
 
 
-![](/img/user-guide/self_test_results.png)
+![](/img/user-guide/02-experiment-basics/11-running-self-test/self_test_results.png)
 
 
 

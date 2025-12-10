@@ -17,7 +17,7 @@ You should have already added your plugin's Python code to your Pioreactor by so
 
 ### Adding a custom background job to the list of activities
 
-![](/img/developer-guide/activities.png)
+![](/img/developer-guide/07-plugins/02-adding-plugins-to-ui/activities.png)
 
 
 The list of activities, among other things, is sourced from either of two directories:
@@ -52,11 +52,11 @@ published_settings:
 
 Saving it to either directory above, and refreshing the page:
 
-![](/img/developer-guide/activities_with_example.png)
+![](/img/developer-guide/07-plugins/02-adding-plugins-to-ui/activities_with_example.png)
 
-![](/img/developer-guide/settings_with_example.png)
+![](/img/developer-guide/07-plugins/02-adding-plugins-to-ui/settings_with_example.png)
 
-![](/img/developer-guide/card_with_example.png)
+![](/img/developer-guide/07-plugins/02-adding-plugins-to-ui/card_with_example.png)
 
 
 ### Adding a custom Python script to the list of activities
@@ -84,7 +84,7 @@ See more information on the structure of your script [here](/developer-guide/int
 
 Suppose we wish to add our new automation, either installed from a package or via the `plugins` folder, to the drop-down list of automations users can choose from:
 
-![](/img/developer-guide/dropdown_automations.png)
+![](/img/developer-guide/07-plugins/02-adding-plugins-to-ui/dropdown_automations.png)
 
 This list is sourced from yaml files located on the leader's Raspberry Pi, in either of two directories:
  - `/var/www/pioreactorui/contrib/automations/`, is the source of the our built-in automations
@@ -119,9 +119,9 @@ fields:
 
 If this file was saved to the folder `/home/pioreactor/.pioreactor/plugins/ui/contrib/automations/dosing`, we would see the following in the web interface (after refreshing):
 
-![](/img/developer-guide/dropdown_automations_with_example.png)
+![](/img/developer-guide/07-plugins/02-adding-plugins-to-ui/dropdown_automations_with_example.png)
 
-![](/img/developer-guide/automations_example.png)
+![](/img/developer-guide/07-plugins/02-adding-plugins-to-ui/automations_example.png)
 
 More examples of automation [yaml files here](https://github.com/Pioreactor/pioreactorui/tree/master/contrib/automations).
 

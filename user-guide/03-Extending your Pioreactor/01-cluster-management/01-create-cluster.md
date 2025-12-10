@@ -17,17 +17,17 @@ After installing the _worker_ image onto your additional Pioreactor (see the ins
 
 On the _Inventory_ page, you can search for and add worker Pioreactors to your cluster. Click "Add new Pioreactor" at the top right corner of this tab.
 
-![Inventory tab with the Add new Pioreactor button highlighted](/img/user-guide/inventory-add-pioreactor.png)
+![Inventory tab with the Add new Pioreactor button highlighted](/img/user-guide/03-extending-your-pioreactor/01-cluster-management/01-create-cluster/inventory-add-pioreactor.png)
 
 In the popup, add the name of your worker and click "Add Pioreactor".
 
-![Add Pioreactor modal with hostname and Add Pioreactor button highlighted](/img/user-guide/inventory-add-modal.png)
+![Add Pioreactor modal with hostname and Add Pioreactor button highlighted](/img/user-guide/03-extending-your-pioreactor/01-cluster-management/01-create-cluster/inventory-add-modal.png)
 
 Once a new Pioreactor is added, you may need to refresh the page to see the new worker in the cluster.
 
 This Inventory tab will display metadata pertaining to each of your Pioreactors. You can use this page to identify a Pioreactor (causes the blue LED on the HAT to blink), unassign a Pioreactor from any experiment, reboot a Pioreactor, or remove it from your cluster. This page also provides a summary of which Pioreactors are assigned to which experiment, as shown in the image below.
 
-![Inventory card with action buttons highlighted](/img/user-guide/inventory-actions.png)
+![Inventory card with action buttons highlighted](/img/user-guide/03-extending-your-pioreactor/01-cluster-management/01-create-cluster/inventory-actions.png)
 
 
 #### From the command line with an ipv4 address
@@ -52,21 +52,21 @@ A cluster can be made up of a single Pioreactor, or can be scaled to as many Pio
 
 The simplest topology is when you have a single Pioreactor, and by default it is both the leader and the only worker.
 
-<img src="/img/user-guide/single_pioreactor_cluster.png" width="335" style={{margin: "auto", display:"block"}}/>
+<img src="/img/user-guide/03-extending-your-pioreactor/01-cluster-management/01-create-cluster/single_pioreactor_cluster.png" width="335" style={{margin: "auto", display:"block"}}/>
 
 
 #### Cluster, and leader is a worker
 
 When you have multiple Pioreactors, you can nominate one to be the leader, and retain it as a worker, too:
 
-![leader is also a worker in the cluster](/img/user-guide/leader_as_worker_cluster.png)
+![leader is also a worker in the cluster](/img/user-guide/03-extending-your-pioreactor/01-cluster-management/01-create-cluster/leader_as_worker_cluster.png)
 
 
 #### Cluster, and leader is _not_ a worker
 
 You can also choose not to have the leader be a worker. This is useful if you have a spare Raspberry Pi without the Pioreactor hardware, or the number of Pioreactors grows large and you wish to keep one out of the inventory to focus on being a leader only. We provide custom images for this [here](/user-guide/software-set-up#id-like-to-have-the-leader-not-be-a-worker-and-only-a-standalone-leader-can-i-do-that).
 
-![leader not worker](/img/user-guide/leader_cluster.png)
+![leader not worker](/img/user-guide/03-extending-your-pioreactor/01-cluster-management/01-create-cluster/leader_cluster.png)
 
 
 ### Common questions

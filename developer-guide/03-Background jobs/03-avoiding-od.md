@@ -78,6 +78,6 @@ enable_dodging_od=1
 
 The diagram of timing, actions, and OD reading, looks like the following:
 
-![](/img/developer-guide/background_job_dodging_timing.png)
+![](/img/developer-guide/03-background-jobs/03-avoiding-od/background_job_dodging_timing.png)
 
 And you're done!

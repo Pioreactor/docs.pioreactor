@@ -6,7 +6,7 @@ hide_table_of_contents: true
 
 You can add custom charts to the UI. Below is an example of adding a chart that displays historical and real-time CO2 sensor data.
 
-![custom chart of CO2 reading](/img/developer-guide/custom_chart.png)
+![custom chart of CO2 reading](/img/developer-guide/20-user-interface/04-adding-charts/custom_chart.png)
 
 ### Step 1
 Create a yaml file with the following fields, and place it in `/home/pioreactor/.pioreactor/plugins/ui/contrib/charts/`. (Plugins can put the yaml file under `ui/contrib/charts` in there project folder - it will be added upon installation.)
@@ -41,7 +41,7 @@ co2_readings=1
 ...
 ```
 
-![](/img/developer-guide/adding_chart_to_config.png)
+![](/img/developer-guide/20-user-interface/04-adding-charts/adding_chart_to_config.png)
 
 ### Troubleshooting
 

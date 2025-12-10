@@ -7,18 +7,18 @@ hide_table_of_contents: true
 Experiment data can be exported using the _Export data_ tab on the Pioreactor site.
 
 
-![](/img/user-guide/export_data_default.png)
+![](/img/user-guide/02-experiment-basics/08-export-data/export_data_default.png)
 
 
 You can retrieve datasets from any previous experiments, including from _all_ experiments simultaneously using the `<All experiments>` option at the bottom of the list.
 
 Select your experiment from the drop down menu.
 
-![](/img/user-guide/export_data_choose_dataset.png)
+![](/img/user-guide/02-experiment-basics/08-export-data/export_data_choose_dataset.png)
 
 Select the datasets you would like to download. 
 
-![](/img/user-guide/export_data_selections.png)
+![](/img/user-guide/02-experiment-basics/08-export-data/export_data_selections.png)
 
 Click the _Export_ button to download the raw data as **.csv** files.
 
@@ -35,11 +35,11 @@ This dataset summarizes all activities from one Pioreactor against a single time
 
 Consider this example where we turned on temperature and stirring: 
 
-![](/img/user-guide/temp-vs-stirring-separate-csv.png)
+![](/img/user-guide/02-experiment-basics/08-export-data/temp-vs-stirring-separate-csv.png)
 
 Temperature and stirring datasets are exported on separate .csv files and follow their unique time series. In comparison, the Pioreactor Unit dataset compiles both against the same time series, making it much more accessible:
 
-![](/img/user-guide/pio-unit-data-example.png)
+![](/img/user-guide/02-experiment-basics/08-export-data/pio-unit-data-example.png)
 
 
 

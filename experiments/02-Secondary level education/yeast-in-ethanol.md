@@ -113,7 +113,7 @@ This technique produces halving ethanol percentages of 0%, 1.5%, 3%, and 6% to b
 
 After approximately 18 hours, the following implied growth rates were recorded:
 
-![](/img/experiments/ethanol_gr.png)
+![](/img/experiments/02-secondary-level-education/yeast-in-ethanol/ethanol_gr.png)
 
 We can summarize our results in the following table: 
 

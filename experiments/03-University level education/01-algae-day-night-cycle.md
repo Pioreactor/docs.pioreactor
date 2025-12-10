@@ -16,7 +16,7 @@ This experiment will show the growth curve of algae over a 20h:4h day/night cycl
 
 ## Requirements
 
-<AssemblyInstructionBlock images={["experiments/algae_exp.jpg"]}>
+<AssemblyInstructionBlock images={["experiments/03-university-level-education/01-algae-day-night-cycle/algae_exp.jpg"]}>
 
 * At least one available Pioreactor
 * Algae
@@ -41,7 +41,7 @@ Typical experiments use a 16h:8h day night cycle, but we've adjusted the time pe
 
 For this style of experiment, let's investigate our normalized OD results: 
 
-![](/img/experiments/nod_algae_intensity.png)
+![](/img/experiments/03-university-level-education/01-algae-day-night-cycle/nod_algae_intensity.png)
 
 Adjusting just one factor (light intensity) where one is twice as high as the other yielded an approximate doubling of growth in the vial subjected to higher light intensity! 
 
@@ -74,6 +74,5 @@ Change the names of the Pioreactor in the UI to organize your vials.
 :::
 
 12.	Watch the growth progress on the Overview page.
-
 
 

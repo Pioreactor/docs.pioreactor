@@ -48,11 +48,11 @@ $$
 
 There's still no particular assumption about the shape of the growth rate function, $gr(s)$. For example, consider the following ODs from a batch experiment:
 
-![](/img/user-guide/nod.png)
+![](/img/user-guide/30-advanced/02-growth-rate-model/nod.png)
 
 Using our estimation technique outlined below, we can estimate the growth curve as:
 
-![](/img/user-guide/gr.png)
+![](/img/experiments/02-secondary-level-education/yeast-in-ethanol/gr.png)
 
 
 We can see that the growth is very dynamic, and certainly not a single number or a constrained form!

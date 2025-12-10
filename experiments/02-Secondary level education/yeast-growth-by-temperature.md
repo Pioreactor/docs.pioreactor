@@ -20,7 +20,7 @@ Demonstrate the effect of temperature on yeast growth.
 
 ## Requirements
 
-<AssemblyInstructionBlock images={["experiments/two_pio_plus_vials.jpg"]}>
+<AssemblyInstructionBlock images={["experiments/02-secondary-level-education/yeast-growth-by-temperature/two_pio_plus_vials.jpg"]}>
 
 *   At least two available Pioreactors
 *   Dry baker's yeast
@@ -44,9 +44,9 @@ The following experiment was performed using four Pioreactors. Four vials contai
 
 Over the course of 12 hours, the following graphs were recorded: 
 
-![](/img/experiments/temperature_temp.png)
+![](/img/experiments/02-secondary-level-education/yeast-growth-by-temperature/temperature_temp.png)
 
-![](/img/experiments/temperature_growth_rate.png)
+![](/img/experiments/02-secondary-level-education/yeast-growth-by-temperature/temperature_growth_rate.png)
 
 Though subtle, non-linear patterns of growth rate are observed between the temperatures. Key data points are summarized in the following table: 
 

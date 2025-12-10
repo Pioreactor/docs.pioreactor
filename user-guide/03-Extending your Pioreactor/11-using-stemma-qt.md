@@ -7,7 +7,7 @@ hide_table_of_contents: true
 The Pioreactor HAT comes with a connector for the StemmaQT / Qwiic connector that can be used to attach additional hardware for your Pioreactor. See image below:
 
 
-<img src="/img/user-guide/stemma_qt.png" width="325" style={{margin: "auto", display:"block"}} />
+<img src="/img/user-guide/03-extending-your-pioreactor/11-using-stemma-qt/stemma_qt.png" width="325" style={{margin: "auto", display:"block"}} />
 
 
 :::info

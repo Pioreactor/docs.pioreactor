@@ -9,7 +9,7 @@ sidebar_class_name: sidebar-item--updated
 
 Each Pioreactor keeps its configuration, calibration data, and persistent state inside `~/.pioreactor`. The Inventory page now lets you export that directory as a system archive (`.zip`) for safekeeping and import it onto the same unit when you need to restore or clone a setup.
 
-![Manage Pioreactor menu showing Export system archive and Import system archive actions highlighted](/img/user-guide/inventory-export-import-menu.png)
+![Manage Pioreactor menu showing Export system archive and Import system archive actions highlighted](/img/user-guide/03-extending-your-pioreactor/01-cluster-management/03-backup-and-restore-system-files/inventory-export-import-menu.png)
 
 ## Exporting a system archive
 
@@ -17,7 +17,7 @@ Each Pioreactor keeps its configuration, calibration data, and persistent state 
 2. Review the dialog and click **Export** when ready. The UI downloads a file named `<pioreactor>_dot_pioreactor.zip`.
 3. Store the archive somewhere safe. It contains every file from that unit’s `~/.pioreactor` plus a `pioreactor_export_metadata.json` descriptor (hostname, version, export time).
 
-![Export system archive confirmation dialog with the Export button highlighted](/img/user-guide/inventory-export-dialog.png)
+![Export system archive confirmation dialog with the Export button highlighted](/img/user-guide/03-extending-your-pioreactor/01-cluster-management/03-backup-and-restore-system-files/inventory-export-dialog.png)
 
 After you confirm, the browser saves a zip named `<pioreactor>_dot_pioreactor.zip`.
 
@@ -38,7 +38,7 @@ Use imports when you need to restore a backup, duplicate a Pioreactor after repl
 Importing wipes the existing `~/.pioreactor` on that unit before restoring the archive, so anything not inside the uploaded zip is permanently removed.
 :::
 
-![Import system archive confirmation dialog with the Select system archive file button highlighted](/img/user-guide/inventory-import-dialog.png)
+![Import system archive confirmation dialog with the Select system archive file button highlighted](/img/user-guide/03-extending-your-pioreactor/01-cluster-management/03-backup-and-restore-system-files/inventory-import-dialog.png)
 
 Important behaviour to note:
 
