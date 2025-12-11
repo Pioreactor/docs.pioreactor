@@ -58,7 +58,7 @@ Any of the following could solve your problem:
 
  - Is there a green icon in the top-left of the Pioreactor card? If not, or it's grey, either the Pioreactor is powered off, or the `monitor` job is not running. If so, [try power-cycling the Pioreactor](/user-guide/common-questions#how-can-i-restart-my-pioreactor-is-pulling-the-power-plug-out-safe).
 
-![Left image is green, right image is grey](/img/user-guide/monitor_on_off.png)
+![Left image is green, right image is grey](/img/user-guide/50-troubleshooting/ui-troubleshooting/monitor_on_off.png)
 
 
  - It's possible that the experiment has changed while the page has been left open - try refreshing the page and try again.

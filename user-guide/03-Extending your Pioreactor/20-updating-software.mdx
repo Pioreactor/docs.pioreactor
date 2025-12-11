@@ -18,16 +18,16 @@ To use this update method, you Raspberry Pi must be able to access the internet.
 
 When a new software version is released by our team, you will see a red "badge" in your UI's sidebar:
 
-![a red badge is beside the Update link](/img/user-guide/badge.png)
+![a red badge is beside the Update link](/img/user-guide/03-extending-your-pioreactor/20-updating-software/badge.png)
 
 Upon visiting the _Updates_ page, you can see what version you have installed, and the latest version published by us. You can also read the changelog to see what improvements we've made in the latest releases.
 
-![](/img/user-guide/version_installed_vs_latest.png)
+![](/img/user-guide/03-extending-your-pioreactor/20-updating-software/version_installed_vs_latest.png)
 
 
 If you'd like to update, click on the "Update to next release" button. Updating software doesn't interrupt experiments or activities, but we suggest waiting until between experiments to update.
 
-![highlight of the webpage showing what to select to update](/img/user-guide/click_update.png)
+![highlight of the webpage showing what to select to update](/img/user-guide/03-extending-your-pioreactor/20-updating-software/click_update.png)
 
 Updating from the UI will update all the Pioreactors in your cluster.
 
@@ -98,12 +98,12 @@ We highly recommend updating incrementally. That is, update to the _next_ versio
 
    Click `Quickconnect`. You should successfully connect to your Pioreactor's Raspberry Pi (and may need to accept a security pop-up).
 
-   ![filezilla UI connecting to Pioreactor's Raspberry Pi](/img/user-guide/connect_via_filezilla.png)
+   ![filezilla UI connecting to Pioreactor's Raspberry Pi](/img/user-guide/03-extending-your-pioreactor/20-updating-software/connect_via_filezilla.png)
 
 5. On the left-hand side is your computer's file system. Find the `release_xx.xx.xx.zip` file you downloaded earlier, and double click it to upload to the Raspberry Pi (that filesystem is on the right).
-   ![filezilla UI uploading file to Pioreactor](/img/user-guide/upload_file_via_filezilla.png)
+   ![filezilla UI uploading file to Pioreactor](/img/user-guide/03-extending-your-pioreactor/20-updating-software/upload_file_via_filezilla.png)
 6. You should see a successfully uploaded message, and the file should be present on the right-hand side now. You can close FileZilla.
-  ![filezilla UI successfully uploaded file to Pioreactor](/img/user-guide/successuful_upload.png)
+  ![filezilla UI successfully uploaded file to Pioreactor](/img/user-guide/03-extending-your-pioreactor/20-updating-software/successuful_upload.png)
 7. [SSH into your Pioreactor](/user-guide/accessing-raspberry-pi). Now enter:
    ```
    pio update app --source release_xx.xx.xx.zip

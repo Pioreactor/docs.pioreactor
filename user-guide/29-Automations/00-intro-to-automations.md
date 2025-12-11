@@ -20,7 +20,7 @@ Use an automation when:
 2. Click **Manage** (or **Control**) to open the activities drawer.
 3. In **Activities**, locate the automation you need and use **Start**.
 
-![Activities drawer showing available automations](/img/user-guide/automations-panel.png)
+![Activities drawer showing available automations](/img/user-guide/29-automations/00-intro-to-automations/automations-panel.png)
 _Highlighted rows show where temperature, dosing, and LED automations live inside the Activities dialog._
 
 Each automation runs as its own background job, so you can mix and match—for example, keep stirring and growth-rate measurements active while only dosing automatically.

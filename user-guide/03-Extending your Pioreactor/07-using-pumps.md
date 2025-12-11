@@ -17,7 +17,7 @@ You can attach up to three peristaltic pumps to your Pioreactor, typically used 
 
 First decide what you want your new pump to do: add media, remove waste, or add an alternative media. Pumps that are supplied by us will have a connector that connects to the PWM outputs on the Pioreactor hat. Which PWM you connect to is determined by your `PWM` settings in config.ini.
 
-![](/img/user-guide/pwm_config.png)
+![](/img/user-guide/03-extending-your-pioreactor/07-using-pumps/pwm_config.png)
 
 In our case, if we were to use the pump as a media pump, we would connect the pump to PWM channel 2.
 
@@ -62,7 +62,7 @@ If using your pumps for the first time, we suggest letting them run continuously
 2. Place both ends (source and sick) into a beaker of water,
 3. Use the Pioreactor UI to run them continuously.
 
-![](/img/user-guide/dosing_in_ui.png)
+![](/img/user-guide/03-extending-your-pioreactor/07-using-pumps/dosing_in_ui.png)
 
 :::
 
@@ -101,7 +101,7 @@ It's important to not keep harsh chemicals, like bleach, in the tubing and stain
 1. Create a 10% bleach dilution, or high concentration alcohol, in a container. Place the sink and source tubes of each pump you're sterilizing in the beaker.
 2. On the UI, in the _Pioreactors_ tab, click _Manage_ and go to the _Dosing_ tab.
 3. _Run continuously_ to cycle the disinfectant solution through each pump that you're using.
-<img src="/img/user-guide/dosing_in_ui.png" width="735" style={{margin: "15px auto", display:"block"}}/>
+<img src="/img/user-guide/03-extending-your-pioreactor/07-using-pumps/dosing_in_ui.png" width="735" style={{margin: "15px auto", display:"block"}}/>
 4. _Stop_ after sufficient cycling, at least 2 minutes, but no more than 5 minutes.
 5. **Important**: If finishing an experiment, repeat the above with water to purge the harsh chemicals from the lines.
 6. If starting an experiment, you'll need to prime the pumps, see the next section.

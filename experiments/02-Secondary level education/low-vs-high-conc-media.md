@@ -17,7 +17,7 @@ Conduct a simple comparison of yeast growth between a low percent and high perce
 
 ## Requirements
 
-<AssemblyInstructionBlock images={['experiments/media_exp.jpg']}>
+<AssemblyInstructionBlock images={['experiments/02-secondary-level-education/low-vs-high-conc-media/media_exp.jpg']}>
 
 *   At least two available Pioreactors
 *   Dry baker's yeast
@@ -58,7 +58,7 @@ We inoculated both with 100 uL of a yeast slurry using a micropipette. If this i
 
 As expected, growth diminished earlier for the culture inoculated in 1% YPD: 
 
-![](/img/experiments/ypd-conc-exp.png)
+![](/img/experiments/02-secondary-level-education/low-vs-high-conc-media/ypd-conc-exp.png)
 
 
 ## Recommendations 
@@ -80,4 +80,3 @@ Consider lower or higher bounds for your media compositions. How much sooner wil
 9.	Back on the _Pioreactors_ page, select _Manage all Pioreactors_ and start _Growth rate_. It will take a minute for results to begin showing up. 
 10. Optional: you can change the names of the Pioreactor in the UI to display the percent of media. 
 11. Students can watch growth progress on the _Overview_ page.
-

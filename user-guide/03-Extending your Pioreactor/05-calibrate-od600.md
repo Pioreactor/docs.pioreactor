@@ -37,7 +37,7 @@ To begin calibrations, type `pio calibrations run --device od`, and choose the p
 
 Following the questions, stirring and optical density reading will begin. A graph is generated as you calibrate so you can see your progress.
 
-![Graph generated as you measure.](/img/user-guide/generating_graph.png)
+![Graph generated as you measure.](/img/user-guide/03-extending-your-pioreactor/05-calibrate-od600/generating_graph.png)
  
 
 Once you complete all your measurements, a calibration curve will appear over your graph. If you are satisfied with this, save your calibration. 
@@ -46,9 +46,9 @@ Once you complete all your measurements, a calibration curve will appear over yo
 By default, we fit the calibration curve with a polynomial. You can choose the degree of the polynomial if you wish, but we found that degree 4 works well for wide OD600 calibrations, and degree 1 (a linear model) works will for narrow calibrations near 0.
 :::
 
-![Final data points on OD calibration.](/img/user-guide/od_cal_45_deg.png)
+![Final data points on OD calibration.](/img/user-guide/03-extending-your-pioreactor/05-calibrate-od600/od_cal_45_deg.png)
 
-![Final data points with generated curve.](/img/user-guide/od_cal_45_deg_with_curve.png)
+![Final data points with generated curve.](/img/user-guide/03-extending-your-pioreactor/05-calibrate-od600/od_cal_45_deg_with_curve.png)
 
 ## Using calibrations in your experiments
 
@@ -56,7 +56,7 @@ Calibrations are applied automatically during OD Readings. That is, after perfor
 
 To change the OD calibration you wish to use for an experiment, visit the Calibrations page, select the calibration you wish to use, and select "Set Active". Only one calibration can be Active at a time.
 
-![Final data points on OD calibration.](/img/user-guide/od_cal_active.png)
+![Final data points on OD calibration.](/img/user-guide/03-extending-your-pioreactor/05-calibrate-od600/od_cal_active.png)
 
 You can disable calibrations by changing the OD device to have no _Active_ calibration in the Calibrations page.
 

@@ -31,47 +31,47 @@ We'll start with your blank microSD card.
 1.  Download the latest version of [Raspberry Pi Imager](https://www.raspberrypi.org/software/) for your operating system and install it.
 3.  Open the newly-installed Raspberry Pi Imager.
 4.  Immediately, click **"App Options"**
-    ![Click "App options"](/img/user-guide/app_options.png)
+    ![Click "App options"](/img/user-guide/01-getting-started/02-software-set-up/app_options.png)
 4.  Click **Edit** next to _Content Repository_.
-    ![Click "Edit" to choose repository](/img/user-guide/content_repo.png)
+    ![Click "Edit" to choose repository](/img/user-guide/01-getting-started/02-software-set-up/content_repo.png)
 5.  Choose **Use Custom URL**, and paste the value: `https://pioreactor.com/imager/os-list.json`
 
-    ![Add our repo URL](/img/user-guide/edit_repo.png)
+    ![Add our repo URL](/img/user-guide/01-getting-started/02-software-set-up/edit_repo.png)
 6.  Click **Apply & restart**.
 7.  Choose your RPi model. Select **Next**.
-    ![Choose your RPi model](/img/user-guide/choose_rpi.png)
+    ![Choose your RPi model](/img/user-guide/01-getting-started/02-software-set-up/choose_rpi.png)
 8.  Choose the operating system **Pioreactor**. Click **Next**.
-    ![Choose your Pioreactor](/img/user-guide/choose_pio_os.png)
+    ![Choose your Pioreactor](/img/user-guide/01-getting-started/02-software-set-up/choose_pio_os.png)
 9.  Choose the **latest** OS on the list (at the top). Click **Next**.
-    ![Choose latest](/img/user-guide/latest_os.png)
+    ![Choose latest](/img/user-guide/01-getting-started/02-software-set-up/latest_os.png)
 10. Choose the **Leader + Worker**. Click **Next**.
-    ![Choose leader + worker](/img/user-guide/pio_lw_os.png)
+    ![Choose leader + worker](/img/user-guide/01-getting-started/02-software-set-up/pio_lw_os.png)
 11. Insert your micro SD card if you haven't already. Select your Storage device (it may be a different icon than shown).
-    ![Choose storage](/img/user-guide/choose_storage.png)
+    ![Choose storage](/img/user-guide/01-getting-started/02-software-set-up/choose_storage.png)
 12. Input a unique name for this Pioreactor. Some names that we use for our first Pioreactor: `pioreactor01`, or `leader`, or `pio01`. _Don't_ use `pioreactor` or `raspberrypi`.
-    ![Choose hostname](/img/user-guide/choose_hostname.png)
+    ![Choose hostname](/img/user-guide/01-getting-started/02-software-set-up/choose_hostname.png)
     Click **Next**.
 13. Change localization preferences. Click **Next**.
-    ![Choose localization](/img/user-guide/choose_localization.png)
+    ![Choose localization](/img/user-guide/01-getting-started/02-software-set-up/choose_localization.png)
 14. Check **Set username and password**. Enter the following:
         -   **username**: `pioreactor`.
         -   **password**: `raspberry`.
         -   Note: You can change the password later.
-    ![Choose username](/img/user-guide/choose_username.png)
+    ![Choose username](/img/user-guide/01-getting-started/02-software-set-up/choose_username.png)
     Click **Next**.
 15. Enter your network name into SSID network name, and WiFi password. Optional: leave blank if using ethernet. Click **Next**.
 	:::tip
     If you are having difficulty connecting to a network, like at a university that may not easily incorporate Raspberry Pi's, [there's a built-in solution for creating a local access point](/user-guide/local-access-point)) and a [solution for internet-sharing from a PC via ethernet](/user-guide/internet-sharing).
 	:::
 	
-    ![Choose wifi](/img/user-guide/choose_wifi.png)
+    ![Choose wifi](/img/user-guide/01-getting-started/02-software-set-up/choose_wifi.png)
 16. Confirm that **Enable SSH** is active, and **Use password authentication**. Click **Next**.
-    ![Choose ssh](/img/user-guide/choose_ssh.png)
+    ![Choose ssh](/img/user-guide/01-getting-started/02-software-set-up/choose_ssh.png)
 17. Click **Write** to begin writing your image to the micro SD card.
-    ![write image](/img/user-guide/write_image.png)
-18.  A prompt *may* appear asking for permission to write, accept it. Writing will take up to 5 minutes. Perfect time for a tea break. <img src="/img/user-guide/coffee.svg" width="250" alt="Screenshot of what your settings should look like" style={{margin: "80px auto", display:"block"}} />
+    ![write image](/img/user-guide/01-getting-started/02-software-set-up/write_image.png)
+18.  A prompt *may* appear asking for permission to write, accept it. Writing will take up to 5 minutes. Perfect time for a tea break. <img src="/img/user-guide/01-getting-started/02-software-set-up/coffee.svg" width="250" alt="Screenshot of what your settings should look like" style={{margin: "80px auto", display:"block"}} />
 10.  Once writing is complete, remove the microSD card, and place it into the Raspberry Pi. **Your Raspberry Pi's power should be unplugged before inserting the microSD card**. The microSD slot is located on the PWM side of the Pioreactor. Example for a Raspberry Pi A model:
-    ![Insert the microSD card into a Raspberry Pi A model](/img/user-guide/place-micro-sd-card.JPG)
+    ![Insert the microSD card into a Raspberry Pi A model](/img/user-guide/01-getting-started/02-software-set-up/place-micro-sd-card.JPG)
 11. Plug power into your Raspberry Pi. LEDs onboard the Raspberry Pi may start to light up momentarily. After **a few minutes**, your Pioreactor HAT will briefly blink a blue LED, telling us it is ready.
     <p align="center">
         <video width="520" muted loop={true} autoPlay="autoplay">
@@ -87,7 +87,7 @@ We'll start with your blank microSD card.
 
 13. When the UI loads for the first time you'll be prompted by the **Update Pioreactor model** dialog. Select the correct model and hardware version for each Pioreactor listed, then click **Save** to continue.
 
-    ![Select the Pioreactor model and version for each unit](/img/user-guide/pioreactor-model-version-modal.png)
+    ![Select the Pioreactor model and version for each unit](/img/user-guide/01-getting-started/02-software-set-up/pioreactor-model-version-modal.png)
 
 
 14. The Pioreactor is now ready for use! Follow [this guide](/user-guide/prepare-vial-for-cultures) to set up your first experiment.

@@ -17,7 +17,7 @@ Use caffeine-containing liquids to inhibit the growth of your culture.
 
 ## Requirements
 
-<AssemblyInstructionBlock images={["experiments/three_pioreactors.jpg"]}>
+<AssemblyInstructionBlock images={["experiments/02-secondary-level-education/01-control-testing/three_pioreactors.jpg"]}>
 
 *   At least two available Pioreactors
 *   Dry baker's yeast
@@ -40,7 +40,7 @@ We used two Pioreactors and two vials containing 15 mL of YPD media. We added 1 
 
 The growth rate chart clearly demonstrates an inhibition of growth occurring in the sample containing tea:  
 
-![](/img/experiments/tea2-exp-results.png)
+![](/img/experiments/02-secondary-level-education/caffeine-inhibition/tea2-exp-results.png)
 
 ## Recommendations 
 
@@ -60,4 +60,3 @@ We recommend trying different amounts of tea, coffee, or other caffeine containi
 8. Confirm that everything looks normal (ex: receiving optical density signal).
 9.	Back on the _Pioreactors_ page, select _Manage all Pioreactors_ and start _Growth rate_. It will take a minute for results to begin showing up. 
 10. Watch growth progress on the _Overview_ page.
-

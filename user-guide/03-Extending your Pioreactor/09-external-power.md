@@ -13,7 +13,7 @@ You can supply a higher voltage / amp power to the peripherals using the barrel 
 Finally, to enable the PWM channels to use the new auxiliary power supply, **you need to move the shunt connector to the position closest to the LED outputs**. (If the shunt connector is not present, the PWM rail is powered by the RPi's power supply, minus a diode drop. It's recommend to replace the shunt, however.)
 
 
-![left image shows the shunt connector in the ON position, right image shows shunt connector in the OFF position](/img/user-guide/aux_position.png)
+![left image shows the shunt connector in the ON position, right image shows shunt connector in the OFF position](/img/user-guide/03-extending-your-pioreactor/09-external-power/aux_position.png)
 
 
 :::note

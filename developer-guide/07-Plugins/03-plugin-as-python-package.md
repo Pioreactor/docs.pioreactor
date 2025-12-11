@@ -151,7 +151,7 @@ function decorated with `@run.command` at the bottom of the file. See example [h
 
 This configuration file will contain additional configs that we want to add to our list of existing Configurations on the Pioreactor web interface. This file will be merged with the existing `config.ini` when the plugin is installed. 
 
-![](/img/developer-guide/python-package-new-config.png)
+![](/img/developer-guide/07-plugins/03-plugin-as-python-package/python-package-new-config.png)
 
 :::tip
 A convention we've tried to follow is to use the section name convention of `[<job_name>.config]` or `[<automation_name>.config]` in the configuration files. For example, our relay job has `[relay.config]` in its `additional_config.ini` and settings under it.
@@ -399,13 +399,13 @@ There are two ways to do this:
 1.	Create an issue to have us edit the plugins.json file for you. 
 2.	Fork from our repository to edit the plugins.json file, then create a pull request. 
 
-![](/img/developer-guide/python-package-pull-or-issue.png)
+![](/img/developer-guide/07-plugins/03-plugin-as-python-package/python-package-pull-or-issue.png)
 
 In both cases, we will evaluate your plugin to ensure code quality and all requirements are met.
 
 Once your plugin is accepted, it will appear on the Plugins tab on the Pioreactor web interface. Users in the community can now easily click _Install_ to download your plugin onto their Pioreactors!
 
-![](/img/developer-guide/python-package-plugins.png)
+![](/img/developer-guide/07-plugins/03-plugin-as-python-package/python-package-plugins.png)
 
 
 ### Troubleshooting

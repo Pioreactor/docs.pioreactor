@@ -10,7 +10,7 @@ Configuration of the Pioreactors is through configuration files, prefixed by `.i
 
 For example (and see image below), each unit will use the shared config.ini setting of `target_rpm=500`, unless an alternative setting is present in their specific `unit_config.ini` files (like `target_rpm=400` found in `unit1_config.ini`) . This overriding lets you customize specific behavior *per* Pioreactor, without having to duplicate lots of configuration over and over again.
 
-![](/img/user-guide/configini.png)
+![](/img/user-guide/03-extending-your-pioreactor/05-configuration/configini.png)
 
 #### Last-occurrence wins
 
@@ -20,20 +20,20 @@ The config.ini can have duplicate entries (though it's not recommended), but onl
 
 At [pioreactor.local](http://pioreactor.local), navigate to the _Configuration_ page in the sidebar.
 
-![Edit configuration page](/img/user-guide/edit_config_page.png)
+![Edit configuration page](/img/user-guide/03-extending-your-pioreactor/05-configuration/edit_config_page.png)
 
 Select the configuration file you wish to edit from the dropdown:
 
-![Choose the config.ini you wish to edit](/img/user-guide/find_config_to_edit.png)
+![Choose the config.ini you wish to edit](/img/user-guide/03-extending-your-pioreactor/05-configuration/find_config_to_edit.png)
 
 
 Clicking \[Save\] will save the new configuration and will deploy the new configuration to the proper Pioreactor unit(s).
 
-![Save the edited config.ini using the Save button](/img/user-guide/save_config.png)
+![Save the edited config.ini using the Save button](/img/user-guide/03-extending-your-pioreactor/05-configuration/save_config.png)
 
 Pioreactor also stores a history of changes to each configuration file. You can view previous versions of configuration files in the dropdown. Clicking \[Revert\] will save the displayed configuration file.
 
-![Select historical versions of config.ini's](/img/user-guide/choose_config_version2.png)
+![Select historical versions of config.ini's](/img/user-guide/03-extending-your-pioreactor/05-configuration/choose_config_version2.png)
 
 
 ### Editing the configuration files from the command line

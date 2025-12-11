@@ -67,7 +67,7 @@ There are three pumps on the Pioreactor: media, alt-media, and waste. You don't 
 
 From both the UI and the command line, you can manage your Pioreactor's calibrations.
 
-![Calibrations page showing filters, table, and chart.](/img/user-guide/calibrations-page.png)
+![Calibrations page showing filters, table, and chart.](/img/user-guide/03-extending-your-pioreactor/08-hardware-calibrations/calibrations-page.png)
 
 **In the UI**
 - Use the `Pioreactor` and `Device` filters at the top of the Calibrations page to focus on a specific unit and hardware type. Toggle **Only Active calibrations** to hide everything except the curve currently in use.
