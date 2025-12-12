@@ -2,7 +2,6 @@
 title: Important locations on the filesystem
 slug: /filesystem-locations
 hide_table_of_contents: true
-sidebar_class_name: sidebar-item--updated
 ---
 
 # Important Raspberry Pi Locations for Pioreactor Images

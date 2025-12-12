@@ -3,7 +3,6 @@ title: Customize the hardware interface
 slug: /custom-hardware
 description: Extend or override Pioreactor hardware definitions by layering YAML files that hardware.py reads.
 hide_table_of_contents: true
-sidebar_class_name: sidebar-item--updated
 ---
 
 Pioreactor's hardware layer is intentionally data-driven. Everything in [`core/pioreactor/hardware.py`](https://github.com/pioreactor/pioreactor/blob/main/core/pioreactor/hardware.py) loads user-editable YAML files from `~/.pioreactor/hardware/` (or the folder pointed to by the `DOT_PIOREACTOR` env var). By editing these files you can rewire pins, add new peripherals, or describe an entirely new bioreactor model without touching the Python code. Pair these configs with [custom bioreactor model definitions](/developer-guide/custom-bioreactor-models) so the UI, safety limits, and wiring stay in sync.
