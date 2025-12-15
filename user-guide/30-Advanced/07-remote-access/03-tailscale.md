@@ -4,6 +4,7 @@ slug: /tailscale-remote-access
 hide_table_of_contents: true
 ---
 
+import CopyToClipboardButton from '@site/src/components/CopyToClipboardButton';
 
 To access the UI remotely, you can join an authenticated VPN using Tailscale. This greatly improves security, but adds a bit of additional work for users.
 
@@ -15,7 +16,10 @@ Tailscale is a really cool service! You may find yourself using it for other pro
 1. Sign up for an account at [Tailscale](https://tailscale.com/). The free account is fine for now.
 2. Once signed up and logged in, visit the [Tailscale admin](https://login.tailscale.com/admin/machines).
 3. Install [Tailscale on your computer](https://tailscale.com/download).
-4. [SSH into your leader Pioreactor](/user-guide/accessing-raspberry-pi). Install Tailscale for Raspberry Pi with the following: `curl -fsSL https://tailscale.com/install.sh | sh`. Don't miss that you also need to run `sudo tailscale up`. _You don't need to install anything on the workers_.
+4. [SSH into your leader Pioreactor](/user-guide/accessing-raspberry-pi).
+   1. Install Tailscale for Raspberry Pi with the following: `curl -fsSL https://tailscale.com/install.sh | sh` <CopyToClipboardButton content="curl -fsSL https://tailscale.com/install.sh | sh" label="Copy" style={{ marginLeft: '0.5rem' }} />
+   2. Don't miss that you also need to run `sudo tailscale up` <CopyToClipboardButton content="sudo tailscale up" label="Copy" style={{ marginLeft: '0.5rem' }} />
+   3. _You don't need to install anything on the workers_.
 5. Back in your [Tailscale admin](https://login.tailscale.com/admin/machines), you should see two machines: your computer and the leader Pioreactor. Make note of the ipv4 address for the leader - we will use it below.
 6. You should still be able to access `http://pioreactor.local` without any problems.
 8. 1. In your **shared config.ini**, add your ipv4 address to the `[mqtt]` section:
