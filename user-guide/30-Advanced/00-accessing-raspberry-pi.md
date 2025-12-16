@@ -14,11 +14,13 @@ There are two simple ways to access the Raspberry Pi from a Windows desktop.
 ### 1. Using the Command Prompt
 
 1. [Open the command prompt](https://support.kaspersky.com/common/windows/14637#block0).
-2. Type `ssh pioreactor@<insert unit name>.local`. For example, to access on our Pioreactor named _worker3_, we typed `ssh pioreactor@worker3.local`. The default password is `raspberry` (see "info" below). If asked "The authenticity of host...", enter "yes".
+2. Type `ssh pioreactor@<insert unit name or ip>.local`. For example, to access on our Pioreactor named _worker3_, we typed `ssh pioreactor@worker3.local` or via it's IPv4: `ssh pioreactor@192.168.0.11`.
+3. If asked "The authenticity of host...", enter "yes".
+4. The default password is `raspberry` (see note below).
 
-:::info
-When typing in the password, characters may not appear up as you type - that's expected. This is a security feature.
-:::
+   :::info
+   When typing in the password, characters may not appear up as you type - that's expected. This is a security feature.
+   :::
 
 
   ![A computer console with `ssh pioreactor@worker3.local` typed in, and the resulting active console on the Raspberry Pi.](/img/experiments/turbidostat/ssh_into_unit.png)
