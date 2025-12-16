@@ -2,7 +2,6 @@
 title: Creating and editing experiment profiles
 slug: /create-edit-experiment-profiles
 hide_table_of_contents: true
-sidebar_class_name: sidebar-item--updated
 ---
 
 Experiment profiles choreograph everything that happens across your cluster: which jobs start, when they update, and when they stop. This page walks through creating your first "hello world" profile in the UI, explains how to edit it, and points you to the raw files if you prefer the command line.
