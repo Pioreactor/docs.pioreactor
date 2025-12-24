@@ -31,7 +31,7 @@ import TabItem from '@theme/TabItem';
 1. The new top v1.5 vial holder has <Highlight color={colors.blue}>a groove within the body</Highlight> where the #024 O-ring sits. Carefully insert the O-ring using your fingers. Make sure to not twist the O-ring.
 2. Run your finger inside the vial holder, pushing the O-ring into place to ensure a snug fit.
 3. Screw off the existing top vial holder by twisting it counter-clockwise. This old top isn't needed anymore.
-4. Screw on the new v1.5 vial holder.
+4. Screw on the new v1.5 vial holder until the IR LED lines up with the heater cable.
 
 </AssemblyInstructionBlock>
 

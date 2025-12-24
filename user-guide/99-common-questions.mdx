@@ -78,25 +78,6 @@ The _uncalibrated_ optical densities reported the UI and recorded in the databas
 
 In the configuration, you can edit the parameter `samples_per_second` to adjust the how often the Pioreactor takes an optical density snapshot. Note that this parameter is the inverse of "duration between readings". For example, if you wish to record a measurement every 60 seconds, then `samples_per_second=0.01666667` (which is 1/60).
 
-:::tip
-If you put a large gap between readings, like 1 reading / 60 seconds, then we also suggest turning off the _downsampling_ on the UI's charts (it's on by default to avoid plotting thousands of points). To do this, [SSH](/user-guide/accessing-raspberry-pi) into your leader, and we'll edit the following files:
-
-```
-nano /var/www/pioreactorui/contrib/charts/05_od.yaml
-```
-
-And change the field `down_sample` from `true` to `false`. Do the same for the following files:
-
-```
-nano /var/www/pioreactorui/contrib/charts/01_implied_growth_rate.yaml
-```
-
-```
-nano /var/www/pioreactorui/contrib/charts/04_normalized_od.yaml
-```
-
-:::
-
 
 ### Why does the intensity for LED A turn on & off during an experiment?
 
