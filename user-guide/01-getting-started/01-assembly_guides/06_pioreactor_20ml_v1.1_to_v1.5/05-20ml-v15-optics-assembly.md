@@ -16,8 +16,8 @@ import * as colors from '@site/src/components/constants';
 * <Highlight color={colors.blue}>Eye-spy covers (3x)</Highlight>
 * <Highlight color={colors.red}>8mm screws (12x)</Highlight>
 * <Highlight color={colors.magenta}>Eye-spies (2x)</Highlight>
-* <Highlight color={colors.teal}>100mm Stemma-QT wire</Highlight>
-* <Highlight color={colors.orange}>50mm Stemma-QT wire</Highlight>
+* <Highlight color={colors.teal}>100mm STEMMA-QT wire</Highlight>
+* <Highlight color={colors.orange}>50mm STEMMA-QT wire</Highlight>
 * <Highlight color={colors.green}>LED cable</Highlight>
 * <Highlight color={colors.purple}>LED caps (4x)</Highlight>
 
@@ -54,9 +54,9 @@ The measuring eye-spy can be placed in either the 90 or 135 degree pocket. For m
 
 <AssemblyInstructionBlock title="Step 3: Connect eye-spys to HAT" images={["user-guide/hardware-assembly/40ml-v15/connect-stemma-to-hat.jpg", "user-guide/hardware-assembly/20ml-v15/connect-stemma-on-eye-spy.jpg"]}>
 
-1. Locate the <Highlight color={colors.teal}>Stemma-QT connector</Highlight> on the HAT and connect the 100mm Stemma-QT wire, with the yellow wire furthest from the heater flat flex cable. 
+1. Locate the <Highlight color={colors.teal}>STEMMA-QT connector</Highlight> on the HAT and connect the 100mm STEMMA-QT wire, with the yellow wire furthest from the heater flat flex cable.
 2. Connect the other end to the leftmost eye-spy. Use the colors of the wire to orient the connector correctly. 
-3. Use the <Highlight color={colors.magenta}>50mm Stemma-QT wire</Highlight> to connect each eye-spy. 
+3. Use the <Highlight color={colors.magenta}>50mm STEMMA-QT wire</Highlight> to connect each eye-spy.
 
 
 :::tip
