@@ -22,7 +22,9 @@ import * as colors from '@site/src/components/constants';
 * <Highlight color={colors.green}>LED cable</Highlight>
 * <Highlight color={colors.purple}>LED caps (4x)</Highlight>
 
-
+:::note
+STEMMA-QT wires may have white or black connectors.
+:::
 
 </AssemblyInstructionBlock>
 
