@@ -16,6 +16,11 @@ import * as colors from '@site/src/components/constants';
   * <Highlight color={colors.red}>Fan and top faceplate</Highlight> (will have 4x 30mm screws in it)
   * <Highlight color={colors.orange}>M2.5 10mm screw (1x)</Highlight>
 
+:::warning
+The <Highlight color={colors.orange}>M2.5 10mm screw (1x)</Highlight> is replaced with a **M2.5 8mm screw** in newer versions of the Pioreactor.
+:::
+
+
 </AssemblyInstructionBlock>
 
 
