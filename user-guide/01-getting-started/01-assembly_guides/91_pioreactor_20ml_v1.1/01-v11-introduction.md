@@ -60,6 +60,6 @@ Here are some tips to prevent damage to the electronics:
 
 -  If you get stuck, missing a piece, or are unsure of something, **let us know**!
 -  You can reach out to us at `hello@pioreactor.com`!
--  Continue to the [next assembly instructions](user-guide/20ml-v11-rpi-hat-assembly).
+-  Continue to the [next assembly instructions](20ml-v11-rpi-hat-assembly).
 
 </AssemblyInstructionBlock>
