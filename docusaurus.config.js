@@ -17,7 +17,7 @@ const config = {
   url: 'https://docs.pioreactor.com',
   baseUrl: '/',
   onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
+
   favicon: 'img/misc/favicon.ico',
   organizationName: 'Pioreactor', // Usually your GitHub org/user name.
   projectName: 'docs.pioreactor', // Usually your repo name.
@@ -25,6 +25,9 @@ const config = {
   trailingSlash: false,
   markdown: {
     mermaid: true,
+    hooks: {
+      onBrokenMarkdownLinks: 'warn',
+    }
   },
   presets: [
     [
