@@ -14,6 +14,20 @@ Calibrations went through a major rewrite in the 25.1.x release of Pioreactor. T
 
 In practice, calibrations are stored as YAML files on the Pioreactor, in `~/.pioreactor/storage/calibrations` , divided into directories by the associated device. By keeping the calibrations as files (instead of in a database) makes moving, sharing, and editing calibrations really easy.
 
+```mermaid
+flowchart TD
+    Protocol["<b>Calibration protocol</b><br/>(script or workflow)"] -->|targets| Device["<b>Device</b><br/>(od, pump, stirring, ph, ...)"]
+    Protocol -->|creates| Calibration["<b>Calibration record</b><br/>(data + metadata)"]
+    Device -->|has many| Calibration
+    Device -->|uses| Active["<b>Active calibration</b><br/>(up to one per device)"]
+    Active --> Calibration
+    Calibration -->|is a| CalType["<b>Calibration type</b><br/>(schema)"]
+    Calibration -->|contains| Curve["<b>Calibration curve</b><br/>(model + parameters)"]
+    Curve --> Variables["Maps variables<br/><b>x</b> (independent) <-> <b>y</b> (dependent)"]
+    Calibration -->|stored as files under| Storage["<b>Storage</b><br/>~/.pioreactor/storage/calibrations/<device>/"]
+```
+
+
 ### CLI tools
 
 There is a useful CLI available to manage calibrations, too: `pio calibrations --help`.
@@ -173,4 +187,3 @@ pio calibrations run --device ph
  - the pair `(device, calibration_name)` must be unique. The final directory structure looks like `~/.pioreactor/storage/calibrations/<device>/<calibration_name>.yaml`
  - The `x` variable should be the independent variable - the variable that can (in theory) be set by you, and the measurement variable `y` follows. For example, in the default OD calibration, the independent variable is the OD, and the dependent variable is the Pioreactor's sensor's voltage. This is because we can vary the OD as we wish (add more culture...), and the Pioreactor's sensor will detect different values.
  - Another way to look at this is: "where does error exist"? Typically, there will be error in the "measurement" variable (voltage for OD calibration, RPM measurement for stirring calibration, etc.). In practice, we only have the measurement variable, and wish to go "back" to the original variable.
-

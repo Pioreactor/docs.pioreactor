@@ -23,7 +23,9 @@ const config = {
   projectName: 'docs.pioreactor', // Usually your repo name.
   deploymentBranch: "gh-pages",
   trailingSlash: false,
-
+  markdown: {
+    mermaid: true,
+  },
   presets: [
     [
       '@docusaurus/preset-classic',
@@ -189,6 +191,7 @@ const config = {
       },
     }),
   themes: [
+    '@docusaurus/theme-mermaid',
     [
       require.resolve("@easyops-cn/docusaurus-search-local"),
       {

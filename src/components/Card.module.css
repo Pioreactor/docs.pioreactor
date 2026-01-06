@@ -14,6 +14,7 @@
   overflow: hidden;
   margin: 10px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid #dbdbdb;
 }
 
 .newLabel {
