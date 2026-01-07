@@ -50,25 +50,7 @@ By default, we fit the calibration curve with a polynomial. You can choose the d
 
 ![Final data points with generated curve.](/img/user-guide/03-extending-your-pioreactor/05-calibrate-od600/od_cal_45_deg_with_curve.png)
 
-## Using calibrations in your experiments
+## Managing calibrations
 
-Calibrations are applied automatically during OD Readings. That is, after performing a calibration, your future experiments that use optical density readings will use the post-calibration values and be displayed in the UI and saved to the database.
-
-To change the OD calibration you wish to use for an experiment, visit the Calibrations page, select the calibration you wish to use, and select "Set Active". Only one calibration can be Active at a time.
-
-![Final data points on OD calibration.](/img/user-guide/03-extending-your-pioreactor/05-calibrate-od600/od_cal_active.png)
-
-You can disable calibrations by changing the OD device to have no _Active_ calibration in the Calibrations page.
-
-## Editing your previous calibrations
-
-The calibrations are saved as a YAML file on your Pioreactor. You can edit these files directly on the command line. If you want to re-analyze the dataset, you can use the following tool:
-```
-pio calibrations analyze --device od --name <name of your calibration>
-```
-
-## Sharing calibrations
-
-Since the calibrations are just YAML files, you can easily share existing calibrations to other Pioreactors.
-
+Once you have an OD calibration, you can set it active, edit it, and share it from the Calibrations page. See [Managing calibrations](/user-guide/managing-calibrations) for the full workflow.
 

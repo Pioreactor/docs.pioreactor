@@ -64,16 +64,4 @@ There are three pumps on the Pioreactor: media, alt-media, and waste. You don't 
 
 ## Managing calibrations
 
-From both the UI and the command line, you can manage your Pioreactor's calibrations.
-
-![Calibrations page showing filters, table, and chart.](/img/user-guide/03-extending-your-pioreactor/08-hardware-calibrations/calibrations-page.png)
-
-**In the UI**
-- Use the `Pioreactor` and `Device` filters at the top of the Calibrations page to focus on a specific unit and hardware type. Toggle **Only Active calibrations** to hide everything except the curve currently in use.
-- Click any calibration row to open its detail view. Use **Set active** to mark that calibration as the one the Pioreactor will use for that device (only one calibration can be active per device per Pioreactor). Use **Set inactive** to clear it and disable calibration for that device.
-- The chart in both the list view and detail view has a download icon—click it to export a PNG of the calibration curve for lab notes. The top-level **Download all calibrations** button grabs all calibration YAML files for backup.
-- To edit a calibration, open its detail view and choose **View YAML**. Make small changes, save the YAML, and re-upload it via **Upload calibration** (or edit the YAML on-disk and use `pio calibrations display` to confirm before setting it active).
-
-**From the command line**
-- List what you have with `pio calibrations list` or scope to a single device with `pio calibrations list --device <device>`.
-- Set which calibration is active with `pio calibrations set-active --device <device> --name <calibration_name>`. Omit `--name` to clear the active calibration for that device.
+For setting active calibrations, editing YAML, and sharing backups, see [Managing calibrations](/user-guide/managing-calibrations).
