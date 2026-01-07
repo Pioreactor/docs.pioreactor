@@ -51,7 +51,7 @@ When working with **small amounts** of a microorganism, or when using very turbi
 When starting, it's useful to run a _self test_ to confirm that your Pioreactors are all working as expected. [How to run a self-test.](/user-guide/running-self-test)
 :::
 
-On the _Pioreactors_ page, you should see at least one Pioreactor under _Active Pioreactors_. You can start an [activity](/user-guide/activities) using the "Manage" button. Once started, you can pause (and then resume) or stop jobs. Clicking the "Manage all Pioreactors" button will give you control to start and stop activities on all active Pioreactors.
+On the _Pioreactors_ page, you should see at least one Pioreactor under _Active Pioreactors_. You can start an [activity](/user-guide/activities) using the "Control" button. Once started, you can pause (and then resume) or stop jobs. Clicking the "Control all Pioreactors" button will give you control to start and stop activities on all active Pioreactors.
 
 
 ![](/img/user-guide/02-experiment-basics/04-set-up-an-experiment/pioreactor_page_manage.png)
@@ -70,11 +70,9 @@ The typical sequence of activities to start is:
 
 ## Changing settings
 
-If you'd like to **change the settings** of your activities after you start, navigate back to the _Pioreactors_ tab. Under _Manage_ for a single Pioreactor or _Manage all Pioreactors_, click the _Settings_ tab.
+If you'd like to **change the settings** of your activities after you start, navigate back to the _Pioreactors_ tab. Under _Control_ for a single Pioreactor or _Control all Pioreactors_, click the _Settings_ tab.
 
 ![](/img/user-guide/02-experiment-basics/04-set-up-an-experiment/manage_ui.png)
-
-![](/img/user-guide/02-experiment-basics/04-set-up-an-experiment/settings.png)
 
 Here you can change the settings of your activities (such as temperature, RPM, and dosing volume) without pausing or stopping the activity.
 
