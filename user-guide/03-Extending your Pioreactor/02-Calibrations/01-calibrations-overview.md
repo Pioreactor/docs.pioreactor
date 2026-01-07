@@ -2,6 +2,7 @@
 title: Calibrations
 slug: /calibrations
 hide_table_of_contents: true
+sidebar_class_name: sidebar-item--updated
 ---
 
 Calibrations help your Pioreactor translate raw device readings into accurate, experiment-ready values. Run or update calibrations when you change hardware, media, optics, or anything that can shift measurements.
