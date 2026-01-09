@@ -83,7 +83,7 @@ We encourage you to choose species and media compositions to suit your interests
 	*	Attach the sink tube to your waste container.
 7.	Visit [pioreactor.local](http://pioreactor.local) and start a new experiment.
 8.  On the left menu, select the _Pioreactors_ page.
-9.	Select _Manage_, start _Stirring_ activity and _OD reading_ activity.
+9.	Select _Control_, start _Stirring_ activity and _OD reading_ activity.
 10.	Confirm everything looks correct, then start the _Growth rate_ activity.
 11.	Start the _Dosing automation_. 
 12. Change automation to _Turbidostat_. Set your _Volume_ and _Target OD_. 

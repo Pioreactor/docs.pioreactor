@@ -12,7 +12,7 @@ Brown-outs are when your power supply is momentarily reduced to the point that t
 
 1. An inadequate power supply unit (PSU). You need to use a proper PSU (5V, at least 2.5 Amps), and certainly not a phone charger. We like the Raspberry Pi's official PSU.
 2. If you are running a lot of power: high temperature, stirring, pumping often, additional LEDs (or some combination) and you are experiencing brown-outs, we suggest adding an [external power supply for the PWM outputs](https://docs.pioreactor.com/user-guide/external-power).
-3. You can view the PWM's voltage for a Pioreactor under _Manage_ -> _System_ -> _Voltage on PWM rail_. This should be near 5.0V.
+3. You can view the PWM's voltage for a Pioreactor under _Control_ -> _System_ -> _Voltage on PWM rail_. This should be near 5.0V.
 
 
 #### Pioreactor restarts when a PWM output is turned on

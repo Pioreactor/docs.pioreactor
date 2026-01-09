@@ -99,7 +99,7 @@ It's important to not keep harsh chemicals, like bleach, in the tubing and stain
 :::
 
 1. Create a 10% bleach dilution, or high concentration alcohol, in a container. Place the sink and source tubes of each pump you're sterilizing in the beaker.
-2. On the UI, in the _Pioreactors_ tab, click _Manage_ and go to the _Dosing_ tab.
+2. On the UI, in the _Pioreactors_ tab, click _Control_ and go to the _Dosing_ tab.
 3. _Run continuously_ to cycle the disinfectant solution through each pump that you're using.
 <img src="/img/user-guide/03-extending-your-pioreactor/07-using-pumps/dosing_in_ui.png" width="735" style={{margin: "15px auto", display:"block"}}/>
 4. _Stop_ after sufficient cycling, at least 2 minutes, but no more than 5 minutes.

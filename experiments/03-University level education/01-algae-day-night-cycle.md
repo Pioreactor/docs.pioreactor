@@ -64,7 +64,7 @@ Your Pioreactor is capable of controling a wide diversity of lighting effects on
 Start the _Temperature automation_ activity set on an optimal temperature. 
 :::
 
-9.	Start the _LED automation_ at the bottom of the _Activities_ list in _Manage_. Select _Day/Night Cycle_ from the drop down menu, and set your desired _Intensity_ (no more than 12% works best!) or _Light_ and _Dark duration_ (16h:8h is optimal). 
+9.	Start the _LED automation_ at the bottom of the _Activities_ list in _Control_. Select _Day/Night Cycle_ from the drop down menu, and set your desired _Intensity_ (no more than 12% works best!) or _Light_ and _Dark duration_ (16h:8h is optimal). 
 	*	This automation creates a day/night cycle ideal for algae growth. 
 10.	Confirm that everything looks normal on the Overview page (ex: receiving optical density signal).
 11.	Back on the Pioreactors page, select _Control all Pioreactors_ and start _Growth rate_. It will take a minute for results to begin showing up.

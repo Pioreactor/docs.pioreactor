@@ -84,7 +84,7 @@ Use these labels to keep track of treatments on multiple Pioreactors. For exampl
 
 #### Ending your experiment
 
-On the _Overview_, _Pioreactors_, and _Profiles_ tabs, the option to _Manage experiment_ is located in the top left corner.
+On the _Overview_, _Pioreactors_, and _Profiles_ tabs, the option to _Control experiment_ is located in the top left corner.
 
 ![](/img/user-guide/02-experiment-basics/04-set-up-an-experiment/end-or-delete-experiment.png)
 

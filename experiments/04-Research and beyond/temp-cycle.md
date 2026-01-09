@@ -63,9 +63,9 @@ Once we [exported our data](/user-guide/export-data), we charted our yeast growt
 	*	Attach the source tube to the vial cap tube that **touches** the media. 
 7.	Visit [pioreactor.local](http://pioreactor.local) and start a new experiment.
 8.  On the left menu, select the _Pioreactors_ page.
-9.	Select _Manage_, start _Stirring_ activity and _OD reading_ activity.
+9.	Select _Control_, start _Stirring_ activity and _OD reading_ activity.
 10. Install the **cycle_temp** plugin from the _Plugins_ tab. This will give you a new option in your _Temperature automation_ activity. 
-11. Under _Manage_ > _Activities_ > _Temperature automation_, select _Cycle Temp_ from the drop down menu. Click _Start_. 
+11. Under _Control_ > _Activities_ > _Temperature automation_, select _Cycle Temp_ from the drop down menu. Click _Start_. 
 12.	Confirm everything looks correct, then start the _Growth rate_ activity.
 13.	Start the _Dosing automation_. 
 14. Change automation to _Turbidostat_. Set your _Volume_ and _Target OD_. 

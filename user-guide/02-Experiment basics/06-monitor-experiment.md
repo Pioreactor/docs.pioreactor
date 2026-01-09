@@ -16,7 +16,7 @@ Navigate to the _Overview_ page on the Pioreactor web interface. Here you can vi
 
 ## Changing settings
 
-To **change the settings** of activities after starting, navigate to the _Pioreactors_ tab. Under _Manage_ for a single Pioreactor or _Control all Pioreactors_, click the _Settings_ tab.
+To **change the settings** of activities after starting, navigate to the _Pioreactors_ tab. Under _Control_ for a single Pioreactor or _Control all Pioreactors_, click the _Settings_ tab.
 
 ![](/img/user-guide/02-experiment-basics/04-set-up-an-experiment/manage_ui.png)
 
