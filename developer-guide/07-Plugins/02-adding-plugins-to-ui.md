@@ -32,19 +32,19 @@ display_name: Name
 job_name: job_name_as_defined_in_Python
 display: true  # true to display on the /Pioreactors card
 source: your_plugin_name
-description: This description is displayed with the start/stop buttons in Manage / Activities.
+description: This description is displayed with the start/stop buttons in Control / Activities.
 published_settings:
   - key: rpm   # as defined in Python
     unit: RPM  #
     label: Stirring speed # human readable name
-    description: This description is displayed with an editable field in Manage / Settings.
+    description: This description is displayed with an editable field in Control / Settings.
     type: numeric  # one of numeric, bool, string, json
     default: null
     display: true # true to display on the /Pioreactors card
   - key: something_else
     unit: lb
     label: Something else
-    description: This description is displayed with an editable switch in Manage / Settings.
+    description: This description is displayed with an editable switch in Control / Settings.
     type: bool # one of numeric, bool, string, json
     default: null
     display: true # true to display on the /Pioreactors card

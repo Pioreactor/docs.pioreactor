@@ -56,7 +56,7 @@ We recommend trying different amounts of tea, coffee, or other caffeine containi
 4. Wipe the vials and place them in the Pioreactors. 
 5. Visit [pioreactor.local](http://pioreactor.local) and start a new experiment.
 6. On the left menu, select the _Pioreactors_ page. Add any additional Pioreactors that you would like to use (more information [here](/user-guide/create-cluster)).
-7. Select _Manage all Pioreactors_, and start _Stirring_ activity, _Temperature automation_ activity (set to an optimal temperature; ex. 30°C) and _OD reading_ activity.
+7. Select _Control all Pioreactors_, and start _Stirring_ activity, _Temperature automation_ activity (set to an optimal temperature; ex. 30°C) and _OD reading_ activity.
 8. Confirm that everything looks normal (ex: receiving optical density signal).
-9.	Back on the _Pioreactors_ page, select _Manage all Pioreactors_ and start _Growth rate_. It will take a minute for results to begin showing up. 
+9.	Back on the _Pioreactors_ page, select _Control all Pioreactors_ and start _Growth rate_. It will take a minute for results to begin showing up. 
 10. Watch growth progress on the _Overview_ page.

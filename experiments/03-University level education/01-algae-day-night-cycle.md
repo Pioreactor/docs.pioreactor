@@ -58,7 +58,7 @@ Your Pioreactor is capable of controling a wide diversity of lighting effects on
 5.	Wipe the vials and place them in the Pioreactor.
 6.	Visit [pioreactor.local](http://pioreactor.local) and start a new experiment.
 7.	Click the _Plugins_ tab on the left and install the _led_cycle_ plugin. This will add the Day/Night feature when you begin LED automations. 
-8.	On the left menu, select the Pioreactors page. Add any additional Pioreactors that you would like to use (more information [here](/user-guide/create-cluster)). Select _Manage all Pioreactors_, and start _Stirring_ activity and _OD reading_ activity.
+8.	On the left menu, select the Pioreactors page. Add any additional Pioreactors that you would like to use (more information [here](/user-guide/create-cluster)). Select _Control all Pioreactors_, and start _Stirring_ activity and _OD reading_ activity.
 
 :::note Optional
 Start the _Temperature automation_ activity set on an optimal temperature. 
@@ -67,7 +67,7 @@ Start the _Temperature automation_ activity set on an optimal temperature.
 9.	Start the _LED automation_ at the bottom of the _Activities_ list in _Manage_. Select _Day/Night Cycle_ from the drop down menu, and set your desired _Intensity_ (no more than 12% works best!) or _Light_ and _Dark duration_ (16h:8h is optimal). 
 	*	This automation creates a day/night cycle ideal for algae growth. 
 10.	Confirm that everything looks normal on the Overview page (ex: receiving optical density signal).
-11.	Back on the Pioreactors page, select _Manage all Pioreactors_ and start _Growth rate_. It will take a minute for results to begin showing up.
+11.	Back on the Pioreactors page, select _Control all Pioreactors_ and start _Growth rate_. It will take a minute for results to begin showing up.
 
 :::note Optional
 Change the names of the Pioreactor in the UI to organize your vials.

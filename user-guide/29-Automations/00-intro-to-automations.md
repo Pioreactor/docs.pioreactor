@@ -16,7 +16,7 @@ Use an automation when:
 ## Start an automation from the UI
 
 1. Open **Pioreactors** → choose the reactor you want to configure.
-2. Click **Manage** (or **Control**) to open the activities drawer.
+2. Click **Control** (or **Control**) to open the activities drawer.
 3. In **Activities**, locate the automation you need and use **Start**.
 
 ![Activities drawer showing available automations](/img/user-guide/29-automations/00-intro-to-automations/automations-panel.png)

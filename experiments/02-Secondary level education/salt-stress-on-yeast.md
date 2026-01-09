@@ -97,10 +97,10 @@ The flexibility of the Pioreactor means you can do much more with this simple co
 7. Using sterile techniqes, add 3-4 drops of this yeast solution to your vials. 
 8. Wipe the vials and place them in the Pioreactor.
 9.  Visit [pioreactor.local](http://pioreactor.local) and start a new experiment.
-10. On the left menu, select the _Pioreactors_ page. Add any additional Pioreactors that you would like to use (more information [here](/user-guide/create-cluster)). Select _Manage all Pioreactors_, and start:
+10. On the left menu, select the _Pioreactors_ page. Add any additional Pioreactors that you would like to use (more information [here](/user-guide/create-cluster)). Select _Control all Pioreactors_, and start:
      * _Stirring_ activity
      * _OD reading_ activity
      * _Temperature automation_ activity 
 11.  Confirm that everything looks normal on the _Overview_ page (ex: receiving optical density signal).
-12.	Back on the _Pioreactors_ page, select _Manage all Pioreactors_ and start _Growth rate_. 
+12.	Back on the _Pioreactors_ page, select _Control all Pioreactors_ and start _Growth rate_. 
 13.  Watch the growth progress on the _Overview_ page! 
