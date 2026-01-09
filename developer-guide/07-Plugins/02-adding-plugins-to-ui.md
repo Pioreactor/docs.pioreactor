@@ -2,6 +2,7 @@
 title: Adding your plugins to the web interface
 slug: /adding-plugins-to-ui
 hide_table_of_contents: true
+sidebar_class_name: sidebar-item--updated
 ---
 
 
@@ -136,5 +137,4 @@ If your plugin produces data (or is some novel transformation of existing data),
 
  - If the UI isn't display the data from your yaml, you may have introduced a yaml file that is not being read correctly. Look for error logs on the Overview page.
  - There is a 30sec cache, so it may take up to 30sec to see new changes in the UI.
-
 
