@@ -211,7 +211,7 @@ We see that the `__init__` requires the two parameters for PWM: `hz` and an `ini
 We next initialize the PWM code (this is still in the `__init__`) that controls the PWM outputs on the HAT, and add more imports:
 
 ```python
-from pioreactor.hardware import PWM_TO_PIN
+from pioreactor.hardware import get_pwm_to_pin_map
 from pioreactor.utils.pwm import PWM
 from pioreactor.config import config
 
@@ -220,7 +220,7 @@ from pioreactor.config import config
 
     def __init__(...)
         ...
-
+        PWM_TO_PIN = get_pwm_to_pin_map()
         pwm_pin = PWM_TO_PIN[config.get("PWM_reverse", "motor_driver")]
         self.pwm = PWM(pwm_pin, self.hz)
         self.pwm.lock()
@@ -319,7 +319,7 @@ import json
 
 from pioreactor.config import config
 from pioreactor.background_jobs.base import BackgroundJob
-from pioreactor.hardware import PWM_TO_PIN
+from pioreactor.hardware import get_pwm_to_pin_map
 from pioreactor.utils.pwm import PWM
 from pioreactor.utils import clamp
 
@@ -338,6 +338,7 @@ class MotorDriver(BackgroundJob):
         self._initial_duty_cycle = initial_duty_cycle
         self.duty_cycle = initial_duty_cycle
 
+        PWM_TO_PIN = get_pwm_to_pin_map()
         self.pwm_pin = PWM_TO_PIN[config.get("PWM_reverse", "motor_driver")]
 
         self.pwm = PWM(self.pwm_pin, self.hz)
