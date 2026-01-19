@@ -87,7 +87,7 @@ It's optional, but we also defined some helper functions `voltage_to_ph` and `ph
 If you want to add a custom script to create a calibration on the Pioreactor, you can do that by creating a new protocol.
 
 
-Define a `CalibrationProtocol` subclass that will hold metadata for your protocol. It should have a `run` method that returns a calibration (a subclass of `CalibrationBase` - see above).
+Define a `CalibrationProtocol` subclass that will hold metadata for your protocol. It should have a `run` method that returns a calibration (a subclass of `CalibrationBase` - see above). If your protocol supports session-based UI/CLI flows, also define a step registry and a `start_session` classmethod.
 
 ```python
 from pioreactor.calibrations import CalibrationProtocol
@@ -99,6 +99,11 @@ class BufferBasedPHProtocol(CalibrationProtocol):
     target_device = "ph"
     protocol_name = "buffer_based"
     description = "Calibrate the pH sensor using buffer solutions"
+    step_registry = PH_STEPS
+
+    @classmethod
+    def start_session(cls, target_device: str) -> CalibrationSession:
+        return start_ph_buffer_session(target_device)
 
     def run(self, target_device: str):
         return run_ph_buffer_calibration()
@@ -123,6 +128,117 @@ def run_ph_buffer_calibration():
 ```
 
 
+## Session-based flows (UI + CLI)
+
+Session-based calibrations use `SessionStep` classes to define the flow once and render it in both the UI and CLI. A typical pattern is:
+
+1. Define `SessionStep` subclasses with `step_id`, `render(ctx)`, and `advance(ctx)`.
+2. Create a `StepRegistry` mapping `{step_id: StepClass}`.
+3. Expose `start_<protocol>_session`, `get_<protocol>_step` (uses `get_session_step`), and `advance_<protocol>_session` (uses `advance_session`).
+4. In `run(...)`, call `run_session_in_cli(step_registry, session)` to reuse the same flow in CLI.
+
+Key details:
+
+- Step classes should keep `render` (display) and `advance` (state changes) single-purpose and explicit.
+- Terminal steps are auto-included by `get_session_step`, `advance_session`, and `run_session_in_cli`. Use `ctx.complete(...)` to finish (renders `CalibrationComplete`) and `ctx.abort(...)` / `ctx.fail(...)` to end early (renders `CalibrationEnded`).
+- UI sessions must perform hardware access through the Huey executor (`SessionContext.executor`). Define executor actions in `core/pioreactor/web/tasks.py` and dispatch them from `core/pioreactor/web/unit_calibration_sessions_api.py`.
+- Chart snapshots: populate `step.metadata.chart` with `title`, `x_label`, `y_label`, and `series` (points + optional curve). The UI renders them and the CLI uses plotext via `plot_data` in `core/pioreactor/calibrations/utils.py`.
+
+This keeps CLI and UI behavior consistent and avoids bespoke click-driven scripts.
+
+Example (minimal session flow):
+
+```python
+from pioreactor.calibrations.session_flow import SessionStep
+from pioreactor.calibrations.session_flow import StepRegistry
+from pioreactor.calibrations.session_flow import advance_session
+from pioreactor.calibrations.session_flow import get_session_step
+from pioreactor.calibrations.session_flow import run_session_in_cli
+from pioreactor.calibrations.session_flow import steps, fields
+from pioreactor.calibrations.structured_session import CalibrationSession
+from pioreactor.calibrations.structured_session import utc_iso_timestamp
+from pioreactor.utils.timing import current_utc_datetime
+from pioreactor import structs
+
+class Intro(SessionStep):
+    step_id = "intro"
+
+    def render(self, ctx):
+        return steps.info("pH calibration", "Place probe in buffer.")
+
+    def advance(self, ctx):
+        return Measure()
+
+class Measure(SessionStep):
+    step_id = "measure"
+
+    def render(self, ctx):
+        return steps.form(
+            "Measure buffer",
+            "Record voltage and pH.",
+            [fields.float("voltage", minimum=0), fields.float("ph", minimum=0, maximum=14)],
+        )
+
+    def advance(self, ctx):
+        voltage = ctx.inputs.float("voltage", minimum=0)
+        ph_value = ctx.inputs.float("ph", minimum=0, maximum=14)
+        calibration = structs.CalibrationBase(
+            calibration_name="ph-cal",
+            calibrated_on_pioreactor_unit="unit",
+            created_at=current_utc_datetime(),
+            curve_type="poly",
+            curve_data_=[1.0, 0.0],
+            x="voltage",
+            y="ph",
+            recorded_data={"x": [voltage], "y": [ph_value]},
+        )
+        link = ctx.store_calibration(calibration, "ph")
+        ctx.complete({"calibration": link})
+        return None
+
+PH_STEPS: StepRegistry = {
+    Intro.step_id: Intro,
+    Measure.step_id: Measure,
+}
+
+def start_ph_session() -> CalibrationSession:
+    now = utc_iso_timestamp()
+    return CalibrationSession(
+        session_id="...",
+        protocol_name="ph_two_point",
+        target_device="ph",
+        status="in_progress",
+        step_id=Intro.step_id,
+        data={},
+        created_at=now,
+        updated_at=now,
+    )
+
+def get_ph_step(session, executor=None):
+    return get_session_step(PH_STEPS, session, executor)
+
+def advance_ph_session(session, inputs, executor=None):
+    return advance_session(PH_STEPS, session, inputs, executor)
+
+def run_ph_calibration():
+    session = start_ph_session()
+    return run_session_in_cli(PH_STEPS, session)
+```
+
+Example chart metadata (render side):
+
+```python
+chart = {
+    "title": "Calibration progress",
+    "x_label": "Voltage",
+    "y_label": "pH",
+    "series": [{"id": "ph", "label": "Measured", "points": [{"x": 2.1, "y": 7.0}]}],
+}
+step = steps.form("Measure", "Record reading.", [...])
+step.metadata = {"chart": chart}
+```
+
+
 ## Adding it to the plugins folder
 
 You can add your code to the `~/.pioreactor/plugins` folder on the Pioreactor, it will auto-magically populate the CLI
@@ -135,6 +251,14 @@ from pioreactor.structs import CalibrationBase
 from pioreactor.utils.timing import current_utc_datetime
 from pioreactor import whoami
 import typing as t
+from pioreactor.calibrations.session_flow import SessionStep
+from pioreactor.calibrations.session_flow import StepRegistry
+from pioreactor.calibrations.session_flow import advance_session
+from pioreactor.calibrations.session_flow import get_session_step
+from pioreactor.calibrations.session_flow import run_session_in_cli
+from pioreactor.calibrations.session_flow import steps, fields
+from pioreactor.calibrations.structured_session import CalibrationSession
+from pioreactor.calibrations.structured_session import utc_iso_timestamp
 
 class PHBufferCalibration(CalibrationBase, kw_only=True, tag="ph_buffer"):
     x: str = "pH"       # required
@@ -153,6 +277,16 @@ class BufferBasedPHProtocol(CalibrationProtocol):
     target_device = "ph"
     protocol_name = "buffer_based"
     description = "Calibrate the pH sensor using buffer solutions"
+    step_registry = PH_STEPS
+
+    @classmethod
+    def start_session(cls, target_device: str) -> CalibrationSession:
+        return start_ph_buffer_session(target_device)
+    step_registry = PH_STEPS
+
+    @classmethod
+    def start_session(cls, target_device: str) -> CalibrationSession:
+        return start_ph_buffer_session(target_device)
 
     def run(self, target_device: str):
         return run_ph_buffer_calibration()
@@ -174,6 +308,73 @@ def run_ph_buffer_calibration():
         electrode_type="glass"
     )
 
+# Session steps (UI + CLI flow)
+class Intro(SessionStep):
+    step_id = "intro"
+
+    def render(self, ctx):
+        return steps.info("pH calibration", "Place probe in buffer.")
+
+    def advance(self, ctx):
+        return Measure()
+
+class Measure(SessionStep):
+    step_id = "measure"
+
+    def render(self, ctx):
+        return steps.form(
+            "Measure buffer",
+            "Record voltage and pH.",
+            [fields.float("voltage", minimum=0), fields.float("ph", minimum=0, maximum=14)],
+        )
+
+    def advance(self, ctx):
+        voltage = ctx.inputs.float("voltage", minimum=0)
+        ph_value = ctx.inputs.float("ph", minimum=0, maximum=14)
+        calibration = PHBufferCalibration(
+            calibration_name="ph_calibration",
+            calibrated_on_pioreactor_unit=whoami.get_unit_name(),
+            created_at=current_utc_datetime(),
+            curve_data_=[1.0, 0.0],
+            curve_type="poly",
+            x="Voltage",
+            y="pH",
+            recorded_data={"x": [voltage], "y": [ph_value]},
+            buffer_solution="default",
+            electrode_type="glass",
+        )
+        link = ctx.store_calibration(calibration, "ph")
+        ctx.complete({"calibration": link})
+        return None
+
+PH_STEPS: StepRegistry = {
+    Intro.step_id: Intro,
+    Measure.step_id: Measure,
+}
+
+def start_ph_buffer_session(target_device: str) -> CalibrationSession:
+    now = utc_iso_timestamp()
+    return CalibrationSession(
+        session_id="...",
+        protocol_name="buffer_based",
+        target_device=target_device,
+        status="in_progress",
+        step_id=Intro.step_id,
+        data={},
+        created_at=now,
+        updated_at=now,
+    )
+
+def get_ph_buffer_step(session, executor=None):
+    return get_session_step(PH_STEPS, session, executor)
+
+def advance_ph_buffer_session(session, inputs, executor=None):
+    return advance_session(PH_STEPS, session, inputs, executor)
+
+def run_ph_buffer_session_cli():
+    session = start_ph_buffer_session("ph")
+    return run_session_in_cli(PH_STEPS, session)
+
 ```
 
 And run it with:
@@ -183,7 +384,7 @@ pio calibrations run --device ph
 
 ## Tips
 
- - use the Python library `click` to create an interactive CLI for your calibration protocol.
+ - use session-based `SessionStep` flows to define CLI and UI behavior in one place.
  - the pair `(device, calibration_name)` must be unique. The final directory structure looks like `~/.pioreactor/storage/calibrations/<device>/<calibration_name>.yaml`
  - The `x` variable should be the independent variable - the variable that can (in theory) be set by you, and the measurement variable `y` follows. For example, in the default OD calibration, the independent variable is the OD, and the dependent variable is the Pioreactor's sensor's voltage. This is because we can vary the OD as we wish (add more culture...), and the Pioreactor's sensor will detect different values.
  - Another way to look at this is: "where does error exist"? Typically, there will be error in the "measurement" variable (voltage for OD calibration, RPM measurement for stirring calibration, etc.). In practice, we only have the measurement variable, and wish to go "back" to the original variable.

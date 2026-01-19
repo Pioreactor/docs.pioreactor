@@ -410,13 +410,13 @@ Once your plugin is accepted, it will appear on the Plugins tab on the Pioreacto
 
 ### Troubleshooting
 
- - Do you see an error like?
+ - Do you see an error like:
    ```
-   WARNING: Skipping /usr/local/lib/python3.11/site-packages/X due to invalid metadata entry 'Y'
+   WARNING: Skipping /usr/local/lib/python3.13/site-packages/X due to invalid metadata entry 'Y'
    ```
    Try the following:
    ```
-   sudo rm -rf /usr/local/lib/python3.11/site-packages/X
+   sudo rm -rf /usr/local/lib/python3.13/site-packages/X
    ```
 
    and then reinstall the plugin.

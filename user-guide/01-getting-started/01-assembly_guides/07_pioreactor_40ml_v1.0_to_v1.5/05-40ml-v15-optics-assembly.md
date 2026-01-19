@@ -85,10 +85,12 @@ It does not matter which wires are connected to either eye-spy sockets. However,
 
 
 
-<AssemblyInstructionBlock title="Step 5: You're done!" images={["user-guide/hardware-assembly/40ml-v15/40ml-and-vial.jpg"]}>
+<AssemblyInstructionBlock title="Step 5: You're done!" images={["user-guide/hardware-assembly/40ml-v15/40ml-and-vial.jpg", "user-guide/hardware-assembly/upgrade_kits/model-version-ui.png"]}>
 
 
 Your new 40ml Pioreactor v1.5 is now assembled! 🚀
+
+In the Pioreactor UI, open **Inventory** and update the **Model** dropdown for your Pioreactor to the correct v1.5 variant.
 
 Next: begin installing the [software](/user-guide/software-set-up).
 
