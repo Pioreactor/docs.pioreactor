@@ -14,7 +14,7 @@ The Pioreactor HAT comes with a connector for the StemmaQT / Qwiic connector tha
 What is StemmaQT / Qwiic? It's simply a standardized physical connector, the JST SH, with electronic connections to 3.3V, GND and I²C. Many other hardware design companies, like Adafruit and SparkFun, implement StemmaQT / Qwiic on their boards, which expands the StemmaQT / Qwiic ecosystem. 
 :::
 
-Looking for hardware ideas? See our [verified Stemma QT hardware list](/verified-stemma-qt-hardware).
+Looking for hardware ideas? See our [verified Stemma QT hardware list](/user-guide/verified-stemma-qt-hardware).
 
 
 ### Example
