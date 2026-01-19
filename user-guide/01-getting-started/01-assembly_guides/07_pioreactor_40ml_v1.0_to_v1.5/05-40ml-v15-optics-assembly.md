@@ -92,7 +92,5 @@ Your new 40ml Pioreactor v1.5 is now assembled! 🚀
 
 In the Pioreactor UI, open **Inventory** and update the **Model** dropdown for your Pioreactor to the correct v1.5 variant.
 
-Next: begin installing the [software](/user-guide/software-set-up).
-
 
 </AssemblyInstructionBlock>
