@@ -3,6 +3,7 @@ title: Verified Stemma QT hardware we like
 slug: /verified-stemma-qt-hardware
 description: Third-party Stemma QT / Qwiic devices we have tested with the Pioreactor.
 hide_table_of_contents: true
+sidebar_class_name: sidebar-item--updated
 ---
 
 These Stemma QT / Qwiic devices have been tested with the Pioreactor HAT and are known to work over I2C at 3.3V. For wiring and a sample script, see [Using the StemmaQT/Qwiic connector](/user-guide/using-stemma-qt).
