@@ -4,6 +4,10 @@ slug: /od-normal-growth-rate
 hide_table_of_contents: true
 ---
 
+import AssemblyInstructionBlock from '@site/src/components/AssemblyInstructionBlock';
+import Highlight from '@site/src/components/Highlight';
+import Admonition from '@theme/Admonition';
+
 ### Background on optical density 
 
 The interaction of light within samples of suspended microorganisms will differ from light passing through concentrated solutions. Instead of being absorbed, light is scattered by the cells in suspension. This scattered light is measured as **optical density (OD)**. As turbidity increases, more scattering occurs, resulting in a higher OD reading. 
@@ -128,3 +132,19 @@ Some things to note:
 * The exponential phase occurs when the growth rate is high/increasing. 
 * When the culture reaches the stationary phase, growth rate drops to 0 since the culture is no longer growing in size. The turbidity is constant.
 * The decline phase is not represented in the graphs above, as yeast remain in the stationary phase over many days. 
+
+
+### (Optional) Blanking
+
+When working with **small amounts** of a microorganism, or when using very turbid media, you can obtain more accurate growth rates by [blanking the vial](/user-guide/od-normal-growth-rate#blanking) before inoculation.
+
+<AssemblyInstructionBlock title="How to record a blank" images={["user-guide/02-experiment-basics/04-set-up-an-experiment/calibrate.png","user-guide/02-experiment-basics/04-set-up-an-experiment/blank.png"]}>
+
+1. Insert your sterile vial containing media into the Pioreactor before inoculating with your species of interest.
+2. On the website, click the _Pioreactors_ tab on the left-hand menu, and choose one of the active Pioreactors.
+3. Select _Calibrate_, and under the _Blanks_ tab, click _Start_. The Pioreactor will now record the optical density of the blank vial.
+4. Repeat for all the Pioreactors to be used.
+    *   A notification will appear when a Pioreactor has finished blanking.
+6. You can now inoculate your vials and begin your experiment.
+
+</AssemblyInstructionBlock>

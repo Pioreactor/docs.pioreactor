@@ -5,7 +5,6 @@ hide_table_of_contents: true
 sidebar_class_name: sidebar-item--updated
 ---
 
-Calibrations went through a major rewrite in the 25.1.x release of Pioreactor. The current design is much more adaptable and simple than the previous design. Let's discuss the key points of the current calibration design:
 
 0. A _calibration_ relates two variables together. One of the variables is what we can vary (in theory), and the other quantity is the target.
 1. The calibration relates the two via a _calibration curve_, which is just a mapping between the two variables.
@@ -19,6 +18,7 @@ In practice, calibrations are stored as YAML files on the Pioreactor, in `~/.pio
 flowchart TD
     Protocol["<b>Calibration protocol</b><br/>(script or workflow)"] -->|targets| Device["<b>Device</b><br/>(od, pump, stirring, ph, ...)"]
     Protocol -->|creates| Calibration["<b>Calibration record</b><br/>(data + metadata)"]
+    Protocol -->|creates| Estimation["<b>Estimation record</b><br/>(data + metadata)"]
     Device -->|has many| Calibration
     Device -->|uses| Active["<b>Active calibration</b><br/>(up to one per device)"]
     Active --> Calibration
@@ -83,6 +83,14 @@ It's optional, but we also defined some helper functions `voltage_to_ph` and `ph
 
 
 
+### Tips
+
+ - use session-based `SessionStep` flows to define CLI and UI behavior in one place.
+ - the pair `(device, calibration_name)` must be unique. The final directory structure looks like `~/.pioreactor/storage/calibrations/<device>/<calibration_name>.yaml`
+ - The `x` variable should be the independent variable - the variable that can (in theory) be set by you, and the measurement variable `y` follows. For example, in the default OD calibration, the independent variable is the OD, and the dependent variable is the Pioreactor's sensor's voltage. This is because we can vary the OD as we wish (add more culture...), and the Pioreactor's sensor will detect different values.
+ - Another way to look at this is: "where does error exist"? Typically, there will be error in the "measurement" variable (voltage for OD calibration, RPM measurement for stirring calibration, etc.). In practice, we only have the measurement variable, and wish to go "back" to the original variable.
+
+
 ## (Optional) Creating a new protocol for an existing device
 
 If you want to add a custom script to create a calibration on the Pioreactor, you can do that by creating a new protocol.
@@ -129,13 +137,12 @@ def run_ph_buffer_calibration():
 ```
 
 
-## Session-based flows (UI + CLI)
+## (Optional) Session-based flows (UI + CLI)
 
 Session-based calibrations use `SessionStep` classes to define the flow once and render it in both the UI and CLI. A typical pattern is:
 
 1. Define `SessionStep` subclasses with `step_id`, `render(ctx)`, and `advance(ctx)`.
 2. Create a `StepRegistry` mapping `{step_id: StepClass}`.
-3. Expose `start_<protocol>_session`, `get_<protocol>_step` (uses `get_session_step`), and `advance_<protocol>_session` (uses `advance_session`).
 4. In `run(...)`, call `run_session_in_cli(step_registry, session)` to reuse the same flow in CLI.
 
 Key details:
@@ -152,8 +159,6 @@ Example (minimal session flow):
 ```python
 from pioreactor.calibrations.session_flow import SessionStep
 from pioreactor.calibrations.session_flow import StepRegistry
-from pioreactor.calibrations.session_flow import advance_session
-from pioreactor.calibrations.session_flow import get_session_step
 from pioreactor.calibrations.session_flow import run_session_in_cli
 from pioreactor.calibrations.session_flow import steps, fields
 from pioreactor.calibrations.structured_session import CalibrationSession
@@ -215,12 +220,6 @@ def start_ph_session() -> CalibrationSession:
         updated_at=now,
     )
 
-def get_ph_step(session, executor=None):
-    return get_session_step(PH_STEPS, session, executor)
-
-def advance_ph_session(session, inputs, executor=None):
-    return advance_session(PH_STEPS, session, inputs, executor)
-
 def run_ph_calibration():
     session = start_ph_session()
     return run_session_in_cli(PH_STEPS, session)
@@ -254,8 +253,6 @@ from pioreactor import whoami
 import typing as t
 from pioreactor.calibrations.session_flow import SessionStep
 from pioreactor.calibrations.session_flow import StepRegistry
-from pioreactor.calibrations.session_flow import advance_session
-from pioreactor.calibrations.session_flow import get_session_step
 from pioreactor.calibrations.session_flow import run_session_in_cli
 from pioreactor.calibrations.session_flow import steps, fields
 from pioreactor.calibrations.structured_session import CalibrationSession
@@ -366,11 +363,6 @@ def start_ph_buffer_session(target_device: str) -> CalibrationSession:
         updated_at=now,
     )
 
-def get_ph_buffer_step(session, executor=None):
-    return get_session_step(PH_STEPS, session, executor)
-
-def advance_ph_buffer_session(session, inputs, executor=None):
-    return advance_session(PH_STEPS, session, inputs, executor)
 
 def run_ph_buffer_session_cli():
     session = start_ph_buffer_session("ph")
@@ -382,10 +374,3 @@ And run it with:
 ```
 pio calibrations run --device ph
 ```
-
-## Tips
-
- - use session-based `SessionStep` flows to define CLI and UI behavior in one place.
- - the pair `(device, calibration_name)` must be unique. The final directory structure looks like `~/.pioreactor/storage/calibrations/<device>/<calibration_name>.yaml`
- - The `x` variable should be the independent variable - the variable that can (in theory) be set by you, and the measurement variable `y` follows. For example, in the default OD calibration, the independent variable is the OD, and the dependent variable is the Pioreactor's sensor's voltage. This is because we can vary the OD as we wish (add more culture...), and the Pioreactor's sensor will detect different values.
- - Another way to look at this is: "where does error exist"? Typically, there will be error in the "measurement" variable (voltage for OD calibration, RPM measurement for stirring calibration, etc.). In practice, we only have the measurement variable, and wish to go "back" to the original variable.
