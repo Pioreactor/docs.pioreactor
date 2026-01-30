@@ -9,16 +9,16 @@ To get the best results and confirm your Pioreactor is working as expected, it's
 ### How to run the self-test routine
 
 
-Start on the _Pioreactors_ page: 
+Start on the _Inventory_ page: 
 
-![](/img/user-guide/02-experiment-basics/11-running-self-test/pioreactors_page_self_test.png)
-![](/img/user-guide/02-experiment-basics/11-running-self-test/self_test_pre.png)
+![](/img/user-guide/02-experiment-basics/11-running-self-test/inventory-self-test-button.png)
+![](/img/user-guide/02-experiment-basics/11-running-self-test/inventory-self-test-pre.png)
 
 
 Insert a closed vial with water and stir bar into the Pioreactor, and click "Start". The Pioreactor will start running tests against expected output and report back to you success and failures of those tests.
 
 
-![](/img/user-guide/02-experiment-basics/11-running-self-test/self_test_running.png)
+![](/img/user-guide/02-experiment-basics/11-running-self-test/inventory-self-test-running.png)
 
 
 
@@ -77,7 +77,6 @@ If it continues to fail, contact us.
 
 
 **AUX power supply is appropriate value** checks that the AUX power voltage is between 0V and 18V. If no AUX power is connected to the Pioreactor, the default voltage is 5V.
-
 
 
 
