@@ -2,7 +2,7 @@
 title: Protocols
 sidebar_label: Protocols
 description: Use the Protocols page to run calibration workflows in the Pioreactor UI.
-slug: /user-guide/protocols
+slug: protocols
 hide_table_of_contents: true
 ---
 
