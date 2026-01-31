@@ -2,6 +2,7 @@
 title: Standard curves for OD600 readings
 slug: /calibrate-od600
 hide_table_of_contents: true
+sidebar_class_name: sidebar-item--updated
 ---
 
 import AssemblyInstructionBlock from '@site/src/components/AssemblyInstructionBlock';

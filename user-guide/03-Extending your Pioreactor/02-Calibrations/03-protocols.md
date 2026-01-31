@@ -4,6 +4,7 @@ sidebar_label: Protocols
 description: Use the Protocols page to run calibration workflows in the Pioreactor UI.
 slug: /protocols
 hide_table_of_contents: true
+sidebar_class_name: sidebar-item--updated
 ---
 
 Protocols are step-by-step workflows for calibrations. Use the Protocols page in the UI to run a calibration protocol, enter the required metadata, and follow the guided prompts.
