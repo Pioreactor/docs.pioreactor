@@ -52,6 +52,6 @@ Your new v1.1 Pioreactor is now assembled! Let's configure the software, too.
    version=1.1
    ```
 3. Optional: we recommend rebooting the Pioreactor.
-4. Optional: perform a [self-test](/user-guide/running-self-test) to confirm everything works as expected.
+4. Optional: perform a [self-test](/user-guide/pre-flight-hardware-check) to confirm everything works as expected.
 
 </AssemblyInstructionBlock>

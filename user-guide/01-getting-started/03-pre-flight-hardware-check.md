@@ -1,10 +1,9 @@
 ---
+id: pre-flight-hardware-check
 title: Hardware pre-flight check
 sidebar_label: Hardware pre-flight check
-description: Run a self-test and a stirring calibration before your first experiment.
 slug: /pre-flight-hardware-check
-aliases:
-  - /running-self-test
+description: Run a self-test and a stirring calibration before your first experiment.
 hide_table_of_contents: true
 ---
 

@@ -33,9 +33,6 @@ Pioreactors that are assigned to another experiment will be unavailable, unless 
 
 ## Start activities from the Pioreactors page
 
-:::tip
-When starting, it's useful to run a _self test_ to confirm that your Pioreactors are all working as expected. [How to run a self-test.](/user-guide/running-self-test)
-:::
 
 On the _Pioreactors_ page, you should see at least one Pioreactor under _Active Pioreactors_. You can start an [activity](/user-guide/activities) using the "Control" button. Once started, you can pause (and then resume) or stop jobs. Clicking the "Control all Pioreactors" button will give you control to start and stop activities on all active Pioreactors.
 
