@@ -5,6 +5,7 @@ sidebar_label: Hardware pre-flight check
 slug: /pre-flight-hardware-check
 description: Run a self-test and a stirring calibration before your first experiment.
 hide_table_of_contents: true
+sidebar_class_name: sidebar-item--updated
 ---
 
 Before your first experiment, let's do a quick hardware pre-flight. You'll complete two short checks:
