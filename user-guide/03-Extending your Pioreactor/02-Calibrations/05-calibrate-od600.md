@@ -12,15 +12,9 @@ import * as colors from '@site/src/components/constants';
 
 ## Calibrating your OD600 readings 
 
-Depending on the purposes of your research, you may want to calibrate your Pioreactor against known samples and OD600 values. We've given you the option to do this through the command line, similar to how pump and stirring calibrations currently work.
+Depending on the purposes of your research, you may want to calibrate your Pioreactor against known samples and OD600 values. OD calibrations now use a single protocol: `standards`. You prepare multiple vials with known OD600 values (including a blank with media only) and record them in sequence. This option is quick for calibrating multiple Pioreactors and works for specific angles (e.g. `od90`) or all configured OD channels (`od`).
 
-There are two protocols to create an OD calibration.
-
-1. The `single_vial` protocol requires only require one vial, your sample of interest, and an accurate way to measure liquids (we recommend a micropipette of volume range 100 to 1000 uL). The protocol works by reading a dilution series. You will start with 10mL of your sample of interest cultivated in your media, at the highest density you expect to observe. During the calibration, you will specify and add an amount of your media to dilute your sample. To avoid overflowing, the program will prompt you to reduce the volume in your vial to 10mL at set intervals. Depending on your number of measurements, you may be prompted to reduce your vial volume to 10 mL. _OPTIONAL_: At this point, you may take the OD600 reading of your vial on a different instrument and input this OD600 value for the current measurement.
-
-
-2. The other protocol, `standards`, requires multiple vials that each contain a liquid with measured OD600. They act as standards. This option is quicker for calibrating multiple Pioreactors, too.
-
+You can run the calibration from the web UI or the command line.
 
 Calibrations should be specific to your experiment setup. Any changes to your media, culture, or optical setup (i.e. changing IR intensity, replacing pieces, or changing the angle) may require a new calibration. If everything remains consistent, then we recommend running calibrations every 6 months, or whatever suits your purposes.
 
@@ -30,20 +24,38 @@ All your OD calibrations are saved to disk, and can be edited afterwards.
 
 ## Running the calibration
 
+You can run the OD600 standards protocol in the UI (recommended) or via the CLI.
+
+### From the web UI
+
+Open **Protocols**, select your Pioreactor and **Device = od90**, then click **Run protocol**. The dialog will guide you through naming the calibration, stirring setup, and recording standards.
+
+![OD600 standards protocol intro step in the UI.](/img/user-guide/03-extending-your-pioreactor/05-calibrate-od600/od600-ui-standards-step-1.png)
+
+![Place the first standard vial.](/img/user-guide/03-extending-your-pioreactor/05-calibrate-od600/od600-ui-standards-step-4.png)
+
+### From the command line
+
 Connect to your Pioreactor by typing *`ssh pioreactor@<insert unit name>.local`*. For example, to calibrate on our Pioreactor named worker3, we typed *`ssh pioreactor@worker3.local`*. The default password is `raspberry`.
 
-To begin calibrations, type `pio calibrations run --device od`, and choose the protocol. Start off by inputting some metadata of your calibration. Provide a descriptive and unique name to make it easier to find your calibration again, if needed. Follow the rest of the questions.
+To begin calibrations, run the standards protocol directly. For a single angle (like 90°), use:
 
+```
+pio calibrations run --device od90 --protocol standards
+```
 
-Following the questions, stirring and optical density reading will begin. A graph is generated as you calibrate so you can see your progress.
+To calibrate all configured OD channels at once, use:
 
-![Graph generated as you measure.](/img/user-guide/03-extending-your-pioreactor/05-calibrate-od600/generating_graph.png)
- 
+```
+pio calibrations run --device od --protocol standards
+```
 
-Once you complete all your measurements, a calibration curve will appear over your graph. If you are satisfied with this, save your calibration. 
+You will be prompted for a calibration name and (optionally) the stirring RPM. Then, for each standard, enter its OD600 value, record another standard if needed, and finally record the blank (media only).
+
+As you record standards, a chart appears to show your progress. Once you complete all measurements (including the blank), the calibration curve appears on the chart. If you are satisfied with this, save your calibration.
 
 :::info
-By default, we fit the calibration curve with a polynomial. You can choose the degree of the polynomial if you wish, but we found that degree 4 works well for wide OD600 calibrations, and degree 1 (a linear model) works will for narrow calibrations near 0.
+We fit a smooth curve to your standards to create the OD600 calibration.
 :::
 
 ![Final data points on OD calibration.](/img/user-guide/03-extending-your-pioreactor/05-calibrate-od600/od_cal_45_deg.png)
@@ -53,4 +65,3 @@ By default, we fit the calibration curve with a polynomial. You can choose the d
 ## Managing calibrations
 
 Once you have an OD calibration, you can set it active, edit it, and share it from the Calibrations page. See [Managing calibrations](/user-guide/managing-calibrations) for the full workflow.
-
