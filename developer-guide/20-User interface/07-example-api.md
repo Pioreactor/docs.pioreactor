@@ -61,7 +61,22 @@ json_post "/api/workers/${UNIT}/jobs/update/job_name/temperature_automation/expe
 curl -sS -X POST "${LEADER_URL}/api/workers/${UNIT}/jobs/stop/job_name/temperature_automation/experiments/${EXPERIMENT_ENC}"
 
 # GET RUNNING JOBS (returns task id, then poll /unit_api/task_results/...)
-curl -sS "${LEADER_URL}/api/workers/${UNIT}/jobs/running"
+running_jobs_task=$(curl -sS "${LEADER_URL}/api/workers/${UNIT}/jobs/running")
+result_url_path=$(echo "$running_jobs_task" | jq -r '.result_url_path')
+
+# POLL TASK RESULT UNTIL COMPLETE
+for _ in $(seq 1 60); do
+  result=$(curl -sS "${LEADER_URL}${result_url_path}")
+  status=$(echo "$result" | jq -r '.status')
+  if [ "$status" = "complete" ]; then
+    echo "$result"
+    break
+  elif [ "$status" = "failed" ]; then
+    echo "$result" >&2
+    break
+  fi
+  sleep 0.5
+ done
 
 # TIP: use UNIT="$broadcast" to target all active workers.
 ```
@@ -71,6 +86,7 @@ curl -sS "${LEADER_URL}/api/workers/${UNIT}/jobs/running"
 
 ```python
 import os
+import time
 import urllib.parse
 import requests
 
@@ -89,6 +105,19 @@ def get(path: str) -> dict:
     resp = requests.get(f"{leader_url}{path}", timeout=10)
     resp.raise_for_status()
     return resp.json()
+
+
+def poll_task(result_url_path: str, timeout_s: float = 30.0) -> dict:
+    deadline = time.time() + timeout_s
+    while time.time() < deadline:
+        result = get(result_url_path)
+        status = result.get("status")
+        if status == "complete":
+            return result
+        if status == "failed":
+            raise RuntimeError(result.get("error", "task failed"))
+        time.sleep(0.5)
+    raise TimeoutError("task polling timed out")
 
 
 # RUN STIRRING
@@ -133,7 +162,8 @@ post(
 
 # GET RUNNING JOBS (returns task id, then poll /unit_api/task_results/...)
 running_jobs_task = get(f"/api/workers/{unit}/jobs/running")
-print(running_jobs_task)
+final_result = poll_task(running_jobs_task["result_url_path"])
+print(final_result)
 
 # TIP: use UNIT="$broadcast" to target all active workers.
 ```
@@ -160,6 +190,17 @@ async function get(path) {
   const resp = await fetch(`${leaderUrl}${path}`);
   if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
   return await resp.json();
+}
+
+async function pollTask(resultUrlPath, timeoutMs = 30000) {
+  const deadline = Date.now() + timeoutMs;
+  while (Date.now() < deadline) {
+    const result = await get(resultUrlPath);
+    if (result.status === "complete") return result;
+    if (result.status === "failed") throw new Error(result.error ?? "task failed");
+    await new Promise((r) => setTimeout(r, 500));
+  }
+  throw new Error("task polling timed out");
 }
 
 // RUN STIRRING
@@ -204,7 +245,8 @@ await post(
 
 // GET RUNNING JOBS (returns task id, then poll /unit_api/task_results/...)
 const runningJobsTask = await get(`/api/workers/${unit}/jobs/running`);
-console.log(runningJobsTask);
+const finalResult = await pollTask(runningJobsTask.result_url_path);
+console.log(finalResult);
 
 // TIP: use UNIT="$broadcast" to target all active workers.
 ```

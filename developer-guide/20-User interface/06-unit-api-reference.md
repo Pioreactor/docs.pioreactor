@@ -5,12 +5,14 @@ toc_max_heading_level: 2
 sidebar_class_name: sidebar-item--updated
 ---
 
-## Conventions
+### Conventions
 
 - All Pioreactors have the `/unit_api` endpoints exposed.
-- Path parameters are shown inline in the endpoint URL.
-- Async endpoints return `{unit, task_id, result_url_path}`; poll `/unit_api/task_results/{task_id}`.
-- Request/response examples are the canonical shapes; omit optional fields you do not need.
+- Async endpoints return `202 Accepted` with a `task_id` and `result_url_path`.
+- Poll `GET /unit_api/task_results/{task_id}` until `status` is `complete` or `failed`.
+- `$broadcast` may be used in path parameters where documented to target all units/workers.
+- File download endpoints return binary bodies; use the response content-type to handle them.
+
 
 ## Health Check
 
@@ -20,6 +22,8 @@ Returns basic health status for a unit.
 `GET /unit_api/health`
 
 ### Response
+
+#### Success
 
 **Status:** `200 OK`
 
@@ -50,6 +54,8 @@ Validates hardware compatibility for a model.
 
 ### Response
 
+#### Success
+
 **Status:** `202 Accepted`
 
 ```json
@@ -67,7 +73,16 @@ Returns the status and result of a Huey task.
 ### Endpoint
 `GET /unit_api/task_results/{task_id}`
 
+### Request
+
+#### Path Parameters
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| task_id | string | Yes | Huey task id. |
+
 ### Response
+
+#### Success
 
 **Status:** `200 OK`
 
@@ -89,6 +104,11 @@ Runs a system update for a specific target.
 
 ### Request
 
+#### Path Parameters
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| target | string | Yes | Update target, currently `app`. |
+
 #### Request Body
 ```json
 {
@@ -98,6 +118,8 @@ Runs a system update for a specific target.
 ```
 
 ### Response
+
+#### Success
 
 **Status:** `202 Accepted`
 
@@ -128,6 +150,8 @@ Runs a system update for the app.
 
 ### Response
 
+#### Success
+
 **Status:** `202 Accepted`
 
 ```json
@@ -146,6 +170,8 @@ Queues a reboot of the unit.
 `POST /unit_api/system/reboot`
 
 ### Response
+
+#### Success
 
 **Status:** `202 Accepted`
 
@@ -166,6 +192,8 @@ Queues a shutdown of the unit.
 
 ### Response
 
+#### Success
+
 **Status:** `202 Accepted`
 
 ```json
@@ -185,6 +213,8 @@ Returns leader web server status.
 
 ### Response
 
+#### Success
+
 **Status:** `200 OK`
 
 ```json
@@ -203,6 +233,8 @@ Restarts the leader web server services.
 `POST /unit_api/system/web_server/restart`
 
 ### Response
+
+#### Success
 
 **Status:** `202 Accepted`
 
@@ -232,6 +264,8 @@ Deletes a file under the `.pioreactor` directory.
 
 ### Response
 
+#### Success
+
 **Status:** `202 Accepted`
 
 ```json
@@ -250,6 +284,8 @@ Returns current UTC timestamp from the unit.
 `GET /unit_api/system/utc_clock`
 
 ### Response
+
+#### Success
 
 **Status:** `200 OK`
 
@@ -278,6 +314,8 @@ Sets the unit clock on leader or syncs via chrony on workers.
 
 ### Response
 
+#### Success
+
 **Status:** `202 Accepted`
 
 ```json
@@ -295,7 +333,16 @@ Returns directory contents or file contents under `.pioreactor`.
 ### Endpoint
 `GET /unit_api/system/path/{req_path}`
 
+### Request
+
+#### Path Parameters
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| req_path | string | Yes | Path under DOT_PIOREACTOR. |
+
 ### Response
+
+#### Success
 
 **Status:** `200 OK`
 
@@ -312,9 +359,14 @@ Returns directory contents or file contents under `.pioreactor`.
 Runs a job on the unit.
 
 ### Endpoint
-`POST /unit_api/jobs/run/job_name/{job}`
+`POST /unit_api/jobs/run/job_name/{job_name}`
 
 ### Request
+
+#### Path Parameters
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| job_name | string | Yes | Job name to run. |
 
 #### Request Body
 ```json
@@ -327,6 +379,8 @@ Runs a job on the unit.
 ```
 
 ### Response
+
+#### Success
 
 **Status:** `202 Accepted`
 
@@ -346,6 +400,8 @@ Stops all jobs on the unit.
 `POST /unit_api/jobs/stop/all`
 
 ### Response
+
+#### Success
 
 **Status:** `202 Accepted`
 
@@ -378,6 +434,8 @@ Stops jobs matching filters.
 
 ### Response
 
+#### Success
+
 **Status:** `202 Accepted`
 
 ```json
@@ -395,7 +453,16 @@ Returns running jobs for an experiment.
 ### Endpoint
 `GET /unit_api/jobs/running/experiments/{experiment}`
 
+### Request
+
+#### Path Parameters
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| experiment | string | Yes | Experiment identifier. |
+
 ### Response
+
+#### Success
 
 **Status:** `200 OK`
 
@@ -414,6 +481,8 @@ Returns running jobs for the unit.
 
 ### Response
 
+#### Success
+
 **Status:** `200 OK`
 
 ```json
@@ -427,9 +496,18 @@ Returns running jobs for the unit.
 Returns running jobs filtered by name.
 
 ### Endpoint
-`GET /unit_api/jobs/running/{job}`
+`GET /unit_api/jobs/running/{job_name}`
+
+### Request
+
+#### Path Parameters
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| job_name | string | Yes | Job name. |
 
 ### Response
+
+#### Success
 
 **Status:** `200 OK`
 
@@ -448,6 +526,8 @@ Returns running long-running jobs.
 
 ### Response
 
+#### Success
+
 **Status:** `200 OK`
 
 ```json
@@ -463,7 +543,16 @@ Returns settings for a running job.
 ### Endpoint
 `GET /unit_api/jobs/settings/job_name/{job_name}`
 
+### Request
+
+#### Path Parameters
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| job_name | string | Yes | Job name. |
+
 ### Response
+
+#### Success
 
 **Status:** `200 OK`
 
@@ -480,7 +569,17 @@ Returns a specific setting for a running job.
 ### Endpoint
 `GET /unit_api/jobs/settings/job_name/{job_name}/setting/{setting}`
 
+### Request
+
+#### Path Parameters
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| job_name | string | Yes | Job name. |
+| setting | string | Yes | Setting name. |
+
 ### Response
+
+#### Success
 
 **Status:** `200 OK`
 
@@ -499,6 +598,8 @@ Not implemented for unit API.
 
 ### Response
 
+#### Success
+
 **Status:** `503 Service Unavailable`
 
 ```json
@@ -513,6 +614,8 @@ Returns capabilities for this unit.
 `GET /unit_api/capabilities`
 
 ### Response
+
+#### Success
 
 **Status:** `200 OK`
 
@@ -532,6 +635,8 @@ Returns installed plugins for the unit.
 
 ### Response
 
+#### Success
+
 **Status:** `200 OK`
 
 ```json
@@ -547,12 +652,22 @@ Returns the contents of a plugin file in `.pioreactor/plugins`.
 ### Endpoint
 `GET /unit_api/plugins/installed/{filename}`
 
+### Request
+
+#### Path Parameters
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| filename | string | Yes | Plugin filename ending in `.py`. |
+
 ### Response
+
+#### Success
 
 **Status:** `200 OK`
 
-```json
-{}
+```python
+def my_plugin_entry():
+    return "ok"
 ```
 
 ## Install Plugin
@@ -573,6 +688,8 @@ Installs a plugin on the unit.
 ```
 
 ### Response
+
+#### Success
 
 **Status:** `202 Accepted`
 
@@ -602,6 +719,8 @@ Uninstalls a plugin from the unit.
 
 ### Response
 
+#### Success
+
 **Status:** `202 Accepted`
 
 ```json
@@ -621,6 +740,8 @@ Returns the unit app version.
 
 ### Response
 
+#### Success
+
 **Status:** `200 OK`
 
 ```json
@@ -637,6 +758,8 @@ Returns calibration protocol descriptors.
 `GET /unit_api/calibration_protocols`
 
 ### Response
+
+#### Success
 
 **Status:** `200 OK`
 
@@ -655,6 +778,11 @@ Creates a calibration for a device.
 
 ### Request
 
+#### Path Parameters
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| device | string | Yes | Device name. |
+
 #### Request Body
 ```json
 {
@@ -663,6 +791,8 @@ Creates a calibration for a device.
 ```
 
 ### Response
+
+#### Success
 
 **Status:** `201 Created`
 
@@ -680,7 +810,17 @@ Deletes a calibration for a device.
 ### Endpoint
 `DELETE /unit_api/calibrations/{device}/{calibration_name}`
 
+### Request
+
+#### Path Parameters
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| device | string | Yes | Device name. |
+| calibration_name | string | Yes | Calibration name. |
+
 ### Response
+
+#### Success
 
 **Status:** `200 OK`
 
@@ -698,6 +838,8 @@ Returns all calibrations by device.
 `GET /unit_api/calibrations`
 
 ### Response
+
+#### Success
 
 **Status:** `200 OK`
 
@@ -718,6 +860,8 @@ Returns active calibrations by device.
 
 ### Response
 
+#### Success
+
 **Status:** `200 OK`
 
 ```json
@@ -735,6 +879,8 @@ Returns active estimators by device.
 
 ### Response
 
+#### Success
+
 **Status:** `200 OK`
 
 ```json
@@ -751,6 +897,8 @@ Returns all estimators by device.
 `GET /unit_api/estimators`
 
 ### Response
+
+#### Success
 
 **Status:** `200 OK`
 
@@ -771,10 +919,12 @@ Returns a ZIP of all calibration YAMLs.
 
 ### Response
 
+#### Success
+
 **Status:** `200 OK`
 
-```json
-{}
+```text
+(binary zip)
 ```
 
 ## Get Dot Pioreactor Zip
@@ -786,10 +936,12 @@ Returns a ZIP of the `.pioreactor` directory.
 
 ### Response
 
+#### Success
+
 **Status:** `200 OK`
 
-```json
-{}
+```text
+(binary zip)
 ```
 
 ## Import Dot Pioreactor Zip
@@ -802,11 +954,13 @@ Imports a `.pioreactor` ZIP to the unit.
 ### Request
 
 #### Request Body
-```json
-{}
+```text
+multipart/form-data; field "archive"
 ```
 
 ### Response
+
+#### Success
 
 **Status:** `202 Accepted`
 
@@ -821,7 +975,16 @@ Returns calibrations for a device.
 ### Endpoint
 `GET /unit_api/calibrations/{device}`
 
+### Request
+
+#### Path Parameters
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| device | string | Yes | Device name. |
+
 ### Response
+
+#### Success
 
 **Status:** `200 OK`
 
@@ -838,7 +1001,17 @@ Returns a specific calibration.
 ### Endpoint
 `GET /unit_api/calibrations/{device}/{cal_name}`
 
+### Request
+
+#### Path Parameters
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| device | string | Yes | Device name. |
+| cal_name | string | Yes | Calibration name. |
+
 ### Response
+
+#### Success
 
 **Status:** `200 OK`
 
@@ -857,7 +1030,16 @@ Returns estimators for a device.
 ### Endpoint
 `GET /unit_api/estimators/{device}`
 
+### Request
+
+#### Path Parameters
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| device | string | Yes | Device name. |
+
 ### Response
+
+#### Success
 
 **Status:** `200 OK`
 
@@ -874,7 +1056,17 @@ Returns a specific estimator.
 ### Endpoint
 `GET /unit_api/estimators/{device}/{estimator_name}`
 
+### Request
+
+#### Path Parameters
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| device | string | Yes | Device name. |
+| estimator_name | string | Yes | Estimator name. |
+
 ### Response
+
+#### Success
 
 **Status:** `200 OK`
 
@@ -894,7 +1086,17 @@ Sets a calibration as active for a device.
 ### Endpoint
 `PATCH /unit_api/active_calibrations/{device}/{cal_name}`
 
+### Request
+
+#### Path Parameters
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| device | string | Yes | Device name. |
+| cal_name | string | Yes | Calibration name. |
+
 ### Response
+
+#### Success
 
 **Status:** `200 OK`
 
@@ -911,7 +1113,16 @@ Removes active calibration for a device.
 ### Endpoint
 `DELETE /unit_api/active_calibrations/{device}`
 
+### Request
+
+#### Path Parameters
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| device | string | Yes | Device name. |
+
 ### Response
+
+#### Success
 
 **Status:** `200 OK`
 
@@ -928,7 +1139,17 @@ Sets an estimator as active for a device.
 ### Endpoint
 `PATCH /unit_api/active_estimators/{device}/{estimator_name}`
 
+### Request
+
+#### Path Parameters
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| device | string | Yes | Device name. |
+| estimator_name | string | Yes | Estimator name. |
+
 ### Response
+
+#### Success
 
 **Status:** `200 OK`
 
@@ -945,7 +1166,16 @@ Removes active estimator for a device.
 ### Endpoint
 `DELETE /unit_api/active_estimators/{device}`
 
+### Request
+
+#### Path Parameters
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| device | string | Yes | Device name. |
+
 ### Response
+
+#### Success
 
 **Status:** `200 OK`
 
@@ -962,7 +1192,17 @@ Deletes an estimator for a device.
 ### Endpoint
 `DELETE /unit_api/estimators/{device}/{estimator_name}`
 
+### Request
+
+#### Path Parameters
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| device | string | Yes | Device name. |
+| estimator_name | string | Yes | Estimator name. |
+
 ### Response
+
+#### Success
 
 **Status:** `200 OK`
 
@@ -991,6 +1231,8 @@ Starts a calibration session on the unit.
 
 ### Response
 
+#### Success
+
 **Status:** `201 Created`
 
 ```json
@@ -1007,7 +1249,16 @@ Returns a calibration session from the unit.
 ### Endpoint
 `GET /unit_api/calibrations/sessions/{session_id}`
 
+### Request
+
+#### Path Parameters
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| session_id | string | Yes | Session identifier. |
+
 ### Response
+
+#### Success
 
 **Status:** `200 OK`
 
@@ -1027,6 +1278,11 @@ Advances a calibration session with inputs.
 
 ### Request
 
+#### Path Parameters
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| session_id | string | Yes | Session identifier. |
+
 #### Request Body
 ```json
 {
@@ -1035,6 +1291,8 @@ Advances a calibration session with inputs.
 ```
 
 ### Response
+
+#### Success
 
 **Status:** `200 OK`
 
@@ -1052,7 +1310,16 @@ Aborts a calibration session.
 ### Endpoint
 `POST /unit_api/calibrations/sessions/{session_id}/abort`
 
+### Request
+
+#### Path Parameters
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| session_id | string | Yes | Session identifier. |
+
 ### Response
+
+#### Success
 
 **Status:** `200 OK`
 
@@ -1062,3 +1329,4 @@ Aborts a calibration session.
   "step": null
 }
 ```
+
