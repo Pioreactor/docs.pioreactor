@@ -37,7 +37,7 @@ Determine the maximum specific growth rate of your culture using turbidostat str
 
 ## Introduction 
 
-Your Pioreactor can be transformed into a [turbidostat](/user-guide/dosing-automations#pid-turbidostat), where pumps are used to replenish media around a target OD, creating a continuous culture. Due to the abundance of resources and lack of rate-limiting nutrients, the specific growth rate of a species is maximized. _Learn more about the differences in bioreactor strategies [here](https://pioreactor.com/blogs/pioreactor/the-many-different-environments-of-bioreactors-chemostat-turbidostat-stressostat-and-more)!_
+Your Pioreactor can be transformed into a [turbidostat](/user-guide/dosing-automations#turbidostat), where pumps are used to replenish media around a target OD, creating a continuous culture. Due to the abundance of resources and lack of rate-limiting nutrients, the specific growth rate of a species is maximized. _Learn more about the differences in bioreactor strategies [here](https://pioreactor.com/blogs/pioreactor/the-many-different-environments-of-bioreactors-chemostat-turbidostat-stressostat-and-more)!_
 
 This setup is a powerful tool that tests the limits of population growth. Students can investigate the specific maximum growth rate of a species and evaluate what innate biological processes are limiting growth. 
 

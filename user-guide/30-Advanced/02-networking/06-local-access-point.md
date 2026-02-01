@@ -28,11 +28,11 @@ The built-in local access point is meant for small clusters of Pioreactors, and 
 The Pioreactor has the necessary software and hardware to create the local access point. To start the access point:
 
  - If starting with a new Pioreactor, during software set up:
-    1. Leave the "Configure wireless LAN" unchecked. Continue with the instructions at [Setting up your Raspberry Pi](/user-guide/software-set-up#setting-up-your-raspberry-pi).
+    1. Leave the "Configure wireless LAN" unchecked. Continue with the instructions at [Setting up your Raspberry Pi](/user-guide/software-set-up#setting-up-your-raspberry-pis-sd-card).
     2. After the SD card has been written to, remove the SD card from your computer, and immediately insert it back in. A `boot` (or `bootfs`) device should be present now that is your SD card. If asked to reformat the SD card, select NO.
     3. <ButtonDownloadLocalAccessPointFile/>
     3. Drag/move the downloaded `local_access_point` file to the SD card directory.
-    4. Eject the SD card safely, and continue with instructions at [Setting up your Raspberry Pi](/user-guide/software-set-up#setting-up-your-raspberry-pi).
+    4. Eject the SD card safely, and continue with instructions at [Setting up your Raspberry Pi](/user-guide/software-set-up#setting-up-your-raspberry-pis-sd-card).
  - If starting from an existing Pioreactor:
     1. with the power off remove the SD card from the Pioreactor and insert it into a computer.
     2. <ButtonDownloadLocalAccessPointFile/>

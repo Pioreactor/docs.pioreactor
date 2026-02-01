@@ -252,7 +252,7 @@ To remove this warning, you can click on the "Not Secure" button in the URL bar,
 
 Unfortunately, the microSD card becoming corrupted or damaged is an infrequent but possible risk with using Raspberry Pis.
 
-- If the microSD card was inside a non-leader Pioreactor, it's best to try to reformat the microSD card and start fresh (i.e. [reinstall the Pioreactor software and reintroduce it to the cluster](/user-guide/software-set-up#adding-workers-to-your-cluster)). This is usually okay as no critical data is stored locally in workers, only log files and hardware calibrations will be lost.
+- If the microSD card was inside a non-leader Pioreactor, it's best to try to reformat the microSD card and start fresh (i.e. [reinstall the Pioreactor software and reintroduce it to the cluster](/user-guide/software-set-up#adding-additional-workers-to-your-cluster)). This is usually okay as no critical data is stored locally in workers, only log files and hardware calibrations will be lost.
 
 - If the microSD was inside the leader Raspberry Pi, this is a bigger problem. Likely any running experiment will have to be restarted. Fortunately, if you have more than one Pioreactor in your cluster, then the leader's SQLite database has been periodically backing itself up to other Pioreactors in the cluster every few days. Using the command line, check other Pioreactors' `/home/pioreactor/.pioreactor/storage` directory for the _latest_ backup named `pioreactor.sqlite.backup` (should be from within the past few days hours). You can use this database to restart a new leader.
 

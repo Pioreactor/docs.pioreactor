@@ -50,7 +50,7 @@ python your_script.py >/dev/null 2>&1 & disown
 
 ```
 
-You can also use the [Pioreactor's plugin architecture](https://docs.pioreactor.com/developer-guide/intro-plugins#scripts) to control the start and stop of the script.
+You can also use the [Pioreactor's plugin architecture](https://docs.pioreactor.com/developer-guide/intro-plugins#custom-scripts) to control the start and stop of the script.
 
 ### Useful utility objects
 

@@ -40,7 +40,7 @@ Raspberry Pi types can be identified by the width of the Pi, in comparison to th
 
 -----
 
-<h2 id="raspberry-pi-a-or-b-instructions">Raspberry Pi A or B instructions</h2>
+## Raspberry Pi A or B instructions {#raspberry-pi-a-or-b-instructions}
 <AssemblyInstructionBlock title="Step 2: Assemble the bottom faceplate (Raspberry Pi A or B)" images={["user-guide/hardware-assembly/bottom_faceplate.jpg","user-guide/hardware-assembly/bot_faceplate_screwed.jpg","user-guide/hardware-assembly/rpi_no_standoffs.jpg"]}>
 
 
@@ -77,7 +77,7 @@ By screwing down the standoffs, they'll help compress the HAT onto the RPi, too.
 
 
 
-<h2 id="raspberry-pi-zero-zero-2-instructions">Raspberry Pi Zero / Zero 2 instructions</h2>
+## Raspberry Pi Zero / Zero 2 instructions {#raspberry-pi-zero-zero-2-instructions}
 <AssemblyInstructionBlock title="Step 4: Assemble the bottom faceplate (Raspberry Pi Zero / Zero 2)" images={["user-guide/hardware-assembly/bottom_faceplate.jpg","user-guide/hardware-assembly/hex_one_side.jpg","user-guide/hardware-assembly/rpi_zero.jpg"]}>
 
 :::tip

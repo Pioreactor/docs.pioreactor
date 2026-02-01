@@ -50,7 +50,7 @@ We recommend trying different amounts of tea, coffee, or other caffeine containi
 
 1. Prepare identical sterile stocks in vials with your media of choice.
 2. Add some amount (a few drops to 1 mL) of a liquid containing caffeine to a vial. Add the same amount of DI water to another vial. 
-	* If the media appears different before inoculation, we recommend you [blank](/user-guide/set-up-an-experiment#blanking) your vials before adding your culture. 
+* If the media appears different before inoculation, we recommend you [blank](/user-guide/od-normal-growth-rate#blanking) your vials before adding your culture. 
 3. Inoculate each vial with a very small amount of your microorganism, using best practices to avoid other contamination.
 	* In our example, a yeast stock solution can be made by diluting a small amount of yeast in 15mL of YPD stock media, then a drop of this stock solution can be added to your vials.
 4. Wipe the vials and place them in the Pioreactors. 

@@ -10,19 +10,19 @@ hide_table_of_contents: true
 - In your browser's address bar, add the `http://` infront of the url, like so: `http://pioreactor.local`.
 - The UI is hosted on **http**, not **http_s_**. Check if you are accessing `http` `://pioreactor.local`, and _not_ `https` `://pioreactor.local`.
 - Try accessing using the url `http://<the permanent name of your Pioreactor aka hostname>.local`
-- If you know your Raspberry Pi's IP, try `http://<IP address of your Raspberry Pi>`. Here's [information to determine the IP address](/user-guide/common-questions#how-can-i-determine-the-pioreactors-ip-address)
+- If you know your Raspberry Pi's IP, try `http://<IP address of your Raspberry Pi>`. Here's [information to determine the IP address](/user-guide/common-questions#how-can-i-determine-the-pioreactors-ip-address-or-the-mac-address)
 - Errors during installation:
-    - When pressing the button on the HAT, does the blue LED show up? If not, installation may have failed. See notes [here](/user-guide/software-set-up#my-pioreactor-never-flashes-the-blue-led).
-    - In your Raspberry Pi Imager settings, confirm that you clicked "Set username and password", and used the username `pioreactor`. If not, try [reinstalling the image](/user-guide/software-set-up#setting-up-your-raspberry-pi).
+    - When pressing the button on the HAT, does the blue LED show up? If not, installation may have failed. See notes [here](/user-guide/software-set-up#my-leader-pioreactor-never-flashes-the-blue-led).
+    - In your Raspberry Pi Imager settings, confirm that you clicked "Set username and password", and used the username `pioreactor`. If not, try [reinstalling the image](/user-guide/software-set-up#setting-up-your-raspberry-pis-sd-card).
  - Are you on an older Windows machine? You may need to install a DNS [service](https://learn.adafruit.com/bonjour-zeroconf-networking-for-windows-and-linux/overview#microsoft-windows-914263-8), but also see workarounds [here](https://github.com/OutsourcedGuru/octoprint-name-resolution-hacks).
  - Try SSHing in and restarting the webserver: `sudo systemctl restart lighttpd.service && sudo systemctl status lighttpd.service`.
 
 
 ### No information is shown on the Inventory page / no green dot / no response when I click some buttons.
 
-See [question below](#i-see-failed-to-connect-to-mqtt--in-a-pop-up---what-can-i-do).
+See [question below](#failed-to-connect-to-mqtt-popup).
 
-### I see "Failed to connect to MQTT. ..." in a pop-up - what can I do?
+### I see "Failed to connect to MQTT. ..." in a pop-up - what can I do? {#failed-to-connect-to-mqtt-popup}
 
 This error likely occurs because your browser can't connect to an internal system, MQTT, that is used for displaying data and actions. Possibly you also weren't able to access the UI with `http://pioreactor.local`, but had to use an IP address as the url.
 
@@ -62,9 +62,7 @@ Any of the following could solve your problem:
 
 
  - It's possible that the experiment has changed while the page has been left open - try refreshing the page and try again.
- - If you had trouble accessing the UI ([see question above](/user-guide/troubleshooting-ui#i-see-failed-to-connect-to-mqtt-is-configuration-for-leader_address-correct-currently-set-to--in-a-pop-up---what-can-i-do)), in your config.ini, change the `leader_address` field to whatever worked above, an IP for example.
+ - If you had trouble accessing the UI ([see question above](/user-guide/troubleshooting-ui#failed-to-connect-to-mqtt-popup)), in your config.ini, change the `leader_address` field to whatever worked above, an IP for example.
  - Possibly the web server is off. Try logging into your leader and typing `sudo systemctl status lighttpd.service`
- - Do you also see a "Failed to connect to MQTT. Is configuration for leader_address correct?" error pop-up? If so, [see question above](/user-guide/troubleshooting-ui#i-see-failed-to-connect-to-mqtt-is-configuration-for-leader_address-correct-currently-set-to--in-a-pop-up---what-can-i-do0).
+ - Do you also see a "Failed to connect to MQTT. Is configuration for leader_address correct?" error pop-up? If so, [see question above](/user-guide/troubleshooting-ui#failed-to-connect-to-mqtt-popup).
  - Try power-cycling the Pioreactor.
-
-

@@ -76,7 +76,7 @@ description: Run my custom script.
 published_settings: []
 ```
 
-See more information on the structure of your script [here](/developer-guide/intro-plugins#scripts)
+See more information on the structure of your script [here](/developer-guide/intro-plugins#custom-scripts)
 
 ## Automations
 

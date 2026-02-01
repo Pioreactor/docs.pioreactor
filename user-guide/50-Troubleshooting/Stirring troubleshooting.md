@@ -52,14 +52,14 @@ Detach the top faceplate. Under the faceplate, slightly unscrew each of the four
 ### Stir bar goes out of balance during OD dodging (RPM changes)
 
 If the stir bar stops, vibrates, or starts orbiting the vial when OD dodging changes the target RPM:
-1. Make sure a stirring calibration is active. Re-run it if you recently updated software or changed power/hardware. See [stirring calibration](/user-guide/hardware-calibrations#stirring-calibration-optional).
+1. Make sure a stirring calibration is active. Re-run it if you recently updated software or changed power/hardware. See [stirring calibration](/user-guide/hardware-calibrations#stirring-calibrations).
 2. Check that the vial is fully seated on the heating pad. A small gap (for example, from an o-ring or debris) can make the bar lose sync during RPM transitions.
 
 ### Stirring is not able to keep a steady RPM
 
 1. Consider decreasing the value of `Kp` in the section `stirring.pid` in the config.ini by 50%.
 2. Are you trying to target a very low RPM? The lower limit of RPM is around 125. Target RPMs below 125 have a tendency to stall.
-3. Try performing a [stirring calibration](/user-guide/hardware-calibrations#stirring-calibration-optional).
+3. Try performing a [stirring calibration](/user-guide/hardware-calibrations#stirring-calibrations).
 
 
 ### My stir bar keeps skipping. How can I reduce that?

@@ -15,9 +15,9 @@ You can expect the setup process to take 10-15 minutes. If you encounter any pro
 
 Before you get started, you'll need to have the following:
 
-1.  A Raspberry Pi (our list of recommended Raspberry Pis is [here](/user-guide/common-questions#what-raspberry-pi-hardware-can-i-use-i-see-raspberry-pi-1-2-3-4-a-b--zero---its-confusing))
+1.  A Raspberry Pi (our list of recommended Raspberry Pis is [here](/user-guide/common-questions#what-raspberry-pi-hardware-can-i-use-i-see-raspberry-pi-1-2-3-4-5-a-b--zero---its-confusing))
 2.  A blank microSD card (our recommended microSD cards is [here](/user-guide/common-questions#what-microsd-cards-do-you-recommend))
-3.  A suitable power supply for the Raspberry Pi (our recommended power supply units are [here](/user-guide/common-questions#what-power-supply-unit-do-i-need)). You don't need to plug power in yet.
+3.  A suitable power supply for the Raspberry Pi (our recommended power supply units are [here](/user-guide/common-questions#what-power-supply-unit-psu-do-i-need)). You don't need to plug power in yet.
 4.  A computer with internet access and ability to read & write to a microSD card
 
 ### Setting up your Raspberry Pi's SD Card
@@ -81,7 +81,7 @@ We'll start with your blank microSD card.
     Waited, but didn't see a blue LED blink, or maybe you missed it? Try pressing on the onboard button, near the side labelled "PWM", and pictured above. If this lights up the blue LED, you're good to move on. Still not working? Try power-cycling the Raspberry Pi, or email us at hello@pioreactor.com.
     :::
 
-12. After observing the blue LED flashing, navigate to [http://pioreactor.local](http://pioreactor.local) in a web browser to visit the web interface. If you are using local-access-point, looking for a `pioreactor` wifi network and then visit the link. (Not able to load http://pioreactor.local? Read [Common Questions](#pioreactorlocal-in-a-web-browser-is-not-showing-up) below).
+12. After observing the blue LED flashing, navigate to [http://pioreactor.local](http://pioreactor.local) in a web browser to visit the web interface. If you are using local-access-point, looking for a `pioreactor` wifi network and then visit the link. (Not able to load http://pioreactor.local? Read [Common Questions](#httppioreactorlocal-in-a-web-browser-is-not-showing-up) below).
 
 13. When the UI loads for the first time you'll be prompted by the **Update Pioreactor model** dialog. Select the correct model and hardware version for each Pioreactor listed, then click **Save** to continue.
 
@@ -187,10 +187,10 @@ Easiest solution is to start over. You can edit the name in the RPi Imager, and 
 *   Try appending a backslash as well: `http://pioreactor.local/`.
 *   The UI is hosted on **http**, not **https**. Check if you are accessing `http` `://pioreactor.local`, and _not_ `https` `://pioreactor.local`.
 *   Try accessing using the url `http://<the name of your leader Pioreactor aka hostname>.local`.
-*   If you know your Raspberry Pi's IP, try `http://<IP address of your Raspberry Pi>`. Here's [information to determine the IP address](/user-guide/common-questions#how-can-i-determine-the-pioreactors-ip-address).
+*   If you know your Raspberry Pi's IP, try `http://<IP address of your Raspberry Pi>`. Here's [information to determine the IP address](/user-guide/common-questions#how-can-i-determine-the-pioreactors-ip-address-or-the-mac-address).
 *   When pressing the button on the HAT, does the blue LED show up? If not, installation may have failed. Try installing the image again, and double check the settings.
 *   Try power-cycling the Raspberry Pi (unplug and plug back in).
-*   In your Raspberry Pi Imager settings, confirm that you clicked "Set username and password", and used the username `pioreactor`. If not, try [reinstalling the image](/user-guide/software-set-up#setting-up-your-raspberry-pi).
+*   In your Raspberry Pi Imager settings, confirm that you clicked "Set username and password", and used the username `pioreactor`. If not, try [reinstalling the image](/user-guide/software-set-up#setting-up-your-raspberry-pis-sd-card).
 *   Are you on an older Windows machine? You may need to install a DNS [service](https://learn.adafruit.com/bonjour-zeroconf-networking-for-windows-and-linux/overview#microsoft-windows-914263-8), but also see workarounds [here](https://github.com/OutsourcedGuru/octoprint-name-resolution-hacks).
 
 

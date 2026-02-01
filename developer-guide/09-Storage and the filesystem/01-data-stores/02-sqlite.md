@@ -18,7 +18,7 @@ You can either use `.tables` in the sqlite shell, or visit all the tables [schem
 
 ### How can I add new SQL tables?
 
-Using the sqlite shell (`pio db`), you can execute any SQL statements, including creating new tables. Plugins can also automatically create new tables when installed, [see instructions here](plugin-as-python-package#5-optional-adding-tables-to-the-sql-store).
+Using the sqlite shell (`pio db`), you can execute any SQL statements, including creating new tables. Plugins can also automatically create new tables when installed, [see instructions here](plugin-as-python-package#5-optional-adding-tables-to-the-sql-database-and-exposing-them-on-the-export-data-page).
 
 ### How do I populate my own SQL tables?
 
