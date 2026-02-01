@@ -6,6 +6,7 @@ toc_max_heading_level: 2
 
 ## Conventions
 
+- All Pioreactors have the `/unit_api` endpoints exposed.
 - Path parameters are shown inline in the endpoint URL.
 - Async endpoints return `{unit, task_id, result_url_path}`; poll `/unit_api/task_results/{task_id}`.
 - Request/response examples are the canonical shapes; omit optional fields you do not need.

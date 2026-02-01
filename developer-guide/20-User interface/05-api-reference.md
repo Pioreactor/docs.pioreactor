@@ -7,6 +7,7 @@ toc_max_heading_level: 2
 
 ## Conventions
 
+- Only the leader Pioreactor has the `/api` endpoints exposed.
 - Path parameters are shown inline in the endpoint URL.
 - Most write actions are async and return `{unit, task_id, result_url_path}`; poll `/unit_api/task_results/{task_id}`.
 - Request/response examples are the canonical shapes; omit optional fields you do not need.
