@@ -2,6 +2,7 @@
 title: API Reference (Unit /unit_api)
 slug: /unit-api-reference
 toc_max_heading_level: 2
+sidebar_class_name: sidebar-item--updated
 ---
 
 ## Conventions
