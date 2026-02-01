@@ -5,6 +5,12 @@ toc_max_heading_level: 2
 
 ---
 
+## Conventions
+
+- Path parameters are shown inline in the endpoint URL.
+- Most write actions are async and return `{unit, task_id, result_url_path}`; poll `/unit_api/task_results/{task_id}`.
+- Request/response examples are the canonical shapes; omit optional fields you do not need.
+
 ## Get Models
 
 Returns the list of supported Pioreactor models.
@@ -13,8 +19,6 @@ Returns the list of supported Pioreactor models.
 `GET /api/models`
 
 ### Response
-
-#### Success
 
 **Status:** `200 OK`
 
@@ -30,18 +34,6 @@ Returns the list of supported Pioreactor models.
 }
 ```
 
-##### Response Schema
-
-| Field | Type | Nullable | Description |
-| ----- | ---- | -------- | ----------- |
-| models | array | No | Registered model descriptors. |
-
-### Errors
-
-| Status | Meaning | When it Happens |
-| ------ | ------- | --------------- |
-| 500 | Server error | Model registry lookup fails. |
-
 ## Stop All Jobs On Worker For Experiment
 
 Stops all jobs for a worker within an experiment.
@@ -49,17 +41,7 @@ Stops all jobs for a worker within an experiment.
 ### Endpoint
 `POST /api/workers/{pioreactor_unit}/jobs/stop/experiments/{experiment}`
 
-### Request
-
-#### Path Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| pioreactor_unit | string | Yes | Worker unit name or `$broadcast`. |
-| experiment | string | Yes | Experiment identifier. |
-
 ### Response
-
-#### Success
 
 **Status:** `202 Accepted`
 
@@ -68,22 +50,6 @@ Stops all jobs for a worker within an experiment.
   "status": "success"
 }
 ```
-
-##### Response Schema
-
-| Field | Type | Nullable | Description |
-| ----- | ---- | -------- | ----------- |
-| status | string | No | Submission status. |
-
-### Errors
-
-| Status | Meaning | When it Happens |
-| ------ | ------- | --------------- |
-| 400 | Invalid request | Experiment or unit is invalid. |
-
-### Notes
-
-* Uses `$broadcast` to target all workers.
 
 ## Stop Specific Job On Unit
 
@@ -92,18 +58,7 @@ Stops a specific job on a unit within an experiment.
 ### Endpoint
 `POST /api/units/{pioreactor_unit}/jobs/stop/job_name/{job_name}/experiments/{experiment}`
 
-### Request
-
-#### Path Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| pioreactor_unit | string | Yes | Unit name. |
-| job_name | string | Yes | Job name to stop. |
-| experiment | string | Yes | Experiment identifier. |
-
 ### Response
-
-#### Success
 
 **Status:** `202 Accepted`
 
@@ -112,18 +67,6 @@ Stops a specific job on a unit within an experiment.
   "status": "success"
 }
 ```
-
-##### Response Schema
-
-| Field | Type | Nullable | Description |
-| ----- | ---- | -------- | ----------- |
-| status | string | No | Submission status. |
-
-### Errors
-
-| Status | Meaning | When it Happens |
-| ------ | ------- | --------------- |
-| 500 | Publish failed | MQTT publish or fallback stop fails. |
 
 ## Run Job On Unit In Experiment
 
@@ -133,13 +76,6 @@ Runs a job on one or more units assigned to an experiment.
 `POST /api/units/{pioreactor_unit}/jobs/run/job_name/{job}/experiments/{experiment}`
 
 ### Request
-
-#### Path Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| pioreactor_unit | string | Yes | Unit name or `$broadcast`. |
-| job | string | Yes | Job name to run. |
-| experiment | string | Yes | Experiment identifier or `universal`. |
 
 #### Request Body
 ```json
@@ -155,18 +91,7 @@ Runs a job on one or more units assigned to an experiment.
 }
 ```
 
-##### Body Schema
-
-| Field | Type | Required | Description | Constraints |
-| ----- | ---- | -------- | ----------- | ----------- |
-| options | object | No | CLI options forwarded to `pio run`. | keys map to flag names |
-| env | object | No | Environment variables merged into job env. | string values |
-| args | array | No | Positional CLI args. | strings |
-| config_overrides | array | No | Config override tuples. | `[section, key, value]` |
-
 ### Response
-
-#### Success
 
 **Status:** `202 Accepted`
 
@@ -177,24 +102,6 @@ Runs a job on one or more units assigned to an experiment.
   "result_url_path": "/unit_api/task_results/task_abc123"
 }
 ```
-
-##### Response Schema
-
-| Field | Type | Nullable | Description |
-| ----- | ---- | -------- | ----------- |
-| unit | string | No | Leader unit name that queued the task. |
-| task_id | string | No | Huey task id. |
-| result_url_path | string | No | Task result path on unit API. |
-
-### Errors
-
-| Status | Meaning | When it Happens |
-| ------ | ------- | --------------- |
-| 404 | Not found | Worker not active or not assigned to experiment. |
-
-### Notes
-
-* Uses `$broadcast` to target all active workers.
 
 ## Get Jobs Running
 
@@ -203,16 +110,7 @@ Returns running jobs for a unit or the cluster.
 ### Endpoint
 `GET /api/units/{pioreactor_unit}/jobs/running`
 
-### Request
-
-#### Path Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| pioreactor_unit | string | Yes | Unit name or `$broadcast`. |
-
 ### Response
-
-#### Success
 
 **Status:** `202 Accepted`
 
@@ -224,24 +122,6 @@ Returns running jobs for a unit or the cluster.
 }
 ```
 
-##### Response Schema
-
-| Field | Type | Nullable | Description |
-| ----- | ---- | -------- | ----------- |
-| unit | string | No | Leader unit name that queued the task. |
-| task_id | string | No | Huey task id. |
-| result_url_path | string | No | Task result path on unit API. |
-
-### Errors
-
-| Status | Meaning | When it Happens |
-| ------ | ------- | --------------- |
-| 502 | Bad gateway | Worker did not respond. |
-
-### Notes
-
-* Use `$broadcast` to target all units.
-
 ## Blink Worker
 
 Triggers a brief blink on a worker to confirm connectivity.
@@ -249,16 +129,7 @@ Triggers a brief blink on a worker to confirm connectivity.
 ### Endpoint
 `POST /api/workers/{pioreactor_unit}/blink`
 
-### Request
-
-#### Path Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| pioreactor_unit | string | Yes | Worker unit name. |
-
 ### Response
-
-#### Success
 
 **Status:** `202 Accepted`
 
@@ -267,12 +138,6 @@ Triggers a brief blink on a worker to confirm connectivity.
   "status": "success"
 }
 ```
-
-##### Response Schema
-
-| Field | Type | Nullable | Description |
-| ----- | ---- | -------- | ----------- |
-| status | string | No | Submission status. |
 
 ## Update Job On Unit
 
@@ -283,13 +148,6 @@ Updates job settings for a running job via MQTT.
 
 ### Request
 
-#### Path Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| pioreactor_unit | string | Yes | Unit name or `$broadcast`. |
-| job | string | Yes | Job name to update. |
-| experiment | string | Yes | Experiment identifier. |
-
 #### Request Body
 ```json
 {
@@ -299,15 +157,7 @@ Updates job settings for a running job via MQTT.
 }
 ```
 
-##### Body Schema
-
-| Field | Type | Required | Description | Constraints |
-| ----- | ---- | -------- | ----------- | ----------- |
-| settings | object | Yes | Job setting map to publish. | values are strings |
-
 ### Response
-
-#### Success
 
 **Status:** `202 Accepted`
 
@@ -317,18 +167,6 @@ Updates job settings for a running job via MQTT.
 }
 ```
 
-##### Response Schema
-
-| Field | Type | Nullable | Description |
-| ----- | ---- | -------- | ----------- |
-| status | string | No | Submission status. |
-
-### Errors
-
-| Status | Meaning | When it Happens |
-| ------ | ------- | --------------- |
-| 400 | Invalid request | JSON body missing or publish failed. |
-
 ## Reboot Unit
 
 Queues a reboot on a unit or cluster.
@@ -336,16 +174,7 @@ Queues a reboot on a unit or cluster.
 ### Endpoint
 `POST /api/units/{pioreactor_unit}/system/reboot`
 
-### Request
-
-#### Path Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| pioreactor_unit | string | Yes | Unit name or `$broadcast`. |
-
 ### Response
-
-#### Success
 
 **Status:** `202 Accepted`
 
@@ -356,14 +185,6 @@ Queues a reboot on a unit or cluster.
   "result_url_path": "/unit_api/task_results/task_abc123"
 }
 ```
-
-##### Response Schema
-
-| Field | Type | Nullable | Description |
-| ----- | ---- | -------- | ----------- |
-| unit | string | No | Leader unit name that queued the task. |
-| task_id | string | No | Huey task id. |
-| result_url_path | string | No | Task result path on unit API. |
 
 ## Shutdown Unit
 
@@ -372,16 +193,7 @@ Queues a shutdown on a unit or cluster.
 ### Endpoint
 `POST /api/units/{pioreactor_unit}/system/shutdown`
 
-### Request
-
-#### Path Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| pioreactor_unit | string | Yes | Unit name or `$broadcast`. |
-
 ### Response
-
-#### Success
 
 **Status:** `202 Accepted`
 
@@ -392,14 +204,6 @@ Queues a shutdown on a unit or cluster.
   "result_url_path": "/unit_api/task_results/task_abc123"
 }
 ```
-
-##### Response Schema
-
-| Field | Type | Nullable | Description |
-| ----- | ---- | -------- | ----------- |
-| unit | string | No | Leader unit name that queued the task. |
-| task_id | string | No | Huey task id. |
-| result_url_path | string | No | Task result path on unit API. |
 
 ## Get Clock Time
 
@@ -408,16 +212,7 @@ Returns the UTC clock time from a unit or cluster.
 ### Endpoint
 `GET /api/units/{pioreactor_unit}/system/utc_clock`
 
-### Request
-
-#### Path Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| pioreactor_unit | string | Yes | Unit name or `$broadcast`. |
-
 ### Response
-
-#### Success
 
 **Status:** `202 Accepted`
 
@@ -428,14 +223,6 @@ Returns the UTC clock time from a unit or cluster.
   "result_url_path": "/unit_api/task_results/task_abc123"
 }
 ```
-
-##### Response Schema
-
-| Field | Type | Nullable | Description |
-| ----- | ---- | -------- | ----------- |
-| unit | string | No | Leader unit name that queued the task. |
-| task_id | string | No | Huey task id. |
-| result_url_path | string | No | Task result path on unit API. |
 
 ## Set Clock Time
 
@@ -453,15 +240,7 @@ Sets leader clock and syncs workers.
 }
 ```
 
-##### Body Schema
-
-| Field | Type | Required | Description | Constraints |
-| ----- | ---- | -------- | ----------- | ----------- |
-| utc_clock_time | string | Yes | ISO-8601 UTC timestamp. | ISO-8601 |
-
 ### Response
-
-#### Success
 
 **Status:** `202 Accepted`
 
@@ -473,14 +252,6 @@ Sets leader clock and syncs workers.
 }
 ```
 
-##### Response Schema
-
-| Field | Type | Nullable | Description |
-| ----- | ---- | -------- | ----------- |
-| unit | string | No | Leader unit name that queued the task. |
-| task_id | string | No | Huey task id. |
-| result_url_path | string | No | Task result path on unit API. |
-
 ## Get Recent Logs
 
 Returns recent experiment logs across units.
@@ -488,21 +259,7 @@ Returns recent experiment logs across units.
 ### Endpoint
 `GET /api/experiments/{experiment}/recent_logs`
 
-### Request
-
-#### Path Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| experiment | string | Yes | Experiment identifier. |
-
-#### Query Parameters
-| Name | Type | Required | Default | Description |
-| ---- | ---- | -------- | ------- | ----------- |
-| min_level | string | No | `INFO` | Minimum log level filter. |
-
 ### Response
-
-#### Success
 
 **Status:** `200 OK`
 
@@ -518,17 +275,6 @@ Returns recent experiment logs across units.
   }
 ]
 ```
-
-##### Response Schema
-
-| Field | Type | Nullable | Description |
-| ----- | ---- | -------- | ----------- |
-| timestamp | string | No | Log timestamp. |
-| level | string | No | Log level. |
-| pioreactor_unit | string | No | Unit name. |
-| message | string | No | Log message. |
-| task | string | Yes | Task name. |
-| experiment | string | No | Experiment identifier. |
 
 ## Get Logs
 
@@ -537,17 +283,7 @@ Returns paginated logs across all experiments.
 ### Endpoint
 `GET /api/logs`
 
-### Request
-
-#### Query Parameters
-| Name | Type | Required | Default | Description |
-| ---- | ---- | -------- | ------- | ----------- |
-| skip | integer | No | `0` | Number of rows to skip. |
-| min_level | string | No | `INFO` | Minimum log level filter. |
-
 ### Response
-
-#### Success
 
 **Status:** `200 OK`
 
@@ -563,17 +299,6 @@ Returns paginated logs across all experiments.
   }
 ]
 ```
-
-##### Response Schema
-
-| Field | Type | Nullable | Description |
-| ----- | ---- | -------- | ----------- |
-| timestamp | string | No | Log timestamp. |
-| level | string | No | Log level. |
-| pioreactor_unit | string | No | Unit name. |
-| message | string | No | Log message. |
-| task | string | Yes | Task name. |
-| experiment | string | No | Experiment identifier. |
 
 ## Get Experiment Logs
 
@@ -582,22 +307,7 @@ Returns paginated logs for a single experiment.
 ### Endpoint
 `GET /api/experiments/{experiment}/logs`
 
-### Request
-
-#### Path Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| experiment | string | Yes | Experiment identifier. |
-
-#### Query Parameters
-| Name | Type | Required | Default | Description |
-| ---- | ---- | -------- | ------- | ----------- |
-| skip | integer | No | `0` | Number of rows to skip. |
-| min_level | string | No | `INFO` | Minimum log level filter. |
-
 ### Response
-
-#### Success
 
 **Status:** `200 OK`
 
@@ -613,17 +323,6 @@ Returns paginated logs for a single experiment.
   }
 ]
 ```
-
-##### Response Schema
-
-| Field | Type | Nullable | Description |
-| ----- | ---- | -------- | ----------- |
-| timestamp | string | No | Log timestamp. |
-| level | string | No | Log level. |
-| pioreactor_unit | string | No | Unit name. |
-| message | string | No | Log message. |
-| task | string | Yes | Task name. |
-| experiment | string | No | Experiment identifier. |
 
 ## Get Recent Logs For Unit And Experiment
 
@@ -632,22 +331,7 @@ Returns recent logs for a specific unit within an experiment.
 ### Endpoint
 `GET /api/workers/{pioreactor_unit}/experiments/{experiment}/recent_logs`
 
-### Request
-
-#### Path Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| pioreactor_unit | string | Yes | Unit name. |
-| experiment | string | Yes | Experiment identifier. |
-
-#### Query Parameters
-| Name | Type | Required | Default | Description |
-| ---- | ---- | -------- | ------- | ----------- |
-| min_level | string | No | `INFO` | Minimum log level filter. |
-
 ### Response
-
-#### Success
 
 **Status:** `200 OK`
 
@@ -663,17 +347,6 @@ Returns recent logs for a specific unit within an experiment.
   }
 ]
 ```
-
-##### Response Schema
-
-| Field | Type | Nullable | Description |
-| ----- | ---- | -------- | ----------- |
-| timestamp | string | No | Log timestamp. |
-| level | string | No | Log level. |
-| pioreactor_unit | string | No | Unit name. |
-| message | string | No | Log message. |
-| task | string | Yes | Task name. |
-| experiment | string | No | Experiment identifier. |
 
 ## Get Logs For Unit And Experiment
 
@@ -682,23 +355,7 @@ Returns paginated logs for a unit within an experiment.
 ### Endpoint
 `GET /api/workers/{pioreactor_unit}/experiments/{experiment}/logs`
 
-### Request
-
-#### Path Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| pioreactor_unit | string | Yes | Unit name. |
-| experiment | string | Yes | Experiment identifier. |
-
-#### Query Parameters
-| Name | Type | Required | Default | Description |
-| ---- | ---- | -------- | ------- | ----------- |
-| skip | integer | No | `0` | Number of rows to skip. |
-| min_level | string | No | `INFO` | Minimum log level filter. |
-
 ### Response
-
-#### Success
 
 **Status:** `200 OK`
 
@@ -715,17 +372,6 @@ Returns paginated logs for a unit within an experiment.
 ]
 ```
 
-##### Response Schema
-
-| Field | Type | Nullable | Description |
-| ----- | ---- | -------- | ----------- |
-| timestamp | string | No | Log timestamp. |
-| level | string | No | Log level. |
-| pioreactor_unit | string | No | Unit name. |
-| message | string | No | Log message. |
-| task | string | Yes | Task name. |
-| experiment | string | No | Experiment identifier. |
-
 ## Get System Logs For Unit
 
 Returns paginated system logs for a unit.
@@ -733,22 +379,7 @@ Returns paginated system logs for a unit.
 ### Endpoint
 `GET /api/units/{pioreactor_unit}/system_logs`
 
-### Request
-
-#### Path Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| pioreactor_unit | string | Yes | Unit name. |
-
-#### Query Parameters
-| Name | Type | Required | Default | Description |
-| ---- | ---- | -------- | ------- | ----------- |
-| skip | integer | No | `0` | Number of rows to skip. |
-| min_level | string | No | `INFO` | Minimum log level filter. |
-
 ### Response
-
-#### Success
 
 **Status:** `200 OK`
 
@@ -765,17 +396,6 @@ Returns paginated system logs for a unit.
 ]
 ```
 
-##### Response Schema
-
-| Field | Type | Nullable | Description |
-| ----- | ---- | -------- | ----------- |
-| timestamp | string | No | Log timestamp. |
-| level | string | No | Log level. |
-| pioreactor_unit | string | No | Unit name. |
-| message | string | No | Log message. |
-| task | string | Yes | Task name. |
-| experiment | string | No | Experiment identifier. |
-
 ## Get Logs For Unit
 
 Returns paginated logs for a unit across experiments.
@@ -783,22 +403,7 @@ Returns paginated logs for a unit across experiments.
 ### Endpoint
 `GET /api/units/{pioreactor_unit}/logs`
 
-### Request
-
-#### Path Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| pioreactor_unit | string | Yes | Unit name. |
-
-#### Query Parameters
-| Name | Type | Required | Default | Description |
-| ---- | ---- | -------- | ------- | ----------- |
-| skip | integer | No | `0` | Number of rows to skip. |
-| min_level | string | No | `INFO` | Minimum log level filter. |
-
 ### Response
-
-#### Success
 
 **Status:** `200 OK`
 
@@ -815,17 +420,6 @@ Returns paginated logs for a unit across experiments.
 ]
 ```
 
-##### Response Schema
-
-| Field | Type | Nullable | Description |
-| ----- | ---- | -------- | ----------- |
-| timestamp | string | No | Log timestamp. |
-| level | string | No | Log level. |
-| pioreactor_unit | string | No | Unit name. |
-| message | string | No | Log message. |
-| task | string | Yes | Task name. |
-| experiment | string | No | Experiment identifier. |
-
 ## Publish New Log
 
 Publishes a log entry via MQTT for a unit or experiment.
@@ -834,12 +428,6 @@ Publishes a log entry via MQTT for a unit or experiment.
 `POST /api/workers/{pioreactor_unit}/experiments/{experiment}/logs`
 
 ### Request
-
-#### Path Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| pioreactor_unit | string | Yes | Unit name or `$broadcast`. |
-| experiment | string | Yes | Experiment identifier. |
 
 #### Request Body
 ```json
@@ -853,20 +441,7 @@ Publishes a log entry via MQTT for a unit or experiment.
 }
 ```
 
-##### Body Schema
-
-| Field | Type | Required | Description | Constraints |
-| ----- | ---- | -------- | ----------- | ----------- |
-| message | string | Yes | Log message. |  |
-| source | string | Yes | Log source. |  |
-| source_ | string | No | MQTT source segment. | defaults to `ui` |
-| level | string | Yes | Log level. | uppercase |
-| timestamp | string | Yes | ISO-8601 timestamp. | ISO-8601 |
-| task | string | No | Task name. | nullable |
-
 ### Response
-
-#### Success
 
 **Status:** `202 Accepted`
 
@@ -876,12 +451,6 @@ Publishes a log entry via MQTT for a unit or experiment.
 }
 ```
 
-##### Response Schema
-
-| Field | Type | Nullable | Description |
-| ----- | ---- | -------- | ----------- |
-| status | string | No | Submission status. |
-
 ## Get Growth Rates
 
 Returns growth-rate time series for all units in an experiment.
@@ -889,22 +458,7 @@ Returns growth-rate time series for all units in an experiment.
 ### Endpoint
 `GET /api/experiments/{experiment}/time_series/growth_rates`
 
-### Request
-
-#### Path Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| experiment | string | Yes | Experiment identifier. |
-
-#### Query Parameters
-| Name | Type | Required | Default | Description |
-| ---- | ---- | -------- | ------- | ----------- |
-| lookback | number | No | `4.0` | Hours of history to include. |
-| target_points | integer | No | `720` | Target number of points. |
-
 ### Response
-
-#### Success
 
 **Status:** `200 OK`
 
@@ -914,19 +468,6 @@ Returns growth-rate time series for all units in an experiment.
   "data": [[{"x": "2026-01-31T12:00:00.000Z", "y": 0.0123}]]
 }
 ```
-
-##### Response Schema
-
-| Field | Type | Nullable | Description |
-| ----- | ---- | -------- | ----------- |
-| series | array | No | Series labels by unit. |
-| data | array | No | Arrays of `{x,y}` points per series. |
-
-### Errors
-
-| Status | Meaning | When it Happens |
-| ------ | ------- | --------------- |
-| 400 | Invalid request | `target_points` lt 0. |
 
 ## Get Temperature Readings
 
@@ -935,22 +476,7 @@ Returns temperature time series for all units in an experiment.
 ### Endpoint
 `GET /api/experiments/{experiment}/time_series/temperature_readings`
 
-### Request
-
-#### Path Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| experiment | string | Yes | Experiment identifier. |
-
-#### Query Parameters
-| Name | Type | Required | Default | Description |
-| ---- | ---- | -------- | ------- | ----------- |
-| lookback | number | No | `4.0` | Hours of history to include. |
-| target_points | integer | No | `720` | Target number of points. |
-
 ### Response
-
-#### Success
 
 **Status:** `200 OK`
 
@@ -961,13 +487,6 @@ Returns temperature time series for all units in an experiment.
 }
 ```
 
-##### Response Schema
-
-| Field | Type | Nullable | Description |
-| ----- | ---- | -------- | ----------- |
-| series | array | No | Series labels by unit. |
-| data | array | No | Arrays of `{x,y}` points per series. |
-
 ## Get OD Readings Filtered
 
 Returns filtered OD time series for all units in an experiment.
@@ -975,22 +494,7 @@ Returns filtered OD time series for all units in an experiment.
 ### Endpoint
 `GET /api/experiments/{experiment}/time_series/od_readings_filtered`
 
-### Request
-
-#### Path Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| experiment | string | Yes | Experiment identifier. |
-
-#### Query Parameters
-| Name | Type | Required | Default | Description |
-| ---- | ---- | -------- | ------- | ----------- |
-| lookback | number | No | `4.0` | Hours of history to include. |
-| target_points | integer | No | `720` | Target number of points. |
-
 ### Response
-
-#### Success
 
 **Status:** `200 OK`
 
@@ -1001,13 +505,6 @@ Returns filtered OD time series for all units in an experiment.
 }
 ```
 
-##### Response Schema
-
-| Field | Type | Nullable | Description |
-| ----- | ---- | -------- | ----------- |
-| series | array | No | Series labels by unit. |
-| data | array | No | Arrays of `{x,y}` points per series. |
-
 ## Get OD Readings
 
 Returns OD readings time series for all units in an experiment.
@@ -1015,22 +512,7 @@ Returns OD readings time series for all units in an experiment.
 ### Endpoint
 `GET /api/experiments/{experiment}/time_series/od_readings`
 
-### Request
-
-#### Path Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| experiment | string | Yes | Experiment identifier. |
-
-#### Query Parameters
-| Name | Type | Required | Default | Description |
-| ---- | ---- | -------- | ------- | ----------- |
-| lookback | number | No | `4.0` | Hours of history to include. |
-| target_points | integer | No | `720` | Target number of points. |
-
 ### Response
-
-#### Success
 
 **Status:** `200 OK`
 
@@ -1041,13 +523,6 @@ Returns OD readings time series for all units in an experiment.
 }
 ```
 
-##### Response Schema
-
-| Field | Type | Nullable | Description |
-| ----- | ---- | -------- | ----------- |
-| series | array | No | Series labels by unit and channel. |
-| data | array | No | Arrays of `{x,y}` points per series. |
-
 ## Get OD Readings Fused
 
 Returns fused OD time series for all units in an experiment.
@@ -1055,22 +530,7 @@ Returns fused OD time series for all units in an experiment.
 ### Endpoint
 `GET /api/experiments/{experiment}/time_series/od_readings_fused`
 
-### Request
-
-#### Path Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| experiment | string | Yes | Experiment identifier. |
-
-#### Query Parameters
-| Name | Type | Required | Default | Description |
-| ---- | ---- | -------- | ------- | ----------- |
-| lookback | number | No | `4.0` | Hours of history to include. |
-| target_points | integer | No | `720` | Target number of points. |
-
 ### Response
-
-#### Success
 
 **Status:** `200 OK`
 
@@ -1081,13 +541,6 @@ Returns fused OD time series for all units in an experiment.
 }
 ```
 
-##### Response Schema
-
-| Field | Type | Nullable | Description |
-| ----- | ---- | -------- | ----------- |
-| series | array | No | Series labels by unit. |
-| data | array | No | Arrays of `{x,y}` points per series. |
-
 ## Get Raw OD Readings
 
 Returns raw OD time series for all units in an experiment.
@@ -1095,22 +548,7 @@ Returns raw OD time series for all units in an experiment.
 ### Endpoint
 `GET /api/experiments/{experiment}/time_series/raw_od_readings`
 
-### Request
-
-#### Path Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| experiment | string | Yes | Experiment identifier. |
-
-#### Query Parameters
-| Name | Type | Required | Default | Description |
-| ---- | ---- | -------- | ------- | ----------- |
-| lookback | number | No | `4.0` | Hours of history to include. |
-| target_points | integer | No | `720` | Target number of points. |
-
 ### Response
-
-#### Success
 
 **Status:** `200 OK`
 
@@ -1121,13 +559,6 @@ Returns raw OD time series for all units in an experiment.
 }
 ```
 
-##### Response Schema
-
-| Field | Type | Nullable | Description |
-| ----- | ---- | -------- | ----------- |
-| series | array | No | Series labels by unit and channel. |
-| data | array | No | Arrays of `{x,y}` points per series. |
-
 ## Get Fallback Time Series
 
 Returns time series for any data source and column.
@@ -1135,24 +566,7 @@ Returns time series for any data source and column.
 ### Endpoint
 `GET /api/experiments/{experiment}/time_series/{data_source}/{column}`
 
-### Request
-
-#### Path Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| experiment | string | Yes | Experiment identifier. |
-| data_source | string | Yes | Table name to query. |
-| column | string | Yes | Column name to query. |
-
-#### Query Parameters
-| Name | Type | Required | Default | Description |
-| ---- | ---- | -------- | ------- | ----------- |
-| lookback | number | No | `4.0` | Hours of history to include. |
-| target_points | integer | No | `720` | Target number of points. |
-
 ### Response
-
-#### Success
 
 **Status:** `200 OK`
 
@@ -1163,13 +577,6 @@ Returns time series for any data source and column.
 }
 ```
 
-##### Response Schema
-
-| Field | Type | Nullable | Description |
-| ----- | ---- | -------- | ----------- |
-| series | array | No | Series labels by unit. |
-| data | array | No | Arrays of `{x,y}` points per series. |
-
 ## Get Growth Rates Per Unit
 
 Returns growth-rate time series for a single unit.
@@ -1177,23 +584,7 @@ Returns growth-rate time series for a single unit.
 ### Endpoint
 `GET /api/workers/{pioreactor_unit}/experiments/{experiment}/time_series/growth_rates`
 
-### Request
-
-#### Path Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| pioreactor_unit | string | Yes | Unit name. |
-| experiment | string | Yes | Experiment identifier. |
-
-#### Query Parameters
-| Name | Type | Required | Default | Description |
-| ---- | ---- | -------- | ------- | ----------- |
-| lookback | number | No | `4.0` | Hours of history to include. |
-| target_points | integer | No | `720` | Target number of points. |
-
 ### Response
-
-#### Success
 
 **Status:** `200 OK`
 
@@ -1204,13 +595,6 @@ Returns growth-rate time series for a single unit.
 }
 ```
 
-##### Response Schema
-
-| Field | Type | Nullable | Description |
-| ----- | ---- | -------- | ----------- |
-| series | array | No | Series labels by unit. |
-| data | array | No | Arrays of `{x,y}` points per series. |
-
 ## Get Temperature Readings Per Unit
 
 Returns temperature time series for a single unit.
@@ -1218,23 +602,7 @@ Returns temperature time series for a single unit.
 ### Endpoint
 `GET /api/workers/{pioreactor_unit}/experiments/{experiment}/time_series/temperature_readings`
 
-### Request
-
-#### Path Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| pioreactor_unit | string | Yes | Unit name. |
-| experiment | string | Yes | Experiment identifier. |
-
-#### Query Parameters
-| Name | Type | Required | Default | Description |
-| ---- | ---- | -------- | ------- | ----------- |
-| lookback | number | No | `4.0` | Hours of history to include. |
-| target_points | integer | No | `720` | Target number of points. |
-
 ### Response
-
-#### Success
 
 **Status:** `200 OK`
 
@@ -1245,13 +613,6 @@ Returns temperature time series for a single unit.
 }
 ```
 
-##### Response Schema
-
-| Field | Type | Nullable | Description |
-| ----- | ---- | -------- | ----------- |
-| series | array | No | Series labels by unit. |
-| data | array | No | Arrays of `{x,y}` points per series. |
-
 ## Get OD Readings Filtered Per Unit
 
 Returns filtered OD time series for a single unit.
@@ -1259,23 +620,7 @@ Returns filtered OD time series for a single unit.
 ### Endpoint
 `GET /api/workers/{pioreactor_unit}/experiments/{experiment}/time_series/od_readings_filtered`
 
-### Request
-
-#### Path Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| pioreactor_unit | string | Yes | Unit name. |
-| experiment | string | Yes | Experiment identifier. |
-
-#### Query Parameters
-| Name | Type | Required | Default | Description |
-| ---- | ---- | -------- | ------- | ----------- |
-| lookback | number | No | `4.0` | Hours of history to include. |
-| target_points | integer | No | `720` | Target number of points. |
-
 ### Response
-
-#### Success
 
 **Status:** `200 OK`
 
@@ -1286,13 +631,6 @@ Returns filtered OD time series for a single unit.
 }
 ```
 
-##### Response Schema
-
-| Field | Type | Nullable | Description |
-| ----- | ---- | -------- | ----------- |
-| series | array | No | Series labels by unit. |
-| data | array | No | Arrays of `{x,y}` points per series. |
-
 ## Get OD Readings Per Unit
 
 Returns OD readings time series for a single unit.
@@ -1300,23 +638,7 @@ Returns OD readings time series for a single unit.
 ### Endpoint
 `GET /api/workers/{pioreactor_unit}/experiments/{experiment}/time_series/od_readings`
 
-### Request
-
-#### Path Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| pioreactor_unit | string | Yes | Unit name. |
-| experiment | string | Yes | Experiment identifier. |
-
-#### Query Parameters
-| Name | Type | Required | Default | Description |
-| ---- | ---- | -------- | ------- | ----------- |
-| lookback | number | No | `4.0` | Hours of history to include. |
-| target_points | integer | No | `720` | Target number of points. |
-
 ### Response
-
-#### Success
 
 **Status:** `200 OK`
 
@@ -1327,13 +649,6 @@ Returns OD readings time series for a single unit.
 }
 ```
 
-##### Response Schema
-
-| Field | Type | Nullable | Description |
-| ----- | ---- | -------- | ----------- |
-| series | array | No | Series labels by unit and channel. |
-| data | array | No | Arrays of `{x,y}` points per series. |
-
 ## Get OD Readings Fused Per Unit
 
 Returns fused OD time series for a single unit.
@@ -1341,23 +656,7 @@ Returns fused OD time series for a single unit.
 ### Endpoint
 `GET /api/workers/{pioreactor_unit}/experiments/{experiment}/time_series/od_readings_fused`
 
-### Request
-
-#### Path Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| pioreactor_unit | string | Yes | Unit name. |
-| experiment | string | Yes | Experiment identifier. |
-
-#### Query Parameters
-| Name | Type | Required | Default | Description |
-| ---- | ---- | -------- | ------- | ----------- |
-| lookback | number | No | `4.0` | Hours of history to include. |
-| target_points | integer | No | `720` | Target number of points. |
-
 ### Response
-
-#### Success
 
 **Status:** `200 OK`
 
@@ -1368,13 +667,6 @@ Returns fused OD time series for a single unit.
 }
 ```
 
-##### Response Schema
-
-| Field | Type | Nullable | Description |
-| ----- | ---- | -------- | ----------- |
-| series | array | No | Series labels by unit. |
-| data | array | No | Arrays of `{x,y}` points per series. |
-
 ## Get Raw OD Readings Per Unit
 
 Returns raw OD time series for a single unit.
@@ -1382,23 +674,7 @@ Returns raw OD time series for a single unit.
 ### Endpoint
 `GET /api/workers/{pioreactor_unit}/experiments/{experiment}/time_series/raw_od_readings`
 
-### Request
-
-#### Path Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| pioreactor_unit | string | Yes | Unit name. |
-| experiment | string | Yes | Experiment identifier. |
-
-#### Query Parameters
-| Name | Type | Required | Default | Description |
-| ---- | ---- | -------- | ------- | ----------- |
-| lookback | number | No | `4.0` | Hours of history to include. |
-| target_points | integer | No | `720` | Target number of points. |
-
 ### Response
-
-#### Success
 
 **Status:** `200 OK`
 
@@ -1409,13 +685,6 @@ Returns raw OD time series for a single unit.
 }
 ```
 
-##### Response Schema
-
-| Field | Type | Nullable | Description |
-| ----- | ---- | -------- | ----------- |
-| series | array | No | Series labels by unit and channel. |
-| data | array | No | Arrays of `{x,y}` points per series. |
-
 ## Get Fallback Time Series Per Unit
 
 Returns time series for any data source and column for a unit.
@@ -1423,25 +692,7 @@ Returns time series for any data source and column for a unit.
 ### Endpoint
 `GET /api/workers/{pioreactor_unit}/experiments/{experiment}/time_series/{data_source}/{column}`
 
-### Request
-
-#### Path Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| pioreactor_unit | string | Yes | Unit name. |
-| experiment | string | Yes | Experiment identifier. |
-| data_source | string | Yes | Table name to query. |
-| column | string | Yes | Column name to query. |
-
-#### Query Parameters
-| Name | Type | Required | Default | Description |
-| ---- | ---- | -------- | ------- | ----------- |
-| lookback | number | No | `4.0` | Hours of history to include. |
-| target_points | integer | No | `720` | Target number of points. |
-
 ### Response
-
-#### Success
 
 **Status:** `200 OK`
 
@@ -1452,13 +703,6 @@ Returns time series for any data source and column for a unit.
 }
 ```
 
-##### Response Schema
-
-| Field | Type | Nullable | Description |
-| ----- | ---- | -------- | ----------- |
-| series | array | No | Series labels by unit. |
-| data | array | No | Arrays of `{x,y}` points per series. |
-
 ## Get Media Rates
 
 Returns recent media dosing rates per unit for an experiment.
@@ -1466,16 +710,7 @@ Returns recent media dosing rates per unit for an experiment.
 ### Endpoint
 `GET /api/experiments/{experiment}/media_rates`
 
-### Request
-
-#### Path Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| experiment | string | Yes | Experiment identifier. |
-
 ### Response
-
-#### Success
 
 **Status:** `200 OK`
 
@@ -1486,13 +721,6 @@ Returns recent media dosing rates per unit for an experiment.
 }
 ```
 
-##### Response Schema
-
-| Field | Type | Nullable | Description |
-| ----- | ---- | -------- | ----------- |
-| pio01 | object | No | Per-unit media rates. |
-| all | object | No | Aggregate media rates. |
-
 ## Get Calibration Protocols
 
 Returns calibration protocols from workers.
@@ -1500,16 +728,7 @@ Returns calibration protocols from workers.
 ### Endpoint
 `GET /api/workers/{pioreactor_unit}/calibration_protocols`
 
-### Request
-
-#### Path Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| pioreactor_unit | string | Yes | Worker unit name or `$broadcast`. |
-
 ### Response
-
-#### Success
 
 **Status:** `202 Accepted`
 
@@ -1520,14 +739,6 @@ Returns calibration protocols from workers.
   "result_url_path": "/unit_api/task_results/task_abc123"
 }
 ```
-
-##### Response Schema
-
-| Field | Type | Nullable | Description |
-| ----- | ---- | -------- | ----------- |
-| unit | string | No | Leader unit name that queued the task. |
-| task_id | string | No | Huey task id. |
-| result_url_path | string | No | Task result path on unit API. |
 
 ## Get All Calibrations
 
@@ -1536,16 +747,7 @@ Returns calibrations from workers.
 ### Endpoint
 `GET /api/workers/{pioreactor_unit}/calibrations`
 
-### Request
-
-#### Path Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| pioreactor_unit | string | Yes | Worker unit name or `$broadcast`. |
-
 ### Response
-
-#### Success
 
 **Status:** `202 Accepted`
 
@@ -1556,14 +758,6 @@ Returns calibrations from workers.
   "result_url_path": "/unit_api/task_results/task_abc123"
 }
 ```
-
-##### Response Schema
-
-| Field | Type | Nullable | Description |
-| ----- | ---- | -------- | ----------- |
-| unit | string | No | Leader unit name that queued the task. |
-| task_id | string | No | Huey task id. |
-| result_url_path | string | No | Task result path on unit API. |
 
 ## Get All Active Calibrations
 
@@ -1572,16 +766,7 @@ Returns active calibrations from workers.
 ### Endpoint
 `GET /api/workers/{pioreactor_unit}/active_calibrations`
 
-### Request
-
-#### Path Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| pioreactor_unit | string | Yes | Worker unit name or `$broadcast`. |
-
 ### Response
-
-#### Success
 
 **Status:** `202 Accepted`
 
@@ -1592,14 +777,6 @@ Returns active calibrations from workers.
   "result_url_path": "/unit_api/task_results/task_abc123"
 }
 ```
-
-##### Response Schema
-
-| Field | Type | Nullable | Description |
-| ----- | ---- | -------- | ----------- |
-| unit | string | No | Leader unit name that queued the task. |
-| task_id | string | No | Huey task id. |
-| result_url_path | string | No | Task result path on unit API. |
 
 ## Get All Active Estimators
 
@@ -1608,16 +785,7 @@ Returns active estimators from workers.
 ### Endpoint
 `GET /api/workers/{pioreactor_unit}/active_estimators`
 
-### Request
-
-#### Path Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| pioreactor_unit | string | Yes | Worker unit name or `$broadcast`. |
-
 ### Response
-
-#### Success
 
 **Status:** `202 Accepted`
 
@@ -1628,14 +796,6 @@ Returns active estimators from workers.
   "result_url_path": "/unit_api/task_results/task_abc123"
 }
 ```
-
-##### Response Schema
-
-| Field | Type | Nullable | Description |
-| ----- | ---- | -------- | ----------- |
-| unit | string | No | Leader unit name that queued the task. |
-| task_id | string | No | Huey task id. |
-| result_url_path | string | No | Task result path on unit API. |
 
 ## Get All Estimators
 
@@ -1644,16 +804,7 @@ Returns estimators from workers.
 ### Endpoint
 `GET /api/workers/{pioreactor_unit}/estimators`
 
-### Request
-
-#### Path Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| pioreactor_unit | string | Yes | Worker unit name or `$broadcast`. |
-
 ### Response
-
-#### Success
 
 **Status:** `202 Accepted`
 
@@ -1665,14 +816,6 @@ Returns estimators from workers.
 }
 ```
 
-##### Response Schema
-
-| Field | Type | Nullable | Description |
-| ----- | ---- | -------- | ----------- |
-| unit | string | No | Leader unit name that queued the task. |
-| task_id | string | No | Huey task id. |
-| result_url_path | string | No | Task result path on unit API. |
-
 ## Get All Calibrations As Zip
 
 Returns a ZIP of all calibration YAMLs from workers.
@@ -1680,26 +823,13 @@ Returns a ZIP of all calibration YAMLs from workers.
 ### Endpoint
 `GET /api/workers/{pioreactor_unit}/zipped_calibrations`
 
-### Request
-
-#### Path Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| pioreactor_unit | string | Yes | Worker unit name or `$broadcast`. |
-
 ### Response
-
-#### Success
 
 **Status:** `200 OK`
 
 ```json
 {}
 ```
-
-### Notes
-
-* Response is `application/zip` content.
 
 ## Get Dot Pioreactor Zip
 
@@ -1708,26 +838,13 @@ Returns a ZIP of `.pioreactor` from a unit or cluster.
 ### Endpoint
 `GET /api/units/{pioreactor_unit}/zipped_dot_pioreactor`
 
-### Request
-
-#### Path Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| pioreactor_unit | string | Yes | Unit name or `$broadcast`. |
-
 ### Response
-
-#### Success
 
 **Status:** `200 OK`
 
 ```json
 {}
 ```
-
-### Notes
-
-* Response is `application/zip` content.
 
 ## Import Dot Pioreactor Zip
 
@@ -1738,38 +855,18 @@ Imports a `.pioreactor` ZIP to a specific unit.
 
 ### Request
 
-#### Path Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| pioreactor_unit | string | Yes | Unit name (not `$broadcast`). |
-
 #### Request Body
 ```json
 {}
 ```
 
-##### Body Schema
-
-| Field | Type | Required | Description | Constraints |
-| ----- | ---- | -------- | ----------- | ----------- |
-| archive | file | Yes | Multipart ZIP file. | form-data field `archive` |
-
 ### Response
-
-#### Success
 
 **Status:** `202 Accepted`
 
 ```json
 {}
 ```
-
-### Errors
-
-| Status | Meaning | When it Happens |
-| ------ | ------- | --------------- |
-| 400 | Invalid request | Missing archive or `$broadcast`. |
-| 502 | Bad gateway | Worker import failed. |
 
 ## Get Calibrations By Device
 
@@ -1778,17 +875,7 @@ Returns calibrations for a device from workers.
 ### Endpoint
 `GET /api/workers/{pioreactor_unit}/calibrations/{device}`
 
-### Request
-
-#### Path Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| pioreactor_unit | string | Yes | Worker unit name or `$broadcast`. |
-| device | string | Yes | Device name. |
-
 ### Response
-
-#### Success
 
 **Status:** `202 Accepted`
 
@@ -1799,14 +886,6 @@ Returns calibrations for a device from workers.
   "result_url_path": "/unit_api/task_results/task_abc123"
 }
 ```
-
-##### Response Schema
-
-| Field | Type | Nullable | Description |
-| ----- | ---- | -------- | ----------- |
-| unit | string | No | Leader unit name that queued the task. |
-| task_id | string | No | Huey task id. |
-| result_url_path | string | No | Task result path on unit API. |
 
 ## Get Calibration
 
@@ -1815,18 +894,7 @@ Returns a specific calibration from workers.
 ### Endpoint
 `GET /api/workers/{pioreactor_unit}/calibrations/{device}/{cal_name}`
 
-### Request
-
-#### Path Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| pioreactor_unit | string | Yes | Worker unit name or `$broadcast`. |
-| device | string | Yes | Device name. |
-| cal_name | string | Yes | Calibration name. |
-
 ### Response
-
-#### Success
 
 **Status:** `202 Accepted`
 
@@ -1837,14 +905,6 @@ Returns a specific calibration from workers.
   "result_url_path": "/unit_api/task_results/task_abc123"
 }
 ```
-
-##### Response Schema
-
-| Field | Type | Nullable | Description |
-| ----- | ---- | -------- | ----------- |
-| unit | string | No | Leader unit name that queued the task. |
-| task_id | string | No | Huey task id. |
-| result_url_path | string | No | Task result path on unit API. |
 
 ## Get Estimators By Device
 
@@ -1853,17 +913,7 @@ Returns estimators for a device from workers.
 ### Endpoint
 `GET /api/workers/{pioreactor_unit}/estimators/{device}`
 
-### Request
-
-#### Path Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| pioreactor_unit | string | Yes | Worker unit name or `$broadcast`. |
-| device | string | Yes | Device name. |
-
 ### Response
-
-#### Success
 
 **Status:** `202 Accepted`
 
@@ -1874,14 +924,6 @@ Returns estimators for a device from workers.
   "result_url_path": "/unit_api/task_results/task_abc123"
 }
 ```
-
-##### Response Schema
-
-| Field | Type | Nullable | Description |
-| ----- | ---- | -------- | ----------- |
-| unit | string | No | Leader unit name that queued the task. |
-| task_id | string | No | Huey task id. |
-| result_url_path | string | No | Task result path on unit API. |
 
 ## Get Estimator
 
@@ -1890,18 +932,7 @@ Returns a specific estimator from workers.
 ### Endpoint
 `GET /api/workers/{pioreactor_unit}/estimators/{device}/{estimator_name}`
 
-### Request
-
-#### Path Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| pioreactor_unit | string | Yes | Worker unit name or `$broadcast`. |
-| device | string | Yes | Device name. |
-| estimator_name | string | Yes | Estimator name. |
-
 ### Response
-
-#### Success
 
 **Status:** `202 Accepted`
 
@@ -1912,14 +943,6 @@ Returns a specific estimator from workers.
   "result_url_path": "/unit_api/task_results/task_abc123"
 }
 ```
-
-##### Response Schema
-
-| Field | Type | Nullable | Description |
-| ----- | ---- | -------- | ----------- |
-| unit | string | No | Leader unit name that queued the task. |
-| task_id | string | No | Huey task id. |
-| result_url_path | string | No | Task result path on unit API. |
 
 ## Create Calibration
 
@@ -1930,12 +953,6 @@ Creates a calibration on one or more workers.
 
 ### Request
 
-#### Path Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| pioreactor_unit | string | Yes | Worker unit name or `$broadcast`. |
-| device | string | Yes | Device name. |
-
 #### Request Body
 ```json
 {
@@ -1943,15 +960,7 @@ Creates a calibration on one or more workers.
 }
 ```
 
-##### Body Schema
-
-| Field | Type | Required | Description | Constraints |
-| ----- | ---- | -------- | ----------- | ----------- |
-| calibration_data | string | Yes | YAML-encoded calibration payload. | valid calibration YAML |
-
 ### Response
-
-#### Success
 
 **Status:** `202 Accepted`
 
@@ -1962,14 +971,6 @@ Creates a calibration on one or more workers.
   "result_url_path": "/unit_api/task_results/task_abc123"
 }
 ```
-
-##### Response Schema
-
-| Field | Type | Nullable | Description |
-| ----- | ---- | -------- | ----------- |
-| unit | string | No | Leader unit name that queued the task. |
-| task_id | string | No | Huey task id. |
-| result_url_path | string | No | Task result path on unit API. |
 
 ## Start Calibration Session
 
@@ -1980,11 +981,6 @@ Starts a calibration session on a specific worker.
 
 ### Request
 
-#### Path Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| pioreactor_unit | string | Yes | Worker unit name (not `$broadcast`). |
-
 #### Request Body
 ```json
 {
@@ -1993,16 +989,7 @@ Starts a calibration session on a specific worker.
 }
 ```
 
-##### Body Schema
-
-| Field | Type | Required | Description | Constraints |
-| ----- | ---- | -------- | ----------- | ----------- |
-| protocol_name | string | Yes | Protocol name. | must exist for device |
-| target_device | string | Yes | Device name. | must exist |
-
 ### Response
-
-#### Success
 
 **Status:** `201 Created`
 
@@ -2013,20 +1000,6 @@ Starts a calibration session on a specific worker.
 }
 ```
 
-##### Response Schema
-
-| Field | Type | Nullable | Description |
-| ----- | ---- | -------- | ----------- |
-| session | object | No | Session payload. |
-| step | object | Yes | Current step payload. |
-
-### Errors
-
-| Status | Meaning | When it Happens |
-| ------ | ------- | --------------- |
-| 400 | Invalid request | Missing payload or `$broadcast`. |
-| 502 | Bad gateway | Worker session start failed. |
-
 ## Get Calibration Session
 
 Fetches a calibration session from a worker.
@@ -2034,17 +1007,7 @@ Fetches a calibration session from a worker.
 ### Endpoint
 `GET /api/workers/{pioreactor_unit}/calibrations/sessions/{session_id}`
 
-### Request
-
-#### Path Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| pioreactor_unit | string | Yes | Worker unit name (not `$broadcast`). |
-| session_id | string | Yes | Session identifier. |
-
 ### Response
-
-#### Success
 
 **Status:** `200 OK`
 
@@ -2055,13 +1018,6 @@ Fetches a calibration session from a worker.
 }
 ```
 
-##### Response Schema
-
-| Field | Type | Nullable | Description |
-| ----- | ---- | -------- | ----------- |
-| session | object | No | Session payload. |
-| step | object | Yes | Current step payload. |
-
 ## Advance Calibration Session
 
 Submits inputs to advance a calibration session on a worker.
@@ -2071,12 +1027,6 @@ Submits inputs to advance a calibration session on a worker.
 
 ### Request
 
-#### Path Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| pioreactor_unit | string | Yes | Worker unit name (not `$broadcast`). |
-| session_id | string | Yes | Session identifier. |
-
 #### Request Body
 ```json
 {
@@ -2084,15 +1034,7 @@ Submits inputs to advance a calibration session on a worker.
 }
 ```
 
-##### Body Schema
-
-| Field | Type | Required | Description | Constraints |
-| ----- | ---- | -------- | ----------- | ----------- |
-| inputs | object | Yes | Step inputs. | depends on step |
-
 ### Response
-
-#### Success
 
 **Status:** `200 OK`
 
@@ -2103,13 +1045,6 @@ Submits inputs to advance a calibration session on a worker.
 }
 ```
 
-##### Response Schema
-
-| Field | Type | Nullable | Description |
-| ----- | ---- | -------- | ----------- |
-| session | object | No | Session payload. |
-| step | object | Yes | Current step payload. |
-
 ## Abort Calibration Session
 
 Aborts a calibration session on a worker.
@@ -2117,17 +1052,7 @@ Aborts a calibration session on a worker.
 ### Endpoint
 `POST /api/workers/{pioreactor_unit}/calibrations/sessions/{session_id}/abort`
 
-### Request
-
-#### Path Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| pioreactor_unit | string | Yes | Worker unit name (not `$broadcast`). |
-| session_id | string | Yes | Session identifier. |
-
 ### Response
-
-#### Success
 
 **Status:** `200 OK`
 
@@ -2138,13 +1063,6 @@ Aborts a calibration session on a worker.
 }
 ```
 
-##### Response Schema
-
-| Field | Type | Nullable | Description |
-| ----- | ---- | -------- | ----------- |
-| session | object | No | Session payload. |
-| step | object | Yes | Current step payload. |
-
 ## Set Active Calibration
 
 Sets the active calibration for a device on workers.
@@ -2152,18 +1070,7 @@ Sets the active calibration for a device on workers.
 ### Endpoint
 `PATCH /api/workers/{pioreactor_unit}/active_calibrations/{device}/{cal_name}`
 
-### Request
-
-#### Path Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| pioreactor_unit | string | Yes | Worker unit name or `$broadcast`. |
-| device | string | Yes | Device name. |
-| cal_name | string | Yes | Calibration name. |
-
 ### Response
-
-#### Success
 
 **Status:** `202 Accepted`
 
@@ -2174,14 +1081,6 @@ Sets the active calibration for a device on workers.
   "result_url_path": "/unit_api/task_results/task_abc123"
 }
 ```
-
-##### Response Schema
-
-| Field | Type | Nullable | Description |
-| ----- | ---- | -------- | ----------- |
-| unit | string | No | Leader unit name that queued the task. |
-| task_id | string | No | Huey task id. |
-| result_url_path | string | No | Task result path on unit API. |
 
 ## Set Active Estimator
 
@@ -2190,18 +1089,7 @@ Sets the active estimator for a device on workers.
 ### Endpoint
 `PATCH /api/workers/{pioreactor_unit}/active_estimators/{device}/{estimator_name}`
 
-### Request
-
-#### Path Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| pioreactor_unit | string | Yes | Worker unit name or `$broadcast`. |
-| device | string | Yes | Device name. |
-| estimator_name | string | Yes | Estimator name. |
-
 ### Response
-
-#### Success
 
 **Status:** `202 Accepted`
 
@@ -2212,14 +1100,6 @@ Sets the active estimator for a device on workers.
   "result_url_path": "/unit_api/task_results/task_abc123"
 }
 ```
-
-##### Response Schema
-
-| Field | Type | Nullable | Description |
-| ----- | ---- | -------- | ----------- |
-| unit | string | No | Leader unit name that queued the task. |
-| task_id | string | No | Huey task id. |
-| result_url_path | string | No | Task result path on unit API. |
 
 ## Remove Active Calibration
 
@@ -2228,17 +1108,7 @@ Clears the active calibration for a device on workers.
 ### Endpoint
 `DELETE /api/workers/{pioreactor_unit}/active_calibrations/{device}`
 
-### Request
-
-#### Path Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| pioreactor_unit | string | Yes | Worker unit name or `$broadcast`. |
-| device | string | Yes | Device name. |
-
 ### Response
-
-#### Success
 
 **Status:** `202 Accepted`
 
@@ -2249,14 +1119,6 @@ Clears the active calibration for a device on workers.
   "result_url_path": "/unit_api/task_results/task_abc123"
 }
 ```
-
-##### Response Schema
-
-| Field | Type | Nullable | Description |
-| ----- | ---- | -------- | ----------- |
-| unit | string | No | Leader unit name that queued the task. |
-| task_id | string | No | Huey task id. |
-| result_url_path | string | No | Task result path on unit API. |
 
 ## Remove Active Estimator
 
@@ -2265,17 +1127,7 @@ Clears the active estimator for a device on workers.
 ### Endpoint
 `DELETE /api/workers/{pioreactor_unit}/active_estimators/{device}`
 
-### Request
-
-#### Path Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| pioreactor_unit | string | Yes | Worker unit name or `$broadcast`. |
-| device | string | Yes | Device name. |
-
 ### Response
-
-#### Success
 
 **Status:** `202 Accepted`
 
@@ -2286,14 +1138,6 @@ Clears the active estimator for a device on workers.
   "result_url_path": "/unit_api/task_results/task_abc123"
 }
 ```
-
-##### Response Schema
-
-| Field | Type | Nullable | Description |
-| ----- | ---- | -------- | ----------- |
-| unit | string | No | Leader unit name that queued the task. |
-| task_id | string | No | Huey task id. |
-| result_url_path | string | No | Task result path on unit API. |
 
 ## Delete Calibration
 
@@ -2302,18 +1146,7 @@ Deletes a calibration on workers.
 ### Endpoint
 `DELETE /api/workers/{pioreactor_unit}/calibrations/{device}/{cal_name}`
 
-### Request
-
-#### Path Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| pioreactor_unit | string | Yes | Worker unit name or `$broadcast`. |
-| device | string | Yes | Device name. |
-| cal_name | string | Yes | Calibration name. |
-
 ### Response
-
-#### Success
 
 **Status:** `202 Accepted`
 
@@ -2324,14 +1157,6 @@ Deletes a calibration on workers.
   "result_url_path": "/unit_api/task_results/task_abc123"
 }
 ```
-
-##### Response Schema
-
-| Field | Type | Nullable | Description |
-| ----- | ---- | -------- | ----------- |
-| unit | string | No | Leader unit name that queued the task. |
-| task_id | string | No | Huey task id. |
-| result_url_path | string | No | Task result path on unit API. |
 
 ## Delete Estimator
 
@@ -2340,18 +1165,7 @@ Deletes an estimator on workers.
 ### Endpoint
 `DELETE /api/workers/{pioreactor_unit}/estimators/{device}/{estimator_name}`
 
-### Request
-
-#### Path Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| pioreactor_unit | string | Yes | Worker unit name or `$broadcast`. |
-| device | string | Yes | Device name. |
-| estimator_name | string | Yes | Estimator name. |
-
 ### Response
-
-#### Success
 
 **Status:** `202 Accepted`
 
@@ -2362,14 +1176,6 @@ Deletes an estimator on workers.
   "result_url_path": "/unit_api/task_results/task_abc123"
 }
 ```
-
-##### Response Schema
-
-| Field | Type | Nullable | Description |
-| ----- | ---- | -------- | ----------- |
-| unit | string | No | Leader unit name that queued the task. |
-| task_id | string | No | Huey task id. |
-| result_url_path | string | No | Task result path on unit API. |
 
 ## Get Plugins Installed
 
@@ -2378,16 +1184,7 @@ Returns installed plugins from a unit or cluster.
 ### Endpoint
 `GET /api/units/{pioreactor_unit}/plugins/installed`
 
-### Request
-
-#### Path Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| pioreactor_unit | string | Yes | Unit name or `$broadcast`. |
-
 ### Response
-
-#### Success
 
 **Status:** `202 Accepted`
 
@@ -2398,14 +1195,6 @@ Returns installed plugins from a unit or cluster.
   "result_url_path": "/unit_api/task_results/task_abc123"
 }
 ```
-
-##### Response Schema
-
-| Field | Type | Nullable | Description |
-| ----- | ---- | -------- | ----------- |
-| unit | string | No | Leader unit name that queued the task. |
-| task_id | string | No | Huey task id. |
-| result_url_path | string | No | Task result path on unit API. |
 
 ## Install Plugin Across Cluster
 
@@ -2416,11 +1205,6 @@ Installs a plugin on a unit or cluster.
 
 ### Request
 
-#### Path Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| pioreactor_unit | string | Yes | Unit name or `$broadcast`. |
-
 #### Request Body
 ```json
 {
@@ -2429,16 +1213,7 @@ Installs a plugin on a unit or cluster.
 }
 ```
 
-##### Body Schema
-
-| Field | Type | Required | Description | Constraints |
-| ----- | ---- | -------- | ----------- | ----------- |
-| options | object | No | Installer options. | keys map to flags |
-| args | array | Yes | Plugin name list. | length 1 recommended |
-
 ### Response
-
-#### Success
 
 **Status:** `202 Accepted`
 
@@ -2449,20 +1224,6 @@ Installs a plugin on a unit or cluster.
   "result_url_path": "/unit_api/task_results/task_abc123"
 }
 ```
-
-##### Response Schema
-
-| Field | Type | Nullable | Description |
-| ----- | ---- | -------- | ----------- |
-| unit | string | No | Leader unit name that queued the task. |
-| task_id | string | No | Huey task id. |
-| result_url_path | string | No | Task result path on unit API. |
-
-### Errors
-
-| Status | Meaning | When it Happens |
-| ------ | ------- | --------------- |
-| 403 | Forbidden | UI installs disabled. |
 
 ## Uninstall Plugin Across Cluster
 
@@ -2473,11 +1234,6 @@ Uninstalls a plugin on a unit or cluster.
 
 ### Request
 
-#### Path Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| pioreactor_unit | string | Yes | Unit name or `$broadcast`. |
-
 #### Request Body
 ```json
 {
@@ -2485,15 +1241,7 @@ Uninstalls a plugin on a unit or cluster.
 }
 ```
 
-##### Body Schema
-
-| Field | Type | Required | Description | Constraints |
-| ----- | ---- | -------- | ----------- | ----------- |
-| args | array | Yes | Plugin name list. | length 1 recommended |
-
 ### Response
-
-#### Success
 
 **Status:** `202 Accepted`
 
@@ -2504,20 +1252,6 @@ Uninstalls a plugin on a unit or cluster.
   "result_url_path": "/unit_api/task_results/task_abc123"
 }
 ```
-
-##### Response Schema
-
-| Field | Type | Nullable | Description |
-| ----- | ---- | -------- | ----------- |
-| unit | string | No | Leader unit name that queued the task. |
-| task_id | string | No | Huey task id. |
-| result_url_path | string | No | Task result path on unit API. |
-
-### Errors
-
-| Status | Meaning | When it Happens |
-| ------ | ------- | --------------- |
-| 403 | Forbidden | UI uninstalls disabled. |
 
 ## Get Capabilities
 
@@ -2526,16 +1260,7 @@ Returns capabilities for a unit or cluster.
 ### Endpoint
 `GET /api/units/{pioreactor_unit}/capabilities`
 
-### Request
-
-#### Path Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| pioreactor_unit | string | Yes | Unit name or `$broadcast`. |
-
 ### Response
-
-#### Success
 
 **Status:** `202 Accepted`
 
@@ -2546,14 +1271,6 @@ Returns capabilities for a unit or cluster.
   "result_url_path": "/unit_api/task_results/task_abc123"
 }
 ```
-
-##### Response Schema
-
-| Field | Type | Nullable | Description |
-| ----- | ---- | -------- | ----------- |
-| unit | string | No | Leader unit name that queued the task. |
-| task_id | string | No | Huey task id. |
-| result_url_path | string | No | Task result path on unit API. |
 
 ## Get Job Settings For Worker
 
@@ -2562,18 +1279,7 @@ Returns settings for a job on a worker within an experiment.
 ### Endpoint
 `GET /api/workers/{pioreactor_unit}/jobs/settings/job_name/{job_name}/experiments/{experiment}`
 
-### Request
-
-#### Path Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| pioreactor_unit | string | Yes | Unit name or `$broadcast`. |
-| job_name | string | Yes | Job name. |
-| experiment | string | Yes | Experiment identifier. |
-
 ### Response
-
-#### Success
 
 **Status:** `202 Accepted`
 
@@ -2584,14 +1290,6 @@ Returns settings for a job on a worker within an experiment.
   "result_url_path": "/unit_api/task_results/task_abc123"
 }
 ```
-
-##### Response Schema
-
-| Field | Type | Nullable | Description |
-| ----- | ---- | -------- | ----------- |
-| unit | string | No | Leader unit name that queued the task. |
-| task_id | string | No | Huey task id. |
-| result_url_path | string | No | Task result path on unit API. |
 
 ## Get Job Setting For Worker
 
@@ -2600,19 +1298,7 @@ Returns a specific setting for a job on a worker within an experiment.
 ### Endpoint
 `GET /api/workers/{pioreactor_unit}/jobs/settings/job_name/{job_name}/setting/{setting}/experiments/{experiment}`
 
-### Request
-
-#### Path Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| pioreactor_unit | string | Yes | Unit name or `$broadcast`. |
-| job_name | string | Yes | Job name. |
-| setting | string | Yes | Setting name. |
-| experiment | string | Yes | Experiment identifier. |
-
 ### Response
-
-#### Success
 
 **Status:** `202 Accepted`
 
@@ -2623,14 +1309,6 @@ Returns a specific setting for a job on a worker within an experiment.
   "result_url_path": "/unit_api/task_results/task_abc123"
 }
 ```
-
-##### Response Schema
-
-| Field | Type | Nullable | Description |
-| ----- | ---- | -------- | ----------- |
-| unit | string | No | Leader unit name that queued the task. |
-| task_id | string | No | Huey task id. |
-| result_url_path | string | No | Task result path on unit API. |
 
 ## Get App Versions
 
@@ -2639,16 +1317,7 @@ Returns app version from a unit or cluster.
 ### Endpoint
 `GET /api/units/{pioreactor_unit}/versions/app`
 
-### Request
-
-#### Path Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| pioreactor_unit | string | Yes | Unit name or `$broadcast`. |
-
 ### Response
-
-#### Success
 
 **Status:** `202 Accepted`
 
@@ -2659,14 +1328,6 @@ Returns app version from a unit or cluster.
   "result_url_path": "/unit_api/task_results/task_abc123"
 }
 ```
-
-##### Response Schema
-
-| Field | Type | Nullable | Description |
-| ----- | ---- | -------- | ----------- |
-| unit | string | No | Leader unit name that queued the task. |
-| task_id | string | No | Huey task id. |
-| result_url_path | string | No | Task result path on unit API. |
 
 ## Upload File
 
@@ -2682,15 +1343,7 @@ Uploads a file to the server temp directory.
 {}
 ```
 
-##### Body Schema
-
-| Field | Type | Required | Description | Constraints |
-| ----- | ---- | -------- | ----------- | ----------- |
-| file | file | Yes | Multipart file upload. | form-data field `file` |
-
 ### Response
-
-#### Success
 
 **Status:** `200 OK`
 
@@ -2701,20 +1354,6 @@ Uploads a file to the server temp directory.
 }
 ```
 
-##### Response Schema
-
-| Field | Type | Nullable | Description |
-| ----- | ---- | -------- | ----------- |
-| message | string | No | Status message. |
-| save_path | string | No | Temp file path. |
-
-### Errors
-
-| Status | Meaning | When it Happens |
-| ------ | ------- | --------------- |
-| 400 | Invalid request | Missing file or too large. |
-| 403 | Forbidden | UI uploads disabled. |
-
 ## Get Automation Contrib
 
 Returns automation descriptors by type.
@@ -2722,16 +1361,7 @@ Returns automation descriptors by type.
 ### Endpoint
 `GET /api/contrib/automations/{automation_type}`
 
-### Request
-
-#### Path Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| automation_type | string | Yes | `temperature`, `dosing`, or `led`. |
-
 ### Response
-
-#### Success
 
 **Status:** `200 OK`
 
@@ -2744,13 +1374,6 @@ Returns automation descriptors by type.
 ]
 ```
 
-##### Response Schema
-
-| Field | Type | Nullable | Description |
-| ----- | ---- | -------- | ----------- |
-| automation_name | string | No | Automation identifier. |
-| display_name | string | Yes | UI label. |
-
 ## Get Job Contrib
 
 Returns job descriptors for UI.
@@ -2759,8 +1382,6 @@ Returns job descriptors for UI.
 `GET /api/contrib/jobs`
 
 ### Response
-
-#### Success
 
 **Status:** `200 OK`
 
@@ -2773,13 +1394,6 @@ Returns job descriptors for UI.
 ]
 ```
 
-##### Response Schema
-
-| Field | Type | Nullable | Description |
-| ----- | ---- | -------- | ----------- |
-| job_name | string | No | Job identifier. |
-| display_name | string | Yes | UI label. |
-
 ## Get Charts Contrib
 
 Returns chart descriptors for UI.
@@ -2788,8 +1402,6 @@ Returns chart descriptors for UI.
 `GET /api/contrib/charts`
 
 ### Response
-
-#### Success
 
 **Status:** `200 OK`
 
@@ -2802,13 +1414,6 @@ Returns chart descriptors for UI.
 ]
 ```
 
-##### Response Schema
-
-| Field | Type | Nullable | Description |
-| ----- | ---- | -------- | ----------- |
-| chart_key | string | No | Chart identifier. |
-| display_name | string | Yes | UI label. |
-
 ## Update App Next Version
 
 Triggers cluster update to the next version.
@@ -2817,8 +1422,6 @@ Triggers cluster update to the next version.
 `POST /api/system/update_next_version`
 
 ### Response
-
-#### Success
 
 **Status:** `202 Accepted`
 
@@ -2829,14 +1432,6 @@ Triggers cluster update to the next version.
   "result_url_path": "/unit_api/task_results/task_abc123"
 }
 ```
-
-##### Response Schema
-
-| Field | Type | Nullable | Description |
-| ----- | ---- | -------- | ----------- |
-| unit | string | No | Leader unit name that queued the task. |
-| task_id | string | No | Huey task id. |
-| result_url_path | string | No | Task result path on unit API. |
 
 ## Update App From Archive
 
@@ -2855,16 +1450,7 @@ Triggers cluster update from a release archive.
 }
 ```
 
-##### Body Schema
-
-| Field | Type | Required | Description | Constraints |
-| ----- | ---- | -------- | ----------- | ----------- |
-| release_archive_location | string | Yes | ZIP path on leader. | must end with `.zip` |
-| units | array | Yes | Units to update. | list of unit names |
-
 ### Response
-
-#### Success
 
 **Status:** `202 Accepted`
 
@@ -2876,14 +1462,6 @@ Triggers cluster update from a release archive.
 }
 ```
 
-##### Response Schema
-
-| Field | Type | Nullable | Description |
-| ----- | ---- | -------- | ----------- |
-| unit | string | No | Leader unit name that queued the task. |
-| task_id | string | No | Huey task id. |
-| result_url_path | string | No | Task result path on unit API. |
-
 ## Get Exportable Datasets
 
 Returns exportable dataset descriptors.
@@ -2892,8 +1470,6 @@ Returns exportable dataset descriptors.
 `GET /api/contrib/exportable_datasets`
 
 ### Response
-
-#### Success
 
 **Status:** `200 OK`
 
@@ -2906,13 +1482,6 @@ Returns exportable dataset descriptors.
 ]
 ```
 
-##### Response Schema
-
-| Field | Type | Nullable | Description |
-| ----- | ---- | -------- | ----------- |
-| dataset_name | string | No | Dataset identifier. |
-| table | string | Yes | Source table if present. |
-
 ## Preview Exportable Dataset
 
 Returns a preview of a dataset.
@@ -2920,21 +1489,7 @@ Returns a preview of a dataset.
 ### Endpoint
 `GET /api/contrib/exportable_datasets/{target_dataset}/preview`
 
-### Request
-
-#### Path Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| target_dataset | string | Yes | Dataset identifier. |
-
-#### Query Parameters
-| Name | Type | Required | Default | Description |
-| ---- | ---- | -------- | ------- | ----------- |
-| n_rows | integer | No | `5` | Number of rows to preview. |
-
 ### Response
-
-#### Success
 
 **Status:** `200 OK`
 
@@ -2943,18 +1498,6 @@ Returns a preview of a dataset.
   {"column": "value"}
 ]
 ```
-
-##### Response Schema
-
-| Field | Type | Nullable | Description |
-| ----- | ---- | -------- | ----------- |
-| column | string | Yes | Example column value. |
-
-### Errors
-
-| Status | Meaning | When it Happens |
-| ------ | ------- | --------------- |
-| 404 | Not found | Dataset not found. |
 
 ## Export Datasets
 
@@ -2977,20 +1520,7 @@ Exports datasets to a ZIP archive.
 }
 ```
 
-##### Body Schema
-
-| Field | Type | Required | Description | Constraints |
-| ----- | ---- | -------- | ----------- | ----------- |
-| datasets | array | Yes | Dataset names to export. | non-empty |
-| experiments | array | Yes | Experiments to export. | list of experiment names |
-| partition_by_unit | boolean | Yes | Split by unit. |  |
-| partition_by_experiment | boolean | Yes | Split by experiment. |  |
-| start_time | string | No | Start time filter. | ISO-8601 |
-| end_time | string | No | End time filter. | ISO-8601 |
-
 ### Response
-
-#### Success
 
 **Status:** `200 OK`
 
@@ -3002,14 +1532,6 @@ Exports datasets to a ZIP archive.
 }
 ```
 
-##### Response Schema
-
-| Field | Type | Nullable | Description |
-| ----- | ---- | -------- | ----------- |
-| result | boolean | No | Export success. |
-| filename | string | Yes | Export filename. |
-| msg | string | No | Status message. |
-
 ## Get Experiments
 
 Returns experiments list.
@@ -3018,8 +1540,6 @@ Returns experiments list.
 `GET /api/experiments`
 
 ### Response
-
-#### Success
 
 **Status:** `200 OK`
 
@@ -3033,15 +1553,6 @@ Returns experiments list.
   }
 ]
 ```
-
-##### Response Schema
-
-| Field | Type | Nullable | Description |
-| ----- | ---- | -------- | ----------- |
-| experiment | string | No | Experiment name. |
-| created_at | string | No | Creation timestamp. |
-| description | string | Yes | Experiment description. |
-| delta_hours | number | No | Hours since creation. |
 
 ## Create Experiment
 
@@ -3062,18 +1573,7 @@ Creates a new experiment.
 }
 ```
 
-##### Body Schema
-
-| Field | Type | Required | Description | Constraints |
-| ----- | ---- | -------- | ----------- | ----------- |
-| experiment | string | Yes | Experiment name. | no special chars |
-| description | string | No | Description text. |  |
-| mediaUsed | string | No | Media used label. |  |
-| organismUsed | string | No | Organism used label. |  |
-
 ### Response
-
-#### Success
 
 **Status:** `201 Created`
 
@@ -3083,19 +1583,6 @@ Creates a new experiment.
 }
 ```
 
-##### Response Schema
-
-| Field | Type | Nullable | Description |
-| ----- | ---- | -------- | ----------- |
-| status | string | No | Creation status. |
-
-### Errors
-
-| Status | Meaning | When it Happens |
-| ------ | ------- | --------------- |
-| 400 | Invalid request | Experiment name invalid. |
-| 409 | Conflict | Experiment already exists. |
-
 ## Delete Experiment
 
 Deletes an experiment and stops its jobs.
@@ -3103,16 +1590,7 @@ Deletes an experiment and stops its jobs.
 ### Endpoint
 `DELETE /api/experiments/{experiment}`
 
-### Request
-
-#### Path Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| experiment | string | Yes | Experiment identifier. |
-
 ### Response
-
-#### Success
 
 **Status:** `200 OK`
 
@@ -3122,18 +1600,6 @@ Deletes an experiment and stops its jobs.
 }
 ```
 
-##### Response Schema
-
-| Field | Type | Nullable | Description |
-| ----- | ---- | -------- | ----------- |
-| status | string | No | Deletion status. |
-
-### Errors
-
-| Status | Meaning | When it Happens |
-| ------ | ------- | --------------- |
-| 404 | Not found | Experiment missing. |
-
 ## Get Latest Experiment
 
 Returns the most recently created experiment.
@@ -3142,8 +1608,6 @@ Returns the most recently created experiment.
 `GET /api/experiments/latest`
 
 ### Response
-
-#### Success
 
 **Status:** `200 OK`
 
@@ -3158,17 +1622,6 @@ Returns the most recently created experiment.
 }
 ```
 
-##### Response Schema
-
-| Field | Type | Nullable | Description |
-| ----- | ---- | -------- | ----------- |
-| experiment | string | No | Experiment name. |
-| created_at | string | No | Creation timestamp. |
-| description | string | Yes | Description text. |
-| media_used | string | Yes | Media used label. |
-| organism_used | string | Yes | Organism used label. |
-| delta_hours | number | No | Hours since creation. |
-
 ## Get Unit Labels
 
 Returns unit labels for an experiment.
@@ -3176,16 +1629,7 @@ Returns unit labels for an experiment.
 ### Endpoint
 `GET /api/experiments/{experiment}/unit_labels`
 
-### Request
-
-#### Path Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| experiment | string | Yes | Experiment identifier or `current`. |
-
 ### Response
-
-#### Success
 
 **Status:** `200 OK`
 
@@ -3196,12 +1640,6 @@ Returns unit labels for an experiment.
 }
 ```
 
-##### Response Schema
-
-| Field | Type | Nullable | Description |
-| ----- | ---- | -------- | ----------- |
-| pio01 | string | Yes | Unit label. |
-
 ## Upsert Unit Labels
 
 Creates or updates a unit label for an experiment.
@@ -3211,11 +1649,6 @@ Creates or updates a unit label for an experiment.
 
 ### Request
 
-#### Path Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| experiment | string | Yes | Experiment identifier. |
-
 #### Request Body
 ```json
 {
@@ -3224,16 +1657,7 @@ Creates or updates a unit label for an experiment.
 }
 ```
 
-##### Body Schema
-
-| Field | Type | Required | Description | Constraints |
-| ----- | ---- | -------- | ----------- | ----------- |
-| unit | string | Yes | Unit name. |  |
-| label | string | Yes | Label value. | empty string clears label |
-
 ### Response
-
-#### Success
 
 **Status:** `201 Created`
 
@@ -3242,12 +1666,6 @@ Creates or updates a unit label for an experiment.
   "status": "success"
 }
 ```
-
-##### Response Schema
-
-| Field | Type | Nullable | Description |
-| ----- | ---- | -------- | ----------- |
-| status | string | No | Upsert status. |
 
 ## Get Historical Organisms
 
@@ -3258,8 +1676,6 @@ Returns previously used organism labels.
 
 ### Response
 
-#### Success
-
 **Status:** `200 OK`
 
 ```json
@@ -3267,12 +1683,6 @@ Returns previously used organism labels.
   {"key": "E. coli"}
 ]
 ```
-
-##### Response Schema
-
-| Field | Type | Nullable | Description |
-| ----- | ---- | -------- | ----------- |
-| key | string | No | Organism label. |
 
 ## Get Historical Media
 
@@ -3283,8 +1693,6 @@ Returns previously used media labels.
 
 ### Response
 
-#### Success
-
 **Status:** `200 OK`
 
 ```json
@@ -3292,12 +1700,6 @@ Returns previously used media labels.
   {"key": "LB"}
 ]
 ```
-
-##### Response Schema
-
-| Field | Type | Nullable | Description |
-| ----- | ---- | -------- | ----------- |
-| key | string | No | Media label. |
 
 ## Update Experiment
 
@@ -3308,11 +1710,6 @@ Updates experiment metadata.
 
 ### Request
 
-#### Path Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| experiment | string | Yes | Experiment identifier. |
-
 #### Request Body
 ```json
 {
@@ -3320,15 +1717,7 @@ Updates experiment metadata.
 }
 ```
 
-##### Body Schema
-
-| Field | Type | Required | Description | Constraints |
-| ----- | ---- | -------- | ----------- | ----------- |
-| description | string | Yes | New description. |  |
-
 ### Response
-
-#### Success
 
 **Status:** `200 OK`
 
@@ -3338,12 +1727,6 @@ Updates experiment metadata.
 }
 ```
 
-##### Response Schema
-
-| Field | Type | Nullable | Description |
-| ----- | ---- | -------- | ----------- |
-| status | string | No | Update status. |
-
 ## Get Experiment
 
 Returns a single experiment.
@@ -3351,16 +1734,7 @@ Returns a single experiment.
 ### Endpoint
 `GET /api/experiments/{experiment}`
 
-### Request
-
-#### Path Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| experiment | string | Yes | Experiment identifier. |
-
 ### Response
-
-#### Success
 
 **Status:** `200 OK`
 
@@ -3373,15 +1747,6 @@ Returns a single experiment.
 }
 ```
 
-##### Response Schema
-
-| Field | Type | Nullable | Description |
-| ----- | ---- | -------- | ----------- |
-| experiment | string | No | Experiment name. |
-| created_at | string | No | Creation timestamp. |
-| description | string | Yes | Experiment description. |
-| delta_hours | number | No | Hours since creation. |
-
 ## Get Configuration For Unit
 
 Returns merged config.ini for one or more units.
@@ -3389,16 +1754,7 @@ Returns merged config.ini for one or more units.
 ### Endpoint
 `GET /api/units/{pioreactor_unit}/configuration`
 
-### Request
-
-#### Path Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| pioreactor_unit | string | Yes | Unit name or `$broadcast`. |
-
 ### Response
-
-#### Success
 
 **Status:** `200 OK`
 
@@ -3410,12 +1766,6 @@ Returns merged config.ini for one or more units.
 }
 ```
 
-##### Response Schema
-
-| Field | Type | Nullable | Description |
-| ----- | ---- | -------- | ----------- |
-| pio01 | object | No | Config sections keyed by name. |
-
 ## Get Config File
 
 Returns a specific config file contents.
@@ -3423,26 +1773,13 @@ Returns a specific config file contents.
 ### Endpoint
 `GET /api/configs/{filename}`
 
-### Request
-
-#### Path Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| filename | string | Yes | Config filename ending in `.ini`. |
-
 ### Response
-
-#### Success
 
 **Status:** `200 OK`
 
 ```json
 {}
 ```
-
-### Notes
-
-* Response is plain text INI content.
 
 ## Get Configs
 
@@ -3453,8 +1790,6 @@ Returns available config filenames.
 
 ### Response
 
-#### Success
-
 **Status:** `200 OK`
 
 ```json
@@ -3463,12 +1798,6 @@ Returns available config filenames.
   "config_pio01.ini"
 ]
 ```
-
-##### Response Schema
-
-| Field | Type | Nullable | Description |
-| ----- | ---- | -------- | ----------- |
-| 0 | string | No | Config filename. |
 
 ## Update Config
 
@@ -3479,11 +1808,6 @@ Validates and writes a config file then syncs units.
 
 ### Request
 
-#### Path Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| filename | string | Yes | Config filename ending in `.ini`. |
-
 #### Request Body
 ```json
 {
@@ -3491,15 +1815,7 @@ Validates and writes a config file then syncs units.
 }
 ```
 
-##### Body Schema
-
-| Field | Type | Required | Description | Constraints |
-| ----- | ---- | -------- | ----------- | ----------- |
-| code | string | Yes | INI file contents. | valid INI |
-
 ### Response
-
-#### Success
 
 **Status:** `200 OK`
 
@@ -3509,12 +1825,6 @@ Validates and writes a config file then syncs units.
 }
 ```
 
-##### Response Schema
-
-| Field | Type | Nullable | Description |
-| ----- | ---- | -------- | ----------- |
-| status | string | No | Update status. |
-
 ## Get Config History
 
 Returns stored config history for a file.
@@ -3522,16 +1832,7 @@ Returns stored config history for a file.
 ### Endpoint
 `GET /api/configs/{filename}/history`
 
-### Request
-
-#### Path Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| filename | string | Yes | Config filename. |
-
 ### Response
-
-#### Success
 
 **Status:** `200 OK`
 
@@ -3540,14 +1841,6 @@ Returns stored config history for a file.
   {"filename": "config.ini", "timestamp": "2026-01-31T12:00:00.000Z", "data": "..."}
 ]
 ```
-
-##### Response Schema
-
-| Field | Type | Nullable | Description |
-| ----- | ---- | -------- | ----------- |
-| filename | string | No | Config filename. |
-| timestamp | string | No | Stored timestamp. |
-| data | string | No | INI contents. |
 
 ## Is Local Access Point Active
 
@@ -3558,8 +1851,6 @@ Returns whether local access point flag is present.
 
 ### Response
 
-#### Success
-
 **Status:** `200 OK`
 
 ```json
@@ -3568,12 +1859,6 @@ Returns whether local access point flag is present.
 }
 ```
 
-##### Response Schema
-
-| Field | Type | Nullable | Description |
-| ----- | ---- | -------- | ----------- |
-| result | boolean | No | Access point active flag. |
-
 ## Get Running Profiles
 
 Returns running experiment_profile jobs for an experiment.
@@ -3581,16 +1866,7 @@ Returns running experiment_profile jobs for an experiment.
 ### Endpoint
 `GET /api/experiment_profiles/running/experiments/{experiment}`
 
-### Request
-
-#### Path Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| experiment | string | Yes | Experiment identifier. |
-
 ### Response
-
-#### Success
 
 **Status:** `200 OK`
 
@@ -3605,15 +1881,6 @@ Returns running experiment_profile jobs for an experiment.
 ]
 ```
 
-##### Response Schema
-
-| Field | Type | Nullable | Description |
-| ----- | ---- | -------- | ----------- |
-| job_name | string | No | Job name. |
-| experiment | string | No | Experiment name. |
-| job_id | string | No | Job identifier. |
-| settings | object | Yes | Published settings. |
-
 ## Get Recent Experiment Profiles
 
 Returns recent experiment profile runs.
@@ -3621,16 +1888,7 @@ Returns recent experiment profile runs.
 ### Endpoint
 `GET /api/experiments/{experiment}/experiment_profiles/recent`
 
-### Request
-
-#### Path Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| experiment | string | Yes | Experiment identifier. |
-
 ### Response
-
-#### Success
 
 **Status:** `200 OK`
 
@@ -3639,14 +1897,6 @@ Returns recent experiment profile runs.
   {"started_at": "2026-01-31T12:00:00.000Z", "experiment_profile_name": "test", "experiment": "Exp001"}
 ]
 ```
-
-##### Response Schema
-
-| Field | Type | Nullable | Description |
-| ----- | ---- | -------- | ----------- |
-| started_at | string | No | Run timestamp. |
-| experiment_profile_name | string | No | Profile name. |
-| experiment | string | No | Experiment name. |
 
 ## Create Experiment Profile
 
@@ -3665,16 +1915,7 @@ Creates a new experiment profile file.
 }
 ```
 
-##### Body Schema
-
-| Field | Type | Required | Description | Constraints |
-| ----- | ---- | -------- | ----------- | ----------- |
-| filename | string | Yes | Profile filename. | `.yaml` or `.yml` |
-| body | string | Yes | YAML profile contents. | valid profile schema |
-
 ### Response
-
-#### Success
 
 **Status:** `200 OK`
 
@@ -3683,12 +1924,6 @@ Creates a new experiment profile file.
   "status": "success"
 }
 ```
-
-##### Response Schema
-
-| Field | Type | Nullable | Description |
-| ----- | ---- | -------- | ----------- |
-| status | string | No | Creation status. |
 
 ## Update Experiment Profile
 
@@ -3707,16 +1942,7 @@ Updates an experiment profile file.
 }
 ```
 
-##### Body Schema
-
-| Field | Type | Required | Description | Constraints |
-| ----- | ---- | -------- | ----------- | ----------- |
-| filename | string | Yes | Profile filename. | `.yaml` or `.yml` |
-| body | string | Yes | YAML profile contents. | valid profile schema |
-
 ### Response
-
-#### Success
 
 **Status:** `200 OK`
 
@@ -3725,12 +1951,6 @@ Updates an experiment profile file.
   "status": "success"
 }
 ```
-
-##### Response Schema
-
-| Field | Type | Nullable | Description |
-| ----- | ---- | -------- | ----------- |
-| status | string | No | Update status. |
 
 ## Get Experiment Profiles
 
@@ -3741,8 +1961,6 @@ Returns experiment profile descriptors.
 
 ### Response
 
-#### Success
-
 **Status:** `200 OK`
 
 ```json
@@ -3751,14 +1969,6 @@ Returns experiment profile descriptors.
 ]
 ```
 
-##### Response Schema
-
-| Field | Type | Nullable | Description |
-| ----- | ---- | -------- | ----------- |
-| experimentProfile | object | No | Parsed profile object. |
-| file | string | No | Filename. |
-| fullpath | string | No | Full path on disk. |
-
 ## Get Experiment Profile
 
 Returns a single experiment profile file.
@@ -3766,26 +1976,13 @@ Returns a single experiment profile file.
 ### Endpoint
 `GET /api/contrib/experiment_profiles/{filename}`
 
-### Request
-
-#### Path Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| filename | string | Yes | Profile filename. |
-
 ### Response
-
-#### Success
 
 **Status:** `200 OK`
 
 ```json
 {}
 ```
-
-### Notes
-
-* Response is plain text YAML content.
 
 ## Delete Experiment Profile
 
@@ -3794,16 +1991,7 @@ Deletes a profile file.
 ### Endpoint
 `DELETE /api/contrib/experiment_profiles/{filename}`
 
-### Request
-
-#### Path Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| filename | string | Yes | Profile filename. |
-
 ### Response
-
-#### Success
 
 **Status:** `200 OK`
 
@@ -3812,12 +2000,6 @@ Deletes a profile file.
   "status": "success"
 }
 ```
-
-##### Response Schema
-
-| Field | Type | Nullable | Description |
-| ----- | ---- | -------- | ----------- |
-| status | string | No | Deletion status. |
 
 ## Get Units
 
@@ -3828,8 +2010,6 @@ Returns all units in the cluster.
 
 ### Response
 
-#### Success
-
 **Status:** `200 OK`
 
 ```json
@@ -3837,12 +2017,6 @@ Returns all units in the cluster.
   {"pioreactor_unit": "pio01"}
 ]
 ```
-
-##### Response Schema
-
-| Field | Type | Nullable | Description |
-| ----- | ---- | -------- | ----------- |
-| pioreactor_unit | string | No | Unit name. |
 
 ## Get Workers
 
@@ -3853,8 +2027,6 @@ Returns all workers in the inventory.
 
 ### Response
 
-#### Success
-
 **Status:** `200 OK`
 
 ```json
@@ -3862,16 +2034,6 @@ Returns all workers in the inventory.
   {"pioreactor_unit": "pio01", "added_at": "2026-01-31T12:00:00.000Z", "is_active": 1, "model_name": "pioreactor_20ml", "model_version": "1.5"}
 ]
 ```
-
-##### Response Schema
-
-| Field | Type | Nullable | Description |
-| ----- | ---- | -------- | ----------- |
-| pioreactor_unit | string | No | Unit name. |
-| added_at | string | No | Added timestamp. |
-| is_active | integer | No | Active flag (0/1). |
-| model_name | string | Yes | Model name. |
-| model_version | string | Yes | Model version. |
 
 ## Discover Available Workers
 
@@ -3882,8 +2044,6 @@ Discovers network workers not already registered.
 
 ### Response
 
-#### Success
-
 **Status:** `200 OK`
 
 ```json
@@ -3891,12 +2051,6 @@ Discovers network workers not already registered.
   {"pioreactor_unit": "pio02"}
 ]
 ```
-
-##### Response Schema
-
-| Field | Type | Nullable | Description |
-| ----- | ---- | -------- | ----------- |
-| pioreactor_unit | string | No | Unit name. |
 
 ## Setup Worker
 
@@ -3916,17 +2070,7 @@ Runs setup process for a new worker.
 }
 ```
 
-##### Body Schema
-
-| Field | Type | Required | Description | Constraints |
-| ----- | ---- | -------- | ----------- | ----------- |
-| name | string | Yes | Worker name. |  |
-| version | string | Yes | Software version. |  |
-| model | string | Yes | Model name. |  |
-
 ### Response
-
-#### Success
 
 **Status:** `200 OK`
 
@@ -3935,12 +2079,6 @@ Runs setup process for a new worker.
   "msg": "Worker pio02 added successfully."
 }
 ```
-
-##### Response Schema
-
-| Field | Type | Nullable | Description |
-| ----- | ---- | -------- | ----------- |
-| msg | string | No | Status message. |
 
 ## Add Worker
 
@@ -3960,17 +2098,7 @@ Adds or updates a worker in inventory.
 }
 ```
 
-##### Body Schema
-
-| Field | Type | Required | Description | Constraints |
-| ----- | ---- | -------- | ----------- | ----------- |
-| pioreactor_unit | string | Yes | Worker name. |  |
-| model_name | string | No | Model name. |  |
-| model_version | string | No | Model version. |  |
-
 ### Response
-
-#### Success
 
 **Status:** `201 Created`
 
@@ -3980,12 +2108,6 @@ Adds or updates a worker in inventory.
 }
 ```
 
-##### Response Schema
-
-| Field | Type | Nullable | Description |
-| ----- | ---- | -------- | ----------- |
-| status | string | No | Upsert status. |
-
 ## Delete Worker
 
 Removes a worker from inventory and stops its jobs.
@@ -3993,16 +2115,7 @@ Removes a worker from inventory and stops its jobs.
 ### Endpoint
 `DELETE /api/workers/{pioreactor_unit}`
 
-### Request
-
-#### Path Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| pioreactor_unit | string | Yes | Worker name. |
-
 ### Response
-
-#### Success
 
 **Status:** `202 Accepted`
 
@@ -4011,12 +2124,6 @@ Removes a worker from inventory and stops its jobs.
   "status": "success"
 }
 ```
-
-##### Response Schema
-
-| Field | Type | Nullable | Description |
-| ----- | ---- | -------- | ----------- |
-| status | string | No | Removal status. |
 
 ## Change Worker Status
 
@@ -4027,11 +2134,6 @@ Marks a worker active or inactive.
 
 ### Request
 
-#### Path Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| pioreactor_unit | string | Yes | Worker name. |
-
 #### Request Body
 ```json
 {
@@ -4039,15 +2141,7 @@ Marks a worker active or inactive.
 }
 ```
 
-##### Body Schema
-
-| Field | Type | Required | Description | Constraints |
-| ----- | ---- | -------- | ----------- | ----------- |
-| is_active | integer | Yes | Active flag. | 0 or 1 |
-
 ### Response
-
-#### Success
 
 **Status:** `200 OK`
 
@@ -4056,12 +2150,6 @@ Marks a worker active or inactive.
   "status": "success"
 }
 ```
-
-##### Response Schema
-
-| Field | Type | Nullable | Description |
-| ----- | ---- | -------- | ----------- |
-| status | string | No | Update status. |
 
 ## Change Worker Model
 
@@ -4072,11 +2160,6 @@ Updates a worker's model metadata.
 
 ### Request
 
-#### Path Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| pioreactor_unit | string | Yes | Worker name. |
-
 #### Request Body
 ```json
 {
@@ -4085,16 +2168,7 @@ Updates a worker's model metadata.
 }
 ```
 
-##### Body Schema
-
-| Field | Type | Required | Description | Constraints |
-| ----- | ---- | -------- | ----------- | ----------- |
-| model_name | string | Yes | Model name. | must be registered |
-| model_version | string | Yes | Model version. | must be registered |
-
 ### Response
-
-#### Success
 
 **Status:** `200 OK`
 
@@ -4104,12 +2178,6 @@ Updates a worker's model metadata.
 }
 ```
 
-##### Response Schema
-
-| Field | Type | Nullable | Description |
-| ----- | ---- | -------- | ----------- |
-| status | string | No | Update status. |
-
 ## Get Worker Model And Metadata
 
 Returns a worker's model and metadata.
@@ -4117,16 +2185,7 @@ Returns a worker's model and metadata.
 ### Endpoint
 `GET /api/workers/{pioreactor_unit}/model`
 
-### Request
-
-#### Path Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| pioreactor_unit | string | Yes | Worker name. |
-
 ### Response
-
-#### Success
 
 **Status:** `200 OK`
 
@@ -4139,15 +2198,6 @@ Returns a worker's model and metadata.
 }
 ```
 
-##### Response Schema
-
-| Field | Type | Nullable | Description |
-| ----- | ---- | -------- | ----------- |
-| pioreactor_unit | string | No | Unit name. |
-| model_name | string | Yes | Model name. |
-| model_version | string | Yes | Model version. |
-| display_name | string | Yes | Model display name. |
-
 ## Get Worker
 
 Returns a worker record.
@@ -4155,16 +2205,7 @@ Returns a worker record.
 ### Endpoint
 `GET /api/workers/{pioreactor_unit}`
 
-### Request
-
-#### Path Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| pioreactor_unit | string | Yes | Worker name. |
-
 ### Response
-
-#### Success
 
 **Status:** `200 OK`
 
@@ -4178,16 +2219,6 @@ Returns a worker record.
 }
 ```
 
-##### Response Schema
-
-| Field | Type | Nullable | Description |
-| ----- | ---- | -------- | ----------- |
-| pioreactor_unit | string | No | Unit name. |
-| added_at | string | No | Added timestamp. |
-| is_active | integer | No | Active flag. |
-| model_name | string | Yes | Model name. |
-| model_version | string | Yes | Model version. |
-
 ## Get Workers And Experiment Assignments
 
 Returns workers with their current experiment assignment.
@@ -4197,8 +2228,6 @@ Returns workers with their current experiment assignment.
 
 ### Response
 
-#### Success
-
 **Status:** `200 OK`
 
 ```json
@@ -4206,14 +2235,6 @@ Returns workers with their current experiment assignment.
   {"pioreactor_unit": "pio01", "experiment": "Exp001", "is_active": 1}
 ]
 ```
-
-##### Response Schema
-
-| Field | Type | Nullable | Description |
-| ----- | ---- | -------- | ----------- |
-| pioreactor_unit | string | No | Worker name. |
-| experiment | string | Yes | Assigned experiment. |
-| is_active | integer | No | Active flag. |
 
 ## Get Active Experiments
 
@@ -4224,8 +2245,6 @@ Returns experiments that have at least one active worker.
 
 ### Response
 
-#### Success
-
 **Status:** `200 OK`
 
 ```json
@@ -4233,15 +2252,6 @@ Returns experiments that have at least one active worker.
   {"experiment": "Exp001", "created_at": "2026-01-31T12:00:00.000Z", "description": "Growth test", "delta_hours": 2}
 ]
 ```
-
-##### Response Schema
-
-| Field | Type | Nullable | Description |
-| ----- | ---- | -------- | ----------- |
-| experiment | string | No | Experiment name. |
-| created_at | string | No | Creation timestamp. |
-| description | string | Yes | Description text. |
-| delta_hours | number | No | Hours since creation. |
 
 ## Remove All Workers From All Experiments
 
@@ -4251,8 +2261,6 @@ Unassigns all workers from all experiments.
 `DELETE /api/workers/assignments`
 
 ### Response
-
-#### Success
 
 **Status:** `202 Accepted`
 
@@ -4264,14 +2272,6 @@ Unassigns all workers from all experiments.
 }
 ```
 
-##### Response Schema
-
-| Field | Type | Nullable | Description |
-| ----- | ---- | -------- | ----------- |
-| unit | string | No | Leader unit name that queued the task. |
-| task_id | string | No | Huey task id. |
-| result_url_path | string | No | Task result path on unit API. |
-
 ## Get Experiments Worker Assignments
 
 Returns worker counts per experiment.
@@ -4281,8 +2281,6 @@ Returns worker counts per experiment.
 
 ### Response
 
-#### Success
-
 **Status:** `200 OK`
 
 ```json
@@ -4291,13 +2289,6 @@ Returns worker counts per experiment.
 ]
 ```
 
-##### Response Schema
-
-| Field | Type | Nullable | Description |
-| ----- | ---- | -------- | ----------- |
-| experiment | string | No | Experiment name. |
-| worker_count | integer | No | Assigned worker count. |
-
 ## Get Experiment Assignment For Worker
 
 Returns the experiment assignment for a worker.
@@ -4305,16 +2296,7 @@ Returns the experiment assignment for a worker.
 ### Endpoint
 `GET /api/workers/{pioreactor_unit}/experiment`
 
-### Request
-
-#### Path Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| pioreactor_unit | string | Yes | Worker name. |
-
 ### Response
-
-#### Success
 
 **Status:** `200 OK`
 
@@ -4328,16 +2310,6 @@ Returns the experiment assignment for a worker.
 }
 ```
 
-##### Response Schema
-
-| Field | Type | Nullable | Description |
-| ----- | ---- | -------- | ----------- |
-| pioreactor_unit | string | No | Worker name. |
-| is_active | integer | No | Active flag. |
-| experiment | string | Yes | Experiment name. |
-| model_name | string | Yes | Model name. |
-| model_version | string | Yes | Model version. |
-
 ## Get Workers For Experiment
 
 Returns workers assigned to an experiment.
@@ -4345,16 +2317,7 @@ Returns workers assigned to an experiment.
 ### Endpoint
 `GET /api/experiments/{experiment}/workers`
 
-### Request
-
-#### Path Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| experiment | string | Yes | Experiment identifier. |
-
 ### Response
-
-#### Success
 
 **Status:** `200 OK`
 
@@ -4364,15 +2327,6 @@ Returns workers assigned to an experiment.
 ]
 ```
 
-##### Response Schema
-
-| Field | Type | Nullable | Description |
-| ----- | ---- | -------- | ----------- |
-| pioreactor_unit | string | No | Worker name. |
-| is_active | integer | No | Active flag. |
-| model_name | string | Yes | Model name. |
-| model_version | string | Yes | Model version. |
-
 ## Get Historical Workers For Experiment
 
 Returns historical worker assignments for an experiment.
@@ -4380,16 +2334,7 @@ Returns historical worker assignments for an experiment.
 ### Endpoint
 `GET /api/experiments/{experiment}/historical_worker_assignments`
 
-### Request
-
-#### Path Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| experiment | string | Yes | Experiment identifier. |
-
 ### Response
-
-#### Success
 
 **Status:** `200 OK`
 
@@ -4398,14 +2343,6 @@ Returns historical worker assignments for an experiment.
   {"pioreactor_unit": "pio01", "experiment": "Exp001", "is_currently_assigned_to_experiment": 1}
 ]
 ```
-
-##### Response Schema
-
-| Field | Type | Nullable | Description |
-| ----- | ---- | -------- | ----------- |
-| pioreactor_unit | string | No | Worker name. |
-| experiment | string | No | Experiment name. |
-| is_currently_assigned_to_experiment | integer | No | Assignment flag. |
 
 ## Add Worker To Experiment
 
@@ -4416,11 +2353,6 @@ Assigns a worker to an experiment.
 
 ### Request
 
-#### Path Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| experiment | string | Yes | Experiment identifier. |
-
 #### Request Body
 ```json
 {
@@ -4428,15 +2360,7 @@ Assigns a worker to an experiment.
 }
 ```
 
-##### Body Schema
-
-| Field | Type | Required | Description | Constraints |
-| ----- | ---- | -------- | ----------- | ----------- |
-| pioreactor_unit | string | Yes | Worker name. | must exist |
-
 ### Response
-
-#### Success
 
 **Status:** `200 OK`
 
@@ -4445,12 +2369,6 @@ Assigns a worker to an experiment.
   "status": "success"
 }
 ```
-
-##### Response Schema
-
-| Field | Type | Nullable | Description |
-| ----- | ---- | -------- | ----------- |
-| status | string | No | Assignment status. |
 
 ## Remove Worker From Experiment
 
@@ -4459,17 +2377,7 @@ Unassigns a worker from an experiment.
 ### Endpoint
 `DELETE /api/experiments/{experiment}/workers/{pioreactor_unit}`
 
-### Request
-
-#### Path Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| experiment | string | Yes | Experiment identifier. |
-| pioreactor_unit | string | Yes | Worker name. |
-
 ### Response
-
-#### Success
 
 **Status:** `200 OK`
 
@@ -4479,12 +2387,6 @@ Unassigns a worker from an experiment.
 }
 ```
 
-##### Response Schema
-
-| Field | Type | Nullable | Description |
-| ----- | ---- | -------- | ----------- |
-| status | string | No | Unassignment status. |
-
 ## Remove Workers From Experiment
 
 Unassigns all workers from an experiment.
@@ -4492,16 +2394,7 @@ Unassigns all workers from an experiment.
 ### Endpoint
 `DELETE /api/experiments/{experiment}/workers`
 
-### Request
-
-#### Path Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| experiment | string | Yes | Experiment identifier. |
-
 ### Response
-
-#### Success
 
 **Status:** `202 Accepted`
 
@@ -4512,12 +2405,3 @@ Unassigns all workers from an experiment.
   "result_url_path": "/unit_api/task_results/task_abc123"
 }
 ```
-
-##### Response Schema
-
-| Field | Type | Nullable | Description |
-| ----- | ---- | -------- | ----------- |
-| unit | string | No | Leader unit name that queued the task. |
-| task_id | string | No | Huey task id. |
-| result_url_path | string | No | Task result path on unit API. |
-
