@@ -18,8 +18,8 @@
 
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css" integrity="sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM" crossorigin="anonymous"><link rel="stylesheet" href="/assets/css/styles.b1c57a2e.css">
-<script src="/assets/js/runtime~main.97dd1057.js" defer="defer"></script>
-<script src="/assets/js/main.cefc95e1.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.eb7315d9.js" defer="defer"></script>
+<script src="/assets/js/main.02e9430e.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
 <svg style="display: none;"><defs>
@@ -30,7 +30,7 @@
 <h3 class="anchor anchorTargetHideOnScrollNavbar_vjPI" id="where-is-a-list-of-tables-on-the-database">Where is a list of tables on the database?<a href="#where-is-a-list-of-tables-on-the-database" class="hash-link" aria-label="Direct link to Where is a list of tables on the database?" title="Direct link to Where is a list of tables on the database?" translate="no">​</a></h3>
 <p>You can either use <code>.tables</code> in the sqlite shell, or visit all the tables <a href="https://github.com/Pioreactor/CustoPiZer/blob/pioreactor/workspace/scripts/files/sql/create_tables.sql" target="_blank" rel="noopener noreferrer" class="">schemas here</a>.</p>
 <h3 class="anchor anchorTargetHideOnScrollNavbar_vjPI" id="how-can-i-add-new-sql-tables">How can I add new SQL tables?<a href="#how-can-i-add-new-sql-tables" class="hash-link" aria-label="Direct link to How can I add new SQL tables?" title="Direct link to How can I add new SQL tables?" translate="no">​</a></h3>
-<p>Using the sqlite shell (<code>pio db</code>), you can execute any SQL statements, including creating new tables. Plugins can also automatically create new tables when installed, <a class="" href="/developer-guide/plugin-as-python-package#5-optional-adding-tables-to-the-sql-store">see instructions here</a>.</p>
+<p>Using the sqlite shell (<code>pio db</code>), you can execute any SQL statements, including creating new tables. Plugins can also automatically create new tables when installed, <a class="" href="/developer-guide/plugin-as-python-package#5-optional-adding-tables-to-the-sql-database-and-exposing-them-on-the-export-data-page">see instructions here</a>.</p>
 <h3 class="anchor anchorTargetHideOnScrollNavbar_vjPI" id="how-do-i-populate-my-own-sql-tables">How do I populate my own SQL tables?<a href="#how-do-i-populate-my-own-sql-tables" class="hash-link" aria-label="Direct link to How do I populate my own SQL tables?" title="Direct link to How do I populate my own SQL tables?" translate="no">​</a></h3>
 <p>The Pioreactor job <code>mqtt_to_db_streaming</code> handles how to get data into the sqlite3 database. This job listens to specific topics in MQTT, and writes it to the database. We&#x27;ve implemented hooks into <code>mqtt_to_db_streaming</code> job for you to added your own topics. In your code:</p>
 <ol>

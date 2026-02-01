@@ -18,8 +18,8 @@
 
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css" integrity="sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM" crossorigin="anonymous"><link rel="stylesheet" href="/assets/css/styles.b1c57a2e.css">
-<script src="/assets/js/runtime~main.97dd1057.js" defer="defer"></script>
-<script src="/assets/js/main.cefc95e1.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.eb7315d9.js" defer="defer"></script>
+<script src="/assets/js/main.02e9430e.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
 <svg style="display: none;"><defs>
@@ -29,9 +29,9 @@
 <p>You can expect the setup process to take 10-15 minutes. If you encounter any problems, feel free to email us for support at <a href="mailto:hello@pioreactor.com" target="_blank" rel="noopener noreferrer" class="">hello@pioreactor.com</a>.</p>
 <p>Before you get started, you&#x27;ll need to have the following:</p>
 <ol>
-<li class="">A Raspberry Pi (our list of recommended Raspberry Pis is <a class="" href="/user-guide/common-questions#what-raspberry-pi-hardware-can-i-use-i-see-raspberry-pi-1-2-3-4-a-b--zero---its-confusing">here</a>)</li>
+<li class="">A Raspberry Pi (our list of recommended Raspberry Pis is <a class="" href="/user-guide/common-questions#what-raspberry-pi-hardware-can-i-use-i-see-raspberry-pi-1-2-3-4-5-a-b--zero---its-confusing">here</a>)</li>
 <li class="">A blank microSD card (our recommended microSD cards is <a class="" href="/user-guide/common-questions#what-microsd-cards-do-you-recommend">here</a>)</li>
-<li class="">A suitable power supply for the Raspberry Pi (our recommended power supply units are <a class="" href="/user-guide/common-questions#what-power-supply-unit-do-i-need">here</a>). You don&#x27;t need to plug power in yet.</li>
+<li class="">A suitable power supply for the Raspberry Pi (our recommended power supply units are <a class="" href="/user-guide/common-questions#what-power-supply-unit-psu-do-i-need">here</a>). You don&#x27;t need to plug power in yet.</li>
 <li class="">A computer with internet access and ability to read &amp; write to a microSD card</li>
 </ol>
 <h3 class="anchor anchorTargetHideOnScrollNavbar_vjPI" id="setting-up-your-raspberry-pis-sd-card">Setting up your Raspberry Pi&#x27;s SD Card<a href="#setting-up-your-raspberry-pis-sd-card" class="hash-link" aria-label="Direct link to Setting up your Raspberry Pi&#x27;s SD Card" title="Direct link to Setting up your Raspberry Pi&#x27;s SD Card" translate="no">​</a></h3>
@@ -123,7 +123,7 @@ Click <strong>Next</strong>.</li>
 <div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>info</div><div class="admonitionContent_BuS1"><p>Waited, but didn&#x27;t see a blue LED blink, or maybe you missed it? Try pressing on the onboard button, near the side labelled &quot;PWM&quot;, and pictured above. If this lights up the blue LED, you&#x27;re good to move on. Still not working? Try power-cycling the Raspberry Pi, or email us at <a href="mailto:hello@pioreactor.com" target="_blank" rel="noopener noreferrer" class="">hello@pioreactor.com</a>.</p></div></div>
 </li>
 <li class="">
-<p>After observing the blue LED flashing, navigate to <a href="http://pioreactor.local" target="_blank" rel="noopener noreferrer" class="">http://pioreactor.local</a> in a web browser to visit the web interface. If you are using local-access-point, looking for a <code>pioreactor</code> wifi network and then visit the link. (Not able to load <a href="http://pioreactor.local" target="_blank" rel="noopener noreferrer" class="">http://pioreactor.local</a>? Read <a href="#pioreactorlocal-in-a-web-browser-is-not-showing-up" class="">Common Questions</a> below).</p>
+<p>After observing the blue LED flashing, navigate to <a href="http://pioreactor.local" target="_blank" rel="noopener noreferrer" class="">http://pioreactor.local</a> in a web browser to visit the web interface. If you are using local-access-point, looking for a <code>pioreactor</code> wifi network and then visit the link. (Not able to load <a href="http://pioreactor.local" target="_blank" rel="noopener noreferrer" class="">http://pioreactor.local</a>? Read <a href="#httppioreactorlocal-in-a-web-browser-is-not-showing-up" class="">Common Questions</a> below).</p>
 </li>
 <li class="">
 <p>When the UI loads for the first time you&#x27;ll be prompted by the <strong>Update Pioreactor model</strong> dialog. Select the correct model and hardware version for each Pioreactor listed, then click <strong>Save</strong> to continue.</p>
@@ -190,10 +190,10 @@ Click <strong>Next</strong>.</li>
 <li class="">Try appending a backslash as well: <code>http://pioreactor.local/</code>.</li>
 <li class="">The UI is hosted on <strong>http</strong>, not <strong>https</strong>. Check if you are accessing <code>http</code> <code>://pioreactor.local</code>, and <em>not</em> <code>https</code> <code>://pioreactor.local</code>.</li>
 <li class="">Try accessing using the url <code>http://&lt;the name of your leader Pioreactor aka hostname&gt;.local</code>.</li>
-<li class="">If you know your Raspberry Pi&#x27;s IP, try <code>http://&lt;IP address of your Raspberry Pi&gt;</code>. Here&#x27;s <a class="" href="/user-guide/common-questions#how-can-i-determine-the-pioreactors-ip-address">information to determine the IP address</a>.</li>
+<li class="">If you know your Raspberry Pi&#x27;s IP, try <code>http://&lt;IP address of your Raspberry Pi&gt;</code>. Here&#x27;s <a class="" href="/user-guide/common-questions#how-can-i-determine-the-pioreactors-ip-address-or-the-mac-address">information to determine the IP address</a>.</li>
 <li class="">When pressing the button on the HAT, does the blue LED show up? If not, installation may have failed. Try installing the image again, and double check the settings.</li>
 <li class="">Try power-cycling the Raspberry Pi (unplug and plug back in).</li>
-<li class="">In your Raspberry Pi Imager settings, confirm that you clicked &quot;Set username and password&quot;, and used the username <code>pioreactor</code>. If not, try <a class="" href="/user-guide/software-set-up#setting-up-your-raspberry-pi">reinstalling the image</a>.</li>
+<li class="">In your Raspberry Pi Imager settings, confirm that you clicked &quot;Set username and password&quot;, and used the username <code>pioreactor</code>. If not, try <a class="" href="/user-guide/software-set-up#setting-up-your-raspberry-pis-sd-card">reinstalling the image</a>.</li>
 <li class="">Are you on an older Windows machine? You may need to install a DNS <a href="https://learn.adafruit.com/bonjour-zeroconf-networking-for-windows-and-linux/overview#microsoft-windows-914263-8" target="_blank" rel="noopener noreferrer" class="">service</a>, but also see workarounds <a href="https://github.com/OutsourcedGuru/octoprint-name-resolution-hacks" target="_blank" rel="noopener noreferrer" class="">here</a>.</li>
 </ul>
 <h4 class="anchor anchorTargetHideOnScrollNavbar_vjPI" id="can-i-plug-a-monitor-into-the-raspberry-pis-hdmi-port">Can I plug a monitor into the Raspberry Pi&#x27;s HDMI port?<a href="#can-i-plug-a-monitor-into-the-raspberry-pis-hdmi-port" class="hash-link" aria-label="Direct link to Can I plug a monitor into the Raspberry Pi&#x27;s HDMI port?" title="Direct link to Can I plug a monitor into the Raspberry Pi&#x27;s HDMI port?" translate="no">​</a></h4>

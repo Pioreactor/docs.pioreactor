@@ -18,8 +18,8 @@
 
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css" integrity="sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM" crossorigin="anonymous"><link rel="stylesheet" href="/assets/css/styles.b1c57a2e.css">
-<script src="/assets/js/runtime~main.97dd1057.js" defer="defer"></script>
-<script src="/assets/js/main.cefc95e1.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.eb7315d9.js" defer="defer"></script>
+<script src="/assets/js/main.02e9430e.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
 <svg style="display: none;"><defs>
@@ -34,7 +34,7 @@
 <div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">python your_script.py</span><br></span></code></pre></div></div>
 <p>If you want to run the script in the background (so you can close terminal and the job continues in the background), use</p>
 <div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">python your_script.py &gt;/dev/null 2&gt;&amp;1 &amp; disown</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span></code></pre></div></div>
-<p>You can also use the <a href="https://docs.pioreactor.com/developer-guide/intro-plugins#scripts" target="_blank" rel="noopener noreferrer" class="">Pioreactor&#x27;s plugin architecture</a> to control the start and stop of the script.</p>
+<p>You can also use the <a href="https://docs.pioreactor.com/developer-guide/intro-plugins#custom-scripts" target="_blank" rel="noopener noreferrer" class="">Pioreactor&#x27;s plugin architecture</a> to control the start and stop of the script.</p>
 <h3 class="anchor anchorTargetHideOnScrollNavbar_vjPI" id="useful-utility-objects">Useful utility objects<a href="#useful-utility-objects" class="hash-link" aria-label="Direct link to Useful utility objects" title="Direct link to Useful utility objects" translate="no">​</a></h3>
 <ul>
 <li class=""><a href="https://github.com/Pioreactor/pioreactor/blob/60875ebe5a35d7ed5c930d46ed7c755eadcb4b74/pioreactor/utils/timing.py#L40" target="_blank" rel="noopener noreferrer" class="">RepeatedTimer</a>: this class allows you to scheduale a function to run every N seconds in a non-blocking manner.</li>

@@ -18,8 +18,8 @@
 
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css" integrity="sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM" crossorigin="anonymous"><link rel="stylesheet" href="/assets/css/styles.b1c57a2e.css">
-<script src="/assets/js/runtime~main.97dd1057.js" defer="defer"></script>
-<script src="/assets/js/main.cefc95e1.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.eb7315d9.js" defer="defer"></script>
+<script src="/assets/js/main.02e9430e.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
 <svg style="display: none;"><defs>
@@ -145,7 +145,7 @@
 <p>Unfortunately, the microSD card becoming corrupted or damaged is an infrequent but possible risk with using Raspberry Pis.</p>
 <ul>
 <li class="">
-<p>If the microSD card was inside a non-leader Pioreactor, it&#x27;s best to try to reformat the microSD card and start fresh (i.e. <a class="" href="/user-guide/software-set-up#adding-workers-to-your-cluster">reinstall the Pioreactor software and reintroduce it to the cluster</a>). This is usually okay as no critical data is stored locally in workers, only log files and hardware calibrations will be lost.</p>
+<p>If the microSD card was inside a non-leader Pioreactor, it&#x27;s best to try to reformat the microSD card and start fresh (i.e. <a class="" href="/user-guide/software-set-up#adding-additional-workers-to-your-cluster">reinstall the Pioreactor software and reintroduce it to the cluster</a>). This is usually okay as no critical data is stored locally in workers, only log files and hardware calibrations will be lost.</p>
 </li>
 <li class="">
 <p>If the microSD was inside the leader Raspberry Pi, this is a bigger problem. Likely any running experiment will have to be restarted. Fortunately, if you have more than one Pioreactor in your cluster, then the leader&#x27;s SQLite database has been periodically backing itself up to other Pioreactors in the cluster every few days. Using the command line, check other Pioreactors&#x27; <code>/home/pioreactor/.pioreactor/storage</code> directory for the <em>latest</em> backup named <code>pioreactor.sqlite.backup</code> (should be from within the past few days hours). You can use this database to restart a new leader.</p>
