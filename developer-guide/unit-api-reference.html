@@ -18,8 +18,8 @@
 
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css" integrity="sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM" crossorigin="anonymous"><link rel="stylesheet" href="/assets/css/styles.b1c57a2e.css">
-<script src="/assets/js/runtime~main.6c50bdf9.js" defer="defer"></script>
-<script src="/assets/js/main.169adf44.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.e32a6b8d.js" defer="defer"></script>
+<script src="/assets/js/main.8bad9916.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
 <svg style="display: none;"><defs>
@@ -32,7 +32,9 @@
 <li class="">Poll <code>GET /unit_api/task_results/{task_id}</code> until <code>status</code> is <code>complete</code> or <code>failed</code>.</li>
 <li class=""><code>$broadcast</code> may be used in path parameters where documented to target all units/workers.</li>
 <li class="">File download endpoints return binary bodies; use the response content-type to handle them.</li>
+<li class="">Errors have the following schema:</li>
 </ul>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">  {</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    &quot;error&quot;: &quot;Human-readable error message&quot;,</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    &quot;error_info&quot;: {</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      &quot;cause&quot;: &quot;Human-readable cause (defaults to error if not set)&quot;,</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      &quot;remediation&quot;: &quot;Suggested fix or next step&quot;,</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      &quot;status&quot;: integer,</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    }</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  }</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span></code></pre></div></div>
 <h2 class="anchor anchorTargetHideOnScrollNavbar_vjPI" id="health-check">Health Check<a href="#health-check" class="hash-link" aria-label="Direct link to Health Check" title="Direct link to Health Check" translate="no">​</a></h2>
 <p>Returns basic health status for a unit.</p>
 <h3 class="anchor anchorTargetHideOnScrollNavbar_vjPI" id="endpoint">Endpoint<a href="#endpoint" class="hash-link" aria-label="Direct link to Endpoint" title="Direct link to Endpoint" translate="no">​</a></h3>
@@ -186,7 +188,7 @@
 <h3 class="anchor anchorTargetHideOnScrollNavbar_vjPI" id="endpoint-15">Endpoint<a href="#endpoint-15" class="hash-link" aria-label="Direct link to Endpoint" title="Direct link to Endpoint" translate="no">​</a></h3>
 <p><code>POST /unit_api/jobs/stop</code></p>
 <h3 class="anchor anchorTargetHideOnScrollNavbar_vjPI" id="request-8">Request<a href="#request-8" class="hash-link" aria-label="Direct link to Request" title="Direct link to Request" translate="no">​</a></h3>
-<h4 class="anchor anchorTargetHideOnScrollNavbar_vjPI" id="request-body-6">Request Body<a href="#request-body-6" class="hash-link" aria-label="Direct link to Request Body" title="Direct link to Request Body" translate="no"> ​</a></h4>
+<h4 class="anchor anchorTargetHideOnScrollNavbar_vjPI" id="request-body-6">Request Body<a href="#request-body-6" class="hash-link" aria-label="Direct link to Request Body" title="Direct link to Request Body" translate="no">​</a></h4>
 <div class="language-json codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-json codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">{</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  &quot;job_name&quot;: &quot;stirring&quot;,</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  &quot;experiment&quot;: &quot;Exp001&quot;,</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  &quot;job_source&quot;: &quot;user&quot;,</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  &quot;job_id&quot;: &quot;job_abc&quot;</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">}</span><br></span></code></pre></div></div>
 <h3 class="anchor anchorTargetHideOnScrollNavbar_vjPI" id="response-15">Response<a href="#response-15" class="hash-link" aria-label="Direct link to Response" title="Direct link to Response" translate="no">​</a></h3>
 <h4 class="anchor anchorTargetHideOnScrollNavbar_vjPI" id="success-15">Success<a href="#success-15" class="hash-link" aria-label="Direct link to Success" title="Direct link to Success" translate="no">​</a></h4>

@@ -18,8 +18,8 @@
 
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css" integrity="sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM" crossorigin="anonymous"><link rel="stylesheet" href="/assets/css/styles.b1c57a2e.css">
-<script src="/assets/js/runtime~main.6c50bdf9.js" defer="defer"></script>
-<script src="/assets/js/main.169adf44.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.e32a6b8d.js" defer="defer"></script>
+<script src="/assets/js/main.8bad9916.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
 <svg style="display: none;"><defs>
@@ -34,7 +34,9 @@
 <li class="">File download endpoints return binary bodies; use the response content-type to handle them.</li>
 <li class="">Path parameters are shown inline in the endpoint URL.</li>
 <li class="">Request/response examples are the canonical shapes; omit optional fields you do not need.</li>
+<li class="">Errors have the following schema:</li>
 </ul>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">  {</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    &quot;error&quot;: &quot;Human-readable error message&quot;,</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    &quot;error_info&quot;: {</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      &quot;cause&quot;: &quot;Human-readable cause (defaults to error if not set)&quot;,</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      &quot;remediation&quot;: &quot;Suggested fix or next step&quot;,</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      &quot;status&quot;: integer,</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    }</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  }</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span></code></pre></div></div>
 <p>Use <code>/api/workers/...</code> for worker-only targets (experiment-scoped jobs/logs) and <code>/api/units/...</code> when the leader is also a valid target; both accept <code>$broadcast</code> where supported.</p>
 <h2 class="anchor anchorTargetHideOnScrollNavbar_vjPI" id="get-models">Get Models<a href="#get-models" class="hash-link" aria-label="Direct link to Get Models" title="Direct link to Get Models" translate="no">​</a></h2>
 <p>Returns the list of supported Pioreactor models.</p>
@@ -416,7 +418,7 @@
 <h4 class="anchor anchorTargetHideOnScrollNavbar_vjPI" id="success-30">Success<a href="#success-30" class="hash-link" aria-label="Direct link to Success" title="Direct link to Success" translate="no">​</a></h4>
 <p><strong>Status:</strong> <code>200 OK</code></p>
 <div class="language-json codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-json codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">{</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  &quot;series&quot;: [&quot;pio01&quot;],</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  &quot;data&quot;: [[{&quot;x&quot;: &quot;2026-01-31T12:00:00.000Z&quot;, &quot;y&quot;: 0.2234567}]]</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">}</span><br></span></code></pre></div></div>
-<h2 class="anchor anchorTargetHideOnScrollNavbar_vjPI" id="get-raw-od-readings-per-unit">Get Raw OD Readings Per Unit<a href="#get-raw-od-readings-per-unit" class="hash-link" aria-label="Direct link to Get Raw OD Readings Per Unit" title="Direct link to Get Raw OD Readings Per Unit" translate="no">​</a></h2>
+<h2 class="anchor anchorTargetHideOnScrollNavbar_vjPI" id="get-raw-od-readings-per-unit">Get Raw OD Readings Per Unit<a href="#get-raw-od-readings-per-unit" class="hash-link" aria-label="Direct link to Get Raw OD Readings Per Unit" title="Direct link to Get Raw OD Readings Per Unit" translate="no"> ​</a></h2>
 <p>Returns raw OD time series for a single unit.</p>
 <h3 class="anchor anchorTargetHideOnScrollNavbar_vjPI" id="endpoint-31">Endpoint<a href="#endpoint-31" class="hash-link" aria-label="Direct link to Endpoint" title="Direct link to Endpoint" translate="no">​</a></h3>
 <p><code>GET /api/workers/{pioreactor_unit}/experiments/{experiment}/time_series/raw_od_readings</code></p>
