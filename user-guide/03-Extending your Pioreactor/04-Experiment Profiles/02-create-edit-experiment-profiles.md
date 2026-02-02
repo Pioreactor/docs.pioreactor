@@ -47,7 +47,7 @@ pioreactors:
 4. Click **Search jobs and automations** if you want to insert additional sample actions—results paste directly into the editor.
 5. Choose **Save**. The profile appears immediately under **Available profiles**, ready to run with **Start profile**.
 
-![Creating a hello-world profile in the Pioreactor UI](/img/user-guide/experiment-profiles/create-profile-hello-world.png)
+![Creating a hello-world profile in the Pioreactor UI](/img/user-guide/03-extending-your-pioreactor/02-create-edit-experiment-profiles/create-profile-hello-world.png)
 
 ### How the example works
 
@@ -63,7 +63,7 @@ pioreactors:
 3. Select **Save**. The file in `~/.pioreactor/experiment_profiles/<filename>.yaml` is overwritten.
 4. Use **Duplicate profile** when you want to branch an idea without touching the original, or **View source code** for a read-only copy in a new tab.
 
-![Editing an existing profile showing the Save button](/img/user-guide/experiment-profiles/edit-profile-highlight.png)
+![Editing an existing profile showing the Save button](/img/user-guide/03-extending-your-pioreactor/02-create-edit-experiment-profiles/edit-profile-highlight.png)
 
 ## Prefer the command line?
 

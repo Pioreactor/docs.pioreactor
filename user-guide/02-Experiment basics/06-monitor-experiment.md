@@ -18,11 +18,11 @@ Navigate to the _Overview_ page on the Pioreactor web interface. Here you can vi
 
 To **change the settings** of activities after starting, navigate to the _Pioreactors_ tab. Under _Control_ for a single Pioreactor or _Control all Pioreactors_, click the _Settings_ tab.
 
-![](/img/user-guide/02-experiment-basics/04-set-up-an-experiment/manage_ui.png)
+![](/img/user-guide/02-experiment-basics/06-monitor-experiment/manage_ui.png)
 
 Here you can change the settings of your activities (such as temperature, RPM, and dosing volume) without pausing or stopping the activity.
 
-![](/img/user-guide/02-experiment-basics/04-set-up-an-experiment/settings.png)
+![](/img/user-guide/02-experiment-basics/06-monitor-experiment/settings.png)
 
 
 

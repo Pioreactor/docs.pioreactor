@@ -23,16 +23,16 @@ This self-test catches wiring or hardware issues early, before you run your firs
 2. Open the **Inventory** page in the UI.
 3. Click **Self-test** on your Pioreactor card, then click **Start**.
 
-![](/img/user-guide/02-experiment-basics/11-running-self-test/inventory-self-test-button.png)
-![](/img/user-guide/02-experiment-basics/11-running-self-test/inventory-self-test-pre.png)
+![](/img/user-guide/01-getting-started/03-pre-flight-hardware-check/inventory-self-test-button.png)
+![](/img/user-guide/01-getting-started/03-pre-flight-hardware-check/inventory-self-test-pre.png)
 
 The Pioreactor will run a short series of checks and report back with passes and failures.
 
-![](/img/user-guide/02-experiment-basics/11-running-self-test/inventory-self-test-running.png)
+![](/img/user-guide/01-getting-started/03-pre-flight-hardware-check/inventory-self-test-running.png)
 
 When the results arrive, you'll see a list of successes and failures:
 
-![](/img/user-guide/02-experiment-basics/11-running-self-test/self_test_results.png)
+![](/img/user-guide/01-getting-started/03-pre-flight-hardware-check/self_test_results.png)
 
 :::info
 The self-test is optional, but we **strongly recommend** running it after your initial setup. Even if a test fails, your Pioreactor may still be usable - it just helps you catch issues early.

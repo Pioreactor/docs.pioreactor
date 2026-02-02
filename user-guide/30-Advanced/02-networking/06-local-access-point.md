@@ -15,7 +15,7 @@ For some use cases, you may want to create a local WiFi network just for your Pi
 
 The Pioreactor comes with the ability to create its own local access point, which other Pioreactors can connect to. See image below:
 
-![Using the Pioreactor to create a local access point](/img/user-guide/30-advanced/02-networking/06-local-access-point/local_access_point.png)
+![Using the Pioreactor to create a local access point](/img/user-guide/30-advanced/06-local-access-point/local_access_point.png)
 
 
 :::info
@@ -73,7 +73,7 @@ This network may not be connected to the internet, so you won't be able to upgra
 If you are hosting the local access point on a Raspberry Pi that has an ethernet port (B models, or via a usb-ethernet gadget), you can plug this into a router that has access to the internet to provide internet to your entire cluster.
 
 
-![Using the Pioreactor to create a local access point, and the is connected to a router](/img/user-guide/30-advanced/02-networking/06-local-access-point/lap_with_internet.png)
+![Using the Pioreactor to create a local access point, and the is connected to a router](/img/user-guide/30-advanced/06-local-access-point/lap_with_internet.png)
 
 
 ## Turning off a local access point

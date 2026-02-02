@@ -7,7 +7,7 @@ hide_table_of_contents: true
 
 Pinch valves are useful for controlling gas into the Pioreactor by "pinching" a gas line closed (or keeping it open). This could used be for injecting gas periodically into the headspace, or acting as a bubbler by putting the injection tube directly into the culture. Below is a diagram of using a pinch valve to periodically provide CO₂ into the head space of the Pioreactor's vial:
 
-![Diagram of how to us a pinch valve](/img/user-guide/30-advanced/07-additional-hardware/02-pinch-valves/pinch_valves_in_pioreactor.png)
+![Diagram of how to us a pinch valve](/img/user-guide/30-advanced/02-pinch-valves/pinch_valves_in_pioreactor.png)
 
 The pinch valve opens and closes, controlled by the Pioreactor, to allow gas from the CO₂ source into the headspace. The Pioreactor controls the pinch valve via the PWM channels and software (plugins).
 
@@ -39,7 +39,7 @@ To control the pinch valve, we suggest using the [pioreactor relay plugin](https
 You can [install this plugin from the Pioreactor UI](/user-guide/using-community-plugins#installing-plugins).
 
 
-![](/img/user-guide/30-advanced/07-additional-hardware/02-pinch-valves/start_relay.png)
+![](/img/user-guide/30-advanced/02-pinch-valves/start_relay.png)
 
 
 

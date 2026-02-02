@@ -9,7 +9,7 @@ sidebar_class_name: sidebar-item--updated
 
 Protocols are step-by-step workflows for calibrations. Use the Protocols page in the UI to run a calibration protocol, enter the required metadata, and follow the guided prompts.
 
-![Protocols page in the Pioreactor UI](/img/user-guide/protocols/protocols.png)
+![Protocols page in the Pioreactor UI](/img/user-guide/03-extending-your-pioreactor/03-protocols/protocols.png)
 
 ## Run a calibration protocol
 

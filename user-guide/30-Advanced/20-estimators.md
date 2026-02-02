@@ -30,7 +30,7 @@ The active estimator for a device is tracked in local persistent storage. Estima
 
 ## Managing estimators in the UI
 
-![Estimators page showing filters, table, and active toggle.](/img/user-guide/30-advanced/estimators/estimators.png)
+![Estimators page showing filters, table, and active toggle.](/img/user-guide/30-advanced/20-estimators/estimators.png)
 
 Use the **Estimators** page to:
 

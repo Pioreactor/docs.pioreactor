@@ -15,7 +15,7 @@ To change which calibration is active, visit the Calibrations page, select the c
 
 ## Managing calibrations in the UI
 
-![Calibrations page showing filters, table, and chart.](/img/user-guide/03-extending-your-pioreactor/08-hardware-calibrations/calibrations-page.png)
+![Calibrations page showing filters, table, and chart.](/img/user-guide/03-extending-your-pioreactor/99-managing-calibrations/calibrations-page.png)
 
 - Use the `Pioreactor` and `Device` filters at the top of the Calibrations page to focus on a specific unit and hardware type. Toggle **Only Active calibrations** to hide everything except the curve currently in use.
 - Click any calibration row to open its detail view. Use **Set active** to mark that calibration as the one the Pioreactor will use for that device (only one calibration can be active per device per Pioreactor). Use **Set inactive** to clear it and disable calibration for that device.
