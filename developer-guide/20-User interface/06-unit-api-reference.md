@@ -12,6 +12,19 @@ sidebar_class_name: sidebar-item--updated
 - Poll `GET /unit_api/task_results/{task_id}` until `status` is `complete` or `failed`.
 - `$broadcast` may be used in path parameters where documented to target all units/workers.
 - File download endpoints return binary bodies; use the response content-type to handle them.
+- Errors have the following schema:
+
+```
+  {
+    "error": "Human-readable error message",
+    "error_info": {
+      "cause": "Human-readable cause (defaults to error if not set)",
+      "remediation": "Suggested fix or next step",
+      "status": integer,
+    }
+  }
+
+```
 
 
 ## Health Check

@@ -14,6 +14,19 @@ sidebar_class_name: sidebar-item--updated
 - File download endpoints return binary bodies; use the response content-type to handle them.
 - Path parameters are shown inline in the endpoint URL.
 - Request/response examples are the canonical shapes; omit optional fields you do not need.
+- Errors have the following schema:
+
+```
+  {
+    "error": "Human-readable error message",
+    "error_info": {
+      "cause": "Human-readable cause (defaults to error if not set)",
+      "remediation": "Suggested fix or next step",
+      "status": integer,
+    }
+  }
+
+```
 
 
 Use `/api/workers/...` for worker-only targets (experiment-scoped jobs/logs) and `/api/units/...` when the leader is also a valid target; both accept `$broadcast` where supported.

@@ -4,13 +4,6 @@ slug: /hardware-calibrations
 hide_table_of_contents: true
 ---
 
-import AssemblyInstructionBlock from '@site/src/components/AssemblyInstructionBlock';
-import Highlight from '@site/src/components/Highlight';
-import Admonition from '@theme/Admonition';
-
-import * as colors from '@site/src/components/constants';
-
-
 Hardware calibrations serve as a method to get accurate performance from your Pioreactor.
 
 
@@ -20,14 +13,21 @@ Hardware calibrations serve as a method to get accurate performance from your Pi
 This is optional, but can really help stirring performance. Creating a stirring calibration is also very easy, so we recommend it.
 :::
 
-1. Start by filling a Pioreactor vial about 3/4th with water, and place the stirbar inside. Close with lid. Place into the Pioreactor.
-1. We'll perform this routine through your computer's command line. Need help [accessing it](/user-guide/accessing-raspberry-pi)?
-2.  Enter **`ssh pioreactor@<insert unit name>.local`**.
-    *   For example, to calibrate on our Pioreactor named _worker3_, we typed **`ssh pioreactor@worker3.local`**.
-    *   The default password is `raspberry`.
-2. After SSHing into your Pioreactor, enter `pio calibrations run --device stirring`.
-4. The Pioreactor will increment the voltage applied to the motor, and record the RPM. After it's done, it will collect this data into a calibration curve, and store it locally.
-4. At the end, you'll be prompted to set this as the "active" calibration. Select "Yes".
+You'll need:
+
+1. A vial
+2. A stir bar
+3. Liquid (water is fine)
+
+![DC-based stirring calibration protocol in the Protocols page.](/img/user-guide/03-extending-your-pioreactor/08-hardware-calibrations/stirring-calibration-protocol.png)
+
+1. In the **Protocols** page, choose your Pioreactor and select the **stirring** device.
+2. Click **Run protocol** for **DC-based stirring calibration**.
+3. Follow the on-screen flow:
+    1. Insert a vial with a stir bar and the liquid volume you plan to use.
+    2. Confirm stirring is off before starting.
+    3. Let the protocol step through duty cycles while it records RPM.
+4. When the protocol finishes, save the calibration as active if prompted. Otherwise, set it active later from the **Calibrations** page.
 
 You're done! Your stirring RPM should be much more responsive now.
 
@@ -43,24 +43,24 @@ There are three pumps on the Pioreactor: media, alt-media, and waste. You don't 
 2. An accurate weighing scale, with accuracy of 0.1g or better.
 3. Container of water
 
+![Duration-based pump calibration protocol in the Protocols page.](/img/user-guide/03-extending-your-pioreactor/08-hardware-calibrations/pump-calibration-protocol.png)
+
 
 :::tip
 [Supplying external power](/user-guide/external-power)? Make sure to plug in your external power **before** pump calibration!
 :::
 
 
-<AssemblyInstructionBlock title="Calibrating the pumps" images={["experiments/turbidostat/ssh_into_unit.png","experiments/turbidostat/run_pump_calc.png"]}>
-
-
-1. We'll perform this routine through your computer's command line. Need help [accessing it](/user-guide/accessing-raspberry-pi)?
-2.  Enter **`ssh pioreactor@<insert unit name>.local`**.
-    *   For example, to calibrate on our Pioreactor named _worker3_, we typed **`ssh pioreactor@worker3.local`**.
-    *   The default password is `raspberry`.
-3. To calibrate the `media_pump`, enter `pio calibrations run --device media_pump`. Likewise for `waste_pump` and `alt_media_pump.`
-4. Follow the prompts to calibrate your pump.
-4. At the end, you'll be prompted to set this as the "active" calibration. Select "Yes".
-
-</AssemblyInstructionBlock>
+1. In the **Protocols** page, choose your Pioreactor and select the pump device you want to calibrate (for example `media_pump`, `waste_pump`, or `alt_media_pump`).
+2. Click **Run protocol** for **Duration-based pump calibration**.
+3. Follow the on-screen flow:
+    1. Review the safety steps for keeping liquids away from the Pioreactor hardware.
+    2. Name the calibration.
+    3. Enter the target volumes to calibrate around (comma-separated values, in mL).
+    4. Optionally adjust PWM settings.
+    5. Place both tubing ends in the water container and prime the pump until the tubing is fully filled.
+    6. For each dispense step, hold the outflow tube above your vial or graduated cylinder, run the pump for the prompted duration, and record the measured volume. Repeat until the protocol completes.
+4. When the protocol finishes, save the calibration as active if prompted. Otherwise, set it active later from the **Calibrations** page.
 
 ## Managing calibrations
 
