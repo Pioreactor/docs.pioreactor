@@ -2,6 +2,7 @@
 title: Hardware calibrations
 slug: /hardware-calibrations
 hide_table_of_contents: true
+sidebar_class_name: sidebar-item--updated
 ---
 
 Hardware calibrations serve as a method to get accurate performance from your Pioreactor.
