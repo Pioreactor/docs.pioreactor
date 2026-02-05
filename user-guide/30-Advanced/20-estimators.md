@@ -4,6 +4,7 @@ slug: /estimators
 sidebar_label: Estimators
 description: Learn how Pioreactor estimators turn raw sensor signals into derived measurements.
 sidebar_class_name: sidebar-item--updated
+hide_table_of_contents: true
 ---
 
 Estimators turn raw sensor signals into derived measurements that are more useful for experiments. They are similar to calibrations in lifecycle (created through a protocol, saved to disk, optionally set active), but they solve a different problem: they combine or transform measurements from multiple sensors into a single estimate.
