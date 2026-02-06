@@ -2,7 +2,6 @@
 title: Managing calibrations
 slug: /managing-calibrations
 hide_table_of_contents: true
-sidebar_class_name: sidebar-item--updated
 ---
 
 Once you have one or more calibrations (stirring, pumps, OD), you can set which one is active, export it, edit it, or share it.
