@@ -71,11 +71,34 @@ Do not push the wire connector in at an angle, as it can bend the metal leads in
 
 </AssemblyInstructionBlock>
 
-<AssemblyInstructionBlock title="Step 6: XR completed!" images={["user-guide/hardware-assembly/upgrade_XR/completed-20ml-xr.jpg"]}>
+<AssemblyInstructionBlock title="Step 6: XR assmebly completed" images={["user-guide/hardware-assembly/upgrade_XR/completed-20ml-xr.jpg"]}>
 
-Your new 20ml Pioreactor XR is now assembled! 🚀
+Your new 20ml Pioreactor XR is now assembled!
 
-In the Pioreactor UI, open **Inventory** and update the **Model** dropdown for your Pioreactor to the correct XR variant.
+1. Power on your Pioreactor again.
+2. Next, we need to adjust some settings in the software.
+
 
 </AssemblyInstructionBlock>
+
+
+<AssemblyInstructionBlock title="Step 7: Software" images={["user-guide/hardware-assembly/upgrade_XR/choose_xr_model.png", "user-guide/hardware-assembly/upgrade_XR/update_xr_config.png"]}>
+
+1. The required software version is 26.1.30 or later. [Here's how to update](/user-guide/updating-software).
+
+2. On the _Inventory_ page, find the Pioreactor you upgraded, select _Model_, and choose the XR version.
+
+3. On the _Edit Config_ page, add the following to section `[od_config.photodiode_channel]`
+
+   ```
+   1=REF
+   2=90
+   3=135
+   4=45
+   ```
+
+4. Next, read the docs on how to [fuse the sensors into a single biomass signal](/user-guide/od-fused-biomass).
+
+</AssemblyInstructionBlock>
+
 

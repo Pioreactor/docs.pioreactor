@@ -10,3 +10,40 @@
   border: 3px solid white;
   padding: 3px 3px 1px 3px;
 }
+
+.lightboxOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.78);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.lightboxImage {
+  max-width: min(1200px, 95vw);
+  max-height: 90vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  cursor: zoom-out;
+  box-shadow: 0 14px 48px rgba(0, 0, 0, 0.4);
+  border-radius: 8px;
+}
+
+.lightboxClose {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 2.2rem;
+  height: 2.2rem;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.95);
+  color: #222;
+  font-size: 1.2rem;
+  line-height: 1;
+  cursor: pointer;
+}
