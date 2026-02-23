@@ -18,7 +18,6 @@ In practice, calibrations are stored as YAML files on the Pioreactor, in `~/.pio
 flowchart TD
     Protocol["<b>Calibration protocol</b><br/>(script or workflow)"] -->|targets| Device["<b>Device</b><br/>(od, pump, stirring, ph, ...)"]
     Protocol -->|creates| Calibration["<b>Calibration record</b><br/>(data + metadata)"]
-    Protocol -->|creates| Estimation["<b>Estimation record</b><br/>(data + metadata)"]
     Device -->|has many| Calibration
     Device -->|uses| Active["<b>Active calibration</b><br/>(up to one per device)"]
     Active --> Calibration

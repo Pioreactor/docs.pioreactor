@@ -26,10 +26,455 @@ sidebar_class_name: sidebar-item--updated
 
 ```
 
+## Get All Active Calibrations
+
+Get All Active Calibrations endpoint.
+
+### Endpoint
+`GET /unit_api/active_calibrations`
+
+### Response
+
+#### Success
+
+**Status:** `200 OK`
+
+```json
+"<all_calibrations>"
+```
+
+## Remove Active Status Calibration
+
+Remove Active Status Calibration endpoint.
+
+### Endpoint
+`DELETE /unit_api/active_calibrations/{device}`
+
+### Request
+
+#### Path Parameters
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| device | string | Yes | Target device name. |
+
+### Response
+
+#### Success
+
+**Status:** `200 OK`
+
+```json
+{
+  "status": "success"
+}
+```
+
+## Set Active Calibration
+
+Set Active Calibration endpoint.
+
+### Endpoint
+`PATCH /unit_api/active_calibrations/{device}/{calibration_name}`
+
+### Request
+
+#### Path Parameters
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| device | string | Yes | Target device name. |
+| calibration_name | string | Yes | Calibration name. |
+
+### Response
+
+#### Success
+
+**Status:** `200 OK`
+
+```json
+{
+  "status": "success"
+}
+```
+
+## Get All Active Estimators
+
+Get All Active Estimators endpoint.
+
+### Endpoint
+`GET /unit_api/active_estimators`
+
+### Response
+
+#### Success
+
+**Status:** `200 OK`
+
+```json
+{}
+```
+
+## Remove Active Status Estimator
+
+Remove Active Status Estimator endpoint.
+
+### Endpoint
+`DELETE /unit_api/active_estimators/{device}`
+
+### Request
+
+#### Path Parameters
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| device | string | Yes | Target device name. |
+
+### Response
+
+#### Success
+
+**Status:** `200 OK`
+
+```json
+{
+  "status": "success"
+}
+```
+
+## Set Active Estimator
+
+Set Active Estimator endpoint.
+
+### Endpoint
+`PATCH /unit_api/active_estimators/{device}/{estimator_name}`
+
+### Request
+
+#### Path Parameters
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| device | string | Yes | Target device name. |
+| estimator_name | string | Yes | Estimator name. |
+
+### Response
+
+#### Success
+
+**Status:** `200 OK`
+
+```json
+{
+  "status": "success"
+}
+```
+
+## Get Calibration Protocols
+
+Get Calibration Protocols endpoint.
+
+### Endpoint
+`GET /unit_api/calibration_protocols`
+
+### Response
+
+#### Success
+
+**Status:** `200 OK`
+
+_No response body example inferred._
+
+## Get All Calibrations
+
+Get All Calibrations endpoint.
+
+### Endpoint
+`GET /unit_api/calibrations`
+
+### Response
+
+#### Success
+
+**Status:** `200 OK`
+
+```json
+"<all_calibrations>"
+```
+
+## Get Calibrations By Device
+
+Get Calibrations By Device endpoint.
+
+### Endpoint
+`GET /unit_api/calibrations/{device}`
+
+### Request
+
+#### Path Parameters
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| device | string | Yes | Target device name. |
+
+### Response
+
+#### Success
+
+**Status:** `200 OK`
+
+```json
+"<calibrations>"
+```
+
+## Create Calibration
+
+Create a new calibration for the specified device.
+
+### Endpoint
+`POST /unit_api/calibrations/{device}`
+
+### Request
+
+#### Path Parameters
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| device | string | Yes | Target device name. |
+
+#### Request Body
+```json
+{
+  "calibration_data": "<value>",
+  "set_as_active": "<value>"
+}
+```
+
+### Response
+
+#### Success
+
+**Status:** `200 OK`
+
+```json
+"<response>"
+```
+
+## Delete Calibration
+
+Delete a specific calibration for a given device.
+
+### Endpoint
+`DELETE /unit_api/calibrations/{device}/{calibration_name}`
+
+### Request
+
+#### Path Parameters
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| device | string | Yes | Target device name. |
+| calibration_name | string | Yes | Calibration name. |
+
+### Response
+
+#### Success
+
+**Status:** `200 OK`
+
+```json
+"<response>"
+```
+
+## Get Calibration
+
+Get Calibration endpoint.
+
+### Endpoint
+`GET /unit_api/calibrations/{device}/{calibration_name}`
+
+### Request
+
+#### Path Parameters
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| device | string | Yes | Target device name. |
+| calibration_name | string | Yes | Calibration name. |
+
+### Response
+
+#### Success
+
+**Status:** `200 OK`
+
+```json
+"<cal>"
+```
+
+## Get Capabilities
+
+Get Capabilities endpoint.
+
+### Endpoint
+`GET /unit_api/capabilities`
+
+### Response
+
+#### Success
+
+**Status:** `200 OK`
+
+_No response body example inferred._
+
+## Get All Estimators
+
+Get All Estimators endpoint.
+
+### Endpoint
+`GET /unit_api/estimators`
+
+### Response
+
+#### Success
+
+**Status:** `200 OK`
+
+```json
+{}
+```
+
+## Get Estimators By Device
+
+Get Estimators By Device endpoint.
+
+### Endpoint
+`GET /unit_api/estimators/{device}`
+
+### Request
+
+#### Path Parameters
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| device | string | Yes | Target device name. |
+
+### Response
+
+#### Success
+
+**Status:** `200 OK`
+
+```json
+[]
+```
+
+## Delete Estimator
+
+Delete Estimator endpoint.
+
+### Endpoint
+`DELETE /unit_api/estimators/{device}/{estimator_name}`
+
+### Request
+
+#### Path Parameters
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| device | string | Yes | Target device name. |
+| estimator_name | string | Yes | Estimator name. |
+
+### Response
+
+#### Success
+
+**Status:** `200 OK`
+
+```json
+"<response>"
+```
+
+## Get Estimator
+
+Get Estimator endpoint.
+
+### Endpoint
+`GET /unit_api/estimators/{device}/{estimator_name}`
+
+### Request
+
+#### Path Parameters
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| device | string | Yes | Target device name. |
+| estimator_name | string | Yes | Estimator name. |
+
+### Response
+
+#### Success
+
+**Status:** `200 OK`
+
+```json
+"<estimator>"
+```
+
+## Check Hardware For Model
+
+Check Hardware For Model endpoint.
+
+### Endpoint
+`PATCH /unit_api/hardware/check`
+
+### Request
+
+#### Request Body
+```json
+{
+  "model_name": "<value>",
+  "model_version": "<value>"
+}
+```
+
+### Response
+
+#### Success
+
+**Status:** `202 Accepted`
+
+```json
+{
+  "unit": "<unit>",
+  "task_id": "<task_id>",
+  "result_url_path": "/unit_api/task_results/<task_id>"
+}
+```
+
+## Check Hardware For Model
+
+Check Hardware For Model endpoint.
+
+### Endpoint
+`POST /unit_api/hardware/check`
+
+### Request
+
+#### Request Body
+```json
+{
+  "model_name": "<value>",
+  "model_version": "<value>"
+}
+```
+
+### Response
+
+#### Success
+
+**Status:** `202 Accepted`
+
+```json
+{
+  "unit": "<unit>",
+  "task_id": "<task_id>",
+  "result_url_path": "/unit_api/task_results/<task_id>"
+}
+```
 
 ## Health Check
 
-Returns basic health status for a unit.
+Health Check endpoint.
 
 ### Endpoint
 `GET /unit_api/health`
@@ -41,27 +486,22 @@ Returns basic health status for a unit.
 **Status:** `200 OK`
 
 ```json
-{
-  "status": "ok",
-  "pioreactor_unit": "pio01",
-  "utc_time": "2026-01-31T12:45:00Z"
-}
+"<payload>"
 ```
 
-## Check Hardware For Model
+## Import Dot Pioreactor From Zip
 
-Validates hardware compatibility for a model.
+Import Dot Pioreactor From Zip endpoint.
 
 ### Endpoint
-`POST /unit_api/hardware/check`
+`POST /unit_api/import_zipped_dot_pioreactor`
 
 ### Request
 
 #### Request Body
 ```json
 {
-  "model_name": "pioreactor_20ml",
-  "model_version": "1.5"
+  "<request_body>": "<see implementation>"
 }
 ```
 
@@ -73,60 +513,47 @@ Validates hardware compatibility for a model.
 
 ```json
 {
-  "unit": "pio01",
-  "task_id": "task_abc123",
-  "result_url_path": "/unit_api/task_results/task_abc123"
+  "unit": "<unit>",
+  "task_id": "<task_id>",
+  "result_url_path": "/unit_api/task_results/<task_id>"
 }
 ```
 
-## Task Results
+## Get Jobs
 
-Returns the status and result of a Huey task.
+Get Jobs endpoint.
 
 ### Endpoint
-`GET /unit_api/task_results/{task_id}`
+`GET /unit_api/jobs`
+
+### Response
+
+#### Success
+
+**Status:** `200 OK`
+
+```json
+"<jobs>"
+```
+
+## Run Job
+
+Body should look like (all optional)
+
+### Endpoint
+`PATCH /unit_api/jobs/run/job_name/{job_name}`
 
 ### Request
 
 #### Path Parameters
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
-| task_id | string | Yes | Huey task id. |
-
-### Response
-
-#### Success
-
-**Status:** `200 OK`
-
-```json
-{
-  "task_id": "task_abc123",
-  "result_url_path": "/unit_api/task_results/task_abc123",
-  "status": "complete",
-  "result": {}
-}
-```
-
-## Update Target
-
-Runs a system update for a specific target.
-
-### Endpoint
-`POST /unit_api/system/update/{target}`
-
-### Request
-
-#### Path Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| target | string | Yes | Update target, currently `app`. |
+| job_name | string | Yes | Job name. |
 
 #### Request Body
 ```json
 {
-  "options": {},
-  "args": []
+  "<request_body>": "<see implementation>"
 }
 ```
 
@@ -138,238 +565,15 @@ Runs a system update for a specific target.
 
 ```json
 {
-  "unit": "pio01",
-  "task_id": "task_abc123",
-  "result_url_path": "/unit_api/task_results/task_abc123"
-}
-```
-
-## Update App
-
-Runs a system update for the app.
-
-### Endpoint
-`POST /unit_api/system/update`
-
-### Request
-
-#### Request Body
-```json
-{
-  "options": {},
-  "args": []
-}
-```
-
-### Response
-
-#### Success
-
-**Status:** `202 Accepted`
-
-```json
-{
-  "unit": "pio01",
-  "task_id": "task_abc123",
-  "result_url_path": "/unit_api/task_results/task_abc123"
-}
-```
-
-## Reboot Unit
-
-Queues a reboot of the unit.
-
-### Endpoint
-`POST /unit_api/system/reboot`
-
-### Response
-
-#### Success
-
-**Status:** `202 Accepted`
-
-```json
-{
-  "unit": "pio01",
-  "task_id": "task_abc123",
-  "result_url_path": "/unit_api/task_results/task_abc123"
-}
-```
-
-## Shutdown Unit
-
-Queues a shutdown of the unit.
-
-### Endpoint
-`POST /unit_api/system/shutdown`
-
-### Response
-
-#### Success
-
-**Status:** `202 Accepted`
-
-```json
-{
-  "unit": "pio01",
-  "task_id": "task_abc123",
-  "result_url_path": "/unit_api/task_results/task_abc123"
-}
-```
-
-## Web Server Status
-
-Returns leader web server status.
-
-### Endpoint
-`GET /unit_api/system/web_server/status`
-
-### Response
-
-#### Success
-
-**Status:** `200 OK`
-
-```json
-{
-  "service": "lighttpd.service,huey.service",
-  "state": "ready",
-  "raw_status": "lighttpd.service=active, huey.service=active"
-}
-```
-
-## Restart Web Server
-
-Restarts the leader web server services.
-
-### Endpoint
-`POST /unit_api/system/web_server/restart`
-
-### Response
-
-#### Success
-
-**Status:** `202 Accepted`
-
-```json
-{
-  "unit": "pio01",
-  "task_id": "task_abc123",
-  "result_url_path": "/unit_api/task_results/task_abc123"
-}
-```
-
-## Remove File
-
-Deletes a file under the `.pioreactor` directory.
-
-### Endpoint
-`POST /unit_api/system/remove_file`
-
-### Request
-
-#### Request Body
-```json
-{
-  "filepath": "storage/cache.txt"
-}
-```
-
-### Response
-
-#### Success
-
-**Status:** `202 Accepted`
-
-```json
-{
-  "unit": "pio01",
-  "task_id": "task_abc123",
-  "result_url_path": "/unit_api/task_results/task_abc123"
-}
-```
-
-## Get Clock Time
-
-Returns current UTC timestamp from the unit.
-
-### Endpoint
-`GET /unit_api/system/utc_clock`
-
-### Response
-
-#### Success
-
-**Status:** `200 OK`
-
-```json
-{
-  "status": "success",
-  "clock_time": "2026-01-31T12:45:00Z"
-}
-```
-
-## Set Clock Time
-
-Sets the unit clock on leader or syncs via chrony on workers.
-
-### Endpoint
-`POST /unit_api/system/utc_clock`
-
-### Request
-
-#### Request Body
-```json
-{
-  "utc_clock_time": "2026-01-31T12:45:00Z"
-}
-```
-
-### Response
-
-#### Success
-
-**Status:** `202 Accepted`
-
-```json
-{
-  "unit": "pio01",
-  "task_id": "task_abc123",
-  "result_url_path": "/unit_api/task_results/task_abc123"
-}
-```
-
-## Directory Listing
-
-Returns directory contents or file contents under `.pioreactor`.
-
-### Endpoint
-`GET /unit_api/system/path/{req_path}`
-
-### Request
-
-#### Path Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| req_path | string | Yes | Path under DOT_PIOREACTOR. |
-
-### Response
-
-#### Success
-
-**Status:** `200 OK`
-
-```json
-{
-  "current": "/home/pi/.pioreactor",
-  "dirs": ["storage"],
-  "files": ["config.ini"]
+  "unit": "<unit>",
+  "task_id": "<task_id>",
+  "result_url_path": "/unit_api/task_results/<task_id>"
 }
 ```
 
 ## Run Job
 
-Runs a job on the unit.
+Body should look like (all optional)
 
 ### Endpoint
 `POST /unit_api/jobs/run/job_name/{job_name}`
@@ -379,15 +583,12 @@ Runs a job on the unit.
 #### Path Parameters
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
-| job_name | string | Yes | Job name to run. |
+| job_name | string | Yes | Job name. |
 
 #### Request Body
 ```json
 {
-  "options": {"target_rpm": "200"},
-  "env": {"EXPERIMENT": "Exp001"},
-  "args": [],
-  "config_overrides": []
+  "<request_body>": "<see implementation>"
 }
 ```
 
@@ -399,95 +600,15 @@ Runs a job on the unit.
 
 ```json
 {
-  "unit": "pio01",
-  "task_id": "task_abc123",
-  "result_url_path": "/unit_api/task_results/task_abc123"
+  "unit": "<unit>",
+  "task_id": "<task_id>",
+  "result_url_path": "/unit_api/task_results/<task_id>"
 }
 ```
 
-## Stop All Jobs
+## Get All Running Jobs
 
-Stops all jobs on the unit.
-
-### Endpoint
-`POST /unit_api/jobs/stop/all`
-
-### Response
-
-#### Success
-
-**Status:** `202 Accepted`
-
-```json
-{
-  "unit": "pio01",
-  "task_id": "task_abc123",
-  "result_url_path": "/unit_api/task_results/task_abc123"
-}
-```
-
-## Stop Jobs
-
-Stops jobs matching filters.
-
-### Endpoint
-`POST /unit_api/jobs/stop`
-
-### Request
-
-#### Request Body
-```json
-{
-  "job_name": "stirring",
-  "experiment": "Exp001",
-  "job_source": "user",
-  "job_id": "job_abc"
-}
-```
-
-### Response
-
-#### Success
-
-**Status:** `202 Accepted`
-
-```json
-{
-  "unit": "pio01",
-  "task_id": "task_abc123",
-  "result_url_path": "/unit_api/task_results/task_abc123"
-}
-```
-
-## Get Running Jobs For Experiment
-
-Returns running jobs for an experiment.
-
-### Endpoint
-`GET /unit_api/jobs/running/experiments/{experiment}`
-
-### Request
-
-#### Path Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| experiment | string | Yes | Experiment identifier. |
-
-### Response
-
-#### Success
-
-**Status:** `200 OK`
-
-```json
-[
-  {"job_name": "stirring", "job_id": "job_abc", "experiment": "Exp001"}
-]
-```
-
-## Get Running Jobs
-
-Returns running jobs for the unit.
+Get All Running Jobs endpoint.
 
 ### Endpoint
 `GET /unit_api/jobs/running`
@@ -499,14 +620,12 @@ Returns running jobs for the unit.
 **Status:** `200 OK`
 
 ```json
-[
-  {"job_name": "stirring", "job_id": "job_abc", "experiment": "Exp001"}
-]
+"<jobs>"
 ```
 
 ## Get Running Job
 
-Returns running jobs filtered by name.
+Get Running Job endpoint.
 
 ### Endpoint
 `GET /unit_api/jobs/running/{job_name}`
@@ -525,17 +644,22 @@ Returns running jobs filtered by name.
 **Status:** `200 OK`
 
 ```json
-[
-  {"job_name": "stirring", "job_id": "job_abc", "experiment": "Exp001"}
-]
+"<jobs>"
 ```
 
-## Get Long Running Jobs
+## Get Running Jobs For Experiment
 
-Returns running long-running jobs.
+Get Running Jobs For Experiment endpoint.
 
 ### Endpoint
-`GET /unit_api/long_running_jobs/running`
+`GET /unit_api/jobs/running/experiments/{experiment}`
+
+### Request
+
+#### Path Parameters
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| experiment | string | Yes | Experiment identifier. |
 
 ### Response
 
@@ -544,14 +668,12 @@ Returns running long-running jobs.
 **Status:** `200 OK`
 
 ```json
-[
-  {"job_name": "od_reading", "job_id": "job_abc"}
-]
+"<jobs>"
 ```
 
-## Get Settings For Job
+## Get Job Settings
 
-Returns settings for a running job.
+{
 
 ### Endpoint
 `GET /unit_api/jobs/settings/job_name/{job_name}`
@@ -571,13 +693,35 @@ Returns settings for a running job.
 
 ```json
 {
-  "settings": {"target_rpm": "200"}
+  "settings": "<value>"
 }
 ```
 
-## Get Setting For Job
+## Update Job
 
-Returns a specific setting for a running job.
+The body should look like:
+
+### Endpoint
+`PATCH /unit_api/jobs/settings/job_name/{job_name}`
+
+### Request
+
+#### Path Parameters
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| job_name | string | Yes | Job name. |
+
+### Response
+
+#### Success
+
+**Status:** `200 OK`
+
+_No response body example inferred._
+
+## Get Job Setting
+
+Get Job Setting endpoint.
 
 ### Endpoint
 `GET /unit_api/jobs/settings/job_name/{job_name}/setting/{setting}`
@@ -597,34 +741,117 @@ Returns a specific setting for a running job.
 **Status:** `200 OK`
 
 ```json
-{
-  "target_rpm": "200"
-}
+{}
 ```
 
-## Update Job Settings
+## Stop Jobs
 
-Not implemented for unit API.
+Stop Jobs endpoint.
 
 ### Endpoint
-`PATCH /unit_api/jobs/settings/job_name/{job_name}`
+`PATCH /unit_api/jobs/stop`
+
+### Request
+
+#### Request Body
+```json
+{
+  "<request_body>": "<see implementation>"
+}
+```
 
 ### Response
 
 #### Success
 
-**Status:** `503 Service Unavailable`
+**Status:** `202 Accepted`
 
 ```json
-{}
+{
+  "unit": "<unit>",
+  "task_id": "<task_id>",
+  "result_url_path": "/unit_api/task_results/<task_id>"
+}
 ```
 
-## Get Capabilities
+## Stop Jobs
 
-Returns capabilities for this unit.
+Stop Jobs endpoint.
 
 ### Endpoint
-`GET /unit_api/capabilities`
+`POST /unit_api/jobs/stop`
+
+### Request
+
+#### Request Body
+```json
+{
+  "<request_body>": "<see implementation>"
+}
+```
+
+### Response
+
+#### Success
+
+**Status:** `202 Accepted`
+
+```json
+{
+  "unit": "<unit>",
+  "task_id": "<task_id>",
+  "result_url_path": "/unit_api/task_results/<task_id>"
+}
+```
+
+## Stop All Jobs
+
+Stop All Jobs endpoint.
+
+### Endpoint
+`PATCH /unit_api/jobs/stop/all`
+
+### Response
+
+#### Success
+
+**Status:** `202 Accepted`
+
+```json
+{
+  "unit": "<unit>",
+  "task_id": "<task_id>",
+  "result_url_path": "/unit_api/task_results/<task_id>"
+}
+```
+
+## Stop All Jobs
+
+Stop All Jobs endpoint.
+
+### Endpoint
+`POST /unit_api/jobs/stop/all`
+
+### Response
+
+#### Success
+
+**Status:** `202 Accepted`
+
+```json
+{
+  "unit": "<unit>",
+  "task_id": "<task_id>",
+  "result_url_path": "/unit_api/task_results/<task_id>"
+}
+```
+
+## Get All Long Running Jobs
+
+Get All Long Running Jobs endpoint.
+
+### Endpoint
+`GET /unit_api/long_running_jobs/running`
 
 ### Response
 
@@ -633,15 +860,72 @@ Returns capabilities for this unit.
 **Status:** `200 OK`
 
 ```json
+"<jobs>"
+```
+
+## Install Plugin
+
+runs `pio plugin install ....`
+
+### Endpoint
+`PATCH /unit_api/plugins/install`
+
+### Request
+
+#### Request Body
+```json
 {
-  "jobs": [],
-  "settings": []
+  "<request_body>": "<see implementation>"
+}
+```
+
+### Response
+
+#### Success
+
+**Status:** `202 Accepted`
+
+```json
+{
+  "unit": "<unit>",
+  "task_id": "<task_id>",
+  "result_url_path": "/unit_api/task_results/<task_id>"
+}
+```
+
+## Install Plugin
+
+runs `pio plugin install ....`
+
+### Endpoint
+`POST /unit_api/plugins/install`
+
+### Request
+
+#### Request Body
+```json
+{
+  "<request_body>": "<see implementation>"
+}
+```
+
+### Response
+
+#### Success
+
+**Status:** `202 Accepted`
+
+```json
+{
+  "unit": "<unit>",
+  "task_id": "<task_id>",
+  "result_url_path": "/unit_api/task_results/<task_id>"
 }
 ```
 
 ## Get Installed Plugins
 
-Returns installed plugins for the unit.
+Get Installed Plugins endpoint.
 
 ### Endpoint
 `GET /unit_api/plugins/installed`
@@ -652,15 +936,11 @@ Returns installed plugins for the unit.
 
 **Status:** `200 OK`
 
-```json
-[
-  {"name": "pioreactor-my-plugin", "version": "0.1.0"}
-]
-```
+_No response body example inferred._
 
-## Get Plugin File
+## Get Installed Plugin
 
-Returns the contents of a plugin file in `.pioreactor/plugins`.
+get a specific Python file in the .pioreactor/plugin folder
 
 ### Endpoint
 `GET /unit_api/plugins/installed/{filename}`
@@ -670,7 +950,7 @@ Returns the contents of a plugin file in `.pioreactor/plugins`.
 #### Path Parameters
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
-| filename | string | Yes | Plugin filename ending in `.py`. |
+| filename | string | Yes | Filename. |
 
 ### Response
 
@@ -678,25 +958,21 @@ Returns the contents of a plugin file in `.pioreactor/plugins`.
 
 **Status:** `200 OK`
 
-```python
-def my_plugin_entry():
-    return "ok"
-```
+_No response body example inferred._
 
-## Install Plugin
+## Uninstall Plugin
 
-Installs a plugin on the unit.
+Body should look like:
 
 ### Endpoint
-`POST /unit_api/plugins/install`
+`PATCH /unit_api/plugins/uninstall`
 
 ### Request
 
 #### Request Body
 ```json
 {
-  "options": {"source": "path-or-url"},
-  "args": ["pioreactor-my-plugin"]
+  "<request_body>": "<see implementation>"
 }
 ```
 
@@ -708,15 +984,15 @@ Installs a plugin on the unit.
 
 ```json
 {
-  "unit": "pio01",
-  "task_id": "task_abc123",
-  "result_url_path": "/unit_api/task_results/task_abc123"
+  "unit": "<unit>",
+  "task_id": "<task_id>",
+  "result_url_path": "/unit_api/task_results/<task_id>"
 }
 ```
 
 ## Uninstall Plugin
 
-Uninstalls a plugin from the unit.
+Body should look like:
 
 ### Endpoint
 `POST /unit_api/plugins/uninstall`
@@ -726,7 +1002,7 @@ Uninstalls a plugin from the unit.
 #### Request Body
 ```json
 {
-  "args": ["pioreactor-my-plugin"]
+  "<request_body>": "<see implementation>"
 }
 ```
 
@@ -738,15 +1014,503 @@ Uninstalls a plugin from the unit.
 
 ```json
 {
-  "unit": "pio01",
-  "task_id": "task_abc123",
-  "result_url_path": "/unit_api/task_results/task_abc123"
+  "unit": "<unit>",
+  "task_id": "<task_id>",
+  "result_url_path": "/unit_api/task_results/<task_id>"
 }
 ```
 
+## List System Path
+
+List System Path endpoint.
+
+### Endpoint
+`GET /unit_api/system/path/`
+
+### Response
+
+#### Success
+
+**Status:** `200 OK`
+
+```json
+{
+  "current": "<current>",
+  "dirs": "<value>",
+  "files": "<value>"
+}
+```
+
+## List System Path
+
+List System Path endpoint.
+
+### Endpoint
+`GET /unit_api/system/path/{req_path}`
+
+### Request
+
+#### Path Parameters
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| req_path | string | Yes | Requested path segment. |
+
+### Response
+
+#### Success
+
+**Status:** `200 OK`
+
+```json
+{
+  "current": "<current>",
+  "dirs": "<value>",
+  "files": "<value>"
+}
+```
+
+## Reboot System
+
+Reboots unit
+
+### Endpoint
+`PATCH /unit_api/system/reboot`
+
+### Response
+
+#### Success
+
+**Status:** `202 Accepted`
+
+```json
+{
+  "unit": "<unit>",
+  "task_id": "<task_id>",
+  "result_url_path": "/unit_api/task_results/<task_id>"
+}
+```
+
+## Reboot System
+
+Reboots unit
+
+### Endpoint
+`POST /unit_api/system/reboot`
+
+### Response
+
+#### Success
+
+**Status:** `202 Accepted`
+
+```json
+{
+  "unit": "<unit>",
+  "task_id": "<task_id>",
+  "result_url_path": "/unit_api/task_results/<task_id>"
+}
+```
+
+## Remove File
+
+Remove File endpoint.
+
+### Endpoint
+`PATCH /unit_api/system/remove_file`
+
+### Request
+
+#### Request Body
+```json
+{
+  "<request_body>": "<see implementation>"
+}
+```
+
+### Response
+
+#### Success
+
+**Status:** `202 Accepted`
+
+```json
+{
+  "unit": "<unit>",
+  "task_id": "<task_id>",
+  "result_url_path": "/unit_api/task_results/<task_id>"
+}
+```
+
+## Remove File
+
+Remove File endpoint.
+
+### Endpoint
+`POST /unit_api/system/remove_file`
+
+### Request
+
+#### Request Body
+```json
+{
+  "<request_body>": "<see implementation>"
+}
+```
+
+### Response
+
+#### Success
+
+**Status:** `202 Accepted`
+
+```json
+{
+  "unit": "<unit>",
+  "task_id": "<task_id>",
+  "result_url_path": "/unit_api/task_results/<task_id>"
+}
+```
+
+## Shutdown System
+
+Shutdown unit
+
+### Endpoint
+`PATCH /unit_api/system/shutdown`
+
+### Response
+
+#### Success
+
+**Status:** `202 Accepted`
+
+```json
+{
+  "unit": "<unit>",
+  "task_id": "<task_id>",
+  "result_url_path": "/unit_api/task_results/<task_id>"
+}
+```
+
+## Shutdown System
+
+Shutdown unit
+
+### Endpoint
+`POST /unit_api/system/shutdown`
+
+### Response
+
+#### Success
+
+**Status:** `202 Accepted`
+
+```json
+{
+  "unit": "<unit>",
+  "task_id": "<task_id>",
+  "result_url_path": "/unit_api/task_results/<task_id>"
+}
+```
+
+## Update Software
+
+Update Software endpoint.
+
+### Endpoint
+`PATCH /unit_api/system/update`
+
+### Request
+
+#### Request Body
+```json
+{
+  "<request_body>": "<see implementation>"
+}
+```
+
+### Response
+
+#### Success
+
+**Status:** `202 Accepted`
+
+```json
+{
+  "unit": "<unit>",
+  "task_id": "<task_id>",
+  "result_url_path": "/unit_api/task_results/<task_id>"
+}
+```
+
+## Update Software
+
+Update Software endpoint.
+
+### Endpoint
+`POST /unit_api/system/update`
+
+### Request
+
+#### Request Body
+```json
+{
+  "<request_body>": "<see implementation>"
+}
+```
+
+### Response
+
+#### Success
+
+**Status:** `202 Accepted`
+
+```json
+{
+  "unit": "<unit>",
+  "task_id": "<task_id>",
+  "result_url_path": "/unit_api/task_results/<task_id>"
+}
+```
+
+## Update Software Target
+
+Update Software Target endpoint.
+
+### Endpoint
+`PATCH /unit_api/system/update/{target}`
+
+### Request
+
+#### Path Parameters
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| target | string | Yes | Requested target. |
+
+#### Request Body
+```json
+{
+  "<request_body>": "<see implementation>"
+}
+```
+
+### Response
+
+#### Success
+
+**Status:** `202 Accepted`
+
+```json
+{
+  "unit": "<unit>",
+  "task_id": "<task_id>",
+  "result_url_path": "/unit_api/task_results/<task_id>"
+}
+```
+
+## Update Software Target
+
+Update Software Target endpoint.
+
+### Endpoint
+`POST /unit_api/system/update/{target}`
+
+### Request
+
+#### Path Parameters
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| target | string | Yes | Requested target. |
+
+#### Request Body
+```json
+{
+  "<request_body>": "<see implementation>"
+}
+```
+
+### Response
+
+#### Success
+
+**Status:** `202 Accepted`
+
+```json
+{
+  "unit": "<unit>",
+  "task_id": "<task_id>",
+  "result_url_path": "/unit_api/task_results/<task_id>"
+}
+```
+
+## Get Clock Time
+
+Get Clock Time endpoint.
+
+### Endpoint
+`GET /unit_api/system/utc_clock`
+
+### Response
+
+#### Success
+
+**Status:** `200 OK`
+
+```json
+{
+  "status": "success",
+  "clock_time": "<current_time>"
+}
+```
+
+## Set Clock Time
+
+Set Clock Time endpoint.
+
+### Endpoint
+`PATCH /unit_api/system/utc_clock`
+
+### Request
+
+#### Request Body
+```json
+{
+  "utc_clock_time": "<value>"
+}
+```
+
+### Response
+
+#### Success
+
+**Status:** `202 Accepted`
+
+```json
+{
+  "unit": "<unit>",
+  "task_id": "<task_id>",
+  "result_url_path": "/unit_api/task_results/<task_id>"
+}
+```
+
+## Set Clock Time
+
+Set Clock Time endpoint.
+
+### Endpoint
+`POST /unit_api/system/utc_clock`
+
+### Request
+
+#### Request Body
+```json
+{
+  "utc_clock_time": "<value>"
+}
+```
+
+### Response
+
+#### Success
+
+**Status:** `202 Accepted`
+
+```json
+{
+  "unit": "<unit>",
+  "task_id": "<task_id>",
+  "result_url_path": "/unit_api/task_results/<task_id>"
+}
+```
+
+## Restart Web Server
+
+Restart Web Server endpoint.
+
+### Endpoint
+`PATCH /unit_api/system/web_server/restart`
+
+### Response
+
+#### Success
+
+**Status:** `202 Accepted`
+
+```json
+{
+  "unit": "<unit>",
+  "task_id": "<task_id>",
+  "result_url_path": "/unit_api/task_results/<task_id>"
+}
+```
+
+## Restart Web Server
+
+Restart Web Server endpoint.
+
+### Endpoint
+`POST /unit_api/system/web_server/restart`
+
+### Response
+
+#### Success
+
+**Status:** `202 Accepted`
+
+```json
+{
+  "unit": "<unit>",
+  "task_id": "<task_id>",
+  "result_url_path": "/unit_api/task_results/<task_id>"
+}
+```
+
+## Get Web Server Status
+
+Get Web Server Status endpoint.
+
+### Endpoint
+`GET /unit_api/system/web_server/status`
+
+### Response
+
+#### Success
+
+**Status:** `200 OK`
+
+```json
+{
+  "service": "<value>",
+  "state": "ready",
+  "raw_status": "<status_text>"
+}
+```
+
+## Get Task Status
+
+Get Task Status endpoint.
+
+### Endpoint
+`GET /unit_api/task_results/{task_id}`
+
+### Request
+
+#### Path Parameters
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| task_id | string | Yes | Background task identifier. |
+
+### Response
+
+#### Success
+
+**Status:** `200 OK`
+
+_No response body example inferred._
+
 ## Get App Version
 
-Returns the unit app version.
+Get App Version endpoint.
 
 ### Endpoint
 `GET /unit_api/versions/app`
@@ -759,173 +1523,13 @@ Returns the unit app version.
 
 ```json
 {
-  "version": "v1.0.0"
+  "version": "<__version__>"
 }
 ```
 
-## Get Calibration Protocols
+## Get Zipped Calibrations
 
-Returns calibration protocol descriptors.
-
-### Endpoint
-`GET /unit_api/calibration_protocols`
-
-### Response
-
-#### Success
-
-**Status:** `200 OK`
-
-```json
-[
-  {"id": "od_protocol", "target_device": "od", "protocol_name": "od_protocol"}
-]
-```
-
-## Create Calibration
-
-Creates a calibration for a device.
-
-### Endpoint
-`POST /unit_api/calibrations/{device}`
-
-### Request
-
-#### Path Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| device | string | Yes | Device name. |
-
-#### Request Body
-```json
-{
-  "calibration_data": "yaml: ..."
-}
-```
-
-### Response
-
-#### Success
-
-**Status:** `201 Created`
-
-```json
-{
-  "msg": "Calibration created successfully.",
-  "path": "/home/pi/.pioreactor/calibrations/od/cal_1.yaml"
-}
-```
-
-## Delete Calibration
-
-Deletes a calibration for a device.
-
-### Endpoint
-`DELETE /unit_api/calibrations/{device}/{calibration_name}`
-
-### Request
-
-#### Path Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| device | string | Yes | Device name. |
-| calibration_name | string | Yes | Calibration name. |
-
-### Response
-
-#### Success
-
-**Status:** `200 OK`
-
-```json
-{
-  "msg": "Calibration 'cal_1' for device 'od' deleted successfully."
-}
-```
-
-## Get All Calibrations
-
-Returns all calibrations by device.
-
-### Endpoint
-`GET /unit_api/calibrations`
-
-### Response
-
-#### Success
-
-**Status:** `200 OK`
-
-```json
-{
-  "od": [
-    {"calibration_name": "cal_1", "is_active": true, "pioreactor_unit": "pio01"}
-  ]
-}
-```
-
-## Get Active Calibrations
-
-Returns active calibrations by device.
-
-### Endpoint
-`GET /unit_api/active_calibrations`
-
-### Response
-
-#### Success
-
-**Status:** `200 OK`
-
-```json
-{
-  "od": {"calibration_name": "cal_1", "is_active": true, "pioreactor_unit": "pio01"}
-}
-```
-
-## Get Active Estimators
-
-Returns active estimators by device.
-
-### Endpoint
-`GET /unit_api/active_estimators`
-
-### Response
-
-#### Success
-
-**Status:** `200 OK`
-
-```json
-{
-  "od": {"estimator_name": "est_1", "is_active": true, "pioreactor_unit": "pio01"}
-}
-```
-
-## Get All Estimators
-
-Returns all estimators by device.
-
-### Endpoint
-`GET /unit_api/estimators`
-
-### Response
-
-#### Success
-
-**Status:** `200 OK`
-
-```json
-{
-  "od": [
-    {"estimator_name": "est_1", "is_active": false, "pioreactor_unit": "pio01"}
-  ]
-}
-```
-
-## Get Calibrations Zip
-
-Returns a ZIP of all calibration YAMLs.
+Get Zipped Calibrations endpoint.
 
 ### Endpoint
 `GET /unit_api/zipped_calibrations`
@@ -936,13 +1540,11 @@ Returns a ZIP of all calibration YAMLs.
 
 **Status:** `200 OK`
 
-```text
-(binary zip)
-```
+_No response body example inferred._
 
-## Get Dot Pioreactor Zip
+## Get Zipped Dot Pioreactor
 
-Returns a ZIP of the `.pioreactor` directory.
+Create and return a ZIP of the entire DOT_PIOREACTOR directory.
 
 ### Endpoint
 `GET /unit_api/zipped_dot_pioreactor`
@@ -953,393 +1555,4 @@ Returns a ZIP of the `.pioreactor` directory.
 
 **Status:** `200 OK`
 
-```text
-(binary zip)
-```
-
-## Import Dot Pioreactor Zip
-
-Imports a `.pioreactor` ZIP to the unit.
-
-### Endpoint
-`POST /unit_api/import_zipped_dot_pioreactor`
-
-### Request
-
-#### Request Body
-```text
-multipart/form-data; field "archive"
-```
-
-### Response
-
-#### Success
-
-**Status:** `202 Accepted`
-
-```json
-{}
-```
-
-## Get Calibrations By Device
-
-Returns calibrations for a device.
-
-### Endpoint
-`GET /unit_api/calibrations/{device}`
-
-### Request
-
-#### Path Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| device | string | Yes | Device name. |
-
-### Response
-
-#### Success
-
-**Status:** `200 OK`
-
-```json
-[
-  {"calibration_name": "cal_1", "is_active": true, "pioreactor_unit": "pio01"}
-]
-```
-
-## Get Calibration
-
-Returns a specific calibration.
-
-### Endpoint
-`GET /unit_api/calibrations/{device}/{cal_name}`
-
-### Request
-
-#### Path Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| device | string | Yes | Device name. |
-| cal_name | string | Yes | Calibration name. |
-
-### Response
-
-#### Success
-
-**Status:** `200 OK`
-
-```json
-{
-  "calibration_name": "cal_1",
-  "is_active": true,
-  "pioreactor_unit": "pio01"
-}
-```
-
-## Get Estimators By Device
-
-Returns estimators for a device.
-
-### Endpoint
-`GET /unit_api/estimators/{device}`
-
-### Request
-
-#### Path Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| device | string | Yes | Device name. |
-
-### Response
-
-#### Success
-
-**Status:** `200 OK`
-
-```json
-[
-  {"estimator_name": "est_1", "is_active": false, "pioreactor_unit": "pio01", "device": "od"}
-]
-```
-
-## Get Estimator
-
-Returns a specific estimator.
-
-### Endpoint
-`GET /unit_api/estimators/{device}/{estimator_name}`
-
-### Request
-
-#### Path Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| device | string | Yes | Device name. |
-| estimator_name | string | Yes | Estimator name. |
-
-### Response
-
-#### Success
-
-**Status:** `200 OK`
-
-```json
-{
-  "estimator_name": "est_1",
-  "is_active": false,
-  "pioreactor_unit": "pio01",
-  "device": "od"
-}
-```
-
-## Set Active Calibration
-
-Sets a calibration as active for a device.
-
-### Endpoint
-`PATCH /unit_api/active_calibrations/{device}/{cal_name}`
-
-### Request
-
-#### Path Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| device | string | Yes | Device name. |
-| cal_name | string | Yes | Calibration name. |
-
-### Response
-
-#### Success
-
-**Status:** `200 OK`
-
-```json
-{
-  "status": "success"
-}
-```
-
-## Remove Active Calibration
-
-Removes active calibration for a device.
-
-### Endpoint
-`DELETE /unit_api/active_calibrations/{device}`
-
-### Request
-
-#### Path Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| device | string | Yes | Device name. |
-
-### Response
-
-#### Success
-
-**Status:** `200 OK`
-
-```json
-{
-  "status": "success"
-}
-```
-
-## Set Active Estimator
-
-Sets an estimator as active for a device.
-
-### Endpoint
-`PATCH /unit_api/active_estimators/{device}/{estimator_name}`
-
-### Request
-
-#### Path Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| device | string | Yes | Device name. |
-| estimator_name | string | Yes | Estimator name. |
-
-### Response
-
-#### Success
-
-**Status:** `200 OK`
-
-```json
-{
-  "status": "success"
-}
-```
-
-## Remove Active Estimator
-
-Removes active estimator for a device.
-
-### Endpoint
-`DELETE /unit_api/active_estimators/{device}`
-
-### Request
-
-#### Path Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| device | string | Yes | Device name. |
-
-### Response
-
-#### Success
-
-**Status:** `200 OK`
-
-```json
-{
-  "status": "success"
-}
-```
-
-## Delete Estimator
-
-Deletes an estimator for a device.
-
-### Endpoint
-`DELETE /unit_api/estimators/{device}/{estimator_name}`
-
-### Request
-
-#### Path Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| device | string | Yes | Device name. |
-| estimator_name | string | Yes | Estimator name. |
-
-### Response
-
-#### Success
-
-**Status:** `200 OK`
-
-```json
-{
-  "msg": "Estimator 'est_1' for device 'od' deleted successfully."
-}
-```
-
-## Start Calibration Session
-
-Starts a calibration session on the unit.
-
-### Endpoint
-`POST /unit_api/calibrations/sessions`
-
-### Request
-
-#### Request Body
-```json
-{
-  "protocol_name": "od_calibration",
-  "target_device": "od"
-}
-```
-
-### Response
-
-#### Success
-
-**Status:** `201 Created`
-
-```json
-{
-  "session": {"session_id": "abc"},
-  "step": {"step_id": "start"}
-}
-```
-
-## Get Calibration Session
-
-Returns a calibration session from the unit.
-
-### Endpoint
-`GET /unit_api/calibrations/sessions/{session_id}`
-
-### Request
-
-#### Path Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| session_id | string | Yes | Session identifier. |
-
-### Response
-
-#### Success
-
-**Status:** `200 OK`
-
-```json
-{
-  "session": {"session_id": "abc"},
-  "step": {"step_id": "start"}
-}
-```
-
-## Advance Calibration Session
-
-Advances a calibration session with inputs.
-
-### Endpoint
-`POST /unit_api/calibrations/sessions/{session_id}/inputs`
-
-### Request
-
-#### Path Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| session_id | string | Yes | Session identifier. |
-
-#### Request Body
-```json
-{
-  "inputs": {"volume_ml": 10}
-}
-```
-
-### Response
-
-#### Success
-
-**Status:** `200 OK`
-
-```json
-{
-  "session": {"session_id": "abc"},
-  "step": {"step_id": "next"}
-}
-```
-
-## Abort Calibration Session
-
-Aborts a calibration session.
-
-### Endpoint
-`POST /unit_api/calibrations/sessions/{session_id}/abort`
-
-### Request
-
-#### Path Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| session_id | string | Yes | Session identifier. |
-
-### Response
-
-#### Success
-
-**Status:** `200 OK`
-
-```json
-{
-  "session": {"session_id": "abc", "status": "aborted"},
-  "step": null
-}
-```
-
+_No response body example inferred._
