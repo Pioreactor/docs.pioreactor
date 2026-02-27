@@ -18,8 +18,8 @@
 
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css" integrity="sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM" crossorigin="anonymous"><link rel="stylesheet" href="/assets/css/styles.b530b0f2.css">
-<script src="/assets/js/runtime~main.0cc22c4d.js" defer="defer"></script>
-<script src="/assets/js/main.e02b9039.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.cf310cba.js" defer="defer"></script>
+<script src="/assets/js/main.26fa0253.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
 <svg style="display: none;"><defs>
@@ -42,18 +42,17 @@
 </ul>
 <p>If it continues to fail, contact us.</p>
 <p><strong>No ambient IR light detected</strong> checks that the photodiodes are detecting a near-0 signal when the IR LED is completely off. This test may fail if a powerful IR signal is shining into or onto the Pioreactor&#x27;s body (aka the Sun - don&#x27;t put the Pioreactor in direct sunlight and avoid windows). Also make sure that the caps are on all the Pioreactor&#x27;s LED pockets.</p>
-<p><strong>Reference photodiode is the correct magnitude</strong> checks, if using the reference photodiode (REF), that the REF signal is less than 0.256 volts when the IR LED is at the level specified in the config.ini&#x27;s <code>[od_config].[ir_led_intensity]</code> section. If this test fails,</p>
+<p><strong>Reference photodiode is the correct magnitude</strong> checks, if using the reference photodiode (REF), that the REF signal is less than 1.0 volts and has low variance. If this test fails,</p>
 <ul>
 <li class="">confirm that in your config.ini that <code>REF</code> is present for one of the channels under <code>[od_config.photodiode_channel]</code>.</li>
 <li class="">check the positioning of the REF photodiode (should be adjacent the the IR LED, snugly inserted, and with a cap).</li>
 <li class="">If still failing, try reducing the value in <code>[od_config].[ir_led_intensity]</code>.</li>
 </ul>
-<p><strong>Reference photodiode is in the correct position</strong> checks, if using the reference photodiode (REF), that the REF cable is inserted into the correct photodiode position (channel 1 or 2). The correct position is provided in the config.ini&#x27;s <code>[od_config.photodiode_channel]</code> section. <strong>Note: this is a flakey test, and can fail even when positioned correctly</strong>. The test compares the variances of the two signals (from photodiode channels 1 and 2), and the lower variance one is usually the REF. If this test fails,</p>
+<p><strong>Reference photodiode is in the correct position</strong> checks, if using the reference photodiode (REF), that the REF photodiode is inserted into the correct photodiode position. The test compares the response of the signals to optical noise caused by high stirring. The photodiode in the REF position doesn&#x27;t see this noise, so it can be detected.</p>
 <ul>
 <li class="">Is your vial in the Pioreactor? Does your vial have water and a stir bar in it?</li>
-<li class="">Confirm that in your config.ini that <code>REF</code> is present for one of the channels under <code>[od_config.photodiode_channel]</code>.</li>
 </ul>
-<p><strong>Photodiode measures near zero signal for clear water</strong> checks that a non turbid liquid, like water, doesn&#x27;t produce a signal (since there is no scatter). <strong>This is a new test, and may fail even if everything is okay.</strong> Check the following: confirm that your vial contains water (or any very clear liquid) and that your signal photodiode is positioned in 45 deg, 90 deg, or 135 deg. This test won&#x27;t work for 180 deg.</p>
+<p><strong>Photodiode measures near zero signal for clear water</strong> checks that a non turbid liquid, like water, doesn&#x27;t produce a signal (since there is no scatter). Check the following: confirm that your vial contains water (or any very clear liquid) and that your signal photodiode is positioned in 45 deg, 90 deg, or 135 deg. This test won&#x27;t work for 180 deg.</p>
 <p><strong>Heating PCB is detected</strong> checks that the heating PCB is correctly attached to the Pioreactor HAT. A non-trivial failure here suggests a problem when the i2c channel, a loose connection, or damage to the heating PCB. See notes for <strong>Pioreactor HAT is detected</strong>, too.</p>
 <p><strong>Heating is responsive</strong> checks for a linear relationship between the temperature sensor and the PWM heating system.</p>
 <p><strong>Stirring RPM is responsive</strong> checks for a linear relationship between PWM stirring system and the Hall sensor that measure&#x27;s RPM. If this fails, check that the stirring power is connected correctly (and in the location specified in config.ini&#x27;s <code>[PWM]</code> section). Another reason for failure is that the magnets are too far away from the base of the vial. See <a class="" href="/user-guide/troubleshooting-stirring">stirring troubleshooting</a>.</p>
