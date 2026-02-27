@@ -58,18 +58,19 @@ We highly recommend updating incrementally. That is, update to the _next_ versio
 
 1. Download the release you wish to update to: <ButtonDownloadVersionedReleaseZip/>
 
-2. In the web UI, visit _Updates_. In the drop down in the top right, select "Update from zip file".
+2. In the UI, open **Updates**. In the dropdown at the top right, select **Update from zip file**.
 
-3. Select the zip file from step 1.
+![Updates page dropdown with "Update from zip file" selected](/img/user-guide/03-extending-your-pioreactor/20-updating-software/select-update-from-zip-dropdown.png)
 
-4. Click update.
+3. In the dialog, click **Upload zip file**.
 
-<div class="responsive-video">
-    <video controls>
-        <source src="/vid/update_software_zip.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
-    </video>
-</div>
+![Update from zip file dialog with the "Upload zip file" option](/img/user-guide/03-extending-your-pioreactor/20-updating-software/update-from-zip-dialog.png)
+
+4. Select the zip file from step 1 (`release_xx.xx.xx.zip`).
+
+5. Confirm the filename appears in the dialog, then click **Update**.
+
+![Update dialog with zip file selected and ready to update](/img/user-guide/03-extending-your-pioreactor/20-updating-software/zip-file-selected-ready-to-update.png)
 
 
 ### Method 3: Update using a zip file over scp or sftp
@@ -119,5 +120,3 @@ We highly recommend updating incrementally. That is, update to the _next_ versio
    ```
    pios update app --source release_xx.xx.xx.zip
    ```
-
-
