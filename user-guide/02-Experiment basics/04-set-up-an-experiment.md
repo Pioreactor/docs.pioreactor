@@ -25,15 +25,15 @@ The _Pioreactors_ tab will display any active and inactive Pioreactors assigned 
 
 ![](/img/user-guide/02-experiment-basics/04-set-up-an-experiment/pioreactors-tab.png)
 
-Pioreactors that are assigned to another experiment will be unavailable, unless unassigned through the _Inventory_ tab or through it's assigned experiment's _Pioreactors_ tab. 
 
 ![](/img/user-guide/02-experiment-basics/04-set-up-an-experiment/assign-pios-to-another-experiment.png)
+
 
 
 ## Start activities from the Pioreactors page
 
 
-On the _Pioreactors_ page, you should see at least one Pioreactor under _Active Pioreactors_. You can start an [activity](/user-guide/activities) using the "Control" button. Once started, you can pause (and then resume) or stop jobs. Clicking the "Control all Pioreactors" button will give you control to start and stop activities on all active Pioreactors.
+On the _Pioreactors_ page, you should see at least one Pioreactor under _Active Pioreactors_. You can start an [activity](/user-guide/activities) by clicking the "Off" label under an activity, or by using the "Control" menu. Once started, you can pause (and then resume) or stop jobs. Clicking the "Control all Pioreactors" button will give you control to start and stop activities on all active Pioreactors.
 
 
 ![](/img/user-guide/02-experiment-basics/04-set-up-an-experiment/pioreactor_page_manage.png)
@@ -52,7 +52,11 @@ The typical sequence of activities to start is:
 
 ## Changing settings
 
-If you'd like to **change the settings** of your activities after you start, navigate back to the _Pioreactors_ tab. Under _Control_ for a single Pioreactor or _Control all Pioreactors_, click the _Settings_ tab.
+If you'd like to **change the settings** of your activities after you start, navigate back to the _Pioreactors_ tab. You can click a setting directly in a Pioreactor card to jump to that control. For example, click `Target stir RPM` in the card's _Settings_ row to open the settings panel at stirring.
+
+![](/img/user-guide/02-experiment-basics/04-set-up-an-experiment/pioreactor_page_manage.png)
+
+You can also open settings from _Control_ for a single Pioreactor or _Control all Pioreactors_, then click the _Settings_ tab.
 
 ![](/img/user-guide/02-experiment-basics/04-set-up-an-experiment/manage_ui.png)
 
