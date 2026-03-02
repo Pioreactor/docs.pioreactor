@@ -3,7 +3,6 @@ title: Estimators
 slug: /estimators
 sidebar_label: Estimators
 description: Learn how Pioreactor estimators turn raw sensor signals into derived measurements.
-sidebar_class_name: sidebar-item--updated
 hide_table_of_contents: true
 ---
 
