@@ -49,7 +49,7 @@ Below is a simple diagram of how this might look (these are random IPs, yours ma
     3. Select the sharing tab and in 'Home networking connection' select the interface the Pi is connected to (something like "Ethernet").
     4. Tick the box 'Allow other network users to connect through this computer's Internet connection' and click on 'OK'
 6. Power up the Pioreactor. After a few minutes, you should be able to `ping your-leaders-hostname.local` and get back an address like `192.168.xx.xx`.
-7. Try http://pioreactor.local in your browser. The UI should come up. Or try http://your-leaders-hostname.local.
+7. Open the UI in your browser using your leader's hostname (for example, `your-leaders-hostname.local`).
 9. Save the new config.
 
 

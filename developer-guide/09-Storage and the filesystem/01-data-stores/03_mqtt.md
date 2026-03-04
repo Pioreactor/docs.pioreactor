@@ -39,7 +39,7 @@ pioreactor/{unit name or $broadcast}/{experiment name or $experiment}/...
 2. If writing a script:
 
     ```python
-    from pioreactor.utils import publish
+    from pioreactor.pubsub import publish
 
 
     publish(f"pioreactor/{unit}/{experiment}/more/topics", payload)
@@ -52,20 +52,13 @@ pioreactor/{unit name or $broadcast}/{experiment name or $experiment}/...
 1. If you're writing code for `Job`, you can simply use `Job`'s methods:
 
    ```python
-       def some_method(self, ...):
-           ...
-
-           msg = self.subscribe(f"pioreactor/{self.unit}/{self.experiment}/{self.job_name}/more/topics")
-
-   ```
-   ```python
        def callback(self, msg):
            ...
 
        def some_method(self, ...):
            ...
 
-           msg = self.subscribe_and_callback(f"pioreactor/{self.unit}/{self.experiment}/{self.job_name}/more/topics", self.callback)
+           self.subscribe_and_callback(self.callback, f"pioreactor/{self.unit}/{self.experiment}/{self.job_name}/more/topics")
 
    ```
 

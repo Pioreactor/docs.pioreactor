@@ -93,7 +93,7 @@ def click_demo_job():
 
 You should be able to execute the following from the command line now: `pio run demo_job`.
 
-Finally, in your [web interface under plugins](http://pioreactor.local/plugins), you should see "Demo Job" installed.
+Finally, in the UI under the **Plugins** page, you should see "Demo Job" installed.
 
 
 :::important

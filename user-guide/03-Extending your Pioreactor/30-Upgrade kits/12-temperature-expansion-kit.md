@@ -101,7 +101,7 @@ Kd=4.0
 
 You can also update the following configuration:
 ```
-[temperature_automation.config]
+[od_reading.config]
 # 50 or 60 only, depending on geographic location. This improves the accuracy.
 local_ac_hz=60
 ```
@@ -118,7 +118,7 @@ local_ac_hz=60
  2. To get this .whl file onto a Pioreactor, use either `scp`, or FileZilla.
  3. Once the .whl file is on the Pioreactor, use
     ```
-    pio plugin install temperature_expansion_kit_plugin --source <location of whl file>
+    pio plugins install temperature-expansion-kit-plugin --source <location of whl file>
 
     ```
 
@@ -127,4 +127,3 @@ local_ac_hz=60
  - Try unplugging and plugging the probe back into the HAT.
  - Try restarting the Pioreactor.
  - If the error persists, contact us at `hello@pioreactor.com`
-

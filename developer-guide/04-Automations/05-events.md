@@ -40,7 +40,7 @@ Pioreactor ships with some default events. They are located in `pioreactor.autom
 You can create custom automations, too:
 
 ```python
-From pioreactor.automations.events import AutomationEvent
+from pioreactor.automations.events import AutomationEvent
 
 class MyExampleEvent(AutomationEvent):
     pass
@@ -53,3 +53,4 @@ class MyAutomation(...):
         ...
         event = MyExampleEvent("my message", {'some_data': 1.0})
         return event
+```

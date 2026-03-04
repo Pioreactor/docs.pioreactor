@@ -4,7 +4,7 @@ slug: /dataset-to-ui
 hide_table_of_contents: true
 ---
 
-You can  allow users to export your data from the UI's Export Data page. To do this, add a YAML file to `~/.pioreactor/plugins/exportable_datasets` with the following information:
+You can allow users to export your data from the UI's Export Data page. To do this, add a YAML file to `~/.pioreactor/plugins/exportable_datasets` with the following information:
 
 ```yaml
 dataset_name: some_unique_dataset_name
@@ -25,12 +25,6 @@ query: SELECT * FROM the_target_table WHERE reading < 4 AND ...  # optional: see
 Either `table` or `query` is required. If you provide a `table`, the `query` field is ignored. The usecase for `query` is when you need to join multiple tables, use `WHERE` clauses, or do some other complex SQL operation.
 :::
 
-After adding this file, visit the Export Page in the UI.
-
-You can see more examples [here](
-:::
-
-
-After adding this file, visit the Export Page in the UI.
+After adding this file, visit the **Export Data** page in the UI.
 
 You can see more examples [here](https://github.com/Pioreactor/CustoPiZer/tree/pioreactor/workspace/scripts/files/pioreactor/exportable_datasets) and [here](https://github.com/Pioreactor/spectrometer-reading-plugin/tree/main/spectrometer_reading_plugin/exportable_datasets)

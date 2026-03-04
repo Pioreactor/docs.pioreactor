@@ -11,7 +11,7 @@ If you have a Raspberry Pi available, you can quickly boot up a near-exact envir
 1. Install the Pioreactor software on to a microSD card by following the instructions [here](/user-guide/software-set-up).
 2. Power the Raspberry Pi. Since there's no HAT hardware, there won't be a blue blinking LED. The Raspberry Pi will still connect to the network you provided in the setup.
 3. SSH into the Raspberry Pi. [Instructions on how to SSH in](/user-guide/accessing-raspberry-pi).
-    - You should also be able to visit http://pioreactor.local
+    - You should also be able to open the UI in your browser.
 4. Once SSH'ed in, we need to add some "mocking" packages. Enter the following:
     - `sudo pip3 install fake-rpi`
 
@@ -28,7 +28,7 @@ However, the experiment needs to be mocked out too:
 ```
 TESTING=1 \
 GLOBAL_CONFIG=/home/pioreactor/.pioreactor/config.ini \
-EXPERMENT="Demo Experiment" \
+EXPERIMENT="Demo Experiment" \
 pio run stirring
 ```
 
@@ -42,7 +42,7 @@ And add anywhere:
 ```
 export TESTING=1
 export GLOBAL_CONFIG=/home/pioreactor/.pioreactor/config.ini
-export EXPERMENT="Demo Experiment"
+export EXPERIMENT="Demo Experiment"
 ```
 
 And finally enter:
@@ -52,5 +52,4 @@ source ~/.profile
 
 
 Now you can do `pio run stirring` without having to enter in the environment variables.
-
 

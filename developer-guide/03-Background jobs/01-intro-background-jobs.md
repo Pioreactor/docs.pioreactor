@@ -238,6 +238,7 @@ def function_that_does_clean_up():
 value = function_that_does_clean_up()
 ```
 
+:::
 
 ### Blocking
 

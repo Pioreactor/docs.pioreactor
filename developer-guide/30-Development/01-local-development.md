@@ -5,15 +5,15 @@ hide_table_of_contents: true
 ---
 
 ### Local development
-1. Confirm that Python3 is installed, and is greater or equal to version 3.9. `python3 --version` will print the version.
+1. Confirm that Python3 is installed, and is greater or equal to version 3.13. `python3 --version` will print the version.
 2. To install the Pioreactor codebase locally, it should be enough to clone the repo [pioreactor/pioreactor](https://github.com/pioreactor/pioreactor).
     ```
     git clone https://github.com/Pioreactor/pioreactor.git && cd pioreactor
     ```
-3. Install the core software are necessary packages (useful to do this in a virtualenv!):
+3. Install the core software and necessary packages (useful to do this in a virtualenv!):
     ```
-    pip3 install -e .
-    pip3 install -r requirements/requirements_dev.txt
+    pip3 install -e core/
+    pip3 install -r requirements/requirements_dev.txt -r requirements/requirements.txt
     ```
 4. In the pioreactor folder, create a folder called `.pioreactor/` and other important subdirectories.
     ```
@@ -76,7 +76,7 @@ If invoking from a different directory from `pioreactor/`, you'll need to have a
 ### Testing
 
 ```
-py.test pioreactor/tests
+pytest core/tests
 ```
 
 
@@ -87,4 +87,4 @@ Create a folder in the `pioreactor` folder called `plugins_dev`. In this folder,
 
 ### Raspberry Pi Images
 
-Raspberry Pi images are built in the [Pioreactor/CustoPizer](https://github.com/Pioreactor/CustoPiZer/tree/pioreactor) repo. Nightly builds are available at [nightly.pioreactor.com](https://nightly.pioreactor.com).
+Raspberry Pi images are built in the [Pioreactor/CustoPiZer](https://github.com/Pioreactor/CustoPiZer/tree/pioreactor) repo. Nightly builds are available at [nightly.pioreactor.com](https://nightly.pioreactor.com).
