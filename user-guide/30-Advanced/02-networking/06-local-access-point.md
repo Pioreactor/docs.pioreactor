@@ -28,7 +28,7 @@ The built-in local access point is meant for small clusters of Pioreactors, and 
 The Pioreactor has the necessary software and hardware to create the local access point. To start the access point:
 
  - If starting with a new Pioreactor, during software set up:
-    1. Leave the "Configure wireless LAN" unchecked. Continue with the instructions at [Setting up your Raspberry Pi](/user-guide/software-set-up#setting-up-your-raspberry-pis-sd-card).
+    1. In Raspberry Pi Imager, leave Wi-Fi configuration disabled. Continue with the instructions at [Setting up your Raspberry Pi](/user-guide/software-set-up#setting-up-your-raspberry-pis-sd-card).
     2. After the SD card has been written to, remove the SD card from your computer, and immediately insert it back in. A `boot` (or `bootfs`) device should be present now that is your SD card. If asked to reformat the SD card, select NO.
     3. <ButtonDownloadLocalAccessPointFile/>
     3. Drag/move the downloaded `local_access_point` file to the SD card directory.
@@ -62,7 +62,7 @@ Raspberry Pi 3B (not B+) and Raspberry Pi Zero W (not Zero 2) have trouble conne
 :::
 
 
-Other Pioreactors will need to be reconfigured to connect to this new access point. During set up in the Raspberry Pi Imager, using the ssid / wifi credentials: `pioreactor` and password `raspberry` in the wireless LAN section. **Don't add the `local_access_point` file to these other Pioreactors - you only need to do that once**.
+Other Pioreactors will need to be reconfigured to connect to this new access point. During setup in Raspberry Pi Imager, use the SSID / Wi-Fi credentials `pioreactor` and password `raspberry` in the Wi-Fi settings. **Don't add the `local_access_point` file to these other Pioreactors - you only need to do that once**.
 
 The maximum number of machines (Pioreactors and computers) that can be connected to a local access point on a Pioreactor is ~4-8. There is a possibility to add more, see [issue here](https://github.com/Pioreactor/pioreactor/issues/442).
 
