@@ -57,17 +57,17 @@ import TabItem from '@theme/TabItem';
 
 <AssemblyInstructionBlock title="Step 5: Connect the eye-spys" images={["user-guide/hardware-assembly/upgrade_XR/connect-100mm-to-45.jpg", "user-guide/hardware-assembly/upgrade_XR/20-connect-100mm-45-to-ref.jpg", "user-guide/hardware-assembly/upgrade_XR/20-connect-50mm-ref-to-90.jpg", "user-guide/hardware-assembly/upgrade_XR/20-connect-50mm-90-to-135.jpg"]}>
 
-1. A 100mm STEMMA-QT wire should be still connected to the HAT. <Highlight color={colors.magenta}>Connect the other end to the leftmost, 45 degree eye-spy</Highlight>. Pay attention to the wire orientation: the yellow wire should be at the bottom.
+1. A 100mm STEMMA-QT wire should be still connected to the HAT. <Highlight color={colors.magenta}>Carefully connect the other end to the leftmost, 45 degree eye-spy</Highlight>. Pay attention to the wire orientation: the yellow wire should be at the bottom.
 
 :::caution
 Do not push the wire connector in at an angle, as it can bend the metal leads in the eye-spy connector. 
 :::
 
-2. Using the other 100mm STEMMA-QT wire, <Highlight color={colors.blue}>connect the 45 degree eye-spy to REF</Highlight>. Note the wire orientation. 
+2. Using the other 100mm STEMMA-QT wire, <Highlight color={colors.blue}>carefully connect the 45 degree eye-spy to REF</Highlight>. Note the wire orientation. 
 
-3. Use a 50mm STEMMA-QT wire to connect the <Highlight color={colors.red}>REF eye-spy to the 90 degree eye-spy</Highlight>.
+3. Use a 50mm STEMMA-QT wire to carefully connect the <Highlight color={colors.red}>REF eye-spy to the 90 degree eye-spy</Highlight>.
 
-3. Finally, use the last 50mm STEMMA-QT to connect the <Highlight color={colors.green}>90 degree eye-spy to the 135 degree eye-spy</Highlight>. All eye-spys should now be daisy chained to each other. 
+3. Finally, use the last 50mm STEMMA-QT to carefully connect the <Highlight color={colors.green}>90 degree eye-spy to the 135 degree eye-spy</Highlight>. All eye-spys should now be daisy chained to each other. 
 
 </AssemblyInstructionBlock>
 
@@ -100,5 +100,4 @@ Your new 20ml Pioreactor XR is now assembled!
 4. Next, read the docs on how to [fuse the sensors into a single biomass signal](/user-guide/od-fused-biomass).
 
 </AssemblyInstructionBlock>
-
 

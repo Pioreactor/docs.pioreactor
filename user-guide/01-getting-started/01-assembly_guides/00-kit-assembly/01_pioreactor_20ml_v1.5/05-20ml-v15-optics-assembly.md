@@ -56,12 +56,12 @@ The measuring eye-spy can be placed in either the 90 or 135 degree pocket. For m
 <AssemblyInstructionBlock title="Step 3: Connect eye-spys to HAT" images={["user-guide/hardware-assembly/40ml-v15/connect-stemma-to-hat.jpg", "user-guide/hardware-assembly/20ml-v15/connect-stemma-on-eye-spy.jpg"]}>
 
 1. Locate the <Highlight color={colors.teal}>Stemma-QT connector</Highlight> on the HAT and connect the 100mm Stemma-QT wire, with the yellow wire furthest from the heater flat flex cable. 
-2. Connect the other end to the leftmost eye-spy. Use the colors of the wire to orient the connector correctly. 
+2. Carefully connect the other end to the leftmost eye-spy. Use the colors of the wire to orient the connector correctly. 
 3. Use the <Highlight color={colors.magenta}>50mm Stemma-QT wire</Highlight> to connect each eye-spy. 
 
 
 :::tip
-It does not matter which wires are connected to either eye-spy sockets. However, organize the wires neatly and avoid crossing over when possible.
+It does not matter which wires are connected to either eye-spy sockets. However, organize the wires neatly and avoid crossing over when possible. Insert each connector carefully and straight; pushing too hard can damage an internal pin.
 :::
 
 
