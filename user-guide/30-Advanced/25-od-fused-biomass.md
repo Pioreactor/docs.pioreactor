@@ -4,7 +4,6 @@ sidebar_label: Fused OD (XR)
 description: Learn how the od_fused biomass signal combines XR multi-angle sensors into one robust estimate.
 slug: /od-fused-biomass
 hide_table_of_contents: true
-sidebar_class_name: sidebar-item--updated
 ---
 
 The `od_fused` biomass signal is a fused optical density estimate produced from the 45°, 90°, and 135° OD sensors on Pioreactor XR. It is designed to stay informative across a wide range of turbidity without you manually switching between angles.
