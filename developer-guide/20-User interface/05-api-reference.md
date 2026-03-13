@@ -19,11 +19,9 @@ sidebar_class_name: sidebar-item--updated
 ```
   {
     "error": "Human-readable error message",
-    "error_info": {
-      "cause": "Human-readable cause (defaults to error if not set)",
-      "remediation": "Suggested fix or next step",
-      "status": integer,
-    }
+    "cause": "Human-readable cause (defaults to error if not set)",
+    "remediation": "Suggested fix or next step",
+    "status": integer,
   }
 
 ```
@@ -33,7 +31,6 @@ Use `/api/workers/...` for worker-only targets (experiment-scoped jobs/logs) and
 
 
 -----
-
 
 ## Get Automation Descriptors
 
@@ -48,6 +45,21 @@ Get Automation Descriptors endpoint.
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
 | automation_type | string | Yes | Automation type. |
+
+### Response
+
+#### Success
+
+**Status:** `200 OK`
+
+_No response body example inferred._
+
+## Get Bioreactor Variable Descriptors
+
+Get Bioreactor Variable Descriptors endpoint.
+
+### Endpoint
+`GET /api/bioreactor/descriptors`
 
 ### Response
 
@@ -425,7 +437,8 @@ Create Experiment endpoint.
   "description": "<value>",
   "experiment": "<value>",
   "mediaUsed": "<value>",
-  "organismUsed": "<value>"
+  "organismUsed": "<value>",
+  "tags": "<value>"
 }
 ```
 
@@ -436,9 +449,7 @@ Create Experiment endpoint.
 **Status:** `201 Created`
 
 ```json
-{
-  "status": "success"
-}
+"<created_experiment>"
 ```
 
 ## Delete Experiment
@@ -508,7 +519,8 @@ Update Experiment endpoint.
 #### Request Body
 ```json
 {
-  "description": "<value>"
+  "description": "<value>",
+  "tags": "<value>"
 }
 ```
 
@@ -519,9 +531,7 @@ Update Experiment endpoint.
 **Status:** `200 OK`
 
 ```json
-{
-  "status": "success"
-}
+"<updated_experiment>"
 ```
 
 ## Get Recent Experiment Profile Runs
@@ -1215,6 +1225,15 @@ Update App endpoint.
 ### Endpoint
 `POST /api/system/update_next_version`
 
+### Request
+
+#### Request Body
+```json
+{
+  "units": "<value>"
+}
+```
+
 ### Response
 
 #### Success
@@ -1576,7 +1595,9 @@ Kills specified job on unit
 
 ```json
 {
-  "status": "success"
+  "unit": "<unit>",
+  "task_id": "<task_id>",
+  "result_url_path": "/unit_api/task_results/<task_id>"
 }
 ```
 
@@ -1604,7 +1625,9 @@ Kills specified job on unit
 
 ```json
 {
-  "status": "success"
+  "unit": "<unit>",
+  "task_id": "<task_id>",
+  "result_url_path": "/unit_api/task_results/<task_id>"
 }
 ```
 
@@ -2746,6 +2769,42 @@ Get Experiment Assignment For Worker endpoint.
 "<result>"
 ```
 
+## Update Bioreactor On Unit
+
+Update Bioreactor On Unit endpoint.
+
+### Endpoint
+`PATCH /api/workers/{pioreactor_unit}/experiments/{experiment}/bioreactor`
+
+### Request
+
+#### Path Parameters
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| pioreactor_unit | string | Yes | Unit name or `$broadcast` where supported. |
+| experiment | string | Yes | Experiment identifier. |
+
+#### Request Body
+```json
+{
+  "values": "<value>"
+}
+```
+
+### Response
+
+#### Success
+
+**Status:** `202 Accepted`
+
+```json
+{
+  "unit": "<unit>",
+  "task_id": "<task_id>",
+  "result_url_path": "/unit_api/task_results/<task_id>"
+}
+```
+
 ## Get Logs For Unit And Experiment
 
 Shows event logs from specific unit and experiment, uses pagination.
@@ -3272,7 +3331,9 @@ Kills specified job on unit
 
 ```json
 {
-  "status": "success"
+  "unit": "<unit>",
+  "task_id": "<task_id>",
+  "result_url_path": "/unit_api/task_results/<task_id>"
 }
 ```
 
@@ -3300,7 +3361,9 @@ Kills specified job on unit
 
 ```json
 {
-  "status": "success"
+  "unit": "<unit>",
+  "task_id": "<task_id>",
+  "result_url_path": "/unit_api/task_results/<task_id>"
 }
 ```
 

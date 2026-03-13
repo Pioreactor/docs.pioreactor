@@ -10,13 +10,21 @@ import Admonition from '@theme/Admonition';
 
 ### Creating an experiment
 
-1. To create a new experiment, click on the drop-down menu on the top of the left-hand bar. Click the "New experiment" button.
+To create your first experiment, open the experiment selector in the top-left corner of the UI and choose **Start a new experiment**. This appears as the first item in the dropdown above your other experiments.
 
-![](/img/user-guide/02-experiment-basics/04-set-up-an-experiment/start_new_experiment.png)
+![](/img/user-guide/02-experiment-basics/04-set-up-an-experiment/start-new-experiment-dropdown-framed.png)
 
-2. On the next screen, enter your new experiment name. This name should be unique from prior experiment names. Enter optional metadata about your experiment; you can modify the description later, if necessary. Click "Save" when done.
+On **Start a new experiment**:
 
-![](/img/user-guide/02-experiment-basics/04-set-up-an-experiment/create_new_experiment_page.png)
+1. Enter a unique experiment name.
+2. Optionally add a description. This can be edited later.
+3. Optionally add tags. Press `Enter` or type a comma after each tag to save it.
+4. If you want to reuse setup details from a previous run, click **Populate with previous experiment**.
+5. Click **Save**.
+
+Tags are useful for grouping related experiments across time. For example, you might tag experiments by strain, media, operator, protocol, or project name.
+
+After saving, you can come back to the experiment later from **Experiments**. Tags make it easier to find related runs when your list grows.
 
 
 ### Assigning Pioreactors to your experiment

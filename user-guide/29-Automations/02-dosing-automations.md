@@ -7,6 +7,8 @@ hide_table_of_contents: true
 
 When pairing the Pioreactor with dosing pumps, there are new capabilities and experiments you can run. The Pioreactor is pre-programmed with the following dosing automations. In the below automations, values highlighted `like so` are configurable.
 
+Before starting a dosing automation from the UI, review the `Current volume` and `Max working volume` fields in the automation dialog. `Current volume` should match the liquid currently in the vial, and `Max working volume` should match the volume set by the height of your waste / efflux tube.
+
 ## Available dosing automations
 
 
@@ -47,9 +49,22 @@ The chemostat automation is the second simplest dosing automation. Every `durati
     * one labelled "media"
 
 
-A turbidostat ("turbidity-static") tries to keep the turbidity (the optical density, or OD), constant over time. This is usually accomplished by taking frequent measurements of the turbidity (every 15 seconds), and performing a set media/waste pump cycle if the optical density (or normalized optical density) exceeds a `target OD` (or `target nOD`). The amount exchanged is the `volume` parameter (mL). For very fast growing cultures, we recommend a `volume` between 1.0 ml and 2.0 ml.
+A turbidostat ("turbidity-static") tries to keep the biomass constant over time. This is usually accomplished by taking frequent measurements (every 15 seconds), and performing a set media / waste pump cycle if the selected `biomass signal` exceeds the `target biomass`. The amount exchanged each time is the `exchange volume` parameter (mL). For very fast growing cultures, we recommend an `exchange volume` between 1.0 mL and 2.0 mL.
 
-This automation will always dose the `volume` parameter, even if it's not enough for the OD to drop below the `target OD`. If that happens, then `OD > target OD`, and so the automation will trigger after the next check (30 seconds).
+This automation will always move the full `exchange volume`, even if it's not enough for the measured biomass to drop below the `target biomass`. If that happens, the automation will trigger again after the next check.
+
+The current turbidostat fields in the UI are:
+
+ - `exchange volume`: how much media and waste to move in each dilution cycle, in mL.
+ - `target biomass`: the biomass threshold that triggers a dilution cycle.
+ - `biomass signal`: which biomass estimate to monitor. `auto` will prefer `od_fused` when an active OD fused estimator is available, then `od` when an active OD calibration is available for the resolved signal channel, and otherwise falls back to `normalized_od`.
+
+When `biomass signal` is set to:
+
+ - `normalized_od`: the automation compares against normalized OD.
+ - `od_fused`: the automation compares against the fused OD estimator.
+ - `od`: the automation compares against calibrated OD from the resolved OD channel.
+ - `auto`: the automation chooses the most specific available signal automatically.
 
 ### PID Morbidostat
 
@@ -96,13 +111,13 @@ To further avoid overflow, we limit how much liquid is added in a single pump cy
 ###  Volume parameters
 
 
- - **Initial volume**: this is how much liquid is initially in the vial
+ - **Current volume**: this is how much liquid is currently in the vial when you start the automation.
  - **Max working volume**: the efflux tube's position determines the maximum volume your liquid volume will reach.
 
 
 ###  Configuration parameters
 
-You can edit these parameters in your config.ini files.
+You can edit these parameters in your config.ini files. For dosing runs started from the UI, `Current volume` and `Max working volume` can also be adjusted directly in the automation dialog before starting.
 
 
 #### Section `[dosing_automation.config]`
@@ -114,6 +129,6 @@ You can edit these parameters in your config.ini files.
 
 #### Section `[bioreactor]`
 
- - `max_volume_ml`: determined by the volume that just touches the outflow tube. I.e. if you where to keep running the waste pump, what would the stable volume be.
- - `initial_volume_ml`: the initial volume of liquid in the vial. This is used to calculate the volume of liquid in the vial at any given time.
+ - `max_working_volume_ml`: determined by the volume that just touches the outflow tube. I.e. if you were to keep running the waste pump, what would the stable volume be.
+ - `initial_volume_ml`: the initial volume of liquid in the vial. In the UI this is surfaced as `Current volume`, and is used to calculate the volume of liquid in the vial at any given time.
  - `initial_alt_media_fraction`: the initial fraction of the alternative media in the vial. This is used to calculate the volume of alternative media in the vial at any given time.

@@ -17,15 +17,12 @@ sidebar_class_name: sidebar-item--updated
 ```
   {
     "error": "Human-readable error message",
-    "error_info": {
-      "cause": "Human-readable cause (defaults to error if not set)",
-      "remediation": "Suggested fix or next step",
-      "status": integer,
-    }
+    "cause": "Human-readable cause (defaults to error if not set)",
+    "remediation": "Suggested fix or next step",
+    "status": integer,
   }
 
 ```
-
 ## Get All Active Calibrations
 
 Get All Active Calibrations endpoint.
@@ -153,6 +150,65 @@ Set Active Estimator endpoint.
 | ---- | ---- | -------- | ----------- |
 | device | string | Yes | Target device name. |
 | estimator_name | string | Yes | Estimator name. |
+
+### Response
+
+#### Success
+
+**Status:** `200 OK`
+
+```json
+{
+  "status": "success"
+}
+```
+
+## Get Bioreactor Values
+
+Get Bioreactor Values endpoint.
+
+### Endpoint
+`GET /unit_api/bioreactor/experiments/{experiment}`
+
+### Request
+
+#### Path Parameters
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| experiment | string | Yes | Experiment identifier. |
+
+### Response
+
+#### Success
+
+**Status:** `200 OK`
+
+```json
+{
+  "values": "<value>"
+}
+```
+
+## Update Bioreactor Values
+
+Update Bioreactor Values endpoint.
+
+### Endpoint
+`PATCH /unit_api/bioreactor/experiments/{experiment}`
+
+### Request
+
+#### Path Parameters
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| experiment | string | Yes | Experiment identifier. |
+
+#### Request Body
+```json
+{
+  "values": "<value>"
+}
+```
 
 ### Response
 
