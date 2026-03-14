@@ -2,6 +2,7 @@
 title: The Experiments page
 slug: /experiments-page
 hide_table_of_contents: true
+sidebar_class_name: sidebar-item--updated
 ---
 
 Use **Experiments** to find active and previous runs, jump back into an experiment, and start a new one when needed.
