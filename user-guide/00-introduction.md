@@ -34,3 +34,4 @@ If you are interested in the software internals, take a look at our [developer g
 ### Compliance
 
  - [EU Declaration of Conformity](https://cdn.shopify.com/s/files/1/0678/1739/files/EU_Declaration_of_Conformity.pdf?v=1745430430)
+ - [UK Declaration of Conformity](https://cdn.shopify.com/s/files/1/0678/1739/files/UK_Declaration_of_Conformity.pdf?v=1765565088)
