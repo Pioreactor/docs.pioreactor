@@ -290,6 +290,38 @@ remove_waste:
             volume: 1.5
 ```
 
+To override Turbidostat's default biomass signal inside an experiment profile, set `biomass_signal` directly in the start options or use `config_overrides` when you want to change the config-backed default for that run:
+
+```yaml
+common:
+  jobs:
+    dosing_automation:
+      actions:
+        - type: start
+          options:
+            automation_name: turbidostat
+            target_biomass: 2.0
+            exchange_volume_ml: 1.0
+            biomass_signal: od_fused
+```
+
+```yaml
+common:
+  jobs:
+    dosing_automation:
+      actions:
+        - type: start
+          options:
+            automation_name: turbidostat
+            target_biomass: 2.0
+            exchange_volume_ml: 1.0
+          config_overrides:
+            dosing_automation.turbidostat:
+              biomass_signal: od
+```
+
+Use the current section name `dosing_automation.turbidostat`. Older documentation may refer to `turbidostat.config`, but current releases migrate that legacy location to the new one.
+
 ## Defining top-level parameters with `inputs`
 
 Surface key constants in an `inputs` section so collaborators can tweak them. Use the names in expressions anywhere in the profile:

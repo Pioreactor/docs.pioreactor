@@ -58,7 +58,7 @@ The current turbidostat fields in the UI are:
 
  - `exchange volume`: how much media and waste to move in each dilution cycle, in mL.
  - `target biomass`: the biomass threshold that triggers a dilution cycle.
- - `biomass signal`: which biomass estimate to monitor. `auto` will prefer `od_fused` when an active OD fused estimator is available, then `od` when an active OD calibration is available for the resolved signal channel, and otherwise falls back to `normalized_od`.
+ - `biomass signal`: which biomass estimate to monitor. The UI defaults this to `auto`.
 
 When `biomass signal` is set to:
 
@@ -66,6 +66,48 @@ When `biomass signal` is set to:
  - `od_fused`: the automation compares against the fused OD estimator.
  - `od`: the automation compares against calibrated OD from the resolved OD channel.
  - `auto`: the automation chooses the most specific available signal automatically.
+
+When `biomass signal` is `auto`, the selection order is:
+
+1. `od_fused`, when an active `od_fused` estimator is available.
+2. `od`, when an active OD calibration is available for the resolved photodiode angle.
+3. `normalized_od`, when neither of the above is available.
+
+What "active" means:
+
+ - An active `od_fused` estimator is the estimator currently marked active in **Estimators** for the `od_fused` device.
+ - An active `od` calibration is the calibration currently marked active for the OD device that matches the photodiode angle Turbidostat resolves for your setup, such as `od90` or `od135`.
+ - If you have multiple non-reference OD signal channels configured, Turbidostat resolves `od` using the lowest-numbered signal channel and logs a warning. In that case, `od_fused` or `normalized_od` is usually a better choice.
+
+If the selected biomass signal is not publishing fresh data, Turbidostat cannot make a dosing decision. In practice this means:
+
+ - `od_reading` must be running.
+ - `od` and `od_fused` data must be fresh. Readings older than 5 minutes are treated as stale, and the automation will warn instead of continuing with a dilution based on old data.
+
+### Overriding the biomass signal
+
+Most users can leave the UI default at `auto`. Override it only when you want to force Turbidostat to use a specific biomass estimate.
+
+To set a persistent default in `config.ini`, use the per-automation section:
+
+```ini
+[dosing_automation.turbidostat]
+biomass_signal=od_fused
+```
+
+Legacy versions used:
+
+```ini
+[turbidostat.config]
+biomass_signal_override=od_fused
+```
+
+Current releases use `biomass_signal` under `[dosing_automation.turbidostat]` instead. During software updates, legacy values are migrated when present, and systems without a prior setting are seeded with `biomass_signal=auto`.
+
+You can also override this per run:
+
+ - In the UI, the Turbidostat form starts with `biomass signal = auto`. You can change it before launching the automation.
+ - In the advanced config UI, automation-specific overrides now use section names like `[dosing_automation.turbidostat]`.
 
 ### PID Morbidostat
 
@@ -126,6 +168,11 @@ You can edit these parameters in your config.ini files. For dosing runs started 
  - `pause_between_subdoses_seconds`: time to wait between doses - this is useful if you want to be sure the newly added liquid is sufficiently mixed before running the waste pump.
  - `waste_removal_multiplier`: the amount of additional time to run the waste pump after the influx pump has run. This is to ensure that the volume of liquid in the vial never exceeds the end of the efflux tube. Ex: if media ran for `0.75` seconds, then the waste will run for `waste_removal_multiplier * 0.75 seconds`
  - `max_subdose`: the maximum volume to add in a single dose. If the volume to add is greater than this value, the volume will be divided into smaller doses.
+
+
+#### Section `[dosing_automation.turbidostat]`
+
+ - `biomass_signal`: the default biomass signal used by Turbidostat when you don't pass an explicit per-run value. Valid values are `auto`, `normalized_od`, `od_fused`, and `od`.
 
 
 #### Section `[bioreactor]`
