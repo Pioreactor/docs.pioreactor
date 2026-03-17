@@ -2,7 +2,7 @@
 title: Connect the optics system
 slug: /20ml-v11-optics-assembly
 hide_table_of_contents: true
-pagination_next: null
+pagination_next: getting-started/software-set-up
 ---
 
 import AssemblyInstructionBlock from '@site/src/components/AssemblyInstructionBlock';
