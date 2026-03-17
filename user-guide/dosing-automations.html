@@ -18,8 +18,8 @@
 
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css" integrity="sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM" crossorigin="anonymous"><link rel="stylesheet" href="/assets/css/styles.128b405b.css">
-<script src="/assets/js/runtime~main.ac5c2e9e.js" defer="defer"></script>
-<script src="/assets/js/main.4a918dad.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.61b30972.js" defer="defer"></script>
+<script src="/assets/js/main.a3758b75.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
 <svg style="display: none;"><defs>
@@ -74,7 +74,7 @@
 <ul>
 <li class=""><code>exchange volume</code>: how much media and waste to move in each dilution cycle, in mL.</li>
 <li class=""><code>target biomass</code>: the biomass threshold that triggers a dilution cycle.</li>
-<li class=""><code>biomass signal</code>: which biomass estimate to monitor. <code>auto</code> will prefer <code>od_fused</code> when an active OD fused estimator is available, then <code>od</code> when an active OD calibration is available for the resolved signal channel, and otherwise falls back to <code>normalized_od</code>.</li>
+<li class=""><code>biomass signal</code>: which biomass estimate to monitor. The UI defaults this to <code>auto</code>.</li>
 </ul>
 <p>When <code>biomass signal</code> is set to:</p>
 <ul>
@@ -82,6 +82,35 @@
 <li class=""><code>od_fused</code>: the automation compares against the fused OD estimator.</li>
 <li class=""><code>od</code>: the automation compares against calibrated OD from the resolved OD channel.</li>
 <li class=""><code>auto</code>: the automation chooses the most specific available signal automatically.</li>
+</ul>
+<p>When <code>biomass signal</code> is <code>auto</code>, the selection order is:</p>
+<ol>
+<li class=""><code>od_fused</code>, when an active <code>od_fused</code> estimator is available.</li>
+<li class=""><code>od</code>, when an active OD calibration is available for the resolved photodiode angle.</li>
+<li class=""><code>normalized_od</code>, when neither of the above is available.</li>
+</ol>
+<p>What &quot;active&quot; means:</p>
+<ul>
+<li class="">An active <code>od_fused</code> estimator is the estimator currently marked active in <strong>Estimators</strong> for the <code>od_fused</code> device.</li>
+<li class="">An active <code>od</code> calibration is the calibration currently marked active for the OD device that matches the photodiode angle Turbidostat resolves for your setup, such as <code>od90</code> or <code>od135</code>.</li>
+<li class="">If you have multiple non-reference OD signal channels configured, Turbidostat resolves <code>od</code> using the lowest-numbered signal channel and logs a warning. In that case, <code>od_fused</code> or <code>normalized_od</code> is usually a better choice.</li>
+</ul>
+<p>If the selected biomass signal is not publishing fresh data, Turbidostat cannot make a dosing decision. In practice this means:</p>
+<ul>
+<li class=""><code>od_reading</code> must be running.</li>
+<li class=""><code>od</code> and <code>od_fused</code> data must be fresh. Readings older than 5 minutes are treated as stale, and the automation will warn instead of continuing with a dilution based on old data.</li>
+</ul>
+<h3 class="anchor anchorTargetHideOnScrollNavbar_vjPI" id="overriding-the-biomass-signal">Overriding the biomass signal<a href="#overriding-the-biomass-signal" class="hash-link" aria-label="Direct link to Overriding the biomass signal" title="Direct link to Overriding the biomass signal" translate="no">​</a></h3>
+<p>Most users can leave the UI default at <code>auto</code>. Override it only when you want to force Turbidostat to use a specific biomass estimate.</p>
+<p>To set a persistent default in <code>config.ini</code>, use the per-automation section:</p>
+<div class="language-ini codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-ini codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">[dosing_automation.turbidostat]</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">biomass_signal=od_fused</span><br></span></code></pre></div></div>
+<p>Legacy versions used:</p>
+<div class="language-ini codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-ini codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">[turbidostat.config]</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">biomass_signal_override=od_fused</span><br></span></code></pre></div></div>
+<p>Current releases use <code>biomass_signal</code> under <code>[dosing_automation.turbidostat]</code> instead. During software updates, legacy values are migrated when present, and systems without a prior setting are seeded with <code>biomass_signal=auto</code>.</p>
+<p>You can also override this per run:</p>
+<ul>
+<li class="">In the UI, the Turbidostat form starts with <code>biomass signal = auto</code>. You can change it before launching the automation.</li>
+<li class="">In the advanced config UI, automation-specific overrides now use section names like <code>[dosing_automation.turbidostat]</code>.</li>
 </ul>
 <h3 class="anchor anchorTargetHideOnScrollNavbar_vjPI" id="pid-morbidostat">PID Morbidostat<a href="#pid-morbidostat" class="hash-link" aria-label="Direct link to PID Morbidostat" title="Direct link to PID Morbidostat" translate="no">​</a></h3>
 <p><strong>Requires:</strong></p>
@@ -129,6 +158,10 @@
 <li class=""><code>pause_between_subdoses_seconds</code>: time to wait between doses - this is useful if you want to be sure the newly added liquid is sufficiently mixed before running the waste pump.</li>
 <li class=""><code>waste_removal_multiplier</code>: the amount of additional time to run the waste pump after the influx pump has run. This is to ensure that the volume of liquid in the vial never exceeds the end of the efflux tube. Ex: if media ran for <code>0.75</code> seconds, then the waste will run for <code>waste_removal_multiplier * 0.75 seconds</code></li>
 <li class=""><code>max_subdose</code>: the maximum volume to add in a single dose. If the volume to add is greater than this value, the volume will be divided into smaller doses.</li>
+</ul>
+<h4 class="anchor anchorTargetHideOnScrollNavbar_vjPI" id="section-dosing_automationturbidostat">Section <code>[dosing_automation.turbidostat]</code><a href="#section-dosing_automationturbidostat" class="hash-link" aria-label="Direct link to section-dosing_automationturbidostat" title="Direct link to section-dosing_automationturbidostat" translate="no">​</a></h4>
+<ul>
+<li class=""><code>biomass_signal</code>: the default biomass signal used by Turbidostat when you don&#x27;t pass an explicit per-run value. Valid values are <code>auto</code>, <code>normalized_od</code>, <code>od_fused</code>, and <code>od</code>.</li>
 </ul>
 <h4 class="anchor anchorTargetHideOnScrollNavbar_vjPI" id="section-bioreactor">Section <code>[bioreactor]</code><a href="#section-bioreactor" class="hash-link" aria-label="Direct link to section-bioreactor" title="Direct link to section-bioreactor" translate="no">​</a></h4>
 <ul>
