@@ -77,6 +77,25 @@ Finally, every `duration` (specified in the controller, later in this section) m
 
 Since we are working with a fixed volume, `media_ml` must equal `waste_ml`, else an error will be thrown. What is `latest_od` attribute? Our class, when active, is listening to new optical densities being recorded. Hence when `execute` runs, we'll have access to the most up-to-date value of optical density. Likewise, there are also `latest_normalized_od` and `latest_growth_rate` attributes that update when a new growth-rate value is calculated. All three attributes are defined and maintained in the parent class.
 
+:::tip
+Prefer `self.execute_io_action(...)` inside `execute`. If you need to call `add_media_to_bioreactor(...)` directly, remember to forward `mqtt_client=self.pub_client` and `logger=self.logger`:
+
+```python
+def execute(self):
+    if self.latest_growth_rate < self.target_mu:
+        self.add_media_to_bioreactor(
+            ml=self.dosing_volume,
+            source_of_event=f"{self.job_name}:{self.automation_name}",
+            unit=self.unit,
+            experiment=self.experiment,
+            mqtt_client=self.pub_client,
+            logger=self.logger,
+        )
+```
+
+Without those extra arguments, your custom dosing automation can appear to run while the pump action never starts.
+:::
+
 ### Running the automation
 
 How do we run this automation now? Let's copy the code into a file called `naive_turbidostat.py` and place it into the folder `~/.pioreactor/plugins`.
