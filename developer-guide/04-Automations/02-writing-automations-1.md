@@ -94,7 +94,6 @@ def execute(self):
         )
 ```
 
-Without those extra arguments, your custom dosing automation can appear to run while the pump action never starts.
 :::
 
 ### Running the automation
