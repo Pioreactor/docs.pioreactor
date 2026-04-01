@@ -24,7 +24,7 @@ SQLite3 is also used for simpler database (caches) on each Pioreactor (worker an
 What are temporary and persistent? Something like GPIO locks or LED state are physically reset between cycles of the Raspberry Pi. So when the Pi power-cycles, the state is wiped, and by have the database in `/tmp`, the databases are wiped as well.
 :::
 
-You can use `pio cache view <name>` to view the contents of `<name>`, and `pio cache clear <name> <key>` to clear contents.
+You can use `pio cache view <name>` to view the contents of `<name>`, and `pio cache purge <name> <key>` to clear contents.
 
 
 ## MQTT
