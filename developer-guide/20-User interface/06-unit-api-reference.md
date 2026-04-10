@@ -23,6 +23,9 @@ sidebar_class_name: sidebar-item--updated
   }
 
 ```
+
+----
+
 ## Get All Active Calibrations
 
 Get All Active Calibrations endpoint.
@@ -161,6 +164,30 @@ Set Active Estimator endpoint.
 {
   "status": "success"
 }
+```
+
+## Get Automation Descriptors
+
+Get Automation Descriptors endpoint.
+
+### Endpoint
+`GET /unit_api/automations/descriptors/{automation_type}`
+
+### Request
+
+#### Path Parameters
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| automation_type | string | Yes | Automation type. |
+
+### Response
+
+#### Success
+
+**Status:** `200 OK`
+
+```json
+"<descriptors>"
 ```
 
 ## Get Bioreactor Values
@@ -374,6 +401,92 @@ Get Capabilities endpoint.
 **Status:** `200 OK`
 
 _No response body example inferred._
+
+## Get Merged Config
+
+Get Merged Config endpoint.
+
+### Endpoint
+`GET /unit_api/config/merged`
+
+### Response
+
+#### Success
+
+**Status:** `200 OK`
+
+_No response body example inferred._
+
+## Get Specific Config
+
+Get Specific Config endpoint.
+
+### Endpoint
+`GET /unit_api/config/specific`
+
+### Response
+
+#### Success
+
+**Status:** `200 OK`
+
+_No response body example inferred._
+
+## Update Specific Config
+
+Update Specific Config endpoint.
+
+### Endpoint
+`PATCH /unit_api/config/specific`
+
+### Request
+
+#### Request Body
+```json
+{
+  "<request_body>": "<see implementation>"
+}
+```
+
+### Response
+
+#### Success
+
+**Status:** `200 OK`
+
+```json
+{
+  "status": "success"
+}
+```
+
+## Update Specific Config
+
+Update Specific Config endpoint.
+
+### Endpoint
+`POST /unit_api/config/specific`
+
+### Request
+
+#### Request Body
+```json
+{
+  "<request_body>": "<see implementation>"
+}
+```
+
+### Response
+
+#### Success
+
+**Status:** `200 OK`
+
+```json
+{
+  "status": "success"
+}
+```
 
 ## Get All Estimators
 
@@ -592,6 +705,23 @@ Get Jobs endpoint.
 "<jobs>"
 ```
 
+## Get Job Descriptors
+
+Get Job Descriptors endpoint.
+
+### Endpoint
+`GET /unit_api/jobs/descriptors`
+
+### Response
+
+#### Success
+
+**Status:** `200 OK`
+
+```json
+"<descriptors>"
+```
+
 ## Run Job
 
 Body should look like (all optional)
@@ -728,6 +858,8 @@ Get Running Jobs For Experiment endpoint.
 ```
 
 ## Get Job Settings
+
+{
 
 ### Endpoint
 `GET /unit_api/jobs/settings/job_name/{job_name}`

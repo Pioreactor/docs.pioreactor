@@ -31,7 +31,6 @@ Use `/api/workers/...` for worker-only targets (experiment-scoped jobs/logs) and
 
 
 -----
-
 ## Get Automation Descriptors
 
 Get Automation Descriptors endpoint.
@@ -52,7 +51,9 @@ Get Automation Descriptors endpoint.
 
 **Status:** `200 OK`
 
-_No response body example inferred._
+```json
+"<descriptors>"
+```
 
 ## Get Bioreactor Variable Descriptors
 
@@ -84,12 +85,12 @@ Get Chart Descriptors endpoint.
 
 _No response body example inferred._
 
-## Get Config Files
+## Get Shared Config
 
-get a list of all config.ini files in the .pioreactor folder, _and_ are part of the inventory _or_ are leader
+Get Shared Config endpoint.
 
 ### Endpoint
-`GET /api/config/files`
+`GET /api/config/shared`
 
 ### Response
 
@@ -99,41 +100,14 @@ get a list of all config.ini files in the .pioreactor folder, _and_ are part of 
 
 _No response body example inferred._
 
-## Get Config File
+## Update Shared Config
 
-get a specific config.ini file in the .pioreactor folder
-
-### Endpoint
-`GET /api/config/files/{filename}`
-
-### Request
-
-#### Path Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| filename | string | Yes | Filename. |
-
-### Response
-
-#### Success
-
-**Status:** `200 OK`
-
-_No response body example inferred._
-
-## Update Config File
-
-Update Config File endpoint.
+Update Shared Config endpoint.
 
 ### Endpoint
-`PATCH /api/config/files/{filename}`
+`PATCH /api/config/shared`
 
 ### Request
-
-#### Path Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| filename | string | Yes | Filename. |
 
 #### Request Body
 ```json
@@ -154,19 +128,12 @@ Update Config File endpoint.
 }
 ```
 
-## Get Config File History
+## Get Shared Config History
 
-Get Config File History endpoint.
+Get Shared Config History endpoint.
 
 ### Endpoint
-`GET /api/config/files/{filename}/history`
-
-### Request
-
-#### Path Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| filename | string | Yes | Filename. |
+`GET /api/config/shared/history`
 
 ### Response
 
@@ -200,6 +167,85 @@ get merged config for a pioreactor unit
 
 ```json
 "<result>"
+```
+
+## Get Specific Config For Pioreactor Unit
+
+Get Specific Config For Pioreactor Unit endpoint.
+
+### Endpoint
+`GET /api/config/units/{pioreactor_unit}/specific`
+
+### Request
+
+#### Path Parameters
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| pioreactor_unit | string | Yes | Unit name or `$broadcast` where supported. |
+
+### Response
+
+#### Success
+
+**Status:** `200 OK`
+
+_No response body example inferred._
+
+## Update Specific Config For Pioreactor Unit
+
+Update Specific Config For Pioreactor Unit endpoint.
+
+### Endpoint
+`PATCH /api/config/units/{pioreactor_unit}/specific`
+
+### Request
+
+#### Path Parameters
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| pioreactor_unit | string | Yes | Unit name or `$broadcast` where supported. |
+
+#### Request Body
+```json
+{
+  "code": "<value>"
+}
+```
+
+### Response
+
+#### Success
+
+**Status:** `200 OK`
+
+```json
+{
+  "status": "success"
+}
+```
+
+## Get Specific Config History For Pioreactor Unit
+
+Get Specific Config History For Pioreactor Unit endpoint.
+
+### Endpoint
+`GET /api/config/units/{pioreactor_unit}/specific/history`
+
+### Request
+
+#### Path Parameters
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| pioreactor_unit | string | Yes | Unit name or `$broadcast` where supported. |
+
+### Response
+
+#### Success
+
+**Status:** `200 OK`
+
+```json
+"<configs_for_filename>"
 ```
 
 ## Get Exportable Datasets
@@ -1064,9 +1110,7 @@ Get Experiments Worker Assignments endpoint.
 
 **Status:** `200 OK`
 
-```json
-[]
-```
+_No response body example inferred._
 
 ## Get Latest Experiment
 
@@ -1130,7 +1174,9 @@ Get Job Descriptors endpoint.
 
 **Status:** `200 OK`
 
-_No response body example inferred._
+```json
+"<descriptors>"
+```
 
 ## Get Local Access Point
 
@@ -2287,6 +2333,65 @@ Set Active Estimator endpoint.
 }
 ```
 
+## Get Automation Descriptors For Worker
+
+Get Automation Descriptors For Worker endpoint.
+
+### Endpoint
+`GET /api/workers/{pioreactor_unit}/automations/descriptors/{automation_type}`
+
+### Request
+
+#### Path Parameters
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| pioreactor_unit | string | Yes | Unit name or `$broadcast` where supported. |
+| automation_type | string | Yes | Automation type. |
+
+### Response
+
+#### Success
+
+**Status:** `200 OK`
+
+_No response body example inferred._
+
+## Update Bioreactor On Unit
+
+Update Bioreactor On Unit endpoint.
+
+### Endpoint
+`PATCH /api/workers/{pioreactor_unit}/bioreactor/update/experiments/{experiment}`
+
+### Request
+
+#### Path Parameters
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| pioreactor_unit | string | Yes | Unit name or `$broadcast` where supported. |
+| experiment | string | Yes | Experiment identifier. |
+
+#### Request Body
+```json
+{
+  "values": "<value>"
+}
+```
+
+### Response
+
+#### Success
+
+**Status:** `202 Accepted`
+
+```json
+{
+  "unit": "<unit>",
+  "task_id": "<task_id>",
+  "result_url_path": "/unit_api/task_results/<task_id>"
+}
+```
+
 ## Blink Worker
 
 Blink Worker endpoint.
@@ -2769,42 +2874,6 @@ Get Experiment Assignment For Worker endpoint.
 "<result>"
 ```
 
-## Update Bioreactor On Unit
-
-Update Bioreactor On Unit endpoint.
-
-### Endpoint
-`PATCH /api/workers/{pioreactor_unit}/experiments/{experiment}/bioreactor`
-
-### Request
-
-#### Path Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| pioreactor_unit | string | Yes | Unit name or `$broadcast` where supported. |
-| experiment | string | Yes | Experiment identifier. |
-
-#### Request Body
-```json
-{
-  "values": "<value>"
-}
-```
-
-### Response
-
-#### Success
-
-**Status:** `202 Accepted`
-
-```json
-{
-  "unit": "<unit>",
-  "task_id": "<task_id>",
-  "result_url_path": "/unit_api/task_results/<task_id>"
-}
-```
-
 ## Get Logs For Unit And Experiment
 
 Shows event logs from specific unit and experiment, uses pagination.
@@ -3089,6 +3158,28 @@ Change Worker Status endpoint.
   "status": "success"
 }
 ```
+
+## Get Job Descriptors For Worker
+
+Get Job Descriptors For Worker endpoint.
+
+### Endpoint
+`GET /api/workers/{pioreactor_unit}/jobs/descriptors`
+
+### Request
+
+#### Path Parameters
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| pioreactor_unit | string | Yes | Unit name or `$broadcast` where supported. |
+
+### Response
+
+#### Success
+
+**Status:** `200 OK`
+
+_No response body example inferred._
 
 ## Run Job On Unit In Experiment
 

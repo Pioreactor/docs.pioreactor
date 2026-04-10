@@ -177,6 +177,6 @@ You can edit these parameters in your config.ini files. For dosing runs started 
 
 #### Section `[bioreactor]`
 
- - `max_working_volume_ml`: determined by the volume that just touches the outflow tube. I.e. if you were to keep running the waste pump, what would the stable volume be.
+ - `efflux_tube_volume_ml`: determined by the volume that just touches the outflow tube. I.e. if you were to keep running the waste pump, what would the stable volume be.
  - `initial_volume_ml`: the initial volume of liquid in the vial. In the UI this is surfaced as `Current volume`, and is used to calculate the volume of liquid in the vial at any given time.
  - `initial_alt_media_fraction`: the initial fraction of the alternative media in the vial. This is used to calculate the volume of alternative media in the vial at any given time.

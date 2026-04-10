@@ -36,11 +36,8 @@ Pioreactor also stores a history of changes to each configuration file. You can 
 ![Select historical versions of config.ini's](/img/user-guide/03-extending-your-pioreactor/05-configuration/choose_config_version2.png)
 
 
-### Editing the configuration files from the command line
 
-All the `.ini` files come from the leader unit. They are stored in `/home/pioreactor/.pioreactor` - the `config.ini` and a `config_<unitName>.ini` for each Pioreactor unit. The command `pios sync-configs` will deploy the `.ini` files to their correct unit. Editing the `.ini` files on the leader is correct workflow, as any edits on the worker units will be overwritten on the next `pios sync-configs`.
-
-### Editing the `config.ini` before booting
+### Editing the `unit_config.ini` before booting
 
 Sometimes it's desirable to make changes to the `config.ini` without having to boot the Pioreactor first. You can do this by plugging the microSD card into your computer, and adding a `config.ini` to the `boot/` folder on it. This `config.ini` doesn't need to have all the fields, only the fields you wish to change. At start up, the Pioreactor will merge `/boot/config.ini` into the Pioreactor's `config.ini`, and then delete `/boot/config.ini`.
 
