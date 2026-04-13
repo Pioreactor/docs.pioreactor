@@ -21,8 +21,8 @@ You should have already added your plugin's Python code to your Pioreactor by so
 
 
 The list of activities, among other things, is sourced from either of two directories:
- - `/var/www/pioreactorui/contrib/jobs/`, is the source of the "default" jobs
- - `/home/pioreactor/.pioreactor/plugins/ui/contrib/jobs`, is a directory to put custom yaml files for jobs.
+ - `~/pioreactor/.pioreactor/ui/jobs`, is the source of the "default" jobs
+ - `~/pioreactor/.pioreactor/plugins/ui/jobs`, is a directory to put custom yaml files for plugins.
 
 Placing a new yaml file in either of these folders will populate the page with your new job. Here's an example `example.yaml` file:
 
@@ -63,8 +63,8 @@ Saving it to either directory above, and refreshing the page:
 
 Placing a new yaml file in either of the following folders will populate the UI with your new job.
 
- - `/var/www/pioreactorui/contrib/jobs/`, is the source of the "default" jobs
- - `/home/pioreactor/.pioreactor/plugins/ui/contrib/jobs/`, is a directory to put custom plugins.
+ - `~/pioreactor/.pioreactor/ui/jobs`, is the source of the "default" jobs
+ - `~/pioreactor/.pioreactor/plugins/ui/jobs`, is a directory to put custom yaml files for plugins.
 
 ```yaml
 ---
@@ -87,8 +87,11 @@ Suppose we wish to add our new automation, either installed from a package or vi
 ![](/img/developer-guide/07-plugins/02-adding-plugins-to-ui/dropdown_automations.png)
 
 This list is sourced from yaml files located on the leader's Raspberry Pi, in either of two directories:
- - `/var/www/pioreactorui/contrib/automations/`, is the source of the our built-in automations
- - `/home/pioreactor/.pioreactor/plugins/ui/contrib/automations/{led,dosing,temperature}`, is a directory to put yaml files for custom automations.
+
+ - `~/pioreactor/.pioreactor/ui/automations`, is the source of the "default" automations
+ - `~/pioreactor/.pioreactor/plugins/ui/automations`, is a directory to put custom yaml files for plugins.
+
+
 
 Placing your yaml file in either folder above will populate the dropdown list in the UI with your new automation. Here's an example `example.yaml` file:
 

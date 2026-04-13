@@ -8,7 +8,7 @@ sidebar_class_name: sidebar-item--updated
 
 When pairing the Pioreactor with dosing pumps, there are new capabilities and experiments you can run. The Pioreactor is pre-programmed with the following dosing automations. In the below automations, values highlighted `like so` are configurable.
 
-Before starting a dosing automation from the UI, review the `Current volume` and `Max working volume` fields in the automation dialog. `Current volume` should match the liquid currently in the vial, and `Max working volume` should match the volume set by the height of your waste / efflux tube.
+Before starting a dosing automation from the UI, review the `Current volume` and `Efflux tube level` fields in the automation dialog. `Current volume` should match the liquid currently in the vial, and `Efflux tube level` should match the volume set by the height of your waste / efflux tube.
 
 ## Available dosing automations
 
@@ -155,12 +155,12 @@ To further avoid overflow, we limit how much liquid is added in a single pump cy
 
 
  - **Current volume**: this is how much liquid is currently in the vial when you start the automation.
- - **Max working volume**: the efflux tube's position determines the maximum volume your liquid volume will reach.
+ - **Efflux tube level**: the efflux tube's position determines the maximum volume your liquid volume will reach.
 
 
 ###  Configuration parameters
 
-You can edit these parameters in your config.ini files. For dosing runs started from the UI, `Current volume` and `Max working volume` can also be adjusted directly in the automation dialog before starting.
+You can edit these parameters in your config.ini files. For dosing runs started from the UI, `Current volume` and `Efflux tube level` can also be adjusted directly in the automation dialog before starting.
 
 
 #### Section `[dosing_automation.config]`

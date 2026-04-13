@@ -149,7 +149,7 @@ function decorated with `@run.command` at the bottom of the file. See example [h
 
 #### 3. Optional: A configuration file, named `additional_config.ini`
 
-This configuration file will contain additional configs that we want to add to our list of existing Configurations on the Pioreactor web interface. This file will be merged with the existing `config.ini` when the plugin is installed. 
+This configuration file will contain additional configs that we want to add to our list of existing Configurations on the Pioreactor web interface. This file will be merged with the existing `unit_config.ini` when the plugin is installed.
 
 ![](/img/developer-guide/07-plugins/03-plugin-as-python-package/python-package-new-config.png)
 
