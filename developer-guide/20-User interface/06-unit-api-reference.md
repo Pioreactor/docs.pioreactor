@@ -859,7 +859,6 @@ Get Running Jobs For Experiment endpoint.
 
 ## Get Job Settings
 
-{
 
 ### Endpoint
 `GET /unit_api/jobs/settings/job_name/{job_name}`
