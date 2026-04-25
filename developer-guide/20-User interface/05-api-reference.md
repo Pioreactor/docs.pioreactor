@@ -43,16 +43,43 @@ Get Automation Descriptors endpoint.
 #### Path Parameters
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
-| automation_type | string | Yes | Automation type. |
+| automation_type | string | Yes | Automation type: dosing, temperature, led. |
 
 ### Response
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
+
+Example body:
 
 ```json
-"<descriptors>"
+[
+  {
+    "display_name": "Only record temperature",
+    "automation_name": "only_record_temperature",
+    "description": "Apply no heating, only record the temperature.",
+    "source": null,
+    "fields": []
+  },
+  {
+    "display_name": "Thermostat",
+    "automation_name": "thermostat",
+    "description": "Vary the amount of applied heating to keep the culture near a target temperature, using a control-loop.",
+    "source": null,
+    "fields": [
+      {
+        "key": "target_temperature",
+        "default": 30,
+        "label": "Target temperature",
+        "disabled": false,
+        "unit": "\u2103",
+        "type": "numeric",
+        "options": null
+      }
+    ]
+  }
+]
 ```
 
 ## Get Bioreactor Variable Descriptors
@@ -66,9 +93,41 @@ Get Bioreactor Variable Descriptors endpoint.
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
 
-_No response body example inferred._
+Example body:
+
+```json
+[
+  {
+    "key": "current_volume_ml",
+    "label": "Current volume",
+    "description": "Current estimated liquid volume in the vial.",
+    "type": "numeric",
+    "unit": "mL",
+    "min": 0.0,
+    "max": null
+  },
+  {
+    "key": "efflux_tube_volume_ml",
+    "label": "Efflux tube level",
+    "description": "Liquid volume equivalent to the height of the waste/efflux tube.",
+    "type": "numeric",
+    "unit": "mL",
+    "min": 0.0,
+    "max": null
+  },
+  {
+    "key": "alt_media_fraction",
+    "label": "Alt media fraction",
+    "description": "Fraction of the current volume estimated to be alt media.",
+    "type": "numeric",
+    "unit": null,
+    "min": 0.0,
+    "max": 1.0
+  }
+]
+```
 
 ## Get Chart Descriptors
 
@@ -81,9 +140,74 @@ Get Chart Descriptors endpoint.
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
 
-_No response body example inferred._
+Example body:
+
+```json
+[
+  {
+    "chart_key": "implied_growth_rate",
+    "data_source": "growth_rates",
+    "title": "Implied growth rate",
+    "source": "app",
+    "y_axis_label": "Growth rate, h\u207b\u00b9",
+    "fixed_decimals": 2,
+    "down_sample": true,
+    "mqtt_topic": "growth_rate_calculating/growth_rate",
+    "lookback": 100000,
+    "data_source_column": null,
+    "payload_key": "growth_rate",
+    "y_transformation": "(y) => y",
+    "y_axis_domain": [
+      -0.02,
+      0.1
+    ],
+    "interpolation": "stepAfter"
+  },
+  {
+    "chart_key": "implied_daily_growth_rate",
+    "data_source": "growth_rates",
+    "title": "Implied daily growth rate",
+    "source": "app",
+    "y_axis_label": "Growth rate, d\u207b\u00b9",
+    "fixed_decimals": 2,
+    "down_sample": true,
+    "mqtt_topic": "growth_rate_calculating/growth_rate",
+    "lookback": 100000,
+    "data_source_column": null,
+    "payload_key": "growth_rate",
+    "y_transformation": "(y) => 24 * y",
+    "y_axis_domain": [
+      -0.1,
+      1.0
+    ],
+    "interpolation": "stepAfter"
+  },
+  {
+    "chart_key": "fraction_of_volume_that_is_alternative_media",
+    "data_source": "alt_media_fractions",
+    "title": "Fraction of volume that is alternative media",
+    "source": "app",
+    "y_axis_label": "Fraction",
+    "fixed_decimals": 3,
+    "down_sample": false,
+    "mqtt_topic": "bioreactor/alt_media_fraction",
+    "lookback": 100000,
+    "data_source_column": "alt_media_fraction",
+    "payload_key": null,
+    "y_transformation": "(y) => y",
+    "y_axis_domain": [
+      0.0,
+      0.05
+    ],
+    "interpolation": "stepAfter"
+  },
+  {
+    "...": "1 more items"
+  }
+]
+```
 
 ## Get Shared Config
 
@@ -96,9 +220,13 @@ Get Shared Config endpoint.
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
 
-_No response body example inferred._
+Example body:
+
+```json
+"[PWM]\n# map the externals to the PWM\n# hardware PWM are available on channels 1 & 3.\n1=stirring\n2=waste\n3=media\n4=alt_media\n5=heating\n\n\n[leds]\nA=IR\nB=white_light\nC=\nD=\n\n\n[bioreactor]\n# efflux_tube_volume_ml is determined by the volume that just touches the outflow tube. I.e. if you\n# where to keep r... ..."
+```
 
 ## Update Shared Config
 
@@ -112,7 +240,7 @@ Update Shared Config endpoint.
 #### Request Body
 ```json
 {
-  "code": "<value>"
+  "code": "[section]\nkey=value\n"
 }
 ```
 
@@ -120,7 +248,9 @@ Update Shared Config endpoint.
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
+
+Example body:
 
 ```json
 {
@@ -139,10 +269,31 @@ Get Shared Config History endpoint.
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
+
+Example body:
 
 ```json
-"<configs_for_filename>"
+[
+  {
+    "filename": "config.ini",
+    "timestamp": "2026-02-19T15:56:45.596Z",
+    "data": "[PWM]\n# map the externals to the PWM\n# hardware PWM are available on channels 1 & 3.\n1=stirring\n2=waste\n3=media\n4=test\n5=heating\n\n\n[leds]\nA=IR\nB=white_light\nC=\nD=\n\n\n[bioreactor]\n# max_working_volume_ml is determined by the volume that just touches the outflow tube. I.e. if you\n# where to keep runnin... ..."
+  },
+  {
+    "filename": "config.ini",
+    "timestamp": "2026-01-19T16:38:19.492Z",
+    "data": "[PWM]\n# map the externals to the PWM\n# hardware PWM are available on channels 1 & 3.\n1=stirring\n2=waste\n3=media\n4=alt_media\n5=heating\n\n\n[leds]\nA=IR\nB=white_light\nC=\nD=\n\n\n[bioreactor]\n# max_working_volume_ml is determined by the volume that just touches the outflow tube. I.e. if you\n# where to keep r... ..."
+  },
+  {
+    "filename": "config.ini",
+    "timestamp": "2026-01-15T01:12:24.848Z",
+    "data": "[PWM]\n# map the externals to the PWM\n# hardware PWM are available on channels 1 & 3.\n1=stirring\n2=waste\n3=media\n4=alt_media\n5=heatingf\n\n\n[leds]\nA=IR\nB=white_light\nC=\nD=\n\n\n[bioreactor]\n# max_working_volume_ml is determined by the volume that just touches the outflow tube. I.e. if you\n# where to keep ... ..."
+  },
+  {
+    "...": "1 more items"
+  }
+]
 ```
 
 ## Get Config For Pioreactor Unit
@@ -163,10 +314,12 @@ get merged config for a pioreactor unit
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
+
+Example body:
 
 ```json
-"<result>"
+{}
 ```
 
 ## Get Specific Config For Pioreactor Unit
@@ -187,9 +340,13 @@ Get Specific Config For Pioreactor Unit endpoint.
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
 
-_No response body example inferred._
+Example body:
+
+```json
+"[PWM]\n# map the externals to the PWM\n# hardware PWM are available on channels 1 & 3.\n1=stirring\n2=waste\n3=media\n4=bubblert\n5=heating"
+```
 
 ## Update Specific Config For Pioreactor Unit
 
@@ -208,7 +365,7 @@ Update Specific Config For Pioreactor Unit endpoint.
 #### Request Body
 ```json
 {
-  "code": "<value>"
+  "code": "[section]\nkey=value\n"
 }
 ```
 
@@ -216,7 +373,9 @@ Update Specific Config For Pioreactor Unit endpoint.
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
+
+Example body:
 
 ```json
 {
@@ -242,10 +401,31 @@ Get Specific Config History For Pioreactor Unit endpoint.
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
+
+Example body:
 
 ```json
-"<configs_for_filename>"
+[
+  {
+    "filename": "unit_config.ini::localhost",
+    "timestamp": "2026-04-08T00:58:21.686Z",
+    "data": "[PWM]\n# map the externals to the PWM\n# hardware PWM are available on channels 1 & 3.\n1=stirring\n2=waste\n3=media\n4=bubblert\n5=heating"
+  },
+  {
+    "filename": "unit_config.ini::localhost",
+    "timestamp": "2026-04-08T00:18:45.007Z",
+    "data": "[PWM]\n# map the externals to the PWM\n# hardware PWM are available on channels 1 & 3.\n1=stirring\n2=waste\n3=media\n4=bubbler\n5=heating"
+  },
+  {
+    "filename": "config_localhost.ini",
+    "timestamp": "2025-12-03T02:50:38.730Z",
+    "data": "[bioreactor]\nmax_volume_ml=30\n"
+  },
+  {
+    "...": "1 more items"
+  }
+]
 ```
 
 ## Get Exportable Datasets
@@ -259,10 +439,12 @@ Get Exportable Datasets endpoint.
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
+
+Example body:
 
 ```json
-"<parsed_yaml>"
+[]
 ```
 
 ## Preview Exportable Dataset
@@ -283,10 +465,40 @@ Preview Exportable Dataset endpoint.
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
+
+Example body:
 
 ```json
-"<result>"
+[
+  {
+    "experiment": "Demo experiment",
+    "pioreactor_unit": "pio01",
+    "timestamp": "2024-07-03T20:12:23.176823Z",
+    "od_reading": 0.009324100513755453,
+    "angle": 90,
+    "channel": 2
+  },
+  {
+    "experiment": "Demo experiment",
+    "pioreactor_unit": "pio01",
+    "timestamp": "2024-07-03T20:12:28.166988Z",
+    "od_reading": 0.010660438493720935,
+    "angle": 90,
+    "channel": 2
+  },
+  {
+    "experiment": "Demo experiment",
+    "pioreactor_unit": "pio01",
+    "timestamp": "2024-07-03T20:12:33.167090Z",
+    "od_reading": 0.011332938885055854,
+    "angle": 90,
+    "channel": 2
+  },
+  {
+    "...": "1 more items"
+  }
+]
 ```
 
 ## Export Exportable Datasets
@@ -301,12 +513,17 @@ Export Exportable Datasets endpoint.
 #### Request Body
 ```json
 {
-  "datasets": "<value>",
-  "end_time": "<value>",
-  "experiments": "<value>",
-  "partition_by_experiment": "<value>",
-  "partition_by_unit": "<value>",
-  "start_time": "<value>"
+  "datasets": [
+    "growth_rates",
+    "od_readings"
+  ],
+  "end_time": "2026-01-01T13:00:00Z",
+  "experiments": [
+    "demo_experiment"
+  ],
+  "partition_by_experiment": true,
+  "partition_by_unit": true,
+  "start_time": "2026-01-01T12:00:00Z"
 }
 ```
 
@@ -314,13 +531,15 @@ Export Exportable Datasets endpoint.
 
 #### Success
 
-**Status:** `200 OK`
+Status: `202 Accepted`
+
+Example body:
 
 ```json
 {
-  "result": "<status>",
-  "filename": "<filename>",
-  "msg": "Finished"
+  "unit": "pio01",
+  "task_id": "abcd1234",
+  "result_url_path": "/unit_api/task_results/abcd1234"
 }
 ```
 
@@ -335,10 +554,12 @@ Get Experiment Profiles endpoint.
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
+
+Example body:
 
 ```json
-"<parsed_yaml>"
+[]
 ```
 
 ## Create Experiment Profile
@@ -353,8 +574,8 @@ Create Experiment Profile endpoint.
 #### Request Body
 ```json
 {
-  "body": "<value>",
-  "filename": "<value>"
+  "body": "file contents",
+  "filename": "example.txt"
 }
 ```
 
@@ -362,7 +583,9 @@ Create Experiment Profile endpoint.
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
+
+Example body:
 
 ```json
 {
@@ -388,7 +611,9 @@ Delete Experiment Profile endpoint.
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
+
+Example body:
 
 ```json
 {
@@ -414,9 +639,13 @@ Get Experiment Profile endpoint.
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
 
-_No response body example inferred._
+Example body:
+
+```json
+"experiment_profile_name: example.yaml\nmetadata:\n  author: Pioreactor\n"
+```
 
 ## Update Experiment Profile
 
@@ -435,7 +664,7 @@ Update Experiment Profile endpoint.
 #### Request Body
 ```json
 {
-  "body": "<value>"
+  "body": "file contents"
 }
 ```
 
@@ -443,7 +672,9 @@ Update Experiment Profile endpoint.
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
+
+Example body:
 
 ```json
 {
@@ -462,10 +693,53 @@ Get Experiments endpoint.
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
+
+Example body:
 
 ```json
-"<response>"
+[
+  {
+    "experiment": "efaeffefe",
+    "created_at": "2026-04-13T15:47:38.212Z",
+    "description": "",
+    "delta_hours": 274.0,
+    "worker_count": 0,
+    "tags": [
+      "4324-2344",
+      "glp1"
+    ]
+  },
+  {
+    "experiment": "efaef4e4",
+    "created_at": "2026-03-07T00:30:31.257Z",
+    "description": "eefefaefaefefefeefefefafafefef",
+    "delta_hours": 1177.0,
+    "worker_count": 0,
+    "tags": [
+      "pencil",
+      "notebook"
+    ]
+  },
+  {
+    "experiment": "efaef4",
+    "created_at": "2026-02-06T01:19:11.315Z",
+    "description": "aefaef",
+    "delta_hours": 1872.0,
+    "worker_count": 0,
+    "tags": [
+      "pencil",
+      "notebook",
+      "4324-2344",
+      {
+        "...": "1 more items"
+      }
+    ]
+  },
+  {
+    "...": "1 more items"
+  }
+]
 ```
 
 ## Create Experiment
@@ -480,11 +754,13 @@ Create Experiment endpoint.
 #### Request Body
 ```json
 {
-  "description": "<value>",
-  "experiment": "<value>",
-  "mediaUsed": "<value>",
-  "organismUsed": "<value>",
-  "tags": "<value>"
+  "description": "Example description",
+  "experiment": "demo_experiment",
+  "mediaUsed": "LB broth",
+  "organismUsed": "E. coli",
+  "tags": [
+    "demo"
+  ]
 }
 ```
 
@@ -492,10 +768,16 @@ Create Experiment endpoint.
 
 #### Success
 
-**Status:** `201 Created`
+Status: `201 Created`
+
+Example body:
 
 ```json
-"<created_experiment>"
+{
+  "experiment": "demo_experiment",
+  "created_at": "2026-01-01T12:00:00Z",
+  "description": "Example experiment"
+}
 ```
 
 ## Delete Experiment
@@ -516,7 +798,9 @@ Delete Experiment endpoint.
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
+
+Example body:
 
 ```json
 {
@@ -542,10 +826,22 @@ Get Experiment endpoint.
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
+
+Example body:
 
 ```json
-"<result>"
+{
+  "experiment": "efaeffefe",
+  "created_at": "2026-04-13T15:47:38.212Z",
+  "description": "",
+  "delta_hours": 274.0,
+  "worker_count": 0,
+  "tags": [
+    "4324-2344",
+    "glp1"
+  ]
+}
 ```
 
 ## Update Experiment
@@ -565,8 +861,10 @@ Update Experiment endpoint.
 #### Request Body
 ```json
 {
-  "description": "<value>",
-  "tags": "<value>"
+  "description": "Example description",
+  "tags": [
+    "demo"
+  ]
 }
 ```
 
@@ -574,10 +872,16 @@ Update Experiment endpoint.
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
+
+Example body:
 
 ```json
-"<updated_experiment>"
+{
+  "experiment": "demo_experiment",
+  "updated_at": "2026-01-01T12:05:00Z",
+  "description": "Updated experiment description"
+}
 ```
 
 ## Get Recent Experiment Profile Runs
@@ -598,10 +902,12 @@ Get Recent Experiment Profile Runs endpoint.
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
+
+Example body:
 
 ```json
-"<recent_runs>"
+[]
 ```
 
 ## Get Running Profiles
@@ -622,9 +928,13 @@ Get Running Profiles endpoint.
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
 
-_No response body example inferred._
+Example body:
+
+```json
+[]
+```
 
 ## Get List Of Historical Workers For Experiment
 
@@ -644,10 +954,31 @@ Get List Of Historical Workers For Experiment endpoint.
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
+
+Example body:
 
 ```json
-"<workers>"
+[
+  {
+    "pioreactor_unit": "localhost",
+    "experiment": "efaeffefe",
+    "is_currently_assigned_to_experiment": 0
+  },
+  {
+    "pioreactor_unit": "missing",
+    "experiment": "efaeffefe",
+    "is_currently_assigned_to_experiment": 0
+  },
+  {
+    "pioreactor_unit": "pio01",
+    "experiment": "efaeffefe",
+    "is_currently_assigned_to_experiment": 0
+  },
+  {
+    "...": "1 more items"
+  }
+]
 ```
 
 ## Get Exp Logs
@@ -668,10 +999,12 @@ Shows event logs from all units, uses pagination.
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
+
+Example body:
 
 ```json
-"<recent_logs>"
+[]
 ```
 
 ## Get Media Rates
@@ -692,10 +1025,12 @@ Shows amount of added media per unit. Note that it only consider values from a d
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
+
+Example body:
 
 ```json
-"<json_result>"
+{}
 ```
 
 ## Get Recent Logs
@@ -716,10 +1051,12 @@ Shows recent event logs from all units
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
+
+Example body:
 
 ```json
-"<recent_logs>"
+[]
 ```
 
 ## Get Fallback Time Series
@@ -742,9 +1079,19 @@ Get Fallback Time Series endpoint.
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
 
-_No response body example inferred._
+Example body:
+
+```json
+[
+  {
+    "timestamp": "2026-01-01T12:00:00Z",
+    "pioreactor_unit": "pio01",
+    "value": 1.23
+  }
+]
+```
 
 ## Get Growth Rates
 
@@ -764,9 +1111,16 @@ Gets growth rates for all units
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
 
-_No response body example inferred._
+Example body:
+
+```json
+{
+  "series": [],
+  "data": []
+}
+```
 
 ## Get OD Readings
 
@@ -786,9 +1140,16 @@ Gets raw od for all units
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
 
-_No response body example inferred._
+Example body:
+
+```json
+{
+  "series": [],
+  "data": []
+}
+```
 
 ## Get OD Readings Filtered
 
@@ -808,9 +1169,16 @@ Gets normalized od for all units
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
 
-_No response body example inferred._
+Example body:
+
+```json
+{
+  "series": [],
+  "data": []
+}
+```
 
 ## Get OD Readings Fused
 
@@ -830,9 +1198,16 @@ Get OD Readings Fused endpoint.
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
 
-_No response body example inferred._
+Example body:
+
+```json
+{
+  "series": [],
+  "data": []
+}
+```
 
 ## Get OD Raw Readings
 
@@ -852,9 +1227,16 @@ Gets raw od for all units
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
 
-_No response body example inferred._
+Example body:
+
+```json
+{
+  "series": [],
+  "data": []
+}
+```
 
 ## Get Temperature Readings
 
@@ -874,9 +1256,16 @@ Gets temperature readings for all units
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
 
-_No response body example inferred._
+Example body:
+
+```json
+{
+  "series": [],
+  "data": []
+}
+```
 
 ## Get Unit Labels
 
@@ -896,10 +1285,12 @@ Get Unit Labels endpoint.
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
+
+Example body:
 
 ```json
-"<keyed_by_unit>"
+{}
 ```
 
 ## Upsert Unit Labels
@@ -919,8 +1310,8 @@ Update or insert a new unit label for the current experiment.
 #### Request Body
 ```json
 {
-  "label": "<value>",
-  "unit": "<value>"
+  "label": "control",
+  "unit": "pio01"
 }
 ```
 
@@ -928,7 +1319,9 @@ Update or insert a new unit label for the current experiment.
 
 #### Success
 
-**Status:** `201 Created`
+Status: `201 Created`
+
+Example body:
 
 ```json
 {
@@ -953,8 +1346,8 @@ Update or insert a new unit label for the current experiment.
 #### Request Body
 ```json
 {
-  "label": "<value>",
-  "unit": "<value>"
+  "label": "control",
+  "unit": "pio01"
 }
 ```
 
@@ -962,7 +1355,9 @@ Update or insert a new unit label for the current experiment.
 
 #### Success
 
-**Status:** `201 Created`
+Status: `201 Created`
+
+Example body:
 
 ```json
 {
@@ -988,13 +1383,15 @@ Remove Workers From Experiment endpoint.
 
 #### Success
 
-**Status:** `202 Accepted`
+Status: `202 Accepted`
+
+Example body:
 
 ```json
 {
-  "unit": "<unit>",
-  "task_id": "<task_id>",
-  "result_url_path": "/unit_api/task_results/<task_id>"
+  "unit": "pio01",
+  "task_id": "abcd1234",
+  "result_url_path": "/unit_api/task_results/abcd1234"
 }
 ```
 
@@ -1016,10 +1413,12 @@ Get List Of Workers For Experiment endpoint.
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
+
+Example body:
 
 ```json
-"<workers>"
+[]
 ```
 
 ## Add Worker To Experiment
@@ -1039,7 +1438,7 @@ Add Worker To Experiment endpoint.
 #### Request Body
 ```json
 {
-  "pioreactor_unit": "<value>"
+  "pioreactor_unit": "pio01"
 }
 ```
 
@@ -1047,7 +1446,9 @@ Add Worker To Experiment endpoint.
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
+
+Example body:
 
 ```json
 {
@@ -1074,7 +1475,9 @@ Remove Worker From Experiment endpoint.
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
+
+Example body:
 
 ```json
 {
@@ -1093,9 +1496,22 @@ Get list of experiments with at least one active worker assigned
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
 
-_No response body example inferred._
+Example body:
+
+```json
+[
+  {
+    "experiment": "ALE - Acetate",
+    "created_at": "2024-09-04T17:04:46.423882Z",
+    "description": "MZ PhD Evolution research experiment. Pioreactors 9-16.",
+    "delta_hours": 14336.0,
+    "worker_count": 1,
+    "tags": []
+  }
+]
+```
 
 ## Get Experiments Worker Assignments
 
@@ -1108,9 +1524,18 @@ Get Experiments Worker Assignments endpoint.
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
 
-_No response body example inferred._
+Example body:
+
+```json
+[
+  {
+    "experiment": "ALE - Acetate",
+    "worker_count": 1
+  }
+]
+```
 
 ## Get Latest Experiment
 
@@ -1123,9 +1548,23 @@ Get Latest Experiment endpoint.
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
 
-_No response body example inferred._
+Example body:
+
+```json
+{
+  "experiment": "efaeffefe",
+  "created_at": "2026-04-13T15:47:38.212Z",
+  "description": "",
+  "delta_hours": 274.0,
+  "worker_count": 0,
+  "tags": [
+    "4324-2344",
+    "glp1"
+  ]
+}
+```
 
 ## Get Historical Media Used
 
@@ -1138,10 +1577,25 @@ Get Historical Media Used endpoint.
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
+
+Example body:
 
 ```json
-"<historical_media>"
+[
+  {
+    "key": "DM-Glc %0.1"
+  },
+  {
+    "key": "MOPS 0.03% glc, 0.3% glycerol"
+  },
+  {
+    "key": "MOPS 0.2% glc"
+  },
+  {
+    "...": "1 more items"
+  }
+]
 ```
 
 ## Get Historical Organisms Used
@@ -1155,10 +1609,25 @@ Get Historical Organisms Used endpoint.
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
+
+Example body:
 
 ```json
-"<historical_organisms>"
+[
+  {
+    "key": "MG1655/NCM3270/W3110/REL606"
+  },
+  {
+    "key": "REL606"
+  },
+  {
+    "key": "REL606 \u2206pykF"
+  },
+  {
+    "...": "1 more items"
+  }
+]
 ```
 
 ## Get Job Descriptors
@@ -1172,10 +1641,57 @@ Get Job Descriptors endpoint.
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
+
+Example body:
 
 ```json
-"<descriptors>"
+[
+  {
+    "display_name": "Stirring",
+    "job_name": "stirring",
+    "display": true,
+    "published_settings": [
+      {
+        "key": "target_rpm",
+        "type": "numeric",
+        "display": true,
+        "description": "Modify the target RPM of stirring. This will effect the optical density reading. Too low and the stirring may completely stop. Too high and the resulting vortex may interfere with the optics.",
+        "default": null,
+        "unit": "RPM",
+        "label": "Target stir RPM",
+        "editable": true
+      }
+    ],
+    "source": "app",
+    "description": "Start the stirring on the Pioreactor. Stirring is needed for mixing and proper OD measurements.",
+    "subtext": null,
+    "is_testing": false
+  },
+  {
+    "display_name": "Optical density",
+    "job_name": "od_reading",
+    "display": true,
+    "published_settings": [],
+    "source": "app",
+    "description": "Collect optical density measurements of the culture over time.",
+    "subtext": null,
+    "is_testing": false
+  },
+  {
+    "display_name": "Growth rate",
+    "job_name": "growth_rate_calculating",
+    "display": true,
+    "published_settings": [],
+    "source": "app",
+    "description": "Transform optical density measurements into culture growth rate measurements. Start this after innoculation. Begins by sampling for a few minutes to gather a baseline.",
+    "subtext": null,
+    "is_testing": false
+  },
+  {
+    "...": "1 more items"
+  }
+]
 ```
 
 ## Get Local Access Point
@@ -1189,11 +1705,13 @@ Get Local Access Point endpoint.
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
+
+Example body:
 
 ```json
 {
-  "active": "<value>"
+  "active": false
 }
 ```
 
@@ -1208,10 +1726,40 @@ Shows event logs from all units, uses pagination.
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
+
+Example body:
 
 ```json
-"<recent_logs>"
+[
+  {
+    "timestamp": "2026-03-20T17:14:10Z",
+    "level": "ERROR",
+    "pioreactor_unit": "pio01",
+    "message": "Manual dev log 3",
+    "task": "manual",
+    "experiment": "efaef"
+  },
+  {
+    "timestamp": "2026-03-20T17:14:05Z",
+    "level": "WARNING",
+    "pioreactor_unit": "pio01",
+    "message": "Manual dev log 2",
+    "task": "manual",
+    "experiment": "efaef"
+  },
+  {
+    "timestamp": "2026-03-20T17:14:00Z",
+    "level": "INFO",
+    "pioreactor_unit": "pio01",
+    "message": "Manual dev log 1",
+    "task": "manual",
+    "experiment": "efaef"
+  },
+  {
+    "...": "1 more items"
+  }
+]
 ```
 
 ## Get Models
@@ -1225,11 +1773,56 @@ Return the list of supported Pioreactor models (name, version, display_name).
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
+
+Example body:
 
 ```json
 {
-  "models": "<value>"
+  "models": [
+    {
+      "model_name": "pioreactor_40ml",
+      "model_version": "1.5",
+      "display_name": "Pioreactor 40ml, v1.5",
+      "reactor_capacity_ml": 40.0,
+      "reactor_diameter_mm": 27.0,
+      "reactor_max_fill_volume_ml": 38.0,
+      "max_temp_to_reduce_heating": 78.0,
+      "max_temp_to_disable_heating": 80.0,
+      "max_temp_to_shutdown": 85.0,
+      "is_legacy": false,
+      "is_contrib": false
+    },
+    {
+      "model_name": "pioreactor_40ml",
+      "model_version": "1.0",
+      "display_name": "Pioreactor 40ml, v1.0",
+      "reactor_capacity_ml": 40.0,
+      "reactor_diameter_mm": 27.0,
+      "reactor_max_fill_volume_ml": 38.0,
+      "max_temp_to_reduce_heating": 78.0,
+      "max_temp_to_disable_heating": 80.0,
+      "max_temp_to_shutdown": 85.0,
+      "is_legacy": true,
+      "is_contrib": false
+    },
+    {
+      "model_name": "pioreactor_20ml",
+      "model_version": "1.1",
+      "display_name": "Pioreactor 20ml, v1.1",
+      "reactor_capacity_ml": 20.0,
+      "reactor_diameter_mm": 27.0,
+      "reactor_max_fill_volume_ml": 18.0,
+      "max_temp_to_reduce_heating": 78.0,
+      "max_temp_to_disable_heating": 80.0,
+      "max_temp_to_shutdown": 85.0,
+      "is_legacy": true,
+      "is_contrib": false
+    },
+    {
+      "...": "1 more items"
+    }
+  ]
 }
 ```
 
@@ -1245,8 +1838,11 @@ Update App From Release Archive endpoint.
 #### Request Body
 ```json
 {
-  "release_archive_location": "<value>",
-  "units": "<value>"
+  "release_archive_location": "/tmp/pioreactor-release.zip",
+  "units": [
+    "pio01",
+    "pio02"
+  ]
 }
 ```
 
@@ -1254,13 +1850,15 @@ Update App From Release Archive endpoint.
 
 #### Success
 
-**Status:** `202 Accepted`
+Status: `202 Accepted`
+
+Example body:
 
 ```json
 {
-  "unit": "<unit>",
-  "task_id": "<task_id>",
-  "result_url_path": "/unit_api/task_results/<task_id>"
+  "unit": "pio01",
+  "task_id": "abcd1234",
+  "result_url_path": "/unit_api/task_results/abcd1234"
 }
 ```
 
@@ -1276,7 +1874,10 @@ Update App endpoint.
 #### Request Body
 ```json
 {
-  "units": "<value>"
+  "units": [
+    "pio01",
+    "pio02"
+  ]
 }
 ```
 
@@ -1284,13 +1885,15 @@ Update App endpoint.
 
 #### Success
 
-**Status:** `202 Accepted`
+Status: `202 Accepted`
+
+Example body:
 
 ```json
 {
-  "unit": "<unit>",
-  "task_id": "<task_id>",
-  "result_url_path": "/unit_api/task_results/<task_id>"
+  "unit": "pio01",
+  "task_id": "abcd1234",
+  "result_url_path": "/unit_api/task_results/abcd1234"
 }
 ```
 
@@ -1306,7 +1909,10 @@ Upload System File endpoint.
 #### Request Body
 ```json
 {
-  "<request_body>": "<see implementation>"
+  "content_type": "multipart/form-data",
+  "files": {
+    "file": "pioreactor-release.zip"
+  }
 }
 ```
 
@@ -1314,10 +1920,14 @@ Upload System File endpoint.
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
+
+Example body:
 
 ```json
-"<response>"
+{
+  "status": "success"
+}
 ```
 
 ## Set System UTC Clock
@@ -1332,7 +1942,7 @@ Set System UTC Clock endpoint.
 #### Request Body
 ```json
 {
-  "<request_body>": "<see implementation>"
+  "utc_clock_time": "2026-01-01T12:00:00Z"
 }
 ```
 
@@ -1340,13 +1950,15 @@ Set System UTC Clock endpoint.
 
 #### Success
 
-**Status:** `202 Accepted`
+Status: `202 Accepted`
+
+Example body:
 
 ```json
 {
-  "unit": "<unit>",
-  "task_id": "<task_id>",
-  "result_url_path": "/unit_api/task_results/<task_id>"
+  "unit": "pio01",
+  "task_id": "abcd1234",
+  "result_url_path": "/unit_api/task_results/abcd1234"
 }
 ```
 
@@ -1361,9 +1973,20 @@ Get List Of Units endpoint.
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
 
-_No response body example inferred._
+Example body:
+
+```json
+[
+  {
+    "pioreactor_unit": "localhost"
+  },
+  {
+    "pioreactor_unit": "unit01"
+  }
+]
+```
 
 ## Get Capabilities
 
@@ -1383,13 +2006,15 @@ Get Capabilities endpoint.
 
 #### Success
 
-**Status:** `202 Accepted`
+Status: `202 Accepted`
+
+Example body:
 
 ```json
 {
-  "unit": "<unit>",
-  "task_id": "<task_id>",
-  "result_url_path": "/unit_api/task_results/<task_id>"
+  "unit": "localhost",
+  "task_id": "d0da9e9d-6e3e-41d4-8fc9-284ce0197f1a",
+  "result_url_path": "/unit_api/task_results/d0da9e9d-6e3e-41d4-8fc9-284ce0197f1a"
 }
 ```
 
@@ -1411,12 +2036,12 @@ Publish New Log endpoint.
 #### Request Body
 ```json
 {
-  "level": "<value>",
-  "message": "<value>",
-  "source": "<value>",
-  "source_": "<value>",
-  "task": "<value>",
-  "timestamp": "<value>"
+  "level": "INFO",
+  "message": "Started stirring.",
+  "source": "ui",
+  "source_": "ui",
+  "task": "stirring",
+  "timestamp": "2026-01-01T12:00:00Z"
 }
 ```
 
@@ -1424,7 +2049,9 @@ Publish New Log endpoint.
 
 #### Success
 
-**Status:** `202 Accepted`
+Status: `202 Accepted`
+
+Example body:
 
 ```json
 {
@@ -1449,7 +2076,10 @@ Import Dot Pioreactor Archive endpoint.
 #### Request Body
 ```json
 {
-  "<request_body>": "<see implementation>"
+  "content_type": "multipart/form-data",
+  "files": {
+    "archive": "dot_pioreactor.zip"
+  }
 }
 ```
 
@@ -1457,9 +2087,17 @@ Import Dot Pioreactor Archive endpoint.
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
 
-_No response body example inferred._
+Example body:
+
+```json
+{
+  "unit": "pio01",
+  "task_id": "abcd1234",
+  "result_url_path": "/unit_api/task_results/abcd1234"
+}
+```
 
 ## Run Job On Unit In Experiment
 
@@ -1480,7 +2118,22 @@ Runs specified job on unit.
 #### Request Body
 ```json
 {
-  "<request_body>": "<see implementation>"
+  "options": {
+    "target_rpm": "200"
+  },
+  "env": {
+    "JOB_SOURCE": "api"
+  },
+  "args": [
+    "some-flag"
+  ],
+  "config_overrides": [
+    [
+      "stirring.config",
+      "pwm_hz",
+      "100"
+    ]
+  ]
 }
 ```
 
@@ -1488,13 +2141,15 @@ Runs specified job on unit.
 
 #### Success
 
-**Status:** `202 Accepted`
+Status: `202 Accepted`
+
+Example body:
 
 ```json
 {
-  "unit": "<unit>",
-  "task_id": "<task_id>",
-  "result_url_path": "/unit_api/task_results/<task_id>"
+  "unit": "pio01",
+  "task_id": "abcd1234",
+  "result_url_path": "/unit_api/task_results/abcd1234"
 }
 ```
 
@@ -1517,7 +2172,22 @@ Runs specified job on unit.
 #### Request Body
 ```json
 {
-  "<request_body>": "<see implementation>"
+  "options": {
+    "target_rpm": "200"
+  },
+  "env": {
+    "JOB_SOURCE": "api"
+  },
+  "args": [
+    "some-flag"
+  ],
+  "config_overrides": [
+    [
+      "stirring.config",
+      "pwm_hz",
+      "100"
+    ]
+  ]
 }
 ```
 
@@ -1525,13 +2195,15 @@ Runs specified job on unit.
 
 #### Success
 
-**Status:** `202 Accepted`
+Status: `202 Accepted`
+
+Example body:
 
 ```json
 {
-  "unit": "<unit>",
-  "task_id": "<task_id>",
-  "result_url_path": "/unit_api/task_results/<task_id>"
+  "unit": "pio01",
+  "task_id": "abcd1234",
+  "result_url_path": "/unit_api/task_results/abcd1234"
 }
 ```
 
@@ -1553,13 +2225,15 @@ Get Jobs Running endpoint.
 
 #### Success
 
-**Status:** `202 Accepted`
+Status: `202 Accepted`
+
+Example body:
 
 ```json
 {
-  "unit": "<unit>",
-  "task_id": "<task_id>",
-  "result_url_path": "/unit_api/task_results/<task_id>"
+  "unit": "localhost",
+  "task_id": "265395a9-0517-4613-8a67-61794d4ab3ee",
+  "result_url_path": "/unit_api/task_results/265395a9-0517-4613-8a67-61794d4ab3ee"
 }
 ```
 
@@ -1582,7 +2256,9 @@ Kills all jobs for worker or unit assigned to experiment
 
 #### Success
 
-**Status:** `202 Accepted`
+Status: `202 Accepted`
+
+Example body:
 
 ```json
 {
@@ -1609,7 +2285,9 @@ Kills all jobs for worker or unit assigned to experiment
 
 #### Success
 
-**Status:** `202 Accepted`
+Status: `202 Accepted`
+
+Example body:
 
 ```json
 {
@@ -1637,13 +2315,15 @@ Kills specified job on unit
 
 #### Success
 
-**Status:** `202 Accepted`
+Status: `202 Accepted`
+
+Example body:
 
 ```json
 {
-  "unit": "<unit>",
-  "task_id": "<task_id>",
-  "result_url_path": "/unit_api/task_results/<task_id>"
+  "unit": "pio01",
+  "task_id": "abcd1234",
+  "result_url_path": "/unit_api/task_results/abcd1234"
 }
 ```
 
@@ -1667,13 +2347,15 @@ Kills specified job on unit
 
 #### Success
 
-**Status:** `202 Accepted`
+Status: `202 Accepted`
+
+Example body:
 
 ```json
 {
-  "unit": "<unit>",
-  "task_id": "<task_id>",
-  "result_url_path": "/unit_api/task_results/<task_id>"
+  "unit": "pio01",
+  "task_id": "abcd1234",
+  "result_url_path": "/unit_api/task_results/abcd1234"
 }
 ```
 
@@ -1696,7 +2378,9 @@ Update specified job on unit. Use $broadcast for everyone.
 #### Request Body
 ```json
 {
-  "<request_body>": "<see implementation>"
+  "settings": {
+    "target_rpm": 500
+  }
 }
 ```
 
@@ -1704,7 +2388,9 @@ Update specified job on unit. Use $broadcast for everyone.
 
 #### Success
 
-**Status:** `202 Accepted`
+Status: `202 Accepted`
+
+Example body:
 
 ```json
 {
@@ -1730,10 +2416,40 @@ Shows event logs from all units, uses pagination.
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
+
+Example body:
 
 ```json
-"<recent_logs>"
+[
+  {
+    "timestamp": "2026-01-15T00:26:13.804Z",
+    "level": "ERROR",
+    "pioreactor_unit": "localhost",
+    "message": "Could not sync configs to all Pioreactors.",
+    "task": "pioreactor-localhost-api",
+    "experiment": "$experiment"
+  },
+  {
+    "timestamp": "2026-01-15T00:26:06.621Z",
+    "level": "ERROR",
+    "pioreactor_unit": "localhost",
+    "message": "Could not sync configs to all Pioreactors.",
+    "task": "pioreactor-localhost-api",
+    "experiment": "$experiment"
+  },
+  {
+    "timestamp": "2026-01-11T17:42:58.337Z",
+    "level": "INFO",
+    "pioreactor_unit": "localhost",
+    "message": "Disconnected.",
+    "task": "stirring",
+    "experiment": "test_is_pio_job_running_multiple"
+  },
+  {
+    "...": "1 more items"
+  }
+]
 ```
 
 ## Install Plugin Across Cluster
@@ -1753,7 +2469,15 @@ Install Plugin Across Cluster endpoint.
 #### Request Body
 ```json
 {
-  "<request_body>": "<see implementation>"
+  "options": {
+    "option_name": "value"
+  },
+  "env": {
+    "ENV_VAR": "value"
+  },
+  "args": [
+    "some-flag"
+  ]
 }
 ```
 
@@ -1761,13 +2485,15 @@ Install Plugin Across Cluster endpoint.
 
 #### Success
 
-**Status:** `202 Accepted`
+Status: `202 Accepted`
+
+Example body:
 
 ```json
 {
-  "unit": "<unit>",
-  "task_id": "<task_id>",
-  "result_url_path": "/unit_api/task_results/<task_id>"
+  "unit": "pio01",
+  "task_id": "abcd1234",
+  "result_url_path": "/unit_api/task_results/abcd1234"
 }
 ```
 
@@ -1788,7 +2514,15 @@ Install Plugin Across Cluster endpoint.
 #### Request Body
 ```json
 {
-  "<request_body>": "<see implementation>"
+  "options": {
+    "option_name": "value"
+  },
+  "env": {
+    "ENV_VAR": "value"
+  },
+  "args": [
+    "some-flag"
+  ]
 }
 ```
 
@@ -1796,13 +2530,15 @@ Install Plugin Across Cluster endpoint.
 
 #### Success
 
-**Status:** `202 Accepted`
+Status: `202 Accepted`
+
+Example body:
 
 ```json
 {
-  "unit": "<unit>",
-  "task_id": "<task_id>",
-  "result_url_path": "/unit_api/task_results/<task_id>"
+  "unit": "pio01",
+  "task_id": "abcd1234",
+  "result_url_path": "/unit_api/task_results/abcd1234"
 }
 ```
 
@@ -1824,13 +2560,15 @@ Get Plugins On Machine endpoint.
 
 #### Success
 
-**Status:** `202 Accepted`
+Status: `202 Accepted`
+
+Example body:
 
 ```json
 {
-  "unit": "<unit>",
-  "task_id": "<task_id>",
-  "result_url_path": "/unit_api/task_results/<task_id>"
+  "unit": "localhost",
+  "task_id": "f0931b5d-8b79-4f8c-a57b-02279394d21b",
+  "result_url_path": "/unit_api/task_results/f0931b5d-8b79-4f8c-a57b-02279394d21b"
 }
 ```
 
@@ -1851,7 +2589,15 @@ Uninstall Plugin Across Cluster endpoint.
 #### Request Body
 ```json
 {
-  "<request_body>": "<see implementation>"
+  "options": {
+    "option_name": "value"
+  },
+  "env": {
+    "ENV_VAR": "value"
+  },
+  "args": [
+    "some-flag"
+  ]
 }
 ```
 
@@ -1859,13 +2605,15 @@ Uninstall Plugin Across Cluster endpoint.
 
 #### Success
 
-**Status:** `202 Accepted`
+Status: `202 Accepted`
+
+Example body:
 
 ```json
 {
-  "unit": "<unit>",
-  "task_id": "<task_id>",
-  "result_url_path": "/unit_api/task_results/<task_id>"
+  "unit": "pio01",
+  "task_id": "abcd1234",
+  "result_url_path": "/unit_api/task_results/abcd1234"
 }
 ```
 
@@ -1886,7 +2634,15 @@ Uninstall Plugin Across Cluster endpoint.
 #### Request Body
 ```json
 {
-  "<request_body>": "<see implementation>"
+  "options": {
+    "option_name": "value"
+  },
+  "env": {
+    "ENV_VAR": "value"
+  },
+  "args": [
+    "some-flag"
+  ]
 }
 ```
 
@@ -1894,13 +2650,15 @@ Uninstall Plugin Across Cluster endpoint.
 
 #### Success
 
-**Status:** `202 Accepted`
+Status: `202 Accepted`
+
+Example body:
 
 ```json
 {
-  "unit": "<unit>",
-  "task_id": "<task_id>",
-  "result_url_path": "/unit_api/task_results/<task_id>"
+  "unit": "pio01",
+  "task_id": "abcd1234",
+  "result_url_path": "/unit_api/task_results/abcd1234"
 }
 ```
 
@@ -1922,13 +2680,15 @@ Reboots unit
 
 #### Success
 
-**Status:** `202 Accepted`
+Status: `200 OK`
+
+Example body:
 
 ```json
 {
-  "unit": "<unit>",
-  "task_id": "<task_id>",
-  "result_url_path": "/unit_api/task_results/<task_id>"
+  "unit": "pio01",
+  "task_id": "abcd1234",
+  "result_url_path": "/unit_api/task_results/abcd1234"
 }
 ```
 
@@ -1950,13 +2710,15 @@ Shutdown unit
 
 #### Success
 
-**Status:** `202 Accepted`
+Status: `200 OK`
+
+Example body:
 
 ```json
 {
-  "unit": "<unit>",
-  "task_id": "<task_id>",
-  "result_url_path": "/unit_api/task_results/<task_id>"
+  "unit": "pio01",
+  "task_id": "abcd1234",
+  "result_url_path": "/unit_api/task_results/abcd1234"
 }
 ```
 
@@ -1978,13 +2740,15 @@ Get Unit UTC Clock endpoint.
 
 #### Success
 
-**Status:** `202 Accepted`
+Status: `202 Accepted`
+
+Example body:
 
 ```json
 {
-  "unit": "<unit>",
-  "task_id": "<task_id>",
-  "result_url_path": "/unit_api/task_results/<task_id>"
+  "unit": "localhost",
+  "task_id": "3caf50de-a972-4b90-b50b-5ee01d0b2ee9",
+  "result_url_path": "/unit_api/task_results/3caf50de-a972-4b90-b50b-5ee01d0b2ee9"
 }
 ```
 
@@ -2006,10 +2770,40 @@ Shows system logs from specific unit uses pagination.
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
+
+Example body:
 
 ```json
-"<recent_logs>"
+[
+  {
+    "timestamp": "2026-01-15T00:26:13.804Z",
+    "level": "ERROR",
+    "pioreactor_unit": "localhost",
+    "message": "Could not sync configs to all Pioreactors.",
+    "task": "pioreactor-localhost-api",
+    "experiment": "$experiment"
+  },
+  {
+    "timestamp": "2026-01-15T00:26:06.621Z",
+    "level": "ERROR",
+    "pioreactor_unit": "localhost",
+    "message": "Could not sync configs to all Pioreactors.",
+    "task": "pioreactor-localhost-api",
+    "experiment": "$experiment"
+  },
+  {
+    "timestamp": "2026-01-11T17:39:37.225Z",
+    "level": "INFO",
+    "pioreactor_unit": "localhost",
+    "message": "Saved calibration test_analyze to /Users/camerondavidson-pilon/code/pioreactor/.pioreactor/storage/calibrations/od90/test_analyze.yaml",
+    "task": "calibrations",
+    "experiment": "$experiment"
+  },
+  {
+    "...": "1 more items"
+  }
+]
 ```
 
 ## Get App Versions
@@ -2030,13 +2824,15 @@ Get App Versions endpoint.
 
 #### Success
 
-**Status:** `202 Accepted`
+Status: `202 Accepted`
+
+Example body:
 
 ```json
 {
-  "unit": "<unit>",
-  "task_id": "<task_id>",
-  "result_url_path": "/unit_api/task_results/<task_id>"
+  "unit": "localhost",
+  "task_id": "b4be6229-527a-43ef-ad41-9b8b5e969ffd",
+  "result_url_path": "/unit_api/task_results/b4be6229-527a-43ef-ad41-9b8b5e969ffd"
 }
 ```
 
@@ -2058,9 +2854,16 @@ Download a ZIP of ~/.pioreactor from one or all workers.
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
 
-_No response body example inferred._
+Example body:
+
+```json
+{
+  "content_type": "application/zip",
+  "body": "file contents"
+}
+```
 
 ## Get List Of Workers
 
@@ -2073,10 +2876,27 @@ Get List Of Workers endpoint.
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
+
+Example body:
 
 ```json
-"<all_workers>"
+[
+  {
+    "pioreactor_unit": "localhost",
+    "added_at": "2025-10-03T14:12:44.444Z",
+    "is_active": 1,
+    "model_name": "pioreactor_40ml",
+    "model_version": "1.5"
+  },
+  {
+    "pioreactor_unit": "unit01",
+    "added_at": "2026-04-23T00:31:23.936Z",
+    "is_active": 1,
+    "model_name": "pioreactor_40ml",
+    "model_version": "1.5"
+  }
+]
 ```
 
 ## Add Worker
@@ -2091,9 +2911,9 @@ Add Worker endpoint.
 #### Request Body
 ```json
 {
-  "model_name": "<value>",
-  "model_version": "<value>",
-  "pioreactor_unit": "<value>"
+  "model_name": "pioreactor_40ml",
+  "model_version": "1.5",
+  "pioreactor_unit": "pio01"
 }
 ```
 
@@ -2101,7 +2921,9 @@ Add Worker endpoint.
 
 #### Success
 
-**Status:** `201 Created`
+Status: `201 Created`
+
+Example body:
 
 ```json
 {
@@ -2127,7 +2949,9 @@ Delete Worker endpoint.
 
 #### Success
 
-**Status:** `202 Accepted`
+Status: `202 Accepted`
+
+Example body:
 
 ```json
 {
@@ -2153,10 +2977,18 @@ Get Worker endpoint.
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
+
+Example body:
 
 ```json
-"<result>"
+{
+  "pioreactor_unit": "localhost",
+  "added_at": "2025-10-03T14:12:44.444Z",
+  "is_active": 1,
+  "model_name": "pioreactor_40ml",
+  "model_version": "1.5"
+}
 ```
 
 ## Get All Active Calibrations
@@ -2177,13 +3009,15 @@ Get All Active Calibrations endpoint.
 
 #### Success
 
-**Status:** `202 Accepted`
+Status: `202 Accepted`
+
+Example body:
 
 ```json
 {
-  "unit": "<unit>",
-  "task_id": "<task_id>",
-  "result_url_path": "/unit_api/task_results/<task_id>"
+  "unit": "localhost",
+  "task_id": "f4c64a3c-c9bd-4a5d-9073-41d353c36511",
+  "result_url_path": "/unit_api/task_results/f4c64a3c-c9bd-4a5d-9073-41d353c36511"
 }
 ```
 
@@ -2206,13 +3040,15 @@ Remove Active Status Calibration endpoint.
 
 #### Success
 
-**Status:** `202 Accepted`
+Status: `202 Accepted`
+
+Example body:
 
 ```json
 {
-  "unit": "<unit>",
-  "task_id": "<task_id>",
-  "result_url_path": "/unit_api/task_results/<task_id>"
+  "unit": "pio01",
+  "task_id": "abcd1234",
+  "result_url_path": "/unit_api/task_results/abcd1234"
 }
 ```
 
@@ -2236,13 +3072,15 @@ Set Active Calibration endpoint.
 
 #### Success
 
-**Status:** `202 Accepted`
+Status: `202 Accepted`
+
+Example body:
 
 ```json
 {
-  "unit": "<unit>",
-  "task_id": "<task_id>",
-  "result_url_path": "/unit_api/task_results/<task_id>"
+  "unit": "pio01",
+  "task_id": "abcd1234",
+  "result_url_path": "/unit_api/task_results/abcd1234"
 }
 ```
 
@@ -2264,13 +3102,15 @@ Get All Active Estimators endpoint.
 
 #### Success
 
-**Status:** `202 Accepted`
+Status: `202 Accepted`
+
+Example body:
 
 ```json
 {
-  "unit": "<unit>",
-  "task_id": "<task_id>",
-  "result_url_path": "/unit_api/task_results/<task_id>"
+  "unit": "localhost",
+  "task_id": "b38783f2-230c-44ec-bfa2-14033daa2887",
+  "result_url_path": "/unit_api/task_results/b38783f2-230c-44ec-bfa2-14033daa2887"
 }
 ```
 
@@ -2293,13 +3133,15 @@ Remove Active Status Estimator endpoint.
 
 #### Success
 
-**Status:** `202 Accepted`
+Status: `202 Accepted`
+
+Example body:
 
 ```json
 {
-  "unit": "<unit>",
-  "task_id": "<task_id>",
-  "result_url_path": "/unit_api/task_results/<task_id>"
+  "unit": "pio01",
+  "task_id": "abcd1234",
+  "result_url_path": "/unit_api/task_results/abcd1234"
 }
 ```
 
@@ -2323,13 +3165,15 @@ Set Active Estimator endpoint.
 
 #### Success
 
-**Status:** `202 Accepted`
+Status: `202 Accepted`
+
+Example body:
 
 ```json
 {
-  "unit": "<unit>",
-  "task_id": "<task_id>",
-  "result_url_path": "/unit_api/task_results/<task_id>"
+  "unit": "pio01",
+  "task_id": "abcd1234",
+  "result_url_path": "/unit_api/task_results/abcd1234"
 }
 ```
 
@@ -2346,15 +3190,44 @@ Get Automation Descriptors For Worker endpoint.
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
 | pioreactor_unit | string | Yes | Unit name or `$broadcast` where supported. |
-| automation_type | string | Yes | Automation type. |
+| automation_type | string | Yes | Automation type: dosing, temperature, led. |
 
 ### Response
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
 
-_No response body example inferred._
+Example body:
+
+```json
+[
+  {
+    "display_name": "Only record temperature",
+    "automation_name": "only_record_temperature",
+    "description": "Apply no heating, only record the temperature.",
+    "source": null,
+    "fields": []
+  },
+  {
+    "display_name": "Thermostat",
+    "automation_name": "thermostat",
+    "description": "Vary the amount of applied heating to keep the culture near a target temperature, using a control-loop.",
+    "source": null,
+    "fields": [
+      {
+        "key": "target_temperature",
+        "default": 30,
+        "label": "Target temperature",
+        "disabled": false,
+        "unit": "\u2103",
+        "type": "numeric",
+        "options": null
+      }
+    ]
+  }
+]
+```
 
 ## Update Bioreactor On Unit
 
@@ -2374,7 +3247,10 @@ Update Bioreactor On Unit endpoint.
 #### Request Body
 ```json
 {
-  "values": "<value>"
+  "values": {
+    "temperature": 30.0,
+    "current_volume_ml": 14.0
+  }
 }
 ```
 
@@ -2382,13 +3258,15 @@ Update Bioreactor On Unit endpoint.
 
 #### Success
 
-**Status:** `202 Accepted`
+Status: `202 Accepted`
+
+Example body:
 
 ```json
 {
-  "unit": "<unit>",
-  "task_id": "<task_id>",
-  "result_url_path": "/unit_api/task_results/<task_id>"
+  "unit": "pio01",
+  "task_id": "abcd1234",
+  "result_url_path": "/unit_api/task_results/abcd1234"
 }
 ```
 
@@ -2410,7 +3288,9 @@ Blink Worker endpoint.
 
 #### Success
 
-**Status:** `202 Accepted`
+Status: `202 Accepted`
+
+Example body:
 
 ```json
 {
@@ -2436,13 +3316,15 @@ Get Calibration Protocols endpoint.
 
 #### Success
 
-**Status:** `202 Accepted`
+Status: `202 Accepted`
+
+Example body:
 
 ```json
 {
-  "unit": "<unit>",
-  "task_id": "<task_id>",
-  "result_url_path": "/unit_api/task_results/<task_id>"
+  "unit": "localhost",
+  "task_id": "ac4c7f24-4b8c-4992-87ef-8c99bdfcc5f4",
+  "result_url_path": "/unit_api/task_results/ac4c7f24-4b8c-4992-87ef-8c99bdfcc5f4"
 }
 ```
 
@@ -2464,13 +3346,15 @@ Get All Calibrations endpoint.
 
 #### Success
 
-**Status:** `202 Accepted`
+Status: `202 Accepted`
+
+Example body:
 
 ```json
 {
-  "unit": "<unit>",
-  "task_id": "<task_id>",
-  "result_url_path": "/unit_api/task_results/<task_id>"
+  "unit": "localhost",
+  "task_id": "dbff665d-78e8-4862-9af0-8f9143274430",
+  "result_url_path": "/unit_api/task_results/dbff665d-78e8-4862-9af0-8f9143274430"
 }
 ```
 
@@ -2493,13 +3377,15 @@ Get Calibrations endpoint.
 
 #### Success
 
-**Status:** `202 Accepted`
+Status: `202 Accepted`
+
+Example body:
 
 ```json
 {
-  "unit": "<unit>",
-  "task_id": "<task_id>",
-  "result_url_path": "/unit_api/task_results/<task_id>"
+  "unit": "localhost",
+  "task_id": "eea95d6c-ebd7-434e-adfd-699ba080a8da",
+  "result_url_path": "/unit_api/task_results/eea95d6c-ebd7-434e-adfd-699ba080a8da"
 }
 ```
 
@@ -2521,8 +3407,8 @@ Create Calibration endpoint.
 #### Request Body
 ```json
 {
-  "calibration_data": "<value>",
-  "set_as_active": "<value>"
+  "calibration_data": "calibration_name: stirring-calibration\ncalibration_type: stirring\n",
+  "set_as_active": true
 }
 ```
 
@@ -2530,13 +3416,15 @@ Create Calibration endpoint.
 
 #### Success
 
-**Status:** `202 Accepted`
+Status: `202 Accepted`
+
+Example body:
 
 ```json
 {
-  "unit": "<unit>",
-  "task_id": "<task_id>",
-  "result_url_path": "/unit_api/task_results/<task_id>"
+  "unit": "pio01",
+  "task_id": "abcd1234",
+  "result_url_path": "/unit_api/task_results/abcd1234"
 }
 ```
 
@@ -2560,13 +3448,15 @@ Delete Calibration endpoint.
 
 #### Success
 
-**Status:** `202 Accepted`
+Status: `202 Accepted`
+
+Example body:
 
 ```json
 {
-  "unit": "<unit>",
-  "task_id": "<task_id>",
-  "result_url_path": "/unit_api/task_results/<task_id>"
+  "unit": "pio01",
+  "task_id": "abcd1234",
+  "result_url_path": "/unit_api/task_results/abcd1234"
 }
 ```
 
@@ -2590,13 +3480,15 @@ Get Calibration endpoint.
 
 #### Success
 
-**Status:** `202 Accepted`
+Status: `202 Accepted`
+
+Example body:
 
 ```json
 {
-  "unit": "<unit>",
-  "task_id": "<task_id>",
-  "result_url_path": "/unit_api/task_results/<task_id>"
+  "unit": "localhost",
+  "task_id": "729e3c74-cdfd-42da-a7bd-bc73f098b448",
+  "result_url_path": "/unit_api/task_results/729e3c74-cdfd-42da-a7bd-bc73f098b448"
 }
 ```
 
@@ -2617,7 +3509,8 @@ Start Calibration Session endpoint.
 #### Request Body
 ```json
 {
-  "<request_body>": "<see implementation>"
+  "protocol": "stirring",
+  "target_device": "stirring"
 }
 ```
 
@@ -2625,9 +3518,17 @@ Start Calibration Session endpoint.
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
 
-_No response body example inferred._
+Example body:
+
+```json
+{
+  "session_id": "example-session",
+  "state": "running",
+  "current_step": "prepare"
+}
+```
 
 ## Get Calibration Session
 
@@ -2648,9 +3549,17 @@ Get Calibration Session endpoint.
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
 
-_No response body example inferred._
+Example body:
+
+```json
+{
+  "session_id": "example-session",
+  "state": "running",
+  "current_step": "record_measurement"
+}
+```
 
 ## Abort Calibration Session
 
@@ -2667,13 +3576,27 @@ Abort Calibration Session endpoint.
 | pioreactor_unit | string | Yes | Unit name or `$broadcast` where supported. |
 | session_id | string | Yes | Calibration session identifier. |
 
+#### Request Body
+```json
+{
+  "reason": "User cancelled calibration."
+}
+```
+
 ### Response
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
 
-_No response body example inferred._
+Example body:
+
+```json
+{
+  "status": "aborted",
+  "session_id": "example-session"
+}
+```
 
 ## Advance Calibration Session
 
@@ -2693,7 +3616,9 @@ Advance Calibration Session endpoint.
 #### Request Body
 ```json
 {
-  "<request_body>": "<see implementation>"
+  "inputs": {
+    "measured_rpm": 500
+  }
 }
 ```
 
@@ -2701,9 +3626,17 @@ Advance Calibration Session endpoint.
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
 
-_No response body example inferred._
+Example body:
+
+```json
+{
+  "session_id": "example-session",
+  "state": "running",
+  "current_step": "record_measurement"
+}
+```
 
 ## Get Capabilities
 
@@ -2723,13 +3656,15 @@ Get Capabilities endpoint.
 
 #### Success
 
-**Status:** `202 Accepted`
+Status: `202 Accepted`
+
+Example body:
 
 ```json
 {
-  "unit": "<unit>",
-  "task_id": "<task_id>",
-  "result_url_path": "/unit_api/task_results/<task_id>"
+  "unit": "localhost",
+  "task_id": "78df66f5-1991-46f2-967e-c58484f7e499",
+  "result_url_path": "/unit_api/task_results/78df66f5-1991-46f2-967e-c58484f7e499"
 }
 ```
 
@@ -2751,13 +3686,15 @@ Get All Estimators endpoint.
 
 #### Success
 
-**Status:** `202 Accepted`
+Status: `202 Accepted`
+
+Example body:
 
 ```json
 {
-  "unit": "<unit>",
-  "task_id": "<task_id>",
-  "result_url_path": "/unit_api/task_results/<task_id>"
+  "unit": "localhost",
+  "task_id": "a95fd18e-7fcb-45df-b1f9-f038370ae666",
+  "result_url_path": "/unit_api/task_results/a95fd18e-7fcb-45df-b1f9-f038370ae666"
 }
 ```
 
@@ -2780,13 +3717,15 @@ Get Estimators By Device endpoint.
 
 #### Success
 
-**Status:** `202 Accepted`
+Status: `202 Accepted`
+
+Example body:
 
 ```json
 {
-  "unit": "<unit>",
-  "task_id": "<task_id>",
-  "result_url_path": "/unit_api/task_results/<task_id>"
+  "unit": "localhost",
+  "task_id": "8797e234-358e-428a-a4d1-854ed5aa1d99",
+  "result_url_path": "/unit_api/task_results/8797e234-358e-428a-a4d1-854ed5aa1d99"
 }
 ```
 
@@ -2810,13 +3749,15 @@ Delete Estimator endpoint.
 
 #### Success
 
-**Status:** `202 Accepted`
+Status: `202 Accepted`
+
+Example body:
 
 ```json
 {
-  "unit": "<unit>",
-  "task_id": "<task_id>",
-  "result_url_path": "/unit_api/task_results/<task_id>"
+  "unit": "pio01",
+  "task_id": "abcd1234",
+  "result_url_path": "/unit_api/task_results/abcd1234"
 }
 ```
 
@@ -2840,13 +3781,15 @@ Get Estimator endpoint.
 
 #### Success
 
-**Status:** `202 Accepted`
+Status: `202 Accepted`
+
+Example body:
 
 ```json
 {
-  "unit": "<unit>",
-  "task_id": "<task_id>",
-  "result_url_path": "/unit_api/task_results/<task_id>"
+  "unit": "localhost",
+  "task_id": "27569c07-4fa6-4b9e-8b4c-b1f82e0c7205",
+  "result_url_path": "/unit_api/task_results/27569c07-4fa6-4b9e-8b4c-b1f82e0c7205"
 }
 ```
 
@@ -2868,10 +3811,18 @@ Get Experiment Assignment For Worker endpoint.
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
+
+Example body:
 
 ```json
-"<result>"
+{
+  "pioreactor_unit": "localhost",
+  "is_active": 1,
+  "experiment": "ALE - Acetate",
+  "model_name": "pioreactor_40ml",
+  "model_version": "1.5"
+}
 ```
 
 ## Get Logs For Unit And Experiment
@@ -2893,10 +3844,12 @@ Shows event logs from specific unit and experiment, uses pagination.
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
+
+Example body:
 
 ```json
-"<recent_logs>"
+[]
 ```
 
 ## Publish New Log
@@ -2917,12 +3870,12 @@ Publish New Log endpoint.
 #### Request Body
 ```json
 {
-  "level": "<value>",
-  "message": "<value>",
-  "source": "<value>",
-  "source_": "<value>",
-  "task": "<value>",
-  "timestamp": "<value>"
+  "level": "INFO",
+  "message": "Started stirring.",
+  "source": "ui",
+  "source_": "ui",
+  "task": "stirring",
+  "timestamp": "2026-01-01T12:00:00Z"
 }
 ```
 
@@ -2930,7 +3883,9 @@ Publish New Log endpoint.
 
 #### Success
 
-**Status:** `202 Accepted`
+Status: `202 Accepted`
+
+Example body:
 
 ```json
 {
@@ -2957,10 +3912,12 @@ Shows event logs for a specific unit within an experiment. This is for the singl
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
+
+Example body:
 
 ```json
-"<recent_logs>"
+[]
 ```
 
 ## Get Fallback Time Series Per Unit
@@ -2984,9 +3941,18 @@ Get Fallback Time Series Per Unit endpoint.
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
 
-_No response body example inferred._
+Example body:
+
+```json
+[
+  {
+    "timestamp": "2026-01-01T12:00:00Z",
+    "value": 1.23
+  }
+]
+```
 
 ## Get Growth Rates Per Unit
 
@@ -3007,9 +3973,16 @@ Get Growth Rates Per Unit endpoint.
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
 
-_No response body example inferred._
+Example body:
+
+```json
+{
+  "series": [],
+  "data": []
+}
+```
 
 ## Get OD Readings Per Unit
 
@@ -3030,9 +4003,16 @@ Get OD Readings Per Unit endpoint.
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
 
-_No response body example inferred._
+Example body:
+
+```json
+{
+  "series": [],
+  "data": []
+}
+```
 
 ## Get OD Readings Filtered Per Unit
 
@@ -3053,9 +4033,16 @@ Get OD Readings Filtered Per Unit endpoint.
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
 
-_No response body example inferred._
+Example body:
+
+```json
+{
+  "series": [],
+  "data": []
+}
+```
 
 ## Get OD Readings Fused Per Unit
 
@@ -3076,9 +4063,16 @@ Get OD Readings Fused Per Unit endpoint.
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
 
-_No response body example inferred._
+Example body:
+
+```json
+{
+  "series": [],
+  "data": []
+}
+```
 
 ## Get OD Raw Readings Per Unit
 
@@ -3099,9 +4093,16 @@ Get OD Raw Readings Per Unit endpoint.
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
 
-_No response body example inferred._
+Example body:
+
+```json
+{
+  "series": [],
+  "data": []
+}
+```
 
 ## Get Temperature Readings Per Unit
 
@@ -3122,9 +4123,16 @@ Get Temperature Readings Per Unit endpoint.
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
 
-_No response body example inferred._
+Example body:
+
+```json
+{
+  "series": [],
+  "data": []
+}
+```
 
 ## Change Worker Status
 
@@ -3143,7 +4151,7 @@ Change Worker Status endpoint.
 #### Request Body
 ```json
 {
-  "is_active": "<value>"
+  "is_active": 1
 }
 ```
 
@@ -3151,7 +4159,9 @@ Change Worker Status endpoint.
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
+
+Example body:
 
 ```json
 {
@@ -3177,9 +4187,58 @@ Get Job Descriptors For Worker endpoint.
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
 
-_No response body example inferred._
+Example body:
+
+```json
+[
+  {
+    "display_name": "Stirring",
+    "job_name": "stirring",
+    "display": true,
+    "published_settings": [
+      {
+        "key": "target_rpm",
+        "type": "numeric",
+        "display": true,
+        "description": "Modify the target RPM of stirring. This will effect the optical density reading. Too low and the stirring may completely stop. Too high and the resulting vortex may interfere with the optics.",
+        "default": null,
+        "unit": "RPM",
+        "label": "Target stir RPM",
+        "editable": true
+      }
+    ],
+    "source": "app",
+    "description": "Start the stirring on the Pioreactor. Stirring is needed for mixing and proper OD measurements.",
+    "subtext": null,
+    "is_testing": false
+  },
+  {
+    "display_name": "Optical density",
+    "job_name": "od_reading",
+    "display": true,
+    "published_settings": [],
+    "source": "app",
+    "description": "Collect optical density measurements of the culture over time.",
+    "subtext": null,
+    "is_testing": false
+  },
+  {
+    "display_name": "Growth rate",
+    "job_name": "growth_rate_calculating",
+    "display": true,
+    "published_settings": [],
+    "source": "app",
+    "description": "Transform optical density measurements into culture growth rate measurements. Start this after innoculation. Begins by sampling for a few minutes to gather a baseline.",
+    "subtext": null,
+    "is_testing": false
+  },
+  {
+    "...": "1 more items"
+  }
+]
+```
 
 ## Run Job On Unit In Experiment
 
@@ -3200,7 +4259,22 @@ Runs specified job on unit.
 #### Request Body
 ```json
 {
-  "<request_body>": "<see implementation>"
+  "options": {
+    "target_rpm": "200"
+  },
+  "env": {
+    "JOB_SOURCE": "api"
+  },
+  "args": [
+    "some-flag"
+  ],
+  "config_overrides": [
+    [
+      "stirring.config",
+      "pwm_hz",
+      "100"
+    ]
+  ]
 }
 ```
 
@@ -3208,13 +4282,15 @@ Runs specified job on unit.
 
 #### Success
 
-**Status:** `202 Accepted`
+Status: `202 Accepted`
+
+Example body:
 
 ```json
 {
-  "unit": "<unit>",
-  "task_id": "<task_id>",
-  "result_url_path": "/unit_api/task_results/<task_id>"
+  "unit": "pio01",
+  "task_id": "abcd1234",
+  "result_url_path": "/unit_api/task_results/abcd1234"
 }
 ```
 
@@ -3237,7 +4313,22 @@ Runs specified job on unit.
 #### Request Body
 ```json
 {
-  "<request_body>": "<see implementation>"
+  "options": {
+    "target_rpm": "200"
+  },
+  "env": {
+    "JOB_SOURCE": "api"
+  },
+  "args": [
+    "some-flag"
+  ],
+  "config_overrides": [
+    [
+      "stirring.config",
+      "pwm_hz",
+      "100"
+    ]
+  ]
 }
 ```
 
@@ -3245,13 +4336,15 @@ Runs specified job on unit.
 
 #### Success
 
-**Status:** `202 Accepted`
+Status: `202 Accepted`
+
+Example body:
 
 ```json
 {
-  "unit": "<unit>",
-  "task_id": "<task_id>",
-  "result_url_path": "/unit_api/task_results/<task_id>"
+  "unit": "pio01",
+  "task_id": "abcd1234",
+  "result_url_path": "/unit_api/task_results/abcd1234"
 }
 ```
 
@@ -3273,13 +4366,15 @@ Get Jobs Running endpoint.
 
 #### Success
 
-**Status:** `202 Accepted`
+Status: `202 Accepted`
+
+Example body:
 
 ```json
 {
-  "unit": "<unit>",
-  "task_id": "<task_id>",
-  "result_url_path": "/unit_api/task_results/<task_id>"
+  "unit": "localhost",
+  "task_id": "67ecce8a-bbfa-4c19-ab9c-cec72606bf2a",
+  "result_url_path": "/unit_api/task_results/67ecce8a-bbfa-4c19-ab9c-cec72606bf2a"
 }
 ```
 
@@ -3303,13 +4398,15 @@ Get Job Settings For Worker endpoint.
 
 #### Success
 
-**Status:** `202 Accepted`
+Status: `202 Accepted`
+
+Example body:
 
 ```json
 {
-  "unit": "<unit>",
-  "task_id": "<task_id>",
-  "result_url_path": "/unit_api/task_results/<task_id>"
+  "unit": "pio01",
+  "task_id": "abcd1234",
+  "result_url_path": "/unit_api/task_results/abcd1234"
 }
 ```
 
@@ -3334,13 +4431,15 @@ Get Job Setting For Worker endpoint.
 
 #### Success
 
-**Status:** `202 Accepted`
+Status: `202 Accepted`
+
+Example body:
 
 ```json
 {
-  "unit": "<unit>",
-  "task_id": "<task_id>",
-  "result_url_path": "/unit_api/task_results/<task_id>"
+  "unit": "pio01",
+  "task_id": "abcd1234",
+  "result_url_path": "/unit_api/task_results/abcd1234"
 }
 ```
 
@@ -3363,7 +4462,9 @@ Kills all jobs for worker or unit assigned to experiment
 
 #### Success
 
-**Status:** `202 Accepted`
+Status: `202 Accepted`
+
+Example body:
 
 ```json
 {
@@ -3390,7 +4491,9 @@ Kills all jobs for worker or unit assigned to experiment
 
 #### Success
 
-**Status:** `202 Accepted`
+Status: `202 Accepted`
+
+Example body:
 
 ```json
 {
@@ -3418,13 +4521,15 @@ Kills specified job on unit
 
 #### Success
 
-**Status:** `202 Accepted`
+Status: `202 Accepted`
+
+Example body:
 
 ```json
 {
-  "unit": "<unit>",
-  "task_id": "<task_id>",
-  "result_url_path": "/unit_api/task_results/<task_id>"
+  "unit": "pio01",
+  "task_id": "abcd1234",
+  "result_url_path": "/unit_api/task_results/abcd1234"
 }
 ```
 
@@ -3448,13 +4553,15 @@ Kills specified job on unit
 
 #### Success
 
-**Status:** `202 Accepted`
+Status: `202 Accepted`
+
+Example body:
 
 ```json
 {
-  "unit": "<unit>",
-  "task_id": "<task_id>",
-  "result_url_path": "/unit_api/task_results/<task_id>"
+  "unit": "pio01",
+  "task_id": "abcd1234",
+  "result_url_path": "/unit_api/task_results/abcd1234"
 }
 ```
 
@@ -3477,7 +4584,9 @@ Update specified job on unit. Use $broadcast for everyone.
 #### Request Body
 ```json
 {
-  "<request_body>": "<see implementation>"
+  "settings": {
+    "target_rpm": 500
+  }
 }
 ```
 
@@ -3485,7 +4594,9 @@ Update specified job on unit. Use $broadcast for everyone.
 
 #### Success
 
-**Status:** `202 Accepted`
+Status: `202 Accepted`
+
+Example body:
 
 ```json
 {
@@ -3511,13 +4622,24 @@ Get Worker Model And Metadata endpoint.
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
+
+Example body:
 
 ```json
 {
-  "pioreactor_unit": "<value>",
-  "model_name": "<value>",
-  "model_version": "<value>"
+  "pioreactor_unit": "localhost",
+  "model_name": "pioreactor_40ml",
+  "model_version": "1.5",
+  "display_name": "Pioreactor 40ml, v1.5",
+  "reactor_capacity_ml": 40.0,
+  "reactor_diameter_mm": 27.0,
+  "reactor_max_fill_volume_ml": 38.0,
+  "max_temp_to_reduce_heating": 78.0,
+  "max_temp_to_disable_heating": 80.0,
+  "max_temp_to_shutdown": 85.0,
+  "is_legacy": false,
+  "is_contrib": false
 }
 ```
 
@@ -3538,8 +4660,8 @@ Change Worker Model endpoint.
 #### Request Body
 ```json
 {
-  "model_name": "<value>",
-  "model_version": "<value>"
+  "model_name": "pioreactor_40ml",
+  "model_version": "1.5"
 }
 ```
 
@@ -3547,7 +4669,9 @@ Change Worker Model endpoint.
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
+
+Example body:
 
 ```json
 {
@@ -3573,9 +4697,16 @@ Get Zipped Calibrations endpoint.
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
 
-_No response body example inferred._
+Example body:
+
+```json
+{
+  "content_type": "application/zip",
+  "body": "file contents"
+}
+```
 
 ## Remove All Workers From All Experiments
 
@@ -3588,13 +4719,15 @@ Remove All Workers From All Experiments endpoint.
 
 #### Success
 
-**Status:** `202 Accepted`
+Status: `202 Accepted`
+
+Example body:
 
 ```json
 {
-  "unit": "<unit>",
-  "task_id": "<task_id>",
-  "result_url_path": "/unit_api/task_results/<task_id>"
+  "unit": "pio01",
+  "task_id": "abcd1234",
+  "result_url_path": "/unit_api/task_results/abcd1234"
 }
 ```
 
@@ -3609,7 +4742,9 @@ Get Workers And Experiment Assignments endpoint.
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
+
+Example body:
 
 ```json
 []
@@ -3626,9 +4761,13 @@ Discover available pioreactor workers on the network not already registered.
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
 
-_No response body example inferred._
+Example body:
+
+```json
+[]
+```
 
 ## Setup Worker Pioreactor
 
@@ -3642,9 +4781,9 @@ Setup Worker Pioreactor endpoint.
 #### Request Body
 ```json
 {
-  "model": "<value>",
-  "name": "<value>",
-  "version": "<value>"
+  "model": "pioreactor_40ml",
+  "name": "pio01",
+  "version": "1.0.0"
 }
 ```
 
@@ -3652,10 +4791,12 @@ Setup Worker Pioreactor endpoint.
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
+
+Example body:
 
 ```json
 {
-  "msg": "<string>"
+  "msg": "success"
 }
 ```

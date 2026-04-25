@@ -25,7 +25,6 @@ sidebar_class_name: sidebar-item--updated
 ```
 
 ----
-
 ## Get All Active Calibrations
 
 Get All Active Calibrations endpoint.
@@ -37,10 +36,12 @@ Get All Active Calibrations endpoint.
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
+
+Example body:
 
 ```json
-"<all_calibrations>"
+{}
 ```
 
 ## Remove Active Status Calibration
@@ -61,7 +62,9 @@ Remove Active Status Calibration endpoint.
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
+
+Example body:
 
 ```json
 {
@@ -88,7 +91,9 @@ Set Active Calibration endpoint.
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
+
+Example body:
 
 ```json
 {
@@ -107,7 +112,9 @@ Get All Active Estimators endpoint.
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
+
+Example body:
 
 ```json
 {}
@@ -131,7 +138,9 @@ Remove Active Status Estimator endpoint.
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
+
+Example body:
 
 ```json
 {
@@ -158,7 +167,9 @@ Set Active Estimator endpoint.
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
+
+Example body:
 
 ```json
 {
@@ -184,7 +195,9 @@ Get Automation Descriptors endpoint.
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
+
+Example body:
 
 ```json
 "<descriptors>"
@@ -208,7 +221,9 @@ Get Bioreactor Values endpoint.
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
+
+Example body:
 
 ```json
 {
@@ -241,7 +256,9 @@ Update Bioreactor Values endpoint.
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
+
+Example body:
 
 ```json
 {
@@ -260,9 +277,9 @@ Get Calibration Protocols endpoint.
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
 
-_No response body example inferred._
+_No example body inferred._
 
 ## Get All Calibrations
 
@@ -275,10 +292,12 @@ Get All Calibrations endpoint.
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
+
+Example body:
 
 ```json
-"<all_calibrations>"
+{}
 ```
 
 ## Get Calibrations By Device
@@ -299,10 +318,12 @@ Get Calibrations By Device endpoint.
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
+
+Example body:
 
 ```json
-"<calibrations>"
+[]
 ```
 
 ## Create Calibration
@@ -331,7 +352,9 @@ Create a new calibration for the specified device.
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
+
+Example body:
 
 ```json
 "<response>"
@@ -356,7 +379,9 @@ Delete a specific calibration for a given device.
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
+
+Example body:
 
 ```json
 "<response>"
@@ -381,7 +406,9 @@ Get Calibration endpoint.
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
+
+Example body:
 
 ```json
 "<cal>"
@@ -398,9 +425,9 @@ Get Capabilities endpoint.
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
 
-_No response body example inferred._
+_No example body inferred._
 
 ## Get Merged Config
 
@@ -413,9 +440,9 @@ Get Merged Config endpoint.
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
 
-_No response body example inferred._
+_No example body inferred._
 
 ## Get Specific Config
 
@@ -428,9 +455,9 @@ Get Specific Config endpoint.
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
 
-_No response body example inferred._
+_No example body inferred._
 
 ## Update Specific Config
 
@@ -452,7 +479,9 @@ Update Specific Config endpoint.
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
+
+Example body:
 
 ```json
 {
@@ -480,7 +509,9 @@ Update Specific Config endpoint.
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
+
+Example body:
 
 ```json
 {
@@ -499,7 +530,9 @@ Get All Estimators endpoint.
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
+
+Example body:
 
 ```json
 {}
@@ -523,7 +556,9 @@ Get Estimators By Device endpoint.
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
+
+Example body:
 
 ```json
 []
@@ -548,7 +583,9 @@ Delete Estimator endpoint.
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
+
+Example body:
 
 ```json
 "<response>"
@@ -573,7 +610,9 @@ Get Estimator endpoint.
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
+
+Example body:
 
 ```json
 "<estimator>"
@@ -600,7 +639,9 @@ Check Hardware For Model endpoint.
 
 #### Success
 
-**Status:** `202 Accepted`
+Status: `202 Accepted`
+
+Example body:
 
 ```json
 {
@@ -631,7 +672,9 @@ Check Hardware For Model endpoint.
 
 #### Success
 
-**Status:** `202 Accepted`
+Status: `202 Accepted`
+
+Example body:
 
 ```json
 {
@@ -652,10 +695,16 @@ Health Check endpoint.
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
+
+Example body:
 
 ```json
-"<payload>"
+{
+  "status": "ok",
+  "pioreactor_unit": "<HOSTNAME>",
+  "utc_time": "<value>"
+}
 ```
 
 ## Import Dot Pioreactor From Zip
@@ -678,7 +727,9 @@ Import Dot Pioreactor From Zip endpoint.
 
 #### Success
 
-**Status:** `202 Accepted`
+Status: `202 Accepted`
+
+Example body:
 
 ```json
 {
@@ -699,7 +750,9 @@ Get Jobs endpoint.
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
+
+Example body:
 
 ```json
 "<jobs>"
@@ -716,7 +769,9 @@ Get Job Descriptors endpoint.
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
+
+Example body:
 
 ```json
 "<descriptors>"
@@ -747,7 +802,9 @@ Body should look like (all optional)
 
 #### Success
 
-**Status:** `202 Accepted`
+Status: `202 Accepted`
+
+Example body:
 
 ```json
 {
@@ -782,7 +839,9 @@ Body should look like (all optional)
 
 #### Success
 
-**Status:** `202 Accepted`
+Status: `202 Accepted`
+
+Example body:
 
 ```json
 {
@@ -803,7 +862,9 @@ Get All Running Jobs endpoint.
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
+
+Example body:
 
 ```json
 "<jobs>"
@@ -827,7 +888,9 @@ Get Running Job endpoint.
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
+
+Example body:
 
 ```json
 "<jobs>"
@@ -851,7 +914,9 @@ Get Running Jobs For Experiment endpoint.
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
+
+Example body:
 
 ```json
 "<jobs>"
@@ -859,6 +924,7 @@ Get Running Jobs For Experiment endpoint.
 
 ## Get Job Settings
 
+{
 
 ### Endpoint
 `GET /unit_api/jobs/settings/job_name/{job_name}`
@@ -874,7 +940,9 @@ Get Running Jobs For Experiment endpoint.
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
+
+Example body:
 
 ```json
 {
@@ -900,9 +968,9 @@ The body should look like:
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
 
-_No response body example inferred._
+_No example body inferred._
 
 ## Get Job Setting
 
@@ -923,7 +991,9 @@ Get Job Setting endpoint.
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
+
+Example body:
 
 ```json
 {}
@@ -949,7 +1019,9 @@ Stop Jobs endpoint.
 
 #### Success
 
-**Status:** `202 Accepted`
+Status: `202 Accepted`
+
+Example body:
 
 ```json
 {
@@ -979,7 +1051,9 @@ Stop Jobs endpoint.
 
 #### Success
 
-**Status:** `202 Accepted`
+Status: `202 Accepted`
+
+Example body:
 
 ```json
 {
@@ -1000,7 +1074,9 @@ Stop All Jobs endpoint.
 
 #### Success
 
-**Status:** `202 Accepted`
+Status: `202 Accepted`
+
+Example body:
 
 ```json
 {
@@ -1021,7 +1097,9 @@ Stop All Jobs endpoint.
 
 #### Success
 
-**Status:** `202 Accepted`
+Status: `202 Accepted`
+
+Example body:
 
 ```json
 {
@@ -1042,7 +1120,9 @@ Get All Long Running Jobs endpoint.
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
+
+Example body:
 
 ```json
 "<jobs>"
@@ -1068,7 +1148,9 @@ runs `pio plugin install ....`
 
 #### Success
 
-**Status:** `202 Accepted`
+Status: `202 Accepted`
+
+Example body:
 
 ```json
 {
@@ -1098,7 +1180,9 @@ runs `pio plugin install ....`
 
 #### Success
 
-**Status:** `202 Accepted`
+Status: `202 Accepted`
+
+Example body:
 
 ```json
 {
@@ -1119,9 +1203,9 @@ Get Installed Plugins endpoint.
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
 
-_No response body example inferred._
+_No example body inferred._
 
 ## Get Installed Plugin
 
@@ -1141,9 +1225,9 @@ get a specific Python file in the .pioreactor/plugin folder
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
 
-_No response body example inferred._
+_No example body inferred._
 
 ## Uninstall Plugin
 
@@ -1165,7 +1249,9 @@ Body should look like:
 
 #### Success
 
-**Status:** `202 Accepted`
+Status: `202 Accepted`
+
+Example body:
 
 ```json
 {
@@ -1195,7 +1281,9 @@ Body should look like:
 
 #### Success
 
-**Status:** `202 Accepted`
+Status: `202 Accepted`
+
+Example body:
 
 ```json
 {
@@ -1216,7 +1304,9 @@ List System Path endpoint.
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
+
+Example body:
 
 ```json
 {
@@ -1244,7 +1334,9 @@ List System Path endpoint.
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
+
+Example body:
 
 ```json
 {
@@ -1265,7 +1357,9 @@ Reboots unit
 
 #### Success
 
-**Status:** `202 Accepted`
+Status: `202 Accepted`
+
+Example body:
 
 ```json
 {
@@ -1286,7 +1380,9 @@ Reboots unit
 
 #### Success
 
-**Status:** `202 Accepted`
+Status: `202 Accepted`
+
+Example body:
 
 ```json
 {
@@ -1316,7 +1412,9 @@ Remove File endpoint.
 
 #### Success
 
-**Status:** `202 Accepted`
+Status: `202 Accepted`
+
+Example body:
 
 ```json
 {
@@ -1346,7 +1444,9 @@ Remove File endpoint.
 
 #### Success
 
-**Status:** `202 Accepted`
+Status: `202 Accepted`
+
+Example body:
 
 ```json
 {
@@ -1367,7 +1467,9 @@ Shutdown unit
 
 #### Success
 
-**Status:** `202 Accepted`
+Status: `202 Accepted`
+
+Example body:
 
 ```json
 {
@@ -1388,7 +1490,9 @@ Shutdown unit
 
 #### Success
 
-**Status:** `202 Accepted`
+Status: `202 Accepted`
+
+Example body:
 
 ```json
 {
@@ -1418,7 +1522,9 @@ Update Software endpoint.
 
 #### Success
 
-**Status:** `202 Accepted`
+Status: `202 Accepted`
+
+Example body:
 
 ```json
 {
@@ -1448,7 +1554,9 @@ Update Software endpoint.
 
 #### Success
 
-**Status:** `202 Accepted`
+Status: `202 Accepted`
+
+Example body:
 
 ```json
 {
@@ -1483,7 +1591,9 @@ Update Software Target endpoint.
 
 #### Success
 
-**Status:** `202 Accepted`
+Status: `202 Accepted`
+
+Example body:
 
 ```json
 {
@@ -1518,7 +1628,9 @@ Update Software Target endpoint.
 
 #### Success
 
-**Status:** `202 Accepted`
+Status: `202 Accepted`
+
+Example body:
 
 ```json
 {
@@ -1539,7 +1651,9 @@ Get Clock Time endpoint.
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
+
+Example body:
 
 ```json
 {
@@ -1568,7 +1682,9 @@ Set Clock Time endpoint.
 
 #### Success
 
-**Status:** `202 Accepted`
+Status: `202 Accepted`
+
+Example body:
 
 ```json
 {
@@ -1598,7 +1714,9 @@ Set Clock Time endpoint.
 
 #### Success
 
-**Status:** `202 Accepted`
+Status: `202 Accepted`
+
+Example body:
 
 ```json
 {
@@ -1619,7 +1737,9 @@ Restart Web Server endpoint.
 
 #### Success
 
-**Status:** `202 Accepted`
+Status: `202 Accepted`
+
+Example body:
 
 ```json
 {
@@ -1640,7 +1760,9 @@ Restart Web Server endpoint.
 
 #### Success
 
-**Status:** `202 Accepted`
+Status: `202 Accepted`
+
+Example body:
 
 ```json
 {
@@ -1661,19 +1783,21 @@ Get Web Server Status endpoint.
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
+
+Example body:
 
 ```json
 {
   "service": "<value>",
   "state": "ready",
-  "raw_status": "<status_text>"
+  "raw_status": "active"
 }
 ```
 
 ## Get Task Status
 
-Get Task Status endpoint.
+Poll the state of an async task previously returned by `create_task_response(...)`.
 
 ### Endpoint
 `GET /unit_api/task_results/{task_id}`
@@ -1689,9 +1813,20 @@ Get Task Status endpoint.
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
 
-_No response body example inferred._
+Example body:
+
+```json
+{
+  "task_id": "<task_id>",
+  "result_url_path": "<value>",
+  "status": "failed",
+  "error": "<value>",
+  "cause": "Huey task failed with an exception.",
+  "remediation": "Check logs and retry."
+}
+```
 
 ## Get App Version
 
@@ -1704,7 +1839,9 @@ Get App Version endpoint.
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
+
+Example body:
 
 ```json
 {
@@ -1723,9 +1860,9 @@ Get Zipped Calibrations endpoint.
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
 
-_No response body example inferred._
+_No example body inferred._
 
 ## Get Zipped Dot Pioreactor
 
@@ -1738,6 +1875,6 @@ Create and return a ZIP of the entire DOT_PIOREACTOR directory.
 
 #### Success
 
-**Status:** `200 OK`
+Status: `200 OK`
 
-_No response body example inferred._
+_No example body inferred._

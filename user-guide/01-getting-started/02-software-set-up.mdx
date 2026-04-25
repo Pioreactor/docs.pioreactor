@@ -67,6 +67,9 @@ We'll start with your blank microSD card.
     ![Choose ssh](/img/user-guide/01-getting-started/02-software-set-up/choose_ssh.png)
 17. Click **Write** to begin writing your image to the micro SD card.
     ![write image](/img/user-guide/01-getting-started/02-software-set-up/write_image.png)
+    :::tip
+    If Raspberry Pi Imager fails while writing, first try **Erase** in Raspberry Pi Imager to format the card as FAT32, then write the image again. If writing still fails, try a different, reputable microSD card.
+    :::
 18.  A prompt *may* appear asking for permission to write, accept it. Writing will take up to 5 minutes. Perfect time for a tea break. <img src="/img/user-guide/01-getting-started/02-software-set-up/coffee.svg" width="250" alt="Screenshot of what your settings should look like" style={{margin: "80px auto", display:"block"}} />
 10.  Once writing is complete, remove the microSD card, and place it into the Raspberry Pi. **Your Raspberry Pi's power should be unplugged before inserting the microSD card**. The microSD slot is located on the PWM side of the Pioreactor. Example for a Raspberry Pi A model:
     ![Insert the microSD card into a Raspberry Pi A model](/img/user-guide/01-getting-started/02-software-set-up/place-micro-sd-card.JPG)
@@ -159,6 +162,7 @@ We recommend running a [pre-flight hardware check](/user-guide/pre-flight-hardwa
  - First, confirm that when you press the HAT button, the blue LED does not show up. If it does, you're good to go.
  - It's likely that the installation failed (due to a settings issue), or there is a problem with the SD card. Double check the settings that you used and try reinstalling the image.
  - Are you using a microSD card with a size *larger* than 32GB or with exFAT format? You may need to reformat it to FAT32. To do this, in the Raspberry Pi Imager, first select "Erase: format card as FAT32" under "Choose OS". Then proceed with writing the image.
+ - If writing still fails after reformatting the card as FAT32, try a different, reputable microSD card.
 
 
 #### My Pioreactor keeps flashing the blue LED
