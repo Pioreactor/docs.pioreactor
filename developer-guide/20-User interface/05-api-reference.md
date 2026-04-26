@@ -9,28 +9,175 @@ sidebar_class_name: sidebar-item--updated
 
 - Only the leader Pioreactor has the `/api` endpoints exposed.
 - Async endpoints return `202 Accepted` with a `task_id` and `result_url_path`.
-- Poll `GET /unit_api/task_results/{task_id}` until `status` is `complete` or `failed`.
+- Poll `GET /unit_api/task_results/{task_id}` until `status` is `succeeded` or `failed`.
 - `$broadcast` may be used in path parameters where documented to target all units/workers.
 - File download endpoints return binary bodies; use the response content-type to handle them.
 - Path parameters are shown inline in the endpoint URL.
 - Request/response examples are the canonical shapes; omit optional fields you do not need.
 - Errors have the following schema:
 
+```json
+{
+  "error": "Human-readable error message",
+  "cause": "Human-readable cause (defaults to error if not set)",
+  "remediation": "Suggested fix or next step",
+  "status": 400
+}
 ```
-  {
-    "error": "Human-readable error message",
-    "cause": "Human-readable cause (defaults to error if not set)",
-    "remediation": "Suggested fix or next step",
-    "status": integer,
-  }
-
-```
-
 
 Use `/api/workers/...` for worker-only targets (experiment-scoped jobs/logs) and `/api/units/...` when the leader is also a valid target; both accept `$broadcast` where supported.
 
+# Pioreactor Leader API
 
------
+Generated from `core/pioreactor/web/api.py`.
+
+> This file is generated. Edit the API source or generator instead of editing this file by hand.
+
+Endpoint count: `138`
+
+## Endpoint Index
+
+| Method | Path | Handler |
+| ------ | ---- | ------- |
+| `GET` | `/api/automations/descriptors/{automation_type}` | `get_automation_descriptors` |
+| `GET` | `/api/bioreactor/descriptors` | `get_bioreactor_variable_descriptors` |
+| `GET` | `/api/charts/descriptors` | `get_chart_descriptors` |
+| `GET` | `/api/config/shared` | `get_shared_config` |
+| `PATCH` | `/api/config/shared` | `update_shared_config` |
+| `GET` | `/api/config/shared/history` | `get_shared_config_history` |
+| `GET` | `/api/config/units/{pioreactor_unit}` | `get_config_for_pioreactor_unit` |
+| `GET` | `/api/config/units/{pioreactor_unit}/specific` | `get_specific_config_for_pioreactor_unit` |
+| `PATCH` | `/api/config/units/{pioreactor_unit}/specific` | `update_specific_config_for_pioreactor_unit` |
+| `GET` | `/api/config/units/{pioreactor_unit}/specific/history` | `get_specific_config_history_for_pioreactor_unit` |
+| `GET` | `/api/datasets/exportable` | `get_exportable_datasets` |
+| `GET` | `/api/datasets/exportable/{target_dataset}/preview` | `preview_exportable_dataset` |
+| `POST` | `/api/datasets/exportable/export` | `export_exportable_datasets` |
+| `GET` | `/api/experiment_profiles` | `get_experiment_profiles` |
+| `POST` | `/api/experiment_profiles` | `create_experiment_profile` |
+| `DELETE` | `/api/experiment_profiles/{filename}` | `delete_experiment_profile` |
+| `GET` | `/api/experiment_profiles/{filename}` | `get_experiment_profile` |
+| `PATCH` | `/api/experiment_profiles/{filename}` | `update_experiment_profile` |
+| `GET` | `/api/experiments` | `get_experiments` |
+| `POST` | `/api/experiments` | `create_experiment` |
+| `DELETE` | `/api/experiments/{experiment}` | `delete_experiment` |
+| `GET` | `/api/experiments/{experiment}` | `get_experiment` |
+| `PATCH` | `/api/experiments/{experiment}` | `update_experiment` |
+| `GET` | `/api/experiments/{experiment}/experiment_profiles/recent` | `get_recent_experiment_profile_runs` |
+| `GET` | `/api/experiments/{experiment}/experiment_profiles/running` | `get_running_profiles` |
+| `GET` | `/api/experiments/{experiment}/historical_worker_assignments` | `get_list_of_historical_workers_for_experiment` |
+| `GET` | `/api/experiments/{experiment}/logs` | `get_exp_logs` |
+| `GET` | `/api/experiments/{experiment}/media_rates` | `get_media_rates` |
+| `GET` | `/api/experiments/{experiment}/recent_logs` | `get_recent_logs` |
+| `GET` | `/api/experiments/{experiment}/time_series/{data_source}/{column}` | `get_fallback_time_series` |
+| `GET` | `/api/experiments/{experiment}/time_series/growth_rates` | `get_growth_rates` |
+| `GET` | `/api/experiments/{experiment}/time_series/od_readings` | `get_od_readings` |
+| `GET` | `/api/experiments/{experiment}/time_series/od_readings_filtered` | `get_od_readings_filtered` |
+| `GET` | `/api/experiments/{experiment}/time_series/od_readings_fused` | `get_od_readings_fused` |
+| `GET` | `/api/experiments/{experiment}/time_series/raw_od_readings` | `get_od_raw_readings` |
+| `GET` | `/api/experiments/{experiment}/time_series/temperature_readings` | `get_temperature_readings` |
+| `GET` | `/api/experiments/{experiment}/unit_labels` | `get_unit_labels` |
+| `PATCH` | `/api/experiments/{experiment}/unit_labels` | `upsert_unit_labels` |
+| `PUT` | `/api/experiments/{experiment}/unit_labels` | `upsert_unit_labels` |
+| `DELETE` | `/api/experiments/{experiment}/workers` | `remove_workers_from_experiment` |
+| `GET` | `/api/experiments/{experiment}/workers` | `get_list_of_workers_for_experiment` |
+| `PUT` | `/api/experiments/{experiment}/workers` | `add_worker_to_experiment` |
+| `DELETE` | `/api/experiments/{experiment}/workers/{pioreactor_unit}` | `remove_worker_from_experiment` |
+| `GET` | `/api/experiments/active` | `get_active_experiments` |
+| `GET` | `/api/experiments/assignment_count` | `get_experiments_worker_assignments` |
+| `GET` | `/api/experiments/latest` | `get_latest_experiment` |
+| `GET` | `/api/historical_media` | `get_historical_media_used` |
+| `GET` | `/api/historical_organisms` | `get_historical_organisms_used` |
+| `GET` | `/api/jobs/descriptors` | `get_job_descriptors` |
+| `GET` | `/api/local_access_point` | `get_local_access_point` |
+| `GET` | `/api/logs` | `get_logs` |
+| `GET` | `/api/models` | `get_models` |
+| `POST` | `/api/system/update_from_archive` | `update_app_from_release_archive` |
+| `POST` | `/api/system/update_next_version` | `update_app` |
+| `POST` | `/api/system/upload` | `upload_system_file` |
+| `POST` | `/api/system/utc_clock` | `set_system_utc_clock` |
+| `GET` | `/api/units` | `get_list_of_units` |
+| `GET` | `/api/units/{pioreactor_unit}/capabilities` | `get_capabilities` |
+| `POST` | `/api/units/{pioreactor_unit}/experiments/{experiment}/logs` | `publish_new_log` |
+| `POST` | `/api/units/{pioreactor_unit}/import_zipped_dot_pioreactor` | `import_dot_pioreactor_archive` |
+| `PATCH` | `/api/units/{pioreactor_unit}/jobs/run/job_name/{job_name}/experiments/{experiment}` | `run_job_on_unit_in_experiment` |
+| `POST` | `/api/units/{pioreactor_unit}/jobs/run/job_name/{job_name}/experiments/{experiment}` | `run_job_on_unit_in_experiment` |
+| `GET` | `/api/units/{pioreactor_unit}/jobs/running` | `get_jobs_running` |
+| `PATCH` | `/api/units/{pioreactor_unit}/jobs/stop/experiments/{experiment}` | `stop_all_jobs_on_unit_for_experiment` |
+| `POST` | `/api/units/{pioreactor_unit}/jobs/stop/experiments/{experiment}` | `stop_all_jobs_on_unit_for_experiment` |
+| `PATCH` | `/api/units/{pioreactor_unit}/jobs/stop/job_name/{job_name}/experiments/{experiment}` | `stop_specific_job_on_unit` |
+| `POST` | `/api/units/{pioreactor_unit}/jobs/stop/job_name/{job_name}/experiments/{experiment}` | `stop_specific_job_on_unit` |
+| `PATCH` | `/api/units/{pioreactor_unit}/jobs/update/job_name/{job_name}/experiments/{experiment}` | `update_job_on_unit` |
+| `GET` | `/api/units/{pioreactor_unit}/logs` | `get_logs_for_unit` |
+| `PATCH` | `/api/units/{pioreactor_unit}/plugins/install` | `install_plugin_across_cluster` |
+| `POST` | `/api/units/{pioreactor_unit}/plugins/install` | `install_plugin_across_cluster` |
+| `GET` | `/api/units/{pioreactor_unit}/plugins/installed` | `get_plugins_on_machine` |
+| `PATCH` | `/api/units/{pioreactor_unit}/plugins/uninstall` | `uninstall_plugin_across_cluster` |
+| `POST` | `/api/units/{pioreactor_unit}/plugins/uninstall` | `uninstall_plugin_across_cluster` |
+| `POST` | `/api/units/{pioreactor_unit}/system/reboot` | `reboot_unit` |
+| `POST` | `/api/units/{pioreactor_unit}/system/shutdown` | `shutdown_unit` |
+| `GET` | `/api/units/{pioreactor_unit}/system/utc_clock` | `get_unit_utc_clock` |
+| `GET` | `/api/units/{pioreactor_unit}/system_logs` | `get_system_logs_for_unit` |
+| `GET` | `/api/units/{pioreactor_unit}/versions/app` | `get_app_versions` |
+| `GET` | `/api/units/{pioreactor_unit}/zipped_dot_pioreactor` | `get_zipped_dot_pioreactor` |
+| `GET` | `/api/workers` | `get_list_of_workers` |
+| `PUT` | `/api/workers` | `add_worker` |
+| `DELETE` | `/api/workers/{pioreactor_unit}` | `delete_worker` |
+| `GET` | `/api/workers/{pioreactor_unit}` | `get_worker` |
+| `GET` | `/api/workers/{pioreactor_unit}/active_calibrations` | `get_all_active_calibrations` |
+| `DELETE` | `/api/workers/{pioreactor_unit}/active_calibrations/{device}` | `remove_active_status_calibration` |
+| `PATCH` | `/api/workers/{pioreactor_unit}/active_calibrations/{device}/{calibration_name}` | `set_active_calibration` |
+| `GET` | `/api/workers/{pioreactor_unit}/active_estimators` | `get_all_active_estimators` |
+| `DELETE` | `/api/workers/{pioreactor_unit}/active_estimators/{device}` | `remove_active_status_estimator` |
+| `PATCH` | `/api/workers/{pioreactor_unit}/active_estimators/{device}/{estimator_name}` | `set_active_estimator` |
+| `GET` | `/api/workers/{pioreactor_unit}/automations/descriptors/{automation_type}` | `get_automation_descriptors_for_worker` |
+| `PATCH` | `/api/workers/{pioreactor_unit}/bioreactor/update/experiments/{experiment}` | `update_bioreactor_on_unit` |
+| `POST` | `/api/workers/{pioreactor_unit}/blink` | `blink_worker` |
+| `GET` | `/api/workers/{pioreactor_unit}/calibration_protocols` | `get_calibration_protocols` |
+| `GET` | `/api/workers/{pioreactor_unit}/calibrations` | `get_all_calibrations` |
+| `GET` | `/api/workers/{pioreactor_unit}/calibrations/{device}` | `get_calibrations` |
+| `POST` | `/api/workers/{pioreactor_unit}/calibrations/{device}` | `create_calibration` |
+| `DELETE` | `/api/workers/{pioreactor_unit}/calibrations/{device}/{calibration_name}` | `delete_calibration` |
+| `GET` | `/api/workers/{pioreactor_unit}/calibrations/{device}/{calibration_name}` | `get_calibration` |
+| `POST` | `/api/workers/{pioreactor_unit}/calibrations/sessions` | `start_calibration_session` |
+| `GET` | `/api/workers/{pioreactor_unit}/calibrations/sessions/{session_id}` | `get_calibration_session` |
+| `POST` | `/api/workers/{pioreactor_unit}/calibrations/sessions/{session_id}/abort` | `abort_calibration_session` |
+| `POST` | `/api/workers/{pioreactor_unit}/calibrations/sessions/{session_id}/inputs` | `advance_calibration_session` |
+| `GET` | `/api/workers/{pioreactor_unit}/capabilities` | `get_capabilities` |
+| `GET` | `/api/workers/{pioreactor_unit}/estimators` | `get_all_estimators` |
+| `GET` | `/api/workers/{pioreactor_unit}/estimators/{device}` | `get_estimators_by_device` |
+| `DELETE` | `/api/workers/{pioreactor_unit}/estimators/{device}/{estimator_name}` | `delete_estimator` |
+| `GET` | `/api/workers/{pioreactor_unit}/estimators/{device}/{estimator_name}` | `get_estimator` |
+| `GET` | `/api/workers/{pioreactor_unit}/experiment` | `get_experiment_assignment_for_worker` |
+| `GET` | `/api/workers/{pioreactor_unit}/experiments/{experiment}/logs` | `get_logs_for_unit_and_experiment` |
+| `POST` | `/api/workers/{pioreactor_unit}/experiments/{experiment}/logs` | `publish_new_log` |
+| `GET` | `/api/workers/{pioreactor_unit}/experiments/{experiment}/recent_logs` | `get_recent_logs_for_unit_and_experiment` |
+| `GET` | `/api/workers/{pioreactor_unit}/experiments/{experiment}/time_series/{data_source}/{column}` | `get_fallback_time_series_per_unit` |
+| `GET` | `/api/workers/{pioreactor_unit}/experiments/{experiment}/time_series/growth_rates` | `get_growth_rates_per_unit` |
+| `GET` | `/api/workers/{pioreactor_unit}/experiments/{experiment}/time_series/od_readings` | `get_od_readings_per_unit` |
+| `GET` | `/api/workers/{pioreactor_unit}/experiments/{experiment}/time_series/od_readings_filtered` | `get_od_readings_filtered_per_unit` |
+| `GET` | `/api/workers/{pioreactor_unit}/experiments/{experiment}/time_series/od_readings_fused` | `get_od_readings_fused_per_unit` |
+| `GET` | `/api/workers/{pioreactor_unit}/experiments/{experiment}/time_series/raw_od_readings` | `get_od_raw_readings_per_unit` |
+| `GET` | `/api/workers/{pioreactor_unit}/experiments/{experiment}/time_series/temperature_readings` | `get_temperature_readings_per_unit` |
+| `PUT` | `/api/workers/{pioreactor_unit}/is_active` | `change_worker_status` |
+| `GET` | `/api/workers/{pioreactor_unit}/jobs/descriptors` | `get_job_descriptors_for_worker` |
+| `PATCH` | `/api/workers/{pioreactor_unit}/jobs/run/job_name/{job_name}/experiments/{experiment}` | `run_job_on_unit_in_experiment` |
+| `POST` | `/api/workers/{pioreactor_unit}/jobs/run/job_name/{job_name}/experiments/{experiment}` | `run_job_on_unit_in_experiment` |
+| `GET` | `/api/workers/{pioreactor_unit}/jobs/running` | `get_jobs_running` |
+| `GET` | `/api/workers/{pioreactor_unit}/jobs/settings/job_name/{job_name}/experiments/{experiment}` | `get_job_settings_for_worker` |
+| `GET` | `/api/workers/{pioreactor_unit}/jobs/settings/job_name/{job_name}/setting/{setting}/experiments/{experiment}` | `get_job_setting_for_worker` |
+| `PATCH` | `/api/workers/{pioreactor_unit}/jobs/stop/experiments/{experiment}` | `stop_all_jobs_on_unit_for_experiment` |
+| `POST` | `/api/workers/{pioreactor_unit}/jobs/stop/experiments/{experiment}` | `stop_all_jobs_on_unit_for_experiment` |
+| `PATCH` | `/api/workers/{pioreactor_unit}/jobs/stop/job_name/{job_name}/experiments/{experiment}` | `stop_specific_job_on_unit` |
+| `POST` | `/api/workers/{pioreactor_unit}/jobs/stop/job_name/{job_name}/experiments/{experiment}` | `stop_specific_job_on_unit` |
+| `PATCH` | `/api/workers/{pioreactor_unit}/jobs/update/job_name/{job_name}/experiments/{experiment}` | `update_job_on_unit` |
+| `GET` | `/api/workers/{pioreactor_unit}/model` | `get_worker_model_and_metadata` |
+| `PUT` | `/api/workers/{pioreactor_unit}/model` | `change_worker_model` |
+| `GET` | `/api/workers/{pioreactor_unit}/zipped_calibrations` | `get_zipped_calibrations` |
+| `DELETE` | `/api/workers/assignments` | `remove_all_workers_from_all_experiments` |
+| `GET` | `/api/workers/assignments` | `get_workers_and_experiment_assignments` |
+| `GET` | `/api/workers/discover` | `discover_available_workers` |
+| `POST` | `/api/workers/setup` | `setup_worker_pioreactor` |
+
 ## Get Automation Descriptors
 
 Get Automation Descriptors endpoint.
@@ -43,7 +190,7 @@ Get Automation Descriptors endpoint.
 #### Path Parameters
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
-| automation_type | string | Yes | Automation type: dosing, temperature, led. |
+| automation_type | string | Yes | Automation type, for example `dosing`, `temperature`, or `led`. |
 
 ### Response
 
@@ -202,9 +349,6 @@ Example body:
       0.05
     ],
     "interpolation": "stepAfter"
-  },
-  {
-    "...": "1 more items"
   }
 ]
 ```
@@ -222,11 +366,7 @@ Get Shared Config endpoint.
 
 Status: `200 OK`
 
-Example body:
-
-```json
-"[PWM]\n# map the externals to the PWM\n# hardware PWM are available on channels 1 & 3.\n1=stirring\n2=waste\n3=media\n4=alt_media\n5=heating\n\n\n[leds]\nA=IR\nB=white_light\nC=\nD=\n\n\n[bioreactor]\n# efflux_tube_volume_ml is determined by the volume that just touches the outflow tube. I.e. if you\n# where to keep r... ..."
-```
+_No example body inferred._
 
 ## Update Shared Config
 
@@ -238,6 +378,11 @@ Update Shared Config endpoint.
 ### Request
 
 #### Request Body
+
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| code | string | Yes | code. |
+
 ```json
 {
   "code": "[section]\nkey=value\n"
@@ -278,20 +423,17 @@ Example body:
   {
     "filename": "config.ini",
     "timestamp": "2026-02-19T15:56:45.596Z",
-    "data": "[PWM]\n# map the externals to the PWM\n# hardware PWM are available on channels 1 & 3.\n1=stirring\n2=waste\n3=media\n4=test\n5=heating\n\n\n[leds]\nA=IR\nB=white_light\nC=\nD=\n\n\n[bioreactor]\n# max_working_volume_ml is determined by the volume that just touches the outflow tube. I.e. if you\n# where to keep runnin... ..."
+    "data": "[PWM]\n# map the externals to the PWM\n# hardware PWM are available on channels 1 & 3.\n1=stirring\n2=waste\n3=media\n4=test\n5=heating\n\n\n[leds]\nA=IR\nB=white_light\nC=\nD=\n\n\n[bioreactor]\n# max_working_volume_ml is determined by the volume that just touches the outflow tube. I.e. if you\n# where to keep running the waste pump, what would the stable volume be.\n# see docs\nmax_working_volume_ml=14\ninitial_volume_ml=14\ninitial_alt_media_fraction=0.0\n\n\n[stirring.config]\ninitial_target_rpm=500\ninitial_duty_cycle...<truncated>"
   },
   {
     "filename": "config.ini",
     "timestamp": "2026-01-19T16:38:19.492Z",
-    "data": "[PWM]\n# map the externals to the PWM\n# hardware PWM are available on channels 1 & 3.\n1=stirring\n2=waste\n3=media\n4=alt_media\n5=heating\n\n\n[leds]\nA=IR\nB=white_light\nC=\nD=\n\n\n[bioreactor]\n# max_working_volume_ml is determined by the volume that just touches the outflow tube. I.e. if you\n# where to keep r... ..."
+    "data": "[PWM]\n# map the externals to the PWM\n# hardware PWM are available on channels 1 & 3.\n1=stirring\n2=waste\n3=media\n4=alt_media\n5=heating\n\n\n[leds]\nA=IR\nB=white_light\nC=\nD=\n\n\n[bioreactor]\n# max_working_volume_ml is determined by the volume that just touches the outflow tube. I.e. if you\n# where to keep running the waste pump, what would the stable volume be.\n# see docs\nmax_working_volume_ml=14\ninitial_volume_ml=14\ninitial_alt_media_fraction=0.0\n\n\n[stirring.config]\ninitial_target_rpm=500\ninitial_duty_...<truncated>"
   },
   {
     "filename": "config.ini",
     "timestamp": "2026-01-15T01:12:24.848Z",
-    "data": "[PWM]\n# map the externals to the PWM\n# hardware PWM are available on channels 1 & 3.\n1=stirring\n2=waste\n3=media\n4=alt_media\n5=heatingf\n\n\n[leds]\nA=IR\nB=white_light\nC=\nD=\n\n\n[bioreactor]\n# max_working_volume_ml is determined by the volume that just touches the outflow tube. I.e. if you\n# where to keep ... ..."
-  },
-  {
-    "...": "1 more items"
+    "data": "[PWM]\n# map the externals to the PWM\n# hardware PWM are available on channels 1 & 3.\n1=stirring\n2=waste\n3=media\n4=alt_media\n5=heatingf\n\n\n[leds]\nA=IR\nB=white_light\nC=\nD=\n\n\n[bioreactor]\n# max_working_volume_ml is determined by the volume that just touches the outflow tube. I.e. if you\n# where to keep running the waste pump, what would the stable volume be.\n# see docs\nmax_working_volume_ml=14\ninitial_volume_ml=14\ninitial_alt_media_fraction=0.0\n\n\n[stirring.config]\ninitial_target_rpm=500\ninitial_duty...<truncated>"
   }
 ]
 ```
@@ -319,7 +461,133 @@ Status: `200 OK`
 Example body:
 
 ```json
-{}
+{
+  "localhost": {
+    "PWM": {
+      "1": "stirring",
+      "2": "waste",
+      "3": "media",
+      "4": "bubblert",
+      "5": "heating"
+    },
+    "leds": {
+      "A": "IR",
+      "B": "white_light",
+      "C": "",
+      "D": ""
+    },
+    "bioreactor": {
+      "efflux_tube_volume_ml": "14",
+      "initial_volume_ml": "14",
+      "initial_alt_media_fraction": "0.0"
+    },
+    "stirring.config": {
+      "initial_target_rpm": "500",
+      "initial_duty_cycle": "15",
+      "pwm_hz": "200",
+      "use_rpm": "True",
+      "duration_between_updates_seconds": "23",
+      "post_delay_duration": "0.25",
+      "pre_delay_duration": "0.25",
+      "enable_dodging_od": "true",
+      "target_rpm_during_od_reading": "0",
+      "target_rpm_outside_od_reading": "500"
+    },
+    "dosing_automation.turbidostat": {
+      "biomass_signal": "auto"
+    },
+    "stirring.pid": {
+      "Kp": "0.007",
+      "Ki": "0.0",
+      "Kd": "0.0"
+    },
+    "od_config.photodiode_channel": {
+      "1": "REF",
+      "2": "90"
+    },
+    "od_reading.config": {
+      "samples_per_second": "0.2",
+      "turn_off_leds_during_reading": "1",
+      "pd_reference_ema": "0.4",
+      "ir_led_intensity": "80",
+      "duration_between_led_off_and_od_reading": "0.1",
+      "smoothing_penalizer": "6.0",
+      "use_dark_offsets": "1"
+    },
+    "storage": {
+      "database": "/Users/camerondavidson-pilon/code/pioreactor/.pioreactor/storage/pioreactor.sqlite",
+      "temporary_cache": "/Users/camerondavidson-pilon/code/pioreactor/.pioreactor/storage/local_intermittent_pioreactor_metadata.sqlite",
+      "persistent_cache": "/Users/camerondavidson-pilon/code/pioreactor/.pioreactor/storage/local_persistent_pioreactor_metadata.sqlite",
+      "number_of_backup_replicates_to_workers": "0"
+    },
+    "logging": {
+      "log_file": "./pioreactor.log",
+      "ui_log_file": "./pioreactor.log",
+      "ui_log_level": "DEBUG",
+      "console_log_level": "DEBUG"
+    },
+    "cluster.topology": {
+      "leader_hostname": "localhost",
+      "leader_address": "localhost"
+    },
+    "ui.overview.settings": {
+      "filtered_od_lookback_minutes": "240",
+      "raw_od_lookback_minutes": "240",
+      "log_display_count": "65",
+      "time_display_mode": "hours"
+    },
+    "ui": {
+      "port": "4999",
+      "proto": "http"
+    },
+    "ui.overview.charts": {
+      "implied_growth_rate": "1",
+      "implied_daily_growth_rate": "0",
+      "fraction_of_volume_that_is_alternative_media": "1",
+      "normalized_optical_density": "1",
+      "raw_optical_density": "1",
+      "temperature": "1",
+      "optical_density": "1"
+    },
+    "ui.overview.cards": {
+      "dosings": "1",
+      "event_logs": "1",
+      "profiles": "1"
+    },
+    "dosing_automation.pid_morbidostat": {
+      "Kp": "5",
+      "Ki": "0",
+      "Kd": "0"
+    },
+    "temperature_automation.thermostat": {
+      "Kp": ".01",
+      "Ki": ".01",
+      "Kd": ".01"
+    },
+    "mqtt": {
+      "username": "pioreactor",
+      "password": "raspberry",
+      "broker_address": "localhost",
+      "broker_ws_port": "9001",
+      "broker_port": "1883",
+      "ws_protocol": "ws",
+      "use_tls": "0"
+    },
+    "dosing_automation.config": {
+      "pause_between_subdoses_seconds": "0.5",
+      "waste_removal_multiplier": "2.0",
+      "max_volume_to_warn": "17.0",
+      "max_volume_to_stop": "18.0",
+      "max_subdose": "1.0",
+      "experimental_pump_malfunction_tolerance": "0.2",
+      "experimental_detect_pump_malfunction": "False"
+    },
+    "growth_rate_calculating.config": {
+      "ekf_outlier_std_threshold": "3.0",
+      "samples_for_od_statistics": "10"
+    }
+  }
+}
 ```
 
 ## Get Specific Config For Pioreactor Unit
@@ -342,11 +610,7 @@ Get Specific Config For Pioreactor Unit endpoint.
 
 Status: `200 OK`
 
-Example body:
-
-```json
-"[PWM]\n# map the externals to the PWM\n# hardware PWM are available on channels 1 & 3.\n1=stirring\n2=waste\n3=media\n4=bubblert\n5=heating"
-```
+_No example body inferred._
 
 ## Update Specific Config For Pioreactor Unit
 
@@ -363,6 +627,11 @@ Update Specific Config For Pioreactor Unit endpoint.
 | pioreactor_unit | string | Yes | Unit name or `$broadcast` where supported. |
 
 #### Request Body
+
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| code | string | Yes | code. |
+
 ```json
 {
   "code": "[section]\nkey=value\n"
@@ -421,9 +690,6 @@ Example body:
     "filename": "config_localhost.ini",
     "timestamp": "2025-12-03T02:50:38.730Z",
     "data": "[bioreactor]\nmax_volume_ml=30\n"
-  },
-  {
-    "...": "1 more items"
   }
 ]
 ```
@@ -444,7 +710,53 @@ Status: `200 OK`
 Example body:
 
 ```json
-[]
+[
+  {
+    "dataset_name": "pioreactor_unit_activity_data",
+    "description": "This dataset includes most of your experiment data, including the time series of OD metrics, temperature, stirring rates, LED updates, and dosings.",
+    "display_name": "Pioreactor unit activity data (recommended)",
+    "has_experiment": true,
+    "has_unit": true,
+    "default_order_by": "timestamp",
+    "table": "pioreactor_unit_activity_data",
+    "query": null,
+    "source": "app",
+    "timestamp_columns": [
+      "timestamp"
+    ],
+    "always_partition_by_unit": true
+  },
+  {
+    "dataset_name": "logs",
+    "description": "This dataset includes the append-only collection of logs from all Pioreactors. A subset of these logs are displayed in the Log Table in the Experiment Overview.",
+    "display_name": "Pioreactor logs",
+    "has_experiment": true,
+    "has_unit": true,
+    "default_order_by": "timestamp",
+    "table": "logs",
+    "query": null,
+    "source": "app",
+    "timestamp_columns": [
+      "timestamp"
+    ],
+    "always_partition_by_unit": false
+  },
+  {
+    "dataset_name": "od_readings",
+    "description": "This dataset includes a time series of readings provided by the sensors (transformed via a calibration curve, if available), the inputs for growth calculations and normalized optical density.",
+    "display_name": "Optical density",
+    "has_experiment": true,
+    "has_unit": true,
+    "default_order_by": "timestamp",
+    "table": "od_readings",
+    "query": null,
+    "source": "app",
+    "timestamp_columns": [
+      "timestamp"
+    ],
+    "always_partition_by_unit": false
+  }
+]
 ```
 
 ## Preview Exportable Dataset
@@ -459,7 +771,12 @@ Preview Exportable Dataset endpoint.
 #### Path Parameters
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
-| target_dataset | string | Yes | Dataset identifier. |
+| target_dataset | string | Yes | Exportable dataset name. |
+
+#### Query Parameters
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| n_rows | string | No | n rows. |
 
 ### Response
 
@@ -467,39 +784,7 @@ Preview Exportable Dataset endpoint.
 
 Status: `200 OK`
 
-Example body:
-
-```json
-[
-  {
-    "experiment": "Demo experiment",
-    "pioreactor_unit": "pio01",
-    "timestamp": "2024-07-03T20:12:23.176823Z",
-    "od_reading": 0.009324100513755453,
-    "angle": 90,
-    "channel": 2
-  },
-  {
-    "experiment": "Demo experiment",
-    "pioreactor_unit": "pio01",
-    "timestamp": "2024-07-03T20:12:28.166988Z",
-    "od_reading": 0.010660438493720935,
-    "angle": 90,
-    "channel": 2
-  },
-  {
-    "experiment": "Demo experiment",
-    "pioreactor_unit": "pio01",
-    "timestamp": "2024-07-03T20:12:33.167090Z",
-    "od_reading": 0.011332938885055854,
-    "angle": 90,
-    "channel": 2
-  },
-  {
-    "...": "1 more items"
-  }
-]
-```
+_No example body inferred._
 
 ## Export Exportable Datasets
 
@@ -511,19 +796,28 @@ Export Exportable Datasets endpoint.
 ### Request
 
 #### Request Body
+
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| datasets | array | Yes | datasets. |
+| experiments | array | Yes | experiments. |
+| partition_by_experiment | boolean | Yes | partition by experiment. |
+| partition_by_unit | boolean | Yes | partition by unit. |
+| end_time | string | No | end time. |
+| start_time | string | No | start time. |
+
 ```json
 {
   "datasets": [
-    "growth_rates",
     "od_readings"
   ],
-  "end_time": "2026-01-01T13:00:00Z",
   "experiments": [
-    "demo_experiment"
+    "testing_experiment"
   ],
   "partition_by_experiment": true,
   "partition_by_unit": true,
-  "start_time": "2026-01-01T12:00:00Z"
+  "end_time": "2026-01-01T12:00:00Z",
+  "start_time": "2026-01-01T00:00:00Z"
 }
 ```
 
@@ -537,7 +831,6 @@ Example body:
 
 ```json
 {
-  "unit": "pio01",
   "task_id": "abcd1234",
   "result_url_path": "/unit_api/task_results/abcd1234"
 }
@@ -559,7 +852,78 @@ Status: `200 OK`
 Example body:
 
 ```json
-[]
+[
+  {
+    "experimentProfile": {
+      "experiment_profile_name": "Debug2",
+      "metadata": {
+        "author": "d",
+        "description": "d"
+      },
+      "plugins": [],
+      "common": {
+        "jobs": {}
+      },
+      "pioreactors": {
+        "localhost": {
+          "jobs": {
+            "circulate_alt_media": "<truncated>"
+          },
+          "label": null
+        }
+      },
+      "inputs": {}
+    },
+    "file": "from_forum.yaml",
+    "fullpath": "/Users/camerondavidson-pilon/code/pioreactor/.pioreactor/experiment_profiles/from_forum.yaml"
+  },
+  {
+    "experimentProfile": {
+      "experiment_profile_name": "invalid_demo",
+      "metadata": {
+        "author": null,
+        "description": null
+      },
+      "plugins": [],
+      "common": {
+        "jobs": {
+          "stirring": {
+            "actions": "<truncated>",
+            "description": "<truncated>"
+          }
+        }
+      },
+      "pioreactors": {},
+      "inputs": {}
+    },
+    "file": "efef.yaml",
+    "fullpath": "/Users/camerondavidson-pilon/code/pioreactor/.pioreactor/experiment_profiles/efef.yaml"
+  },
+  {
+    "experimentProfile": {
+      "experiment_profile_name": "fefesf",
+      "metadata": {
+        "author": null,
+        "description": null
+      },
+      "plugins": [],
+      "common": {
+        "jobs": {}
+      },
+      "pioreactors": {
+        "localhost": {
+          "jobs": {
+            "led_intensity": "<truncated>"
+          },
+          "label": null
+        }
+      },
+      "inputs": {}
+    },
+    "file": "sfeesf.yaml",
+    "fullpath": "/Users/camerondavidson-pilon/code/pioreactor/.pioreactor/experiment_profiles/sfeesf.yaml"
+  }
+]
 ```
 
 ## Create Experiment Profile
@@ -572,10 +936,16 @@ Create Experiment Profile endpoint.
 ### Request
 
 #### Request Body
+
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| body | string | Yes | body. |
+| filename | string | Yes | filename. |
+
 ```json
 {
-  "body": "file contents",
-  "filename": "example.txt"
+  "body": "Profile YAML or text content.",
+  "filename": "profile.yaml"
 }
 ```
 
@@ -641,11 +1011,7 @@ Get Experiment Profile endpoint.
 
 Status: `200 OK`
 
-Example body:
-
-```json
-"experiment_profile_name: example.yaml\nmetadata:\n  author: Pioreactor\n"
-```
+_No example body inferred._
 
 ## Update Experiment Profile
 
@@ -662,9 +1028,14 @@ Update Experiment Profile endpoint.
 | filename | string | Yes | Filename. |
 
 #### Request Body
+
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| body | string | Yes | body. |
+
 ```json
 {
-  "body": "file contents"
+  "body": "Profile YAML or text content."
 }
 ```
 
@@ -703,8 +1074,8 @@ Example body:
     "experiment": "efaeffefe",
     "created_at": "2026-04-13T15:47:38.212Z",
     "description": "",
-    "delta_hours": 274.0,
-    "worker_count": 0,
+    "delta_hours": 297.0,
+    "worker_count": 1,
     "tags": [
       "4324-2344",
       "glp1"
@@ -714,7 +1085,7 @@ Example body:
     "experiment": "efaef4e4",
     "created_at": "2026-03-07T00:30:31.257Z",
     "description": "eefefaefaefefefeefefefafafefef",
-    "delta_hours": 1177.0,
+    "delta_hours": 1200.0,
     "worker_count": 0,
     "tags": [
       "pencil",
@@ -725,19 +1096,13 @@ Example body:
     "experiment": "efaef4",
     "created_at": "2026-02-06T01:19:11.315Z",
     "description": "aefaef",
-    "delta_hours": 1872.0,
+    "delta_hours": 1895.0,
     "worker_count": 0,
     "tags": [
       "pencil",
       "notebook",
-      "4324-2344",
-      {
-        "...": "1 more items"
-      }
+      "4324-2344"
     ]
-  },
-  {
-    "...": "1 more items"
   }
 ]
 ```
@@ -752,14 +1117,23 @@ Create Experiment endpoint.
 ### Request
 
 #### Request Body
+
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| experiment | string | Yes | experiment. |
+| description | string | No | description. |
+| mediaUsed | string | No | mediaUsed. |
+| organismUsed | string | No | organismUsed. |
+| tags | array | No | tags. |
+
 ```json
 {
-  "description": "Example description",
-  "experiment": "demo_experiment",
-  "mediaUsed": "LB broth",
-  "organismUsed": "E. coli",
+  "experiment": "testing_experiment",
+  "description": "Experiment notes.",
+  "mediaUsed": "LB",
+  "organismUsed": "example_organismUsed",
   "tags": [
-    "demo"
+    "screening"
   ]
 }
 ```
@@ -770,15 +1144,7 @@ Create Experiment endpoint.
 
 Status: `201 Created`
 
-Example body:
-
-```json
-{
-  "experiment": "demo_experiment",
-  "created_at": "2026-01-01T12:00:00Z",
-  "description": "Example experiment"
-}
-```
+_No example body inferred._
 
 ## Delete Experiment
 
@@ -835,8 +1201,8 @@ Example body:
   "experiment": "efaeffefe",
   "created_at": "2026-04-13T15:47:38.212Z",
   "description": "",
-  "delta_hours": 274.0,
-  "worker_count": 0,
+  "delta_hours": 297.0,
+  "worker_count": 1,
   "tags": [
     "4324-2344",
     "glp1"
@@ -859,11 +1225,17 @@ Update Experiment endpoint.
 | experiment | string | Yes | Experiment identifier. |
 
 #### Request Body
+
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| description | string | Yes | description. |
+| tags | array | Yes | tags. |
+
 ```json
 {
-  "description": "Example description",
+  "description": "Experiment notes.",
   "tags": [
-    "demo"
+    "screening"
   ]
 }
 ```
@@ -874,15 +1246,7 @@ Update Experiment endpoint.
 
 Status: `200 OK`
 
-Example body:
-
-```json
-{
-  "experiment": "demo_experiment",
-  "updated_at": "2026-01-01T12:05:00Z",
-  "description": "Updated experiment description"
-}
-```
+_No example body inferred._
 
 ## Get Recent Experiment Profile Runs
 
@@ -963,7 +1327,7 @@ Example body:
   {
     "pioreactor_unit": "localhost",
     "experiment": "efaeffefe",
-    "is_currently_assigned_to_experiment": 0
+    "is_currently_assigned_to_experiment": 1
   },
   {
     "pioreactor_unit": "missing",
@@ -974,9 +1338,6 @@ Example body:
     "pioreactor_unit": "pio01",
     "experiment": "efaeffefe",
     "is_currently_assigned_to_experiment": 0
-  },
-  {
-    "...": "1 more items"
   }
 ]
 ```
@@ -995,17 +1356,19 @@ Shows event logs from all units, uses pagination.
 | ---- | ---- | -------- | ----------- |
 | experiment | string | Yes | Experiment identifier. |
 
+#### Query Parameters
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| min_level | string | No | min level. |
+| skip | string | No | skip. |
+
 ### Response
 
 #### Success
 
 Status: `200 OK`
 
-Example body:
-
-```json
-[]
-```
+_No example body inferred._
 
 ## Get Media Rates
 
@@ -1030,7 +1393,12 @@ Status: `200 OK`
 Example body:
 
 ```json
-{}
+{
+  "all": {
+    "altMediaRate": 0.0,
+    "mediaRate": 0.0
+  }
+}
 ```
 
 ## Get Recent Logs
@@ -1047,17 +1415,18 @@ Shows recent event logs from all units
 | ---- | ---- | -------- | ----------- |
 | experiment | string | Yes | Experiment identifier. |
 
+#### Query Parameters
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| min_level | string | No | min level. |
+
 ### Response
 
 #### Success
 
 Status: `200 OK`
 
-Example body:
-
-```json
-[]
-```
+_No example body inferred._
 
 ## Get Fallback Time Series
 
@@ -1072,8 +1441,14 @@ Get Fallback Time Series endpoint.
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
 | experiment | string | Yes | Experiment identifier. |
-| data_source | string | Yes | Time-series data source. |
-| column | string | Yes | Column name. |
+| data_source | string | Yes | Time-series data source name. |
+| column | string | Yes | Dataset column name. |
+
+#### Query Parameters
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| lookback | number | No | Lookback window in hours. Defaults to `4.0`. |
+| target_points | integer | No | Approximate maximum points per series. Defaults to `720` and must be greater than `0`. |
 
 ### Response
 
@@ -1081,16 +1456,39 @@ Get Fallback Time Series endpoint.
 
 Status: `200 OK`
 
+Body shape: `series` is a list of series labels. `data` is a parallel list of point arrays, so `data[i]` contains the points for `series[i]`. Each point has `x` as an ISO-8601 UTC timestamp string and `y` as a number.
+
 Example body:
 
 ```json
-[
-  {
-    "timestamp": "2026-01-01T12:00:00Z",
-    "pioreactor_unit": "pio01",
-    "value": 1.23
-  }
-]
+{
+  "series": [
+    "pio01",
+    "pio02"
+  ],
+  "data": [
+    [
+      {
+        "x": "2026-01-01T00:00:00.000Z",
+        "y": 0.01234
+      },
+      {
+        "x": "2026-01-01T00:01:00.000Z",
+        "y": 0.0125
+      }
+    ],
+    [
+      {
+        "x": "2026-01-01T00:00:00.000Z",
+        "y": 0.00987
+      },
+      {
+        "x": "2026-01-01T00:01:00.000Z",
+        "y": 0.01001
+      }
+    ]
+  ]
+}
 ```
 
 ## Get Growth Rates
@@ -1107,22 +1505,54 @@ Gets growth rates for all units
 | ---- | ---- | -------- | ----------- |
 | experiment | string | Yes | Experiment identifier. |
 
+#### Query Parameters
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| lookback | number | No | Lookback window in hours. Defaults to `4.0`. |
+| target_points | integer | No | Approximate maximum points per series. Defaults to `720` and must be greater than `0`. |
+
 ### Response
 
 #### Success
 
 Status: `200 OK`
 
+Body shape: `series` is a list of series labels. `data` is a parallel list of point arrays, so `data[i]` contains the points for `series[i]`. Each point has `x` as an ISO-8601 UTC timestamp string and `y` as a number.
+
 Example body:
 
 ```json
 {
-  "series": [],
-  "data": []
+  "series": [
+    "pio01",
+    "pio02"
+  ],
+  "data": [
+    [
+      {
+        "x": "2026-01-01T00:00:00.000Z",
+        "y": 0.01234
+      },
+      {
+        "x": "2026-01-01T00:01:00.000Z",
+        "y": 0.0125
+      }
+    ],
+    [
+      {
+        "x": "2026-01-01T00:00:00.000Z",
+        "y": 0.00987
+      },
+      {
+        "x": "2026-01-01T00:01:00.000Z",
+        "y": 0.01001
+      }
+    ]
+  ]
 }
 ```
 
-## Get OD Readings
+## Get Od Readings
 
 Gets raw od for all units
 
@@ -1136,22 +1566,54 @@ Gets raw od for all units
 | ---- | ---- | -------- | ----------- |
 | experiment | string | Yes | Experiment identifier. |
 
+#### Query Parameters
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| lookback | number | No | Lookback window in hours. Defaults to `4.0`. |
+| target_points | integer | No | Approximate maximum points per series. Defaults to `720` and must be greater than `0`. |
+
 ### Response
 
 #### Success
 
 Status: `200 OK`
 
+Body shape: `series` is a list of series labels. `data` is a parallel list of point arrays, so `data[i]` contains the points for `series[i]`. Each point has `x` as an ISO-8601 UTC timestamp string and `y` as a number.
+
 Example body:
 
 ```json
 {
-  "series": [],
-  "data": []
+  "series": [
+    "pio01",
+    "pio02"
+  ],
+  "data": [
+    [
+      {
+        "x": "2026-01-01T00:00:00.000Z",
+        "y": 0.01234
+      },
+      {
+        "x": "2026-01-01T00:01:00.000Z",
+        "y": 0.0125
+      }
+    ],
+    [
+      {
+        "x": "2026-01-01T00:00:00.000Z",
+        "y": 0.00987
+      },
+      {
+        "x": "2026-01-01T00:01:00.000Z",
+        "y": 0.01001
+      }
+    ]
+  ]
 }
 ```
 
-## Get OD Readings Filtered
+## Get Od Readings Filtered
 
 Gets normalized od for all units
 
@@ -1165,24 +1627,56 @@ Gets normalized od for all units
 | ---- | ---- | -------- | ----------- |
 | experiment | string | Yes | Experiment identifier. |
 
+#### Query Parameters
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| lookback | number | No | Lookback window in hours. Defaults to `4.0`. |
+| target_points | integer | No | Approximate maximum points per series. Defaults to `720` and must be greater than `0`. |
+
 ### Response
 
 #### Success
 
 Status: `200 OK`
 
+Body shape: `series` is a list of series labels. `data` is a parallel list of point arrays, so `data[i]` contains the points for `series[i]`. Each point has `x` as an ISO-8601 UTC timestamp string and `y` as a number.
+
 Example body:
 
 ```json
 {
-  "series": [],
-  "data": []
+  "series": [
+    "pio01",
+    "pio02"
+  ],
+  "data": [
+    [
+      {
+        "x": "2026-01-01T00:00:00.000Z",
+        "y": 0.01234
+      },
+      {
+        "x": "2026-01-01T00:01:00.000Z",
+        "y": 0.0125
+      }
+    ],
+    [
+      {
+        "x": "2026-01-01T00:00:00.000Z",
+        "y": 0.00987
+      },
+      {
+        "x": "2026-01-01T00:01:00.000Z",
+        "y": 0.01001
+      }
+    ]
+  ]
 }
 ```
 
-## Get OD Readings Fused
+## Get Od Readings Fused
 
-Get OD Readings Fused endpoint.
+Get Od Readings Fused endpoint.
 
 ### Endpoint
 `GET /api/experiments/{experiment}/time_series/od_readings_fused`
@@ -1194,22 +1688,54 @@ Get OD Readings Fused endpoint.
 | ---- | ---- | -------- | ----------- |
 | experiment | string | Yes | Experiment identifier. |
 
+#### Query Parameters
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| lookback | number | No | Lookback window in hours. Defaults to `4.0`. |
+| target_points | integer | No | Approximate maximum points per series. Defaults to `720` and must be greater than `0`. |
+
 ### Response
 
 #### Success
 
 Status: `200 OK`
 
+Body shape: `series` is a list of series labels. `data` is a parallel list of point arrays, so `data[i]` contains the points for `series[i]`. Each point has `x` as an ISO-8601 UTC timestamp string and `y` as a number.
+
 Example body:
 
 ```json
 {
-  "series": [],
-  "data": []
+  "series": [
+    "pio01",
+    "pio02"
+  ],
+  "data": [
+    [
+      {
+        "x": "2026-01-01T00:00:00.000Z",
+        "y": 0.01234
+      },
+      {
+        "x": "2026-01-01T00:01:00.000Z",
+        "y": 0.0125
+      }
+    ],
+    [
+      {
+        "x": "2026-01-01T00:00:00.000Z",
+        "y": 0.00987
+      },
+      {
+        "x": "2026-01-01T00:01:00.000Z",
+        "y": 0.01001
+      }
+    ]
+  ]
 }
 ```
 
-## Get OD Raw Readings
+## Get Od Raw Readings
 
 Gets raw od for all units
 
@@ -1223,18 +1749,50 @@ Gets raw od for all units
 | ---- | ---- | -------- | ----------- |
 | experiment | string | Yes | Experiment identifier. |
 
+#### Query Parameters
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| lookback | number | No | Lookback window in hours. Defaults to `4.0`. |
+| target_points | integer | No | Approximate maximum points per series. Defaults to `720` and must be greater than `0`. |
+
 ### Response
 
 #### Success
 
 Status: `200 OK`
 
+Body shape: `series` is a list of series labels. `data` is a parallel list of point arrays, so `data[i]` contains the points for `series[i]`. Each point has `x` as an ISO-8601 UTC timestamp string and `y` as a number.
+
 Example body:
 
 ```json
 {
-  "series": [],
-  "data": []
+  "series": [
+    "pio01",
+    "pio02"
+  ],
+  "data": [
+    [
+      {
+        "x": "2026-01-01T00:00:00.000Z",
+        "y": 0.01234
+      },
+      {
+        "x": "2026-01-01T00:01:00.000Z",
+        "y": 0.0125
+      }
+    ],
+    [
+      {
+        "x": "2026-01-01T00:00:00.000Z",
+        "y": 0.00987
+      },
+      {
+        "x": "2026-01-01T00:01:00.000Z",
+        "y": 0.01001
+      }
+    ]
+  ]
 }
 ```
 
@@ -1252,18 +1810,50 @@ Gets temperature readings for all units
 | ---- | ---- | -------- | ----------- |
 | experiment | string | Yes | Experiment identifier. |
 
+#### Query Parameters
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| lookback | number | No | Lookback window in hours. Defaults to `4.0`. |
+| target_points | integer | No | Approximate maximum points per series. Defaults to `720` and must be greater than `0`. |
+
 ### Response
 
 #### Success
 
 Status: `200 OK`
 
+Body shape: `series` is a list of series labels. `data` is a parallel list of point arrays, so `data[i]` contains the points for `series[i]`. Each point has `x` as an ISO-8601 UTC timestamp string and `y` as a number.
+
 Example body:
 
 ```json
 {
-  "series": [],
-  "data": []
+  "series": [
+    "pio01",
+    "pio02"
+  ],
+  "data": [
+    [
+      {
+        "x": "2026-01-01T00:00:00.000Z",
+        "y": 0.01234
+      },
+      {
+        "x": "2026-01-01T00:01:00.000Z",
+        "y": 0.0125
+      }
+    ],
+    [
+      {
+        "x": "2026-01-01T00:00:00.000Z",
+        "y": 0.00987
+      },
+      {
+        "x": "2026-01-01T00:01:00.000Z",
+        "y": 0.01001
+      }
+    ]
+  ]
 }
 ```
 
@@ -1308,10 +1898,16 @@ Update or insert a new unit label for the current experiment.
 | experiment | string | Yes | Experiment identifier. |
 
 #### Request Body
+
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| label | string | Yes | label. |
+| unit | string | Yes | unit. |
+
 ```json
 {
-  "label": "control",
-  "unit": "pio01"
+  "label": "Control",
+  "unit": "example_unit"
 }
 ```
 
@@ -1344,10 +1940,16 @@ Update or insert a new unit label for the current experiment.
 | experiment | string | Yes | Experiment identifier. |
 
 #### Request Body
+
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| label | string | Yes | label. |
+| unit | string | Yes | unit. |
+
 ```json
 {
-  "label": "control",
-  "unit": "pio01"
+  "label": "Control",
+  "unit": "example_unit"
 }
 ```
 
@@ -1389,7 +1991,6 @@ Example body:
 
 ```json
 {
-  "unit": "pio01",
   "task_id": "abcd1234",
   "result_url_path": "/unit_api/task_results/abcd1234"
 }
@@ -1418,7 +2019,14 @@ Status: `200 OK`
 Example body:
 
 ```json
-[]
+[
+  {
+    "pioreactor_unit": "localhost",
+    "is_active": 1,
+    "model_name": "pioreactor_40ml",
+    "model_version": "1.5"
+  }
+]
 ```
 
 ## Add Worker To Experiment
@@ -1436,9 +2044,14 @@ Add Worker To Experiment endpoint.
 | experiment | string | Yes | Experiment identifier. |
 
 #### Request Body
+
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| pioreactor_unit | string | Yes | pioreactor unit. |
+
 ```json
 {
-  "pioreactor_unit": "pio01"
+  "pioreactor_unit": "pio02"
 }
 ```
 
@@ -1503,12 +2116,15 @@ Example body:
 ```json
 [
   {
-    "experiment": "ALE - Acetate",
-    "created_at": "2024-09-04T17:04:46.423882Z",
-    "description": "MZ PhD Evolution research experiment. Pioreactors 9-16.",
-    "delta_hours": 14336.0,
+    "experiment": "efaeffefe",
+    "created_at": "2026-04-13T15:47:38.212Z",
+    "description": "",
+    "delta_hours": 297.0,
     "worker_count": 1,
-    "tags": []
+    "tags": [
+      "4324-2344",
+      "glp1"
+    ]
   }
 ]
 ```
@@ -1531,7 +2147,7 @@ Example body:
 ```json
 [
   {
-    "experiment": "ALE - Acetate",
+    "experiment": "efaeffefe",
     "worker_count": 1
   }
 ]
@@ -1557,8 +2173,8 @@ Example body:
   "experiment": "efaeffefe",
   "created_at": "2026-04-13T15:47:38.212Z",
   "description": "",
-  "delta_hours": 274.0,
-  "worker_count": 0,
+  "delta_hours": 297.0,
+  "worker_count": 1,
   "tags": [
     "4324-2344",
     "glp1"
@@ -1591,9 +2207,6 @@ Example body:
   },
   {
     "key": "MOPS 0.2% glc"
-  },
-  {
-    "...": "1 more items"
   }
 ]
 ```
@@ -1623,9 +2236,6 @@ Example body:
   },
   {
     "key": "REL606 \u2206pykF"
-  },
-  {
-    "...": "1 more items"
   }
 ]
 ```
@@ -1687,9 +2297,6 @@ Example body:
     "description": "Transform optical density measurements into culture growth rate measurements. Start this after innoculation. Begins by sampling for a few minutes to gather a baseline.",
     "subtext": null,
     "is_testing": false
-  },
-  {
-    "...": "1 more items"
   }
 ]
 ```
@@ -1722,45 +2329,21 @@ Shows event logs from all units, uses pagination.
 ### Endpoint
 `GET /api/logs`
 
+### Request
+
+#### Query Parameters
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| min_level | string | No | min level. |
+| skip | string | No | skip. |
+
 ### Response
 
 #### Success
 
 Status: `200 OK`
 
-Example body:
-
-```json
-[
-  {
-    "timestamp": "2026-03-20T17:14:10Z",
-    "level": "ERROR",
-    "pioreactor_unit": "pio01",
-    "message": "Manual dev log 3",
-    "task": "manual",
-    "experiment": "efaef"
-  },
-  {
-    "timestamp": "2026-03-20T17:14:05Z",
-    "level": "WARNING",
-    "pioreactor_unit": "pio01",
-    "message": "Manual dev log 2",
-    "task": "manual",
-    "experiment": "efaef"
-  },
-  {
-    "timestamp": "2026-03-20T17:14:00Z",
-    "level": "INFO",
-    "pioreactor_unit": "pio01",
-    "message": "Manual dev log 1",
-    "task": "manual",
-    "experiment": "efaef"
-  },
-  {
-    "...": "1 more items"
-  }
-]
-```
+_No example body inferred._
 
 ## Get Models
 
@@ -1818,9 +2401,6 @@ Example body:
       "max_temp_to_shutdown": 85.0,
       "is_legacy": true,
       "is_contrib": false
-    },
-    {
-      "...": "1 more items"
     }
   ]
 }
@@ -1836,12 +2416,17 @@ Update App From Release Archive endpoint.
 ### Request
 
 #### Request Body
+
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| release_archive_location | string | Yes | release archive location. |
+| units | array | Yes | units. |
+
 ```json
 {
-  "release_archive_location": "/tmp/pioreactor-release.zip",
+  "release_archive_location": "/tmp/release.zip",
   "units": [
-    "pio01",
-    "pio02"
+    "pio01"
   ]
 }
 ```
@@ -1856,7 +2441,6 @@ Example body:
 
 ```json
 {
-  "unit": "pio01",
   "task_id": "abcd1234",
   "result_url_path": "/unit_api/task_results/abcd1234"
 }
@@ -1872,11 +2456,15 @@ Update App endpoint.
 ### Request
 
 #### Request Body
+
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| units | array | No | units. |
+
 ```json
 {
   "units": [
-    "pio01",
-    "pio02"
+    "pio01"
   ]
 }
 ```
@@ -1891,7 +2479,6 @@ Example body:
 
 ```json
 {
-  "unit": "pio01",
   "task_id": "abcd1234",
   "result_url_path": "/unit_api/task_results/abcd1234"
 }
@@ -1904,47 +2491,20 @@ Upload System File endpoint.
 ### Endpoint
 `POST /api/system/upload`
 
-### Request
-
-#### Request Body
-```json
-{
-  "content_type": "multipart/form-data",
-  "files": {
-    "file": "pioreactor-release.zip"
-  }
-}
-```
-
 ### Response
 
 #### Success
 
-Status: `200 OK`
+Status: `201 Created`
 
-Example body:
+_No example body inferred._
 
-```json
-{
-  "status": "success"
-}
-```
+## Set System Utc Clock
 
-## Set System UTC Clock
-
-Set System UTC Clock endpoint.
+Set System Utc Clock endpoint.
 
 ### Endpoint
 `POST /api/system/utc_clock`
-
-### Request
-
-#### Request Body
-```json
-{
-  "utc_clock_time": "2026-01-01T12:00:00Z"
-}
-```
 
 ### Response
 
@@ -1956,7 +2516,6 @@ Example body:
 
 ```json
 {
-  "unit": "pio01",
   "task_id": "abcd1234",
   "result_url_path": "/unit_api/task_results/abcd1234"
 }
@@ -2013,8 +2572,8 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "d0da9e9d-6e3e-41d4-8fc9-284ce0197f1a",
-  "result_url_path": "/unit_api/task_results/d0da9e9d-6e3e-41d4-8fc9-284ce0197f1a"
+  "task_id": "fccd5730-b91e-4a9e-a83d-5e70f20c9999",
+  "result_url_path": "/unit_api/task_results/fccd5730-b91e-4a9e-a83d-5e70f20c9999"
 }
 ```
 
@@ -2034,14 +2593,24 @@ Publish New Log endpoint.
 | experiment | string | Yes | Experiment identifier. |
 
 #### Request Body
+
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| level | string | Yes | level. |
+| message | string | Yes | message. |
+| source | string | Yes | source. |
+| task | string | Yes | task. |
+| timestamp | string | Yes | timestamp. |
+| source_ | string | No | source . |
+
 ```json
 {
   "level": "INFO",
-  "message": "Started stirring.",
-  "source": "ui",
-  "source_": "ui",
+  "message": "Log message.",
+  "source": "api",
   "task": "stirring",
-  "timestamp": "2026-01-01T12:00:00Z"
+  "timestamp": "2026-01-01T00:00:00Z",
+  "source_": "api"
 }
 ```
 
@@ -2073,31 +2642,13 @@ Import Dot Pioreactor Archive endpoint.
 | ---- | ---- | -------- | ----------- |
 | pioreactor_unit | string | Yes | Unit name or `$broadcast` where supported. |
 
-#### Request Body
-```json
-{
-  "content_type": "multipart/form-data",
-  "files": {
-    "archive": "dot_pioreactor.zip"
-  }
-}
-```
-
 ### Response
 
 #### Success
 
-Status: `200 OK`
+Status: `201 Created`
 
-Example body:
-
-```json
-{
-  "unit": "pio01",
-  "task_id": "abcd1234",
-  "result_url_path": "/unit_api/task_results/abcd1234"
-}
-```
+_No example body inferred._
 
 ## Run Job On Unit In Experiment
 
@@ -2116,6 +2667,14 @@ Runs specified job on unit.
 | experiment | string | Yes | Experiment identifier. |
 
 #### Request Body
+
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| args | array | No | args. |
+| config_overrides | array | No | config overrides. |
+| env | object | No | env. |
+| options | object | No | options. |
+
 ```json
 {
   "options": {
@@ -2147,7 +2706,6 @@ Example body:
 
 ```json
 {
-  "unit": "pio01",
   "task_id": "abcd1234",
   "result_url_path": "/unit_api/task_results/abcd1234"
 }
@@ -2170,6 +2728,14 @@ Runs specified job on unit.
 | experiment | string | Yes | Experiment identifier. |
 
 #### Request Body
+
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| args | array | No | args. |
+| config_overrides | array | No | config overrides. |
+| env | object | No | env. |
+| options | object | No | options. |
+
 ```json
 {
   "options": {
@@ -2201,7 +2767,6 @@ Example body:
 
 ```json
 {
-  "unit": "pio01",
   "task_id": "abcd1234",
   "result_url_path": "/unit_api/task_results/abcd1234"
 }
@@ -2232,8 +2797,8 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "265395a9-0517-4613-8a67-61794d4ab3ee",
-  "result_url_path": "/unit_api/task_results/265395a9-0517-4613-8a67-61794d4ab3ee"
+  "task_id": "4ebcb979-c4a4-4534-9a29-b2613b777405",
+  "result_url_path": "/unit_api/task_results/4ebcb979-c4a4-4534-9a29-b2613b777405"
 }
 ```
 
@@ -2321,9 +2886,7 @@ Example body:
 
 ```json
 {
-  "unit": "pio01",
-  "task_id": "abcd1234",
-  "result_url_path": "/unit_api/task_results/abcd1234"
+  "status": "success"
 }
 ```
 
@@ -2353,9 +2916,7 @@ Example body:
 
 ```json
 {
-  "unit": "pio01",
-  "task_id": "abcd1234",
-  "result_url_path": "/unit_api/task_results/abcd1234"
+  "status": "success"
 }
 ```
 
@@ -2376,10 +2937,15 @@ Update specified job on unit. Use $broadcast for everyone.
 | experiment | string | Yes | Experiment identifier. |
 
 #### Request Body
+
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| settings | object | Yes | settings. |
+
 ```json
 {
   "settings": {
-    "target_rpm": 500
+    "target_rpm": "200"
   }
 }
 ```
@@ -2412,45 +2978,19 @@ Shows event logs from all units, uses pagination.
 | ---- | ---- | -------- | ----------- |
 | pioreactor_unit | string | Yes | Unit name or `$broadcast` where supported. |
 
+#### Query Parameters
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| min_level | string | No | min level. |
+| skip | string | No | skip. |
+
 ### Response
 
 #### Success
 
 Status: `200 OK`
 
-Example body:
-
-```json
-[
-  {
-    "timestamp": "2026-01-15T00:26:13.804Z",
-    "level": "ERROR",
-    "pioreactor_unit": "localhost",
-    "message": "Could not sync configs to all Pioreactors.",
-    "task": "pioreactor-localhost-api",
-    "experiment": "$experiment"
-  },
-  {
-    "timestamp": "2026-01-15T00:26:06.621Z",
-    "level": "ERROR",
-    "pioreactor_unit": "localhost",
-    "message": "Could not sync configs to all Pioreactors.",
-    "task": "pioreactor-localhost-api",
-    "experiment": "$experiment"
-  },
-  {
-    "timestamp": "2026-01-11T17:42:58.337Z",
-    "level": "INFO",
-    "pioreactor_unit": "localhost",
-    "message": "Disconnected.",
-    "task": "stirring",
-    "experiment": "test_is_pio_job_running_multiple"
-  },
-  {
-    "...": "1 more items"
-  }
-]
-```
+_No example body inferred._
 
 ## Install Plugin Across Cluster
 
@@ -2466,21 +3006,6 @@ Install Plugin Across Cluster endpoint.
 | ---- | ---- | -------- | ----------- |
 | pioreactor_unit | string | Yes | Unit name or `$broadcast` where supported. |
 
-#### Request Body
-```json
-{
-  "options": {
-    "option_name": "value"
-  },
-  "env": {
-    "ENV_VAR": "value"
-  },
-  "args": [
-    "some-flag"
-  ]
-}
-```
-
 ### Response
 
 #### Success
@@ -2491,7 +3016,6 @@ Example body:
 
 ```json
 {
-  "unit": "pio01",
   "task_id": "abcd1234",
   "result_url_path": "/unit_api/task_results/abcd1234"
 }
@@ -2511,21 +3035,6 @@ Install Plugin Across Cluster endpoint.
 | ---- | ---- | -------- | ----------- |
 | pioreactor_unit | string | Yes | Unit name or `$broadcast` where supported. |
 
-#### Request Body
-```json
-{
-  "options": {
-    "option_name": "value"
-  },
-  "env": {
-    "ENV_VAR": "value"
-  },
-  "args": [
-    "some-flag"
-  ]
-}
-```
-
 ### Response
 
 #### Success
@@ -2536,7 +3045,6 @@ Example body:
 
 ```json
 {
-  "unit": "pio01",
   "task_id": "abcd1234",
   "result_url_path": "/unit_api/task_results/abcd1234"
 }
@@ -2567,8 +3075,8 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "f0931b5d-8b79-4f8c-a57b-02279394d21b",
-  "result_url_path": "/unit_api/task_results/f0931b5d-8b79-4f8c-a57b-02279394d21b"
+  "task_id": "7a660f70-bf85-4aec-bbd3-5e43204d230f",
+  "result_url_path": "/unit_api/task_results/7a660f70-bf85-4aec-bbd3-5e43204d230f"
 }
 ```
 
@@ -2586,21 +3094,6 @@ Uninstall Plugin Across Cluster endpoint.
 | ---- | ---- | -------- | ----------- |
 | pioreactor_unit | string | Yes | Unit name or `$broadcast` where supported. |
 
-#### Request Body
-```json
-{
-  "options": {
-    "option_name": "value"
-  },
-  "env": {
-    "ENV_VAR": "value"
-  },
-  "args": [
-    "some-flag"
-  ]
-}
-```
-
 ### Response
 
 #### Success
@@ -2611,7 +3104,6 @@ Example body:
 
 ```json
 {
-  "unit": "pio01",
   "task_id": "abcd1234",
   "result_url_path": "/unit_api/task_results/abcd1234"
 }
@@ -2631,21 +3123,6 @@ Uninstall Plugin Across Cluster endpoint.
 | ---- | ---- | -------- | ----------- |
 | pioreactor_unit | string | Yes | Unit name or `$broadcast` where supported. |
 
-#### Request Body
-```json
-{
-  "options": {
-    "option_name": "value"
-  },
-  "env": {
-    "ENV_VAR": "value"
-  },
-  "args": [
-    "some-flag"
-  ]
-}
-```
-
 ### Response
 
 #### Success
@@ -2656,7 +3133,6 @@ Example body:
 
 ```json
 {
-  "unit": "pio01",
   "task_id": "abcd1234",
   "result_url_path": "/unit_api/task_results/abcd1234"
 }
@@ -2680,17 +3156,9 @@ Reboots unit
 
 #### Success
 
-Status: `200 OK`
+Status: `201 Created`
 
-Example body:
-
-```json
-{
-  "unit": "pio01",
-  "task_id": "abcd1234",
-  "result_url_path": "/unit_api/task_results/abcd1234"
-}
-```
+_No example body inferred._
 
 ## Shutdown Unit
 
@@ -2710,21 +3178,13 @@ Shutdown unit
 
 #### Success
 
-Status: `200 OK`
+Status: `201 Created`
 
-Example body:
+_No example body inferred._
 
-```json
-{
-  "unit": "pio01",
-  "task_id": "abcd1234",
-  "result_url_path": "/unit_api/task_results/abcd1234"
-}
-```
+## Get Unit Utc Clock
 
-## Get Unit UTC Clock
-
-Get Unit UTC Clock endpoint.
+Get Unit Utc Clock endpoint.
 
 ### Endpoint
 `GET /api/units/{pioreactor_unit}/system/utc_clock`
@@ -2747,8 +3207,8 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "3caf50de-a972-4b90-b50b-5ee01d0b2ee9",
-  "result_url_path": "/unit_api/task_results/3caf50de-a972-4b90-b50b-5ee01d0b2ee9"
+  "task_id": "1d50633d-3e41-4710-a83b-4103fede76cb",
+  "result_url_path": "/unit_api/task_results/1d50633d-3e41-4710-a83b-4103fede76cb"
 }
 ```
 
@@ -2766,45 +3226,19 @@ Shows system logs from specific unit uses pagination.
 | ---- | ---- | -------- | ----------- |
 | pioreactor_unit | string | Yes | Unit name or `$broadcast` where supported. |
 
+#### Query Parameters
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| min_level | string | No | min level. |
+| skip | string | No | skip. |
+
 ### Response
 
 #### Success
 
 Status: `200 OK`
 
-Example body:
-
-```json
-[
-  {
-    "timestamp": "2026-01-15T00:26:13.804Z",
-    "level": "ERROR",
-    "pioreactor_unit": "localhost",
-    "message": "Could not sync configs to all Pioreactors.",
-    "task": "pioreactor-localhost-api",
-    "experiment": "$experiment"
-  },
-  {
-    "timestamp": "2026-01-15T00:26:06.621Z",
-    "level": "ERROR",
-    "pioreactor_unit": "localhost",
-    "message": "Could not sync configs to all Pioreactors.",
-    "task": "pioreactor-localhost-api",
-    "experiment": "$experiment"
-  },
-  {
-    "timestamp": "2026-01-11T17:39:37.225Z",
-    "level": "INFO",
-    "pioreactor_unit": "localhost",
-    "message": "Saved calibration test_analyze to /Users/camerondavidson-pilon/code/pioreactor/.pioreactor/storage/calibrations/od90/test_analyze.yaml",
-    "task": "calibrations",
-    "experiment": "$experiment"
-  },
-  {
-    "...": "1 more items"
-  }
-]
-```
+_No example body inferred._
 
 ## Get App Versions
 
@@ -2831,8 +3265,8 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "b4be6229-527a-43ef-ad41-9b8b5e969ffd",
-  "result_url_path": "/unit_api/task_results/b4be6229-527a-43ef-ad41-9b8b5e969ffd"
+  "task_id": "9a79e4c4-acfe-4995-842d-7f03546044ed",
+  "result_url_path": "/unit_api/task_results/9a79e4c4-acfe-4995-842d-7f03546044ed"
 }
 ```
 
@@ -2856,14 +3290,7 @@ Download a ZIP of ~/.pioreactor from one or all workers.
 
 Status: `200 OK`
 
-Example body:
-
-```json
-{
-  "content_type": "application/zip",
-  "body": "file contents"
-}
-```
+_No example body inferred._
 
 ## Get List Of Workers
 
@@ -2909,11 +3336,18 @@ Add Worker endpoint.
 ### Request
 
 #### Request Body
+
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| pioreactor_unit | string | Yes | pioreactor unit. |
+| model_name | string | No | model name. |
+| model_version | string | No | model version. |
+
 ```json
 {
+  "pioreactor_unit": "pio02",
   "model_name": "pioreactor_40ml",
-  "model_version": "1.5",
-  "pioreactor_unit": "pio01"
+  "model_version": "1.5"
 }
 ```
 
@@ -3016,8 +3450,8 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "f4c64a3c-c9bd-4a5d-9073-41d353c36511",
-  "result_url_path": "/unit_api/task_results/f4c64a3c-c9bd-4a5d-9073-41d353c36511"
+  "task_id": "1a8ca830-9e05-401f-830c-8b03462153b6",
+  "result_url_path": "/unit_api/task_results/1a8ca830-9e05-401f-830c-8b03462153b6"
 }
 ```
 
@@ -3046,7 +3480,6 @@ Example body:
 
 ```json
 {
-  "unit": "pio01",
   "task_id": "abcd1234",
   "result_url_path": "/unit_api/task_results/abcd1234"
 }
@@ -3078,7 +3511,6 @@ Example body:
 
 ```json
 {
-  "unit": "pio01",
   "task_id": "abcd1234",
   "result_url_path": "/unit_api/task_results/abcd1234"
 }
@@ -3109,8 +3541,8 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "b38783f2-230c-44ec-bfa2-14033daa2887",
-  "result_url_path": "/unit_api/task_results/b38783f2-230c-44ec-bfa2-14033daa2887"
+  "task_id": "e0c34fe8-9310-430d-ba74-276d345f042b",
+  "result_url_path": "/unit_api/task_results/e0c34fe8-9310-430d-ba74-276d345f042b"
 }
 ```
 
@@ -3139,7 +3571,6 @@ Example body:
 
 ```json
 {
-  "unit": "pio01",
   "task_id": "abcd1234",
   "result_url_path": "/unit_api/task_results/abcd1234"
 }
@@ -3171,7 +3602,6 @@ Example body:
 
 ```json
 {
-  "unit": "pio01",
   "task_id": "abcd1234",
   "result_url_path": "/unit_api/task_results/abcd1234"
 }
@@ -3190,7 +3620,7 @@ Get Automation Descriptors For Worker endpoint.
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
 | pioreactor_unit | string | Yes | Unit name or `$broadcast` where supported. |
-| automation_type | string | Yes | Automation type: dosing, temperature, led. |
+| automation_type | string | Yes | Automation type, for example `dosing`, `temperature`, or `led`. |
 
 ### Response
 
@@ -3245,11 +3675,15 @@ Update Bioreactor On Unit endpoint.
 | experiment | string | Yes | Experiment identifier. |
 
 #### Request Body
+
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| values | object | Yes | values. |
+
 ```json
 {
   "values": {
-    "temperature": 30.0,
-    "current_volume_ml": 14.0
+    "current_volume_ml": 12.5
   }
 }
 ```
@@ -3264,7 +3698,6 @@ Example body:
 
 ```json
 {
-  "unit": "pio01",
   "task_id": "abcd1234",
   "result_url_path": "/unit_api/task_results/abcd1234"
 }
@@ -3323,8 +3756,8 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "ac4c7f24-4b8c-4992-87ef-8c99bdfcc5f4",
-  "result_url_path": "/unit_api/task_results/ac4c7f24-4b8c-4992-87ef-8c99bdfcc5f4"
+  "task_id": "b27d77d1-7c51-41ce-b5fb-ff7d80472466",
+  "result_url_path": "/unit_api/task_results/b27d77d1-7c51-41ce-b5fb-ff7d80472466"
 }
 ```
 
@@ -3353,8 +3786,8 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "dbff665d-78e8-4862-9af0-8f9143274430",
-  "result_url_path": "/unit_api/task_results/dbff665d-78e8-4862-9af0-8f9143274430"
+  "task_id": "7593e6cc-0bbc-49ea-9419-c112d813fbec",
+  "result_url_path": "/unit_api/task_results/7593e6cc-0bbc-49ea-9419-c112d813fbec"
 }
 ```
 
@@ -3384,8 +3817,8 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "eea95d6c-ebd7-434e-adfd-699ba080a8da",
-  "result_url_path": "/unit_api/task_results/eea95d6c-ebd7-434e-adfd-699ba080a8da"
+  "task_id": "951d3705-df09-4bb4-9d59-3f45a2c88a06",
+  "result_url_path": "/unit_api/task_results/951d3705-df09-4bb4-9d59-3f45a2c88a06"
 }
 ```
 
@@ -3405,9 +3838,17 @@ Create Calibration endpoint.
 | device | string | Yes | Target device name. |
 
 #### Request Body
+
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| calibration_data | object | Yes | calibration data. |
+| set_as_active | boolean | Yes | set as active. |
+
 ```json
 {
-  "calibration_data": "calibration_name: stirring-calibration\ncalibration_type: stirring\n",
+  "calibration_data": {
+    "calibration_name": "example_calibration"
+  },
   "set_as_active": true
 }
 ```
@@ -3422,7 +3863,6 @@ Example body:
 
 ```json
 {
-  "unit": "pio01",
   "task_id": "abcd1234",
   "result_url_path": "/unit_api/task_results/abcd1234"
 }
@@ -3454,7 +3894,6 @@ Example body:
 
 ```json
 {
-  "unit": "pio01",
   "task_id": "abcd1234",
   "result_url_path": "/unit_api/task_results/abcd1234"
 }
@@ -3487,8 +3926,8 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "729e3c74-cdfd-42da-a7bd-bc73f098b448",
-  "result_url_path": "/unit_api/task_results/729e3c74-cdfd-42da-a7bd-bc73f098b448"
+  "task_id": "70401f77-f0fd-4521-9a42-a950e0a21003",
+  "result_url_path": "/unit_api/task_results/70401f77-f0fd-4521-9a42-a950e0a21003"
 }
 ```
 
@@ -3506,29 +3945,13 @@ Start Calibration Session endpoint.
 | ---- | ---- | -------- | ----------- |
 | pioreactor_unit | string | Yes | Unit name or `$broadcast` where supported. |
 
-#### Request Body
-```json
-{
-  "protocol": "stirring",
-  "target_device": "stirring"
-}
-```
-
 ### Response
 
 #### Success
 
-Status: `200 OK`
+Status: `201 Created`
 
-Example body:
-
-```json
-{
-  "session_id": "example-session",
-  "state": "running",
-  "current_step": "prepare"
-}
-```
+_No example body inferred._
 
 ## Get Calibration Session
 
@@ -3551,15 +3974,7 @@ Get Calibration Session endpoint.
 
 Status: `200 OK`
 
-Example body:
-
-```json
-{
-  "session_id": "example-session",
-  "state": "running",
-  "current_step": "record_measurement"
-}
-```
+_No example body inferred._
 
 ## Abort Calibration Session
 
@@ -3576,27 +3991,13 @@ Abort Calibration Session endpoint.
 | pioreactor_unit | string | Yes | Unit name or `$broadcast` where supported. |
 | session_id | string | Yes | Calibration session identifier. |
 
-#### Request Body
-```json
-{
-  "reason": "User cancelled calibration."
-}
-```
-
 ### Response
 
 #### Success
 
-Status: `200 OK`
+Status: `201 Created`
 
-Example body:
-
-```json
-{
-  "status": "aborted",
-  "session_id": "example-session"
-}
-```
+_No example body inferred._
 
 ## Advance Calibration Session
 
@@ -3613,30 +4014,13 @@ Advance Calibration Session endpoint.
 | pioreactor_unit | string | Yes | Unit name or `$broadcast` where supported. |
 | session_id | string | Yes | Calibration session identifier. |
 
-#### Request Body
-```json
-{
-  "inputs": {
-    "measured_rpm": 500
-  }
-}
-```
-
 ### Response
 
 #### Success
 
-Status: `200 OK`
+Status: `201 Created`
 
-Example body:
-
-```json
-{
-  "session_id": "example-session",
-  "state": "running",
-  "current_step": "record_measurement"
-}
-```
+_No example body inferred._
 
 ## Get Capabilities
 
@@ -3663,8 +4047,8 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "78df66f5-1991-46f2-967e-c58484f7e499",
-  "result_url_path": "/unit_api/task_results/78df66f5-1991-46f2-967e-c58484f7e499"
+  "task_id": "251aaebc-031f-40a5-a10e-e5af5be311b3",
+  "result_url_path": "/unit_api/task_results/251aaebc-031f-40a5-a10e-e5af5be311b3"
 }
 ```
 
@@ -3693,8 +4077,8 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "a95fd18e-7fcb-45df-b1f9-f038370ae666",
-  "result_url_path": "/unit_api/task_results/a95fd18e-7fcb-45df-b1f9-f038370ae666"
+  "task_id": "bdbeb70a-4ad0-40b5-a4a8-c58a45152947",
+  "result_url_path": "/unit_api/task_results/bdbeb70a-4ad0-40b5-a4a8-c58a45152947"
 }
 ```
 
@@ -3724,8 +4108,8 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "8797e234-358e-428a-a4d1-854ed5aa1d99",
-  "result_url_path": "/unit_api/task_results/8797e234-358e-428a-a4d1-854ed5aa1d99"
+  "task_id": "a9780d3d-0701-4d72-a5d7-b8847dfb9324",
+  "result_url_path": "/unit_api/task_results/a9780d3d-0701-4d72-a5d7-b8847dfb9324"
 }
 ```
 
@@ -3755,7 +4139,6 @@ Example body:
 
 ```json
 {
-  "unit": "pio01",
   "task_id": "abcd1234",
   "result_url_path": "/unit_api/task_results/abcd1234"
 }
@@ -3788,8 +4171,8 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "27569c07-4fa6-4b9e-8b4c-b1f82e0c7205",
-  "result_url_path": "/unit_api/task_results/27569c07-4fa6-4b9e-8b4c-b1f82e0c7205"
+  "task_id": "32d3d4f5-e77d-4c07-9ed5-b364b657a6ed",
+  "result_url_path": "/unit_api/task_results/32d3d4f5-e77d-4c07-9ed5-b364b657a6ed"
 }
 ```
 
@@ -3819,7 +4202,7 @@ Example body:
 {
   "pioreactor_unit": "localhost",
   "is_active": 1,
-  "experiment": "ALE - Acetate",
+  "experiment": "efaeffefe",
   "model_name": "pioreactor_40ml",
   "model_version": "1.5"
 }
@@ -3840,17 +4223,19 @@ Shows event logs from specific unit and experiment, uses pagination.
 | pioreactor_unit | string | Yes | Unit name or `$broadcast` where supported. |
 | experiment | string | Yes | Experiment identifier. |
 
+#### Query Parameters
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| min_level | string | No | min level. |
+| skip | string | No | skip. |
+
 ### Response
 
 #### Success
 
 Status: `200 OK`
 
-Example body:
-
-```json
-[]
-```
+_No example body inferred._
 
 ## Publish New Log
 
@@ -3868,14 +4253,24 @@ Publish New Log endpoint.
 | experiment | string | Yes | Experiment identifier. |
 
 #### Request Body
+
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| level | string | Yes | level. |
+| message | string | Yes | message. |
+| source | string | Yes | source. |
+| task | string | Yes | task. |
+| timestamp | string | Yes | timestamp. |
+| source_ | string | No | source . |
+
 ```json
 {
   "level": "INFO",
-  "message": "Started stirring.",
-  "source": "ui",
-  "source_": "ui",
+  "message": "Log message.",
+  "source": "api",
   "task": "stirring",
-  "timestamp": "2026-01-01T12:00:00Z"
+  "timestamp": "2026-01-01T00:00:00Z",
+  "source_": "api"
 }
 ```
 
@@ -3908,17 +4303,18 @@ Shows event logs for a specific unit within an experiment. This is for the singl
 | pioreactor_unit | string | Yes | Unit name or `$broadcast` where supported. |
 | experiment | string | Yes | Experiment identifier. |
 
+#### Query Parameters
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| min_level | string | No | min level. |
+
 ### Response
 
 #### Success
 
 Status: `200 OK`
 
-Example body:
-
-```json
-[]
-```
+_No example body inferred._
 
 ## Get Fallback Time Series Per Unit
 
@@ -3934,8 +4330,14 @@ Get Fallback Time Series Per Unit endpoint.
 | ---- | ---- | -------- | ----------- |
 | pioreactor_unit | string | Yes | Unit name or `$broadcast` where supported. |
 | experiment | string | Yes | Experiment identifier. |
-| data_source | string | Yes | Time-series data source. |
-| column | string | Yes | Column name. |
+| data_source | string | Yes | Time-series data source name. |
+| column | string | Yes | Dataset column name. |
+
+#### Query Parameters
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| lookback | number | No | Lookback window in hours. Defaults to `4.0`. |
+| target_points | integer | No | Approximate maximum points per series. Defaults to `720` and must be greater than `0`. |
 
 ### Response
 
@@ -3943,15 +4345,39 @@ Get Fallback Time Series Per Unit endpoint.
 
 Status: `200 OK`
 
+Body shape: `series` is a list of series labels. `data` is a parallel list of point arrays, so `data[i]` contains the points for `series[i]`. Each point has `x` as an ISO-8601 UTC timestamp string and `y` as a number.
+
 Example body:
 
 ```json
-[
-  {
-    "timestamp": "2026-01-01T12:00:00Z",
-    "value": 1.23
-  }
-]
+{
+  "series": [
+    "pio01",
+    "pio02"
+  ],
+  "data": [
+    [
+      {
+        "x": "2026-01-01T00:00:00.000Z",
+        "y": 0.01234
+      },
+      {
+        "x": "2026-01-01T00:01:00.000Z",
+        "y": 0.0125
+      }
+    ],
+    [
+      {
+        "x": "2026-01-01T00:00:00.000Z",
+        "y": 0.00987
+      },
+      {
+        "x": "2026-01-01T00:01:00.000Z",
+        "y": 0.01001
+      }
+    ]
+  ]
+}
 ```
 
 ## Get Growth Rates Per Unit
@@ -3969,24 +4395,56 @@ Get Growth Rates Per Unit endpoint.
 | pioreactor_unit | string | Yes | Unit name or `$broadcast` where supported. |
 | experiment | string | Yes | Experiment identifier. |
 
+#### Query Parameters
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| lookback | number | No | Lookback window in hours. Defaults to `4.0`. |
+| target_points | integer | No | Approximate maximum points per series. Defaults to `720` and must be greater than `0`. |
+
 ### Response
 
 #### Success
 
 Status: `200 OK`
 
+Body shape: `series` is a list of series labels. `data` is a parallel list of point arrays, so `data[i]` contains the points for `series[i]`. Each point has `x` as an ISO-8601 UTC timestamp string and `y` as a number.
+
 Example body:
 
 ```json
 {
-  "series": [],
-  "data": []
+  "series": [
+    "pio01",
+    "pio02"
+  ],
+  "data": [
+    [
+      {
+        "x": "2026-01-01T00:00:00.000Z",
+        "y": 0.01234
+      },
+      {
+        "x": "2026-01-01T00:01:00.000Z",
+        "y": 0.0125
+      }
+    ],
+    [
+      {
+        "x": "2026-01-01T00:00:00.000Z",
+        "y": 0.00987
+      },
+      {
+        "x": "2026-01-01T00:01:00.000Z",
+        "y": 0.01001
+      }
+    ]
+  ]
 }
 ```
 
-## Get OD Readings Per Unit
+## Get Od Readings Per Unit
 
-Get OD Readings Per Unit endpoint.
+Get Od Readings Per Unit endpoint.
 
 ### Endpoint
 `GET /api/workers/{pioreactor_unit}/experiments/{experiment}/time_series/od_readings`
@@ -3999,24 +4457,56 @@ Get OD Readings Per Unit endpoint.
 | pioreactor_unit | string | Yes | Unit name or `$broadcast` where supported. |
 | experiment | string | Yes | Experiment identifier. |
 
+#### Query Parameters
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| lookback | number | No | Lookback window in hours. Defaults to `4.0`. |
+| target_points | integer | No | Approximate maximum points per series. Defaults to `720` and must be greater than `0`. |
+
 ### Response
 
 #### Success
 
 Status: `200 OK`
 
+Body shape: `series` is a list of series labels. `data` is a parallel list of point arrays, so `data[i]` contains the points for `series[i]`. Each point has `x` as an ISO-8601 UTC timestamp string and `y` as a number.
+
 Example body:
 
 ```json
 {
-  "series": [],
-  "data": []
+  "series": [
+    "pio01",
+    "pio02"
+  ],
+  "data": [
+    [
+      {
+        "x": "2026-01-01T00:00:00.000Z",
+        "y": 0.01234
+      },
+      {
+        "x": "2026-01-01T00:01:00.000Z",
+        "y": 0.0125
+      }
+    ],
+    [
+      {
+        "x": "2026-01-01T00:00:00.000Z",
+        "y": 0.00987
+      },
+      {
+        "x": "2026-01-01T00:01:00.000Z",
+        "y": 0.01001
+      }
+    ]
+  ]
 }
 ```
 
-## Get OD Readings Filtered Per Unit
+## Get Od Readings Filtered Per Unit
 
-Get OD Readings Filtered Per Unit endpoint.
+Get Od Readings Filtered Per Unit endpoint.
 
 ### Endpoint
 `GET /api/workers/{pioreactor_unit}/experiments/{experiment}/time_series/od_readings_filtered`
@@ -4029,24 +4519,56 @@ Get OD Readings Filtered Per Unit endpoint.
 | pioreactor_unit | string | Yes | Unit name or `$broadcast` where supported. |
 | experiment | string | Yes | Experiment identifier. |
 
+#### Query Parameters
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| lookback | number | No | Lookback window in hours. Defaults to `4.0`. |
+| target_points | integer | No | Approximate maximum points per series. Defaults to `720` and must be greater than `0`. |
+
 ### Response
 
 #### Success
 
 Status: `200 OK`
 
+Body shape: `series` is a list of series labels. `data` is a parallel list of point arrays, so `data[i]` contains the points for `series[i]`. Each point has `x` as an ISO-8601 UTC timestamp string and `y` as a number.
+
 Example body:
 
 ```json
 {
-  "series": [],
-  "data": []
+  "series": [
+    "pio01",
+    "pio02"
+  ],
+  "data": [
+    [
+      {
+        "x": "2026-01-01T00:00:00.000Z",
+        "y": 0.01234
+      },
+      {
+        "x": "2026-01-01T00:01:00.000Z",
+        "y": 0.0125
+      }
+    ],
+    [
+      {
+        "x": "2026-01-01T00:00:00.000Z",
+        "y": 0.00987
+      },
+      {
+        "x": "2026-01-01T00:01:00.000Z",
+        "y": 0.01001
+      }
+    ]
+  ]
 }
 ```
 
-## Get OD Readings Fused Per Unit
+## Get Od Readings Fused Per Unit
 
-Get OD Readings Fused Per Unit endpoint.
+Get Od Readings Fused Per Unit endpoint.
 
 ### Endpoint
 `GET /api/workers/{pioreactor_unit}/experiments/{experiment}/time_series/od_readings_fused`
@@ -4059,24 +4581,56 @@ Get OD Readings Fused Per Unit endpoint.
 | pioreactor_unit | string | Yes | Unit name or `$broadcast` where supported. |
 | experiment | string | Yes | Experiment identifier. |
 
+#### Query Parameters
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| lookback | number | No | Lookback window in hours. Defaults to `4.0`. |
+| target_points | integer | No | Approximate maximum points per series. Defaults to `720` and must be greater than `0`. |
+
 ### Response
 
 #### Success
 
 Status: `200 OK`
 
+Body shape: `series` is a list of series labels. `data` is a parallel list of point arrays, so `data[i]` contains the points for `series[i]`. Each point has `x` as an ISO-8601 UTC timestamp string and `y` as a number.
+
 Example body:
 
 ```json
 {
-  "series": [],
-  "data": []
+  "series": [
+    "pio01",
+    "pio02"
+  ],
+  "data": [
+    [
+      {
+        "x": "2026-01-01T00:00:00.000Z",
+        "y": 0.01234
+      },
+      {
+        "x": "2026-01-01T00:01:00.000Z",
+        "y": 0.0125
+      }
+    ],
+    [
+      {
+        "x": "2026-01-01T00:00:00.000Z",
+        "y": 0.00987
+      },
+      {
+        "x": "2026-01-01T00:01:00.000Z",
+        "y": 0.01001
+      }
+    ]
+  ]
 }
 ```
 
-## Get OD Raw Readings Per Unit
+## Get Od Raw Readings Per Unit
 
-Get OD Raw Readings Per Unit endpoint.
+Get Od Raw Readings Per Unit endpoint.
 
 ### Endpoint
 `GET /api/workers/{pioreactor_unit}/experiments/{experiment}/time_series/raw_od_readings`
@@ -4089,18 +4643,50 @@ Get OD Raw Readings Per Unit endpoint.
 | pioreactor_unit | string | Yes | Unit name or `$broadcast` where supported. |
 | experiment | string | Yes | Experiment identifier. |
 
+#### Query Parameters
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| lookback | number | No | Lookback window in hours. Defaults to `4.0`. |
+| target_points | integer | No | Approximate maximum points per series. Defaults to `720` and must be greater than `0`. |
+
 ### Response
 
 #### Success
 
 Status: `200 OK`
 
+Body shape: `series` is a list of series labels. `data` is a parallel list of point arrays, so `data[i]` contains the points for `series[i]`. Each point has `x` as an ISO-8601 UTC timestamp string and `y` as a number.
+
 Example body:
 
 ```json
 {
-  "series": [],
-  "data": []
+  "series": [
+    "pio01",
+    "pio02"
+  ],
+  "data": [
+    [
+      {
+        "x": "2026-01-01T00:00:00.000Z",
+        "y": 0.01234
+      },
+      {
+        "x": "2026-01-01T00:01:00.000Z",
+        "y": 0.0125
+      }
+    ],
+    [
+      {
+        "x": "2026-01-01T00:00:00.000Z",
+        "y": 0.00987
+      },
+      {
+        "x": "2026-01-01T00:01:00.000Z",
+        "y": 0.01001
+      }
+    ]
+  ]
 }
 ```
 
@@ -4119,18 +4705,50 @@ Get Temperature Readings Per Unit endpoint.
 | pioreactor_unit | string | Yes | Unit name or `$broadcast` where supported. |
 | experiment | string | Yes | Experiment identifier. |
 
+#### Query Parameters
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| lookback | number | No | Lookback window in hours. Defaults to `4.0`. |
+| target_points | integer | No | Approximate maximum points per series. Defaults to `720` and must be greater than `0`. |
+
 ### Response
 
 #### Success
 
 Status: `200 OK`
 
+Body shape: `series` is a list of series labels. `data` is a parallel list of point arrays, so `data[i]` contains the points for `series[i]`. Each point has `x` as an ISO-8601 UTC timestamp string and `y` as a number.
+
 Example body:
 
 ```json
 {
-  "series": [],
-  "data": []
+  "series": [
+    "pio01",
+    "pio02"
+  ],
+  "data": [
+    [
+      {
+        "x": "2026-01-01T00:00:00.000Z",
+        "y": 0.01234
+      },
+      {
+        "x": "2026-01-01T00:01:00.000Z",
+        "y": 0.0125
+      }
+    ],
+    [
+      {
+        "x": "2026-01-01T00:00:00.000Z",
+        "y": 0.00987
+      },
+      {
+        "x": "2026-01-01T00:01:00.000Z",
+        "y": 0.01001
+      }
+    ]
+  ]
 }
 ```
 
@@ -4149,9 +4767,14 @@ Change Worker Status endpoint.
 | pioreactor_unit | string | Yes | Unit name or `$broadcast` where supported. |
 
 #### Request Body
+
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| is_active | boolean | No | is active. |
+
 ```json
 {
-  "is_active": 1
+  "is_active": true
 }
 ```
 
@@ -4233,9 +4856,6 @@ Example body:
     "description": "Transform optical density measurements into culture growth rate measurements. Start this after innoculation. Begins by sampling for a few minutes to gather a baseline.",
     "subtext": null,
     "is_testing": false
-  },
-  {
-    "...": "1 more items"
   }
 ]
 ```
@@ -4257,6 +4877,14 @@ Runs specified job on unit.
 | experiment | string | Yes | Experiment identifier. |
 
 #### Request Body
+
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| args | array | No | args. |
+| config_overrides | array | No | config overrides. |
+| env | object | No | env. |
+| options | object | No | options. |
+
 ```json
 {
   "options": {
@@ -4288,7 +4916,6 @@ Example body:
 
 ```json
 {
-  "unit": "pio01",
   "task_id": "abcd1234",
   "result_url_path": "/unit_api/task_results/abcd1234"
 }
@@ -4311,6 +4938,14 @@ Runs specified job on unit.
 | experiment | string | Yes | Experiment identifier. |
 
 #### Request Body
+
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| args | array | No | args. |
+| config_overrides | array | No | config overrides. |
+| env | object | No | env. |
+| options | object | No | options. |
+
 ```json
 {
   "options": {
@@ -4342,7 +4977,6 @@ Example body:
 
 ```json
 {
-  "unit": "pio01",
   "task_id": "abcd1234",
   "result_url_path": "/unit_api/task_results/abcd1234"
 }
@@ -4373,8 +5007,8 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "67ecce8a-bbfa-4c19-ab9c-cec72606bf2a",
-  "result_url_path": "/unit_api/task_results/67ecce8a-bbfa-4c19-ab9c-cec72606bf2a"
+  "task_id": "473b36c8-7efe-4798-9329-a2f971b6317b",
+  "result_url_path": "/unit_api/task_results/473b36c8-7efe-4798-9329-a2f971b6317b"
 }
 ```
 
@@ -4404,9 +5038,9 @@ Example body:
 
 ```json
 {
-  "unit": "pio01",
-  "task_id": "abcd1234",
-  "result_url_path": "/unit_api/task_results/abcd1234"
+  "unit": "localhost",
+  "task_id": "78fc529a-e1f8-41c7-a9a9-fc47d1023991",
+  "result_url_path": "/unit_api/task_results/78fc529a-e1f8-41c7-a9a9-fc47d1023991"
 }
 ```
 
@@ -4424,7 +5058,7 @@ Get Job Setting For Worker endpoint.
 | ---- | ---- | -------- | ----------- |
 | pioreactor_unit | string | Yes | Unit name or `$broadcast` where supported. |
 | job_name | string | Yes | Job name. |
-| setting | string | Yes | Setting name. |
+| setting | string | Yes | Job setting name. |
 | experiment | string | Yes | Experiment identifier. |
 
 ### Response
@@ -4437,9 +5071,9 @@ Example body:
 
 ```json
 {
-  "unit": "pio01",
-  "task_id": "abcd1234",
-  "result_url_path": "/unit_api/task_results/abcd1234"
+  "unit": "localhost",
+  "task_id": "d15ff05b-1abf-4bc3-827b-c4b427b3bf41",
+  "result_url_path": "/unit_api/task_results/d15ff05b-1abf-4bc3-827b-c4b427b3bf41"
 }
 ```
 
@@ -4527,9 +5161,7 @@ Example body:
 
 ```json
 {
-  "unit": "pio01",
-  "task_id": "abcd1234",
-  "result_url_path": "/unit_api/task_results/abcd1234"
+  "status": "success"
 }
 ```
 
@@ -4559,9 +5191,7 @@ Example body:
 
 ```json
 {
-  "unit": "pio01",
-  "task_id": "abcd1234",
-  "result_url_path": "/unit_api/task_results/abcd1234"
+  "status": "success"
 }
 ```
 
@@ -4582,10 +5212,15 @@ Update specified job on unit. Use $broadcast for everyone.
 | experiment | string | Yes | Experiment identifier. |
 
 #### Request Body
+
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| settings | object | Yes | settings. |
+
 ```json
 {
   "settings": {
-    "target_rpm": 500
+    "target_rpm": "200"
   }
 }
 ```
@@ -4658,6 +5293,12 @@ Change Worker Model endpoint.
 | pioreactor_unit | string | Yes | Unit name or `$broadcast` where supported. |
 
 #### Request Body
+
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| model_name | string | Yes | model name. |
+| model_version | string | Yes | model version. |
+
 ```json
 {
   "model_name": "pioreactor_40ml",
@@ -4699,14 +5340,7 @@ Get Zipped Calibrations endpoint.
 
 Status: `200 OK`
 
-Example body:
-
-```json
-{
-  "content_type": "application/zip",
-  "body": "file contents"
-}
-```
+_No example body inferred._
 
 ## Remove All Workers From All Experiments
 
@@ -4725,7 +5359,6 @@ Example body:
 
 ```json
 {
-  "unit": "pio01",
   "task_id": "abcd1234",
   "result_url_path": "/unit_api/task_results/abcd1234"
 }
@@ -4747,7 +5380,18 @@ Status: `200 OK`
 Example body:
 
 ```json
-[]
+[
+  {
+    "pioreactor_unit": "localhost",
+    "experiment": "efaeffefe",
+    "is_active": 1
+  },
+  {
+    "pioreactor_unit": "unit01",
+    "experiment": null,
+    "is_active": 1
+  }
+]
 ```
 
 ## Discover Available Workers
@@ -4763,11 +5407,7 @@ Discover available pioreactor workers on the network not already registered.
 
 Status: `200 OK`
 
-Example body:
-
-```json
-[]
-```
+_No example body inferred._
 
 ## Setup Worker Pioreactor
 
@@ -4779,11 +5419,18 @@ Setup Worker Pioreactor endpoint.
 ### Request
 
 #### Request Body
+
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| model | string | Yes | model. |
+| name | string | Yes | name. |
+| version | string | Yes | version. |
+
 ```json
 {
-  "model": "pioreactor_40ml",
-  "name": "pio01",
-  "version": "1.0.0"
+  "model": "example_model",
+  "name": "testing_experiment",
+  "version": "example_version"
 }
 ```
 
@@ -4791,12 +5438,6 @@ Setup Worker Pioreactor endpoint.
 
 #### Success
 
-Status: `200 OK`
+Status: `201 Created`
 
-Example body:
-
-```json
-{
-  "msg": "success"
-}
-```
+_No example body inferred._
