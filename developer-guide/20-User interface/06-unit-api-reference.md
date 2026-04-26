@@ -2144,7 +2144,7 @@ Example body:
 {
   "status": "ok",
   "pioreactor_unit": "localhost",
-  "utc_time": "2026-04-26T01:29:03.452Z"
+  "utc_time": "2026-04-26T01:36:58.519Z"
 }
 ```
 
@@ -2252,7 +2252,7 @@ Example body:
 
 ## Run Job
 
-Body should look like (all optional) { "options": { "option1": "value1", "option2": "value2" }, "env": { "EXPERIMENT": "test", "JOB_SOURCE": "user", } "args": ["arg1", "arg2"], "config_overrides": [ ["stirring.config" ,"pwm_hz", "100"], ] } Ex:
+Run Job endpoint.
 
 ### Endpoint
 `PATCH /unit_api/jobs/run/job_name/{job_name}`
@@ -2311,7 +2311,7 @@ Example body:
 
 ## Run Job
 
-Body should look like (all optional) { "options": { "option1": "value1", "option2": "value2" }, "env": { "EXPERIMENT": "test", "JOB_SOURCE": "user", } "args": ["arg1", "arg2"], "config_overrides": [ ["stirring.config" ,"pwm_hz", "100"], ] } Ex:
+Run Job endpoint.
 
 ### Endpoint
 `POST /unit_api/jobs/run/job_name/{job_name}`
@@ -2471,7 +2471,7 @@ Example body:
 
 ## Update Job
 
-The body should look like:
+Update Job endpoint.
 
 ### Endpoint
 `PATCH /unit_api/jobs/settings/job_name/{job_name}`
@@ -2679,7 +2679,7 @@ Example body:
 
 ## Install Plugin
 
-runs `pio plugin install ....` Body should look like: { "options": { "option1": "value1", "option2": "value2" }, "args": ["arg1", "arg2"] }
+Install Plugin endpoint.
 
 ### Endpoint
 `PATCH /unit_api/plugins/install`
@@ -2725,7 +2725,7 @@ Example body:
 
 ## Install Plugin
 
-runs `pio plugin install ....` Body should look like: { "options": { "option1": "value1", "option2": "value2" }, "args": ["arg1", "arg2"] }
+Install Plugin endpoint.
 
 ### Endpoint
 `POST /unit_api/plugins/install`
@@ -2821,7 +2821,7 @@ _Response body is the plugin Python source as plain text._
 
 ## Uninstall Plugin
 
-Body should look like: { "options": { "option1": "value1", "option2": "value2" }, "args": ["arg1", "arg2"] }
+Uninstall Plugin endpoint.
 
 ### Endpoint
 `PATCH /unit_api/plugins/uninstall`
@@ -2867,7 +2867,7 @@ Example body:
 
 ## Uninstall Plugin
 
-Body should look like: { "options": { "option1": "value1", "option2": "value2" }, "args": ["arg1", "arg2"] }
+Uninstall Plugin endpoint.
 
 ### Endpoint
 `POST /unit_api/plugins/uninstall`
@@ -3322,7 +3322,7 @@ Example body:
 ```json
 {
   "status": "success",
-  "clock_time": "2026-04-26T01:29:08.475Z"
+  "clock_time": "2026-04-26T01:37:03.541Z"
 }
 ```
 

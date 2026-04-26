@@ -1095,7 +1095,7 @@ Example body:
     "experiment": "efaef4e4",
     "created_at": "2026-03-07T00:30:31.257Z",
     "description": "eefefaefaefefefeefefefafafefef",
-    "delta_hours": 1200.0,
+    "delta_hours": 1201.0,
     "worker_count": 0,
     "tags": [
       "pencil",
@@ -2657,8 +2657,8 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "73926642-1894-490a-8806-7cafacf5e4e6",
-  "result_url_path": "/unit_api/task_results/73926642-1894-490a-8806-7cafacf5e4e6"
+  "task_id": "d32e292b-ff2d-4086-82ea-f73fb94d6431",
+  "result_url_path": "/unit_api/task_results/d32e292b-ff2d-4086-82ea-f73fb94d6431"
 }
 ```
 
@@ -2882,8 +2882,8 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "8a237578-aa0e-42f5-b9ca-a34f46777c92",
-  "result_url_path": "/unit_api/task_results/8a237578-aa0e-42f5-b9ca-a34f46777c92"
+  "task_id": "fcadaa88-c287-4f8f-a5b3-86a69e5f91d6",
+  "result_url_path": "/unit_api/task_results/fcadaa88-c287-4f8f-a5b3-86a69e5f91d6"
 }
 ```
 
@@ -3174,8 +3174,8 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "a9168c7e-f7cc-43b0-bd79-dbc6360c1616",
-  "result_url_path": "/unit_api/task_results/a9168c7e-f7cc-43b0-bd79-dbc6360c1616"
+  "task_id": "d3dc87b6-6a0a-4a45-a9a1-d472e6c0c9a9",
+  "result_url_path": "/unit_api/task_results/d3dc87b6-6a0a-4a45-a9a1-d472e6c0c9a9"
 }
 ```
 
@@ -3306,8 +3306,8 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "40f01a86-ce25-4a8d-a018-962652ca23d0",
-  "result_url_path": "/unit_api/task_results/40f01a86-ce25-4a8d-a018-962652ca23d0"
+  "task_id": "da0dc23d-00c3-439d-877a-d0ba10e642b2",
+  "result_url_path": "/unit_api/task_results/da0dc23d-00c3-439d-877a-d0ba10e642b2"
 }
 ```
 
@@ -3378,8 +3378,8 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "72ce7a1f-b465-4f9c-887f-35e2a12bcafe",
-  "result_url_path": "/unit_api/task_results/72ce7a1f-b465-4f9c-887f-35e2a12bcafe"
+  "task_id": "7305efc4-ae79-45b0-b278-d0f559332c92",
+  "result_url_path": "/unit_api/task_results/7305efc4-ae79-45b0-b278-d0f559332c92"
 }
 ```
 
@@ -3563,8 +3563,8 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "2fb21956-91b7-40b1-bc4a-c1387437c6b5",
-  "result_url_path": "/unit_api/task_results/2fb21956-91b7-40b1-bc4a-c1387437c6b5"
+  "task_id": "7270e89b-0fda-46b2-af6f-97d4a6b5ce32",
+  "result_url_path": "/unit_api/task_results/7270e89b-0fda-46b2-af6f-97d4a6b5ce32"
 }
 ```
 
@@ -3654,8 +3654,8 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "dc8424d0-ba94-48dc-967c-a0b4c0ef6371",
-  "result_url_path": "/unit_api/task_results/dc8424d0-ba94-48dc-967c-a0b4c0ef6371"
+  "task_id": "cad9a1a8-c46d-4f86-b29e-b597c6a6dc80",
+  "result_url_path": "/unit_api/task_results/cad9a1a8-c46d-4f86-b29e-b597c6a6dc80"
 }
 ```
 
@@ -3869,8 +3869,8 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "43629a73-4e4e-40e6-b170-f9ed0dbed243",
-  "result_url_path": "/unit_api/task_results/43629a73-4e4e-40e6-b170-f9ed0dbed243"
+  "task_id": "a5cac5e3-60aa-428a-b6fc-cde64f140e9a",
+  "result_url_path": "/unit_api/task_results/a5cac5e3-60aa-428a-b6fc-cde64f140e9a"
 }
 ```
 
@@ -3899,8 +3899,8 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "7deeefba-7544-44c0-b92b-f5987b43d84c",
-  "result_url_path": "/unit_api/task_results/7deeefba-7544-44c0-b92b-f5987b43d84c"
+  "task_id": "b33bc95e-3abf-42e5-866d-d4569107d649",
+  "result_url_path": "/unit_api/task_results/b33bc95e-3abf-42e5-866d-d4569107d649"
 }
 ```
 
@@ -3930,8 +3930,8 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "bee2e82c-9e2e-4d48-94b8-573672a99c92",
-  "result_url_path": "/unit_api/task_results/bee2e82c-9e2e-4d48-94b8-573672a99c92"
+  "task_id": "098b85e4-e7b1-4d8f-89a3-d3be905f9ad0",
+  "result_url_path": "/unit_api/task_results/098b85e4-e7b1-4d8f-89a3-d3be905f9ad0"
 }
 ```
 
@@ -4039,8 +4039,8 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "279a7004-378e-4650-9545-2f1d8ca8f057",
-  "result_url_path": "/unit_api/task_results/279a7004-378e-4650-9545-2f1d8ca8f057"
+  "task_id": "5029d03a-5419-48f5-89fc-3e03b2f8e8b6",
+  "result_url_path": "/unit_api/task_results/5029d03a-5419-48f5-89fc-3e03b2f8e8b6"
 }
 ```
 
@@ -4160,8 +4160,8 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "1ffbbbaf-11bc-46be-9c1e-0b25ae7d0d1d",
-  "result_url_path": "/unit_api/task_results/1ffbbbaf-11bc-46be-9c1e-0b25ae7d0d1d"
+  "task_id": "85e0664d-6b2b-4590-a338-5487ccd97da8",
+  "result_url_path": "/unit_api/task_results/85e0664d-6b2b-4590-a338-5487ccd97da8"
 }
 ```
 
@@ -4190,8 +4190,8 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "63cb33db-dd2b-4af6-a071-b1356830ba78",
-  "result_url_path": "/unit_api/task_results/63cb33db-dd2b-4af6-a071-b1356830ba78"
+  "task_id": "700978c5-7730-49e7-8e70-520caaf6f0fe",
+  "result_url_path": "/unit_api/task_results/700978c5-7730-49e7-8e70-520caaf6f0fe"
 }
 ```
 
@@ -4221,8 +4221,8 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "9d34ca92-1130-4663-a9c1-b288833a0598",
-  "result_url_path": "/unit_api/task_results/9d34ca92-1130-4663-a9c1-b288833a0598"
+  "task_id": "532485d5-6130-485c-8b5e-2bedf3e8db08",
+  "result_url_path": "/unit_api/task_results/532485d5-6130-485c-8b5e-2bedf3e8db08"
 }
 ```
 
@@ -4284,8 +4284,8 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "186b968b-4ada-459d-b5f6-32471a668a39",
-  "result_url_path": "/unit_api/task_results/186b968b-4ada-459d-b5f6-32471a668a39"
+  "task_id": "47af3277-2692-4f05-b3cb-469ca6f23ffe",
+  "result_url_path": "/unit_api/task_results/47af3277-2692-4f05-b3cb-469ca6f23ffe"
 }
 ```
 
@@ -5148,8 +5148,8 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "fc4be83e-632b-4761-9c07-e397059a59cb",
-  "result_url_path": "/unit_api/task_results/fc4be83e-632b-4761-9c07-e397059a59cb"
+  "task_id": "094009e4-64cf-482e-965a-0f2024b7a1ed",
+  "result_url_path": "/unit_api/task_results/094009e4-64cf-482e-965a-0f2024b7a1ed"
 }
 ```
 
@@ -5180,8 +5180,8 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "738c49e1-3e41-45f8-8762-cee0a4afdae9",
-  "result_url_path": "/unit_api/task_results/738c49e1-3e41-45f8-8762-cee0a4afdae9"
+  "task_id": "09ced173-624b-4c62-b7ac-56eb4835ae6d",
+  "result_url_path": "/unit_api/task_results/09ced173-624b-4c62-b7ac-56eb4835ae6d"
 }
 ```
 
@@ -5213,8 +5213,8 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "eb879d8d-dd9a-4ddb-9cfd-fec17d55eea5",
-  "result_url_path": "/unit_api/task_results/eb879d8d-dd9a-4ddb-9cfd-fec17d55eea5"
+  "task_id": "1d7d71c8-eddb-41ef-ad52-b1a4d5dd99d2",
+  "result_url_path": "/unit_api/task_results/1d7d71c8-eddb-41ef-ad52-b1a4d5dd99d2"
 }
 ```
 
