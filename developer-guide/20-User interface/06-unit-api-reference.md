@@ -1144,7 +1144,16 @@ Get Calibrations By Device endpoint.
 
 Status: `200 OK`
 
-_No example body inferred._
+Example body:
+
+```json
+[
+  {
+    "calibration_name": "example_calibration",
+    "is_active": true
+  }
+]
+```
 
 ## Create Calibration
 
@@ -1182,7 +1191,7 @@ Create a new calibration for the specified device.
 
 Status: `201 Created`
 
-_No example body inferred._
+_No success response body._
 
 ## Delete Calibration
 
@@ -1205,7 +1214,7 @@ Delete a specific calibration for a given device.
 
 Status: `200 OK`
 
-_No example body inferred._
+_No success response body._
 
 ## Get Calibration
 
@@ -1228,7 +1237,14 @@ Get Calibration endpoint.
 
 Status: `200 OK`
 
-_No example body inferred._
+Example body:
+
+```json
+{
+  "calibration_name": "example_calibration",
+  "is_active": true
+}
+```
 
 ## Get Capabilities
 
@@ -1514,7 +1530,7 @@ Get Specific Config endpoint.
 
 Status: `200 OK`
 
-_No example body inferred._
+_Response body is plain text._
 
 ## Update Specific Config
 
@@ -2001,7 +2017,7 @@ Delete Estimator endpoint.
 
 Status: `200 OK`
 
-_No example body inferred._
+_No success response body._
 
 ## Get Estimator
 
@@ -2024,7 +2040,14 @@ Get Estimator endpoint.
 
 Status: `200 OK`
 
-_No example body inferred._
+Example body:
+
+```json
+{
+  "estimator_name": "example_estimator",
+  "is_active": true
+}
+```
 
 ## Check Hardware For Model
 
@@ -2121,7 +2144,7 @@ Example body:
 {
   "status": "ok",
   "pioreactor_unit": "localhost",
-  "utc_time": "2026-04-26T01:16:52.801Z"
+  "utc_time": "2026-04-26T01:29:03.452Z"
 }
 ```
 
@@ -2418,7 +2441,7 @@ Example body:
 
 ## Get Job Settings
 
-{ "settings": { <setting1>: <value1>, <setting2>: <value2> } }
+Return published settings for a running job.
 
 ### Endpoint
 `GET /unit_api/jobs/settings/job_name/{job_name}`
@@ -2436,7 +2459,15 @@ Example body:
 
 Status: `200 OK`
 
-_No example body inferred._
+Example body:
+
+```json
+{
+  "settings": {
+    "target_rpm": "200"
+  }
+}
+```
 
 ## Update Job
 
@@ -2468,7 +2499,7 @@ The body should look like:
 
 Status: `200 OK`
 
-_No example body inferred._
+_No success response body._
 
 ## Get Job Setting
 
@@ -2491,7 +2522,13 @@ Get Job Setting endpoint.
 
 Status: `200 OK`
 
-_No example body inferred._
+Example body:
+
+```json
+{
+  "target_rpm": "200"
+}
+```
 
 ## Stop Jobs
 
@@ -2745,7 +2782,20 @@ Get Installed Plugins endpoint.
 
 Status: `200 OK`
 
-_No example body inferred._
+Example body:
+
+```json
+[
+  {
+    "name": "my-example-plugin",
+    "version": "0.2.0",
+    "description": "Plugin description.",
+    "homepage": "https://docs.pioreactor.com",
+    "source": "plugins/example_plugin.py",
+    "author": "Pioreactor"
+  }
+]
+```
 
 ## Get Installed Plugin
 
@@ -2767,7 +2817,7 @@ get a specific Python file in the .pioreactor/plugin folder
 
 Status: `200 OK`
 
-_No example body inferred._
+_Response body is the plugin Python source as plain text._
 
 ## Uninstall Plugin
 
@@ -2874,7 +2924,22 @@ List System Path endpoint.
 
 Status: `200 OK`
 
-_No example body inferred._
+Example body:
+
+```json
+{
+  "current": "/home/pioreactor/.pioreactor",
+  "dirs": [
+    "experiment_profiles",
+    "plugins",
+    "storage"
+  ],
+  "files": [
+    "config.ini",
+    "unit_config.ini"
+  ]
+}
+```
 
 ## List System Path
 
@@ -2896,7 +2961,22 @@ List System Path endpoint.
 
 Status: `200 OK`
 
-_No example body inferred._
+Example body:
+
+```json
+{
+  "current": "/home/pioreactor/.pioreactor",
+  "dirs": [
+    "experiment_profiles",
+    "plugins",
+    "storage"
+  ],
+  "files": [
+    "config.ini",
+    "unit_config.ini"
+  ]
+}
+```
 
 ## Reboot System
 
@@ -3242,7 +3322,7 @@ Example body:
 ```json
 {
   "status": "success",
-  "clock_time": "2026-04-26T01:16:54.328Z"
+  "clock_time": "2026-04-26T01:29:08.475Z"
 }
 ```
 
@@ -3449,7 +3529,7 @@ Get Zipped Calibrations endpoint.
 
 Status: `200 OK`
 
-_No example body inferred._
+_Response body is binary file data._
 
 ## Get Zipped Dot Pioreactor
 
@@ -3464,4 +3544,4 @@ Create and return a ZIP of the entire DOT_PIOREACTOR directory.
 
 Status: `200 OK`
 
-_No example body inferred._
+_Response body is binary file data._

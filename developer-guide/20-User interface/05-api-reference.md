@@ -366,7 +366,7 @@ Get Shared Config endpoint.
 
 Status: `200 OK`
 
-_No example body inferred._
+_Response body is plain text._
 
 ## Update Shared Config
 
@@ -610,7 +610,7 @@ Get Specific Config For Pioreactor Unit endpoint.
 
 Status: `200 OK`
 
-_No example body inferred._
+_Response body is plain text._
 
 ## Update Specific Config For Pioreactor Unit
 
@@ -776,7 +776,7 @@ Preview Exportable Dataset endpoint.
 #### Query Parameters
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
-| n_rows | string | No | n rows. |
+| n_rows | integer | No | Maximum number of preview rows. Defaults to `5`. |
 
 ### Response
 
@@ -784,7 +784,17 @@ Preview Exportable Dataset endpoint.
 
 Status: `200 OK`
 
-_No example body inferred._
+Example body:
+
+```json
+[
+  {
+    "timestamp": "2026-01-01T00:00:00Z",
+    "pioreactor_unit": "pio01",
+    "experiment": "testing_experiment"
+  }
+]
+```
 
 ## Export Exportable Datasets
 
@@ -1011,7 +1021,7 @@ Get Experiment Profile endpoint.
 
 Status: `200 OK`
 
-_No example body inferred._
+_Response body is plain text._
 
 ## Update Experiment Profile
 
@@ -1096,7 +1106,7 @@ Example body:
     "experiment": "efaef4",
     "created_at": "2026-02-06T01:19:11.315Z",
     "description": "aefaef",
-    "delta_hours": 1895.0,
+    "delta_hours": 1896.0,
     "worker_count": 0,
     "tags": [
       "pencil",
@@ -1144,7 +1154,20 @@ Create Experiment endpoint.
 
 Status: `201 Created`
 
-_No example body inferred._
+Example body:
+
+```json
+{
+  "experiment": "testing_experiment",
+  "created_at": "2026-01-01T00:00:00Z",
+  "description": "Experiment notes.",
+  "delta_hours": 0,
+  "worker_count": 1,
+  "tags": [
+    "screening"
+  ]
+}
+```
 
 ## Delete Experiment
 
@@ -1246,7 +1269,20 @@ Update Experiment endpoint.
 
 Status: `200 OK`
 
-_No example body inferred._
+Example body:
+
+```json
+{
+  "experiment": "testing_experiment",
+  "created_at": "2026-01-01T00:00:00Z",
+  "description": "Experiment notes.",
+  "delta_hours": 0,
+  "worker_count": 1,
+  "tags": [
+    "screening"
+  ]
+}
+```
 
 ## Get Recent Experiment Profile Runs
 
@@ -1368,7 +1404,21 @@ Shows event logs from all units, uses pagination.
 
 Status: `200 OK`
 
-_No example body inferred._
+Example body:
+
+```json
+[
+  {
+    "timestamp": "2026-01-01T00:00:00Z",
+    "level": "INFO",
+    "message": "Log message.",
+    "task": "stirring",
+    "source": "app",
+    "pioreactor_unit": "pio01",
+    "experiment": "testing_experiment"
+  }
+]
+```
 
 ## Get Media Rates
 
@@ -1426,7 +1476,21 @@ Shows recent event logs from all units
 
 Status: `200 OK`
 
-_No example body inferred._
+Example body:
+
+```json
+[
+  {
+    "timestamp": "2026-01-01T00:00:00Z",
+    "level": "INFO",
+    "message": "Log message.",
+    "task": "stirring",
+    "source": "app",
+    "pioreactor_unit": "pio01",
+    "experiment": "testing_experiment"
+  }
+]
+```
 
 ## Get Fallback Time Series
 
@@ -2343,7 +2407,21 @@ Shows event logs from all units, uses pagination.
 
 Status: `200 OK`
 
-_No example body inferred._
+Example body:
+
+```json
+[
+  {
+    "timestamp": "2026-01-01T00:00:00Z",
+    "level": "INFO",
+    "message": "Log message.",
+    "task": "stirring",
+    "source": "app",
+    "pioreactor_unit": "pio01",
+    "experiment": "testing_experiment"
+  }
+]
+```
 
 ## Get Models
 
@@ -2497,7 +2575,14 @@ Upload System File endpoint.
 
 Status: `201 Created`
 
-_No example body inferred._
+Example body:
+
+```json
+{
+  "message": "File successfully uploaded",
+  "save_path": "/tmp/file.zip"
+}
+```
 
 ## Set System Utc Clock
 
@@ -2572,8 +2657,8 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "fccd5730-b91e-4a9e-a83d-5e70f20c9999",
-  "result_url_path": "/unit_api/task_results/fccd5730-b91e-4a9e-a83d-5e70f20c9999"
+  "task_id": "73926642-1894-490a-8806-7cafacf5e4e6",
+  "result_url_path": "/unit_api/task_results/73926642-1894-490a-8806-7cafacf5e4e6"
 }
 ```
 
@@ -2648,7 +2733,7 @@ Import Dot Pioreactor Archive endpoint.
 
 Status: `201 Created`
 
-_No example body inferred._
+_Response body is binary file data._
 
 ## Run Job On Unit In Experiment
 
@@ -2797,8 +2882,8 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "4ebcb979-c4a4-4534-9a29-b2613b777405",
-  "result_url_path": "/unit_api/task_results/4ebcb979-c4a4-4534-9a29-b2613b777405"
+  "task_id": "8a237578-aa0e-42f5-b9ca-a34f46777c92",
+  "result_url_path": "/unit_api/task_results/8a237578-aa0e-42f5-b9ca-a34f46777c92"
 }
 ```
 
@@ -2990,7 +3075,21 @@ Shows event logs from all units, uses pagination.
 
 Status: `200 OK`
 
-_No example body inferred._
+Example body:
+
+```json
+[
+  {
+    "timestamp": "2026-01-01T00:00:00Z",
+    "level": "INFO",
+    "message": "Log message.",
+    "task": "stirring",
+    "source": "app",
+    "pioreactor_unit": "pio01",
+    "experiment": "testing_experiment"
+  }
+]
+```
 
 ## Install Plugin Across Cluster
 
@@ -3075,8 +3174,8 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "7a660f70-bf85-4aec-bbd3-5e43204d230f",
-  "result_url_path": "/unit_api/task_results/7a660f70-bf85-4aec-bbd3-5e43204d230f"
+  "task_id": "a9168c7e-f7cc-43b0-bd79-dbc6360c1616",
+  "result_url_path": "/unit_api/task_results/a9168c7e-f7cc-43b0-bd79-dbc6360c1616"
 }
 ```
 
@@ -3158,7 +3257,7 @@ Reboots unit
 
 Status: `201 Created`
 
-_No example body inferred._
+_No success response body._
 
 ## Shutdown Unit
 
@@ -3180,7 +3279,7 @@ Shutdown unit
 
 Status: `201 Created`
 
-_No example body inferred._
+_No success response body._
 
 ## Get Unit Utc Clock
 
@@ -3207,8 +3306,8 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "1d50633d-3e41-4710-a83b-4103fede76cb",
-  "result_url_path": "/unit_api/task_results/1d50633d-3e41-4710-a83b-4103fede76cb"
+  "task_id": "40f01a86-ce25-4a8d-a018-962652ca23d0",
+  "result_url_path": "/unit_api/task_results/40f01a86-ce25-4a8d-a018-962652ca23d0"
 }
 ```
 
@@ -3238,7 +3337,21 @@ Shows system logs from specific unit uses pagination.
 
 Status: `200 OK`
 
-_No example body inferred._
+Example body:
+
+```json
+[
+  {
+    "timestamp": "2026-01-01T00:00:00Z",
+    "level": "INFO",
+    "message": "Log message.",
+    "task": "stirring",
+    "source": "app",
+    "pioreactor_unit": "pio01",
+    "experiment": "testing_experiment"
+  }
+]
+```
 
 ## Get App Versions
 
@@ -3265,8 +3378,8 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "9a79e4c4-acfe-4995-842d-7f03546044ed",
-  "result_url_path": "/unit_api/task_results/9a79e4c4-acfe-4995-842d-7f03546044ed"
+  "task_id": "72ce7a1f-b465-4f9c-887f-35e2a12bcafe",
+  "result_url_path": "/unit_api/task_results/72ce7a1f-b465-4f9c-887f-35e2a12bcafe"
 }
 ```
 
@@ -3290,7 +3403,7 @@ Download a ZIP of ~/.pioreactor from one or all workers.
 
 Status: `200 OK`
 
-_No example body inferred._
+_Response body is binary file data._
 
 ## Get List Of Workers
 
@@ -3450,8 +3563,8 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "1a8ca830-9e05-401f-830c-8b03462153b6",
-  "result_url_path": "/unit_api/task_results/1a8ca830-9e05-401f-830c-8b03462153b6"
+  "task_id": "2fb21956-91b7-40b1-bc4a-c1387437c6b5",
+  "result_url_path": "/unit_api/task_results/2fb21956-91b7-40b1-bc4a-c1387437c6b5"
 }
 ```
 
@@ -3541,8 +3654,8 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "e0c34fe8-9310-430d-ba74-276d345f042b",
-  "result_url_path": "/unit_api/task_results/e0c34fe8-9310-430d-ba74-276d345f042b"
+  "task_id": "dc8424d0-ba94-48dc-967c-a0b4c0ef6371",
+  "result_url_path": "/unit_api/task_results/dc8424d0-ba94-48dc-967c-a0b4c0ef6371"
 }
 ```
 
@@ -3756,8 +3869,8 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "b27d77d1-7c51-41ce-b5fb-ff7d80472466",
-  "result_url_path": "/unit_api/task_results/b27d77d1-7c51-41ce-b5fb-ff7d80472466"
+  "task_id": "43629a73-4e4e-40e6-b170-f9ed0dbed243",
+  "result_url_path": "/unit_api/task_results/43629a73-4e4e-40e6-b170-f9ed0dbed243"
 }
 ```
 
@@ -3786,8 +3899,8 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "7593e6cc-0bbc-49ea-9419-c112d813fbec",
-  "result_url_path": "/unit_api/task_results/7593e6cc-0bbc-49ea-9419-c112d813fbec"
+  "task_id": "7deeefba-7544-44c0-b92b-f5987b43d84c",
+  "result_url_path": "/unit_api/task_results/7deeefba-7544-44c0-b92b-f5987b43d84c"
 }
 ```
 
@@ -3817,8 +3930,8 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "951d3705-df09-4bb4-9d59-3f45a2c88a06",
-  "result_url_path": "/unit_api/task_results/951d3705-df09-4bb4-9d59-3f45a2c88a06"
+  "task_id": "bee2e82c-9e2e-4d48-94b8-573672a99c92",
+  "result_url_path": "/unit_api/task_results/bee2e82c-9e2e-4d48-94b8-573672a99c92"
 }
 ```
 
@@ -3926,8 +4039,8 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "70401f77-f0fd-4521-9a42-a950e0a21003",
-  "result_url_path": "/unit_api/task_results/70401f77-f0fd-4521-9a42-a950e0a21003"
+  "task_id": "279a7004-378e-4650-9545-2f1d8ca8f057",
+  "result_url_path": "/unit_api/task_results/279a7004-378e-4650-9545-2f1d8ca8f057"
 }
 ```
 
@@ -3951,7 +4064,7 @@ Start Calibration Session endpoint.
 
 Status: `201 Created`
 
-_No example body inferred._
+_No success response body._
 
 ## Get Calibration Session
 
@@ -3974,7 +4087,7 @@ Get Calibration Session endpoint.
 
 Status: `200 OK`
 
-_No example body inferred._
+_No success response body._
 
 ## Abort Calibration Session
 
@@ -3997,7 +4110,7 @@ Abort Calibration Session endpoint.
 
 Status: `201 Created`
 
-_No example body inferred._
+_No success response body._
 
 ## Advance Calibration Session
 
@@ -4020,7 +4133,7 @@ Advance Calibration Session endpoint.
 
 Status: `201 Created`
 
-_No example body inferred._
+_No success response body._
 
 ## Get Capabilities
 
@@ -4047,8 +4160,8 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "251aaebc-031f-40a5-a10e-e5af5be311b3",
-  "result_url_path": "/unit_api/task_results/251aaebc-031f-40a5-a10e-e5af5be311b3"
+  "task_id": "1ffbbbaf-11bc-46be-9c1e-0b25ae7d0d1d",
+  "result_url_path": "/unit_api/task_results/1ffbbbaf-11bc-46be-9c1e-0b25ae7d0d1d"
 }
 ```
 
@@ -4077,8 +4190,8 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "bdbeb70a-4ad0-40b5-a4a8-c58a45152947",
-  "result_url_path": "/unit_api/task_results/bdbeb70a-4ad0-40b5-a4a8-c58a45152947"
+  "task_id": "63cb33db-dd2b-4af6-a071-b1356830ba78",
+  "result_url_path": "/unit_api/task_results/63cb33db-dd2b-4af6-a071-b1356830ba78"
 }
 ```
 
@@ -4108,8 +4221,8 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "a9780d3d-0701-4d72-a5d7-b8847dfb9324",
-  "result_url_path": "/unit_api/task_results/a9780d3d-0701-4d72-a5d7-b8847dfb9324"
+  "task_id": "9d34ca92-1130-4663-a9c1-b288833a0598",
+  "result_url_path": "/unit_api/task_results/9d34ca92-1130-4663-a9c1-b288833a0598"
 }
 ```
 
@@ -4171,8 +4284,8 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "32d3d4f5-e77d-4c07-9ed5-b364b657a6ed",
-  "result_url_path": "/unit_api/task_results/32d3d4f5-e77d-4c07-9ed5-b364b657a6ed"
+  "task_id": "186b968b-4ada-459d-b5f6-32471a668a39",
+  "result_url_path": "/unit_api/task_results/186b968b-4ada-459d-b5f6-32471a668a39"
 }
 ```
 
@@ -4235,7 +4348,21 @@ Shows event logs from specific unit and experiment, uses pagination.
 
 Status: `200 OK`
 
-_No example body inferred._
+Example body:
+
+```json
+[
+  {
+    "timestamp": "2026-01-01T00:00:00Z",
+    "level": "INFO",
+    "message": "Log message.",
+    "task": "stirring",
+    "source": "app",
+    "pioreactor_unit": "pio01",
+    "experiment": "testing_experiment"
+  }
+]
+```
 
 ## Publish New Log
 
@@ -4314,7 +4441,21 @@ Shows event logs for a specific unit within an experiment. This is for the singl
 
 Status: `200 OK`
 
-_No example body inferred._
+Example body:
+
+```json
+[
+  {
+    "timestamp": "2026-01-01T00:00:00Z",
+    "level": "INFO",
+    "message": "Log message.",
+    "task": "stirring",
+    "source": "app",
+    "pioreactor_unit": "pio01",
+    "experiment": "testing_experiment"
+  }
+]
+```
 
 ## Get Fallback Time Series Per Unit
 
@@ -5007,8 +5148,8 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "473b36c8-7efe-4798-9329-a2f971b6317b",
-  "result_url_path": "/unit_api/task_results/473b36c8-7efe-4798-9329-a2f971b6317b"
+  "task_id": "fc4be83e-632b-4761-9c07-e397059a59cb",
+  "result_url_path": "/unit_api/task_results/fc4be83e-632b-4761-9c07-e397059a59cb"
 }
 ```
 
@@ -5039,8 +5180,8 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "78fc529a-e1f8-41c7-a9a9-fc47d1023991",
-  "result_url_path": "/unit_api/task_results/78fc529a-e1f8-41c7-a9a9-fc47d1023991"
+  "task_id": "738c49e1-3e41-45f8-8762-cee0a4afdae9",
+  "result_url_path": "/unit_api/task_results/738c49e1-3e41-45f8-8762-cee0a4afdae9"
 }
 ```
 
@@ -5072,8 +5213,8 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "d15ff05b-1abf-4bc3-827b-c4b427b3bf41",
-  "result_url_path": "/unit_api/task_results/d15ff05b-1abf-4bc3-827b-c4b427b3bf41"
+  "task_id": "eb879d8d-dd9a-4ddb-9cfd-fec17d55eea5",
+  "result_url_path": "/unit_api/task_results/eb879d8d-dd9a-4ddb-9cfd-fec17d55eea5"
 }
 ```
 
@@ -5340,7 +5481,7 @@ Get Zipped Calibrations endpoint.
 
 Status: `200 OK`
 
-_No example body inferred._
+_Response body is binary file data._
 
 ## Remove All Workers From All Experiments
 
@@ -5407,7 +5548,11 @@ Discover available pioreactor workers on the network not already registered.
 
 Status: `200 OK`
 
-_No example body inferred._
+Example body:
+
+```json
+[]
+```
 
 ## Setup Worker Pioreactor
 
@@ -5438,6 +5583,12 @@ Setup Worker Pioreactor endpoint.
 
 #### Success
 
-Status: `201 Created`
+Status: `200 OK`
 
-_No example body inferred._
+Example body:
+
+```json
+{
+  "msg": "Worker pio02 added successfully."
+}
+```
