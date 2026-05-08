@@ -84,6 +84,11 @@ h1 {
   font-size: 14px;
 }
 
+.latest-version-navbar-item {
+  font-weight: 600;
+  white-space: nowrap;
+}
+
 .menu__link--active:not(.menu__link--sublist) {
     background: var(--ifm-menu-color-background-active);
     border-right: #808080 2px solid;

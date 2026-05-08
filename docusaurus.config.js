@@ -142,6 +142,10 @@ const config = {
             label: 'pioreactor.com',
             position: 'right',
           },
+          {
+            type: 'custom-latestVersion',
+            position: 'right',
+          },
         ],
       },
       footer: {
