@@ -18,8 +18,8 @@
 
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css" integrity="sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM" crossorigin="anonymous"><link rel="stylesheet" href="/assets/css/styles.128b405b.css">
-<script src="/assets/js/runtime~main.1a3ba3cf.js" defer="defer"></script>
-<script src="/assets/js/main.35ddbb8c.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.31d28da9.js" defer="defer"></script>
+<script src="/assets/js/main.b20d05db.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
 <svg style="display: none;"><defs>
@@ -30,7 +30,7 @@
 <h2 class="anchor anchorTargetHideOnScrollNavbar_vjPI" id="available-dosing-automations">Available dosing automations<a href="#available-dosing-automations" class="hash-link" aria-label="Direct link to Available dosing automations" title="Direct link to Available dosing automations" translate="no">​</a></h2>
 <h3 class="anchor anchorTargetHideOnScrollNavbar_vjPI" id="silent">Silent<a href="#silent" class="hash-link" aria-label="Direct link to Silent" title="Direct link to Silent" translate="no">​</a></h3>
 <p><strong>Requires:</strong> None</p>
-<p>The silent automation is the simplest automation: doing nothing. The automation will still &quot;wake up&quot; every <code>duration</code> minutes, but does nothing.</p>
+<p>The silent automation is the simplest automation: doing nothing. It does not schedule pump actions.</p>
 <h3 class="anchor anchorTargetHideOnScrollNavbar_vjPI" id="chemostat">Chemostat<a href="#chemostat" class="hash-link" aria-label="Direct link to Chemostat" title="Direct link to Chemostat" translate="no">​</a></h3>
 <p><strong>Requires:</strong></p>
 <ul>
@@ -49,7 +49,7 @@
 </ul>
 </li>
 </ul>
-<p>The chemostat automation is the second simplest dosing automation. Every <code>duration</code> minutes, the media and waste pumps run and exchange <code>volume</code> (mL) of liquid inside the Pioreactor. Initially, the culture is growing and consuming nutrients and energy. Eventually, a nutrient will become scarce and will stall growing. Upon a pump refresh, this <em>growth-limiting</em> nutrient becomes abundant once again, and the culture can grow, up until consuming all of it again and stalling growth. Thus, the bioreactor enters into a nutrient <em>near</em>-equilibrium (hence the term &quot;chemostat&quot;, for &quot;chemical-static&quot;). However, more long-term, because the culture is under an evolutionary pressure to grow, adaptions will occur that will improve the acquisition or utilization of the growth-limiting nutrient.</p>
+<p>The chemostat automation is the second simplest dosing automation. Every <code>duration</code> minutes, the media and waste pumps run and exchange <code>exchange volume</code> (mL) of liquid inside the Pioreactor. You can also choose <strong>Skip first run</strong> to wait one full interval before the first exchange. Initially, the culture is growing and consuming nutrients and energy. Eventually, a nutrient will become scarce and will stall growing. Upon a pump refresh, this <em>growth-limiting</em> nutrient becomes abundant once again, and the culture can grow, up until consuming all of it again and stalling growth. Thus, the bioreactor enters into a nutrient <em>near</em>-equilibrium (hence the term &quot;chemostat&quot;, for &quot;chemical-static&quot;). However, more long-term, because the culture is under an evolutionary pressure to grow, adaptions will occur that will improve the acquisition or utilization of the growth-limiting nutrient.</p>
 <h3 class="anchor anchorTargetHideOnScrollNavbar_vjPI" id="turbidostat">Turbidostat<a href="#turbidostat" class="hash-link" aria-label="Direct link to Turbidostat" title="Direct link to Turbidostat" translate="no">​</a></h3>
 <p><strong>Requires:</strong></p>
 <ul>
@@ -68,8 +68,8 @@
 </ul>
 </li>
 </ul>
-<p>A turbidostat (&quot;turbidity-static&quot;) tries to keep the biomass constant over time. This is usually accomplished by taking frequent measurements (every 15 seconds), and performing a set media / waste pump cycle if the selected <code>biomass signal</code> exceeds the <code>target biomass</code>. The amount exchanged each time is the <code>exchange volume</code> parameter (mL). For very fast growing cultures, we recommend an <code>exchange volume</code> between 1.0 mL and 2.0 mL.</p>
-<p>This automation will always move the full <code>exchange volume</code>, even if it&#x27;s not enough for the measured biomass to drop below the <code>target biomass</code>. If that happens, the automation will trigger again after the next check.</p>
+<p>A turbidostat (&quot;turbidity-static&quot;) tries to keep the biomass constant over time. It reacts to fresh updates from the selected <code>biomass signal</code>, and performs a set media / waste pump cycle if the value exceeds the <code>target biomass</code>. The amount exchanged each time is the <code>exchange volume</code> parameter (mL). For very fast growing cultures, we recommend an <code>exchange volume</code> between 1.0 mL and 2.0 mL.</p>
+<p>This automation will always move the full <code>exchange volume</code>, even if it&#x27;s not enough for the measured biomass to drop below the <code>target biomass</code>. If that happens, the automation can trigger again after another fresh biomass update. After each exchange, Turbidostat waits briefly before reacting again so post-dilution readings have time to settle.</p>
 <p>The current turbidostat fields in the UI are:</p>
 <ul>
 <li class=""><code>exchange volume</code>: how much media and waste to move in each dilution cycle, in mL.</li>
@@ -133,14 +133,14 @@
 </li>
 </ul>
 <p>By introducing another pump (labelled &quot;alt media&quot;), another dimension of experiments opens up. We can exploit the short-time scale of adaption in microbes to evolve the culture from thriving in the original media to thriving in the alternative media, or some point in between the two. Think of it as slowly shifting the environment between the two media stocks so that the microbes are under constant evolutionary pressure. This is where the name morbidostat is from: &quot;morbid-static&quot;.</p>
-<p>In the Pioreactor software, the transition between environments is controlled by observing the growth rate, and artificially keeping it suppressed (set to be <code>target growth rate</code>) by dynamically adjusting the ratio between the original media and the alternative media when a pump cycle is run. A pump cycle is run every <code>duration</code> minutes. Another parameter is the <code>target OD</code>, which should be low to keep the culture in a state of nutrient abundance (so that the <em>primary</em> evolutionary pressure is the alternative media adaptation).</p>
+<p>In the Pioreactor software, the transition between environments is controlled by observing the growth rate, and artificially keeping it suppressed (set to be <code>target growth rate</code>) by dynamically adjusting the ratio between the original media and the alternative media when a pump cycle is run. A pump cycle is run every <code>duration</code> minutes, and <strong>Skip first run</strong> can delay the first cycle by one interval. Another parameter is the <code>target OD</code>, which should be low to keep the culture in a state of nutrient abundance (so that the <em>primary</em> evolutionary pressure is the alternative media adaptation).</p>
 <h3 class="anchor anchorTargetHideOnScrollNavbar_vjPI" id="fed-batch">Fed batch<a href="#fed-batch" class="hash-link" aria-label="Direct link to Fed batch" title="Direct link to Fed batch" translate="no">​</a></h3>
 <p><strong>Requires:</strong></p>
 <ul>
 <li class="">1 peristaltic pump</li>
 <li class="">A source and sink, with the pump in-between.</li>
 </ul>
-<p>This automation moves a preset amount of <code>volume</code> every <code>duration</code> minutes using a pump. You choose the start and end points of the tube!</p>
+<p>This automation moves a preset <code>dosing volume</code> every <code>duration</code> minutes using a pump. <strong>Skip first run</strong> can delay the first dose by one interval. You choose the start and end points of the tube!</p>
 <h2 class="anchor anchorTargetHideOnScrollNavbar_vjPI" id="useful-information-for-all-dosing-automations">Useful information for all dosing automations<a href="#useful-information-for-all-dosing-automations" class="hash-link" aria-label="Direct link to Useful information for all dosing automations" title="Direct link to Useful information for all dosing automations" translate="no">​</a></h2>
 <h3 class="anchor anchorTargetHideOnScrollNavbar_vjPI" id="how-does-the-vial-maintain-a-constant-volume-throughout-operation">How does the vial maintain a constant volume throughout operation?<a href="#how-does-the-vial-maintain-a-constant-volume-throughout-operation" class="hash-link" aria-label="Direct link to How does the vial maintain a constant volume throughout operation?" title="Direct link to How does the vial maintain a constant volume throughout operation?" translate="no">​</a></h3>
 <p>When liquid is added, say 1ml, the volume rises an additional 1ml. Then 1ml of liquid is removed via efflux, but <strong>then the efflux pump runs again for an additional few seconds</strong>. The efflux pump is run for an additional few seconds to eliminate any volume deltas (for example, if the volume added is greater than the volume removed due to pumping errors). Otherwise, the deltas accumulate and the vial can overflow. This additional step helps guarantee that that volume of liquid never exceeds the end of the efflux tube. See <code>waste_removal_multiplier</code> parameter below.</p>
