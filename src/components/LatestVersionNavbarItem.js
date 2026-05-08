@@ -39,8 +39,7 @@ export default function LatestVersionNavbarItem({mobile = false}) {
   return (
     <a
       className="navbar__item navbar__link latest-version-navbar-item"
-      href={RELEASES_URL}
-      title={title}>
+      href={RELEASES_URL}>
       {label}
     </a>
   );
