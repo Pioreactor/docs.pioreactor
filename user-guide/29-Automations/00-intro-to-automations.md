@@ -36,4 +36,4 @@ You can also create custom automations or profiles (see [Writing automations](/d
 
 ## `Skip first run`
 
-When you start an automation, Pioreactor needs to know whether it should execute immediately or after the first interval. Selecting **Skip first run** delays the initial action by one full interval (_N_ minutes) before beginning the loop. Use this when the culture needs to equilibrate before the automation intervenes, or when you schedule automations ahead of time and do not want them to fire right away.
+Some interval-based automations, such as Chemostat, Fed batch, and PID Morbidostat, need to know whether they should execute immediately or after the first interval. Selecting **Skip first run** delays the initial action by one full interval (_N_ minutes) before beginning the loop. Use this when the culture needs to equilibrate before the automation intervenes, or when you schedule automations ahead of time and do not want them to fire right away.

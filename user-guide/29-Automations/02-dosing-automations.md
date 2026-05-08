@@ -16,7 +16,7 @@ Before starting a dosing automation from the UI, review the `Current volume` and
 
 **Requires:** None
 
-The silent automation is the simplest automation: doing nothing. The automation will still "wake up" every `duration` minutes, but does nothing.
+The silent automation is the simplest automation: doing nothing. It does not schedule pump actions.
 
 ### Chemostat
 
@@ -32,7 +32,7 @@ The silent automation is the simplest automation: doing nothing. The automation 
     * one labelled "waste"
     * one labelled "media"
 
-The chemostat automation is the second simplest dosing automation. Every `duration` minutes, the media and waste pumps run and exchange `volume` (mL) of liquid inside the Pioreactor. Initially, the culture is growing and consuming nutrients and energy. Eventually, a nutrient will become scarce and will stall growing. Upon a pump refresh, this _growth-limiting_ nutrient becomes abundant once again, and the culture can grow, up until consuming all of it again and stalling growth. Thus, the bioreactor enters into a nutrient _near_\-equilibrium (hence the term "chemostat", for "chemical-static"). However, more long-term, because the culture is under an evolutionary pressure to grow, adaptions will occur that will improve the acquisition or utilization of the growth-limiting nutrient.
+The chemostat automation is the second simplest dosing automation. Every `duration` minutes, the media and waste pumps run and exchange `exchange volume` (mL) of liquid inside the Pioreactor. You can also choose **Skip first run** to wait one full interval before the first exchange. Initially, the culture is growing and consuming nutrients and energy. Eventually, a nutrient will become scarce and will stall growing. Upon a pump refresh, this _growth-limiting_ nutrient becomes abundant once again, and the culture can grow, up until consuming all of it again and stalling growth. Thus, the bioreactor enters into a nutrient _near_\-equilibrium (hence the term "chemostat", for "chemical-static"). However, more long-term, because the culture is under an evolutionary pressure to grow, adaptions will occur that will improve the acquisition or utilization of the growth-limiting nutrient.
 
 ### Turbidostat
 
@@ -49,9 +49,9 @@ The chemostat automation is the second simplest dosing automation. Every `durati
     * one labelled "media"
 
 
-A turbidostat ("turbidity-static") tries to keep the biomass constant over time. This is usually accomplished by taking frequent measurements (every 15 seconds), and performing a set media / waste pump cycle if the selected `biomass signal` exceeds the `target biomass`. The amount exchanged each time is the `exchange volume` parameter (mL). For very fast growing cultures, we recommend an `exchange volume` between 1.0 mL and 2.0 mL.
+A turbidostat ("turbidity-static") tries to keep the biomass constant over time. It reacts to fresh updates from the selected `biomass signal`, and performs a set media / waste pump cycle if the value exceeds the `target biomass`. The amount exchanged each time is the `exchange volume` parameter (mL). For very fast growing cultures, we recommend an `exchange volume` between 1.0 mL and 2.0 mL.
 
-This automation will always move the full `exchange volume`, even if it's not enough for the measured biomass to drop below the `target biomass`. If that happens, the automation will trigger again after the next check.
+This automation will always move the full `exchange volume`, even if it's not enough for the measured biomass to drop below the `target biomass`. If that happens, the automation can trigger again after another fresh biomass update. After each exchange, Turbidostat waits briefly before reacting again so post-dilution readings have time to settle.
 
 The current turbidostat fields in the UI are:
 
@@ -127,7 +127,7 @@ You can also override this per run:
 
 By introducing another pump (labelled "alt media"), another dimension of experiments opens up. We can exploit the short-time scale of adaption in microbes to evolve the culture from thriving in the original media to thriving in the alternative media, or some point in between the two. Think of it as slowly shifting the environment between the two media stocks so that the microbes are under constant evolutionary pressure. This is where the name morbidostat is from: "morbid-static".
 
-In the Pioreactor software, the transition between environments is controlled by observing the growth rate, and artificially keeping it suppressed (set to be `target growth rate`) by dynamically adjusting the ratio between the original media and the alternative media when a pump cycle is run. A pump cycle is run every `duration` minutes. Another parameter is the `target OD`, which should be low to keep the culture in a state of nutrient abundance (so that the _primary_ evolutionary pressure is the alternative media adaptation).
+In the Pioreactor software, the transition between environments is controlled by observing the growth rate, and artificially keeping it suppressed (set to be `target growth rate`) by dynamically adjusting the ratio between the original media and the alternative media when a pump cycle is run. A pump cycle is run every `duration` minutes, and **Skip first run** can delay the first cycle by one interval. Another parameter is the `target OD`, which should be low to keep the culture in a state of nutrient abundance (so that the _primary_ evolutionary pressure is the alternative media adaptation).
 
 ### Fed batch
 
@@ -136,7 +136,7 @@ In the Pioreactor software, the transition between environments is controlled by
 *   1 peristaltic pump
 *   A source and sink, with the pump in-between.
 
-This automation moves a preset amount of `volume` every `duration` minutes using a pump. You choose the start and end points of the tube!
+This automation moves a preset `dosing volume` every `duration` minutes using a pump. **Skip first run** can delay the first dose by one interval. You choose the start and end points of the tube!
 
 
 ## Useful information for all dosing automations

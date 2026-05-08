@@ -30,7 +30,7 @@ Generated from `core/pioreactor/web/unit_api.py`.
 
 > This file is generated. Edit the API source or generator instead of editing this file by hand.
 
-Endpoint count: `71`
+Endpoint count: `74`
 
 ## Endpoint Index
 
@@ -85,12 +85,15 @@ Endpoint count: `71`
 | `GET` | `/unit_api/plugins/installed/{filename}` | `get_installed_plugin` |
 | `PATCH` | `/unit_api/plugins/uninstall` | `uninstall_plugin` |
 | `POST` | `/unit_api/plugins/uninstall` | `uninstall_plugin` |
+| `GET` | `/unit_api/settings/descriptors` | `get_settings_descriptors` |
 | `GET` | `/unit_api/system/path/` | `list_system_path` |
 | `GET` | `/unit_api/system/path/{req_path}` | `list_system_path` |
 | `PATCH` | `/unit_api/system/reboot` | `reboot_system` |
 | `POST` | `/unit_api/system/reboot` | `reboot_system` |
 | `PATCH` | `/unit_api/system/remove_file` | `remove_file` |
 | `POST` | `/unit_api/system/remove_file` | `remove_file` |
+| `PATCH` | `/unit_api/system/repair` | `repair_system` |
+| `POST` | `/unit_api/system/repair` | `repair_system` |
 | `PATCH` | `/unit_api/system/shutdown` | `shutdown_system` |
 | `POST` | `/unit_api/system/shutdown` | `shutdown_system` |
 | `PATCH` | `/unit_api/system/update` | `update_software` |
@@ -200,7 +203,220 @@ Status: `200 OK`
 Example body:
 
 ```json
-{}
+{
+  "od_fused": {
+    "estimator_type": "od_fused_estimator",
+    "estimator_name": "test_fusion",
+    "calibrated_on_pioreactor_unit": "test_unit",
+    "created_at": "2026-04-30T15:49:37.409000Z",
+    "ir_led_intensity": 80.0,
+    "angles": [
+      "45",
+      "90",
+      "135"
+    ],
+    "mu_splines": {
+      "45": {
+        "type": "akima",
+        "knots": [
+          -2.6020599913279625,
+          -2.1010555331334904,
+          -1.7009287399725905
+        ],
+        "coefficients": [
+          [
+            "<truncated>",
+            "<truncated>",
+            "<truncated>"
+          ],
+          [
+            "<truncated>",
+            "<truncated>",
+            "<truncated>"
+          ],
+          [
+            "<truncated>",
+            "<truncated>",
+            "<truncated>"
+          ]
+        ]
+      },
+      "90": {
+        "type": "akima",
+        "knots": [
+          -2.6020599913279625,
+          -2.1010555331334904,
+          -1.7009287399725905
+        ],
+        "coefficients": [
+          [
+            "<truncated>",
+            "<truncated>",
+            "<truncated>"
+          ],
+          [
+            "<truncated>",
+            "<truncated>",
+            "<truncated>"
+          ],
+          [
+            "<truncated>",
+            "<truncated>",
+            "<truncated>"
+          ]
+        ]
+      },
+      "135": {
+        "type": "akima",
+        "knots": [
+          -2.6020599913279625,
+          -2.1010555331334904,
+          -1.7009287399725905
+        ],
+        "coefficients": [
+          [
+            "<truncated>",
+            "<truncated>",
+            "<truncated>"
+          ],
+          [
+            "<truncated>",
+            "<truncated>",
+            "<truncated>"
+          ],
+          [
+            "<truncated>",
+            "<truncated>",
+            "<truncated>"
+          ]
+        ]
+      }
+    },
+    "sigma_splines_log": {
+      "45": {
+        "type": "akima",
+        "knots": [
+          -2.6020599913279625,
+          -2.1010555331334904,
+          -1.7009287399725905
+        ],
+        "coefficients": [
+          [
+            "<truncated>",
+            "<truncated>",
+            "<truncated>"
+          ],
+          [
+            "<truncated>",
+            "<truncated>",
+            "<truncated>"
+          ],
+          [
+            "<truncated>",
+            "<truncated>",
+            "<truncated>"
+          ]
+        ]
+      },
+      "90": {
+        "type": "akima",
+        "knots": [
+          -2.6020599913279625,
+          -2.1010555331334904,
+          -1.7009287399725905
+        ],
+        "coefficients": [
+          [
+            "<truncated>",
+            "<truncated>",
+            "<truncated>"
+          ],
+          [
+            "<truncated>",
+            "<truncated>",
+            "<truncated>"
+          ],
+          [
+            "<truncated>",
+            "<truncated>",
+            "<truncated>"
+          ]
+        ]
+      },
+      "135": {
+        "type": "akima",
+        "knots": [
+          -2.6020599913279625,
+          -2.1010555331334904,
+          -1.7009287399725905
+        ],
+        "coefficients": [
+          [
+            "<truncated>",
+            "<truncated>",
+            "<truncated>"
+          ],
+          [
+            "<truncated>",
+            "<truncated>",
+            "<truncated>"
+          ],
+          [
+            "<truncated>",
+            "<truncated>",
+            "<truncated>"
+          ]
+        ]
+      }
+    },
+    "min_logc": -2.6020599913279625,
+    "max_logc": 1.6989700043360187,
+    "sigma_floor": 0.04,
+    "recorded_data": {
+      "by_angle": {
+        "45": {
+          "x": [
+            "<truncated>",
+            "<truncated>",
+            "<truncated>"
+          ],
+          "y": [
+            "<truncated>",
+            "<truncated>",
+            "<truncated>"
+          ]
+        },
+        "90": {
+          "x": [
+            "<truncated>",
+            "<truncated>",
+            "<truncated>"
+          ],
+          "y": [
+            "<truncated>",
+            "<truncated>",
+            "<truncated>"
+          ]
+        },
+        "135": {
+          "x": [
+            "<truncated>",
+            "<truncated>",
+            "<truncated>"
+          ],
+          "y": [
+            "<truncated>",
+            "<truncated>",
+            "<truncated>"
+          ]
+        }
+      }
+    },
+    "y": "log(Voltage)",
+    "is_active": true,
+    "pioreactor_unit": "localhost"
+  }
+}
 ```
 
 ## Remove Active Status Estimator
@@ -262,7 +478,7 @@ Example body:
 
 ## Get Automation Descriptors
 
-Get Automation Descriptors endpoint.
+Return this unit's automation UI descriptors for one automation family.
 
 ### Endpoint
 `GET /unit_api/automations/descriptors/{automation_type}`
@@ -302,6 +518,7 @@ Example body:
         "default": 30,
         "label": "Target temperature",
         "disabled": false,
+        "required": true,
         "unit": "\u2103",
         "type": "numeric",
         "options": null
@@ -338,7 +555,10 @@ Example body:
   "values": {
     "current_volume_ml": 14.0,
     "efflux_tube_volume_ml": 14.0,
-    "alt_media_fraction": 0.0
+    "alt_media_fraction": 0.0,
+    "cumulative_media_added_ml": 0.0,
+    "cumulative_alt_media_added_ml": 0.0,
+    "cumulative_waste_removed_ml": 0.0
   }
 }
 ```
@@ -1534,7 +1754,7 @@ _Response body is plain text._
 
 ## Update Specific Config
 
-Update Specific Config endpoint.
+Replace this unit's unit-specific config text.
 
 ### Endpoint
 `PATCH /unit_api/config/specific`
@@ -1569,7 +1789,7 @@ Example body:
 
 ## Update Specific Config
 
-Update Specific Config endpoint.
+Replace this unit's unit-specific config text.
 
 ### Endpoint
 `POST /unit_api/config/specific`
@@ -2051,7 +2271,7 @@ Example body:
 
 ## Check Hardware For Model
 
-Check Hardware For Model endpoint.
+Check whether this unit's hardware supports a model.
 
 ### Endpoint
 `PATCH /unit_api/hardware/check`
@@ -2089,7 +2309,7 @@ Example body:
 
 ## Check Hardware For Model
 
-Check Hardware For Model endpoint.
+Check whether this unit's hardware supports a model.
 
 ### Endpoint
 `POST /unit_api/hardware/check`
@@ -2144,13 +2364,13 @@ Example body:
 {
   "status": "ok",
   "pioreactor_unit": "localhost",
-  "utc_time": "2026-04-26T01:36:58.519Z"
+  "utc_time": "2026-05-07T19:56:28.484Z"
 }
 ```
 
 ## Import Dot Pioreactor From Zip
 
-Import Dot Pioreactor From Zip endpoint.
+Import a zipped `DOT_PIOREACTOR` archive into this unit.
 
 ### Endpoint
 `POST /unit_api/import_zipped_dot_pioreactor`
@@ -2191,7 +2411,7 @@ Example body:
 
 ## Get Job Descriptors
 
-Get Job Descriptors endpoint.
+Return this unit's background-job UI descriptors.
 
 ### Endpoint
 `GET /unit_api/jobs/descriptors`
@@ -2219,7 +2439,9 @@ Example body:
         "default": null,
         "unit": "RPM",
         "label": "Target stir RPM",
-        "editable": true
+        "editable": true,
+        "min": null,
+        "max": null
       }
     ],
     "source": "app",
@@ -2252,7 +2474,7 @@ Example body:
 
 ## Run Job
 
-Run Job endpoint.
+Run a job on this unit.
 
 ### Endpoint
 `PATCH /unit_api/jobs/run/job_name/{job_name}`
@@ -2311,7 +2533,7 @@ Example body:
 
 ## Run Job
 
-Run Job endpoint.
+Run a job on this unit.
 
 ### Endpoint
 `POST /unit_api/jobs/run/job_name/{job_name}`
@@ -2532,7 +2754,7 @@ Example body:
 
 ## Stop Jobs
 
-Stop Jobs endpoint.
+Stop jobs matching at least one filter.
 
 ### Endpoint
 `PATCH /unit_api/jobs/stop`
@@ -2574,7 +2796,7 @@ Example body:
 
 ## Stop Jobs
 
-Stop Jobs endpoint.
+Stop jobs matching at least one filter.
 
 ### Endpoint
 `POST /unit_api/jobs/stop`
@@ -2616,7 +2838,7 @@ Example body:
 
 ## Stop All Jobs
 
-Stop All Jobs endpoint.
+Stop all jobs running on this unit.
 
 ### Endpoint
 `PATCH /unit_api/jobs/stop/all`
@@ -2638,7 +2860,7 @@ Example body:
 
 ## Stop All Jobs
 
-Stop All Jobs endpoint.
+Stop all jobs running on this unit.
 
 ### Endpoint
 `POST /unit_api/jobs/stop/all`
@@ -2679,7 +2901,7 @@ Example body:
 
 ## Install Plugin
 
-Install Plugin endpoint.
+Install one plugin by running `pio plugin install`.
 
 ### Endpoint
 `PATCH /unit_api/plugins/install`
@@ -2725,7 +2947,7 @@ Example body:
 
 ## Install Plugin
 
-Install Plugin endpoint.
+Install one plugin by running `pio plugin install`.
 
 ### Endpoint
 `POST /unit_api/plugins/install`
@@ -2821,7 +3043,7 @@ _Response body is the plugin Python source as plain text._
 
 ## Uninstall Plugin
 
-Uninstall Plugin endpoint.
+Uninstall one plugin by running `pio plugin uninstall`.
 
 ### Endpoint
 `PATCH /unit_api/plugins/uninstall`
@@ -2867,7 +3089,7 @@ Example body:
 
 ## Uninstall Plugin
 
-Uninstall Plugin endpoint.
+Uninstall one plugin by running `pio plugin uninstall`.
 
 ### Endpoint
 `POST /unit_api/plugins/uninstall`
@@ -2909,6 +3131,116 @@ Example body:
   "task_id": "abcd1234",
   "result_url_path": "/unit_api/task_results/abcd1234"
 }
+```
+
+## Get Settings Descriptors
+
+Return this unit's settings UI descriptors.
+
+### Endpoint
+`GET /unit_api/settings/descriptors`
+
+### Response
+
+#### Success
+
+Status: `200 OK`
+
+Example body:
+
+```json
+[
+  {
+    "key": "bioreactor",
+    "display_name": "Bioreactor",
+    "display": true,
+    "published_settings": [
+      {
+        "key": "current_volume_ml",
+        "type": "numeric",
+        "display": true,
+        "description": "Current estimated liquid volume in the vial.",
+        "default": 14.0,
+        "unit": "mL",
+        "label": "Current volume",
+        "editable": true,
+        "min": 0.0,
+        "max": null
+      },
+      {
+        "key": "efflux_tube_volume_ml",
+        "type": "numeric",
+        "display": true,
+        "description": "Liquid volume equivalent to the height of the waste/efflux tube.",
+        "default": 14.0,
+        "unit": "mL",
+        "label": "Efflux tube level",
+        "editable": true,
+        "min": 0.0,
+        "max": null
+      },
+      {
+        "key": "alt_media_fraction",
+        "type": "numeric",
+        "display": true,
+        "description": "Fraction of the current volume estimated to be alt media.",
+        "default": 0.0,
+        "unit": null,
+        "label": "Alt media fraction",
+        "editable": true,
+        "min": 0.0,
+        "max": 1.0
+      }
+    ],
+    "source": "app",
+    "description": "Per-unit bioreactor settings.",
+    "subtext": null
+  },
+  {
+    "key": "leds",
+    "display_name": "led intensity",
+    "display": false,
+    "published_settings": [
+      {
+        "key": "intensity",
+        "type": "string",
+        "display": true,
+        "description": null,
+        "default": null,
+        "unit": null,
+        "label": "LED intensity",
+        "editable": false,
+        "min": null,
+        "max": null
+      }
+    ],
+    "source": "app",
+    "description": null,
+    "subtext": null
+  },
+  {
+    "key": "pwms",
+    "display_name": "PWMs",
+    "display": false,
+    "published_settings": [
+      {
+        "key": "dc",
+        "type": "string",
+        "display": true,
+        "description": null,
+        "default": null,
+        "unit": null,
+        "label": "PWM intensity",
+        "editable": false,
+        "min": null,
+        "max": null
+      }
+    ],
+    "source": "app",
+    "description": null,
+    "subtext": null
+  }
+]
 ```
 
 ## List System Path
@@ -2980,7 +3312,7 @@ Example body:
 
 ## Reboot System
 
-Reboots unit
+Reboot this unit.
 
 ### Endpoint
 `PATCH /unit_api/system/reboot`
@@ -3002,7 +3334,7 @@ Example body:
 
 ## Reboot System
 
-Reboots unit
+Reboot this unit.
 
 ### Endpoint
 `POST /unit_api/system/reboot`
@@ -3024,10 +3356,19 @@ Example body:
 
 ## Remove File
 
-Remove File endpoint.
+Remove a file under this unit's `DOT_PIOREACTOR` tree.
 
 ### Endpoint
 `PATCH /unit_api/system/remove_file`
+
+### Request
+
+#### Request Body
+```json
+{
+  "filepath": "plugins/example.py"
+}
+```
 
 ### Response
 
@@ -3046,10 +3387,63 @@ Example body:
 
 ## Remove File
 
-Remove File endpoint.
+Remove a file under this unit's `DOT_PIOREACTOR` tree.
 
 ### Endpoint
 `POST /unit_api/system/remove_file`
+
+### Request
+
+#### Request Body
+```json
+{
+  "filepath": "plugins/example.py"
+}
+```
+
+### Response
+
+#### Success
+
+Status: `202 Accepted`
+
+Example body:
+
+```json
+{
+  "task_id": "abcd1234",
+  "result_url_path": "/unit_api/task_results/abcd1234"
+}
+```
+
+## Repair System
+
+Repair this unit's Pioreactor filesystem permissions.
+
+### Endpoint
+`PATCH /unit_api/system/repair`
+
+### Response
+
+#### Success
+
+Status: `202 Accepted`
+
+Example body:
+
+```json
+{
+  "task_id": "abcd1234",
+  "result_url_path": "/unit_api/task_results/abcd1234"
+}
+```
+
+## Repair System
+
+Repair this unit's Pioreactor filesystem permissions.
+
+### Endpoint
+`POST /unit_api/system/repair`
 
 ### Response
 
@@ -3068,7 +3462,7 @@ Example body:
 
 ## Shutdown System
 
-Shutdown unit
+Shut down this unit.
 
 ### Endpoint
 `PATCH /unit_api/system/shutdown`
@@ -3090,7 +3484,7 @@ Example body:
 
 ## Shutdown System
 
-Shutdown unit
+Shut down this unit.
 
 ### Endpoint
 `POST /unit_api/system/shutdown`
@@ -3112,7 +3506,7 @@ Example body:
 
 ## Update Software
 
-Update Software endpoint.
+Update the Pioreactor app on this unit.
 
 ### Endpoint
 `PATCH /unit_api/system/update`
@@ -3158,7 +3552,7 @@ Example body:
 
 ## Update Software
 
-Update Software endpoint.
+Update the Pioreactor app on this unit.
 
 ### Endpoint
 `POST /unit_api/system/update`
@@ -3204,7 +3598,7 @@ Example body:
 
 ## Update Software Target
 
-Update Software Target endpoint.
+Update one software target on this unit.
 
 ### Endpoint
 `PATCH /unit_api/system/update/{target}`
@@ -3255,7 +3649,7 @@ Example body:
 
 ## Update Software Target
 
-Update Software Target endpoint.
+Update one software target on this unit.
 
 ### Endpoint
 `POST /unit_api/system/update/{target}`
@@ -3322,13 +3716,13 @@ Example body:
 ```json
 {
   "status": "success",
-  "clock_time": "2026-04-26T01:37:03.541Z"
+  "clock_time": "2026-05-07T19:56:33.509Z"
 }
 ```
 
 ## Set Clock Time
 
-Set Clock Time endpoint.
+Set or sync this unit's UTC clock.
 
 ### Endpoint
 `PATCH /unit_api/system/utc_clock`
@@ -3364,7 +3758,7 @@ Example body:
 
 ## Set Clock Time
 
-Set Clock Time endpoint.
+Set or sync this unit's UTC clock.
 
 ### Endpoint
 `POST /unit_api/system/utc_clock`
@@ -3400,7 +3794,7 @@ Example body:
 
 ## Restart Web Server
 
-Restart Web Server endpoint.
+Restart the Pioreactor web server target on the leader.
 
 ### Endpoint
 `PATCH /unit_api/system/web_server/restart`
@@ -3422,7 +3816,7 @@ Example body:
 
 ## Restart Web Server
 
-Restart Web Server endpoint.
+Restart the Pioreactor web server target on the leader.
 
 ### Endpoint
 `POST /unit_api/system/web_server/restart`
@@ -3512,7 +3906,7 @@ Example body:
 
 ```json
 {
-  "version": "26.4.5.dev0"
+  "version": "26.5.1.dev0"
 }
 ```
 

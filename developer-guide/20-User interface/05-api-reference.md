@@ -33,14 +33,13 @@ Generated from `core/pioreactor/web/api.py`.
 
 > This file is generated. Edit the API source or generator instead of editing this file by hand.
 
-Endpoint count: `138`
+Endpoint count: `140`
 
 ## Endpoint Index
 
 | Method | Path | Handler |
 | ------ | ---- | ------- |
 | `GET` | `/api/automations/descriptors/{automation_type}` | `get_automation_descriptors` |
-| `GET` | `/api/bioreactor/descriptors` | `get_bioreactor_variable_descriptors` |
 | `GET` | `/api/charts/descriptors` | `get_chart_descriptors` |
 | `GET` | `/api/config/shared` | `get_shared_config` |
 | `PATCH` | `/api/config/shared` | `update_shared_config` |
@@ -91,6 +90,7 @@ Endpoint count: `138`
 | `GET` | `/api/local_access_point` | `get_local_access_point` |
 | `GET` | `/api/logs` | `get_logs` |
 | `GET` | `/api/models` | `get_models` |
+| `GET` | `/api/settings/descriptors` | `get_settings_descriptors` |
 | `POST` | `/api/system/update_from_archive` | `update_app_from_release_archive` |
 | `POST` | `/api/system/update_next_version` | `update_app` |
 | `POST` | `/api/system/upload` | `upload_system_file` |
@@ -114,6 +114,7 @@ Endpoint count: `138`
 | `PATCH` | `/api/units/{pioreactor_unit}/plugins/uninstall` | `uninstall_plugin_across_cluster` |
 | `POST` | `/api/units/{pioreactor_unit}/plugins/uninstall` | `uninstall_plugin_across_cluster` |
 | `POST` | `/api/units/{pioreactor_unit}/system/reboot` | `reboot_unit` |
+| `POST` | `/api/units/{pioreactor_unit}/system/repair` | `repair_unit` |
 | `POST` | `/api/units/{pioreactor_unit}/system/shutdown` | `shutdown_unit` |
 | `GET` | `/api/units/{pioreactor_unit}/system/utc_clock` | `get_unit_utc_clock` |
 | `GET` | `/api/units/{pioreactor_unit}/system_logs` | `get_system_logs_for_unit` |
@@ -172,6 +173,7 @@ Endpoint count: `138`
 | `PATCH` | `/api/workers/{pioreactor_unit}/jobs/update/job_name/{job_name}/experiments/{experiment}` | `update_job_on_unit` |
 | `GET` | `/api/workers/{pioreactor_unit}/model` | `get_worker_model_and_metadata` |
 | `PUT` | `/api/workers/{pioreactor_unit}/model` | `change_worker_model` |
+| `GET` | `/api/workers/{pioreactor_unit}/settings/descriptors` | `get_settings_descriptors_for_worker` |
 | `GET` | `/api/workers/{pioreactor_unit}/zipped_calibrations` | `get_zipped_calibrations` |
 | `DELETE` | `/api/workers/assignments` | `remove_all_workers_from_all_experiments` |
 | `GET` | `/api/workers/assignments` | `get_workers_and_experiment_assignments` |
@@ -180,7 +182,7 @@ Endpoint count: `138`
 
 ## Get Automation Descriptors
 
-Get Automation Descriptors endpoint.
+Return the leader's automation UI descriptors for one automation family.
 
 ### Endpoint
 `GET /api/automations/descriptors/{automation_type}`
@@ -220,6 +222,7 @@ Example body:
         "default": 30,
         "label": "Target temperature",
         "disabled": false,
+        "required": true,
         "unit": "\u2103",
         "type": "numeric",
         "options": null
@@ -229,56 +232,9 @@ Example body:
 ]
 ```
 
-## Get Bioreactor Variable Descriptors
-
-Get Bioreactor Variable Descriptors endpoint.
-
-### Endpoint
-`GET /api/bioreactor/descriptors`
-
-### Response
-
-#### Success
-
-Status: `200 OK`
-
-Example body:
-
-```json
-[
-  {
-    "key": "current_volume_ml",
-    "label": "Current volume",
-    "description": "Current estimated liquid volume in the vial.",
-    "type": "numeric",
-    "unit": "mL",
-    "min": 0.0,
-    "max": null
-  },
-  {
-    "key": "efflux_tube_volume_ml",
-    "label": "Efflux tube level",
-    "description": "Liquid volume equivalent to the height of the waste/efflux tube.",
-    "type": "numeric",
-    "unit": "mL",
-    "min": 0.0,
-    "max": null
-  },
-  {
-    "key": "alt_media_fraction",
-    "label": "Alt media fraction",
-    "description": "Fraction of the current volume estimated to be alt media.",
-    "type": "numeric",
-    "unit": null,
-    "min": 0.0,
-    "max": 1.0
-  }
-]
-```
-
 ## Get Chart Descriptors
 
-Get Chart Descriptors endpoint.
+Return the leader's chart UI descriptors.
 
 ### Endpoint
 `GET /api/charts/descriptors`
@@ -798,7 +754,7 @@ Example body:
 
 ## Export Exportable Datasets
 
-Export Exportable Datasets endpoint.
+Export selected datasets for selected experiments.
 
 ### Endpoint
 `POST /api/datasets/exportable/export`
@@ -865,6 +821,34 @@ Example body:
 [
   {
     "experimentProfile": {
+      "experiment_profile_name": "pr05 chemostat delayed start",
+      "metadata": {
+        "author": "Your Name",
+        "description": "Chemostat on pr05 maintaining 20 mL culture volume with dilution rate 0.204 h^-1 (0.68 mL exchange every 10 minutes). Starts after growth phase when OD threshold reached. Temperature 30C, stirring 500 RPM with OD dodging.\n"
+      },
+      "plugins": [],
+      "common": {
+        "jobs": {}
+      },
+      "pioreactors": {
+        "localhost": {
+          "jobs": {
+            "stirring": "<truncated>",
+            "temperature_automation": "<truncated>",
+            "od_reading": "<truncated>",
+            "growth_rate_calculating": "<truncated>",
+            "dosing_automation": "<truncated>"
+          },
+          "label": null
+        }
+      },
+      "inputs": {}
+    },
+    "file": "chemostat_Dongseok.yaml",
+    "fullpath": "/Users/camerondavidson-pilon/code/pioreactor/.pioreactor/experiment_profiles/chemostat_Dongseok.yaml"
+  },
+  {
+    "experimentProfile": {
       "experiment_profile_name": "Debug2",
       "metadata": {
         "author": "d",
@@ -908,37 +892,13 @@ Example body:
     },
     "file": "efef.yaml",
     "fullpath": "/Users/camerondavidson-pilon/code/pioreactor/.pioreactor/experiment_profiles/efef.yaml"
-  },
-  {
-    "experimentProfile": {
-      "experiment_profile_name": "fefesf",
-      "metadata": {
-        "author": null,
-        "description": null
-      },
-      "plugins": [],
-      "common": {
-        "jobs": {}
-      },
-      "pioreactors": {
-        "localhost": {
-          "jobs": {
-            "led_intensity": "<truncated>"
-          },
-          "label": null
-        }
-      },
-      "inputs": {}
-    },
-    "file": "sfeesf.yaml",
-    "fullpath": "/Users/camerondavidson-pilon/code/pioreactor/.pioreactor/experiment_profiles/sfeesf.yaml"
   }
 ]
 ```
 
 ## Create Experiment Profile
 
-Create Experiment Profile endpoint.
+Create an experiment profile YAML file.
 
 ### Endpoint
 `POST /api/experiment_profiles`
@@ -1081,10 +1041,21 @@ Example body:
 ```json
 [
   {
+    "experiment": "efaeffefeef",
+    "created_at": "2026-05-01T20:16:58.422Z",
+    "description": "",
+    "delta_hours": 143.0,
+    "worker_count": 0,
+    "tags": [
+      "4324-2344",
+      "glp1"
+    ]
+  },
+  {
     "experiment": "efaeffefe",
     "created_at": "2026-04-13T15:47:38.212Z",
     "description": "",
-    "delta_hours": 297.0,
+    "delta_hours": 580.0,
     "worker_count": 1,
     "tags": [
       "4324-2344",
@@ -1095,23 +1066,11 @@ Example body:
     "experiment": "efaef4e4",
     "created_at": "2026-03-07T00:30:31.257Z",
     "description": "eefefaefaefefefeefefefafafefef",
-    "delta_hours": 1201.0,
+    "delta_hours": 1483.0,
     "worker_count": 0,
     "tags": [
       "pencil",
       "notebook"
-    ]
-  },
-  {
-    "experiment": "efaef4",
-    "created_at": "2026-02-06T01:19:11.315Z",
-    "description": "aefaef",
-    "delta_hours": 1896.0,
-    "worker_count": 0,
-    "tags": [
-      "pencil",
-      "notebook",
-      "4324-2344"
     ]
   }
 ]
@@ -1119,7 +1078,7 @@ Example body:
 
 ## Create Experiment
 
-Create Experiment endpoint.
+Create a new experiment.
 
 ### Endpoint
 `POST /api/experiments`
@@ -1221,11 +1180,11 @@ Example body:
 
 ```json
 {
-  "experiment": "efaeffefe",
-  "created_at": "2026-04-13T15:47:38.212Z",
+  "experiment": "efaeffefeef",
+  "created_at": "2026-05-01T20:16:58.422Z",
   "description": "",
-  "delta_hours": 297.0,
-  "worker_count": 1,
+  "delta_hours": 143.0,
+  "worker_count": 0,
   "tags": [
     "4324-2344",
     "glp1"
@@ -1359,23 +1318,7 @@ Status: `200 OK`
 Example body:
 
 ```json
-[
-  {
-    "pioreactor_unit": "localhost",
-    "experiment": "efaeffefe",
-    "is_currently_assigned_to_experiment": 1
-  },
-  {
-    "pioreactor_unit": "missing",
-    "experiment": "efaeffefe",
-    "is_currently_assigned_to_experiment": 0
-  },
-  {
-    "pioreactor_unit": "pio01",
-    "experiment": "efaeffefe",
-    "is_currently_assigned_to_experiment": 0
-  }
-]
+[]
 ```
 
 ## Get Exp Logs
@@ -2083,14 +2026,7 @@ Status: `200 OK`
 Example body:
 
 ```json
-[
-  {
-    "pioreactor_unit": "localhost",
-    "is_active": 1,
-    "model_name": "pioreactor_40ml",
-    "model_version": "1.5"
-  }
-]
+[]
 ```
 
 ## Add Worker To Experiment
@@ -2183,7 +2119,7 @@ Example body:
     "experiment": "efaeffefe",
     "created_at": "2026-04-13T15:47:38.212Z",
     "description": "",
-    "delta_hours": 297.0,
+    "delta_hours": 580.0,
     "worker_count": 1,
     "tags": [
       "4324-2344",
@@ -2234,11 +2170,11 @@ Example body:
 
 ```json
 {
-  "experiment": "efaeffefe",
-  "created_at": "2026-04-13T15:47:38.212Z",
+  "experiment": "efaeffefeef",
+  "created_at": "2026-05-01T20:16:58.422Z",
   "description": "",
-  "delta_hours": 297.0,
-  "worker_count": 1,
+  "delta_hours": 143.0,
+  "worker_count": 0,
   "tags": [
     "4324-2344",
     "glp1"
@@ -2306,7 +2242,7 @@ Example body:
 
 ## Get Job Descriptors
 
-Get Job Descriptors endpoint.
+Return the leader's background-job UI descriptors.
 
 ### Endpoint
 `GET /api/jobs/descriptors`
@@ -2334,7 +2270,9 @@ Example body:
         "default": null,
         "unit": "RPM",
         "label": "Target stir RPM",
-        "editable": true
+        "editable": true,
+        "min": null,
+        "max": null
       }
     ],
     "source": "app",
@@ -2484,9 +2422,119 @@ Example body:
 }
 ```
 
+## Get Settings Descriptors
+
+Return the leader's settings UI descriptors.
+
+### Endpoint
+`GET /api/settings/descriptors`
+
+### Response
+
+#### Success
+
+Status: `200 OK`
+
+Example body:
+
+```json
+[
+  {
+    "key": "bioreactor",
+    "display_name": "Bioreactor",
+    "display": true,
+    "published_settings": [
+      {
+        "key": "current_volume_ml",
+        "type": "numeric",
+        "display": true,
+        "description": "Current estimated liquid volume in the vial.",
+        "default": 14.0,
+        "unit": "mL",
+        "label": "Current volume",
+        "editable": true,
+        "min": 0.0,
+        "max": null
+      },
+      {
+        "key": "efflux_tube_volume_ml",
+        "type": "numeric",
+        "display": true,
+        "description": "Liquid volume equivalent to the height of the waste/efflux tube.",
+        "default": 14.0,
+        "unit": "mL",
+        "label": "Efflux tube level",
+        "editable": true,
+        "min": 0.0,
+        "max": null
+      },
+      {
+        "key": "alt_media_fraction",
+        "type": "numeric",
+        "display": true,
+        "description": "Fraction of the current volume estimated to be alt media.",
+        "default": 0.0,
+        "unit": null,
+        "label": "Alt media fraction",
+        "editable": true,
+        "min": 0.0,
+        "max": 1.0
+      }
+    ],
+    "source": "app",
+    "description": "Per-unit bioreactor settings.",
+    "subtext": null
+  },
+  {
+    "key": "leds",
+    "display_name": "led intensity",
+    "display": false,
+    "published_settings": [
+      {
+        "key": "intensity",
+        "type": "string",
+        "display": true,
+        "description": null,
+        "default": null,
+        "unit": null,
+        "label": "LED intensity",
+        "editable": false,
+        "min": null,
+        "max": null
+      }
+    ],
+    "source": "app",
+    "description": null,
+    "subtext": null
+  },
+  {
+    "key": "pwms",
+    "display_name": "PWMs",
+    "display": false,
+    "published_settings": [
+      {
+        "key": "dc",
+        "type": "string",
+        "display": true,
+        "description": null,
+        "default": null,
+        "unit": null,
+        "label": "PWM intensity",
+        "editable": false,
+        "min": null,
+        "max": null
+      }
+    ],
+    "source": "app",
+    "description": null,
+    "subtext": null
+  }
+]
+```
+
 ## Update App From Release Archive
 
-Update App From Release Archive endpoint.
+Update the Pioreactor app across the cluster from a staged release archive.
 
 ### Endpoint
 `POST /api/system/update_from_archive`
@@ -2526,7 +2574,7 @@ Example body:
 
 ## Update App
 
-Update App endpoint.
+Update the Pioreactor app across the cluster to the next version.
 
 ### Endpoint
 `POST /api/system/update_next_version`
@@ -2564,7 +2612,7 @@ Example body:
 
 ## Upload System File
 
-Upload System File endpoint.
+Stage a release archive or other system file on the leader.
 
 ### Endpoint
 `POST /api/system/upload`
@@ -2586,10 +2634,19 @@ Example body:
 
 ## Set System Utc Clock
 
-Set System Utc Clock endpoint.
+Set the leader UTC clock, then sync workers from the leader.
 
 ### Endpoint
 `POST /api/system/utc_clock`
+
+### Request
+
+#### Request Body
+```json
+{
+  "utc_clock_time": "2025-01-31T12:34:56Z"
+}
+```
 
 ### Response
 
@@ -2625,9 +2682,6 @@ Example body:
 [
   {
     "pioreactor_unit": "localhost"
-  },
-  {
-    "pioreactor_unit": "unit01"
   }
 ]
 ```
@@ -2657,14 +2711,14 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "d32e292b-ff2d-4086-82ea-f73fb94d6431",
-  "result_url_path": "/unit_api/task_results/d32e292b-ff2d-4086-82ea-f73fb94d6431"
+  "task_id": "ad488832-6ba7-45bf-8cd6-08718a8cca96",
+  "result_url_path": "/unit_api/task_results/ad488832-6ba7-45bf-8cd6-08718a8cca96"
 }
 ```
 
 ## Publish New Log
 
-Publish New Log endpoint.
+Publish a log message into an experiment log stream.
 
 ### Endpoint
 `POST /api/units/{pioreactor_unit}/experiments/{experiment}/logs`
@@ -2715,7 +2769,7 @@ Example body:
 
 ## Import Dot Pioreactor Archive
 
-Import Dot Pioreactor Archive endpoint.
+Import a zipped `DOT_PIOREACTOR` archive into one unit.
 
 ### Endpoint
 `POST /api/units/{pioreactor_unit}/import_zipped_dot_pioreactor`
@@ -2882,14 +2936,14 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "fcadaa88-c287-4f8f-a5b3-86a69e5f91d6",
-  "result_url_path": "/unit_api/task_results/fcadaa88-c287-4f8f-a5b3-86a69e5f91d6"
+  "task_id": "5023928d-b2c6-4cb4-82f8-8d247901b8a4",
+  "result_url_path": "/unit_api/task_results/5023928d-b2c6-4cb4-82f8-8d247901b8a4"
 }
 ```
 
 ## Stop All Jobs On Unit For Experiment
 
-Kills all jobs for worker or unit assigned to experiment
+Stop all jobs for one unit, or `$broadcast`, in one experiment.
 
 ### Endpoint
 `PATCH /api/units/{pioreactor_unit}/jobs/stop/experiments/{experiment}`
@@ -2918,7 +2972,7 @@ Example body:
 
 ## Stop All Jobs On Unit For Experiment
 
-Kills all jobs for worker or unit assigned to experiment
+Stop all jobs for one unit, or `$broadcast`, in one experiment.
 
 ### Endpoint
 `POST /api/units/{pioreactor_unit}/jobs/stop/experiments/{experiment}`
@@ -2947,7 +3001,7 @@ Example body:
 
 ## Stop Specific Job On Unit
 
-Kills specified job on unit
+Stop one job on one unit in one experiment.
 
 ### Endpoint
 `PATCH /api/units/{pioreactor_unit}/jobs/stop/job_name/{job_name}/experiments/{experiment}`
@@ -2977,7 +3031,7 @@ Example body:
 
 ## Stop Specific Job On Unit
 
-Kills specified job on unit
+Stop one job on one unit in one experiment.
 
 ### Endpoint
 `POST /api/units/{pioreactor_unit}/jobs/stop/job_name/{job_name}/experiments/{experiment}`
@@ -3093,7 +3147,7 @@ Example body:
 
 ## Install Plugin Across Cluster
 
-Install Plugin Across Cluster endpoint.
+Install one plugin on one unit, or `$broadcast`.
 
 ### Endpoint
 `PATCH /api/units/{pioreactor_unit}/plugins/install`
@@ -3104,6 +3158,18 @@ Install Plugin Across Cluster endpoint.
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
 | pioreactor_unit | string | Yes | Unit name or `$broadcast` where supported. |
+
+#### Request Body
+```json
+{
+  "options": {
+    "source": "path-to-file-or-url"
+  },
+  "args": [
+    "my_plugin_name"
+  ]
+}
+```
 
 ### Response
 
@@ -3122,7 +3188,7 @@ Example body:
 
 ## Install Plugin Across Cluster
 
-Install Plugin Across Cluster endpoint.
+Install one plugin on one unit, or `$broadcast`.
 
 ### Endpoint
 `POST /api/units/{pioreactor_unit}/plugins/install`
@@ -3133,6 +3199,18 @@ Install Plugin Across Cluster endpoint.
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
 | pioreactor_unit | string | Yes | Unit name or `$broadcast` where supported. |
+
+#### Request Body
+```json
+{
+  "options": {
+    "source": "path-to-file-or-url"
+  },
+  "args": [
+    "my_plugin_name"
+  ]
+}
+```
 
 ### Response
 
@@ -3174,14 +3252,14 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "d3dc87b6-6a0a-4a45-a9a1-d472e6c0c9a9",
-  "result_url_path": "/unit_api/task_results/d3dc87b6-6a0a-4a45-a9a1-d472e6c0c9a9"
+  "task_id": "93b52209-b024-484f-8e0e-a2fdf2d7ade2",
+  "result_url_path": "/unit_api/task_results/93b52209-b024-484f-8e0e-a2fdf2d7ade2"
 }
 ```
 
 ## Uninstall Plugin Across Cluster
 
-Uninstall Plugin Across Cluster endpoint.
+Uninstall one plugin from one unit, or `$broadcast`.
 
 ### Endpoint
 `PATCH /api/units/{pioreactor_unit}/plugins/uninstall`
@@ -3192,6 +3270,16 @@ Uninstall Plugin Across Cluster endpoint.
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
 | pioreactor_unit | string | Yes | Unit name or `$broadcast` where supported. |
+
+#### Request Body
+```json
+{
+  "options": {},
+  "args": [
+    "my_plugin_name"
+  ]
+}
+```
 
 ### Response
 
@@ -3210,7 +3298,7 @@ Example body:
 
 ## Uninstall Plugin Across Cluster
 
-Uninstall Plugin Across Cluster endpoint.
+Uninstall one plugin from one unit, or `$broadcast`.
 
 ### Endpoint
 `POST /api/units/{pioreactor_unit}/plugins/uninstall`
@@ -3221,6 +3309,16 @@ Uninstall Plugin Across Cluster endpoint.
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
 | pioreactor_unit | string | Yes | Unit name or `$broadcast` where supported. |
+
+#### Request Body
+```json
+{
+  "options": {},
+  "args": [
+    "my_plugin_name"
+  ]
+}
+```
 
 ### Response
 
@@ -3239,7 +3337,7 @@ Example body:
 
 ## Reboot Unit
 
-Reboots unit
+Reboot one unit, or `$broadcast`.
 
 ### Endpoint
 `POST /api/units/{pioreactor_unit}/system/reboot`
@@ -3259,9 +3357,31 @@ Status: `201 Created`
 
 _No success response body._
 
+## Repair Unit
+
+Repair filesystem permissions on one unit, or `$broadcast`.
+
+### Endpoint
+`POST /api/units/{pioreactor_unit}/system/repair`
+
+### Request
+
+#### Path Parameters
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| pioreactor_unit | string | Yes | Unit name or `$broadcast` where supported. |
+
+### Response
+
+#### Success
+
+Status: `201 Created`
+
+_No example body inferred._
+
 ## Shutdown Unit
 
-Shutdown unit
+Shut down one unit, or `$broadcast`.
 
 ### Endpoint
 `POST /api/units/{pioreactor_unit}/system/shutdown`
@@ -3306,8 +3426,8 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "da0dc23d-00c3-439d-877a-d0ba10e642b2",
-  "result_url_path": "/unit_api/task_results/da0dc23d-00c3-439d-877a-d0ba10e642b2"
+  "task_id": "9e72eef1-b0aa-42c0-b84d-fb1e961acd8b",
+  "result_url_path": "/unit_api/task_results/9e72eef1-b0aa-42c0-b84d-fb1e961acd8b"
 }
 ```
 
@@ -3378,8 +3498,8 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "7305efc4-ae79-45b0-b278-d0f559332c92",
-  "result_url_path": "/unit_api/task_results/7305efc4-ae79-45b0-b278-d0f559332c92"
+  "task_id": "297a1812-073e-47d8-9ff5-d813454c29fb",
+  "result_url_path": "/unit_api/task_results/297a1812-073e-47d8-9ff5-d813454c29fb"
 }
 ```
 
@@ -3425,13 +3545,6 @@ Example body:
   {
     "pioreactor_unit": "localhost",
     "added_at": "2025-10-03T14:12:44.444Z",
-    "is_active": 1,
-    "model_name": "pioreactor_40ml",
-    "model_version": "1.5"
-  },
-  {
-    "pioreactor_unit": "unit01",
-    "added_at": "2026-04-23T00:31:23.936Z",
     "is_active": 1,
     "model_name": "pioreactor_40ml",
     "model_version": "1.5"
@@ -3563,8 +3676,8 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "7270e89b-0fda-46b2-af6f-97d4a6b5ce32",
-  "result_url_path": "/unit_api/task_results/7270e89b-0fda-46b2-af6f-97d4a6b5ce32"
+  "task_id": "734de033-d628-4f58-984a-9803a28165d0",
+  "result_url_path": "/unit_api/task_results/734de033-d628-4f58-984a-9803a28165d0"
 }
 ```
 
@@ -3654,8 +3767,8 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "cad9a1a8-c46d-4f86-b29e-b597c6a6dc80",
-  "result_url_path": "/unit_api/task_results/cad9a1a8-c46d-4f86-b29e-b597c6a6dc80"
+  "task_id": "392a422c-b136-4d40-b76f-9bb283039f13",
+  "result_url_path": "/unit_api/task_results/392a422c-b136-4d40-b76f-9bb283039f13"
 }
 ```
 
@@ -3722,7 +3835,7 @@ Example body:
 
 ## Get Automation Descriptors For Worker
 
-Get Automation Descriptors For Worker endpoint.
+Proxy a request for automation UI descriptors to one worker.
 
 ### Endpoint
 `GET /api/workers/{pioreactor_unit}/automations/descriptors/{automation_type}`
@@ -3763,6 +3876,7 @@ Example body:
         "default": 30,
         "label": "Target temperature",
         "disabled": false,
+        "required": true,
         "unit": "\u2103",
         "type": "numeric",
         "options": null
@@ -3818,7 +3932,7 @@ Example body:
 
 ## Blink Worker
 
-Blink Worker endpoint.
+Ask one worker's monitor job to blink its response LED.
 
 ### Endpoint
 `POST /api/workers/{pioreactor_unit}/blink`
@@ -3869,8 +3983,8 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "a5cac5e3-60aa-428a-b6fc-cde64f140e9a",
-  "result_url_path": "/unit_api/task_results/a5cac5e3-60aa-428a-b6fc-cde64f140e9a"
+  "task_id": "59338035-d671-4909-862a-3145159753c1",
+  "result_url_path": "/unit_api/task_results/59338035-d671-4909-862a-3145159753c1"
 }
 ```
 
@@ -3899,8 +4013,8 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "b33bc95e-3abf-42e5-866d-d4569107d649",
-  "result_url_path": "/unit_api/task_results/b33bc95e-3abf-42e5-866d-d4569107d649"
+  "task_id": "e9ef4101-046b-43db-9b8a-efa99f643b23",
+  "result_url_path": "/unit_api/task_results/e9ef4101-046b-43db-9b8a-efa99f643b23"
 }
 ```
 
@@ -3930,14 +4044,14 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "098b85e4-e7b1-4d8f-89a3-d3be905f9ad0",
-  "result_url_path": "/unit_api/task_results/098b85e4-e7b1-4d8f-89a3-d3be905f9ad0"
+  "task_id": "9ea99a58-8ac2-4d25-a8a7-44e434b7ed8e",
+  "result_url_path": "/unit_api/task_results/9ea99a58-8ac2-4d25-a8a7-44e434b7ed8e"
 }
 ```
 
 ## Create Calibration
 
-Create Calibration endpoint.
+Create a calibration on one worker, or `$broadcast`.
 
 ### Endpoint
 `POST /api/workers/{pioreactor_unit}/calibrations/{device}`
@@ -4039,14 +4153,14 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "5029d03a-5419-48f5-89fc-3e03b2f8e8b6",
-  "result_url_path": "/unit_api/task_results/5029d03a-5419-48f5-89fc-3e03b2f8e8b6"
+  "task_id": "74bc15cf-ab99-4933-beed-bb7808e08f3f",
+  "result_url_path": "/unit_api/task_results/74bc15cf-ab99-4933-beed-bb7808e08f3f"
 }
 ```
 
 ## Start Calibration Session
 
-Start Calibration Session endpoint.
+Start a browser-driven calibration session on one worker.
 
 ### Endpoint
 `POST /api/workers/{pioreactor_unit}/calibrations/sessions`
@@ -4057,6 +4171,20 @@ Start Calibration Session endpoint.
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
 | pioreactor_unit | string | Yes | Unit name or `$broadcast` where supported. |
+
+#### Request Body
+
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| protocol_name | string | No | protocol name. |
+| target_device | string | No | target device. |
+
+```json
+{
+  "protocol_name": "example_protocol_name",
+  "target_device": "example_target_device"
+}
+```
 
 ### Response
 
@@ -4091,7 +4219,7 @@ _No success response body._
 
 ## Abort Calibration Session
 
-Abort Calibration Session endpoint.
+Abort a calibration session on one worker.
 
 ### Endpoint
 `POST /api/workers/{pioreactor_unit}/calibrations/sessions/{session_id}/abort`
@@ -4114,7 +4242,7 @@ _No success response body._
 
 ## Advance Calibration Session
 
-Advance Calibration Session endpoint.
+Submit inputs for the current step of a calibration session.
 
 ### Endpoint
 `POST /api/workers/{pioreactor_unit}/calibrations/sessions/{session_id}/inputs`
@@ -4126,6 +4254,15 @@ Advance Calibration Session endpoint.
 | ---- | ---- | -------- | ----------- |
 | pioreactor_unit | string | Yes | Unit name or `$broadcast` where supported. |
 | session_id | string | Yes | Calibration session identifier. |
+
+#### Request Body
+```json
+{
+  "inputs": {
+    "field_name": "field value"
+  }
+}
+```
 
 ### Response
 
@@ -4160,8 +4297,8 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "85e0664d-6b2b-4590-a338-5487ccd97da8",
-  "result_url_path": "/unit_api/task_results/85e0664d-6b2b-4590-a338-5487ccd97da8"
+  "task_id": "8fcca784-18c1-4136-b614-0d0250c50ff9",
+  "result_url_path": "/unit_api/task_results/8fcca784-18c1-4136-b614-0d0250c50ff9"
 }
 ```
 
@@ -4190,8 +4327,8 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "700978c5-7730-49e7-8e70-520caaf6f0fe",
-  "result_url_path": "/unit_api/task_results/700978c5-7730-49e7-8e70-520caaf6f0fe"
+  "task_id": "56cd957f-3c8b-4fd0-8930-2b9c38ddcd5e",
+  "result_url_path": "/unit_api/task_results/56cd957f-3c8b-4fd0-8930-2b9c38ddcd5e"
 }
 ```
 
@@ -4221,8 +4358,8 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "532485d5-6130-485c-8b5e-2bedf3e8db08",
-  "result_url_path": "/unit_api/task_results/532485d5-6130-485c-8b5e-2bedf3e8db08"
+  "task_id": "145904b8-173d-4a45-ab15-19a9407baf36",
+  "result_url_path": "/unit_api/task_results/145904b8-173d-4a45-ab15-19a9407baf36"
 }
 ```
 
@@ -4284,8 +4421,8 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "47af3277-2692-4f05-b3cb-469ca6f23ffe",
-  "result_url_path": "/unit_api/task_results/47af3277-2692-4f05-b3cb-469ca6f23ffe"
+  "task_id": "b7547a17-de85-4311-b51b-12b2031537b0",
+  "result_url_path": "/unit_api/task_results/b7547a17-de85-4311-b51b-12b2031537b0"
 }
 ```
 
@@ -4366,7 +4503,7 @@ Example body:
 
 ## Publish New Log
 
-Publish New Log endpoint.
+Publish a log message into an experiment log stream.
 
 ### Endpoint
 `POST /api/workers/{pioreactor_unit}/experiments/{experiment}/logs`
@@ -4935,7 +5072,7 @@ Example body:
 
 ## Get Job Descriptors For Worker
 
-Get Job Descriptors For Worker endpoint.
+Proxy a request for background-job UI descriptors to one worker.
 
 ### Endpoint
 `GET /api/workers/{pioreactor_unit}/jobs/descriptors`
@@ -4970,7 +5107,9 @@ Example body:
         "default": null,
         "unit": "RPM",
         "label": "Target stir RPM",
-        "editable": true
+        "editable": true,
+        "min": null,
+        "max": null
       }
     ],
     "source": "app",
@@ -5148,8 +5287,8 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "094009e4-64cf-482e-965a-0f2024b7a1ed",
-  "result_url_path": "/unit_api/task_results/094009e4-64cf-482e-965a-0f2024b7a1ed"
+  "task_id": "337efd04-ef70-4e14-ad89-bbf5b9bfa906",
+  "result_url_path": "/unit_api/task_results/337efd04-ef70-4e14-ad89-bbf5b9bfa906"
 }
 ```
 
@@ -5179,9 +5318,8 @@ Example body:
 
 ```json
 {
-  "unit": "localhost",
-  "task_id": "09ced173-624b-4c62-b7ac-56eb4835ae6d",
-  "result_url_path": "/unit_api/task_results/09ced173-624b-4c62-b7ac-56eb4835ae6d"
+  "task_id": "abcd1234",
+  "result_url_path": "/unit_api/task_results/abcd1234"
 }
 ```
 
@@ -5212,15 +5350,14 @@ Example body:
 
 ```json
 {
-  "unit": "localhost",
-  "task_id": "1d7d71c8-eddb-41ef-ad52-b1a4d5dd99d2",
-  "result_url_path": "/unit_api/task_results/1d7d71c8-eddb-41ef-ad52-b1a4d5dd99d2"
+  "task_id": "abcd1234",
+  "result_url_path": "/unit_api/task_results/abcd1234"
 }
 ```
 
 ## Stop All Jobs On Unit For Experiment
 
-Kills all jobs for worker or unit assigned to experiment
+Stop all jobs for one unit, or `$broadcast`, in one experiment.
 
 ### Endpoint
 `PATCH /api/workers/{pioreactor_unit}/jobs/stop/experiments/{experiment}`
@@ -5249,7 +5386,7 @@ Example body:
 
 ## Stop All Jobs On Unit For Experiment
 
-Kills all jobs for worker or unit assigned to experiment
+Stop all jobs for one unit, or `$broadcast`, in one experiment.
 
 ### Endpoint
 `POST /api/workers/{pioreactor_unit}/jobs/stop/experiments/{experiment}`
@@ -5278,7 +5415,7 @@ Example body:
 
 ## Stop Specific Job On Unit
 
-Kills specified job on unit
+Stop one job on one unit in one experiment.
 
 ### Endpoint
 `PATCH /api/workers/{pioreactor_unit}/jobs/stop/job_name/{job_name}/experiments/{experiment}`
@@ -5308,7 +5445,7 @@ Example body:
 
 ## Stop Specific Job On Unit
 
-Kills specified job on unit
+Stop one job on one unit in one experiment.
 
 ### Endpoint
 `POST /api/workers/{pioreactor_unit}/jobs/stop/job_name/{job_name}/experiments/{experiment}`
@@ -5461,6 +5598,123 @@ Example body:
 }
 ```
 
+## Get Settings Descriptors For Worker
+
+Proxy a request for settings UI descriptors to one worker.
+
+### Endpoint
+`GET /api/workers/{pioreactor_unit}/settings/descriptors`
+
+### Request
+
+#### Path Parameters
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| pioreactor_unit | string | Yes | Unit name or `$broadcast` where supported. |
+
+### Response
+
+#### Success
+
+Status: `200 OK`
+
+Example body:
+
+```json
+[
+  {
+    "key": "bioreactor",
+    "display_name": "Bioreactor",
+    "display": true,
+    "published_settings": [
+      {
+        "key": "current_volume_ml",
+        "type": "numeric",
+        "display": true,
+        "description": "Current estimated liquid volume in the vial.",
+        "default": 14.0,
+        "unit": "mL",
+        "label": "Current volume",
+        "editable": true,
+        "min": 0.0,
+        "max": null
+      },
+      {
+        "key": "efflux_tube_volume_ml",
+        "type": "numeric",
+        "display": true,
+        "description": "Liquid volume equivalent to the height of the waste/efflux tube.",
+        "default": 14.0,
+        "unit": "mL",
+        "label": "Efflux tube level",
+        "editable": true,
+        "min": 0.0,
+        "max": null
+      },
+      {
+        "key": "alt_media_fraction",
+        "type": "numeric",
+        "display": true,
+        "description": "Fraction of the current volume estimated to be alt media.",
+        "default": 0.0,
+        "unit": null,
+        "label": "Alt media fraction",
+        "editable": true,
+        "min": 0.0,
+        "max": 1.0
+      }
+    ],
+    "source": "app",
+    "description": "Per-unit bioreactor settings.",
+    "subtext": null
+  },
+  {
+    "key": "leds",
+    "display_name": "led intensity",
+    "display": false,
+    "published_settings": [
+      {
+        "key": "intensity",
+        "type": "string",
+        "display": true,
+        "description": null,
+        "default": null,
+        "unit": null,
+        "label": "LED intensity",
+        "editable": false,
+        "min": null,
+        "max": null
+      }
+    ],
+    "source": "app",
+    "description": null,
+    "subtext": null
+  },
+  {
+    "key": "pwms",
+    "display_name": "PWMs",
+    "display": false,
+    "published_settings": [
+      {
+        "key": "dc",
+        "type": "string",
+        "display": true,
+        "description": null,
+        "default": null,
+        "unit": null,
+        "label": "PWM intensity",
+        "editable": false,
+        "min": null,
+        "max": null
+      }
+    ],
+    "source": "app",
+    "description": null,
+    "subtext": null
+  }
+]
+```
+
 ## Get Zipped Calibrations
 
 Get Zipped Calibrations endpoint.
@@ -5526,11 +5780,6 @@ Example body:
     "pioreactor_unit": "localhost",
     "experiment": "efaeffefe",
     "is_active": 1
-  },
-  {
-    "pioreactor_unit": "unit01",
-    "experiment": null,
-    "is_active": 1
   }
 ]
 ```
@@ -5556,7 +5805,7 @@ Example body:
 
 ## Setup Worker Pioreactor
 
-Setup Worker Pioreactor endpoint.
+Provision and register a newly discovered worker.
 
 ### Endpoint
 `POST /api/workers/setup`
