@@ -2,6 +2,7 @@
 title: Another example writing a new automation
 slug: /writing-automations-2
 hide_table_of_contents: true
+sidebar_class_name: sidebar-item--updated
 ---
 
 Let's design a simple LED automation for Light/Dark cycles. The basic idea is that the LED automation applies the current light or dark phase, then schedules the next phase boundary. This is different from a periodic dosing automation: there is no global `duration` loop for every automation anymore. Each automation chooses its own trigger model.
