@@ -30,7 +30,11 @@ Careful not to overflow your vial! The Pioreactor doesn't know how much liquid i
 
 #### Adjustments from manual changes
 
-Sometimes you may want to add or remove liquid from the vial manually. These changes can be recorded by using the **Manual adjustments** form under the **Dosing** tab. This does not run the pumps, but logs the adjustments. This keeps metrics accurate.
+Sometimes you may want to add or remove liquid from the vial by hand, for example when taking a sample. After the manual change, go to **Pioreactors** and edit the **Current volume** setting on that Pioreactor's card. This updates the estimated liquid volume without running the pumps.
+
+For example, if you remove 0.2 mL from a vial that currently shows 14 mL, change **Current volume** to 13.8 mL.
+
+![UI showing how to update the current volume on a Pioreactor card.](/img/user-guide/02-experiment-basics/10-manual-led-dosing/current_volume_setting.png)
 
 ----
 
