@@ -255,6 +255,36 @@ Yes, since the Pioreactor UI uses the simpler http (not not http*s*), Chrome sho
 
 To remove this warning, you can click on the "Not Secure" button in the URL bar, click "Site settings", and set "Insecure content" to "Allow".
 
+### My leader Pioreactor says the disk is full. How can I clear some space?
+
+If the leader's disk is full, first make enough room for the system to behave normally again, then delete older experiments you no longer need. The commands below clear package caches, old logs, temporary export files, and compact SQLite write-ahead-log data.
+
+Run this on the leader:
+
+```bash
+df -h /
+df -ih /
+
+# Stops active Pioreactor jobs. Skip this if preserving a running experiment matters.
+pios kill --all-jobs -y || true
+
+# Frees tmpfs/RAM on current images; useful if the machine is unstable.
+sudo rm -f /run/pioreactor/exports/*.zip /run/pioreactor/exports/*.csv /run/pioreactor/exports/*.tmp
+
+sudo apt clean
+sudo journalctl --vacuum-size=200M
+sudo truncate -s 0 /var/log/pioreactor.log
+sudo rm -rf /var/lib/apt/lists/*
+sudo find /var/log -type f \( -name "*.gz" -o -name "*.xz" -o -name "*.zip" -o -name "*.1" -o -name "*.old" \) -delete
+
+sudo -u pioreactor sqlite3 /home/pioreactor/.pioreactor/storage/pioreactor.sqlite 'PRAGMA wal_checkpoint(TRUNCATE);' || true
+
+df -h /
+df -ih /
+```
+
+The first `df` commands show whether the problem is storage space (`df -h /`) or inode exhaustion (`df -ih /`). After the cleanup, open the UI and remove older experiments from the **Experiments** page if you still need more space.
+
 ### My microSD card is corrupted - what can I do?
 
 Unfortunately, the microSD card becoming corrupted or damaged is an infrequent but possible risk with using Raspberry Pis.
