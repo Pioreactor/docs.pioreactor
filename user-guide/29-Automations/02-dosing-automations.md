@@ -149,7 +149,7 @@ When liquid is added, say 1ml, the volume rises an additional 1ml. Then 1ml of l
 
 ### Why does my influx pump only partially add the amount of liquid required? What are subdoses?
 
-To further avoid overflow, we limit how much liquid is added in a single pump cycle. If the amount of liquid to be added is greater than the `max_dose_volume`, then the liquid is divided into smaller doses (halved until those new doses are less than `max_subdose` parameter), with the waste-pump run in between to avoid overflow. These small doses are called _subdoses_. You can change the maximum subdose value with the parameter `max_subdose`, see below.
+To further avoid overflow, we limit how much liquid is added in a single pump cycle. If the amount of liquid to be added is greater than the configuration parameter `max_subdose`, then the liquid is divided into smaller doses (halved until those new doses are less than `max_subdose` parameter), with the waste-pump run in between to avoid overflow. These small doses are called _subdoses_. You can change the maximum subdose value with the parameter `max_subdose`, see below.
 
 ###  Volume parameters
 
@@ -177,6 +177,9 @@ You can edit these parameters in your config.ini files. For dosing runs started 
 
 #### Section `[bioreactor]`
 
- - `efflux_tube_volume_ml`: determined by the volume that just touches the outflow tube. I.e. if you were to keep running the waste pump, what would the stable volume be.
- - `initial_volume_ml`: the initial volume of liquid in the vial. In the UI this is surfaced as `Current volume`, and is used to calculate the volume of liquid in the vial at any given time.
- - `initial_alt_media_fraction`: the initial fraction of the alternative media in the vial. This is used to calculate the volume of alternative media in the vial at any given time.
+ - `efflux_tube_volume_ml`: determined by the volume that just touches the outflow tube. I.e. if you were to keep running the waste pump, what would the stable volume be. Default 14.
+ - `initial_volume_ml`: the initial volume of liquid in the vial. In the UI this is surfaced as `Current volume`, and is used to calculate the volume of liquid in the vial at any given time. Default 14.
+ - `initial_alt_media_fraction`: the initial fraction of the alternative media in the vial. This is used to calculate the volume of alternative media in the vial at any given time. Default 0.
+ - `initial_cumulative_media_added_ml`: the initial volume of media that has been moved by the pumps. (Useful for tracking media in a source vessel). Default 0.
+ - `initial_cumulative_alt_media_added_ml`: See `initial_cumulative_media_added_ml` above. Default 0.
+-  `initial_cumulative_waste_removed_ml`: The initial volume of waste that has been removed. Default 0.
