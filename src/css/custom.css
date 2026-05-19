@@ -229,7 +229,7 @@ h1 {
   gap: 12px;
   align-content: start;
   padding: 14px;
-  border: 1px solid var(--ifm-color-emphasis-200);
+  border: 1px solid var(--ifm-color-emphasis-300);
   border-radius: 8px;
 }
 
@@ -266,6 +266,7 @@ h1 {
 .publicationAssetLinks {
   margin: 0;
   padding-left: 1.1rem;
+  margin-bottom: 5px;
 }
 
 .publicationAssetDownload {
@@ -275,16 +276,16 @@ h1 {
   justify-content: center;
   margin-top: 2px;
   padding: 6px 10px;
-  border: 1px solid var(--ifm-color-primary);
+  border: 1px solid var(--ifm-color-emphasis-300);
   border-radius: 6px;
   font-size: 0.9rem;
   font-weight: 600;
   text-decoration: none;
+  transition: border-color var(--ifm-transition-fast) var(--ifm-transition-timing-default);
 }
 
 .publicationAssetDownload:hover {
-  background: var(--ifm-color-primary);
-  color: var(--ifm-color-primary-contrast-background);
+  border-color: var(--ifm-pagination-nav-color-hover);
   text-decoration: none;
 }
 

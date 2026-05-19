@@ -76,6 +76,8 @@ Need everything? [Download the full Pioreactor publication asset pack](/media-as
     <h3>Product photos</h3>
     <ul className="publicationAssetLinks">
       <li><a href="/media-assets/pioreactor-publication-assets/product-photos/pioreactor-20ml-white-background.jpg">20 mL Pioreactor</a></li>
+      <li><a href="/media-assets/pioreactor-publication-assets/product-photos/pioreactor-cluster.jpg">Pioreactor cluster</a></li>
+      <li><a href="/media-assets/pioreactor-publication-assets/product-photos/pioreactor-hardware-detail.jpg">Hardware detail</a></li>
     </ul>
     <a className="publicationAssetDownload" href="/media-assets/pioreactor-publication-assets-product-photos.zip">Download all product photos</a>
   </section>
