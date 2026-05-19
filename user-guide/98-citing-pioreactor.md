@@ -13,12 +13,12 @@ We do not have a formal peer-reviewed reference paper yet. For now, cite Pioreac
 
 ## Recommended citation
 
-Pioreactor Inc. (2026). *Pioreactor: An open-source, Raspberry Pi-powered bioreactor platform for microbial growth automation*. [https://pioreactor.com](https://pioreactor.com)
+Pioreactor Inc. (2026). *Pioreactor: A Raspberry Pi-powered bioreactor platform for microbial growth automation*. [https://pioreactor.com](https://pioreactor.com)
 
 ```bibtex
 @misc{pioreactor,
   author       = {{Pioreactor Inc.}},
-  title        = {{Pioreactor: An open-source, Raspberry Pi-powered bioreactor platform for microbial growth automation}},
+  title        = {{Pioreactor: A Raspberry Pi-powered bioreactor platform for microbial growth automation}},
   year         = {2026},
   url          = {https://pioreactor.com},
   note         = {Accessed: YYYY-MM-DD}
@@ -43,7 +43,7 @@ For example:
 
 If a citation does not fit the venue, you can acknowledge Pioreactor in your methods, poster, slides, or course materials.
 
-> Microbial growth experiments were monitored and controlled using Pioreactor, an open-source, Raspberry Pi-powered bioreactor platform from Pioreactor Inc. (Waterloo, Ontario, Canada).
+> Microbial growth experiments were monitored and controlled using Pioreactor, a Raspberry Pi-powered bioreactor platform from Pioreactor Inc. (Waterloo, Ontario, Canada).
 
 For a more specific methods statement:
 
