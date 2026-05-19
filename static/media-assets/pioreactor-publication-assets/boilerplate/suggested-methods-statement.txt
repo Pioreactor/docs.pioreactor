@@ -1,0 +1,1 @@
+Microbial growth experiments were monitored and controlled using Pioreactor 20 mL / 40 mL bioreactors with optical density monitoring, temperature control, stirring, and programmable dosing.

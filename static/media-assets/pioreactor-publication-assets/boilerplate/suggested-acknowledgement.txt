@@ -1,0 +1,1 @@
+Microbial growth experiments were monitored and controlled using Pioreactor, an open-source, Raspberry Pi-powered bioreactor platform from Pioreactor Inc. (Waterloo, Ontario, Canada).
