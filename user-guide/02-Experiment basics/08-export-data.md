@@ -27,6 +27,16 @@ Click the _Export_ button to download the raw data as **.csv** files.
 Is a dataset not available in the list? Is there a specific data point you'd like but can't find? Feel free to ask about it on our [forums](https://forum.pioreactor.com/).
 :::
 
+## Exporting to a USB drive
+
+If a writable USB drive is mounted on the leader Pioreactor, the export page can save the export directly to the drive instead of downloading it through the browser. See [Using USB drives](/user-guide/using-usb-drives) for mounting and ejecting the drive.
+
+After selecting your experiment and datasets, choose **Export to USB** from the export destination menu and click **Export to USB**.
+
+![Export data page showing Export to USB](/img/user-guide/02-experiment-basics/08-export-data/export-to-usb.png)
+
+USB exports are saved as a `.zip` file under `pioreactor/exports/` on the drive. Keep the page open until the export finishes.
+
 ## Pioreactor Unit Activity Data
 
 When exporting datasets, most csv files will include a single metric against a time series. If you'd like to compare many datasets using a single time series, we recommend export of the _Pioreactor Unit Activity_ dataset.

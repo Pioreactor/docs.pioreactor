@@ -75,7 +75,28 @@ We highly recommend updating incrementally. That is, update to the _next_ versio
 ![Update dialog with zip file selected and ready to update](/img/user-guide/03-extending-your-pioreactor/20-updating-software/zip-file-selected-ready-to-update.png)
 
 
-### Method 3: Update using a zip file over scp or sftp
+### Method 3: Update using a zip file from a USB drive
+
+1. Download the release you wish to update to: <ButtonDownloadVersionedReleaseZip/>
+
+2. Copy the `release_*.zip` file to the root of a USB drive.
+
+3. Attach the USB drive to the leader Pioreactor and mount it from the **USB drive** card on the leader page. See [Using USB drives](/user-guide/using-usb-drives).
+
+4. In the UI, open **Updates**. In the dropdown at the top right, select **Update from USB**.
+
+![Updates page showing the Update from USB option](/img/user-guide/03-extending-your-pioreactor/20-updating-software/update-from-usb.png)
+
+5. Choose the release archive and the Pioreactors to update, then click **Update**.
+
+:::info
+
+Official release archives are verified before update scripts run. If an archive is missing its signed manifest, has been modified, or is not a Pioreactor release archive, the update will stop before installation.
+
+:::
+
+
+### Method 4: Update using a zip file over scp or sftp
 
 
 1. Download the release you wish to update to: <ButtonDownloadVersionedReleaseZip/>

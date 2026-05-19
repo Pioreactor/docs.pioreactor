@@ -27,9 +27,21 @@ You can uninstall plugins from the same page, too. These will remove the action 
 
 ## I don't have internet access - how can I install the plugin?
 
- 1. First, get the latest .whl file [here](https://pypi.org/) onto any computer that can SSH into the Pioreactor.
- 2. To get this .whl file onto a Pioreactor, use either `scp`, WinSCP, or FileZilla. Note: if you upload the .whl file to your leader Pioreactor first, you can distribute the .whl file to all your workers with `pios cp <location of .whl file>`
- 3. Once the .whl file is on the Pioreactor, use the following to install the plugin:
+### Option 1: install from a USB drive
+
+1. On another computer, download the plugin's `.whl` file from [PyPI](https://pypi.org/) or from the plugin author.
+2. Copy the `.whl` file to the root of a USB drive, or to `pioreactor/plugins/` on the drive.
+3. Attach the USB drive to the leader Pioreactor and mount it from the **USB drive** card on the leader page. See [Using USB drives](/user-guide/using-usb-drives).
+4. Open **Plugins**. Plugins found on the mounted USB drive appear above the normal plugin list.
+5. Choose the target Pioreactor or cluster target, then click **Install**.
+
+![Plugins page showing plugins found on a USB drive](/img/user-guide/03-extending-your-pioreactor/06a-using-community-plugins/plugins-from-usb.png)
+
+### Option 2: copy the wheel over SSH
+
+ 1. First, get the latest `.whl` file [here](https://pypi.org/) onto any computer that can SSH into the Pioreactor.
+ 2. To get this `.whl` file onto a Pioreactor, use either `scp`, WinSCP, or FileZilla. Note: if you upload the `.whl` file to your leader Pioreactor first, you can distribute the `.whl` file to all your workers with `pios cp <location of .whl file>`
+ 3. Once the `.whl` file is on the Pioreactor, use the following to install the plugin:
     ```
     pio plugins install <name-of-plugin> --source <location of .whl file>
     ```
