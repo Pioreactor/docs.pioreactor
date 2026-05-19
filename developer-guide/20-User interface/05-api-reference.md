@@ -33,7 +33,7 @@ Generated from `core/pioreactor/web/api.py`.
 
 > This file is generated. Edit the API source or generator instead of editing this file by hand.
 
-Endpoint count: `140`
+Endpoint count: `147`
 
 ## Endpoint Index
 
@@ -51,6 +51,7 @@ Endpoint count: `140`
 | `GET` | `/api/datasets/exportable` | `get_exportable_datasets` |
 | `GET` | `/api/datasets/exportable/{target_dataset}/preview` | `preview_exportable_dataset` |
 | `POST` | `/api/datasets/exportable/export` | `export_exportable_datasets` |
+| `POST` | `/api/datasets/exportable/export-to-usb` | `export_exportable_datasets_to_usb` |
 | `GET` | `/api/experiment_profiles` | `get_experiment_profiles` |
 | `POST` | `/api/experiment_profiles` | `create_experiment_profile` |
 | `DELETE` | `/api/experiment_profiles/{filename}` | `delete_experiment_profile` |
@@ -110,6 +111,8 @@ Endpoint count: `140`
 | `GET` | `/api/units/{pioreactor_unit}/logs` | `get_logs_for_unit` |
 | `PATCH` | `/api/units/{pioreactor_unit}/plugins/install` | `install_plugin_across_cluster` |
 | `POST` | `/api/units/{pioreactor_unit}/plugins/install` | `install_plugin_across_cluster` |
+| `PATCH` | `/api/units/{pioreactor_unit}/plugins/install-from-leader-usb` | `install_plugin_from_leader_usb_on_machine` |
+| `POST` | `/api/units/{pioreactor_unit}/plugins/install-from-leader-usb` | `install_plugin_from_leader_usb_on_machine` |
 | `GET` | `/api/units/{pioreactor_unit}/plugins/installed` | `get_plugins_on_machine` |
 | `PATCH` | `/api/units/{pioreactor_unit}/plugins/uninstall` | `uninstall_plugin_across_cluster` |
 | `POST` | `/api/units/{pioreactor_unit}/plugins/uninstall` | `uninstall_plugin_across_cluster` |
@@ -118,6 +121,10 @@ Endpoint count: `140`
 | `POST` | `/api/units/{pioreactor_unit}/system/shutdown` | `shutdown_unit` |
 | `GET` | `/api/units/{pioreactor_unit}/system/utc_clock` | `get_unit_utc_clock` |
 | `GET` | `/api/units/{pioreactor_unit}/system_logs` | `get_system_logs_for_unit` |
+| `GET` | `/api/units/{pioreactor_unit}/usb` | `get_usb_status_on_machine` |
+| `GET` | `/api/units/{pioreactor_unit}/usb/artifacts` | `get_usb_artifacts_on_machine` |
+| `POST` | `/api/units/{pioreactor_unit}/usb/eject` | `eject_usb_on_machine` |
+| `POST` | `/api/units/{pioreactor_unit}/usb/mount` | `mount_usb_on_machine` |
 | `GET` | `/api/units/{pioreactor_unit}/versions/app` | `get_app_versions` |
 | `GET` | `/api/units/{pioreactor_unit}/zipped_dot_pioreactor` | `get_zipped_dot_pioreactor` |
 | `GET` | `/api/workers` | `get_list_of_workers` |
@@ -435,7 +442,10 @@ Example body:
     "bioreactor": {
       "efflux_tube_volume_ml": "14",
       "initial_volume_ml": "14",
-      "initial_alt_media_fraction": "0.0"
+      "initial_alt_media_fraction": "0.0",
+      "initial_cumulative_media_added_ml": "0",
+      "initial_cumulative_alt_media_added_ml": "0",
+      "initial_cumulative_waste_removed_ml": "0"
     },
     "stirring.config": {
       "initial_target_rpm": "500",
@@ -802,6 +812,56 @@ Example body:
 }
 ```
 
+## Export Exportable Datasets To Usb
+
+Export selected datasets for selected experiments to the leader's mounted USB.
+
+### Endpoint
+`POST /api/datasets/exportable/export-to-usb`
+
+### Request
+
+#### Request Body
+
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| datasets | array | Yes | datasets. |
+| experiments | array | Yes | experiments. |
+| partition_by_experiment | boolean | Yes | partition by experiment. |
+| partition_by_unit | boolean | Yes | partition by unit. |
+| end_time | string | No | end time. |
+| start_time | string | No | start time. |
+
+```json
+{
+  "datasets": [
+    "od_readings"
+  ],
+  "experiments": [
+    "testing_experiment"
+  ],
+  "partition_by_experiment": true,
+  "partition_by_unit": true,
+  "end_time": "2026-01-01T12:00:00Z",
+  "start_time": "2026-01-01T00:00:00Z"
+}
+```
+
+### Response
+
+#### Success
+
+Status: `202 Accepted`
+
+Example body:
+
+```json
+{
+  "task_id": "abcd1234",
+  "result_url_path": "/unit_api/task_results/abcd1234"
+}
+```
+
 ## Get Experiment Profiles
 
 Get Experiment Profiles endpoint.
@@ -1041,37 +1101,28 @@ Example body:
 ```json
 [
   {
-    "experiment": "efaeffefeef",
-    "created_at": "2026-05-01T20:16:58.422Z",
-    "description": "",
-    "delta_hours": 143.0,
-    "worker_count": 0,
-    "tags": [
-      "4324-2344",
-      "glp1"
-    ]
-  },
-  {
-    "experiment": "efaeffefe",
-    "created_at": "2026-04-13T15:47:38.212Z",
-    "description": "",
-    "delta_hours": 580.0,
+    "experiment": "LTEE - Glucose - Sterility Check",
+    "created_at": "2025-07-15T16:24:29.932Z",
+    "description": "First run - July 15, 2025",
+    "delta_hours": 7392.0,
     "worker_count": 1,
-    "tags": [
-      "4324-2344",
-      "glp1"
-    ]
+    "tags": []
   },
   {
-    "experiment": "efaef4e4",
-    "created_at": "2026-03-07T00:30:31.257Z",
-    "description": "eefefaefaefefefeefefefafafefef",
-    "delta_hours": 1483.0,
+    "experiment": "Glc-> Glycerol \u2206pykF",
+    "created_at": "2025-07-15T15:55:59.265Z",
+    "description": "",
+    "delta_hours": 7393.0,
     "worker_count": 0,
-    "tags": [
-      "pencil",
-      "notebook"
-    ]
+    "tags": []
+  },
+  {
+    "experiment": "Glc-> Succinate lag time REL606 - 1",
+    "created_at": "2025-07-09T17:27:22.916Z",
+    "description": "",
+    "delta_hours": 7535.0,
+    "worker_count": 0,
+    "tags": []
   }
 ]
 ```
@@ -1146,13 +1197,14 @@ Delete Experiment endpoint.
 
 #### Success
 
-Status: `200 OK`
+Status: `202 Accepted`
 
 Example body:
 
 ```json
 {
-  "status": "success"
+  "task_id": "abcd1234",
+  "result_url_path": "/unit_api/task_results/abcd1234"
 }
 ```
 
@@ -1180,15 +1232,12 @@ Example body:
 
 ```json
 {
-  "experiment": "efaeffefeef",
-  "created_at": "2026-05-01T20:16:58.422Z",
-  "description": "",
-  "delta_hours": 143.0,
-  "worker_count": 0,
-  "tags": [
-    "4324-2344",
-    "glp1"
-  ]
+  "experiment": "LTEE - Glucose - Sterility Check",
+  "created_at": "2025-07-15T16:24:29.932Z",
+  "description": "First run - July 15, 2025",
+  "delta_hours": 7392.0,
+  "worker_count": 1,
+  "tags": []
 }
 ```
 
@@ -1318,7 +1367,23 @@ Status: `200 OK`
 Example body:
 
 ```json
-[]
+[
+  {
+    "pioreactor_unit": "localhost",
+    "experiment": "LTEE - Glucose - Sterility Check",
+    "is_currently_assigned_to_experiment": 1
+  },
+  {
+    "pioreactor_unit": "pio09",
+    "experiment": "LTEE - Glucose - Sterility Check",
+    "is_currently_assigned_to_experiment": 0
+  },
+  {
+    "pioreactor_unit": "pio10",
+    "experiment": "LTEE - Glucose - Sterility Check",
+    "is_currently_assigned_to_experiment": 0
+  }
+]
 ```
 
 ## Get Exp Logs
@@ -2026,7 +2091,14 @@ Status: `200 OK`
 Example body:
 
 ```json
-[]
+[
+  {
+    "pioreactor_unit": "localhost",
+    "is_active": 1,
+    "model_name": "pioreactor_40ml",
+    "model_version": "1.5"
+  }
+]
 ```
 
 ## Add Worker To Experiment
@@ -2116,15 +2188,12 @@ Example body:
 ```json
 [
   {
-    "experiment": "efaeffefe",
-    "created_at": "2026-04-13T15:47:38.212Z",
-    "description": "",
-    "delta_hours": 580.0,
+    "experiment": "LTEE - Glucose - Sterility Check",
+    "created_at": "2025-07-15T16:24:29.932Z",
+    "description": "First run - July 15, 2025",
+    "delta_hours": 7392.0,
     "worker_count": 1,
-    "tags": [
-      "4324-2344",
-      "glp1"
-    ]
+    "tags": []
   }
 ]
 ```
@@ -2147,7 +2216,7 @@ Example body:
 ```json
 [
   {
-    "experiment": "efaeffefe",
+    "experiment": "LTEE - Glucose - Sterility Check",
     "worker_count": 1
   }
 ]
@@ -2170,15 +2239,12 @@ Example body:
 
 ```json
 {
-  "experiment": "efaeffefeef",
-  "created_at": "2026-05-01T20:16:58.422Z",
-  "description": "",
-  "delta_hours": 143.0,
-  "worker_count": 0,
-  "tags": [
-    "4324-2344",
-    "glp1"
-  ]
+  "experiment": "LTEE - Glucose - Sterility Check",
+  "created_at": "2025-07-15T16:24:29.932Z",
+  "description": "First run - July 15, 2025",
+  "delta_hours": 7392.0,
+  "worker_count": 1,
+  "tags": []
 }
 ```
 
@@ -2200,13 +2266,13 @@ Example body:
 ```json
 [
   {
-    "key": "DM-Glc %0.1"
+    "key": "MOPS 0.2% glc"
   },
   {
     "key": "MOPS 0.03% glc, 0.3% glycerol"
   },
   {
-    "key": "MOPS 0.2% glc"
+    "key": "MOPS 0..03% glc, 20 mM succinate"
   }
 ]
 ```
@@ -2232,10 +2298,10 @@ Example body:
     "key": "MG1655/NCM3270/W3110/REL606"
   },
   {
-    "key": "REL606"
+    "key": "REL606 \u2206pykF"
   },
   {
-    "key": "REL606 \u2206pykF"
+    "key": "REL606"
   }
 ]
 ```
@@ -2682,6 +2748,9 @@ Example body:
 [
   {
     "pioreactor_unit": "localhost"
+  },
+  {
+    "pioreactor_unit": "pio01"
   }
 ]
 ```
@@ -2711,8 +2780,8 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "ad488832-6ba7-45bf-8cd6-08718a8cca96",
-  "result_url_path": "/unit_api/task_results/ad488832-6ba7-45bf-8cd6-08718a8cca96"
+  "task_id": "23325748-7b33-4de7-8b5d-5b745bdf0c30",
+  "result_url_path": "/unit_api/task_results/23325748-7b33-4de7-8b5d-5b745bdf0c30"
 }
 ```
 
@@ -2936,8 +3005,8 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "5023928d-b2c6-4cb4-82f8-8d247901b8a4",
-  "result_url_path": "/unit_api/task_results/5023928d-b2c6-4cb4-82f8-8d247901b8a4"
+  "task_id": "c96e9858-0d13-464e-9b52-df1be12a68ab",
+  "result_url_path": "/unit_api/task_results/c96e9858-0d13-464e-9b52-df1be12a68ab"
 }
 ```
 
@@ -3227,6 +3296,88 @@ Example body:
 }
 ```
 
+## Install Plugin From Leader Usb On Machine
+
+Install one wheel plugin from the leader's Pioreactor-managed USB mount onto selected unit(s).
+
+### Endpoint
+`PATCH /api/units/{pioreactor_unit}/plugins/install-from-leader-usb`
+
+### Request
+
+#### Path Parameters
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| pioreactor_unit | string | Yes | Unit name or `$broadcast` where supported. |
+
+#### Request Body
+
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| filepath | string | Yes | filepath. |
+
+```json
+{
+  "filepath": "example_filepath"
+}
+```
+
+### Response
+
+#### Success
+
+Status: `202 Accepted`
+
+Example body:
+
+```json
+{
+  "task_id": "abcd1234",
+  "result_url_path": "/unit_api/task_results/abcd1234"
+}
+```
+
+## Install Plugin From Leader Usb On Machine
+
+Install one wheel plugin from the leader's Pioreactor-managed USB mount onto selected unit(s).
+
+### Endpoint
+`POST /api/units/{pioreactor_unit}/plugins/install-from-leader-usb`
+
+### Request
+
+#### Path Parameters
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| pioreactor_unit | string | Yes | Unit name or `$broadcast` where supported. |
+
+#### Request Body
+
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| filepath | string | Yes | filepath. |
+
+```json
+{
+  "filepath": "example_filepath"
+}
+```
+
+### Response
+
+#### Success
+
+Status: `202 Accepted`
+
+Example body:
+
+```json
+{
+  "task_id": "abcd1234",
+  "result_url_path": "/unit_api/task_results/abcd1234"
+}
+```
+
 ## Get Plugins On Machine
 
 Get Plugins On Machine endpoint.
@@ -3252,8 +3403,8 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "93b52209-b024-484f-8e0e-a2fdf2d7ade2",
-  "result_url_path": "/unit_api/task_results/93b52209-b024-484f-8e0e-a2fdf2d7ade2"
+  "task_id": "8f058289-2962-4373-af2e-1866d721abf1",
+  "result_url_path": "/unit_api/task_results/8f058289-2962-4373-af2e-1866d721abf1"
 }
 ```
 
@@ -3426,8 +3577,8 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "9e72eef1-b0aa-42c0-b84d-fb1e961acd8b",
-  "result_url_path": "/unit_api/task_results/9e72eef1-b0aa-42c0-b84d-fb1e961acd8b"
+  "task_id": "30302e8a-b250-44cb-af2f-5842c9adb02c",
+  "result_url_path": "/unit_api/task_results/30302e8a-b250-44cb-af2f-5842c9adb02c"
 }
 ```
 
@@ -3473,6 +3624,124 @@ Example body:
 ]
 ```
 
+## Get Usb Status On Machine
+
+Get Usb Status On Machine endpoint.
+
+### Endpoint
+`GET /api/units/{pioreactor_unit}/usb`
+
+### Request
+
+#### Path Parameters
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| pioreactor_unit | string | Yes | Unit name or `$broadcast` where supported. |
+
+### Response
+
+#### Success
+
+Status: `202 Accepted`
+
+Example body:
+
+```json
+{
+  "unit": "localhost",
+  "task_id": "ee07aaf5-087d-4f18-9a3f-f2f5d85a728c",
+  "result_url_path": "/unit_api/task_results/ee07aaf5-087d-4f18-9a3f-f2f5d85a728c"
+}
+```
+
+## Get Usb Artifacts On Machine
+
+Get Usb Artifacts On Machine endpoint.
+
+### Endpoint
+`GET /api/units/{pioreactor_unit}/usb/artifacts`
+
+### Request
+
+#### Path Parameters
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| pioreactor_unit | string | Yes | Unit name or `$broadcast` where supported. |
+
+### Response
+
+#### Success
+
+Status: `202 Accepted`
+
+Example body:
+
+```json
+{
+  "unit": "localhost",
+  "task_id": "ec6d5626-9f15-4f83-a17a-6a011c080b26",
+  "result_url_path": "/unit_api/task_results/ec6d5626-9f15-4f83-a17a-6a011c080b26"
+}
+```
+
+## Eject Usb On Machine
+
+Eject Usb On Machine endpoint.
+
+### Endpoint
+`POST /api/units/{pioreactor_unit}/usb/eject`
+
+### Request
+
+#### Path Parameters
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| pioreactor_unit | string | Yes | Unit name or `$broadcast` where supported. |
+
+### Response
+
+#### Success
+
+Status: `202 Accepted`
+
+Example body:
+
+```json
+{
+  "task_id": "abcd1234",
+  "result_url_path": "/unit_api/task_results/abcd1234"
+}
+```
+
+## Mount Usb On Machine
+
+Mount Usb On Machine endpoint.
+
+### Endpoint
+`POST /api/units/{pioreactor_unit}/usb/mount`
+
+### Request
+
+#### Path Parameters
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| pioreactor_unit | string | Yes | Unit name or `$broadcast` where supported. |
+
+### Response
+
+#### Success
+
+Status: `202 Accepted`
+
+Example body:
+
+```json
+{
+  "task_id": "abcd1234",
+  "result_url_path": "/unit_api/task_results/abcd1234"
+}
+```
+
 ## Get App Versions
 
 Get App Versions endpoint.
@@ -3498,8 +3767,8 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "297a1812-073e-47d8-9ff5-d813454c29fb",
-  "result_url_path": "/unit_api/task_results/297a1812-073e-47d8-9ff5-d813454c29fb"
+  "task_id": "d7e0ca8a-b9f6-4121-8d40-6c7a1b76b382",
+  "result_url_path": "/unit_api/task_results/d7e0ca8a-b9f6-4121-8d40-6c7a1b76b382"
 }
 ```
 
@@ -3545,6 +3814,13 @@ Example body:
   {
     "pioreactor_unit": "localhost",
     "added_at": "2025-10-03T14:12:44.444Z",
+    "is_active": 1,
+    "model_name": "pioreactor_40ml",
+    "model_version": "1.5"
+  },
+  {
+    "pioreactor_unit": "pio01",
+    "added_at": "2026-05-15T01:58:36.935Z",
     "is_active": 1,
     "model_name": "pioreactor_40ml",
     "model_version": "1.5"
@@ -3676,8 +3952,8 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "734de033-d628-4f58-984a-9803a28165d0",
-  "result_url_path": "/unit_api/task_results/734de033-d628-4f58-984a-9803a28165d0"
+  "task_id": "de7e1f50-035c-4bce-8c50-14ad953eb01f",
+  "result_url_path": "/unit_api/task_results/de7e1f50-035c-4bce-8c50-14ad953eb01f"
 }
 ```
 
@@ -3767,8 +4043,8 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "392a422c-b136-4d40-b76f-9bb283039f13",
-  "result_url_path": "/unit_api/task_results/392a422c-b136-4d40-b76f-9bb283039f13"
+  "task_id": "facde939-d9de-4054-8212-d359e9235ffc",
+  "result_url_path": "/unit_api/task_results/facde939-d9de-4054-8212-d359e9235ffc"
 }
 ```
 
@@ -3983,8 +4259,8 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "59338035-d671-4909-862a-3145159753c1",
-  "result_url_path": "/unit_api/task_results/59338035-d671-4909-862a-3145159753c1"
+  "task_id": "dbb18e33-cfb6-4597-9cae-16dd993f20b9",
+  "result_url_path": "/unit_api/task_results/dbb18e33-cfb6-4597-9cae-16dd993f20b9"
 }
 ```
 
@@ -4013,8 +4289,8 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "e9ef4101-046b-43db-9b8a-efa99f643b23",
-  "result_url_path": "/unit_api/task_results/e9ef4101-046b-43db-9b8a-efa99f643b23"
+  "task_id": "b380b9a0-37a8-40ef-82ee-8ca065cd01e4",
+  "result_url_path": "/unit_api/task_results/b380b9a0-37a8-40ef-82ee-8ca065cd01e4"
 }
 ```
 
@@ -4044,8 +4320,8 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "9ea99a58-8ac2-4d25-a8a7-44e434b7ed8e",
-  "result_url_path": "/unit_api/task_results/9ea99a58-8ac2-4d25-a8a7-44e434b7ed8e"
+  "task_id": "f3c7c39a-9621-4b24-927a-416ae27c5ad8",
+  "result_url_path": "/unit_api/task_results/f3c7c39a-9621-4b24-927a-416ae27c5ad8"
 }
 ```
 
@@ -4153,8 +4429,8 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "74bc15cf-ab99-4933-beed-bb7808e08f3f",
-  "result_url_path": "/unit_api/task_results/74bc15cf-ab99-4933-beed-bb7808e08f3f"
+  "task_id": "10845ec2-1a8b-4b60-9009-10675fad83f7",
+  "result_url_path": "/unit_api/task_results/10845ec2-1a8b-4b60-9009-10675fad83f7"
 }
 ```
 
@@ -4297,8 +4573,8 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "8fcca784-18c1-4136-b614-0d0250c50ff9",
-  "result_url_path": "/unit_api/task_results/8fcca784-18c1-4136-b614-0d0250c50ff9"
+  "task_id": "f5654f88-76f0-411a-b775-092304c04054",
+  "result_url_path": "/unit_api/task_results/f5654f88-76f0-411a-b775-092304c04054"
 }
 ```
 
@@ -4327,8 +4603,8 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "56cd957f-3c8b-4fd0-8930-2b9c38ddcd5e",
-  "result_url_path": "/unit_api/task_results/56cd957f-3c8b-4fd0-8930-2b9c38ddcd5e"
+  "task_id": "a772a3e2-69b6-4cd9-90fc-b3570e02c57c",
+  "result_url_path": "/unit_api/task_results/a772a3e2-69b6-4cd9-90fc-b3570e02c57c"
 }
 ```
 
@@ -4358,8 +4634,8 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "145904b8-173d-4a45-ab15-19a9407baf36",
-  "result_url_path": "/unit_api/task_results/145904b8-173d-4a45-ab15-19a9407baf36"
+  "task_id": "6c546105-c1a0-446c-9fe3-36d179161072",
+  "result_url_path": "/unit_api/task_results/6c546105-c1a0-446c-9fe3-36d179161072"
 }
 ```
 
@@ -4421,8 +4697,8 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "b7547a17-de85-4311-b51b-12b2031537b0",
-  "result_url_path": "/unit_api/task_results/b7547a17-de85-4311-b51b-12b2031537b0"
+  "task_id": "d7ec367d-8314-4b1a-86cb-672fdf6e03ef",
+  "result_url_path": "/unit_api/task_results/d7ec367d-8314-4b1a-86cb-672fdf6e03ef"
 }
 ```
 
@@ -4452,7 +4728,7 @@ Example body:
 {
   "pioreactor_unit": "localhost",
   "is_active": 1,
-  "experiment": "efaeffefe",
+  "experiment": "LTEE - Glucose - Sterility Check",
   "model_name": "pioreactor_40ml",
   "model_version": "1.5"
 }
@@ -5287,8 +5563,8 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "337efd04-ef70-4e14-ad89-bbf5b9bfa906",
-  "result_url_path": "/unit_api/task_results/337efd04-ef70-4e14-ad89-bbf5b9bfa906"
+  "task_id": "ce5b4274-f524-487b-9d52-279972eefb6d",
+  "result_url_path": "/unit_api/task_results/ce5b4274-f524-487b-9d52-279972eefb6d"
 }
 ```
 
@@ -5318,8 +5594,9 @@ Example body:
 
 ```json
 {
-  "task_id": "abcd1234",
-  "result_url_path": "/unit_api/task_results/abcd1234"
+  "unit": "localhost",
+  "task_id": "8c561e53-030d-4a31-9b32-fc5872803de1",
+  "result_url_path": "/unit_api/task_results/8c561e53-030d-4a31-9b32-fc5872803de1"
 }
 ```
 
@@ -5350,8 +5627,9 @@ Example body:
 
 ```json
 {
-  "task_id": "abcd1234",
-  "result_url_path": "/unit_api/task_results/abcd1234"
+  "unit": "localhost",
+  "task_id": "04b03e1e-9c71-40f0-b7bf-23b05c0e4cb5",
+  "result_url_path": "/unit_api/task_results/04b03e1e-9c71-40f0-b7bf-23b05c0e4cb5"
 }
 ```
 
@@ -5778,7 +6056,12 @@ Example body:
 [
   {
     "pioreactor_unit": "localhost",
-    "experiment": "efaeffefe",
+    "experiment": "LTEE - Glucose - Sterility Check",
+    "is_active": 1
+  },
+  {
+    "pioreactor_unit": "pio01",
+    "experiment": null,
     "is_active": 1
   }
 ]

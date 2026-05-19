@@ -30,7 +30,7 @@ Generated from `core/pioreactor/web/unit_api.py`.
 
 > This file is generated. Edit the API source or generator instead of editing this file by hand.
 
-Endpoint count: `74`
+Endpoint count: `82`
 
 ## Endpoint Index
 
@@ -81,11 +81,15 @@ Endpoint count: `74`
 | `GET` | `/unit_api/long_running_jobs/running` | `get_all_long_running_jobs` |
 | `PATCH` | `/unit_api/plugins/install` | `install_plugin` |
 | `POST` | `/unit_api/plugins/install` | `install_plugin` |
+| `PATCH` | `/unit_api/plugins/install-from-usb` | `install_plugin_from_usb` |
+| `POST` | `/unit_api/plugins/install-from-usb` | `install_plugin_from_usb` |
 | `GET` | `/unit_api/plugins/installed` | `get_installed_plugins` |
 | `GET` | `/unit_api/plugins/installed/{filename}` | `get_installed_plugin` |
 | `PATCH` | `/unit_api/plugins/uninstall` | `uninstall_plugin` |
 | `POST` | `/unit_api/plugins/uninstall` | `uninstall_plugin` |
 | `GET` | `/unit_api/settings/descriptors` | `get_settings_descriptors` |
+| `GET` | `/unit_api/system/disk_space` | `get_disk_space` |
+| `GET` | `/unit_api/system/memory` | `get_memory` |
 | `GET` | `/unit_api/system/path/` | `list_system_path` |
 | `GET` | `/unit_api/system/path/{req_path}` | `list_system_path` |
 | `PATCH` | `/unit_api/system/reboot` | `reboot_system` |
@@ -107,6 +111,10 @@ Endpoint count: `74`
 | `POST` | `/unit_api/system/web_server/restart` | `restart_web_server` |
 | `GET` | `/unit_api/system/web_server/status` | `get_web_server_status` |
 | `GET` | `/unit_api/task_results/{task_id}` | `get_task_status` |
+| `GET` | `/unit_api/usb` | `get_usb_status` |
+| `GET` | `/unit_api/usb/artifacts` | `get_usb_artifacts` |
+| `POST` | `/unit_api/usb/eject` | `eject_usb` |
+| `POST` | `/unit_api/usb/mount` | `mount_usb` |
 | `GET` | `/unit_api/versions/app` | `get_app_version` |
 | `GET` | `/unit_api/zipped_calibrations` | `get_zipped_calibrations` |
 | `GET` | `/unit_api/zipped_dot_pioreactor` | `get_zipped_dot_pioreactor` |
@@ -208,7 +216,7 @@ Example body:
     "estimator_type": "od_fused_estimator",
     "estimator_name": "test_fusion",
     "calibrated_on_pioreactor_unit": "test_unit",
-    "created_at": "2026-04-30T15:49:37.409000Z",
+    "created_at": "2026-05-19T16:08:24.067000Z",
     "ir_led_intensity": 80.0,
     "angles": [
       "45",
@@ -411,6 +419,11 @@ Example body:
           ]
         }
       }
+    },
+    "low_conc_scales": {
+      "135": 0.04,
+      "90": 4.0,
+      "45": 10.0
     },
     "y": "log(Voltage)",
     "is_active": true,
@@ -716,38 +729,6 @@ Example body:
     },
     {
       "calibration_type": "simple_peristaltic_pump",
-      "calibration_name": "alt_media-2023-12-02",
-      "calibrated_on_pioreactor_unit": "testing_unit",
-      "created_at": "2010-01-01T00:00:00Z",
-      "curve_data_": {
-        "type": "poly",
-        "coefficients": [
-          1.3333333333333333,
-          0.0
-        ]
-      },
-      "x": "Duration",
-      "y": "Volume",
-      "recorded_data": {
-        "x": [
-          0.5,
-          0.5,
-          0.5
-        ],
-        "y": [
-          0.5,
-          0.5,
-          0.5
-        ]
-      },
-      "hz": 250.0,
-      "dc": 95.0,
-      "voltage": 0.0,
-      "is_active": false,
-      "pioreactor_unit": "localhost"
-    },
-    {
-      "calibration_type": "simple_peristaltic_pump",
       "calibration_name": "alt_media_pump-2026-01-28",
       "calibrated_on_pioreactor_unit": "localhost",
       "created_at": "2026-01-28T01:45:28.286000Z",
@@ -775,6 +756,30 @@ Example body:
       "hz": 250.0,
       "dc": 100.0,
       "voltage": 0.0,
+      "is_active": false,
+      "pioreactor_unit": "localhost"
+    },
+    {
+      "calibration_type": "simple_peristaltic_pump",
+      "calibration_name": "debug",
+      "calibrated_on_pioreactor_unit": "localhost",
+      "created_at": "2010-01-01T00:00:00Z",
+      "curve_data_": {
+        "type": "poly",
+        "coefficients": [
+          1.0,
+          0.0
+        ]
+      },
+      "x": "Duration",
+      "y": "Volume",
+      "recorded_data": {
+        "x": [],
+        "y": []
+      },
+      "hz": 100.0,
+      "dc": 60.0,
+      "voltage": -1.0,
       "is_active": false,
       "pioreactor_unit": "localhost"
     }
@@ -1627,7 +1632,10 @@ Example body:
   "bioreactor": {
     "efflux_tube_volume_ml": "14",
     "initial_volume_ml": "14",
-    "initial_alt_media_fraction": "0.0"
+    "initial_alt_media_fraction": "0.0",
+    "initial_cumulative_media_added_ml": "0",
+    "initial_cumulative_alt_media_added_ml": "0",
+    "initial_cumulative_waste_removed_ml": "0"
   },
   "stirring.config": {
     "initial_target_rpm": "500",
@@ -1930,6 +1938,7 @@ Example body:
           -6.787050588455531
         ]
       },
+      "low_conc_scales": {},
       "y": "log(Voltage)",
       "is_active": false,
       "pioreactor_unit": "localhost",
@@ -2044,6 +2053,7 @@ Example body:
           }
         }
       },
+      "low_conc_scales": {},
       "y": "log(Voltage)",
       "is_active": false,
       "pioreactor_unit": "localhost",
@@ -2161,6 +2171,7 @@ Example body:
           }
         }
       },
+      "low_conc_scales": {},
       "y": "log(Voltage)",
       "is_active": false,
       "pioreactor_unit": "localhost",
@@ -2364,7 +2375,7 @@ Example body:
 {
   "status": "ok",
   "pioreactor_unit": "localhost",
-  "utc_time": "2026-05-07T19:56:28.484Z"
+  "utc_time": "2026-05-19T17:07:03.681Z"
 }
 ```
 
@@ -2406,7 +2417,17 @@ Status: `200 OK`
 Example body:
 
 ```json
-[]
+[
+  {
+    "job_id": 1115,
+    "job_name": "led_automation",
+    "experiment": "test_we_respect_any_locks_on_leds_we_want_to_modify",
+    "job_source": "user",
+    "unit": "localhost",
+    "started_at": "2026-05-19T16:50:44.381Z",
+    "ended_at": null
+  }
+]
 ```
 
 ## Get Job Descriptors
@@ -2606,7 +2627,21 @@ Status: `200 OK`
 Example body:
 
 ```json
-[]
+[
+  {
+    "job_id": 1115,
+    "unit": "localhost",
+    "experiment": "test_we_respect_any_locks_on_leds_we_want_to_modify",
+    "job_name": "led_automation",
+    "job_source": "user",
+    "started_at": "2026-05-19T16:50:44.381Z",
+    "is_running": 1,
+    "leader": "localhost",
+    "pid": 57970,
+    "is_long_running_job": 0,
+    "ended_at": null
+  }
+]
 ```
 
 ## Get Running Job
@@ -2991,6 +3026,78 @@ Example body:
 }
 ```
 
+## Install Plugin From Usb
+
+Install one wheel plugin from a Pioreactor-managed USB mount.
+
+### Endpoint
+`PATCH /unit_api/plugins/install-from-usb`
+
+### Request
+
+#### Request Body
+
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| filepath | string | Yes | filepath. |
+
+```json
+{
+  "filepath": "example_filepath"
+}
+```
+
+### Response
+
+#### Success
+
+Status: `202 Accepted`
+
+Example body:
+
+```json
+{
+  "task_id": "abcd1234",
+  "result_url_path": "/unit_api/task_results/abcd1234"
+}
+```
+
+## Install Plugin From Usb
+
+Install one wheel plugin from a Pioreactor-managed USB mount.
+
+### Endpoint
+`POST /unit_api/plugins/install-from-usb`
+
+### Request
+
+#### Request Body
+
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| filepath | string | Yes | filepath. |
+
+```json
+{
+  "filepath": "example_filepath"
+}
+```
+
+### Response
+
+#### Success
+
+Status: `202 Accepted`
+
+Example body:
+
+```json
+{
+  "task_id": "abcd1234",
+  "result_url_path": "/unit_api/task_results/abcd1234"
+}
+```
+
 ## Get Installed Plugins
 
 Get Installed Plugins endpoint.
@@ -3009,12 +3116,28 @@ Example body:
 ```json
 [
   {
-    "name": "my-example-plugin",
-    "version": "0.2.0",
-    "description": "Plugin description.",
-    "homepage": "https://docs.pioreactor.com",
-    "source": "plugins/example_plugin.py",
-    "author": "Pioreactor"
+    "name": "pioreactor-precision-temperature-plugin",
+    "version": "0.1.1",
+    "description": "Precision temperature automation for Pioreactor using FIR + MLX90632",
+    "homepage": "https://github.com/Pioreactor/pioreactor-precision-temperature-plugin",
+    "source": "entry_points",
+    "author": "Cam Davidson-Pilon"
+  },
+  {
+    "name": "MusetFedbatch",
+    "version": "Unknown",
+    "description": "Unknown",
+    "homepage": "http://localhost:4999/unit_api/plugins/installed/MusetFedbatch.py",
+    "source": "plugins/MusetFedbatch.py",
+    "author": "Unknown"
+  },
+  {
+    "name": "UVCycle",
+    "version": "Unknown",
+    "description": "Unknown",
+    "homepage": "http://localhost:4999/unit_api/plugins/installed/UVCycle.py",
+    "source": "plugins/UVCycle.py",
+    "author": "Unknown"
   }
 ]
 ```
@@ -3241,6 +3364,50 @@ Example body:
     "subtext": null
   }
 ]
+```
+
+## Get Disk Space
+
+Return this unit's root filesystem disk space.
+
+### Endpoint
+`GET /unit_api/system/disk_space`
+
+### Response
+
+#### Success
+
+Status: `200 OK`
+
+Example body:
+
+```json
+{
+  "available_bytes": 96393027584,
+  "total_bytes": 494384795648
+}
+```
+
+## Get Memory
+
+Return this unit's memory availability.
+
+### Endpoint
+`GET /unit_api/system/memory`
+
+### Response
+
+#### Success
+
+Status: `200 OK`
+
+Example body:
+
+```json
+{
+  "available_bytes": 3807789056,
+  "total_bytes": 17179869184
+}
 ```
 
 ## List System Path
@@ -3716,7 +3883,7 @@ Example body:
 ```json
 {
   "status": "success",
-  "clock_time": "2026-05-07T19:56:33.509Z"
+  "clock_time": "2026-05-19T17:07:07.581Z"
 }
 ```
 
@@ -3889,6 +4056,179 @@ Example body:
 }
 ```
 
+## Get Usb Status
+
+Get Usb Status endpoint.
+
+### Endpoint
+`GET /unit_api/usb`
+
+### Response
+
+#### Success
+
+Status: `200 OK`
+
+Example body:
+
+```json
+{
+  "status": "mounted",
+  "partitions": [
+    {
+      "device": "/dev/pioreactor-dev-usb1",
+      "parent_device": "/dev/pioreactor-dev-usb",
+      "label": "DEV_USB",
+      "uuid": "DEV-USB",
+      "fstype": "ext4",
+      "size_bytes": null,
+      "mountpoints": [
+        "/Users/camerondavidson-pilon/code/pioreactor/.pioreactor/dev_usb_mounts/DEV_USB"
+      ],
+      "removable": true,
+      "mounted": true,
+      "display_name": "DEV_USB",
+      "pioreactor_mountpoint": "/Users/camerondavidson-pilon/code/pioreactor/.pioreactor/dev_usb_mounts/usb-DEV-USB",
+      "mountpoint": "/Users/camerondavidson-pilon/code/pioreactor/.pioreactor/dev_usb_mounts/DEV_USB",
+      "writable": true,
+      "free_bytes": 96393027584,
+      "unsupported_reason": null
+    }
+  ],
+  "active_mount": {
+    "device": "/dev/pioreactor-dev-usb1",
+    "parent_device": "/dev/pioreactor-dev-usb",
+    "label": "DEV_USB",
+    "uuid": "DEV-USB",
+    "fstype": "ext4",
+    "size_bytes": null,
+    "mountpoints": [
+      "/Users/camerondavidson-pilon/code/pioreactor/.pioreactor/dev_usb_mounts/DEV_USB"
+    ],
+    "removable": true,
+    "mounted": true,
+    "display_name": "DEV_USB",
+    "pioreactor_mountpoint": "/Users/camerondavidson-pilon/code/pioreactor/.pioreactor/dev_usb_mounts/usb-DEV-USB",
+    "mountpoint": "/Users/camerondavidson-pilon/code/pioreactor/.pioreactor/dev_usb_mounts/DEV_USB",
+    "writable": true,
+    "free_bytes": 96393027584
+  }
+}
+```
+
+## Get Usb Artifacts
+
+Get Usb Artifacts endpoint.
+
+### Endpoint
+`GET /unit_api/usb/artifacts`
+
+### Response
+
+#### Success
+
+Status: `200 OK`
+
+Example body:
+
+```json
+{
+  "mountpoint": "/Users/camerondavidson-pilon/code/pioreactor/.pioreactor/dev_usb_mounts/DEV_USB",
+  "updates": [
+    {
+      "path": "/Users/camerondavidson-pilon/code/pioreactor/.pioreactor/dev_usb_mounts/DEV_USB/release_26.5.1.zip",
+      "version": "26.5.1"
+    }
+  ],
+  "plugins": [
+    {
+      "path": "/Users/camerondavidson-pilon/code/pioreactor/.pioreactor/dev_usb_mounts/DEV_USB/my_plugin.whl",
+      "name": "my-plugin",
+      "version": null
+    },
+    {
+      "path": "/Users/camerondavidson-pilon/code/pioreactor/.pioreactor/dev_usb_mounts/DEV_USB/pioreactor/plugins/pioreactor_usb_demo-1.2.3-py3-none-any.whl",
+      "name": "pioreactor-usb-demo",
+      "version": "1.2.3"
+    }
+  ],
+  "writable": true,
+  "free_bytes": 96393027584
+}
+```
+
+## Eject Usb
+
+Eject Usb endpoint.
+
+### Endpoint
+`POST /unit_api/usb/eject`
+
+### Request
+
+#### Request Body
+
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| device | string | No | device. |
+
+```json
+{
+  "device": "example_device"
+}
+```
+
+### Response
+
+#### Success
+
+Status: `202 Accepted`
+
+Example body:
+
+```json
+{
+  "task_id": "abcd1234",
+  "result_url_path": "/unit_api/task_results/abcd1234"
+}
+```
+
+## Mount Usb
+
+Mount Usb endpoint.
+
+### Endpoint
+`POST /unit_api/usb/mount`
+
+### Request
+
+#### Request Body
+
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| device | string | No | device. |
+
+```json
+{
+  "device": "example_device"
+}
+```
+
+### Response
+
+#### Success
+
+Status: `202 Accepted`
+
+Example body:
+
+```json
+{
+  "task_id": "abcd1234",
+  "result_url_path": "/unit_api/task_results/abcd1234"
+}
+```
+
 ## Get App Version
 
 Get App Version endpoint.
@@ -3906,7 +4246,7 @@ Example body:
 
 ```json
 {
-  "version": "26.5.1.dev0"
+  "version": "26.5.3.dev0"
 }
 ```
 
