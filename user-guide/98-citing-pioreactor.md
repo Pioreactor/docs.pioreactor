@@ -77,6 +77,7 @@ Need everything? [Download the full Pioreactor publication asset pack](/media-as
     <h3>Product photos</h3>
     <ul className="publicationAssetLinks">
       <li><a href="/media-assets/pioreactor-publication-assets/product-photos/pioreactor-20ml-white-background.jpg">20 mL Pioreactor</a></li>
+      <li><a href="/media-assets/pioreactor-publication-assets/product-photos/pioreactor-40ml-white-background.jpg">40 mL Pioreactor</a></li>
       <li><a href="/media-assets/pioreactor-publication-assets/product-photos/pioreactor-cluster.jpg">Pioreactor cluster</a></li>
       <li><a href="/media-assets/pioreactor-publication-assets/product-photos/pioreactor-hardware-detail.jpg">Hardware detail</a></li>
     </ul>
@@ -90,6 +91,8 @@ Need everything? [Download the full Pioreactor publication asset pack](/media-as
     <h3>UI screenshots</h3>
     <ul className="publicationAssetLinks">
       <li><a href="/media-assets/pioreactor-publication-assets/screenshots/ui_overview_page.png">Overview page</a></li>
+      <li><a href="/media-assets/pioreactor-publication-assets/screenshots/ui_pioreactors_page.png">Pioreactors page</a></li>
+      <li><a href="/media-assets/pioreactor-publication-assets/screenshots/ui_calibrations_page.png">Calibrations page</a></li>
     </ul>
     <a className="publicationAssetDownload" href="/media-assets/pioreactor-publication-assets-screenshots.zip">Download all screenshots</a>
   </section>
@@ -101,6 +104,8 @@ Need everything? [Download the full Pioreactor publication asset pack](/media-as
     <h3>Diagrams</h3>
     <ul className="publicationAssetLinks">
       <li><a href="/media-assets/pioreactor-publication-assets/diagrams/absorption_vs_od.png">Absorption vs OD</a></li>
+      <li><a href="/media-assets/pioreactor-publication-assets/diagrams/profiles.png">Vial and optical profiles</a></li>
+      <li><a href="/media-assets/pioreactor-publication-assets/diagrams/scatter_profile.png">Optical scattering profile</a></li>
     </ul>
     <a className="publicationAssetDownload" href="/media-assets/pioreactor-publication-assets-diagrams.zip">Download all diagrams</a>
   </section>
