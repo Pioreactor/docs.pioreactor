@@ -3,6 +3,7 @@ title: Citing Pioreactor
 sidebar_label: Citing Pioreactor
 description: How to cite or acknowledge Pioreactor and find logos, product images, screenshots, diagrams, and citation snippets.
 slug: /citing-pioreactor
+sidebar_class_name: sidebar-item--updated
 ---
 
 # Citing Pioreactor
