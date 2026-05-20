@@ -23,6 +23,18 @@ passwd
 
 If you use the built-in local access point, change its SSID and password in `config.ini` under `[local_access_point]`. See [Changing SSID name or password for your local access point](/user-guide/local-access-point#changing-ssid-name-or-password-for-your-local-access-point).
 
+## Add a UI password
+
+If you want the UI to ask for a username and password, install the [`pioreactor-basic-auth-for-ui`](https://github.com/Pioreactor/pioreactor-basic-auth-for-ui/tree/main/pioreactor_basic_auth_for_ui) plugin on the leader:
+
+```bash
+pio plugins install pioreactor-basic-auth-for-ui
+pio run change_ui_credentials <username> <password>
+```
+
+Add the generated API key to `config.ini` under `[ui_basic_auth]`, then restart the leader.
+
+This adds a password prompt, but it does not encrypt traffic. The UI still uses HTTP, so someone else on the same network may be able to read traffic. For remote access, use a private network option like [Tailscale](/user-guide/tailscale-remote-access).
 
 ## Disable plugin changes from the UI
 
@@ -32,9 +44,9 @@ Plugins run code on your Pioreactors. If you do not want users with UI access to
 touch ~/.pioreactor/DISALLOW_UI_INSTALLS
 ```
 
-For stronger protection, create the same file on every Pioreactor in the cluster"
+For stronger protection, create the same file on every Pioreactor in the cluster:
 
-```
+```bash
 pios cp ~/.pioreactor/DISALLOW_UI_INSTALLS
 ```
 
@@ -64,4 +76,3 @@ If your Pioreactor does not have internet access, use [USB software updates](/us
 Only share the `pioreactor` username and password with people who should be able to control the machine. SSH access can install software, edit configuration, and run commands directly on the Pioreactor.
 
 For shared environments, consider using a separate router or local access point for the Pioreactor cluster so the machines are not reachable from a broad guest network.
-
