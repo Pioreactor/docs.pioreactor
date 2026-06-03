@@ -425,134 +425,137 @@ Example body:
 
 ```json
 {
-  "localhost": {
-    "PWM": {
-      "1": "stirring",
-      "2": "waste",
-      "3": "media",
-      "4": "bubblert",
-      "5": "heating"
-    },
-    "leds": {
-      "A": "IR",
-      "B": "white_light",
-      "C": "",
-      "D": ""
-    },
-    "bioreactor": {
-      "efflux_tube_volume_ml": "14",
-      "initial_volume_ml": "14",
-      "initial_alt_media_fraction": "0.0",
-      "initial_cumulative_media_added_ml": "0",
-      "initial_cumulative_alt_media_added_ml": "0",
-      "initial_cumulative_waste_removed_ml": "0"
-    },
-    "stirring.config": {
-      "initial_target_rpm": "500",
-      "initial_duty_cycle": "15",
-      "pwm_hz": "200",
-      "use_rpm": "True",
-      "duration_between_updates_seconds": "23",
-      "post_delay_duration": "0.25",
-      "pre_delay_duration": "0.25",
-      "enable_dodging_od": "true",
-      "target_rpm_during_od_reading": "0",
-      "target_rpm_outside_od_reading": "500"
-    },
-    "dosing_automation.turbidostat": {
-      "biomass_signal": "auto"
-    },
-    "stirring.pid": {
-      "Kp": "0.007",
-      "Ki": "0.0",
-      "Kd": "0.0"
-    },
-    "od_config.photodiode_channel": {
-      "1": "REF",
-      "2": "90"
-    },
-    "od_reading.config": {
-      "samples_per_second": "0.2",
-      "turn_off_leds_during_reading": "1",
-      "pd_reference_ema": "0.4",
-      "ir_led_intensity": "80",
-      "duration_between_led_off_and_od_reading": "0.1",
-      "smoothing_penalizer": "6.0",
-      "use_dark_offsets": "1"
-    },
-    "storage": {
-      "database": "/Users/camerondavidson-pilon/code/pioreactor/.pioreactor/storage/pioreactor.sqlite",
-      "temporary_cache": "/Users/camerondavidson-pilon/code/pioreactor/.pioreactor/storage/local_intermittent_pioreactor_metadata.sqlite",
-      "persistent_cache": "/Users/camerondavidson-pilon/code/pioreactor/.pioreactor/storage/local_persistent_pioreactor_metadata.sqlite",
-      "number_of_backup_replicates_to_workers": "0"
-    },
-    "logging": {
-      "log_file": "./pioreactor.log",
-      "ui_log_file": "./pioreactor.log",
-      "ui_log_level": "DEBUG",
-      "console_log_level": "DEBUG"
-    },
-    "cluster.topology": {
-      "leader_hostname": "localhost",
-      "leader_address": "localhost"
-    },
-    "ui.overview.settings": {
-      "filtered_od_lookback_minutes": "240",
-      "raw_od_lookback_minutes": "240",
-      "log_display_count": "65",
-      "time_display_mode": "hours"
-    },
-    "ui": {
-      "port": "4999",
-      "proto": "http"
-    },
-    "ui.overview.charts": {
-      "implied_growth_rate": "1",
-      "implied_daily_growth_rate": "0",
-      "fraction_of_volume_that_is_alternative_media": "1",
-      "normalized_optical_density": "1",
-      "raw_optical_density": "1",
-      "temperature": "1",
-      "optical_density": "1"
-    },
-    "ui.overview.cards": {
-      "dosings": "1",
-      "event_logs": "1",
-      "profiles": "1"
-    },
-    "dosing_automation.pid_morbidostat": {
-      "Kp": "5",
-      "Ki": "0",
-      "Kd": "0"
-    },
-    "temperature_automation.thermostat": {
-      "Kp": ".01",
-      "Ki": ".01",
-      "Kd": ".01"
-    },
-    "mqtt": {
-      "username": "pioreactor",
-      "password": "raspberry",
-      "broker_address": "localhost",
-      "broker_ws_port": "9001",
-      "broker_port": "1883",
-      "ws_protocol": "ws",
-      "use_tls": "0"
-    },
-    "dosing_automation.config": {
-      "pause_between_subdoses_seconds": "0.5",
-      "waste_removal_multiplier": "2.0",
-      "max_volume_to_warn": "17.0",
-      "max_volume_to_stop": "18.0",
-      "max_subdose": "1.0",
-      "experimental_pump_malfunction_tolerance": "0.2",
-      "experimental_detect_pump_malfunction": "False"
-    },
-    "growth_rate_calculating.config": {
-      "ekf_outlier_std_threshold": "3.0",
-      "samples_for_od_statistics": "10"
+  "configs": {
+    "localhost": {
+      "PWM": {
+        "1": "stirring",
+        "2": "waste",
+        "3": "media",
+        "4": "bubblert",
+        "5": "heating"
+      },
+      "leds": {
+        "A": "IR",
+        "B": "white_light",
+        "C": "",
+        "D": ""
+      },
+      "bioreactor": {
+        "efflux_tube_volume_ml": "14",
+        "initial_volume_ml": "14",
+        "initial_alt_media_fraction": "0.0",
+        "initial_cumulative_media_added_ml": "0",
+        "initial_cumulative_alt_media_added_ml": "0",
+        "initial_cumulative_waste_removed_ml": "0"
+      },
+      "stirring.config": {
+        "initial_target_rpm": "500",
+        "initial_duty_cycle": "15",
+        "pwm_hz": "200",
+        "use_rpm": "True",
+        "duration_between_updates_seconds": "23",
+        "post_delay_duration": "0.25",
+        "pre_delay_duration": "0.25",
+        "enable_dodging_od": "true",
+        "target_rpm_during_od_reading": "0",
+        "target_rpm_outside_od_reading": "500"
+      },
+      "dosing_automation.turbidostat": {
+        "biomass_signal": "auto"
+      },
+      "stirring.pid": {
+        "Kp": "0.007",
+        "Ki": "0.0",
+        "Kd": "0.0"
+      },
+      "od_config.photodiode_channel": {
+        "1": "REF",
+        "2": "90"
+      },
+      "od_reading.config": {
+        "samples_per_second": "0.2",
+        "turn_off_leds_during_reading": "1",
+        "pd_reference_ema": "0.4",
+        "ir_led_intensity": "80",
+        "duration_between_led_off_and_od_reading": "0.1",
+        "smoothing_penalizer": "6.0",
+        "use_dark_offsets": "1"
+      },
+      "storage": {
+        "database": "/Users/camerondavidson-pilon/code/pioreactor/.pioreactor/storage/pioreactor.sqlite",
+        "temporary_cache": "/Users/camerondavidson-pilon/code/pioreactor/.pioreactor/storage/local_intermittent_pioreactor_metadata.sqlite",
+        "persistent_cache": "/Users/camerondavidson-pilon/code/pioreactor/.pioreactor/storage/local_persistent_pioreactor_metadata.sqlite",
+        "number_of_backup_replicates_to_workers": "0"
+      },
+      "logging": {
+        "log_file": "./pioreactor.log",
+        "ui_log_file": "./pioreactor.log",
+        "ui_log_level": "DEBUG",
+        "console_log_level": "DEBUG"
+      },
+      "cluster.topology": {
+        "leader_hostname": "localhost",
+        "leader_address": "localhost"
+      },
+      "ui.overview.settings": {
+        "filtered_od_lookback_minutes": "240",
+        "raw_od_lookback_minutes": "240",
+        "log_display_count": "65",
+        "time_display_mode": "hours"
+      },
+      "ui": {
+        "port": "4999",
+        "proto": "http"
+      },
+      "ui.overview.charts": {
+        "implied_growth_rate": "1",
+        "implied_daily_growth_rate": "0",
+        "fraction_of_volume_that_is_alternative_media": "1",
+        "normalized_optical_density": "1",
+        "raw_optical_density": "1",
+        "temperature": "1",
+        "optical_density": "1"
+      },
+      "ui.overview.cards": {
+        "dosings": "1",
+        "event_logs": "1",
+        "profiles": "1"
+      },
+      "dosing_automation.pid_morbidostat": {
+        "Kp": "5",
+        "Ki": "0",
+        "Kd": "0"
+      },
+      "temperature_automation.thermostat": {
+        "Kp": ".01",
+        "Ki": ".01",
+        "Kd": ".01"
+      },
+      "mqtt": {
+        "username": "pioreactor",
+        "password": "raspberry",
+        "broker_address": "localhost",
+        "broker_ws_port": "9001",
+        "broker_port": "1883",
+        "ws_protocol": "ws",
+        "use_tls": "0"
+      },
+      "dosing_automation.config": {
+        "pause_between_subdoses_seconds": "0.5",
+        "waste_removal_multiplier": "2.0",
+        "max_volume_to_warn": "17.0",
+        "max_volume_to_stop": "18.0",
+        "max_subdose": "1.0",
+        "experimental_pump_malfunction_tolerance": "0.2",
+        "experimental_detect_pump_malfunction": "False"
+      },
+      "growth_rate_calculating.config": {
+        "ekf_outlier_std_threshold": "3.0",
+        "samples_for_od_statistics": "10"
+      }
     }
-  }
+  },
+  "errors": {}
 }
 ```
 
@@ -807,8 +810,10 @@ Example body:
 
 ```json
 {
+  "unit": "pio01",
   "task_id": "abcd1234",
-  "result_url_path": "/unit_api/task_results/abcd1234"
+  "result_url_path": "/unit_api/task_results/abcd1234",
+  "status": "accepted"
 }
 ```
 
@@ -857,8 +862,10 @@ Example body:
 
 ```json
 {
+  "unit": "pio01",
   "task_id": "abcd1234",
-  "result_url_path": "/unit_api/task_results/abcd1234"
+  "result_url_path": "/unit_api/task_results/abcd1234",
+  "status": "accepted"
 }
 ```
 
@@ -893,11 +900,7 @@ Example body:
       "pioreactors": {
         "localhost": {
           "jobs": {
-            "stirring": "<truncated>",
-            "temperature_automation": "<truncated>",
-            "od_reading": "<truncated>",
-            "growth_rate_calculating": "<truncated>",
-            "dosing_automation": "<truncated>"
+            "stirring": "<truncated>"
           },
           "label": null
         }
@@ -1101,10 +1104,18 @@ Example body:
 ```json
 [
   {
+    "experiment": "awdawd",
+    "created_at": "2026-05-31T20:28:22.107Z",
+    "description": "",
+    "delta_hours": 71.0,
+    "worker_count": 0,
+    "tags": []
+  },
+  {
     "experiment": "LTEE - Glucose - Sterility Check",
     "created_at": "2025-07-15T16:24:29.932Z",
     "description": "First run - July 15, 2025",
-    "delta_hours": 7392.0,
+    "delta_hours": 7755.0,
     "worker_count": 1,
     "tags": []
   },
@@ -1112,15 +1123,7 @@ Example body:
     "experiment": "Glc-> Glycerol \u2206pykF",
     "created_at": "2025-07-15T15:55:59.265Z",
     "description": "",
-    "delta_hours": 7393.0,
-    "worker_count": 0,
-    "tags": []
-  },
-  {
-    "experiment": "Glc-> Succinate lag time REL606 - 1",
-    "created_at": "2025-07-09T17:27:22.916Z",
-    "description": "",
-    "delta_hours": 7535.0,
+    "delta_hours": 7755.0,
     "worker_count": 0,
     "tags": []
   }
@@ -1151,7 +1154,7 @@ Create a new experiment.
   "experiment": "testing_experiment",
   "description": "Experiment notes.",
   "mediaUsed": "LB",
-  "organismUsed": "example_organismUsed",
+  "organismUsed": "E. coli",
   "tags": [
     "screening"
   ]
@@ -1203,8 +1206,10 @@ Example body:
 
 ```json
 {
+  "unit": "pio01",
   "task_id": "abcd1234",
-  "result_url_path": "/unit_api/task_results/abcd1234"
+  "result_url_path": "/unit_api/task_results/abcd1234",
+  "status": "accepted"
 }
 ```
 
@@ -1232,11 +1237,11 @@ Example body:
 
 ```json
 {
-  "experiment": "LTEE - Glucose - Sterility Check",
-  "created_at": "2025-07-15T16:24:29.932Z",
-  "description": "First run - July 15, 2025",
-  "delta_hours": 7392.0,
-  "worker_count": 1,
+  "experiment": "awdawd",
+  "created_at": "2026-05-31T20:28:22.107Z",
+  "description": "",
+  "delta_hours": 71.0,
+  "worker_count": 0,
   "tags": []
 }
 ```
@@ -1259,8 +1264,8 @@ Update Experiment endpoint.
 
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
-| description | string | Yes | description. |
-| tags | array | Yes | tags. |
+| description | string | No | description. |
+| tags | array | No | tags. |
 
 ```json
 {
@@ -1367,23 +1372,7 @@ Status: `200 OK`
 Example body:
 
 ```json
-[
-  {
-    "pioreactor_unit": "localhost",
-    "experiment": "LTEE - Glucose - Sterility Check",
-    "is_currently_assigned_to_experiment": 1
-  },
-  {
-    "pioreactor_unit": "pio09",
-    "experiment": "LTEE - Glucose - Sterility Check",
-    "is_currently_assigned_to_experiment": 0
-  },
-  {
-    "pioreactor_unit": "pio10",
-    "experiment": "LTEE - Glucose - Sterility Check",
-    "is_currently_assigned_to_experiment": 0
-  }
-]
+[]
 ```
 
 ## Get Exp Logs
@@ -2063,8 +2052,10 @@ Example body:
 
 ```json
 {
+  "unit": "pio01",
   "task_id": "abcd1234",
-  "result_url_path": "/unit_api/task_results/abcd1234"
+  "result_url_path": "/unit_api/task_results/abcd1234",
+  "status": "accepted"
 }
 ```
 
@@ -2091,14 +2082,7 @@ Status: `200 OK`
 Example body:
 
 ```json
-[
-  {
-    "pioreactor_unit": "localhost",
-    "is_active": 1,
-    "model_name": "pioreactor_40ml",
-    "model_version": "1.5"
-  }
-]
+[]
 ```
 
 ## Add Worker To Experiment
@@ -2191,7 +2175,7 @@ Example body:
     "experiment": "LTEE - Glucose - Sterility Check",
     "created_at": "2025-07-15T16:24:29.932Z",
     "description": "First run - July 15, 2025",
-    "delta_hours": 7392.0,
+    "delta_hours": 7755.0,
     "worker_count": 1,
     "tags": []
   }
@@ -2239,11 +2223,11 @@ Example body:
 
 ```json
 {
-  "experiment": "LTEE - Glucose - Sterility Check",
-  "created_at": "2025-07-15T16:24:29.932Z",
-  "description": "First run - July 15, 2025",
-  "delta_hours": 7392.0,
-  "worker_count": 1,
+  "experiment": "awdawd",
+  "created_at": "2026-05-31T20:28:22.107Z",
+  "description": "",
+  "delta_hours": 71.0,
+  "worker_count": 0,
   "tags": []
 }
 ```
@@ -2451,7 +2435,7 @@ Example body:
       "display_name": "Pioreactor 40ml, v1.5",
       "reactor_capacity_ml": 40.0,
       "reactor_diameter_mm": 27.0,
-      "reactor_max_fill_volume_ml": 38.0,
+      "reactor_max_fill_volume_ml": 36.0,
       "max_temp_to_reduce_heating": 78.0,
       "max_temp_to_disable_heating": 80.0,
       "max_temp_to_shutdown": 85.0,
@@ -2464,7 +2448,7 @@ Example body:
       "display_name": "Pioreactor 40ml, v1.0",
       "reactor_capacity_ml": 40.0,
       "reactor_diameter_mm": 27.0,
-      "reactor_max_fill_volume_ml": 38.0,
+      "reactor_max_fill_volume_ml": 36.0,
       "max_temp_to_reduce_heating": 78.0,
       "max_temp_to_disable_heating": 80.0,
       "max_temp_to_shutdown": 85.0,
@@ -2612,14 +2596,12 @@ Update the Pioreactor app across the cluster from a staged release archive.
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
 | release_archive_location | string | Yes | release archive location. |
-| units | array | Yes | units. |
+| units | string | Yes | units. |
 
 ```json
 {
   "release_archive_location": "/tmp/release.zip",
-  "units": [
-    "pio01"
-  ]
+  "units": "pio01"
 }
 ```
 
@@ -2633,8 +2615,10 @@ Example body:
 
 ```json
 {
+  "unit": "pio01",
   "task_id": "abcd1234",
-  "result_url_path": "/unit_api/task_results/abcd1234"
+  "result_url_path": "/unit_api/task_results/abcd1234",
+  "status": "accepted"
 }
 ```
 
@@ -2651,13 +2635,11 @@ Update the Pioreactor app across the cluster to the next version.
 
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
-| units | array | No | units. |
+| units | string | No | units. |
 
 ```json
 {
-  "units": [
-    "pio01"
-  ]
+  "units": "pio01"
 }
 ```
 
@@ -2671,8 +2653,10 @@ Example body:
 
 ```json
 {
+  "unit": "pio01",
   "task_id": "abcd1234",
-  "result_url_path": "/unit_api/task_results/abcd1234"
+  "result_url_path": "/unit_api/task_results/abcd1234",
+  "status": "accepted"
 }
 ```
 
@@ -2708,9 +2692,14 @@ Set the leader UTC clock, then sync workers from the leader.
 ### Request
 
 #### Request Body
+
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| utc_clock_time | string | Yes | utc clock time. |
+
 ```json
 {
-  "utc_clock_time": "2025-01-31T12:34:56Z"
+  "utc_clock_time": "2026-01-01T00:00:00Z"
 }
 ```
 
@@ -2724,8 +2713,10 @@ Example body:
 
 ```json
 {
+  "unit": "pio01",
   "task_id": "abcd1234",
-  "result_url_path": "/unit_api/task_results/abcd1234"
+  "result_url_path": "/unit_api/task_results/abcd1234",
+  "status": "accepted"
 }
 ```
 
@@ -2780,8 +2771,9 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "23325748-7b33-4de7-8b5d-5b745bdf0c30",
-  "result_url_path": "/unit_api/task_results/23325748-7b33-4de7-8b5d-5b745bdf0c30"
+  "task_id": "7448035a-ae50-488a-9264-fd9b52753f90",
+  "result_url_path": "/unit_api/task_results/7448035a-ae50-488a-9264-fd9b52753f90",
+  "status": "accepted"
 }
 ```
 
@@ -2807,18 +2799,18 @@ Publish a log message into an experiment log stream.
 | level | string | Yes | level. |
 | message | string | Yes | message. |
 | source | string | Yes | source. |
-| task | string | Yes | task. |
 | timestamp | string | Yes | timestamp. |
 | source_ | string | No | source . |
+| task | string | No | task. |
 
 ```json
 {
   "level": "INFO",
   "message": "Log message.",
   "source": "api",
-  "task": "stirring",
   "timestamp": "2026-01-01T00:00:00Z",
-  "source_": "api"
+  "source_": "api",
+  "task": "stirring"
 }
 ```
 
@@ -2832,7 +2824,7 @@ Example body:
 
 ```json
 {
-  "status": "success"
+  "status": "accepted"
 }
 ```
 
@@ -2914,8 +2906,10 @@ Example body:
 
 ```json
 {
+  "unit": "pio01",
   "task_id": "abcd1234",
-  "result_url_path": "/unit_api/task_results/abcd1234"
+  "result_url_path": "/unit_api/task_results/abcd1234",
+  "status": "accepted"
 }
 ```
 
@@ -2975,8 +2969,10 @@ Example body:
 
 ```json
 {
+  "unit": "pio01",
   "task_id": "abcd1234",
-  "result_url_path": "/unit_api/task_results/abcd1234"
+  "result_url_path": "/unit_api/task_results/abcd1234",
+  "status": "accepted"
 }
 ```
 
@@ -3005,8 +3001,9 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "c96e9858-0d13-464e-9b52-df1be12a68ab",
-  "result_url_path": "/unit_api/task_results/c96e9858-0d13-464e-9b52-df1be12a68ab"
+  "task_id": "1b830602-1291-4473-b7f1-9e28b42f0c76",
+  "result_url_path": "/unit_api/task_results/1b830602-1291-4473-b7f1-9e28b42f0c76",
+  "status": "accepted"
 }
 ```
 
@@ -3094,7 +3091,7 @@ Example body:
 
 ```json
 {
-  "status": "success"
+  "status": "accepted"
 }
 ```
 
@@ -3124,7 +3121,7 @@ Example body:
 
 ```json
 {
-  "status": "success"
+  "status": "accepted"
 }
 ```
 
@@ -3168,7 +3165,7 @@ Example body:
 
 ```json
 {
-  "status": "success"
+  "status": "accepted"
 }
 ```
 
@@ -3229,14 +3226,24 @@ Install one plugin on one unit, or `$broadcast`.
 | pioreactor_unit | string | Yes | Unit name or `$broadcast` where supported. |
 
 #### Request Body
+
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| args | array | No | args. |
+| env | object | No | env. |
+| options | object | No | options. |
+
 ```json
 {
-  "options": {
-    "source": "path-to-file-or-url"
-  },
   "args": [
-    "my_plugin_name"
-  ]
+    "some-flag"
+  ],
+  "env": {
+    "JOB_SOURCE": "api"
+  },
+  "options": {
+    "target_rpm": "200"
+  }
 }
 ```
 
@@ -3250,8 +3257,10 @@ Example body:
 
 ```json
 {
+  "unit": "pio01",
   "task_id": "abcd1234",
-  "result_url_path": "/unit_api/task_results/abcd1234"
+  "result_url_path": "/unit_api/task_results/abcd1234",
+  "status": "accepted"
 }
 ```
 
@@ -3270,14 +3279,24 @@ Install one plugin on one unit, or `$broadcast`.
 | pioreactor_unit | string | Yes | Unit name or `$broadcast` where supported. |
 
 #### Request Body
+
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| args | array | No | args. |
+| env | object | No | env. |
+| options | object | No | options. |
+
 ```json
 {
-  "options": {
-    "source": "path-to-file-or-url"
-  },
   "args": [
-    "my_plugin_name"
-  ]
+    "some-flag"
+  ],
+  "env": {
+    "JOB_SOURCE": "api"
+  },
+  "options": {
+    "target_rpm": "200"
+  }
 }
 ```
 
@@ -3291,8 +3310,10 @@ Example body:
 
 ```json
 {
+  "unit": "pio01",
   "task_id": "abcd1234",
-  "result_url_path": "/unit_api/task_results/abcd1234"
+  "result_url_path": "/unit_api/task_results/abcd1234",
+  "status": "accepted"
 }
 ```
 
@@ -3332,8 +3353,10 @@ Example body:
 
 ```json
 {
+  "unit": "pio01",
   "task_id": "abcd1234",
-  "result_url_path": "/unit_api/task_results/abcd1234"
+  "result_url_path": "/unit_api/task_results/abcd1234",
+  "status": "accepted"
 }
 ```
 
@@ -3373,8 +3396,10 @@ Example body:
 
 ```json
 {
+  "unit": "pio01",
   "task_id": "abcd1234",
-  "result_url_path": "/unit_api/task_results/abcd1234"
+  "result_url_path": "/unit_api/task_results/abcd1234",
+  "status": "accepted"
 }
 ```
 
@@ -3403,8 +3428,9 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "8f058289-2962-4373-af2e-1866d721abf1",
-  "result_url_path": "/unit_api/task_results/8f058289-2962-4373-af2e-1866d721abf1"
+  "task_id": "5e89558d-3d17-4f61-ac36-ed1121cf9f9d",
+  "result_url_path": "/unit_api/task_results/5e89558d-3d17-4f61-ac36-ed1121cf9f9d",
+  "status": "accepted"
 }
 ```
 
@@ -3423,12 +3449,24 @@ Uninstall one plugin from one unit, or `$broadcast`.
 | pioreactor_unit | string | Yes | Unit name or `$broadcast` where supported. |
 
 #### Request Body
+
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| args | array | No | args. |
+| env | object | No | env. |
+| options | object | No | options. |
+
 ```json
 {
-  "options": {},
   "args": [
-    "my_plugin_name"
-  ]
+    "some-flag"
+  ],
+  "env": {
+    "JOB_SOURCE": "api"
+  },
+  "options": {
+    "target_rpm": "200"
+  }
 }
 ```
 
@@ -3442,8 +3480,10 @@ Example body:
 
 ```json
 {
+  "unit": "pio01",
   "task_id": "abcd1234",
-  "result_url_path": "/unit_api/task_results/abcd1234"
+  "result_url_path": "/unit_api/task_results/abcd1234",
+  "status": "accepted"
 }
 ```
 
@@ -3462,12 +3502,24 @@ Uninstall one plugin from one unit, or `$broadcast`.
 | pioreactor_unit | string | Yes | Unit name or `$broadcast` where supported. |
 
 #### Request Body
+
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| args | array | No | args. |
+| env | object | No | env. |
+| options | object | No | options. |
+
 ```json
 {
-  "options": {},
   "args": [
-    "my_plugin_name"
-  ]
+    "some-flag"
+  ],
+  "env": {
+    "JOB_SOURCE": "api"
+  },
+  "options": {
+    "target_rpm": "200"
+  }
 }
 ```
 
@@ -3481,8 +3533,10 @@ Example body:
 
 ```json
 {
+  "unit": "pio01",
   "task_id": "abcd1234",
-  "result_url_path": "/unit_api/task_results/abcd1234"
+  "result_url_path": "/unit_api/task_results/abcd1234",
+  "status": "accepted"
 }
 ```
 
@@ -3577,8 +3631,9 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "30302e8a-b250-44cb-af2f-5842c9adb02c",
-  "result_url_path": "/unit_api/task_results/30302e8a-b250-44cb-af2f-5842c9adb02c"
+  "task_id": "9c28de09-a555-4b9c-b855-04478cf624d1",
+  "result_url_path": "/unit_api/task_results/9c28de09-a555-4b9c-b855-04478cf624d1",
+  "status": "accepted"
 }
 ```
 
@@ -3649,8 +3704,9 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "ee07aaf5-087d-4f18-9a3f-f2f5d85a728c",
-  "result_url_path": "/unit_api/task_results/ee07aaf5-087d-4f18-9a3f-f2f5d85a728c"
+  "task_id": "927d1cbf-0b7a-4f74-8314-d1305635d05c",
+  "result_url_path": "/unit_api/task_results/927d1cbf-0b7a-4f74-8314-d1305635d05c",
+  "status": "accepted"
 }
 ```
 
@@ -3679,8 +3735,9 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "ec6d5626-9f15-4f83-a17a-6a011c080b26",
-  "result_url_path": "/unit_api/task_results/ec6d5626-9f15-4f83-a17a-6a011c080b26"
+  "task_id": "c64d5eb5-02ea-402c-aef4-b9e51b8603df",
+  "result_url_path": "/unit_api/task_results/c64d5eb5-02ea-402c-aef4-b9e51b8603df",
+  "status": "accepted"
 }
 ```
 
@@ -3698,6 +3755,18 @@ Eject Usb On Machine endpoint.
 | ---- | ---- | -------- | ----------- |
 | pioreactor_unit | string | Yes | Unit name or `$broadcast` where supported. |
 
+#### Request Body
+
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| device | string | No | device. |
+
+```json
+{
+  "device": "example_device"
+}
+```
+
 ### Response
 
 #### Success
@@ -3708,8 +3777,10 @@ Example body:
 
 ```json
 {
+  "unit": "pio01",
   "task_id": "abcd1234",
-  "result_url_path": "/unit_api/task_results/abcd1234"
+  "result_url_path": "/unit_api/task_results/abcd1234",
+  "status": "accepted"
 }
 ```
 
@@ -3727,6 +3798,18 @@ Mount Usb On Machine endpoint.
 | ---- | ---- | -------- | ----------- |
 | pioreactor_unit | string | Yes | Unit name or `$broadcast` where supported. |
 
+#### Request Body
+
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| device | string | No | device. |
+
+```json
+{
+  "device": "example_device"
+}
+```
+
 ### Response
 
 #### Success
@@ -3737,8 +3820,10 @@ Example body:
 
 ```json
 {
+  "unit": "pio01",
   "task_id": "abcd1234",
-  "result_url_path": "/unit_api/task_results/abcd1234"
+  "result_url_path": "/unit_api/task_results/abcd1234",
+  "status": "accepted"
 }
 ```
 
@@ -3767,8 +3852,9 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "d7e0ca8a-b9f6-4121-8d40-6c7a1b76b382",
-  "result_url_path": "/unit_api/task_results/d7e0ca8a-b9f6-4121-8d40-6c7a1b76b382"
+  "task_id": "308731dc-5ff9-4fa3-a639-f661ba1600c1",
+  "result_url_path": "/unit_api/task_results/308731dc-5ff9-4fa3-a639-f661ba1600c1",
+  "status": "accepted"
 }
 ```
 
@@ -3816,14 +3902,16 @@ Example body:
     "added_at": "2025-10-03T14:12:44.444Z",
     "is_active": 1,
     "model_name": "pioreactor_40ml",
-    "model_version": "1.5"
+    "model_version": "1.5",
+    "ipv4_address": null
   },
   {
     "pioreactor_unit": "pio01",
     "added_at": "2026-05-15T01:58:36.935Z",
     "is_active": 1,
     "model_name": "pioreactor_40ml",
-    "model_version": "1.5"
+    "model_version": "1.5",
+    "ipv4_address": null
   }
 ]
 ```
@@ -3952,8 +4040,9 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "de7e1f50-035c-4bce-8c50-14ad953eb01f",
-  "result_url_path": "/unit_api/task_results/de7e1f50-035c-4bce-8c50-14ad953eb01f"
+  "task_id": "04d65197-0760-49df-bab6-679a7df53a16",
+  "result_url_path": "/unit_api/task_results/04d65197-0760-49df-bab6-679a7df53a16",
+  "status": "accepted"
 }
 ```
 
@@ -3982,8 +4071,10 @@ Example body:
 
 ```json
 {
+  "unit": "pio01",
   "task_id": "abcd1234",
-  "result_url_path": "/unit_api/task_results/abcd1234"
+  "result_url_path": "/unit_api/task_results/abcd1234",
+  "status": "accepted"
 }
 ```
 
@@ -4013,8 +4104,10 @@ Example body:
 
 ```json
 {
+  "unit": "pio01",
   "task_id": "abcd1234",
-  "result_url_path": "/unit_api/task_results/abcd1234"
+  "result_url_path": "/unit_api/task_results/abcd1234",
+  "status": "accepted"
 }
 ```
 
@@ -4043,8 +4136,9 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "facde939-d9de-4054-8212-d359e9235ffc",
-  "result_url_path": "/unit_api/task_results/facde939-d9de-4054-8212-d359e9235ffc"
+  "task_id": "2f70f7c5-0aa1-4834-b51e-5b769c65e668",
+  "result_url_path": "/unit_api/task_results/2f70f7c5-0aa1-4834-b51e-5b769c65e668",
+  "status": "accepted"
 }
 ```
 
@@ -4073,8 +4167,10 @@ Example body:
 
 ```json
 {
+  "unit": "pio01",
   "task_id": "abcd1234",
-  "result_url_path": "/unit_api/task_results/abcd1234"
+  "result_url_path": "/unit_api/task_results/abcd1234",
+  "status": "accepted"
 }
 ```
 
@@ -4104,8 +4200,10 @@ Example body:
 
 ```json
 {
+  "unit": "pio01",
   "task_id": "abcd1234",
-  "result_url_path": "/unit_api/task_results/abcd1234"
+  "result_url_path": "/unit_api/task_results/abcd1234",
+  "status": "accepted"
 }
 ```
 
@@ -4201,8 +4299,10 @@ Example body:
 
 ```json
 {
+  "unit": "pio01",
   "task_id": "abcd1234",
-  "result_url_path": "/unit_api/task_results/abcd1234"
+  "result_url_path": "/unit_api/task_results/abcd1234",
+  "status": "accepted"
 }
 ```
 
@@ -4230,7 +4330,7 @@ Example body:
 
 ```json
 {
-  "status": "success"
+  "status": "accepted"
 }
 ```
 
@@ -4259,8 +4359,9 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "dbb18e33-cfb6-4597-9cae-16dd993f20b9",
-  "result_url_path": "/unit_api/task_results/dbb18e33-cfb6-4597-9cae-16dd993f20b9"
+  "task_id": "766dd6f2-42db-46e5-bd46-64ac2cc4815e",
+  "result_url_path": "/unit_api/task_results/766dd6f2-42db-46e5-bd46-64ac2cc4815e",
+  "status": "accepted"
 }
 ```
 
@@ -4289,8 +4390,9 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "b380b9a0-37a8-40ef-82ee-8ca065cd01e4",
-  "result_url_path": "/unit_api/task_results/b380b9a0-37a8-40ef-82ee-8ca065cd01e4"
+  "task_id": "c44d1f32-3d6f-4451-b0ee-276125c0be1a",
+  "result_url_path": "/unit_api/task_results/c44d1f32-3d6f-4451-b0ee-276125c0be1a",
+  "status": "accepted"
 }
 ```
 
@@ -4320,8 +4422,9 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "f3c7c39a-9621-4b24-927a-416ae27c5ad8",
-  "result_url_path": "/unit_api/task_results/f3c7c39a-9621-4b24-927a-416ae27c5ad8"
+  "task_id": "ec221526-d10e-467d-9c8b-82620181a483",
+  "result_url_path": "/unit_api/task_results/ec221526-d10e-467d-9c8b-82620181a483",
+  "status": "accepted"
 }
 ```
 
@@ -4344,14 +4447,12 @@ Create a calibration on one worker, or `$broadcast`.
 
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
-| calibration_data | object | Yes | calibration data. |
-| set_as_active | boolean | Yes | set as active. |
+| calibration_data | string | Yes | calibration data. |
+| set_as_active | boolean | No | set as active. |
 
 ```json
 {
-  "calibration_data": {
-    "calibration_name": "example_calibration"
-  },
+  "calibration_data": "calibration_type: simple_peristaltic_pump\ncalibration_name: example_calibration\n",
   "set_as_active": true
 }
 ```
@@ -4366,8 +4467,10 @@ Example body:
 
 ```json
 {
+  "unit": "pio01",
   "task_id": "abcd1234",
-  "result_url_path": "/unit_api/task_results/abcd1234"
+  "result_url_path": "/unit_api/task_results/abcd1234",
+  "status": "accepted"
 }
 ```
 
@@ -4397,8 +4500,10 @@ Example body:
 
 ```json
 {
+  "unit": "pio01",
   "task_id": "abcd1234",
-  "result_url_path": "/unit_api/task_results/abcd1234"
+  "result_url_path": "/unit_api/task_results/abcd1234",
+  "status": "accepted"
 }
 ```
 
@@ -4429,8 +4534,9 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "10845ec2-1a8b-4b60-9009-10675fad83f7",
-  "result_url_path": "/unit_api/task_results/10845ec2-1a8b-4b60-9009-10675fad83f7"
+  "task_id": "5aff701e-2ee5-4969-aa0c-e4cf3c186983",
+  "result_url_path": "/unit_api/task_results/5aff701e-2ee5-4969-aa0c-e4cf3c186983",
+  "status": "accepted"
 }
 ```
 
@@ -4452,8 +4558,8 @@ Start a browser-driven calibration session on one worker.
 
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
-| protocol_name | string | No | protocol name. |
-| target_device | string | No | target device. |
+| protocol_name | string | Yes | protocol name. |
+| target_device | string | Yes | target device. |
 
 ```json
 {
@@ -4532,11 +4638,14 @@ Submit inputs for the current step of a calibration session.
 | session_id | string | Yes | Calibration session identifier. |
 
 #### Request Body
+
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| inputs | object | No | inputs. |
+
 ```json
 {
-  "inputs": {
-    "field_name": "field value"
-  }
+  "inputs": {}
 }
 ```
 
@@ -4573,8 +4682,9 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "f5654f88-76f0-411a-b775-092304c04054",
-  "result_url_path": "/unit_api/task_results/f5654f88-76f0-411a-b775-092304c04054"
+  "task_id": "52b5366b-af75-484f-98d6-3beb483af96e",
+  "result_url_path": "/unit_api/task_results/52b5366b-af75-484f-98d6-3beb483af96e",
+  "status": "accepted"
 }
 ```
 
@@ -4603,8 +4713,9 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "a772a3e2-69b6-4cd9-90fc-b3570e02c57c",
-  "result_url_path": "/unit_api/task_results/a772a3e2-69b6-4cd9-90fc-b3570e02c57c"
+  "task_id": "541b978e-98e6-4e4e-9f64-6d08da0d09bb",
+  "result_url_path": "/unit_api/task_results/541b978e-98e6-4e4e-9f64-6d08da0d09bb",
+  "status": "accepted"
 }
 ```
 
@@ -4634,8 +4745,9 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "6c546105-c1a0-446c-9fe3-36d179161072",
-  "result_url_path": "/unit_api/task_results/6c546105-c1a0-446c-9fe3-36d179161072"
+  "task_id": "c837c1d1-9750-4e1f-9e36-597b9a493655",
+  "result_url_path": "/unit_api/task_results/c837c1d1-9750-4e1f-9e36-597b9a493655",
+  "status": "accepted"
 }
 ```
 
@@ -4665,8 +4777,10 @@ Example body:
 
 ```json
 {
+  "unit": "pio01",
   "task_id": "abcd1234",
-  "result_url_path": "/unit_api/task_results/abcd1234"
+  "result_url_path": "/unit_api/task_results/abcd1234",
+  "status": "accepted"
 }
 ```
 
@@ -4697,8 +4811,9 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "d7ec367d-8314-4b1a-86cb-672fdf6e03ef",
-  "result_url_path": "/unit_api/task_results/d7ec367d-8314-4b1a-86cb-672fdf6e03ef"
+  "task_id": "e0d3b6de-49dd-4eba-afdb-bd807cd2f403",
+  "result_url_path": "/unit_api/task_results/e0d3b6de-49dd-4eba-afdb-bd807cd2f403",
+  "status": "accepted"
 }
 ```
 
@@ -4799,18 +4914,18 @@ Publish a log message into an experiment log stream.
 | level | string | Yes | level. |
 | message | string | Yes | message. |
 | source | string | Yes | source. |
-| task | string | Yes | task. |
 | timestamp | string | Yes | timestamp. |
 | source_ | string | No | source . |
+| task | string | No | task. |
 
 ```json
 {
   "level": "INFO",
   "message": "Log message.",
   "source": "api",
-  "task": "stirring",
   "timestamp": "2026-01-01T00:00:00Z",
-  "source_": "api"
+  "source_": "api",
+  "task": "stirring"
 }
 ```
 
@@ -4824,7 +4939,7 @@ Example body:
 
 ```json
 {
-  "status": "success"
+  "status": "accepted"
 }
 ```
 
@@ -5324,7 +5439,7 @@ Change Worker Status endpoint.
 
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
-| is_active | boolean | No | is active. |
+| is_active | integer | Yes | is active. |
 
 ```json
 {
@@ -5472,8 +5587,10 @@ Example body:
 
 ```json
 {
+  "unit": "pio01",
   "task_id": "abcd1234",
-  "result_url_path": "/unit_api/task_results/abcd1234"
+  "result_url_path": "/unit_api/task_results/abcd1234",
+  "status": "accepted"
 }
 ```
 
@@ -5533,8 +5650,10 @@ Example body:
 
 ```json
 {
+  "unit": "pio01",
   "task_id": "abcd1234",
-  "result_url_path": "/unit_api/task_results/abcd1234"
+  "result_url_path": "/unit_api/task_results/abcd1234",
+  "status": "accepted"
 }
 ```
 
@@ -5563,8 +5682,9 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "ce5b4274-f524-487b-9d52-279972eefb6d",
-  "result_url_path": "/unit_api/task_results/ce5b4274-f524-487b-9d52-279972eefb6d"
+  "task_id": "5b1e3eb7-fe33-46af-8e03-8be15949d7ae",
+  "result_url_path": "/unit_api/task_results/5b1e3eb7-fe33-46af-8e03-8be15949d7ae",
+  "status": "accepted"
 }
 ```
 
@@ -5594,9 +5714,10 @@ Example body:
 
 ```json
 {
-  "unit": "localhost",
-  "task_id": "8c561e53-030d-4a31-9b32-fc5872803de1",
-  "result_url_path": "/unit_api/task_results/8c561e53-030d-4a31-9b32-fc5872803de1"
+  "unit": "pio01",
+  "task_id": "abcd1234",
+  "result_url_path": "/unit_api/task_results/abcd1234",
+  "status": "accepted"
 }
 ```
 
@@ -5627,9 +5748,10 @@ Example body:
 
 ```json
 {
-  "unit": "localhost",
-  "task_id": "04b03e1e-9c71-40f0-b7bf-23b05c0e4cb5",
-  "result_url_path": "/unit_api/task_results/04b03e1e-9c71-40f0-b7bf-23b05c0e4cb5"
+  "unit": "pio01",
+  "task_id": "abcd1234",
+  "result_url_path": "/unit_api/task_results/abcd1234",
+  "status": "accepted"
 }
 ```
 
@@ -5717,7 +5839,7 @@ Example body:
 
 ```json
 {
-  "status": "success"
+  "status": "accepted"
 }
 ```
 
@@ -5747,7 +5869,7 @@ Example body:
 
 ```json
 {
-  "status": "success"
+  "status": "accepted"
 }
 ```
 
@@ -5791,7 +5913,7 @@ Example body:
 
 ```json
 {
-  "status": "success"
+  "status": "accepted"
 }
 ```
 
@@ -5825,7 +5947,7 @@ Example body:
   "display_name": "Pioreactor 40ml, v1.5",
   "reactor_capacity_ml": 40.0,
   "reactor_diameter_mm": 27.0,
-  "reactor_max_fill_volume_ml": 38.0,
+  "reactor_max_fill_volume_ml": 36.0,
   "max_temp_to_reduce_heating": 78.0,
   "max_temp_to_disable_heating": 80.0,
   "max_temp_to_shutdown": 85.0,
@@ -6032,8 +6154,10 @@ Example body:
 
 ```json
 {
+  "unit": "pio01",
   "task_id": "abcd1234",
-  "result_url_path": "/unit_api/task_results/abcd1234"
+  "result_url_path": "/unit_api/task_results/abcd1234",
+  "status": "accepted"
 }
 ```
 
@@ -6102,12 +6226,14 @@ Provision and register a newly discovered worker.
 | model | string | Yes | model. |
 | name | string | Yes | name. |
 | version | string | Yes | version. |
+| ipv4_address | string | No | ipv4 address. |
 
 ```json
 {
   "model": "example_model",
   "name": "testing_experiment",
-  "version": "example_version"
+  "version": "example_version",
+  "ipv4_address": "example_ipv4_address"
 }
 ```
 

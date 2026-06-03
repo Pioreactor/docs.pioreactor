@@ -30,7 +30,7 @@ Generated from `core/pioreactor/web/unit_api.py`.
 
 > This file is generated. Edit the API source or generator instead of editing this file by hand.
 
-Endpoint count: `82`
+Endpoint count: `83`
 
 ## Endpoint Index
 
@@ -89,6 +89,7 @@ Endpoint count: `82`
 | `POST` | `/unit_api/plugins/uninstall` | `uninstall_plugin` |
 | `GET` | `/unit_api/settings/descriptors` | `get_settings_descriptors` |
 | `GET` | `/unit_api/system/disk_space` | `get_disk_space` |
+| `GET` | `/unit_api/system/ipv4` | `get_system_ipv4` |
 | `GET` | `/unit_api/system/memory` | `get_memory` |
 | `GET` | `/unit_api/system/path/` | `list_system_path` |
 | `GET` | `/unit_api/system/path/{req_path}` | `list_system_path` |
@@ -211,225 +212,7 @@ Status: `200 OK`
 Example body:
 
 ```json
-{
-  "od_fused": {
-    "estimator_type": "od_fused_estimator",
-    "estimator_name": "test_fusion",
-    "calibrated_on_pioreactor_unit": "test_unit",
-    "created_at": "2026-05-19T16:08:24.067000Z",
-    "ir_led_intensity": 80.0,
-    "angles": [
-      "45",
-      "90",
-      "135"
-    ],
-    "mu_splines": {
-      "45": {
-        "type": "akima",
-        "knots": [
-          -2.6020599913279625,
-          -2.1010555331334904,
-          -1.7009287399725905
-        ],
-        "coefficients": [
-          [
-            "<truncated>",
-            "<truncated>",
-            "<truncated>"
-          ],
-          [
-            "<truncated>",
-            "<truncated>",
-            "<truncated>"
-          ],
-          [
-            "<truncated>",
-            "<truncated>",
-            "<truncated>"
-          ]
-        ]
-      },
-      "90": {
-        "type": "akima",
-        "knots": [
-          -2.6020599913279625,
-          -2.1010555331334904,
-          -1.7009287399725905
-        ],
-        "coefficients": [
-          [
-            "<truncated>",
-            "<truncated>",
-            "<truncated>"
-          ],
-          [
-            "<truncated>",
-            "<truncated>",
-            "<truncated>"
-          ],
-          [
-            "<truncated>",
-            "<truncated>",
-            "<truncated>"
-          ]
-        ]
-      },
-      "135": {
-        "type": "akima",
-        "knots": [
-          -2.6020599913279625,
-          -2.1010555331334904,
-          -1.7009287399725905
-        ],
-        "coefficients": [
-          [
-            "<truncated>",
-            "<truncated>",
-            "<truncated>"
-          ],
-          [
-            "<truncated>",
-            "<truncated>",
-            "<truncated>"
-          ],
-          [
-            "<truncated>",
-            "<truncated>",
-            "<truncated>"
-          ]
-        ]
-      }
-    },
-    "sigma_splines_log": {
-      "45": {
-        "type": "akima",
-        "knots": [
-          -2.6020599913279625,
-          -2.1010555331334904,
-          -1.7009287399725905
-        ],
-        "coefficients": [
-          [
-            "<truncated>",
-            "<truncated>",
-            "<truncated>"
-          ],
-          [
-            "<truncated>",
-            "<truncated>",
-            "<truncated>"
-          ],
-          [
-            "<truncated>",
-            "<truncated>",
-            "<truncated>"
-          ]
-        ]
-      },
-      "90": {
-        "type": "akima",
-        "knots": [
-          -2.6020599913279625,
-          -2.1010555331334904,
-          -1.7009287399725905
-        ],
-        "coefficients": [
-          [
-            "<truncated>",
-            "<truncated>",
-            "<truncated>"
-          ],
-          [
-            "<truncated>",
-            "<truncated>",
-            "<truncated>"
-          ],
-          [
-            "<truncated>",
-            "<truncated>",
-            "<truncated>"
-          ]
-        ]
-      },
-      "135": {
-        "type": "akima",
-        "knots": [
-          -2.6020599913279625,
-          -2.1010555331334904,
-          -1.7009287399725905
-        ],
-        "coefficients": [
-          [
-            "<truncated>",
-            "<truncated>",
-            "<truncated>"
-          ],
-          [
-            "<truncated>",
-            "<truncated>",
-            "<truncated>"
-          ],
-          [
-            "<truncated>",
-            "<truncated>",
-            "<truncated>"
-          ]
-        ]
-      }
-    },
-    "min_logc": -2.6020599913279625,
-    "max_logc": 1.6989700043360187,
-    "sigma_floor": 0.04,
-    "recorded_data": {
-      "by_angle": {
-        "45": {
-          "x": [
-            "<truncated>",
-            "<truncated>",
-            "<truncated>"
-          ],
-          "y": [
-            "<truncated>",
-            "<truncated>",
-            "<truncated>"
-          ]
-        },
-        "90": {
-          "x": [
-            "<truncated>",
-            "<truncated>",
-            "<truncated>"
-          ],
-          "y": [
-            "<truncated>",
-            "<truncated>",
-            "<truncated>"
-          ]
-        },
-        "135": {
-          "x": [
-            "<truncated>",
-            "<truncated>",
-            "<truncated>"
-          ],
-          "y": [
-            "<truncated>",
-            "<truncated>",
-            "<truncated>"
-          ]
-        }
-      }
-    },
-    "low_conc_scales": {
-      "135": 0.04,
-      "90": 4.0,
-      "45": 10.0
-    },
-    "y": "log(Voltage)",
-    "is_active": true,
-    "pioreactor_unit": "localhost"
-  }
-}
+{}
 ```
 
 ## Remove Active Status Estimator
@@ -1398,14 +1181,12 @@ Create a new calibration for the specified device.
 
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
-| calibration_data | object | Yes | calibration data. |
+| calibration_data | string | Yes | calibration data. |
 | set_as_active | boolean | No | set as active. |
 
 ```json
 {
-  "calibration_data": {
-    "calibration_name": "example_calibration"
-  },
+  "calibration_data": "calibration_type: simple_peristaltic_pump\ncalibration_name: example_calibration\n",
   "set_as_active": true
 }
 ```
@@ -1514,7 +1295,7 @@ Example body:
       {
         "name": "continuously",
         "long_flag": "continuously",
-        "help": "continuously run until stopped.",
+        "help": "add until the maximum safe volume is reached.",
         "required": false,
         "multiple": false,
         "default": false,
@@ -1550,7 +1331,7 @@ Example body:
       {
         "name": "continuously",
         "long_flag": "continuously",
-        "help": "continuously run until stopped.",
+        "help": "add until the maximum safe volume is reached.",
         "required": false,
         "multiple": false,
         "default": false,
@@ -2313,8 +2094,10 @@ Example body:
 
 ```json
 {
+  "unit": "pio01",
   "task_id": "abcd1234",
-  "result_url_path": "/unit_api/task_results/abcd1234"
+  "result_url_path": "/unit_api/task_results/abcd1234",
+  "status": "accepted"
 }
 ```
 
@@ -2351,8 +2134,10 @@ Example body:
 
 ```json
 {
+  "unit": "pio01",
   "task_id": "abcd1234",
-  "result_url_path": "/unit_api/task_results/abcd1234"
+  "result_url_path": "/unit_api/task_results/abcd1234",
+  "status": "accepted"
 }
 ```
 
@@ -2375,7 +2160,7 @@ Example body:
 {
   "status": "ok",
   "pioreactor_unit": "localhost",
-  "utc_time": "2026-05-19T17:07:03.681Z"
+  "utc_time": "2026-06-03T19:30:40.569Z"
 }
 ```
 
@@ -2396,8 +2181,10 @@ Example body:
 
 ```json
 {
+  "unit": "pio01",
   "task_id": "abcd1234",
-  "result_url_path": "/unit_api/task_results/abcd1234"
+  "result_url_path": "/unit_api/task_results/abcd1234",
+  "status": "accepted"
 }
 ```
 
@@ -2417,17 +2204,7 @@ Status: `200 OK`
 Example body:
 
 ```json
-[
-  {
-    "job_id": 1115,
-    "job_name": "led_automation",
-    "experiment": "test_we_respect_any_locks_on_leds_we_want_to_modify",
-    "job_source": "user",
-    "unit": "localhost",
-    "started_at": "2026-05-19T16:50:44.381Z",
-    "ended_at": null
-  }
-]
+[]
 ```
 
 ## Get Job Descriptors
@@ -2547,8 +2324,10 @@ Example body:
 
 ```json
 {
+  "unit": "pio01",
   "task_id": "abcd1234",
-  "result_url_path": "/unit_api/task_results/abcd1234"
+  "result_url_path": "/unit_api/task_results/abcd1234",
+  "status": "accepted"
 }
 ```
 
@@ -2606,8 +2385,10 @@ Example body:
 
 ```json
 {
+  "unit": "pio01",
   "task_id": "abcd1234",
-  "result_url_path": "/unit_api/task_results/abcd1234"
+  "result_url_path": "/unit_api/task_results/abcd1234",
+  "status": "accepted"
 }
 ```
 
@@ -2627,21 +2408,7 @@ Status: `200 OK`
 Example body:
 
 ```json
-[
-  {
-    "job_id": 1115,
-    "unit": "localhost",
-    "experiment": "test_we_respect_any_locks_on_leds_we_want_to_modify",
-    "job_name": "led_automation",
-    "job_source": "user",
-    "started_at": "2026-05-19T16:50:44.381Z",
-    "is_running": 1,
-    "leader": "localhost",
-    "pid": 57970,
-    "is_long_running_job": 0,
-    "ended_at": null
-  }
-]
+[]
 ```
 
 ## Get Running Job
@@ -2801,14 +2568,14 @@ Stop jobs matching at least one filter.
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
 | experiment | string | No | experiment. |
-| job_id | string | No | job id. |
+| job_id | integer | No | job id. |
 | job_name | string | No | job name. |
 | job_source | string | No | job source. |
 
 ```json
 {
   "experiment": "testing_experiment",
-  "job_id": "example_job_id",
+  "job_id": 1,
   "job_name": "example_job_name",
   "job_source": "example_job_source"
 }
@@ -2824,8 +2591,10 @@ Example body:
 
 ```json
 {
+  "unit": "pio01",
   "task_id": "abcd1234",
-  "result_url_path": "/unit_api/task_results/abcd1234"
+  "result_url_path": "/unit_api/task_results/abcd1234",
+  "status": "accepted"
 }
 ```
 
@@ -2843,14 +2612,14 @@ Stop jobs matching at least one filter.
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
 | experiment | string | No | experiment. |
-| job_id | string | No | job id. |
+| job_id | integer | No | job id. |
 | job_name | string | No | job name. |
 | job_source | string | No | job source. |
 
 ```json
 {
   "experiment": "testing_experiment",
-  "job_id": "example_job_id",
+  "job_id": 1,
   "job_name": "example_job_name",
   "job_source": "example_job_source"
 }
@@ -2866,8 +2635,10 @@ Example body:
 
 ```json
 {
+  "unit": "pio01",
   "task_id": "abcd1234",
-  "result_url_path": "/unit_api/task_results/abcd1234"
+  "result_url_path": "/unit_api/task_results/abcd1234",
+  "status": "accepted"
 }
 ```
 
@@ -2888,8 +2659,10 @@ Example body:
 
 ```json
 {
+  "unit": "pio01",
   "task_id": "abcd1234",
-  "result_url_path": "/unit_api/task_results/abcd1234"
+  "result_url_path": "/unit_api/task_results/abcd1234",
+  "status": "accepted"
 }
 ```
 
@@ -2910,8 +2683,10 @@ Example body:
 
 ```json
 {
+  "unit": "pio01",
   "task_id": "abcd1234",
-  "result_url_path": "/unit_api/task_results/abcd1234"
+  "result_url_path": "/unit_api/task_results/abcd1234",
+  "status": "accepted"
 }
 ```
 
@@ -2975,8 +2750,10 @@ Example body:
 
 ```json
 {
+  "unit": "pio01",
   "task_id": "abcd1234",
-  "result_url_path": "/unit_api/task_results/abcd1234"
+  "result_url_path": "/unit_api/task_results/abcd1234",
+  "status": "accepted"
 }
 ```
 
@@ -3021,8 +2798,10 @@ Example body:
 
 ```json
 {
+  "unit": "pio01",
   "task_id": "abcd1234",
-  "result_url_path": "/unit_api/task_results/abcd1234"
+  "result_url_path": "/unit_api/task_results/abcd1234",
+  "status": "accepted"
 }
 ```
 
@@ -3057,8 +2836,10 @@ Example body:
 
 ```json
 {
+  "unit": "pio01",
   "task_id": "abcd1234",
-  "result_url_path": "/unit_api/task_results/abcd1234"
+  "result_url_path": "/unit_api/task_results/abcd1234",
+  "status": "accepted"
 }
 ```
 
@@ -3093,8 +2874,10 @@ Example body:
 
 ```json
 {
+  "unit": "pio01",
   "task_id": "abcd1234",
-  "result_url_path": "/unit_api/task_results/abcd1234"
+  "result_url_path": "/unit_api/task_results/abcd1234",
+  "status": "accepted"
 }
 ```
 
@@ -3205,8 +2988,10 @@ Example body:
 
 ```json
 {
+  "unit": "pio01",
   "task_id": "abcd1234",
-  "result_url_path": "/unit_api/task_results/abcd1234"
+  "result_url_path": "/unit_api/task_results/abcd1234",
+  "status": "accepted"
 }
 ```
 
@@ -3251,8 +3036,10 @@ Example body:
 
 ```json
 {
+  "unit": "pio01",
   "task_id": "abcd1234",
-  "result_url_path": "/unit_api/task_results/abcd1234"
+  "result_url_path": "/unit_api/task_results/abcd1234",
+  "status": "accepted"
 }
 ```
 
@@ -3383,8 +3170,29 @@ Example body:
 
 ```json
 {
-  "available_bytes": 96393027584,
+  "available_bytes": 107944128512,
   "total_bytes": 494384795648
+}
+```
+
+## Get System Ipv4
+
+Get System Ipv4 endpoint.
+
+### Endpoint
+`GET /unit_api/system/ipv4`
+
+### Response
+
+#### Success
+
+Status: `200 OK`
+
+Example body:
+
+```json
+{
+  "ipv4_address": ""
 }
 ```
 
@@ -3405,7 +3213,7 @@ Example body:
 
 ```json
 {
-  "available_bytes": 3807789056,
+  "available_bytes": 4024303616,
   "total_bytes": 17179869184
 }
 ```
@@ -3494,8 +3302,10 @@ Example body:
 
 ```json
 {
+  "unit": "pio01",
   "task_id": "abcd1234",
-  "result_url_path": "/unit_api/task_results/abcd1234"
+  "result_url_path": "/unit_api/task_results/abcd1234",
+  "status": "accepted"
 }
 ```
 
@@ -3516,8 +3326,10 @@ Example body:
 
 ```json
 {
+  "unit": "pio01",
   "task_id": "abcd1234",
-  "result_url_path": "/unit_api/task_results/abcd1234"
+  "result_url_path": "/unit_api/task_results/abcd1234",
+  "status": "accepted"
 }
 ```
 
@@ -3531,9 +3343,14 @@ Remove a file under this unit's `DOT_PIOREACTOR` tree.
 ### Request
 
 #### Request Body
+
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| filepath | string | Yes | filepath. |
+
 ```json
 {
-  "filepath": "plugins/example.py"
+  "filepath": "example_filepath"
 }
 ```
 
@@ -3547,8 +3364,10 @@ Example body:
 
 ```json
 {
+  "unit": "pio01",
   "task_id": "abcd1234",
-  "result_url_path": "/unit_api/task_results/abcd1234"
+  "result_url_path": "/unit_api/task_results/abcd1234",
+  "status": "accepted"
 }
 ```
 
@@ -3562,9 +3381,14 @@ Remove a file under this unit's `DOT_PIOREACTOR` tree.
 ### Request
 
 #### Request Body
+
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| filepath | string | Yes | filepath. |
+
 ```json
 {
-  "filepath": "plugins/example.py"
+  "filepath": "example_filepath"
 }
 ```
 
@@ -3578,8 +3402,10 @@ Example body:
 
 ```json
 {
+  "unit": "pio01",
   "task_id": "abcd1234",
-  "result_url_path": "/unit_api/task_results/abcd1234"
+  "result_url_path": "/unit_api/task_results/abcd1234",
+  "status": "accepted"
 }
 ```
 
@@ -3600,8 +3426,10 @@ Example body:
 
 ```json
 {
+  "unit": "pio01",
   "task_id": "abcd1234",
-  "result_url_path": "/unit_api/task_results/abcd1234"
+  "result_url_path": "/unit_api/task_results/abcd1234",
+  "status": "accepted"
 }
 ```
 
@@ -3622,8 +3450,10 @@ Example body:
 
 ```json
 {
+  "unit": "pio01",
   "task_id": "abcd1234",
-  "result_url_path": "/unit_api/task_results/abcd1234"
+  "result_url_path": "/unit_api/task_results/abcd1234",
+  "status": "accepted"
 }
 ```
 
@@ -3644,8 +3474,10 @@ Example body:
 
 ```json
 {
+  "unit": "pio01",
   "task_id": "abcd1234",
-  "result_url_path": "/unit_api/task_results/abcd1234"
+  "result_url_path": "/unit_api/task_results/abcd1234",
+  "status": "accepted"
 }
 ```
 
@@ -3666,8 +3498,10 @@ Example body:
 
 ```json
 {
+  "unit": "pio01",
   "task_id": "abcd1234",
-  "result_url_path": "/unit_api/task_results/abcd1234"
+  "result_url_path": "/unit_api/task_results/abcd1234",
+  "status": "accepted"
 }
 ```
 
@@ -3712,8 +3546,10 @@ Example body:
 
 ```json
 {
+  "unit": "pio01",
   "task_id": "abcd1234",
-  "result_url_path": "/unit_api/task_results/abcd1234"
+  "result_url_path": "/unit_api/task_results/abcd1234",
+  "status": "accepted"
 }
 ```
 
@@ -3758,8 +3594,10 @@ Example body:
 
 ```json
 {
+  "unit": "pio01",
   "task_id": "abcd1234",
-  "result_url_path": "/unit_api/task_results/abcd1234"
+  "result_url_path": "/unit_api/task_results/abcd1234",
+  "status": "accepted"
 }
 ```
 
@@ -3809,8 +3647,10 @@ Example body:
 
 ```json
 {
+  "unit": "pio01",
   "task_id": "abcd1234",
-  "result_url_path": "/unit_api/task_results/abcd1234"
+  "result_url_path": "/unit_api/task_results/abcd1234",
+  "status": "accepted"
 }
 ```
 
@@ -3860,8 +3700,10 @@ Example body:
 
 ```json
 {
+  "unit": "pio01",
   "task_id": "abcd1234",
-  "result_url_path": "/unit_api/task_results/abcd1234"
+  "result_url_path": "/unit_api/task_results/abcd1234",
+  "status": "accepted"
 }
 ```
 
@@ -3883,7 +3725,7 @@ Example body:
 ```json
 {
   "status": "success",
-  "clock_time": "2026-05-19T17:07:07.581Z"
+  "clock_time": "2026-06-03T19:30:41.198Z"
 }
 ```
 
@@ -3918,8 +3760,10 @@ Example body:
 
 ```json
 {
+  "unit": "pio01",
   "task_id": "abcd1234",
-  "result_url_path": "/unit_api/task_results/abcd1234"
+  "result_url_path": "/unit_api/task_results/abcd1234",
+  "status": "accepted"
 }
 ```
 
@@ -3954,8 +3798,10 @@ Example body:
 
 ```json
 {
+  "unit": "pio01",
   "task_id": "abcd1234",
-  "result_url_path": "/unit_api/task_results/abcd1234"
+  "result_url_path": "/unit_api/task_results/abcd1234",
+  "status": "accepted"
 }
 ```
 
@@ -3976,8 +3822,10 @@ Example body:
 
 ```json
 {
+  "unit": "pio01",
   "task_id": "abcd1234",
-  "result_url_path": "/unit_api/task_results/abcd1234"
+  "result_url_path": "/unit_api/task_results/abcd1234",
+  "status": "accepted"
 }
 ```
 
@@ -3998,8 +3846,10 @@ Example body:
 
 ```json
 {
+  "unit": "pio01",
   "task_id": "abcd1234",
-  "result_url_path": "/unit_api/task_results/abcd1234"
+  "result_url_path": "/unit_api/task_results/abcd1234",
+  "status": "accepted"
 }
 ```
 
@@ -4091,7 +3941,7 @@ Example body:
       "pioreactor_mountpoint": "/Users/camerondavidson-pilon/code/pioreactor/.pioreactor/dev_usb_mounts/usb-DEV-USB",
       "mountpoint": "/Users/camerondavidson-pilon/code/pioreactor/.pioreactor/dev_usb_mounts/DEV_USB",
       "writable": true,
-      "free_bytes": 96393027584,
+      "free_bytes": 107944128512,
       "unsupported_reason": null
     }
   ],
@@ -4111,7 +3961,7 @@ Example body:
     "pioreactor_mountpoint": "/Users/camerondavidson-pilon/code/pioreactor/.pioreactor/dev_usb_mounts/usb-DEV-USB",
     "mountpoint": "/Users/camerondavidson-pilon/code/pioreactor/.pioreactor/dev_usb_mounts/DEV_USB",
     "writable": true,
-    "free_bytes": 96393027584
+    "free_bytes": 107944128512
   }
 }
 ```
@@ -4153,7 +4003,7 @@ Example body:
     }
   ],
   "writable": true,
-  "free_bytes": 96393027584
+  "free_bytes": 107944128512
 }
 ```
 
@@ -4188,8 +4038,10 @@ Example body:
 
 ```json
 {
+  "unit": "pio01",
   "task_id": "abcd1234",
-  "result_url_path": "/unit_api/task_results/abcd1234"
+  "result_url_path": "/unit_api/task_results/abcd1234",
+  "status": "accepted"
 }
 ```
 
@@ -4224,8 +4076,10 @@ Example body:
 
 ```json
 {
+  "unit": "pio01",
   "task_id": "abcd1234",
-  "result_url_path": "/unit_api/task_results/abcd1234"
+  "result_url_path": "/unit_api/task_results/abcd1234",
+  "status": "accepted"
 }
 ```
 
@@ -4246,7 +4100,7 @@ Example body:
 
 ```json
 {
-  "version": "26.5.3.dev0"
+  "version": "26.5.4.dev0"
 }
 ```
 
