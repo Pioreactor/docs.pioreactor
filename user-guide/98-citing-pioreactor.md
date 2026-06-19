@@ -33,7 +33,6 @@ Pioreactor hardware and software are used together, so one citation is enough. I
 
 - the Pioreactor model, such as 20 mL or 40 mL
 - the Pioreactor software version
-- any accessories that affected the experiment, such as pumps, vial caps, OD monitoring, temperature control, stirring, dosing, or plugins
 
 For example:
 
@@ -43,11 +42,11 @@ For example:
 
 If a citation does not fit the venue, you can acknowledge Pioreactor in your methods, poster, slides, or course materials.
 
-> Microbial growth experiments were monitored and controlled using Pioreactor, a Raspberry Pi-powered bioreactor platform from Pioreactor Inc. (Waterloo, Ontario, Canada).
+> Microbial growth experiments were monitored and controlled using Pioreactor, a bioreactor platform from Pioreactor Inc. (Waterloo, Ontario, Canada).
 
 For a more specific methods statement:
 
-> Microbial growth experiments were monitored and controlled using Pioreactor 20 mL / 40 mL bioreactors with optical density monitoring, temperature control, stirring, and programmable dosing.
+> Microbial growth experiments were monitored and controlled using Pioreactor 20 mL / 40 mL bioreactors.
 
 ## Logos, product images, screenshots, and diagrams
 
