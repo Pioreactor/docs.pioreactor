@@ -32,9 +32,8 @@ Here's a general directory outline of how your files should be organized for a j
 📁 <DISTRIBUTION-NAME (with dashes)>
 ├─ 📁 <PLUGIN_NAME>
 │  ├─ 📁 ui
-│  │  ├─ 📁 contrib
-│  │  │  ├─ 📁 jobs
-│  │  │  │  ├─ 📝 <PLUGIN_NAME>.yaml
+│  │  ├─ 📁 jobs
+│  │  │  ├─ 📝 <PLUGIN_NAME>.yaml
 │  ├─ 📝 __init__.py
 │  ├─ 📝 additional_config.ini
 │  ├─ 📝 my_plugin_code.py
@@ -50,10 +49,9 @@ The directory outline is very similar for an **automation plugin**, the only dif
 📁 <DISTRIBUTION-NAME with dashes>
 ├─ 📁 <PLUGIN_NAME>
 │  ├─ 📁 ui
-│  │  ├─ 📁 contrib
-│  │  │  ├─ 📁 automations
-│  │  │  │  ├─ 📁 <AUTOMATION TYPE (one of {dosing, led, temperature})>
-│  │  │  │  │  ├─ 📝 <PLUGIN_NAME>.yaml
+│  │  ├─ 📁 automations
+│  │  │  ├─ 📁 <AUTOMATION TYPE (one of {dosing, led, temperature})>
+│  │  │  │  ├─ 📝 <PLUGIN_NAME>.yaml
 │  ├─ 📝 __init__.py
 │  ├─ 📝 additional_config.ini
 │  ├─ 📝 my_plugin_code.py
@@ -161,7 +159,7 @@ A convention we've tried to follow is to use the section name convention of `[<j
 
 ##### If implementing a job:
 
-Within `<PLUGIN_NAME>` folder, create subfolders named `ui/contrib/jobs`. For a job, create a `.yaml` file that looks like the following format. The name of the yaml can be anything, but convention is to use the `<job_name>.yaml`:
+Within `<PLUGIN_NAME>` folder, create subfolders named `ui/jobs`. When the plugin is installed, these files are copied to `~/.pioreactor/plugins/ui/jobs`. For a job, create a `.yaml` file that looks like the following format. The name of the yaml can be anything, but convention is to use the `<job_name>.yaml`:
 
 ```
 ---
@@ -183,12 +181,12 @@ published_settings:
   ...
 ```
 
-There are lots of examples of job yaml files [here](https://github.com/Pioreactor/pioreactorui/tree/master/contrib/jobs).
+There are lots of examples of job yaml files [here](https://github.com/Pioreactor/pioreactor/tree/master/packaging/shared-assets/pioreactor/ui/jobs).
 
 
 ##### If implementing an automation:
 
-In the case of creating an **automation plugin**, create subfolder(s) with `ui/contrib/automations/<AUTOMATION TYPE>`, where `AUTOMATION TYPE` is one of `dosing`, `led`, or `temperature` depending on your automation type. Create a yaml file with the following convention. The name of the yaml file can be anything, but by convention it's `<automation_name>.yaml`.
+In the case of creating an **automation plugin**, create subfolder(s) with `ui/automations/<AUTOMATION TYPE>`, where `AUTOMATION TYPE` is one of `dosing`, `led`, or `temperature` depending on your automation type. When the plugin is installed, these files are copied to `~/.pioreactor/plugins/ui/automations/<AUTOMATION TYPE>`. Create a yaml file with the following convention. The name of the yaml file can be anything, but by convention it's `<automation_name>.yaml`.
 
 ```
 ---
@@ -205,7 +203,7 @@ fields:
     unit: ...
 ```
 
-There are lots of examples of automation yaml files [here](https://github.com/Pioreactor/pioreactorui/tree/master/contrib/automations).
+There are lots of examples of automation yaml files [here](https://github.com/Pioreactor/pioreactor/tree/master/packaging/shared-assets/pioreactor/ui/automations).
 
 #### 5. Optional: adding tables to the SQL database and exposing them on the Export Data page
 
@@ -300,7 +298,7 @@ recursive-include your_plugin_name/exportable_datasets *.yaml
 
 To add a chart that display real-time and historical data (provided by MQTT and SQL store respectively), you can do the following:
 
-1. In a new folder named `ui/contrib/charts` in your project, add a YAML file as described [here](/developer-guide/chart-to-ui). The name of the file can by the `chart_key` field, append with `.yaml`.
+1. In a new folder named `ui/charts` in your project, add a YAML file as described [here](/developer-guide/chart-to-ui). When the plugin is installed, it is copied to `~/.pioreactor/plugins/ui/charts`. The name of the file can be the `chart_key` field, appended with `.yaml`.
 2. In your `additional_config.ini`, add a new entry to be merged:
 
 ```
@@ -420,4 +418,3 @@ Once your plugin is accepted, it will appear on the Plugins tab on the Pioreacto
    ```
 
    and then reinstall the plugin.
-

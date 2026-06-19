@@ -386,17 +386,17 @@ Example body:
   {
     "filename": "config.ini",
     "timestamp": "2026-02-19T15:56:45.596Z",
-    "data": "[PWM]\n# map the externals to the PWM\n# hardware PWM are available on channels 1 & 3.\n1=stirring\n2=waste\n3=media\n4=test\n5=heating\n\n\n[leds]\nA=IR\nB=white_light\nC=\nD=\n\n\n[bioreactor]\n# max_working_volume_ml is determined by the volume that just touches the outflow tube. I.e. if you\n# where to keep running the waste pump, what would the stable volume be.\n# see docs\nmax_working_volume_ml=14\ninitial_volume_ml=14\ninitial_alt_media_fraction=0.0\n\n\n[stirring.config]\ninitial_target_rpm=500\ninitial_duty_cycle...<truncated>"
+    "data": "[PWM]\n# map the externals to the PWM\n# hardware PWM are available on channels 1 & 3.\n1=stirring\n2=waste\n3=media\n4=test\n5=heating\n\n\n[leds]\nA=IR\nB=white_light\nC=\nD=\n\n\n[bioreactor]\n# efflux_tube_volume_ml is determined by the volume that just touches the outflow tube. I.e. if you\n# where to keep running the waste pump, what would the stable volume be.\n# see docs\nefflux_tube_volume_ml=14\ninitial_volume_ml=14\ninitial_alt_media_fraction=0.0\n\n\n[stirring.config]\ninitial_target_rpm=500\ninitial_duty_cycle...<truncated>"
   },
   {
     "filename": "config.ini",
     "timestamp": "2026-01-19T16:38:19.492Z",
-    "data": "[PWM]\n# map the externals to the PWM\n# hardware PWM are available on channels 1 & 3.\n1=stirring\n2=waste\n3=media\n4=alt_media\n5=heating\n\n\n[leds]\nA=IR\nB=white_light\nC=\nD=\n\n\n[bioreactor]\n# max_working_volume_ml is determined by the volume that just touches the outflow tube. I.e. if you\n# where to keep running the waste pump, what would the stable volume be.\n# see docs\nmax_working_volume_ml=14\ninitial_volume_ml=14\ninitial_alt_media_fraction=0.0\n\n\n[stirring.config]\ninitial_target_rpm=500\ninitial_duty_...<truncated>"
+    "data": "[PWM]\n# map the externals to the PWM\n# hardware PWM are available on channels 1 & 3.\n1=stirring\n2=waste\n3=media\n4=alt_media\n5=heating\n\n\n[leds]\nA=IR\nB=white_light\nC=\nD=\n\n\n[bioreactor]\n# efflux_tube_volume_ml is determined by the volume that just touches the outflow tube. I.e. if you\n# where to keep running the waste pump, what would the stable volume be.\n# see docs\nefflux_tube_volume_ml=14\ninitial_volume_ml=14\ninitial_alt_media_fraction=0.0\n\n\n[stirring.config]\ninitial_target_rpm=500\ninitial_duty_...<truncated>"
   },
   {
     "filename": "config.ini",
     "timestamp": "2026-01-15T01:12:24.848Z",
-    "data": "[PWM]\n# map the externals to the PWM\n# hardware PWM are available on channels 1 & 3.\n1=stirring\n2=waste\n3=media\n4=alt_media\n5=heatingf\n\n\n[leds]\nA=IR\nB=white_light\nC=\nD=\n\n\n[bioreactor]\n# max_working_volume_ml is determined by the volume that just touches the outflow tube. I.e. if you\n# where to keep running the waste pump, what would the stable volume be.\n# see docs\nmax_working_volume_ml=14\ninitial_volume_ml=14\ninitial_alt_media_fraction=0.0\n\n\n[stirring.config]\ninitial_target_rpm=500\ninitial_duty...<truncated>"
+    "data": "[PWM]\n# map the externals to the PWM\n# hardware PWM are available on channels 1 & 3.\n1=stirring\n2=waste\n3=media\n4=alt_media\n5=heatingf\n\n\n[leds]\nA=IR\nB=white_light\nC=\nD=\n\n\n[bioreactor]\n# efflux_tube_volume_ml is determined by the volume that just touches the outflow tube. I.e. if you\n# where to keep running the waste pump, what would the stable volume be.\n# see docs\nefflux_tube_volume_ml=14\ninitial_volume_ml=14\ninitial_alt_media_fraction=0.0\n\n\n[stirring.config]\ninitial_target_rpm=500\ninitial_duty...<truncated>"
   }
 ]
 ```

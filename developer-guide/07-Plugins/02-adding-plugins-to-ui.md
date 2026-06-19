@@ -21,8 +21,8 @@ You should have already added your plugin's Python code to your Pioreactor by so
 
 
 The list of activities, among other things, is sourced from either of two directories:
- - `~/pioreactor/.pioreactor/ui/jobs`, is the source of the "default" jobs
- - `~/pioreactor/.pioreactor/plugins/ui/jobs`, is a directory to put custom yaml files for plugins.
+ - `~/.pioreactor/ui/jobs`, is the source of the "default" jobs
+ - `~/.pioreactor/plugins/ui/jobs`, is a directory to put custom yaml files for plugins.
 
 Placing a new yaml file in either of these folders will populate the page with your new job. Here's an example `example.yaml` file:
 
@@ -63,8 +63,8 @@ Saving it to either directory above, and refreshing the page:
 
 Placing a new yaml file in either of the following folders will populate the UI with your new job.
 
- - `~/pioreactor/.pioreactor/ui/jobs`, is the source of the "default" jobs
- - `~/pioreactor/.pioreactor/plugins/ui/jobs`, is a directory to put custom yaml files for plugins.
+ - `~/.pioreactor/ui/jobs`, is the source of the "default" jobs
+ - `~/.pioreactor/plugins/ui/jobs`, is a directory to put custom yaml files for plugins.
 
 ```yaml
 ---
@@ -88,8 +88,8 @@ Suppose we wish to add our new automation, either installed from a package or vi
 
 This list is sourced from yaml files located on the leader's Raspberry Pi, in either of two directories:
 
- - `~/pioreactor/.pioreactor/ui/automations`, is the source of the "default" automations
- - `~/pioreactor/.pioreactor/plugins/ui/automations`, is a directory to put custom yaml files for plugins.
+ - `~/.pioreactor/ui/automations`, is the source of the "default" automations
+ - `~/.pioreactor/plugins/ui/automations`, is a directory to put custom yaml files for plugins.
 
 
 
@@ -120,13 +120,13 @@ fields:
     label: Intensity of PWM
 ```
 
-If this file was saved to the folder `/home/pioreactor/.pioreactor/plugins/ui/contrib/automations/dosing`, we would see the following in the web interface (after refreshing):
+If this file was saved to the folder `/home/pioreactor/.pioreactor/plugins/ui/automations/dosing`, we would see the following in the web interface (after refreshing):
 
 ![](/img/developer-guide/07-plugins/02-adding-plugins-to-ui/dropdown_automations_with_example.png)
 
 ![](/img/developer-guide/07-plugins/02-adding-plugins-to-ui/automations_example.png)
 
-More examples of automation [yaml files here](https://github.com/Pioreactor/pioreactorui/tree/master/contrib/automations).
+More examples of automation [yaml files here](https://github.com/Pioreactor/pioreactor/tree/master/packaging/shared-assets/pioreactor/ui/automations).
 
 ## Charts
 

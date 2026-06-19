@@ -21,11 +21,11 @@ Reference list of on-device paths that matter once a custom Pioreactor Raspberry
 | `/home/pioreactor/.pioreactor/storage/pioreactor.sqlite` | Primary experiment database | Used by the leader, replicated to workers for durability. Back up before major upgrades. |
 | `/home/pioreactor/.pioreactor/storage/local_persistent_pioreactor_metadata.sqlite` | Persistent cache | Stores long-lived metadata that survives reboots. |
 | `/home/pioreactor/.pioreactor/hardware/` | Hardware definition packs | YAML that describes hats, models, sensors, and calibration values consumed by the Pioreactor hardware subsystem. |
-| `/home/pioreactor/.pioreactor/experiment_profiles/` | User experiment profiles | Drop `.py` / `.json` profile definitions here so they show up in the UI for scheduling. |
+| `/home/pioreactor/.pioreactor/experiment_profiles/` | User experiment profiles | Drop `.yaml` / `.yml` profile definitions here so they show up in the UI for scheduling. |
 | `/home/pioreactor/.ssh/` | Device SSH keys | Created during image build so leaders can add workers securely. |
 | `/run/pioreactor/` | Runtime scratch space (`$RUN_PIOREACTOR`) | tmpfs directory for caches, sockets, Huey queues, and general runtime coordination. Cleared on reboot. |
 | `/run/pioreactor/cache/` | Volatile caches | Includes `local_intermittent_pioreactor_metadata.sqlite` and UI/Huey cache files that can be safely discarded. |
-| `/run/pioreactor/exports/` | Web export staging | Lighttpd serves `/exports/` from here so downloads never touch persistent storage. |
+| `/run/pioreactor/exports/` | Web export staging | Lighttpd serves `/exports/` from here. By default this is volatile staging under `/run`; set `PIO_EXPORTS_DIR` in `pioreactor.env` to use a persistent directory symlinked to this path. |
 | `/var/log/pioreactor.log` | System log for Pioreactor services | Configured via `config.ini` and read by both CLI and UI. Rotate with journald/logrotate as needed. |
 | `/opt/pioreactor/venv/` | System Python virtual environment | Hosts the Pioreactor Python installation (`pio`, `pios`, services). Activate manually for debugging. |
 | `/tmp/` | Temporary workspace | Referenced by `TMPDIR` in `pioreactor.env` for short-lived files outside tmpfs. |
