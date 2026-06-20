@@ -2,6 +2,7 @@
 title: Turning your plugins into a Python package to share
 slug: /plugin-as-python-package
 hide_table_of_contents: true
+sidebar_class_name: sidebar-item--updated
 ---
 
 If you'd like to contribute your plugin to the community, this is done easily by creating a Python package and uploading to PyPI. Let's walk through this!

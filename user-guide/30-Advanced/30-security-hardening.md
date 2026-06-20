@@ -3,7 +3,6 @@ title: Security hardening
 slug: /security-hardening
 description: Practical steps for reducing security risk on a Pioreactor cluster.
 hide_table_of_contents: true
-sidebar_class_name: sidebar-item--updated
 ---
 
 Pioreactor is usually operated on a trusted lab or classroom network. If other people can reach that network, or if you are enabling remote access, take a few minutes to reduce what can be changed from the UI and from default credentials.
