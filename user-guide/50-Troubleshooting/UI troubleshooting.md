@@ -11,6 +11,7 @@ hide_table_of_contents: true
 - The UI is hosted on **http**, not **http_s_**. Check if you are accessing `http` `://pioreactor.local`, and _not_ `https` `://pioreactor.local`.
 - Try accessing using the url `http://<the permanent name of your Pioreactor aka hostname>.local`
 - If you know your Raspberry Pi's IP, try `http://<IP address of your Raspberry Pi>`. Here's [information to determine the IP address](/user-guide/common-questions#how-can-i-determine-the-pioreactors-ip-address-or-the-mac-address)
+- On macOS, if your browser shows `ERR_ADDRESS_UNREACHABLE`, check **System Settings** > **Privacy & Security** > **Local Network** and make sure your browser is allowed to access devices on the local network. If it is already allowed, try toggling the permission off and on.
 - Errors during installation:
     - When pressing the button on the HAT, does the blue LED show up? If not, installation may have failed. See notes [here](/user-guide/software-set-up#my-leader-pioreactor-never-flashes-the-blue-led).
     - In your Raspberry Pi Imager settings, confirm that you clicked "Set username and password", and used the username `pioreactor`. If not, try [reinstalling the image](/user-guide/software-set-up#setting-up-your-raspberry-pis-sd-card).
