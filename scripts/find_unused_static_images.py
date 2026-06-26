@@ -49,6 +49,10 @@ EXCLUDED_DIRS: set[str] = {
     "static",
 }
 
+EXCLUDED_STATIC_IMAGE_PATHS: tuple[Path, ...] = (
+    Path("media-assets/pioreactor-publication-assets"),
+)
+
 DEFAULT_REFERENCE_SOURCES: tuple[str, ...] = (
     "user-guide",
     "developer-guide",
@@ -136,6 +140,9 @@ def iter_static_images(static_dir: Path) -> Iterable[Path]:
         if not path.is_file():
             continue
         if path.name.startswith("."):
+            continue
+        static_relative_path = path.relative_to(static_dir)
+        if any(static_relative_path.is_relative_to(excluded) for excluded in EXCLUDED_STATIC_IMAGE_PATHS):
             continue
         if path.suffix.lower() not in IMAGE_SUFFIXES:
             continue
