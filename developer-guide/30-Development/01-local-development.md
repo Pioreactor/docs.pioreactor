@@ -82,7 +82,7 @@ pytest core/tests
 
 ### Plugins development
 
-Create a folder in the `pioreactor` folder called `plugins_dev`. In this folder, you can place python files that will run whenever `pio` is invoked (similar to the `plugins` folder at `.pioreactor/plugins` on the Raspberry Pi, see [docs here](/developer-guide/intro-plugins#1-adding-python-files-to-plugins-folder))
+Create a folder in the `pioreactor` folder called `plugins_dev`. In this folder, you can place python files that will run whenever `pio` is invoked (similar to the `plugins` folder at `.pioreactor/plugins` on the Raspberry Pi, see [docs here](/developer-guide/plugins#1-adding-python-files-to-plugins-folder))
 
 
 ### Raspberry Pi Images

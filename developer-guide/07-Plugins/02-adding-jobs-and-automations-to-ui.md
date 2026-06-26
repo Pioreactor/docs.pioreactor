@@ -1,16 +1,22 @@
 ---
-title: Adding your plugins to the web interface
-slug: /adding-plugins-to-ui
+title: Adding jobs and automations to the web interface
+slug: /plugins/jobs-and-automations-to-ui
 hide_table_of_contents: true
 ---
 
 
 With custom background jobs or automations, the goal is to have it available in the web interface, so you and your users don't need to use the command line at all. We've built support for easily adding to the web interface.
 
-Based on whether your have created a background job, a script, or an automation, adding it to the UI only involves creating a yaml file and placing it in the correct directory.
+Based on whether you have created a background job, a script, or an automation, adding it to the UI only involves creating a YAML file and placing it in the correct directory.
+
+:::important
+This page is about YAML files for runnable jobs, scripts, and automations. Put these files on each Pioreactor that should be able to run that job or automation.
+
+Charts and exportable datasets are different: they are read by the leader UI, so their YAML files go on the leader. See [adding charts](/developer-guide/plugins/charts) and [adding datasets](/developer-guide/plugins/datasets).
+:::
 
 :::info
-You should have already added your plugin's Python code to your Pioreactor by some method presented [here](/developer-guide/intro-plugins).
+You should have already added your plugin's Python code to your Pioreactor by some method presented [here](/developer-guide/plugins).
 :::
 
 ## Background jobs and scripts
@@ -20,11 +26,11 @@ You should have already added your plugin's Python code to your Pioreactor by so
 ![](/img/developer-guide/07-plugins/02-adding-plugins-to-ui/activities.png)
 
 
-The list of activities, among other things, is sourced from either of two directories:
+On a Pioreactor that should run the job, the list of activities is sourced from either of two directories:
  - `~/.pioreactor/ui/jobs`, is the source of the "default" jobs
- - `~/.pioreactor/plugins/ui/jobs`, is a directory to put custom yaml files for plugins.
+ - `~/.pioreactor/plugins/ui/jobs`, is a directory to put custom YAML files for plugins.
 
-Placing a new yaml file in either of these folders will populate the page with your new job. Here's an example `example.yaml` file:
+Placing a new YAML file in either of these folders will populate the page with your new job. Here's an example `example.yaml` file:
 
 ```yaml
 ---
@@ -61,10 +67,10 @@ Saving it to either directory above, and refreshing the page:
 
 ### Adding a custom Python script to the list of activities
 
-Placing a new yaml file in either of the following folders will populate the UI with your new job.
+On a Pioreactor that should run the script, placing a new YAML file in either of the following folders will populate the UI with your new script.
 
  - `~/.pioreactor/ui/jobs`, is the source of the "default" jobs
- - `~/.pioreactor/plugins/ui/jobs`, is a directory to put custom yaml files for plugins.
+ - `~/.pioreactor/plugins/ui/jobs`, is a directory to put custom YAML files for plugins.
 
 ```yaml
 ---
@@ -76,7 +82,7 @@ description: Run my custom script.
 published_settings: []
 ```
 
-See more information on the structure of your script [here](/developer-guide/intro-plugins#custom-scripts)
+See more information on the structure of your script [here](/developer-guide/plugins#custom-scripts)
 
 ## Automations
 
@@ -86,14 +92,14 @@ Suppose we wish to add our new automation, either installed from a package or vi
 
 ![](/img/developer-guide/07-plugins/02-adding-plugins-to-ui/dropdown_automations.png)
 
-This list is sourced from yaml files located on the leader's Raspberry Pi, in either of two directories:
+This list is sourced from YAML files located on the Pioreactor that should run the automation, in either of two directories:
 
  - `~/.pioreactor/ui/automations`, is the source of the "default" automations
- - `~/.pioreactor/plugins/ui/automations`, is a directory to put custom yaml files for plugins.
+ - `~/.pioreactor/plugins/ui/automations`, is a directory to put custom YAML files for plugins.
 
 
 
-Placing your yaml file in either folder above will populate the dropdown list in the UI with your new automation. Here's an example `example.yaml` file:
+Placing your YAML file in either folder above will populate the dropdown list in the UI with your new automation. Here's an example `example.yaml` file:
 
 ```yaml
 ---
@@ -126,16 +132,16 @@ If this file was saved to the folder `/home/pioreactor/.pioreactor/plugins/ui/au
 
 ![](/img/developer-guide/07-plugins/02-adding-plugins-to-ui/automations_example.png)
 
-More examples of automation [yaml files here](https://github.com/Pioreactor/pioreactor/tree/master/packaging/shared-assets/pioreactor/ui/automations).
+More examples of automation [YAML files here](https://github.com/Pioreactor/pioreactor/tree/master/packaging/shared-assets/pioreactor/ui/automations).
 
 ## Charts
 
 ### Adding a chart to display a new data source
 
-If your plugin produces data (or is some novel transformation of existing data), you can also add a new chart to the Overview page. See documentation [here](/developer-guide/chart-to-ui).
+If your plugin produces data, you can add a chart to the **Overview** page. Chart YAML is read by the leader UI, not by each worker. See [adding charts](/developer-guide/plugins/charts).
 
 
 ## Troubleshooting
 
- - If the UI isn't display the data from your yaml, you may have introduced a yaml file that is not being read correctly. Look for error logs on the Overview page.
+ - If the UI isn't displaying the data from your YAML, you may have introduced a YAML file that is not being read correctly. Look for error logs on the **Overview** page.
  - There is a 30sec cache, so it may take up to 30sec to see new changes in the UI.

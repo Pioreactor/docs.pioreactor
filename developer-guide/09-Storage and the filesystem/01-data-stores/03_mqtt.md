@@ -11,7 +11,7 @@ pio mqtt
 
 And to follow a specific topic, use:
 ```
-pio mqtt -t "pioreactor/unit/experiment/..."
+pio mqtt -t "pioreactor/{unit}/{experiment}/..."
 ```
 
 

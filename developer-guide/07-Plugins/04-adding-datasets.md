@@ -1,10 +1,16 @@
 ---
-title: Adding datasets to the Export Data page
-slug: /dataset-to-ui
+title: Adding exportable datasets
+slug: /plugins/datasets
 hide_table_of_contents: true
 ---
 
-You can allow users to export your data from the UI's Export Data page. To do this, add a YAML file to `~/.pioreactor/plugins/exportable_datasets` with the following information:
+You can allow users to export your data from the UI's **Export Data** page.
+
+:::important
+Exportable dataset YAML files go on the leader. They describe data that the leader UI can export from the leader's database. They do not start the job that produces the data.
+:::
+
+To add an exportable dataset, add a YAML file on the leader in `~/.pioreactor/plugins/exportable_datasets` with the following information:
 
 ```yaml
 dataset_name: some_unique_dataset_name

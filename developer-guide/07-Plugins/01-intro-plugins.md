@@ -1,6 +1,6 @@
 ---
 title: Working with plugins
-slug: /intro-plugins
+slug: /plugins
 hide_table_of_contents: true
 ---
 
@@ -106,7 +106,7 @@ Using `run.command` ensures `pio run` can discover your command.
 :::
 
 :::info
-How do you add this to your /pioreactors page in the UI? See [here](/developer-guide/adding-plugins-to-ui).
+How do you add this to your /pioreactors page in the UI? See [here](/developer-guide/plugins/jobs-and-automations-to-ui).
 :::
 
 ### Custom scripts
@@ -150,7 +150,7 @@ def click_my_script():
 You should be able to execute the following from the command line now: `pio run my_script`. (The `my_script` is from the `@click.command` line, you can change it there).
 
 :::info
-How do you add this to your /pioreactors page in the UI? See [here](/developer-guide/adding-plugins-to-ui).
+How do you add this to your /pioreactors page in the UI? See [here](/developer-guide/plugins/jobs-and-automations-to-ui).
 :::
 
 ### Custom automations
@@ -191,9 +191,15 @@ pio run dosing_automation --automation-name demo --volume 10
 :::
 
 :::info
-How do you add this to your /pioreactors page in the UI? See [here](/developer-guide/adding-plugins-to-ui).
+How do you add this to your /pioreactors page in the UI? See [here](/developer-guide/plugins/jobs-and-automations-to-ui).
 :::
+
+## When your plugin has UI or data files
+
+Some plugin files run on each Pioreactor, while others are read by the leader UI. Runnable jobs and automations usually belong on the Pioreactor that runs them. Charts, datasets, and database setup usually belong on the leader.
+
+If you're packaging a plugin for others to install, see the file layout in [Packaging plugins to share](/developer-guide/plugins/python-package#organizing-your-files).
 
 ## 2. `pip`-installable plugins
 
-An alternative to placing Python files in the `plugins` folder is to bundle your code into a Python package that can be installed over the internet. This is the best way to ship your code to many users, and is pretty easy! We have a full guide on how to [create a Pioreactor Python package](/developer-guide/plugin-as-python-package).
+An alternative to placing Python files in the `plugins` folder is to bundle your code into a Python package that can be installed over the internet. This is the best way to ship your code to many users, and is pretty easy! We have a full guide on how to [create a Pioreactor Python package](/developer-guide/plugins/python-package).
