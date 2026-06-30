@@ -32,6 +32,17 @@ These are the I2C addresses in the bundled hardware profiles.
 | Pioreactor 40 mL model 1.5 | Optical density ADC `pd1` | `0x48` | `models/pioreactor_40ml/1.5/adc.yaml` |
 | Pioreactor 40 mL model 1.5 | Optical density ADC `pd2` | `0x49` | `models/pioreactor_40ml/1.5/adc.yaml` |
 
+## Common STEMMA QT hardware
+
+These addresses are for the third-party devices listed on [Verified Stemma QT hardware we like](/user-guide/verified-stemma-qt-hardware). They do not conflict with the bundled Pioreactor addresses above, but two devices with the same address cannot share the bus unless one device supports changing its address or you add an I2C multiplexer.
+
+| Device | Default address | Alternate addresses | Notes |
+| --- | --- | --- | --- |
+| [Adafruit MLX90632 FIR Remote Thermal Temperature Sensor](https://www.adafruit.com/product/6403) | `0x3A` | `0x3B` | The address can be changed with the `ADDR` / `A0` jumper. |
+| [Adafruit AS7341 10-Channel Light / Color Sensor](https://www.adafruit.com/product/4698) | `0x39` | None | Fixed address. |
+| [Monochrome 1.3" 128x64 OLED Graphic Display](https://www.adafruit.com/product/938) | `0x3C` | `0x3D` | Selectable with the address jumper. |
+| [Adafruit SCD-30 NDIR CO2 Temperature and Humidity Sensor](https://www.adafruit.com/product/4867) | `0x61` | None | Fixed address. |
+
 ## Reading addresses from Python
 
 Use `pioreactor.hardware` instead of duplicating addresses in your code:
