@@ -3,6 +3,7 @@ title: I2C addresses
 slug: /i2c-addresses
 description: Reference the I2C device addresses used by Pioreactor hardware profiles.
 hide_table_of_contents: true
+sidebar_class_name: sidebar-item--updated
 ---
 
 Pioreactor hardware uses the Raspberry Pi's I2C bus on GPIO2 (SDA) and GPIO3 (SCL). Device addresses are defined in the hardware YAML profiles under `~/.pioreactor/hardware/`, not hard-coded into plugins or jobs.
