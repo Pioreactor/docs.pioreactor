@@ -29,12 +29,17 @@ After saving, you can come back to the experiment later from **Experiments**. Ta
 
 ### Assigning Pioreactors to your experiment
 
-The _Pioreactors_ tab will display any active and inactive Pioreactors assigned to the experiment. Click on "Assign Pioreactors" to assign pioreactors to the current experiment. 
+The **Pioreactors** tab displays the active and inactive Pioreactors assigned to the current experiment. Click **Assign Pioreactors** to choose which Pioreactors belong to this experiment.
 
 ![](/img/user-guide/02-experiment-basics/04-set-up-an-experiment/pioreactors-tab.png)
 
+You can run different experiments at the same time by assigning different Pioreactors to each experiment. For example, one experiment can use `worker01` and `worker02` while another experiment uses `worker03`.
+
+In the assignment dialog, a Pioreactor that is already assigned to another experiment is shown with that experiment name. Selecting it will unassign it from the other experiment and assign it to the current one.
 
 ![](/img/user-guide/02-experiment-basics/04-set-up-an-experiment/assign-pios-to-another-experiment.png)
+
+Unassigning a Pioreactor from an experiment stops its activities for that experiment. This applies whether you unassign it from the **Pioreactors** tab, reassign it to another experiment, or end the experiment.
 
 
 
