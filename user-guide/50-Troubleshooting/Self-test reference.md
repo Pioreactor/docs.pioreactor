@@ -7,6 +7,8 @@ slug: /self-test-reference
 
 This page explains each self-test check and what to do if it fails.
 
+Before working through the individual checks, open **Inventory** > **System Logs** in the UI to see more logs, including failure logs. If tests keep failing, check that the correct Pioreactor model is selected, for example Pioreactor 40ml v1.0 vs v1.5. See [Change your Pioreactor model](/user-guide/Extending%20your%20Pioreactor/cluster-management/change-model).
+
 ## What the self-test checks (and what to do if something fails)
 
 **Pioreactor HAT is detected** checks if the Pioreactor HAT is correctly placed on top of the Raspberry Pi. A non-trivial failure here suggests a problem connection between the HAT and the RPi, a failure with the i2c channel, or a failure with the RP2040 chip on the HAT. If **Heating PCB is detected** also fails, try disconnecting the Heater PCB flat-flex cable from the HAT (unlock and pull straight out), and trying the test again.
