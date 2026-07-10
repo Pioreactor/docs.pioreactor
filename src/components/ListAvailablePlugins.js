@@ -87,7 +87,7 @@ export default function ListAvailablePlugins(){
                       <a href={plugin.homepage} target="_blank" rel="noopener noreferrer">View homepage ↗</a>
                       {plugin.wheelUrl ? (
                         <a href={plugin.wheelUrl} title={plugin.wheelFilename}>
-                          Download .whl (v{plugin.wheelVersion})
+                          Download .whl (v{plugin.wheelVersion}) ⤓
                         </a>
                       ) : (
                         <a href={plugin.pypiProjectUrl} target="_blank" rel="noopener noreferrer">
