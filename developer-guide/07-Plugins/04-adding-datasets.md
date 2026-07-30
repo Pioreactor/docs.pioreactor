@@ -24,6 +24,11 @@ table: the_target_table # optional: see note below
 timestamp_columns:
 - timestamp
 always_partition_by_unit: false
+column_descriptions: # optional, included in the exported schema.json
+  timestamp: UTC timestamp for this reading.
+  reading: Sensor reading after calibration.
+column_units: # optional, included in the exported schema.json
+  reading: AU
 query: SELECT * FROM the_target_table WHERE reading < 4 AND ...  # optional: see note below
 ```
 
@@ -32,5 +37,7 @@ Either `table` or `query` is required. If you provide a `table`, the `query` fie
 :::
 
 After adding this file, visit the **Export Data** page in the UI.
+
+Each export archive contains a top-level `manifest.json` and a `schema.json` inside each dataset folder. Add `column_descriptions` and `column_units` for columns whose meaning or measurement unit is not obvious; these fields make plugin datasets self-describing for people and downstream tools. Keys should match the column names returned by your table or query.
 
 You can see more examples [here](https://github.com/Pioreactor/CustoPiZer/tree/pioreactor/workspace/scripts/files/pioreactor/exportable_datasets) and [here](https://github.com/Pioreactor/spectrometer-reading-plugin/tree/main/spectrometer_reading_plugin/exportable_datasets)

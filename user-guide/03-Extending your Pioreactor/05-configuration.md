@@ -35,6 +35,8 @@ Pioreactor also stores a history of changes to each configuration file. You can 
 
 ![Select historical versions of config.ini's](/img/user-guide/03-extending-your-pioreactor/05-configuration/choose_config_version2.png)
 
+To keep an offline copy of the cluster's configuration, click **Download all configurations**. The downloaded `configuration_inis.zip` contains the shared `config.ini`, each reachable Pioreactor's `unit_config.ini` under a folder named for that unit, and `metadata.json`, which lists the included files and any units that could not be reached.
+
 
 
 ### Editing the `unit_config.ini` before booting

@@ -5,11 +5,22 @@ slug: /experiment-profiles-schema
 
 Experiment profiles are YAML files that choreograph jobs across your Pioreactor cluster. This page documents the syntax the UI validates against and the constructs available when you are editing a profile directly.
 
+## Declare the profile format
+
+Every experiment profile must declare the supported profile format at the top level:
+
+```yaml
+version: "1.0"
+```
+
+Keep `"1.0"` quoted. An unquoted `1.0` is parsed by YAML as a number and is rejected. Profiles that existed before Pioreactor 26.7.0 are migrated automatically during the software upgrade; new or manually copied profiles must include this field.
+
 ## Add profile metadata
 
 It's a good idea to give your profile a descriptive and unique name. This way it will be easier to find later. Also providing a detailed description will help your colleagues (and future self!) understand what the profile accomplishes.
 
 ```yaml
+version: "1.0"
 experiment_profile_name: stirring with different temperatures
 
 metadata:
@@ -131,6 +142,27 @@ You can reference other jobs, too. The example below adjusts stirring based on o
             t: 12h
             options:
               target_rpm: ${{ worker1:stirring:target_rpm + worker1:od_reading:od2.od * 10 }}
+```
+
+### Expressions in `config_overrides`
+
+A `start` action can also interpolate expressions in `config_overrides`. Each key overrides a setting in that job's `<job_name>.config` section for the new process:
+
+```yaml
+version: "1.0"
+experiment_profile_name: configurable-stirring
+
+inputs:
+  stirring_pwm_hz: 100
+
+common:
+  jobs:
+    stirring:
+      actions:
+        - type: start
+          t: 0s
+          config_overrides:
+            pwm_hz: ${{ stirring_pwm_hz }}
 ```
 
 ### Expressions in the `common` block
@@ -401,6 +433,8 @@ The UI validates profiles against this schema and performs an additional run-tim
 
 ```yaml
 # Main structure of the experiment profile
+version: "1.0"  # Required and quoted; unquoted 1.0 is a YAML number and is rejected
+
 experiment_profile_name: <string>  # Name of the experiment profile
 
 

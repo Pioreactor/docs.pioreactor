@@ -28,9 +28,9 @@ pio [OPTIONS] COMMAND [ARGS]...
 | Command | Purpose | Highlights |
 | --- | --- | --- |
 | `run` | Start a specific job/process. | Supports `--config-override`, `-d/--detach`. Includes jobs such as `stirring`, `od_reading`, `dosing_automation`, `experiment_profile`, `monitor`, etc. |
-| `update-settings JOB [--flag value ...]` | Modify runtime parameters of a job without restarting it. | Use long-form flags (e.g. `--target-rpm 500`). |
+| `jobs set JOB SETTING VALUE` | Modify one published setting on a running job without restarting it. | Setting names may use underscores or hyphens (for example, `target_rpm` or `target-rpm`). |
 | `kill` | Stop running jobs. | Filter by `--job-name`, `--experiment`, `--job-source`, or `--job-id`; `--all-jobs` stops everything on the unit. |
-| `jobs` | Inspect and clean up job records. | `jobs list running` (show running), `jobs list` (history), `jobs info --job-id/--job-name` (details + published settings), `jobs purge --job-id/--job-name` (delete records). |
+| `jobs` | Inspect jobs, update settings, and clean up job records. | `jobs list running` (show running), `jobs list` (history), `jobs info --job-id/--job-name` (details + published settings), `jobs set JOB SETTING VALUE` (update a setting), `jobs purge --job-id/--job-name` (delete records). |
 | `logs` / `log` | Inspect or emit log entries. | `logs` tails (`-n`, `-f`); `log` sends a message with `-m/--message`, optional severity (`-l`). |
 | `mqtt` | Subscribe to MQTT topics for debugging. | Use `-t/--topic` to limit the feed. |
 | `blink` | Blink the unit’s LED (requires `monitor` job). | Handy for physical identification. |
@@ -59,7 +59,7 @@ pio [OPTIONS] COMMAND [ARGS]...
 | --- | --- | --- |
 | `update x` | Update the Pioreactor app (`update app`) or RP2040 firmware (`update firmware`). | `-s/--source` accepts URLs, wheel files, or `release-***.zip`; `-b/--branch` targets a git branch, `--sha` targets a git SHA |
 | `version` | Print current software version. | — |
-| `status` | Print current network, software, and filesystem statuses. | — |
+| `status` | Print current network, software, filesystem, assigned model, and model-to-hardware compatibility statuses. | Use `--json` for machine-readable output. |
 | `repair` | Perform permissions corrections, and other repairs. | — |
 | `usb` | Perform operations on an attached USB device. | — |
 
@@ -73,7 +73,7 @@ pio run stirring --target-rpm 600
 pio run --config-override stirring.config pwm_hz 100 stirring
 
 # Update target RPM on the fly
-pio update-settings stirring --target-rpm 500
+pio jobs set stirring target_rpm 500
 
 # Inspect a job record, including published settings
 pio jobs info --job-name stirring
@@ -101,7 +101,7 @@ pios [OPTIONS] COMMAND [ARGS]...
 | --- | --- | --- |
 | `run JOB [options]` | Launch a job on one or more workers. | Pass job-specific flags after the job name, e.g. `pios run stirring --target-rpm 400 --units worker1`. |
 | `kill` | Stop jobs on workers. | Accepts same filters as `pio kill` plus cluster selectors; `--all-jobs` kills every worker job. |
-| `update-settings JOB ...` | Adjust parameters on already-running worker jobs. | Use alongside `--units`/`--experiments`. |
+| `jobs set JOB SETTING VALUE` | Adjust one setting on already-running worker jobs. | Use alongside `--units`/`--experiments`. |
 | `jobs list` | List all jobs in the cluster | Use alongside `--units`/`--experiments`. |
 | `jobs list running` | List all _running_ jobs in the cluster | Use alongside `--units`/`--experiments`. |
 
@@ -125,7 +125,7 @@ pios run od_reading --experiments batch-42
 pios kill --all-jobs -y
 
 # Update stirring target RPM on a subset of units
-pios update-settings stirring --units worker1 --units worker3 --target-rpm 550
+pios jobs set stirring target_rpm 550 --units worker1 --units worker3
 
 # Sync both shared and per-unit configs to the cluster
 pios sync-configs

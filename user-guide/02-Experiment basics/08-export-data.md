@@ -10,17 +10,42 @@ Experiment data can be exported using the _Export data_ tab on the Pioreactor si
 ![](/img/user-guide/02-experiment-basics/08-export-data/export_data_default.png)
 
 
-You can retrieve datasets from any previous experiments, including from _all_ experiments simultaneously using the `<All experiments>` option at the bottom of the list.
-
-Select your experiment from the drop down menu.
+Each export contains data from one experiment. Select the experiment from the dropdown menu, or select `<System>` for system-level datasets such as logs that are not associated with a user experiment.
 
 ![](/img/user-guide/02-experiment-basics/08-export-data/export_data_choose_dataset.png)
 
-Select the datasets you would like to download. 
+Select the datasets you would like to download.
 
 ![](/img/user-guide/02-experiment-basics/08-export-data/export_data_selections.png)
 
-Click the _Export_ button to download the raw data as **.csv** files.
+Under **Export options**, you can split CSV files by Pioreactor or restrict timestamped datasets to a time range. Times entered in the UI use your browser's timezone and are converted to UTC for the export.
+
+Click the _Export_ button to download a **.zip** archive containing the selected CSV files.
+
+## What's in an export archive
+
+Every archive includes:
+
+- `manifest.json`, which records the Pioreactor version, selected experiment and datasets, time filters, partition settings, CSV paths, and row counts.
+- One folder per selected dataset, containing its CSV files and a `schema.json` file.
+- Each `schema.json` describes the dataset and its columns, including descriptions and units when the dataset provides them.
+
+The metadata format is versioned independently from the Pioreactor software. In 26.7.0, `manifest.json` and each `schema.json` use schema version `1`.
+
+## Exporting from the command line or an integration
+
+On the leader, `pio run export_experiment_data` requires exactly one `--experiment`. Repeat `--dataset-name` to select more than one dataset:
+
+```bash
+pio run export_experiment_data \
+  --experiment "my experiment" \
+  --dataset-name od_readings \
+  --start-time 2026-07-01T00:00:00-04:00 \
+  --end-time 2026-07-02T00:00:00-04:00 \
+  --output ./my-experiment.zip
+```
+
+Time bounds are inclusive. CLI, API, and MCP clients must supply offset-aware ISO-8601 timestamps: include `Z` for UTC or a numeric UTC offset such as `-04:00`. API and MCP clients should send one `experiment` string, not an `experiments` list.
 
 
 :::note

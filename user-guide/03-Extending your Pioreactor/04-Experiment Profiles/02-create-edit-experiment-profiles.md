@@ -19,6 +19,7 @@ Experiment profiles choreograph everything that happens across your cluster: whi
 3. Replace the placeholder YAML with the following starter profile, then customize the commented lines for your cluster:
 
 ```yaml
+version: "1.0"
 experiment_profile_name: hello-world-stirring
 metadata:
   author: "Your name"
@@ -51,6 +52,7 @@ pioreactors:
 
 ### How the example works
 
+- `version: "1.0"` is required and must remain quoted so YAML treats it as a string.
 - `common` tasks run for **every** worker in the experiment. Here we start the stirring job everywhere at `0` time elapsed.
 - `pioreactors` lets you target individual workers. Swap `pio001` for your unit name (the UI autocompletes known workers) to start and stop OD readings only on that Pioreactor.
 - `t` is relative to when the profile starts. Use hours by default (`1` means "one hour after launch") or add units like `30s`, `2m`, `1h`, or `2d`.
