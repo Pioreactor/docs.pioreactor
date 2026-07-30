@@ -18,8 +18,8 @@
 
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css" integrity="sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM" crossorigin="anonymous"><link rel="stylesheet" href="/assets/css/styles.8cc36165.css">
-<script src="/assets/js/runtime~main.84573832.js" defer="defer"></script>
-<script src="/assets/js/main.e55f5571.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.ead885f1.js" defer="defer"></script>
+<script src="/assets/js/main.c92aa935.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
 <svg style="display: none;"><defs>
@@ -40,6 +40,7 @@
 <p><img decoding="async" loading="lazy" alt="Save the edited config.ini using the Save button" src="/assets/images/save_config-4ab08f83d76bbf1479c5d5f96e041f07.png" width="3152" height="1648" class="img_ev3q"></p>
 <p>Pioreactor also stores a history of changes to each configuration file. You can view previous versions of configuration files in the dropdown. Clicking [Revert] will save the displayed configuration file.</p>
 <p><img decoding="async" loading="lazy" alt="Select historical versions of config.ini&amp;#39;s" src="/assets/images/choose_config_version2-0b41bff2c4e9ae9aef80d21b74b85334.png" width="3152" height="1648" class="img_ev3q"></p>
+<p>To keep an offline copy of the cluster&#x27;s configuration, click <strong>Download all configurations</strong>. The downloaded <code>configuration_inis.zip</code> contains the shared <code>config.ini</code>, each reachable Pioreactor&#x27;s <code>unit_config.ini</code> under a folder named for that unit, and <code>metadata.json</code>, which lists the included files and any units that could not be reached.</p>
 <h3 class="anchor anchorTargetHideOnScrollNavbar_vjPI" id="editing-the-unit_configini-before-booting">Editing the <code>unit_config.ini</code> before booting<a href="#editing-the-unit_configini-before-booting" class="hash-link" aria-label="Direct link to editing-the-unit_configini-before-booting" title="Direct link to editing-the-unit_configini-before-booting" translate="no">​</a></h3>
 <p>Sometimes it&#x27;s desirable to make changes to the <code>config.ini</code> without having to boot the Pioreactor first. You can do this by plugging the microSD card into your computer, and adding a <code>config.ini</code> to the <code>boot/</code> folder on it. This <code>config.ini</code> doesn&#x27;t need to have all the fields, only the fields you wish to change. At start up, the Pioreactor will merge <code>/boot/config.ini</code> into the Pioreactor&#x27;s <code>config.ini</code>, and then delete <code>/boot/config.ini</code>.</p>
 <h3 class="anchor anchorTargetHideOnScrollNavbar_vjPI" id="default-configini">Default <code>config.ini</code><a href="#default-configini" class="hash-link" aria-label="Direct link to default-configini" title="Direct link to default-configini" translate="no">​</a></h3>
