@@ -35,7 +35,7 @@ To allow for `pioreactor.local` to be an alias for `<leader hostname>.local`, we
 
 ### Updating and restarting the web UI
 
-To update on the UI on Pioreactor leader, use `pio update app`. This also restarts the server.
+To update the Pioreactor UI, use `pio update app`. This also restarts the server.
 
 To restart:
 

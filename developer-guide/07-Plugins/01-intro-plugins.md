@@ -196,7 +196,7 @@ How do you add this to your /pioreactors page in the UI? See [here](/developer-g
 
 ## When your plugin has UI or data files
 
-Some plugin files run on each Pioreactor, while others are read by the leader UI. Runnable jobs and automations usually belong on the Pioreactor that runs them. Charts, datasets, and database setup usually belong on the leader.
+Some plugin files run on each Pioreactor, while others are read by the Pioreactor UI. Runnable jobs and automations usually belong on the Pioreactor that runs them. Charts, datasets, and database setup usually belong on the leader.
 
 If you're packaging a plugin for others to install, see the file layout in [Packaging plugins to share](/developer-guide/plugins/python-package#organizing-your-files).
 

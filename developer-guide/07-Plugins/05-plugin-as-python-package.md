@@ -310,7 +310,7 @@ Start with what your plugin does. A package for a simple background job needs Py
 Use this rule when deciding which files your package should include and where the package should be installed:
 
 - Worker runtime files belong on each Pioreactor that should run the job, script, or automation.
-- Leader UI and data files belong on the leader.
+- Pioreactor UI and data files belong on the leader.
 
 | File | Put this in your package | Installed path | Install on |
 | --- | --- | --- | --- |

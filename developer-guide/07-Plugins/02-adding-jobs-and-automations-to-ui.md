@@ -12,7 +12,7 @@ Based on whether you have created a background job, a script, or an automation, 
 :::important
 This page is about YAML files for runnable jobs, scripts, and automations. Put these files on each Pioreactor that should be able to run that job or automation.
 
-Charts and exportable datasets are different: they are read by the leader UI, so their YAML files go on the leader. See [adding charts](/developer-guide/plugins/charts) and [adding datasets](/developer-guide/plugins/datasets).
+Charts and exportable datasets are different: they are read by the Pioreactor UI, so their YAML files go on the leader. See [adding charts](/developer-guide/plugins/charts) and [adding datasets](/developer-guide/plugins/datasets).
 :::
 
 :::info
@@ -138,7 +138,7 @@ More examples of automation [YAML files here](https://github.com/Pioreactor/pior
 
 ### Adding a chart to display a new data source
 
-If your plugin produces data, you can add a chart to the **Overview** page. Chart YAML is read by the leader UI, not by each worker. See [adding charts](/developer-guide/plugins/charts).
+If your plugin produces data, you can add a chart to the **Overview** page. Chart YAML is read by the Pioreactor UI, not by each worker. See [adding charts](/developer-guide/plugins/charts).
 
 
 ## Troubleshooting

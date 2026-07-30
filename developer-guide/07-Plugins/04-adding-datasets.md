@@ -7,7 +7,7 @@ hide_table_of_contents: true
 You can allow users to export your data from the UI's **Export Data** page.
 
 :::important
-Exportable dataset YAML files go on the leader. They describe data that the leader UI can export from the leader's database. They do not start the job that produces the data.
+Exportable dataset YAML files go on the leader. They describe data that the Pioreactor UI can export from the leader's database. They do not start the job that produces the data.
 :::
 
 To add an exportable dataset, add a YAML file on the leader in `~/.pioreactor/plugins/exportable_datasets` with the following information:

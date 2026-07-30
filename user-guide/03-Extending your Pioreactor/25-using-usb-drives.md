@@ -10,7 +10,7 @@ Pioreactor can use an attached USB drive for offline software updates, plugin in
 
 Use a USB drive formatted as exfat, vfat / FAT32, or ext4. Pioreactor mounts supported removable drives under `/run/pioreactor/usb/`.
 
-On the leader UI, open **Inventory** and find the **USB drive** card. If a supported drive is detected, click **Mount**. After you are finished, click **Eject** before removing the drive.
+In the Pioreactor UI, open **Inventory** and find the **USB drive** card. If a supported drive is detected, click **Mount**. After you are finished, click **Eject** before removing the drive.
 
 ![Leader page USB drive card showing a mounted USB drive](/img/user-guide/03-extending-your-pioreactor/25-using-usb-drives/usb-drive-card.png)
 
