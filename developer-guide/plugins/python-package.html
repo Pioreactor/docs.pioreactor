@@ -18,8 +18,8 @@
 
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css" integrity="sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM" crossorigin="anonymous"><link rel="stylesheet" href="/assets/css/styles.8cc36165.css">
-<script src="/assets/js/runtime~main.ead885f1.js" defer="defer"></script>
-<script src="/assets/js/main.c92aa935.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.5b7f620e.js" defer="defer"></script>
+<script src="/assets/js/main.aef653c4.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
 <svg style="display: none;"><defs>
@@ -118,7 +118,7 @@
 <p>Use this rule when deciding which files your package should include and where the package should be installed:</p>
 <ul>
 <li class="">Worker runtime files belong on each Pioreactor that should run the job, script, or automation.</li>
-<li class="">Leader UI and data files belong on the leader.</li>
+<li class="">Pioreactor UI and data files belong on the leader.</li>
 </ul>
 <table><thead><tr><th>File</th><th>Put this in your package</th><th>Installed path</th><th>Install on</th></tr></thead><tbody><tr><td>Python code for a job, script, or automation</td><td>Python package files imported from <code>__init__.py</code></td><td>Python package in the Pioreactor environment</td><td>Each Pioreactor that should run it</td></tr><tr><td>Job YAML</td><td><code>ui/jobs/*.yaml</code></td><td><code>~/.pioreactor/plugins/ui/jobs/</code></td><td>Each Pioreactor that should run the job</td></tr><tr><td>Automation YAML</td><td><code>ui/automations/&lt;type&gt;/*.yaml</code></td><td><code>~/.pioreactor/plugins/ui/automations/&lt;type&gt;/</code></td><td>Each Pioreactor that should run the automation</td></tr><tr><td>Chart YAML</td><td><code>ui/charts/*.yaml</code></td><td><code>~/.pioreactor/plugins/ui/charts/</code></td><td>Leader</td></tr><tr><td>Exportable dataset YAML</td><td><code>exportable_datasets/*.yaml</code></td><td><code>~/.pioreactor/plugins/exportable_datasets/</code></td><td>Leader</td></tr><tr><td>Database schema</td><td><code>additional_sql.sql</code></td><td>Applied during plugin install</td><td>Leader, if it creates leader database tables</td></tr><tr><td>Chart config</td><td><code>additional_config.ini</code> with <code>[ui.overview.charts]</code> entries</td><td>Merged into Pioreactor config during plugin install</td><td>Leader</td></tr></tbody></table>
 <p>For a complete example, see <a href="https://github.com/CamDavidsonPilon/pioreactor-relay-plugin" target="_blank" rel="noopener noreferrer" class="">CamDavidsonPilon/pioreactor-relay-plugin</a>. It packages a background job named <code>pioreactor_relay_plugin</code> that turns a PWM channel on or off.</p>
