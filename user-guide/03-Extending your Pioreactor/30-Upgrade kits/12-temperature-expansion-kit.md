@@ -8,6 +8,7 @@ hide_table_of_contents: true
 import AssemblyInstructionBlock from '@site/src/components/AssemblyInstructionBlock';
 import Highlight from '@site/src/components/Highlight';
 import Admonition from '@theme/Admonition';
+import CopyToClipboardButton from '@site/src/components/CopyToClipboardButton';
 
 import * as colors from '@site/src/components/constants';
 
@@ -86,7 +87,7 @@ It may be a tight squeeze. To help screw it in if it's difficult:
 
 **2. If you installed the Kit on individual Pioreactors**
 
- - [SSH](/user-guide/accessing-raspberry-pi) into the individual Pioreactor, and type `pio plugins install temperature-expansion-kit-plugin`
+ - [SSH](/user-guide/accessing-raspberry-pi) into the individual Pioreactor, and type `pio plugins install temperature-expansion-kit-plugin` <CopyToClipboardButton content="pio plugins install temperature-expansion-kit-plugin" label="Copy" style={{ marginLeft: '0.5rem' }} />
 
 
 **Important:** in either case,

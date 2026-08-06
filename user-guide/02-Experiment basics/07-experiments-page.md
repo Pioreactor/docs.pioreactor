@@ -1,5 +1,5 @@
 ---
-title: The Experiments page
+title: Browse experiments
 slug: /experiments-page
 hide_table_of_contents: true
 ---

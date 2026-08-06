@@ -66,9 +66,9 @@ For example, we add 0.5 grams of dried Baker's yeast to 15 mL of YPD broth, then
 
 We recommend measuring with a micropipette. If you are using a dropper, hold it vertically for more accurate, consistent drops.
 
-### 5. Adjusting tube/needle lengths (Optional)
+### 5. Adjusting tube/needle lengths
 
-Keep **at least one** of the bottoms of the tubes/needles in the cap above the liquid-air interface to avoid creating a pressured environment. Adjust the luer lock end until the other end of the tube/needle is above liquid level.
+Keep **at least one** of the bottoms of the tubes/needles in the cap above the liquid-air interface to avoid creating a pressured environment. Adjust the luer lock end until the other end of the tube/needle is well above liquid level.
 
 :::tip
 If you have an unused luer lock needle not being used for liquid handling or venting, you can use it as a _baffle_ in the liquid to improve mixing.

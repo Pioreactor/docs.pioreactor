@@ -4,6 +4,8 @@ slug: /troubleshooting-ui
 hide_table_of_contents: true
 ---
 
+import CopyToClipboardButton from '@site/src/components/CopyToClipboardButton';
+
 ### I'm not able to access `http://pioreactor.local`
 
 
@@ -16,7 +18,7 @@ hide_table_of_contents: true
     - When pressing the button on the HAT, does the blue LED show up? If not, installation may have failed. See notes [here](/user-guide/software-set-up#my-leader-pioreactor-never-flashes-the-blue-led).
     - In your Raspberry Pi Imager settings, confirm that you clicked "Set username and password", and used the username `pioreactor`. If not, try [reinstalling the image](/user-guide/software-set-up#setting-up-your-raspberry-pis-sd-card).
  - Are you on an older Windows machine? You may need to install a DNS [service](https://learn.adafruit.com/bonjour-zeroconf-networking-for-windows-and-linux/overview#microsoft-windows-914263-8), but also see workarounds [here](https://github.com/OutsourcedGuru/octoprint-name-resolution-hacks).
- - Try SSHing in and restarting the webserver: `sudo systemctl restart lighttpd.service && sudo systemctl status lighttpd.service`.
+ - Try SSHing in and restarting the webserver: `sudo systemctl restart lighttpd.service && sudo systemctl status lighttpd.service` <CopyToClipboardButton content="sudo systemctl restart lighttpd.service && sudo systemctl status lighttpd.service" label="Copy" style={{ marginLeft: '0.5rem' }} />.
 
 
 ### No information is shown on the Inventory page / no green dot / no response when I click some buttons.
@@ -64,6 +66,6 @@ Any of the following could solve your problem:
 
  - It's possible that the experiment has changed while the page has been left open - try refreshing the page and try again.
  - If you had trouble accessing the UI ([see question above](/user-guide/troubleshooting-ui#failed-to-connect-to-mqtt-popup)), in your config.ini, change the `leader_address` field to whatever worked above, an IP for example.
- - Possibly the web server is off. Try logging into your leader and typing `sudo systemctl status lighttpd.service`
+ - Possibly the web server is off. Try logging into your leader and typing `sudo systemctl status lighttpd.service` <CopyToClipboardButton content="sudo systemctl status lighttpd.service" label="Copy" style={{ marginLeft: '0.5rem' }} />
  - Do you also see a "Failed to connect to MQTT. Is configuration for leader_address correct?" error pop-up? If so, [see question above](/user-guide/troubleshooting-ui#failed-to-connect-to-mqtt-popup).
  - Try power-cycling the Pioreactor.
