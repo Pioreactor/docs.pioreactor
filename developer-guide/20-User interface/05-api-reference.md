@@ -33,158 +33,168 @@ Generated from `core/pioreactor/web/api.py`.
 
 > This file is generated. Edit the API source or generator instead of editing this file by hand.
 
-Endpoint count: `146`
+Endpoint count: `156`
 
 ## Endpoint Index
 
 | Method | Path | Handler |
 | ------ | ---- | ------- |
-| `GET` | `/api/automations/descriptors/{automation_type}` | [`get_automation_descriptors`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L2576) |
-| `GET` | `/api/charts/descriptors` | [`get_chart_descriptors`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L2754) |
-| `GET` | `/api/config/shared` | [`get_shared_config`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L3293) |
-| `PATCH` | `/api/config/shared` | [`update_shared_config`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L3309) |
-| `GET` | `/api/config/shared/history` | [`get_shared_config_history`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L3360) |
-| `GET` | `/api/config/units/{pioreactor_unit}` | [`get_config_for_pioreactor_unit`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L3370) |
-| `GET` | `/api/config/units/{pioreactor_unit}/specific` | [`get_specific_config_for_pioreactor_unit`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L3424) |
-| `PATCH` | `/api/config/units/{pioreactor_unit}/specific` | [`update_specific_config_for_pioreactor_unit`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L3459) |
-| `GET` | `/api/config/units/{pioreactor_unit}/specific/history` | [`get_specific_config_history_for_pioreactor_unit`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L3510) |
-| `GET` | `/api/config/zipped` | [`get_zipped_configs`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L3225) |
-| `GET` | `/api/datasets/exportable` | [`get_exportable_datasets`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L2855) |
-| `GET` | `/api/datasets/exportable/{target_dataset}/preview` | [`preview_exportable_dataset`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L2877) |
-| `POST` | `/api/datasets/exportable/export` | [`export_exportable_datasets`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L2917) |
-| `POST` | `/api/datasets/exportable/export-to-usb` | [`export_exportable_datasets_to_usb`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L2957) |
-| `GET` | `/api/experiment_profiles` | [`get_experiment_profiles`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L3705) |
-| `POST` | `/api/experiment_profiles` | [`create_experiment_profile`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L3591) |
-| `DELETE` | `/api/experiment_profiles/{filename}` | [`delete_experiment_profile`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L3762) |
-| `GET` | `/api/experiment_profiles/{filename}` | [`get_experiment_profile`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L3744) |
-| `PATCH` | `/api/experiment_profiles/{filename}` | [`update_experiment_profile`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L3655) |
-| `GET` | `/api/experiments` | [`get_experiments`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L2996) |
-| `POST` | `/api/experiments` | [`create_experiment`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L3014) |
-| `DELETE` | `/api/experiments/{experiment}` | [`delete_experiment`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L3071) |
-| `GET` | `/api/experiments/{experiment}` | [`get_experiment`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L3213) |
-| `PATCH` | `/api/experiments/{experiment}` | [`update_experiment`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L3180) |
-| `GET` | `/api/experiments/{experiment}/experiment_profiles/recent` | [`get_recent_experiment_profile_runs`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L3576) |
-| `GET` | `/api/experiments/{experiment}/experiment_profiles/running` | [`get_running_profiles`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L3546) |
-| `GET` | `/api/experiments/{experiment}/historical_worker_assignments` | [`get_list_of_historical_workers_for_experiment`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L4268) |
-| `GET` | `/api/experiments/{experiment}/logs` | [`get_exp_logs`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L1161) |
-| `GET` | `/api/experiments/{experiment}/media_rates` | [`get_media_rates`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L1679) |
-| `GET` | `/api/experiments/{experiment}/recent_logs` | [`get_recent_logs`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L1119) |
-| `GET` | `/api/experiments/{experiment}/time_series/{data_source}/{column}` | [`get_fallback_time_series`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L1448) |
-| `GET` | `/api/experiments/{experiment}/time_series/growth_rates` | [`get_growth_rates`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L1335) |
-| `GET` | `/api/experiments/{experiment}/time_series/od_readings` | [`get_od_readings`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L1392) |
-| `GET` | `/api/experiments/{experiment}/time_series/od_readings_filtered` | [`get_od_readings_filtered`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L1373) |
-| `GET` | `/api/experiments/{experiment}/time_series/od_readings_fused` | [`get_od_readings_fused`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L1411) |
-| `GET` | `/api/experiments/{experiment}/time_series/raw_od_readings` | [`get_od_raw_readings`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L1429) |
-| `GET` | `/api/experiments/{experiment}/time_series/temperature_readings` | [`get_temperature_readings`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L1354) |
-| `GET` | `/api/experiments/{experiment}/unit_labels` | [`get_unit_labels`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L3110) |
-| `PATCH` | `/api/experiments/{experiment}/unit_labels` | [`upsert_unit_labels`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L3134) |
-| `PUT` | `/api/experiments/{experiment}/unit_labels` | [`upsert_unit_labels`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L3134) |
-| `DELETE` | `/api/experiments/{experiment}/workers` | [`remove_workers_from_experiment`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L4371) |
-| `GET` | `/api/experiments/{experiment}/workers` | [`get_list_of_workers_for_experiment`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L4252) |
-| `PUT` | `/api/experiments/{experiment}/workers` | [`add_worker_to_experiment`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L4282) |
-| `DELETE` | `/api/experiments/{experiment}/workers/{pioreactor_unit}` | [`remove_worker_from_experiment`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L4343) |
-| `GET` | `/api/experiments/active` | [`get_active_experiments`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L4152) |
-| `GET` | `/api/experiments/assignment_count` | [`get_experiments_worker_assignments`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L4201) |
-| `GET` | `/api/experiments/latest` | [`get_latest_experiment`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L3092) |
-| `GET` | `/api/jobs/descriptors` | [`get_job_descriptors`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L2647) |
-| `GET` | `/api/local_access_point` | [`get_local_access_point`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L3535) |
-| `GET` | `/api/logs` | [`get_logs`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L1142) |
-| `GET` | `/api/models` | [`get_models`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L702) |
-| `GET` | `/api/settings/descriptors` | [`get_settings_descriptors`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L2703) |
-| `POST` | `/api/system/update_from_archive` | [`update_app_from_release_archive`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L2798) |
-| `POST` | `/api/system/update_next_version` | [`update_app`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L2783) |
-| `POST` | `/api/system/upload` | [`upload_system_file`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L2516) |
-| `POST` | `/api/system/utc_clock` | [`set_system_utc_clock`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L1049) |
-| `GET` | `/api/units` | [`get_list_of_units`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L3791) |
-| `GET` | `/api/units/{pioreactor_unit}/capabilities` | [`get_capabilities`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L2450) |
-| `POST` | `/api/units/{pioreactor_unit}/experiments/{experiment}/logs` | [`publish_new_log`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L1279) |
-| `POST` | `/api/units/{pioreactor_unit}/import_zipped_dot_pioreactor` | [`import_dot_pioreactor_archive`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L1901) |
-| `PATCH` | `/api/units/{pioreactor_unit}/jobs/run/job_name/{job_name}/experiments/{experiment}` | [`run_job_on_unit_in_experiment`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L779) |
-| `POST` | `/api/units/{pioreactor_unit}/jobs/run/job_name/{job_name}/experiments/{experiment}` | [`run_job_on_unit_in_experiment`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L779) |
-| `GET` | `/api/units/{pioreactor_unit}/jobs/running` | [`get_jobs_running`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L906) |
-| `PATCH` | `/api/units/{pioreactor_unit}/jobs/stop/experiments/{experiment}` | [`stop_all_jobs_on_unit_for_experiment`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L717) |
-| `POST` | `/api/units/{pioreactor_unit}/jobs/stop/experiments/{experiment}` | [`stop_all_jobs_on_unit_for_experiment`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L717) |
-| `PATCH` | `/api/units/{pioreactor_unit}/jobs/stop/job_name/{job_name}/experiments/{experiment}` | [`stop_specific_job_on_unit`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L739) |
-| `POST` | `/api/units/{pioreactor_unit}/jobs/stop/job_name/{job_name}/experiments/{experiment}` | [`stop_specific_job_on_unit`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L739) |
-| `PATCH` | `/api/units/{pioreactor_unit}/jobs/update/job_name/{job_name}/experiments/{experiment}` | [`update_job_on_unit`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L936) |
-| `GET` | `/api/units/{pioreactor_unit}/logs` | [`get_logs_for_unit`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L1258) |
-| `PATCH` | `/api/units/{pioreactor_unit}/plugins/install` | [`install_plugin_across_cluster`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L2358) |
-| `POST` | `/api/units/{pioreactor_unit}/plugins/install` | [`install_plugin_across_cluster`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L2358) |
-| `PATCH` | `/api/units/{pioreactor_unit}/plugins/install-from-leader-usb` | [`install_plugin_from_leader_usb_on_machine`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L2389) |
-| `POST` | `/api/units/{pioreactor_unit}/plugins/install-from-leader-usb` | [`install_plugin_from_leader_usb_on_machine`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L2389) |
-| `GET` | `/api/units/{pioreactor_unit}/plugins/installed` | [`get_plugins_on_machine`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L2346) |
-| `PATCH` | `/api/units/{pioreactor_unit}/plugins/uninstall` | [`uninstall_plugin_across_cluster`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L2419) |
-| `POST` | `/api/units/{pioreactor_unit}/plugins/uninstall` | [`uninstall_plugin_across_cluster`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L2419) |
-| `POST` | `/api/units/{pioreactor_unit}/system/reboot` | [`reboot_unit`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L1011) |
-| `POST` | `/api/units/{pioreactor_unit}/system/repair` | [`repair_unit`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L1031) |
-| `POST` | `/api/units/{pioreactor_unit}/system/shutdown` | [`shutdown_unit`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L1021) |
-| `GET` | `/api/units/{pioreactor_unit}/system/utc_clock` | [`get_unit_utc_clock`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L1044) |
-| `GET` | `/api/units/{pioreactor_unit}/system_logs` | [`get_system_logs_for_unit`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L1237) |
-| `GET` | `/api/units/{pioreactor_unit}/usb` | [`get_usb_status_on_machine`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L2302) |
-| `GET` | `/api/units/{pioreactor_unit}/usb/artifacts` | [`get_usb_artifacts_on_machine`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L2339) |
-| `POST` | `/api/units/{pioreactor_unit}/usb/eject` | [`eject_usb_on_machine`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L2324) |
-| `POST` | `/api/units/{pioreactor_unit}/usb/mount` | [`mount_usb_on_machine`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L2309) |
-| `GET` | `/api/units/{pioreactor_unit}/versions/app` | [`get_app_versions`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L2508) |
-| `GET` | `/api/units/{pioreactor_unit}/zipped_dot_pioreactor` | [`get_zipped_dot_pioreactor`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L1834) |
-| `GET` | `/api/workers` | [`get_list_of_workers`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L3798) |
-| `PUT` | `/api/workers` | [`add_worker`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L3890) |
-| `DELETE` | `/api/workers/{pioreactor_unit}` | [`delete_worker`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L3920) |
-| `GET` | `/api/workers/{pioreactor_unit}` | [`get_worker`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L4084) |
-| `GET` | `/api/workers/{pioreactor_unit}/active_calibrations` | [`get_all_active_calibrations`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L1746) |
-| `DELETE` | `/api/workers/{pioreactor_unit}/active_calibrations/{device}` | [`remove_active_status_calibration`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L2240) |
-| `PATCH` | `/api/workers/{pioreactor_unit}/active_calibrations/{device}/{calibration_name}` | [`set_active_calibration`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L2207) |
-| `GET` | `/api/workers/{pioreactor_unit}/active_estimators` | [`get_all_active_estimators`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L1757) |
-| `DELETE` | `/api/workers/{pioreactor_unit}/active_estimators/{device}` | [`remove_active_status_estimator`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L2251) |
-| `PATCH` | `/api/workers/{pioreactor_unit}/active_estimators/{device}/{estimator_name}` | [`set_active_estimator`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L2225) |
-| `GET` | `/api/workers/{pioreactor_unit}/automations/descriptors/{automation_type}` | [`get_automation_descriptors_for_worker`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L2605) |
-| `PATCH` | `/api/workers/{pioreactor_unit}/bioreactor/update/experiments/{experiment}` | [`update_bioreactor_on_unit`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L984) |
-| `POST` | `/api/workers/{pioreactor_unit}/blink` | [`blink_worker`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L911) |
-| `GET` | `/api/workers/{pioreactor_unit}/calibration_protocols` | [`get_calibration_protocols`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L1726) |
-| `GET` | `/api/workers/{pioreactor_unit}/calibrations` | [`get_all_calibrations`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L1737) |
-| `GET` | `/api/workers/{pioreactor_unit}/calibrations/{device}` | [`get_calibrations`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L1983) |
-| `POST` | `/api/workers/{pioreactor_unit}/calibrations/{device}` | [`create_calibration`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L2019) |
-| `DELETE` | `/api/workers/{pioreactor_unit}/calibrations/{device}/{calibration_name}` | [`delete_calibration`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L2262) |
-| `GET` | `/api/workers/{pioreactor_unit}/calibrations/{device}/{calibration_name}` | [`get_calibration`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L1992) |
-| `POST` | `/api/workers/{pioreactor_unit}/calibrations/sessions` | [`start_calibration_session`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L2057) |
-| `GET` | `/api/workers/{pioreactor_unit}/calibrations/sessions/{session_id}` | [`get_calibration_session`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L2105) |
-| `POST` | `/api/workers/{pioreactor_unit}/calibrations/sessions/{session_id}/abort` | [`abort_calibration_session`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L2174) |
-| `POST` | `/api/workers/{pioreactor_unit}/calibrations/sessions/{session_id}/inputs` | [`advance_calibration_session`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L2133) |
-| `GET` | `/api/workers/{pioreactor_unit}/capabilities` | [`get_capabilities`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L2450) |
-| `GET` | `/api/workers/{pioreactor_unit}/estimators` | [`get_all_estimators`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L1766) |
-| `GET` | `/api/workers/{pioreactor_unit}/estimators/{device}` | [`get_estimators_by_device`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L2001) |
-| `DELETE` | `/api/workers/{pioreactor_unit}/estimators/{device}/{estimator_name}` | [`delete_estimator`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L2278) |
-| `GET` | `/api/workers/{pioreactor_unit}/estimators/{device}/{estimator_name}` | [`get_estimator`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L2010) |
-| `GET` | `/api/workers/{pioreactor_unit}/experiment` | [`get_experiment_assignment_for_worker`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L4219) |
-| `GET` | `/api/workers/{pioreactor_unit}/experiments/{experiment}/logs` | [`get_logs_for_unit_and_experiment`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L1209) |
-| `POST` | `/api/workers/{pioreactor_unit}/experiments/{experiment}/logs` | [`publish_new_log`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L1279) |
-| `GET` | `/api/workers/{pioreactor_unit}/experiments/{experiment}/recent_logs` | [`get_recent_logs_for_unit_and_experiment`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L1178) |
-| `GET` | `/api/workers/{pioreactor_unit}/experiments/{experiment}/time_series/{data_source}/{column}` | [`get_fallback_time_series_per_unit`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L1624) |
-| `GET` | `/api/workers/{pioreactor_unit}/experiments/{experiment}/time_series/growth_rates` | [`get_growth_rates_per_unit`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L1501) |
-| `GET` | `/api/workers/{pioreactor_unit}/experiments/{experiment}/time_series/od_readings` | [`get_od_readings_per_unit`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L1561) |
-| `GET` | `/api/workers/{pioreactor_unit}/experiments/{experiment}/time_series/od_readings_filtered` | [`get_od_readings_filtered_per_unit`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L1543) |
-| `GET` | `/api/workers/{pioreactor_unit}/experiments/{experiment}/time_series/od_readings_fused` | [`get_od_readings_fused_per_unit`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L1582) |
-| `GET` | `/api/workers/{pioreactor_unit}/experiments/{experiment}/time_series/raw_od_readings` | [`get_od_raw_readings_per_unit`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L1603) |
-| `GET` | `/api/workers/{pioreactor_unit}/experiments/{experiment}/time_series/temperature_readings` | [`get_temperature_readings_per_unit`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L1522) |
-| `PUT` | `/api/workers/{pioreactor_unit}/is_active` | [`change_worker_status`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L3960) |
-| `GET` | `/api/workers/{pioreactor_unit}/jobs/descriptors` | [`get_job_descriptors_for_worker`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L2669) |
-| `PATCH` | `/api/workers/{pioreactor_unit}/jobs/run/job_name/{job_name}/experiments/{experiment}` | [`run_job_on_unit_in_experiment`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L779) |
-| `POST` | `/api/workers/{pioreactor_unit}/jobs/run/job_name/{job_name}/experiments/{experiment}` | [`run_job_on_unit_in_experiment`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L779) |
-| `GET` | `/api/workers/{pioreactor_unit}/jobs/running` | [`get_jobs_running`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L906) |
-| `GET` | `/api/workers/{pioreactor_unit}/jobs/settings/job_name/{job_name}/experiments/{experiment}` | [`get_job_settings_for_worker`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L2465) |
-| `GET` | `/api/workers/{pioreactor_unit}/jobs/settings/job_name/{job_name}/setting/{setting}/experiments/{experiment}` | [`get_job_setting_for_worker`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L2486) |
-| `PATCH` | `/api/workers/{pioreactor_unit}/jobs/stop/experiments/{experiment}` | [`stop_all_jobs_on_unit_for_experiment`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L717) |
-| `POST` | `/api/workers/{pioreactor_unit}/jobs/stop/experiments/{experiment}` | [`stop_all_jobs_on_unit_for_experiment`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L717) |
-| `PATCH` | `/api/workers/{pioreactor_unit}/jobs/stop/job_name/{job_name}/experiments/{experiment}` | [`stop_specific_job_on_unit`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L739) |
-| `POST` | `/api/workers/{pioreactor_unit}/jobs/stop/job_name/{job_name}/experiments/{experiment}` | [`stop_specific_job_on_unit`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L739) |
-| `PATCH` | `/api/workers/{pioreactor_unit}/jobs/update/job_name/{job_name}/experiments/{experiment}` | [`update_job_on_unit`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L936) |
-| `GET` | `/api/workers/{pioreactor_unit}/model` | [`get_worker_model_and_metadata`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L4043) |
-| `PUT` | `/api/workers/{pioreactor_unit}/model` | [`change_worker_model`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L4000) |
-| `GET` | `/api/workers/{pioreactor_unit}/settings/descriptors` | [`get_settings_descriptors_for_worker`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L2720) |
-| `GET` | `/api/workers/{pioreactor_unit}/zipped_calibrations` | [`get_zipped_calibrations`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L1775) |
-| `DELETE` | `/api/workers/assignments` | [`remove_all_workers_from_all_experiments`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L4179) |
-| `GET` | `/api/workers/assignments` | [`get_workers_and_experiment_assignments`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L4134) |
-| `GET` | `/api/workers/discover` | [`discover_available_workers`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L3820) |
-| `POST` | `/api/workers/setup` | [`setup_worker_pioreactor`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L3833) |
+| `GET` | `/api/automations/descriptors/{automation_type}` | [`get_automation_descriptors`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L2955) |
+| `GET` | `/api/charts/descriptors` | [`get_chart_descriptors`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L3133) |
+| `GET` | `/api/config/shared` | [`get_shared_config`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L3663) |
+| `PATCH` | `/api/config/shared` | [`update_shared_config`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L3679) |
+| `GET` | `/api/config/shared/history` | [`get_shared_config_history`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L3730) |
+| `GET` | `/api/config/units/{pioreactor_unit}` | [`get_config_for_pioreactor_unit`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L3740) |
+| `GET` | `/api/config/units/{pioreactor_unit}/specific` | [`get_specific_config_for_pioreactor_unit`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L3807) |
+| `PATCH` | `/api/config/units/{pioreactor_unit}/specific` | [`update_specific_config_for_pioreactor_unit`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L3842) |
+| `GET` | `/api/config/units/{pioreactor_unit}/specific/history` | [`get_specific_config_history_for_pioreactor_unit`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L3893) |
+| `GET` | `/api/config/zipped` | [`get_zipped_configs`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L3595) |
+| `GET` | `/api/datasets/exportable` | [`get_exportable_datasets`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L3234) |
+| `GET` | `/api/datasets/exportable/{target_dataset}/preview` | [`preview_exportable_dataset`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L3256) |
+| `POST` | `/api/datasets/exportable/export` | [`export_exportable_datasets`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L3286) |
+| `POST` | `/api/datasets/exportable/export-to-usb` | [`export_exportable_datasets_to_usb`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L3326) |
+| `GET` | `/api/experiment_profiles` | [`get_experiment_profiles`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L4088) |
+| `POST` | `/api/experiment_profiles` | [`create_experiment_profile`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L3974) |
+| `DELETE` | `/api/experiment_profiles/{filename}` | [`delete_experiment_profile`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L4145) |
+| `GET` | `/api/experiment_profiles/{filename}` | [`get_experiment_profile`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L4127) |
+| `PATCH` | `/api/experiment_profiles/{filename}` | [`update_experiment_profile`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L4038) |
+| `GET` | `/api/experiments` | [`get_experiments`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L3365) |
+| `POST` | `/api/experiments` | [`create_experiment`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L3383) |
+| `DELETE` | `/api/experiments/{experiment}` | [`delete_experiment`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L3440) |
+| `GET` | `/api/experiments/{experiment}` | [`get_experiment`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L3583) |
+| `PATCH` | `/api/experiments/{experiment}` | [`update_experiment`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L3550) |
+| `GET` | `/api/experiments/{experiment}/cameras` | [`get_camera_statuses_for_experiment`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L711) |
+| `GET` | `/api/experiments/{experiment}/experiment_profiles/recent` | [`get_recent_experiment_profile_runs`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L3959) |
+| `GET` | `/api/experiments/{experiment}/experiment_profiles/running` | [`get_running_profiles`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L3929) |
+| `GET` | `/api/experiments/{experiment}/historical_worker_assignments` | [`get_list_of_historical_workers_for_experiment`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L4656) |
+| `GET` | `/api/experiments/{experiment}/logs` | [`get_exp_logs`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L1593) |
+| `GET` | `/api/experiments/{experiment}/media_rates` | [`get_media_rates`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L2057) |
+| `GET` | `/api/experiments/{experiment}/recent_logs` | [`get_recent_logs`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L1550) |
+| `GET` | `/api/experiments/{experiment}/time_series/{data_source}/{column}` | [`get_fallback_time_series`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L1858) |
+| `GET` | `/api/experiments/{experiment}/time_series/growth_rates` | [`get_growth_rates`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L1769) |
+| `GET` | `/api/experiments/{experiment}/time_series/od_readings` | [`get_od_readings`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L1814) |
+| `GET` | `/api/experiments/{experiment}/time_series/od_readings_filtered` | [`get_od_readings_filtered`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L1799) |
+| `GET` | `/api/experiments/{experiment}/time_series/od_readings_fused` | [`get_od_readings_fused`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L1829) |
+| `GET` | `/api/experiments/{experiment}/time_series/raw_od_readings` | [`get_od_raw_readings`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L1843) |
+| `GET` | `/api/experiments/{experiment}/time_series/temperature_readings` | [`get_temperature_readings`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L1784) |
+| `GET` | `/api/experiments/{experiment}/unit_labels` | [`get_unit_labels`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L3480) |
+| `PATCH` | `/api/experiments/{experiment}/unit_labels` | [`upsert_unit_labels`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L3504) |
+| `PUT` | `/api/experiments/{experiment}/unit_labels` | [`upsert_unit_labels`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L3504) |
+| `DELETE` | `/api/experiments/{experiment}/workers` | [`remove_workers_from_experiment`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L4783) |
+| `GET` | `/api/experiments/{experiment}/workers` | [`get_list_of_workers_for_experiment`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L4640) |
+| `PUT` | `/api/experiments/{experiment}/workers` | [`add_worker_to_experiment`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L4670) |
+| `DELETE` | `/api/experiments/{experiment}/workers/{pioreactor_unit}` | [`remove_worker_from_experiment`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L4755) |
+| `GET` | `/api/experiments/active` | [`get_active_experiments`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L4540) |
+| `GET` | `/api/experiments/assignment_count` | [`get_experiments_worker_assignments`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L4589) |
+| `GET` | `/api/experiments/latest` | [`get_latest_experiment`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L3462) |
+| `GET` | `/api/jobs/descriptors` | [`get_job_descriptors`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L3026) |
+| `GET` | `/api/local_access_point` | [`get_local_access_point`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L3918) |
+| `GET` | `/api/logs` | [`get_logs`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L1574) |
+| `GET` | `/api/models` | [`get_models`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L1026) |
+| `GET` | `/api/settings/descriptors` | [`get_settings_descriptors`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L3082) |
+| `POST` | `/api/system/update_from_archive` | [`update_app_from_release_archive`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L3177) |
+| `POST` | `/api/system/update_next_version` | [`update_app`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L3162) |
+| `POST` | `/api/system/upload` | [`upload_system_file`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L2893) |
+| `POST` | `/api/system/utc_clock` | [`set_system_utc_clock`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L1367) |
+| `GET` | `/api/units` | [`get_list_of_units`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L4174) |
+| `GET` | `/api/units/{pioreactor_unit}/capabilities` | [`get_capabilities`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L2827) |
+| `POST` | `/api/units/{pioreactor_unit}/experiments/{experiment}/logs` | [`publish_new_log`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L1713) |
+| `POST` | `/api/units/{pioreactor_unit}/import_zipped_dot_pioreactor` | [`import_dot_pioreactor_archive`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L2278) |
+| `PATCH` | `/api/units/{pioreactor_unit}/jobs/run/job_name/{job_name}/experiments/{experiment}` | [`run_job_on_unit_in_experiment`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L1097) |
+| `POST` | `/api/units/{pioreactor_unit}/jobs/run/job_name/{job_name}/experiments/{experiment}` | [`run_job_on_unit_in_experiment`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L1097) |
+| `GET` | `/api/units/{pioreactor_unit}/jobs/running` | [`get_jobs_running`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L1224) |
+| `PATCH` | `/api/units/{pioreactor_unit}/jobs/stop/experiments/{experiment}` | [`stop_all_jobs_on_unit_for_experiment`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L1041) |
+| `POST` | `/api/units/{pioreactor_unit}/jobs/stop/experiments/{experiment}` | [`stop_all_jobs_on_unit_for_experiment`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L1041) |
+| `PATCH` | `/api/units/{pioreactor_unit}/jobs/stop/job_name/{job_name}/experiments/{experiment}` | [`stop_specific_job_on_unit`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L1063) |
+| `POST` | `/api/units/{pioreactor_unit}/jobs/stop/job_name/{job_name}/experiments/{experiment}` | [`stop_specific_job_on_unit`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L1063) |
+| `PATCH` | `/api/units/{pioreactor_unit}/jobs/update/job_name/{job_name}/experiments/{experiment}` | [`update_job_on_unit`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L1254) |
+| `GET` | `/api/units/{pioreactor_unit}/logs` | [`get_logs_for_unit`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L1692) |
+| `PATCH` | `/api/units/{pioreactor_unit}/plugins/install` | [`install_plugin_across_cluster`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L2735) |
+| `POST` | `/api/units/{pioreactor_unit}/plugins/install` | [`install_plugin_across_cluster`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L2735) |
+| `PATCH` | `/api/units/{pioreactor_unit}/plugins/install-from-leader-usb` | [`install_plugin_from_leader_usb_on_machine`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L2766) |
+| `POST` | `/api/units/{pioreactor_unit}/plugins/install-from-leader-usb` | [`install_plugin_from_leader_usb_on_machine`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L2766) |
+| `GET` | `/api/units/{pioreactor_unit}/plugins/installed` | [`get_plugins_on_machine`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L2723) |
+| `PATCH` | `/api/units/{pioreactor_unit}/plugins/uninstall` | [`uninstall_plugin_across_cluster`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L2796) |
+| `POST` | `/api/units/{pioreactor_unit}/plugins/uninstall` | [`uninstall_plugin_across_cluster`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L2796) |
+| `POST` | `/api/units/{pioreactor_unit}/system/reboot` | [`reboot_unit`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L1329) |
+| `POST` | `/api/units/{pioreactor_unit}/system/repair` | [`repair_unit`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L1349) |
+| `POST` | `/api/units/{pioreactor_unit}/system/shutdown` | [`shutdown_unit`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L1339) |
+| `GET` | `/api/units/{pioreactor_unit}/system/utc_clock` | [`get_unit_utc_clock`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L1362) |
+| `GET` | `/api/units/{pioreactor_unit}/system_logs` | [`get_system_logs_for_unit`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L1671) |
+| `GET` | `/api/units/{pioreactor_unit}/usb` | [`get_usb_status_on_machine`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L2679) |
+| `GET` | `/api/units/{pioreactor_unit}/usb/artifacts` | [`get_usb_artifacts_on_machine`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L2716) |
+| `POST` | `/api/units/{pioreactor_unit}/usb/eject` | [`eject_usb_on_machine`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L2701) |
+| `POST` | `/api/units/{pioreactor_unit}/usb/mount` | [`mount_usb_on_machine`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L2686) |
+| `GET` | `/api/units/{pioreactor_unit}/versions/app` | [`get_app_versions`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L2885) |
+| `GET` | `/api/units/{pioreactor_unit}/zipped_dot_pioreactor` | [`get_zipped_dot_pioreactor`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L2211) |
+| `GET` | `/api/workers` | [`get_list_of_workers`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L4181) |
+| `PUT` | `/api/workers` | [`add_worker`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L4273) |
+| `DELETE` | `/api/workers/{pioreactor_unit}` | [`delete_worker`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L4308) |
+| `GET` | `/api/workers/{pioreactor_unit}` | [`get_worker`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L4472) |
+| `GET` | `/api/workers/{pioreactor_unit}/active_calibrations` | [`get_all_active_calibrations`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L2123) |
+| `DELETE` | `/api/workers/{pioreactor_unit}/active_calibrations/{device}` | [`remove_active_status_calibration`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L2617) |
+| `PATCH` | `/api/workers/{pioreactor_unit}/active_calibrations/{device}/{calibration_name}` | [`set_active_calibration`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L2584) |
+| `GET` | `/api/workers/{pioreactor_unit}/active_estimators` | [`get_all_active_estimators`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L2134) |
+| `DELETE` | `/api/workers/{pioreactor_unit}/active_estimators/{device}` | [`remove_active_status_estimator`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L2628) |
+| `PATCH` | `/api/workers/{pioreactor_unit}/active_estimators/{device}/{estimator_name}` | [`set_active_estimator`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L2602) |
+| `GET` | `/api/workers/{pioreactor_unit}/automations/descriptors/{automation_type}` | [`get_automation_descriptors_for_worker`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L2984) |
+| `PATCH` | `/api/workers/{pioreactor_unit}/bioreactor/update/experiments/{experiment}` | [`update_bioreactor_on_unit`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L1302) |
+| `POST` | `/api/workers/{pioreactor_unit}/blink` | [`blink_worker`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L1229) |
+| `GET` | `/api/workers/{pioreactor_unit}/calibration_protocols` | [`get_calibration_protocols`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L2103) |
+| `GET` | `/api/workers/{pioreactor_unit}/calibrations` | [`get_all_calibrations`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L2114) |
+| `GET` | `/api/workers/{pioreactor_unit}/calibrations/{device}` | [`get_calibrations`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L2360) |
+| `POST` | `/api/workers/{pioreactor_unit}/calibrations/{device}` | [`create_calibration`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L2396) |
+| `DELETE` | `/api/workers/{pioreactor_unit}/calibrations/{device}/{calibration_name}` | [`delete_calibration`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L2639) |
+| `GET` | `/api/workers/{pioreactor_unit}/calibrations/{device}/{calibration_name}` | [`get_calibration`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L2369) |
+| `POST` | `/api/workers/{pioreactor_unit}/calibrations/sessions` | [`start_calibration_session`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L2434) |
+| `GET` | `/api/workers/{pioreactor_unit}/calibrations/sessions/{session_id}` | [`get_calibration_session`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L2482) |
+| `POST` | `/api/workers/{pioreactor_unit}/calibrations/sessions/{session_id}/abort` | [`abort_calibration_session`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L2551) |
+| `POST` | `/api/workers/{pioreactor_unit}/calibrations/sessions/{session_id}/inputs` | [`advance_calibration_session`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L2510) |
+| `GET` | `/api/workers/{pioreactor_unit}/camera/experiments/{experiment}/status` | [`get_camera_status_for_worker`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L732) |
+| `GET` | `/api/workers/{pioreactor_unit}/camera/experiments/{experiment}/stills` | [`list_camera_stills_for_worker_experiment`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L837) |
+| `POST` | `/api/workers/{pioreactor_unit}/camera/experiments/{experiment}/stills` | [`capture_camera_still_for_worker_experiment`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L856) |
+| `GET` | `/api/workers/{pioreactor_unit}/camera/experiments/{experiment}/stills.zip` | [`get_zipped_camera_stills_for_worker_experiment`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L932) |
+| `DELETE` | `/api/workers/{pioreactor_unit}/camera/experiments/{experiment}/stills/{image_id}.jpg` | [`delete_camera_still_for_worker_experiment`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L902) |
+| `GET` | `/api/workers/{pioreactor_unit}/camera/experiments/{experiment}/stills/{image_id}.jpg` | [`get_camera_still_for_worker_experiment`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L878) |
+| `GET` | `/api/workers/{pioreactor_unit}/camera/focus_sessions/{session_id}/preview.jpg` | [`get_camera_focus_preview_for_worker`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L774) |
+| `PATCH` | `/api/workers/{pioreactor_unit}/camera/settings` | [`update_camera_settings_for_worker`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L751) |
+| `GET` | `/api/workers/{pioreactor_unit}/capabilities` | [`get_capabilities`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L2827) |
+| `GET` | `/api/workers/{pioreactor_unit}/estimators` | [`get_all_estimators`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L2143) |
+| `GET` | `/api/workers/{pioreactor_unit}/estimators/{device}` | [`get_estimators_by_device`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L2378) |
+| `DELETE` | `/api/workers/{pioreactor_unit}/estimators/{device}/{estimator_name}` | [`delete_estimator`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L2655) |
+| `GET` | `/api/workers/{pioreactor_unit}/estimators/{device}/{estimator_name}` | [`get_estimator`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L2387) |
+| `GET` | `/api/workers/{pioreactor_unit}/experiment` | [`get_experiment_assignment_for_worker`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L4607) |
+| `GET` | `/api/workers/{pioreactor_unit}/experiments/{experiment}/logs` | [`get_logs_for_unit_and_experiment`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L1643) |
+| `POST` | `/api/workers/{pioreactor_unit}/experiments/{experiment}/logs` | [`publish_new_log`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L1713) |
+| `GET` | `/api/workers/{pioreactor_unit}/experiments/{experiment}/recent_logs` | [`get_recent_logs_for_unit_and_experiment`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L1610) |
+| `GET` | `/api/workers/{pioreactor_unit}/experiments/{experiment}/time_series/{data_source}/{column}` | [`get_fallback_time_series_per_unit`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L2006) |
+| `GET` | `/api/workers/{pioreactor_unit}/experiments/{experiment}/time_series/growth_rates` | [`get_growth_rates_per_unit`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L1907) |
+| `GET` | `/api/workers/{pioreactor_unit}/experiments/{experiment}/time_series/od_readings` | [`get_od_readings_per_unit`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L1955) |
+| `GET` | `/api/workers/{pioreactor_unit}/experiments/{experiment}/time_series/od_readings_filtered` | [`get_od_readings_filtered_per_unit`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L1941) |
+| `GET` | `/api/workers/{pioreactor_unit}/experiments/{experiment}/time_series/od_readings_fused` | [`get_od_readings_fused_per_unit`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L1972) |
+| `GET` | `/api/workers/{pioreactor_unit}/experiments/{experiment}/time_series/raw_od_readings` | [`get_od_raw_readings_per_unit`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L1989) |
+| `GET` | `/api/workers/{pioreactor_unit}/experiments/{experiment}/time_series/temperature_readings` | [`get_temperature_readings_per_unit`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L1924) |
+| `PUT` | `/api/workers/{pioreactor_unit}/is_active` | [`change_worker_status`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L4348) |
+| `GET` | `/api/workers/{pioreactor_unit}/jobs/descriptors` | [`get_job_descriptors_for_worker`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L3048) |
+| `PATCH` | `/api/workers/{pioreactor_unit}/jobs/run/job_name/{job_name}/experiments/{experiment}` | [`run_job_on_unit_in_experiment`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L1097) |
+| `POST` | `/api/workers/{pioreactor_unit}/jobs/run/job_name/{job_name}/experiments/{experiment}` | [`run_job_on_unit_in_experiment`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L1097) |
+| `GET` | `/api/workers/{pioreactor_unit}/jobs/running` | [`get_jobs_running`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L1224) |
+| `GET` | `/api/workers/{pioreactor_unit}/jobs/settings/job_name/{job_name}/experiments/{experiment}` | [`get_job_settings_for_worker`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L2842) |
+| `GET` | `/api/workers/{pioreactor_unit}/jobs/settings/job_name/{job_name}/setting/{setting}/experiments/{experiment}` | [`get_job_setting_for_worker`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L2863) |
+| `PATCH` | `/api/workers/{pioreactor_unit}/jobs/stop/experiments/{experiment}` | [`stop_all_jobs_on_unit_for_experiment`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L1041) |
+| `POST` | `/api/workers/{pioreactor_unit}/jobs/stop/experiments/{experiment}` | [`stop_all_jobs_on_unit_for_experiment`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L1041) |
+| `PATCH` | `/api/workers/{pioreactor_unit}/jobs/stop/job_name/{job_name}/experiments/{experiment}` | [`stop_specific_job_on_unit`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L1063) |
+| `POST` | `/api/workers/{pioreactor_unit}/jobs/stop/job_name/{job_name}/experiments/{experiment}` | [`stop_specific_job_on_unit`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L1063) |
+| `PATCH` | `/api/workers/{pioreactor_unit}/jobs/update/job_name/{job_name}/experiments/{experiment}` | [`update_job_on_unit`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L1254) |
+| `GET` | `/api/workers/{pioreactor_unit}/model` | [`get_worker_model_and_metadata`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L4431) |
+| `PUT` | `/api/workers/{pioreactor_unit}/model` | [`change_worker_model`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L4388) |
+| `GET` | `/api/workers/{pioreactor_unit}/settings/descriptors` | [`get_settings_descriptors_for_worker`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L3099) |
+| `GET` | `/api/workers/{pioreactor_unit}/task_results/{task_id}` | [`get_task_result_for_worker`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L998) |
+| `GET` | `/api/workers/{pioreactor_unit}/zipped_calibrations` | [`get_zipped_calibrations`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L2152) |
+| `DELETE` | `/api/workers/assignments` | [`remove_all_workers_from_all_experiments`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L4567) |
+| `GET` | `/api/workers/assignments` | [`get_workers_and_experiment_assignments`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L4522) |
+| `GET` | `/api/workers/discover` | [`discover_available_workers`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L4203) |
+| `POST` | `/api/workers/setup` | [`setup_worker_pioreactor`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L4216) |
 
 ## Get Automation Descriptors
 
@@ -384,25 +394,25 @@ Example body:
 [
   {
     "filename": "config.ini",
-    "timestamp": "2026-06-30T16:13:30.963Z",
+    "timestamp": "2026-08-04T21:28:03.520Z",
     "data": "[PWM]\n# map the externals to the PWM\n# hardware PWM are available on channels 1 & 3.\n1=stirring\n2=waste\n3=media\n4=alt_media\n5=heating\n\n\n[leds]\nA=IR\nB=white_light\nC=\nD=\n\n\n[bioreactor]\n# efflux_tube_volume_ml is determined by the volume that just touches the outflow tube. I.e. if you\n# where to keep running the waste pump, what would the stable volume be.\n# see docs\nefflux_tube_volume_ml=14\ninitial_volume_ml=14\ninitial_alt_media_fraction=0.0\ninitial_cumulative_media_added_ml=0\ninitial_cumulative_a...<truncated>"
   },
   {
     "filename": "config.ini",
-    "timestamp": "2026-02-19T15:56:45.596Z",
-    "data": "[PWM]\n# map the externals to the PWM\n# hardware PWM are available on channels 1 & 3.\n1=stirring\n2=waste\n3=media\n4=test\n5=heating\n\n\n[leds]\nA=IR\nB=white_light\nC=\nD=\n\n\n[bioreactor]\n# max_working_volume_ml is determined by the volume that just touches the outflow tube. I.e. if you\n# where to keep running the waste pump, what would the stable volume be.\n# see docs\nmax_working_volume_ml=14\ninitial_volume_ml=14\ninitial_alt_media_fraction=0.0\n\n\n[stirring.config]\ninitial_target_rpm=500\ninitial_duty_cycle...<truncated>"
+    "timestamp": "2026-08-04T21:27:21.754Z",
+    "data": "[PWM]\n# map the externals to the PWM\n# hardware PWM are available on channels 1 & 3.\n1=stirring\n2=waste\n3=media\n4=alt_media\n5=heating\n\n\n[leds]\nA=IR\nB=white_light\nC=\nD=\n\n\n[bioreactor]\n# efflux_tube_volume_ml is determined by the volume that just touches the outflow tube. I.e. if you\n# where to keep running the waste pump, what would the stable volume be.\n# see docs\nefflux_tube_volume_ml=14\ninitial_volume_ml=14\ninitial_alt_media_fraction=0.0\ninitial_cumulative_media_added_ml=0\ninitial_cumulative_a...<truncated>"
   },
   {
     "filename": "config.ini",
-    "timestamp": "2026-01-19T16:38:19.492Z",
-    "data": "[PWM]\n# map the externals to the PWM\n# hardware PWM are available on channels 1 & 3.\n1=stirring\n2=waste\n3=media\n4=alt_media\n5=heating\n\n\n[leds]\nA=IR\nB=white_light\nC=\nD=\n\n\n[bioreactor]\n# max_working_volume_ml is determined by the volume that just touches the outflow tube. I.e. if you\n# where to keep running the waste pump, what would the stable volume be.\n# see docs\nmax_working_volume_ml=14\ninitial_volume_ml=14\ninitial_alt_media_fraction=0.0\n\n\n[stirring.config]\ninitial_target_rpm=500\ninitial_duty_...<truncated>"
+    "timestamp": "2026-06-30T16:13:30.963Z",
+    "data": "[PWM]\n# map the externals to the PWM\n# hardware PWM are available on channels 1 & 3.\n1=stirring\n2=waste\n3=media\n4=alt_media\n5=heating\n\n\n[leds]\nA=IR\nB=white_light\nC=\nD=\n\n\n[bioreactor]\n# efflux_tube_volume_ml is determined by the volume that just touches the outflow tube. I.e. if you\n# where to keep running the waste pump, what would the stable volume be.\n# see docs\nefflux_tube_volume_ml=14\ninitial_volume_ml=14\ninitial_alt_media_fraction=0.0\ninitial_cumulative_media_added_ml=0\ninitial_cumulative_a...<truncated>"
   }
 ]
 ```
 
 ## Get Config For Pioreactor Unit
 
-get merged config for a pioreactor unit
+Get merged configs, optionally limiting $broadcast with repeated ``unit`` query parameters.
 
 ### Endpoint
 `GET /api/config/units/{pioreactor_unit}`
@@ -420,144 +430,7 @@ get merged config for a pioreactor unit
 
 Status: `200 OK`
 
-Example body:
-
-```json
-{
-  "configs": {
-    "localhost": {
-      "PWM": {
-        "1": "stirring",
-        "2": "waste",
-        "3": "media",
-        "4": "bubblert",
-        "5": "heating"
-      },
-      "leds": {
-        "A": "IR",
-        "B": "white_light",
-        "C": "",
-        "D": ""
-      },
-      "bioreactor": {
-        "efflux_tube_volume_ml": "14",
-        "initial_volume_ml": "14",
-        "initial_alt_media_fraction": "0.0",
-        "initial_cumulative_media_added_ml": "0",
-        "initial_cumulative_alt_media_added_ml": "0",
-        "initial_cumulative_waste_removed_ml": "0"
-      },
-      "stirring.config": {
-        "initial_target_rpm": "500",
-        "initial_duty_cycle": "15",
-        "pwm_hz": "200",
-        "use_rpm": "True",
-        "duration_between_updates_seconds": "23",
-        "post_delay_duration": "0.25",
-        "pre_delay_duration": "0.25",
-        "enable_dodging_od": "true",
-        "target_rpm_during_od_reading": "0",
-        "target_rpm_outside_od_reading": "500"
-      },
-      "dosing_automation.turbidostat": {
-        "biomass_signal": "auto"
-      },
-      "stirring.pid": {
-        "Kp": "0.007",
-        "Ki": "0.0",
-        "Kd": "0.0"
-      },
-      "od_config.photodiode_channel": {
-        "1": "REF",
-        "2": "90"
-      },
-      "od_reading.config": {
-        "samples_per_second": "0.2",
-        "turn_off_leds_during_reading": "1",
-        "pd_reference_ema": "0.4",
-        "ir_led_intensity": "80",
-        "duration_between_led_off_and_od_reading": "0.1",
-        "smoothing_penalizer": "6.0",
-        "use_dark_offsets": "1"
-      },
-      "camera": {
-        "snapshot_interval_minutes": "5",
-        "camera_index": "0",
-        "ir_led_intensity": "90"
-      },
-      "storage": {
-        "database": "/Users/camerondavidson-pilon/code/pioreactor/.pioreactor/storage/pioreactor.sqlite",
-        "temporary_cache": "/Users/camerondavidson-pilon/code/pioreactor/.pioreactor/storage/local_intermittent_pioreactor_metadata.sqlite",
-        "persistent_cache": "/Users/camerondavidson-pilon/code/pioreactor/.pioreactor/storage/local_persistent_pioreactor_metadata.sqlite",
-        "number_of_backup_replicates_to_workers": "0"
-      },
-      "logging": {
-        "log_file": "./pioreactor.log",
-        "ui_log_file": "./pioreactor.log",
-        "ui_log_level": "DEBUG",
-        "console_log_level": "DEBUG"
-      },
-      "cluster.topology": {
-        "leader_hostname": "localhost",
-        "leader_address": "localhost"
-      },
-      "ui.overview.settings": {
-        "filtered_od_lookback_minutes": "240",
-        "raw_od_lookback_minutes": "240",
-        "log_display_count": "65",
-        "time_display_mode": "hours"
-      },
-      "ui": {
-        "port": "4999",
-        "proto": "http"
-      },
-      "ui.overview.charts": {
-        "implied_growth_rate": "1",
-        "implied_daily_growth_rate": "0",
-        "fraction_of_volume_that_is_alternative_media": "1",
-        "normalized_optical_density": "1",
-        "raw_optical_density": "1",
-        "temperature": "1",
-        "optical_density": "1"
-      },
-      "ui.overview.cards": {
-        "dosings": "1",
-        "event_logs": "1",
-        "profiles": "1"
-      },
-      "dosing_automation.pid_morbidostat": {
-        "Kp": "5",
-        "Ki": "0",
-        "Kd": "0"
-      },
-      "temperature_automation.thermostat": {
-        "Kp": ".01",
-        "Ki": ".01",
-        "Kd": ".01"
-      },
-      "mqtt": {
-        "username": "pioreactor",
-        "password": "raspberry",
-        "broker_address": "localhost",
-        "broker_ws_port": "9001",
-        "broker_port": "1883",
-        "ws_protocol": "ws",
-        "use_tls": "0"
-      },
-      "dosing_automation.config": {
-        "pause_between_subdoses_seconds": "0.5",
-        "waste_removal_multiplier": "2.0",
-        "max_volume_to_warn": "17.0",
-        "max_volume_to_stop": "18.0",
-        "max_subdose": "1.0",
-        "experimental_pump_malfunction_tolerance": "0.2",
-        "experimental_detect_pump_malfunction": "False"
-      }
-    }
-  },
-  "errors": {}
-}
-```
+_No example body inferred._
 
 ## Get Specific Config For Pioreactor Unit
 
@@ -644,23 +517,7 @@ Status: `200 OK`
 Example body:
 
 ```json
-[
-  {
-    "filename": "unit_config.ini::localhost",
-    "timestamp": "2026-04-08T00:58:21.686Z",
-    "data": "[PWM]\n# map the externals to the PWM\n# hardware PWM are available on channels 1 & 3.\n1=stirring\n2=waste\n3=media\n4=bubblert\n5=heating"
-  },
-  {
-    "filename": "unit_config.ini::localhost",
-    "timestamp": "2026-04-08T00:18:45.007Z",
-    "data": "[PWM]\n# map the externals to the PWM\n# hardware PWM are available on channels 1 & 3.\n1=stirring\n2=waste\n3=media\n4=bubbler\n5=heating"
-  },
-  {
-    "filename": "config_localhost.ini",
-    "timestamp": "2025-12-03T02:50:38.730Z",
-    "data": "[bioreactor]\nmax_volume_ml=30\n"
-  }
-]
+[]
 ```
 
 ## Get Zipped Configs
@@ -762,11 +619,6 @@ Preview Exportable Dataset endpoint.
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
 | target_dataset | string | Yes | Exportable dataset name. |
-
-#### Query Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| n_rows | integer | No | Maximum number of preview rows. Defaults to `5`. |
 
 ### Response
 
@@ -1129,7 +981,7 @@ Example body:
     "experiment": "demo",
     "created_at": "2026-07-08T15:25:38.033Z",
     "description": "aefaefef",
-    "delta_hours": 529.0,
+    "delta_hours": 984.0,
     "worker_count": 0,
     "tags": [
       "awdawd",
@@ -1140,7 +992,7 @@ Example body:
     "experiment": "test_bioreactor_topics_land_in_db2",
     "created_at": "2026-07-08T15:19:13.502Z",
     "description": null,
-    "delta_hours": 530.0,
+    "delta_hours": 984.0,
     "worker_count": 0,
     "tags": []
   },
@@ -1148,7 +1000,7 @@ Example body:
     "experiment": "test_bioreactor_topics_land_in_db",
     "created_at": "2026-06-22T14:55:36.582000+00:00",
     "description": null,
-    "delta_hours": 914.0,
+    "delta_hours": 1368.0,
     "worker_count": 0,
     "tags": []
   }
@@ -1261,7 +1113,7 @@ Example body:
   "experiment": "demo",
   "created_at": "2026-07-08T15:25:38.033Z",
   "description": "aefaefef",
-  "delta_hours": 529.0,
+  "delta_hours": 984.0,
   "worker_count": 0,
   "tags": [
     "awdawd",
@@ -1318,6 +1170,54 @@ Example body:
   "tags": [
     "screening"
   ]
+}
+```
+
+## Get Camera Statuses For Experiment
+
+Get Camera Statuses For Experiment endpoint.
+
+### Endpoint
+`GET /api/experiments/{experiment}/cameras`
+
+### Request
+
+#### Path Parameters
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| experiment | string | Yes | Experiment identifier. |
+
+### Response
+
+#### Success
+
+Status: `200 OK`
+
+Example body:
+
+```json
+{
+  "cameras": {
+    "localhost": {
+      "ok": true,
+      "unit": "localhost",
+      "value": {
+        "unit": "localhost",
+        "detection_status": "detected",
+        "runtime_available": true,
+        "capture_command": null,
+        "mock": true,
+        "latest_still": {
+          "experiment": "demo",
+          "captured_at": "2026-08-18T15:36:54.612662Z",
+          "image_id": "20260818T153654.612662Z-9ea92960",
+          "capture_reason": "scheduled"
+        },
+        "auto_capture_enabled": true,
+        "snapshot_interval_minutes": 5
+      }
+    }
+  }
 }
 ```
 
@@ -1423,7 +1323,6 @@ Shows event logs from all units, uses pagination.
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
 | min_level | string | No | min level. |
-| skip | string | No | skip. |
 
 ### Response
 
@@ -1535,12 +1434,6 @@ Get Fallback Time Series endpoint.
 | data_source | string | Yes | Time-series data source name. |
 | column | string | Yes | Dataset column name. |
 
-#### Query Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| lookback | number | No | Lookback window in hours. Defaults to `4.0`. |
-| target_points | integer | No | Approximate maximum points per series. Defaults to `720` and must be greater than `0`. |
-
 ### Response
 
 #### Success
@@ -1595,12 +1488,6 @@ Gets growth rates for all units
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
 | experiment | string | Yes | Experiment identifier. |
-
-#### Query Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| lookback | number | No | Lookback window in hours. Defaults to `4.0`. |
-| target_points | integer | No | Approximate maximum points per series. Defaults to `720` and must be greater than `0`. |
 
 ### Response
 
@@ -1657,12 +1544,6 @@ Gets raw od for all units
 | ---- | ---- | -------- | ----------- |
 | experiment | string | Yes | Experiment identifier. |
 
-#### Query Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| lookback | number | No | Lookback window in hours. Defaults to `4.0`. |
-| target_points | integer | No | Approximate maximum points per series. Defaults to `720` and must be greater than `0`. |
-
 ### Response
 
 #### Success
@@ -1717,12 +1598,6 @@ Gets normalized od for all units
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
 | experiment | string | Yes | Experiment identifier. |
-
-#### Query Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| lookback | number | No | Lookback window in hours. Defaults to `4.0`. |
-| target_points | integer | No | Approximate maximum points per series. Defaults to `720` and must be greater than `0`. |
 
 ### Response
 
@@ -1779,12 +1654,6 @@ Get Od Readings Fused endpoint.
 | ---- | ---- | -------- | ----------- |
 | experiment | string | Yes | Experiment identifier. |
 
-#### Query Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| lookback | number | No | Lookback window in hours. Defaults to `4.0`. |
-| target_points | integer | No | Approximate maximum points per series. Defaults to `720` and must be greater than `0`. |
-
 ### Response
 
 #### Success
@@ -1840,12 +1709,6 @@ Gets raw od for all units
 | ---- | ---- | -------- | ----------- |
 | experiment | string | Yes | Experiment identifier. |
 
-#### Query Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| lookback | number | No | Lookback window in hours. Defaults to `4.0`. |
-| target_points | integer | No | Approximate maximum points per series. Defaults to `720` and must be greater than `0`. |
-
 ### Response
 
 #### Success
@@ -1900,12 +1763,6 @@ Gets temperature readings for all units
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
 | experiment | string | Yes | Experiment identifier. |
-
-#### Query Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| lookback | number | No | Lookback window in hours. Defaults to `4.0`. |
-| target_points | integer | No | Approximate maximum points per series. Defaults to `720` and must be greater than `0`. |
 
 ### Response
 
@@ -2117,7 +1974,7 @@ Example body:
 
 ## Add Worker To Experiment
 
-Add Worker To Experiment endpoint.
+Assign a worker, treating a retry of the current assignment as a no-op.
 
 ### Endpoint
 `PUT /api/experiments/{experiment}/workers`
@@ -2205,8 +2062,8 @@ Example body:
     "experiment": "ALE - Acetate",
     "created_at": "2024-09-04T17:04:46.423882Z",
     "description": "MZ PhD Evolution research experiment. Pioreactors 9-16.",
-    "delta_hours": 16656.0,
-    "worker_count": 4,
+    "delta_hours": 17110.0,
+    "worker_count": 1,
     "tags": []
   }
 ]
@@ -2231,7 +2088,7 @@ Example body:
 [
   {
     "experiment": "ALE - Acetate",
-    "worker_count": 4
+    "worker_count": 1
   }
 ]
 ```
@@ -2256,7 +2113,7 @@ Example body:
   "experiment": "demo",
   "created_at": "2026-07-08T15:25:38.033Z",
   "description": "aefaefef",
-  "delta_hours": 529.0,
+  "delta_hours": 984.0,
   "worker_count": 0,
   "tags": [
     "awdawd",
@@ -2362,7 +2219,6 @@ Shows event logs from all units, uses pagination.
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
 | min_level | string | No | min level. |
-| skip | string | No | skip. |
 
 ### Response
 
@@ -2713,13 +2569,10 @@ Example body:
 ```json
 [
   {
+    "pioreactor_unit": "erger"
+  },
+  {
     "pioreactor_unit": "localhost"
-  },
-  {
-    "pioreactor_unit": "worker01"
-  },
-  {
-    "pioreactor_unit": "worker02"
   }
 ]
 ```
@@ -2749,8 +2602,8 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "860299de-4777-4a5e-92da-5670890fefdc",
-  "result_url_path": "/unit_api/task_results/860299de-4777-4a5e-92da-5670890fefdc",
+  "task_id": "945c2f0e-215e-4c73-8d81-d47d4033e79d",
+  "result_url_path": "/unit_api/task_results/945c2f0e-215e-4c73-8d81-d47d4033e79d",
   "status": "accepted"
 }
 ```
@@ -2979,8 +2832,8 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "f1226da0-d5ad-411b-80aa-dbfcc9d5cf87",
-  "result_url_path": "/unit_api/task_results/f1226da0-d5ad-411b-80aa-dbfcc9d5cf87",
+  "task_id": "f5c67fae-8265-4b05-a9ea-e45ce71b022c",
+  "result_url_path": "/unit_api/task_results/f5c67fae-8265-4b05-a9ea-e45ce71b022c",
   "status": "accepted"
 }
 ```
@@ -3069,6 +2922,9 @@ Example body:
 
 ```json
 {
+  "unit": "pio01",
+  "task_id": "abcd1234",
+  "result_url_path": "/unit_api/task_results/abcd1234",
   "status": "accepted"
 }
 ```
@@ -3099,6 +2955,9 @@ Example body:
 
 ```json
 {
+  "unit": "pio01",
+  "task_id": "abcd1234",
+  "result_url_path": "/unit_api/task_results/abcd1234",
   "status": "accepted"
 }
 ```
@@ -3165,7 +3024,6 @@ Shows event logs from all units, uses pagination.
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
 | min_level | string | No | min level. |
-| skip | string | No | skip. |
 
 ### Response
 
@@ -3406,8 +3264,8 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "e457a52b-fdeb-451d-962f-d7b9e23b31c5",
-  "result_url_path": "/unit_api/task_results/e457a52b-fdeb-451d-962f-d7b9e23b31c5",
+  "task_id": "e7495360-7f7b-4955-a193-c5859ea684ec",
+  "result_url_path": "/unit_api/task_results/e7495360-7f7b-4955-a193-c5859ea684ec",
   "status": "accepted"
 }
 ```
@@ -3609,8 +3467,8 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "ad4c8f06-2de9-4f01-a0b4-088f9dc26ab2",
-  "result_url_path": "/unit_api/task_results/ad4c8f06-2de9-4f01-a0b4-088f9dc26ab2",
+  "task_id": "e81c7c87-2f63-4ade-a7a6-1e56e7dbb275",
+  "result_url_path": "/unit_api/task_results/e81c7c87-2f63-4ade-a7a6-1e56e7dbb275",
   "status": "accepted"
 }
 ```
@@ -3633,7 +3491,6 @@ Shows system logs from specific unit uses pagination.
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
 | min_level | string | No | min level. |
-| skip | string | No | skip. |
 
 ### Response
 
@@ -3682,8 +3539,8 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "16740a16-f896-4352-b148-9a21fff9b7dd",
-  "result_url_path": "/unit_api/task_results/16740a16-f896-4352-b148-9a21fff9b7dd",
+  "task_id": "cbae38bf-1d06-48cb-a014-5cd55d826b64",
+  "result_url_path": "/unit_api/task_results/cbae38bf-1d06-48cb-a014-5cd55d826b64",
   "status": "accepted"
 }
 ```
@@ -3713,8 +3570,8 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "bf326752-48e6-4b5a-9f3b-4e0cb4893f7d",
-  "result_url_path": "/unit_api/task_results/bf326752-48e6-4b5a-9f3b-4e0cb4893f7d",
+  "task_id": "b5770988-1b62-4bee-b137-96823414dd3e",
+  "result_url_path": "/unit_api/task_results/b5770988-1b62-4bee-b137-96823414dd3e",
   "status": "accepted"
 }
 ```
@@ -3830,8 +3687,8 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "32bfec21-91c4-487c-a07c-9e7e39edf8e9",
-  "result_url_path": "/unit_api/task_results/32bfec21-91c4-487c-a07c-9e7e39edf8e9",
+  "task_id": "c972342a-eefb-476b-b5db-f063b4199cc2",
+  "result_url_path": "/unit_api/task_results/c972342a-eefb-476b-b5db-f063b4199cc2",
   "status": "accepted"
 }
 ```
@@ -3876,24 +3733,16 @@ Example body:
 ```json
 [
   {
+    "pioreactor_unit": "erger",
+    "added_at": "2026-08-10T17:19:48.761Z",
+    "is_active": 1,
+    "model_name": "pioreactor_40ml",
+    "model_version": "1.5",
+    "ipv4_address": null
+  },
+  {
     "pioreactor_unit": "localhost",
     "added_at": "2025-10-03T14:12:44.444Z",
-    "is_active": 1,
-    "model_name": "pioreactor_40ml",
-    "model_version": "1.5",
-    "ipv4_address": null
-  },
-  {
-    "pioreactor_unit": "worker01",
-    "added_at": "2026-07-08T14:40:56.544Z",
-    "is_active": 1,
-    "model_name": "pioreactor_40ml",
-    "model_version": "1.5",
-    "ipv4_address": null
-  },
-  {
-    "pioreactor_unit": "worker02",
-    "added_at": "2026-07-08T14:41:02.141Z",
     "is_active": 1,
     "model_name": "pioreactor_40ml",
     "model_version": "1.5",
@@ -3904,7 +3753,7 @@ Example body:
 
 ## Add Worker
 
-Add Worker endpoint.
+Register a worker without changing an existing worker on retry.
 
 ### Endpoint
 `PUT /api/workers`
@@ -3931,7 +3780,7 @@ Add Worker endpoint.
 
 #### Success
 
-Status: `201 Created`
+Status: `200 OK`
 
 Example body:
 
@@ -3993,8 +3842,8 @@ Example body:
 
 ```json
 {
-  "pioreactor_unit": "localhost",
-  "added_at": "2025-10-03T14:12:44.444Z",
+  "pioreactor_unit": "erger",
+  "added_at": "2026-08-10T17:19:48.761Z",
   "is_active": 1,
   "model_name": "pioreactor_40ml",
   "model_version": "1.5"
@@ -4026,8 +3875,8 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "c010b876-4859-4f34-8148-5b5501130bd7",
-  "result_url_path": "/unit_api/task_results/c010b876-4859-4f34-8148-5b5501130bd7",
+  "task_id": "e1dc8adf-b39a-4b9e-b789-7db944bf1d7a",
+  "result_url_path": "/unit_api/task_results/e1dc8adf-b39a-4b9e-b789-7db944bf1d7a",
   "status": "accepted"
 }
 ```
@@ -4122,8 +3971,8 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "6d85d555-af37-4de3-a20c-42b1abb8768e",
-  "result_url_path": "/unit_api/task_results/6d85d555-af37-4de3-a20c-42b1abb8768e",
+  "task_id": "06cfac50-c20e-4e65-a3ba-4f2759267bb5",
+  "result_url_path": "/unit_api/task_results/06cfac50-c20e-4e65-a3ba-4f2759267bb5",
   "status": "accepted"
 }
 ```
@@ -4214,37 +4063,7 @@ Proxy a request for automation UI descriptors to one worker.
 
 Status: `200 OK`
 
-Example body:
-
-```json
-[
-  {
-    "display_name": "Only record temperature",
-    "automation_name": "only_record_temperature",
-    "description": "Apply no heating, only record the temperature.",
-    "source": null,
-    "fields": []
-  },
-  {
-    "display_name": "Thermostat",
-    "automation_name": "thermostat",
-    "description": "Vary the amount of applied heating to keep the culture near a target temperature, using a control-loop.",
-    "source": null,
-    "fields": [
-      {
-        "key": "target_temperature",
-        "default": 30,
-        "label": "Target temperature",
-        "disabled": false,
-        "required": true,
-        "unit": "\u2103",
-        "type": "numeric",
-        "options": null
-      }
-    ]
-  }
-]
-```
+_No example body inferred._
 
 ## Update Bioreactor On Unit
 
@@ -4345,8 +4164,8 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "895e4f6e-a25b-47e4-88fc-8e97995f7e15",
-  "result_url_path": "/unit_api/task_results/895e4f6e-a25b-47e4-88fc-8e97995f7e15",
+  "task_id": "3b9a6e0e-20b1-482e-b1c9-0cbcfa4adaa3",
+  "result_url_path": "/unit_api/task_results/3b9a6e0e-20b1-482e-b1c9-0cbcfa4adaa3",
   "status": "accepted"
 }
 ```
@@ -4376,8 +4195,8 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "5db4b658-dd7e-429e-b645-2f63fdf415da",
-  "result_url_path": "/unit_api/task_results/5db4b658-dd7e-429e-b645-2f63fdf415da",
+  "task_id": "9b5e6082-7816-46a2-b029-ef56c1db21fc",
+  "result_url_path": "/unit_api/task_results/9b5e6082-7816-46a2-b029-ef56c1db21fc",
   "status": "accepted"
 }
 ```
@@ -4408,8 +4227,8 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "cc8019de-b766-4518-ab8e-6678359bce54",
-  "result_url_path": "/unit_api/task_results/cc8019de-b766-4518-ab8e-6678359bce54",
+  "task_id": "5969cafe-adf8-424c-a238-eac36b9b7cd1",
+  "result_url_path": "/unit_api/task_results/5969cafe-adf8-424c-a238-eac36b9b7cd1",
   "status": "accepted"
 }
 ```
@@ -4520,8 +4339,8 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "451fbea9-bc56-4c42-8756-75495ba6bbe0",
-  "result_url_path": "/unit_api/task_results/451fbea9-bc56-4c42-8756-75495ba6bbe0",
+  "task_id": "ada412c0-633e-4ecc-9512-10a1f2615571",
+  "result_url_path": "/unit_api/task_results/ada412c0-633e-4ecc-9512-10a1f2615571",
   "status": "accepted"
 }
 ```
@@ -4643,6 +4462,221 @@ Status: `201 Created`
 
 _No success response body._
 
+## Get Camera Status For Worker
+
+Get Camera Status For Worker endpoint.
+
+### Endpoint
+`GET /api/workers/{pioreactor_unit}/camera/experiments/{experiment}/status`
+
+### Request
+
+#### Path Parameters
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| pioreactor_unit | string | Yes | Unit name or `$broadcast` where supported. |
+| experiment | string | Yes | Experiment identifier. |
+
+### Response
+
+#### Success
+
+Status: `200 OK`
+
+_No example body inferred._
+
+## List Camera Stills For Worker Experiment
+
+List Camera Stills For Worker Experiment endpoint.
+
+### Endpoint
+`GET /api/workers/{pioreactor_unit}/camera/experiments/{experiment}/stills`
+
+### Request
+
+#### Path Parameters
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| pioreactor_unit | string | Yes | Unit name or `$broadcast` where supported. |
+| experiment | string | Yes | Experiment identifier. |
+
+### Response
+
+#### Success
+
+Status: `200 OK`
+
+_No example body inferred._
+
+## Capture Camera Still For Worker Experiment
+
+Capture Camera Still For Worker Experiment endpoint.
+
+### Endpoint
+`POST /api/workers/{pioreactor_unit}/camera/experiments/{experiment}/stills`
+
+### Request
+
+#### Path Parameters
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| pioreactor_unit | string | Yes | Unit name or `$broadcast` where supported. |
+| experiment | string | Yes | Experiment identifier. |
+
+### Response
+
+#### Success
+
+Status: `202 Accepted`
+
+Example body:
+
+```json
+{
+  "unit": "pio01",
+  "task_id": "abcd1234",
+  "result_url_path": "/unit_api/task_results/abcd1234",
+  "status": "accepted"
+}
+```
+
+## Get Zipped Camera Stills For Worker Experiment
+
+Get Zipped Camera Stills For Worker Experiment endpoint.
+
+### Endpoint
+`GET /api/workers/{pioreactor_unit}/camera/experiments/{experiment}/stills.zip`
+
+### Request
+
+#### Path Parameters
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| pioreactor_unit | string | Yes | Unit name or `$broadcast` where supported. |
+| experiment | string | Yes | Experiment identifier. |
+
+### Response
+
+#### Success
+
+Status: `200 OK`
+
+_Response body is binary file data._
+
+## Delete Camera Still For Worker Experiment
+
+Delete Camera Still For Worker Experiment endpoint.
+
+### Endpoint
+`DELETE /api/workers/{pioreactor_unit}/camera/experiments/{experiment}/stills/{image_id}.jpg`
+
+### Request
+
+#### Path Parameters
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| pioreactor_unit | string | Yes | Unit name or `$broadcast` where supported. |
+| experiment | string | Yes | Experiment identifier. |
+| image_id | string | Yes | image id. |
+
+### Response
+
+#### Success
+
+Status: `200 OK`
+
+_No example body inferred._
+
+## Get Camera Still For Worker Experiment
+
+Get Camera Still For Worker Experiment endpoint.
+
+### Endpoint
+`GET /api/workers/{pioreactor_unit}/camera/experiments/{experiment}/stills/{image_id}.jpg`
+
+### Request
+
+#### Path Parameters
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| pioreactor_unit | string | Yes | Unit name or `$broadcast` where supported. |
+| experiment | string | Yes | Experiment identifier. |
+| image_id | string | Yes | image id. |
+
+### Response
+
+#### Success
+
+Status: `200 OK`
+
+_No example body inferred._
+
+## Get Camera Focus Preview For Worker
+
+Get Camera Focus Preview For Worker endpoint.
+
+### Endpoint
+`GET /api/workers/{pioreactor_unit}/camera/focus_sessions/{session_id}/preview.jpg`
+
+### Request
+
+#### Path Parameters
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| pioreactor_unit | string | Yes | Unit name or `$broadcast` where supported. |
+| session_id | string | Yes | Calibration session identifier. |
+
+### Response
+
+#### Success
+
+Status: `200 OK`
+
+_No example body inferred._
+
+## Update Camera Settings For Worker
+
+Update Camera Settings For Worker endpoint.
+
+### Endpoint
+`PATCH /api/workers/{pioreactor_unit}/camera/settings`
+
+### Request
+
+#### Path Parameters
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| pioreactor_unit | string | Yes | Unit name or `$broadcast` where supported. |
+
+#### Request Body
+
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| auto_capture_enabled | boolean | Yes | auto capture enabled. |
+
+```json
+{
+  "auto_capture_enabled": true
+}
+```
+
+### Response
+
+#### Success
+
+Status: `202 Accepted`
+
+Example body:
+
+```json
+{
+  "unit": "pio01",
+  "task_id": "abcd1234",
+  "result_url_path": "/unit_api/task_results/abcd1234",
+  "status": "accepted"
+}
+```
+
 ## Get Capabilities
 
 Get Capabilities endpoint.
@@ -4668,8 +4702,8 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "2b02848e-8463-43a9-8d72-6aee99e80602",
-  "result_url_path": "/unit_api/task_results/2b02848e-8463-43a9-8d72-6aee99e80602",
+  "task_id": "e2ac98f8-41c1-47d4-a187-f52054b83a82",
+  "result_url_path": "/unit_api/task_results/e2ac98f8-41c1-47d4-a187-f52054b83a82",
   "status": "accepted"
 }
 ```
@@ -4699,8 +4733,8 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "bda2f5c7-fd09-468e-9231-5fa21422fb2b",
-  "result_url_path": "/unit_api/task_results/bda2f5c7-fd09-468e-9231-5fa21422fb2b",
+  "task_id": "b20306fa-3c88-43cf-8aa4-18b9eb471c76",
+  "result_url_path": "/unit_api/task_results/b20306fa-3c88-43cf-8aa4-18b9eb471c76",
   "status": "accepted"
 }
 ```
@@ -4731,8 +4765,8 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "965b67ee-5dfe-44ba-9005-ff5f26a33ded",
-  "result_url_path": "/unit_api/task_results/965b67ee-5dfe-44ba-9005-ff5f26a33ded",
+  "task_id": "67d869d6-6c72-459b-829d-8c176abb629e",
+  "result_url_path": "/unit_api/task_results/67d869d6-6c72-459b-829d-8c176abb629e",
   "status": "accepted"
 }
 ```
@@ -4797,8 +4831,8 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "d4af0e68-a628-4cac-bce9-7f75fc2804aa",
-  "result_url_path": "/unit_api/task_results/d4af0e68-a628-4cac-bce9-7f75fc2804aa",
+  "task_id": "a916238a-14e8-438f-a71f-e0b0437f8a74",
+  "result_url_path": "/unit_api/task_results/a916238a-14e8-438f-a71f-e0b0437f8a74",
   "status": "accepted"
 }
 ```
@@ -4823,17 +4857,7 @@ Get Experiment Assignment For Worker endpoint.
 
 Status: `200 OK`
 
-Example body:
-
-```json
-{
-  "pioreactor_unit": "localhost",
-  "is_active": 1,
-  "experiment": "ALE - Acetate",
-  "model_name": "pioreactor_40ml",
-  "model_version": "1.5"
-}
-```
+_No example body inferred._
 
 ## Get Logs For Unit And Experiment
 
@@ -4854,7 +4878,6 @@ Shows event logs from specific unit and experiment, uses pagination.
 | Name | Type | Required | Description |
 | ---- | ---- | -------- | ----------- |
 | min_level | string | No | min level. |
-| skip | string | No | skip. |
 
 ### Response
 
@@ -4988,12 +5011,6 @@ Get Fallback Time Series Per Unit endpoint.
 | data_source | string | Yes | Time-series data source name. |
 | column | string | Yes | Dataset column name. |
 
-#### Query Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| lookback | number | No | Lookback window in hours. Defaults to `4.0`. |
-| target_points | integer | No | Approximate maximum points per series. Defaults to `720` and must be greater than `0`. |
-
 ### Response
 
 #### Success
@@ -5049,12 +5066,6 @@ Get Growth Rates Per Unit endpoint.
 | ---- | ---- | -------- | ----------- |
 | pioreactor_unit | string | Yes | Unit name or `$broadcast` where supported. |
 | experiment | string | Yes | Experiment identifier. |
-
-#### Query Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| lookback | number | No | Lookback window in hours. Defaults to `4.0`. |
-| target_points | integer | No | Approximate maximum points per series. Defaults to `720` and must be greater than `0`. |
 
 ### Response
 
@@ -5112,12 +5123,6 @@ Get Od Readings Per Unit endpoint.
 | pioreactor_unit | string | Yes | Unit name or `$broadcast` where supported. |
 | experiment | string | Yes | Experiment identifier. |
 
-#### Query Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| lookback | number | No | Lookback window in hours. Defaults to `4.0`. |
-| target_points | integer | No | Approximate maximum points per series. Defaults to `720` and must be greater than `0`. |
-
 ### Response
 
 #### Success
@@ -5173,12 +5178,6 @@ Get Od Readings Filtered Per Unit endpoint.
 | ---- | ---- | -------- | ----------- |
 | pioreactor_unit | string | Yes | Unit name or `$broadcast` where supported. |
 | experiment | string | Yes | Experiment identifier. |
-
-#### Query Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| lookback | number | No | Lookback window in hours. Defaults to `4.0`. |
-| target_points | integer | No | Approximate maximum points per series. Defaults to `720` and must be greater than `0`. |
 
 ### Response
 
@@ -5236,12 +5235,6 @@ Get Od Readings Fused Per Unit endpoint.
 | pioreactor_unit | string | Yes | Unit name or `$broadcast` where supported. |
 | experiment | string | Yes | Experiment identifier. |
 
-#### Query Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| lookback | number | No | Lookback window in hours. Defaults to `4.0`. |
-| target_points | integer | No | Approximate maximum points per series. Defaults to `720` and must be greater than `0`. |
-
 ### Response
 
 #### Success
@@ -5298,12 +5291,6 @@ Get Od Raw Readings Per Unit endpoint.
 | pioreactor_unit | string | Yes | Unit name or `$broadcast` where supported. |
 | experiment | string | Yes | Experiment identifier. |
 
-#### Query Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| lookback | number | No | Lookback window in hours. Defaults to `4.0`. |
-| target_points | integer | No | Approximate maximum points per series. Defaults to `720` and must be greater than `0`. |
-
 ### Response
 
 #### Success
@@ -5359,12 +5346,6 @@ Get Temperature Readings Per Unit endpoint.
 | ---- | ---- | -------- | ----------- |
 | pioreactor_unit | string | Yes | Unit name or `$broadcast` where supported. |
 | experiment | string | Yes | Experiment identifier. |
-
-#### Query Parameters
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-| lookback | number | No | Lookback window in hours. Defaults to `4.0`. |
-| target_points | integer | No | Approximate maximum points per series. Defaults to `720` and must be greater than `0`. |
 
 ### Response
 
@@ -5467,55 +5448,7 @@ Proxy a request for background-job UI descriptors to one worker.
 
 Status: `200 OK`
 
-Example body:
-
-```json
-[
-  {
-    "display_name": "Stirring",
-    "job_name": "stirring",
-    "display": true,
-    "published_settings": [
-      {
-        "key": "target_rpm",
-        "type": "numeric",
-        "display": true,
-        "description": "Modify the target RPM of stirring. This will effect the optical density reading. Too low and the stirring may completely stop. Too high and the resulting vortex may interfere with the optics.",
-        "default": null,
-        "unit": "RPM",
-        "label": "Target stir RPM",
-        "editable": true,
-        "min": null,
-        "max": null
-      }
-    ],
-    "source": "app",
-    "description": "Start the stirring on the Pioreactor. Stirring is needed for mixing and proper OD measurements.",
-    "subtext": null,
-    "is_testing": false
-  },
-  {
-    "display_name": "Optical density",
-    "job_name": "od_reading",
-    "display": true,
-    "published_settings": [],
-    "source": "app",
-    "description": "Collect optical density measurements of the culture over time.",
-    "subtext": null,
-    "is_testing": false
-  },
-  {
-    "display_name": "Growth rate",
-    "job_name": "growth_rate_calculating",
-    "display": true,
-    "published_settings": [],
-    "source": "app",
-    "description": "Transform optical density measurements into culture growth rate measurements. Start this after innoculation. Begins by sampling for a few minutes to gather a baseline.",
-    "subtext": null,
-    "is_testing": false
-  }
-]
-```
+_No example body inferred._
 
 ## Run Job On Unit In Experiment
 
@@ -5668,8 +5601,8 @@ Example body:
 ```json
 {
   "unit": "localhost",
-  "task_id": "79682e65-387b-4db9-8e40-a33f71d3bea8",
-  "result_url_path": "/unit_api/task_results/79682e65-387b-4db9-8e40-a33f71d3bea8",
+  "task_id": "1c786869-4f94-4489-8adb-5a0f2856c502",
+  "result_url_path": "/unit_api/task_results/1c786869-4f94-4489-8adb-5a0f2856c502",
   "status": "accepted"
 }
 ```
@@ -5825,6 +5758,9 @@ Example body:
 
 ```json
 {
+  "unit": "pio01",
+  "task_id": "abcd1234",
+  "result_url_path": "/unit_api/task_results/abcd1234",
   "status": "accepted"
 }
 ```
@@ -5855,6 +5791,9 @@ Example body:
 
 ```json
 {
+  "unit": "pio01",
+  "task_id": "abcd1234",
+  "result_url_path": "/unit_api/task_results/abcd1234",
   "status": "accepted"
 }
 ```
@@ -5927,7 +5866,7 @@ Example body:
 
 ```json
 {
-  "pioreactor_unit": "localhost",
+  "pioreactor_unit": "erger",
   "model_name": "pioreactor_40ml",
   "model_version": "1.5",
   "display_name": "Pioreactor 40ml, v1.5",
@@ -6004,102 +5943,30 @@ Proxy a request for settings UI descriptors to one worker.
 
 Status: `200 OK`
 
-Example body:
+_No example body inferred._
 
-```json
-[
-  {
-    "key": "bioreactor",
-    "display_name": "Bioreactor",
-    "display": true,
-    "published_settings": [
-      {
-        "key": "current_volume_ml",
-        "type": "numeric",
-        "display": true,
-        "description": "Current estimated liquid volume in the vial.",
-        "default": 14.0,
-        "unit": "mL",
-        "label": "Current volume",
-        "editable": true,
-        "min": 0.0,
-        "max": null
-      },
-      {
-        "key": "efflux_tube_volume_ml",
-        "type": "numeric",
-        "display": true,
-        "description": "Liquid volume equivalent to the height of the waste/efflux tube.",
-        "default": 14.0,
-        "unit": "mL",
-        "label": "Efflux tube level",
-        "editable": true,
-        "min": 0.0,
-        "max": null
-      },
-      {
-        "key": "alt_media_fraction",
-        "type": "numeric",
-        "display": true,
-        "description": "Fraction of the current volume estimated to be alt media.",
-        "default": 0.0,
-        "unit": null,
-        "label": "Alt media fraction",
-        "editable": true,
-        "min": 0.0,
-        "max": 1.0
-      }
-    ],
-    "source": "app",
-    "description": "Per-unit bioreactor settings.",
-    "subtext": null
-  },
-  {
-    "key": "leds",
-    "display_name": "led intensity",
-    "display": false,
-    "published_settings": [
-      {
-        "key": "intensity",
-        "type": "string",
-        "display": true,
-        "description": null,
-        "default": null,
-        "unit": null,
-        "label": "LED intensity",
-        "editable": false,
-        "min": null,
-        "max": null
-      }
-    ],
-    "source": "app",
-    "description": null,
-    "subtext": null
-  },
-  {
-    "key": "pwms",
-    "display_name": "PWMs",
-    "display": false,
-    "published_settings": [
-      {
-        "key": "dc",
-        "type": "string",
-        "display": true,
-        "description": null,
-        "default": null,
-        "unit": null,
-        "label": "PWM intensity",
-        "editable": false,
-        "min": null,
-        "max": null
-      }
-    ],
-    "source": "app",
-    "description": null,
-    "subtext": null
-  }
-]
-```
+## Get Task Result For Worker
+
+Get Task Result For Worker endpoint.
+
+### Endpoint
+`GET /api/workers/{pioreactor_unit}/task_results/{task_id}`
+
+### Request
+
+#### Path Parameters
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| pioreactor_unit | string | Yes | Unit name or `$broadcast` where supported. |
+| task_id | string | Yes | Task identifier. |
+
+### Response
+
+#### Success
+
+Status: `200 OK`
+
+_No example body inferred._
 
 ## Get Zipped Calibrations
 
@@ -6165,17 +6032,12 @@ Example body:
 ```json
 [
   {
+    "pioreactor_unit": "erger",
+    "experiment": null,
+    "is_active": 1
+  },
+  {
     "pioreactor_unit": "localhost",
-    "experiment": "ALE - Acetate",
-    "is_active": 1
-  },
-  {
-    "pioreactor_unit": "worker01",
-    "experiment": "ALE - Acetate",
-    "is_active": 1
-  },
-  {
-    "pioreactor_unit": "worker02",
     "experiment": "ALE - Acetate",
     "is_active": 1
   }

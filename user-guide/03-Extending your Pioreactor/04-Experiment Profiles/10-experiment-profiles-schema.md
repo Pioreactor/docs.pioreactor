@@ -236,7 +236,7 @@ There are a few helper functions you can call inside `${{ ... }}`:
 
 ### `log`
 
-`log` writes a message to the event log. `options.message` is required, and `options.level` defaults to `notice`.
+`log` writes a message to the experiment log. `options.message` is required, and `options.level` defaults to `notice`.
 
 ```yaml
   actions:

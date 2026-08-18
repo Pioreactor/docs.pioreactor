@@ -62,6 +62,12 @@ While basic normalization accounts for initial OD differences, it does not consi
 
 Blanking your vials is recommended for experiments that begin with low OD readings (e.g., inoculating small amounts of yeast). By blanking, you observe the OD of only the microorganism of interest.
 
+:::note
+Per-experiment blanking is for uncalibrated OD measurements. Do not record a blank while an OD calibration or fused OD estimator is active; the Pioreactor UI disables this incompatible combination.
+:::
+
+If the measured signal later falls below the stored blank, Pioreactor does not publish a negative OD reading. If this continues, clear the experiment's blank or record it again using the current media and optical setup.
+
 As an example, let's consider the same data as above, but this time we have information on the blank ODs: 
 
 | Pioreactor name | Blank OD (media) | Reference OD (media with culture) | Difference (reference - blank) | Latest OD |

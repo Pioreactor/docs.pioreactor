@@ -7,9 +7,9 @@ hide_table_of_contents: true
 Navigate to the _Overview_ page on the Pioreactor web interface. Here you can view live charts for growth rate, OD, normalized OD, and temperature. These overview graphs are used to monitor collected data during the experiment runtime.
 
 
-## Event logs
+## Experiment logs
 
-**Recent event logs** are found along the right side of the main _Overview page_. These logs document any errors, processes, or updates for each Pioreactor. 
+**Recent experiment logs** are found along the right side of the main _Overview page_. These logs document any errors, processes, or updates for each Pioreactor. Open **Experiment logs** in the sidebar to search and review the full history.
 
 ![](/img/user-guide/02-experiment-basics/06-monitor-experiment/example-event-logs.png)
 
