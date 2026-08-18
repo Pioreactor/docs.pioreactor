@@ -60,7 +60,7 @@ Because of the way we defined _normalized_ optical density, it has the following
 
 While basic normalization accounts for initial OD differences, it does not consider the optical density of the media itself. For a more accurate growth rate calculation, you can blank your sample.
 
-Blanking your vials is recommended for experiments that begin with low OD readings (e.g., inoculating small amounts of yeast). By blanking, you observe the OD of only the microorganism of interest.
+Blank uncalibrated vials when the uninoculated media already has visible or measurable turbidity. By blanking, you subtract that media background and observe the OD change associated with the microorganism of interest.
 
 :::note
 Per-experiment blanking is for uncalibrated OD measurements. Do not record a blank while an OD calibration or fused OD estimator is active; the Pioreactor UI disables this incompatible combination.

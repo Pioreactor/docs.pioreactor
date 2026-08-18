@@ -33,6 +33,12 @@ If you'd like to update, click on the "Update to next release" button. Updating 
 
 Updating from the UI will update all the Pioreactors in your cluster.
 
+:::note
+
+A cluster can be on mixed software versions temporarily while a rolling update is in progress. Version skew may expose incompatible features or APIs, so we recommend completing the update across the cluster instead of operating mixed versions long-term.
+
+:::
+
 :::info
 
 The updating process will update to the _next_ release, after your current version. So if your current version is 23.4.1, and there are _two_ more recent releases, say 23.5.1 and 23.6.1, then the update process will update to 23.5.1. You can run the update process _again_ to update to 23.6.1. We do this so that you will get changes folded in from each release we make.

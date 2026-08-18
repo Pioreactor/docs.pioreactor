@@ -16,7 +16,7 @@ Depending on the purposes of your research, you may want to calibrate your Piore
 
 You can run the calibration from the web UI or the command line.
 
-Calibrations should be specific to your experiment setup. Any changes to your media, culture, or optical setup (i.e. changing IR intensity, replacing pieces, or changing the angle) may require a new calibration. If everything remains consistent, then we recommend running calibrations every 6 months, or whatever suits your purposes.
+An OD calibration is specific to the individual Pioreactor, organism morphology, media colour, IR intensity, and photodiode angle. Create a new calibration when any of these change. If they remain consistent, we recommend recalibrating every six months, or at the interval required by your protocol.
 
 :::info
 All your OD calibrations are saved to disk, and can be edited afterwards.

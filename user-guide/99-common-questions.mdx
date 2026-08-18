@@ -13,11 +13,11 @@ import TOCInline from '@theme/TOCInline';
 
 ### How can I restart my Pioreactor? Is pulling the power plug out safe?
 
-We suggest using the UI to reboot a Pioreactor:
+Use the UI to reboot or shut down a Pioreactor when it is available:
 
 ![Rebooting your pi](/img/user-guide/99-common-questions/reboot.png)
 
-Pulling the plug is usually fine, but try to avoid doing it as it does risk data corruption.
+Pulling the plug is an accepted way to power off an idle Pioreactor, but do not do it during a software update or another operation that is actively writing to disk. Using **Shutdown** remains the safest option when the UI is available.
 
 
 ### Can I still use the Pioreactor software without the hardware?
@@ -120,7 +120,9 @@ We made a design choice early on to make preparation as error-free as possible. 
 
 ### Why does the Pioreactor's heating keep shutting off?
 
-If you find that the Pioreactor's heating is shutting off, typically with an accompanying error and flashing blue light, then likely the temperature is becoming too high for safe handling. We restrict the onboard PCB's temperature to be no higher than 63℃. Temperature's higher than this can deform the plastic, and possibly cause burns. If the Pioreactor detects a temperature near or above this value, the software will shut off the heating, and possible the entire Raspberry Pi in extreme cases.
+If the Pioreactor's heating shuts off, typically with an accompanying error and flashing blue light, the heating PCB may be too hot for safe operation. This is different from the estimated culture temperature shown in the UI and from the thermostat target.
+
+On current hardware, the software begins reducing heating when the heating PCB reaches 78℃, disables heating at 80℃, and shuts down the Pioreactor at 85℃. The Raspberry Pi has its own temperature protections and may shut down independently.
 
 To avoid this occurring, we suggest not setting the target temperature too high - not more than 20℃ above ambient temperature. Also, reducing the `Kd` parameter in `[temperature_automation.stable]` section in the config.ini would help.
 
@@ -141,7 +143,7 @@ Of course! The maximum length of a stir bar is 20mm. Keep the height low as to n
 
 ### Why does the stir bar stop or wobble when OD dodging changes RPM?
 
-This is usually a calibration or seating issue. Make sure a stirring calibration is active (re-run it after software updates or hardware changes) and confirm the vial is fully seated on the heating pad. Even a small gap, for example from an o-ring or debris, can make the bar lose sync during RPM transitions.
+This is usually a calibration or seating issue. Make sure a stirring calibration is active. Re-run it after stirring-related hardware changes, including replacing the motor, changing the power source or voltage, changing stir bar size, or making a significant change to the liquid. Also confirm the vial is fully seated on the heating pad. Even a small gap, for example from an o-ring or debris, can make the bar lose sync during RPM transitions.
 
 ### The magnets rub against the plastic screws above them, causing the stirring performance to be degraded / stop. How do I fix this?
 
@@ -200,7 +202,7 @@ First, in Raspberry Pi Imager, choose **Erase** and format the card as FAT32, th
 
 ### What power supply unit (PSU) do I need?
 
-If you look at the power rating, it should be more than 5 V and more than 2.25 A, or above 12 W. We really like the [official Raspberry Pi PSUs](https://www.raspberrypi.com/products/power-supply/), available at most places you can purchase Raspberry Pis, Amazon, etc.
+Use a supply between 5.0 V and 5.25 V that can provide at least 2.25 A, or about 12 W. We really like the [official Raspberry Pi PSUs](https://www.raspberrypi.com/products/power-supply/), available at most places you can purchase Raspberry Pis, Amazon, etc.
 
 If you need to power multiple Pioreactors, you might consider a single PSU with USB ports [detailed here](/user-guide/powering-cluster).
 
@@ -292,7 +294,7 @@ Unfortunately, the microSD card becoming corrupted or damaged is an infrequent b
 
 - If the microSD card was inside a non-leader Pioreactor, it's best to try to reformat the microSD card and start fresh (i.e. [reinstall the Pioreactor software and reintroduce it to the cluster](/user-guide/software-set-up#adding-additional-workers-to-your-cluster)). This is usually okay as no critical data is stored locally in workers, only log files and hardware calibrations will be lost.
 
-- If the microSD was inside the leader Raspberry Pi, this is a bigger problem. Likely any running experiment will have to be restarted. Fortunately, if you have more than one Pioreactor in your cluster, then the leader's SQLite database has been periodically backing itself up to other Pioreactors in the cluster every few days. Using the command line, check other Pioreactors' `/home/pioreactor/.pioreactor/storage` directory for the _latest_ backup named `pioreactor.sqlite.backup` (should be from within the past few days hours). You can use this database to restart a new leader.
+- If the microSD was inside the leader Raspberry Pi, this is a bigger problem. Likely any running experiment will have to be restarted. The leader attempts a database backup every week and, by default, copies it to as many as two reachable workers. This replication is best-effort: a backup can be skipped or a worker can be unavailable. Using the command line, check other Pioreactors' `/home/pioreactor/.pioreactor/storage` directory for the latest `pioreactor.sqlite.backup`, and check its timestamp before using it to recover a new leader.
 
 ## Networking
 

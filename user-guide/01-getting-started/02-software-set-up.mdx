@@ -129,10 +129,10 @@ Workers are additional Pioreactors that you can control from a single UI. Togeth
 1. Follow the same instructions above, but instead of choosing **Leader + Worker**, choose **Worker**.
 
    :::tip
-   Check the software version of your leader first (you can find that on the Updates page, or the Inventory Page, or use `pio version` on the command line). It's recommended to download the associated worker image for that same version.
+   Check the software version of your leader first (you can find it on the **Updates** or **Inventory** page, or use `pio version` on the command line). Downloading the worker image for that same version is strongly recommended. Version skew can work temporarily during a rolling update, but features and APIs may be incompatible between releases; do not leave a cluster on mixed versions.
    :::
 
-2. Follow the same instructions above to write the image to an microSD card. All the settings are the same, including *username* and *password*, **but choose a new hostname**. Choose a hostname that isn't currently being used in your cluster, ex: `worker01`, `worker02`, etc. Re-using old names is fine, so long as that worker isn't present in your cluster.
+2. Follow the same instructions above to write the image to a microSD card. All the settings are the same, including *username* and *password*, **but choose a new hostname**. Choose a hostname that isn't currently being used in your cluster, ex: `worker01`, `worker02`, etc. Reusing an old name is fine after the former worker has been removed from **Inventory**.
 
    :::tip
    If you plan to have many Pioreactors, use a leading zero in numbers, like `pio01`, or `worker01`, etc.

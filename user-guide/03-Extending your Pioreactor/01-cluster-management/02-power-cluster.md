@@ -6,7 +6,7 @@ hide_table_of_contents: true
 
 ### Powering your Pioreactor
 
-Each Pioreactor requires a Raspberry Pi, so you'll need to provide power to each Raspberry Pi. For small clusters, this can be accomplished by buying individual power supply units that connect from the wall or power-bar to each Raspberry Pi. We really like the [official Raspberry Pi Power Supply](https://www.raspberrypi.com/products/#power-supplies-and-cables), available at most places you can purchase a Raspberry Pi. In general, look for 5V and _at least_ 2.25 A (or _atleast 12 W_).
+Each Pioreactor requires a Raspberry Pi, so you'll need to provide power to each Raspberry Pi. For small clusters, this can be accomplished by buying individual power supply units that connect from the wall or power-bar to each Raspberry Pi. We really like the [official Raspberry Pi Power Supply](https://www.raspberrypi.com/products/#power-supplies-and-cables), available at most places you can purchase a Raspberry Pi. Use a supply between 5.0 V and 5.25 V that can provide at least 2.25 A, or about 12 W.
 
 
 ### Powering 2 to ~6 Pioreactors
@@ -36,6 +36,5 @@ For more than 6 Pioreactors, we recommend looking into more reputable and reliab
 
 
 Generally, for any power supply, the same ideas apply as above: look for at minimum 15 W per output. Also look for certifications and over heating protection.
-
 
 

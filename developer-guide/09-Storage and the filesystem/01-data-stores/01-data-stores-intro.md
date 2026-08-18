@@ -14,7 +14,9 @@ The CLI command `pio db` will open up the SQLite terminal to query the database 
 
 #### Backups of the database
 
-The Pioreactor software will automatically backup the SQLite database via a scheduale `cron` job. The backup is hosted locally on the Raspberry Pi, however if there if the cluster has active worker Pioreactors, the database backup is duplicated to (at most) two workers as well. This level of redundancy means that if the leader's microSD card fails, the database can be recovered from backups stored off the card.
+The leader attempts to back up the SQLite database once a week. It stores the backup locally and, by default, attempts to copy it to as many as two reachable workers. The number of worker replicas is configurable with `number_of_backup_replicates_to_workers` under `[storage]`.
+
+Worker replication is best-effort. A backup can be skipped when the database is busy or storage is low, and an unavailable worker will not receive a copy. If the leader's microSD card fails, check the timestamps of any worker copies before using one for recovery.
 
 ## Local key-value datastore
 
@@ -45,6 +47,5 @@ We make a configuration change so MQTT data is not persisted through leader powe
 #### Authentication
 
 The Mosquitto broker has a username/password of `pioreactor` / `raspberry`.
-
 
 

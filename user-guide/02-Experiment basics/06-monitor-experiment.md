@@ -44,7 +44,7 @@ Keep an eye on the optical density graph in the _Overview_ page. Initially, you 
 
 ![](/img/user-guide/02-experiment-basics/06-monitor-experiment/bubble-noise.png)
 
-This type of noise is typically caused by bubbling in the media due to metabolism. Noise gradually gets worse as the culture grows, where more metabolism leads to more CO2 bubbles. Thus, you would notice noise build up gradually as the culture becomes larger. To reduce the noise made by bubbles, we recommend allowing more airflow by **raising the tubing** enough so they **aren't submerged in your media**.
+This type of noise is typically caused by bubbling in the media due to metabolism. Noise gradually gets worse as the culture grows, where more metabolism leads to more CO2 bubbles. Thus, you would notice noise build up gradually as the culture becomes larger. To give the gas an escape path, keep the end of at least one tube near the neck of the vial, about 5 cm above the media. If you move the waste / efflux tube, remember that its height sets the maximum liquid volume for dosing automations.
 
 ### Initial noise in OD 
 

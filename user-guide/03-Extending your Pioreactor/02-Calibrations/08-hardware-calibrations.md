@@ -31,6 +31,8 @@ You'll need:
 
 You're done! Your stirring RPM should be much more responsive now.
 
+Re-run the calibration after a stirring-related hardware change, such as replacing the motor, changing the power source or voltage, changing stir bar size, or making a significant change to the liquid.
+
 -----
 
 ### Pump calibration
