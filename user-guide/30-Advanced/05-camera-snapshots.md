@@ -3,6 +3,7 @@ title: Camera snapshots (experimental)
 slug: /camera-snapshots
 description: Configure a Raspberry Pi or USB camera to capture and review experiment snapshots.
 hide_table_of_contents: true
+sidebar_class_name: sidebar-item--updated
 ---
 
 Pioreactor can use a Raspberry Pi camera or a V4L2/USB camera to photograph cultures during an experiment. The camera feature is experimental and disabled by default.
