@@ -113,6 +113,10 @@ You can attach the source of your media pump to your media bottle and "prime" it
 
 Likewise, the waste pump can flushed with water, and then attached to the Pioreactor vial and waste bottle.
 
+:::caution
+Keep the waste tube outlet above the liquid in the waste bottle. Position it high enough that it remains above the expected maximum waste level. This air gap helps prevent waste from flowing back toward the Pioreactor if the bottle is moved, raised, or pressurized.
+:::
+
 :::tip
 Before attaching to media, waste, or vials for your experiments, you can spray the luer lock ends with ethanol. **Be careful that no liquid drips down into the Pioreactor vial holder.**
 :::
@@ -138,6 +142,5 @@ pio run add_media --continuously
 ### Programmatically run pumps using automations
 
 Dosing automations, like turbidostats, chemostats, fed-batch, etc., are available to run once your pumps are attached and calibrated. These automations will programmatically add and remove media. [Read more about automations](/user-guide/dosing-automations).
-
 
 
