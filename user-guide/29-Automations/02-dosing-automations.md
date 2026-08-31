@@ -72,16 +72,6 @@ When `biomass signal` is `auto`, the selection order is:
 2. `od`, when an active OD calibration is available for the resolved photodiode angle.
 3. `normalized_od`, when neither of the above is available.
 
-What "active" means:
-
- - An active `od_fused` estimator is the estimator currently marked active in **Estimators** for the `od_fused` device.
- - An active `od` calibration is the calibration currently marked active for the OD device that matches the photodiode angle Turbidostat resolves for your setup, such as `od90` or `od135`.
- - If you have multiple non-reference OD signal channels configured, Turbidostat resolves `od` using the lowest-numbered signal channel and logs a warning. In that case, `od_fused` or `normalized_od` is usually a better choice.
-
-If the selected biomass signal is not publishing fresh data, Turbidostat cannot make a dosing decision. In practice this means:
-
- - `od_reading` must be running.
- - `od` and `od_fused` data must be fresh. Readings older than 5 minutes are treated as stale, and the automation will warn instead of continuing with a dilution based on old data.
 
 ### Overriding the biomass signal
 
@@ -93,20 +83,6 @@ To set a persistent default in `config.ini`, use the per-automation section:
 [dosing_automation.turbidostat]
 biomass_signal=od_fused
 ```
-
-Legacy versions used:
-
-```ini
-[turbidostat.config]
-biomass_signal_override=od_fused
-```
-
-Current releases use `biomass_signal` under `[dosing_automation.turbidostat]` instead. During software updates, legacy values are migrated when present, and systems without a prior setting are seeded with `biomass_signal=auto`.
-
-You can also override this per run:
-
- - In the UI, the Turbidostat form starts with `biomass signal = auto`. You can change it before launching the automation.
- - In the advanced config UI, automation-specific overrides now use section names like `[dosing_automation.turbidostat]`.
 
 ### PID Morbidostat
 
