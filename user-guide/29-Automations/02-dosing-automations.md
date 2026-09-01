@@ -2,6 +2,7 @@
 title: Dosing automations
 slug: /dosing-automations
 hide_table_of_contents: true
+sidebar_class_name: sidebar-item--updated
 ---
 
 
