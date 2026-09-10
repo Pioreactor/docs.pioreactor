@@ -46,6 +46,26 @@ if __name__ == "__main__":
 
 :::
 
+### Respecting configured filesystem paths
+
+Since 26.8.1, plugin code can use `pioreactor.paths` to follow the same configured filesystem roots as core Pioreactor code. Each helper returns a `pathlib.Path`:
+
+| Helper | Environment variable | Production default |
+| --- | --- | --- |
+| `get_dot_pioreactor_path()` | `DOT_PIOREACTOR` | `/home/pioreactor/.pioreactor` |
+| `get_run_pioreactor_path()` | `RUN_PIOREACTOR` | `/run/pioreactor` |
+| `get_pio_venv_path()` | `PIO_VENV` | `/opt/pioreactor/venv` |
+
+For example, construct a plugin data path without hard-coding the Pioreactor home directory:
+
+```python
+from pioreactor.paths import get_dot_pioreactor_path
+
+data_path = get_dot_pioreactor_path() / "storage" / "my_plugin"
+```
+
+Use the runtime root for temporary runtime state and the data root for persistent files. In testing, `get_dot_pioreactor_path()` defaults to the relative `.pioreactor` directory if `DOT_PIOREACTOR` is not set. Plugins importing these helpers require Pioreactor 26.8.1 or newer.
+
 ### Custom background jobs
 
 Here's an example: place the following code into the file `/home/pioreactor/.pioreactor/plugins/demo_job.py`

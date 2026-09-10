@@ -19,7 +19,7 @@ On **Start a new experiment**:
 1. Enter a unique experiment name.
 2. Optionally add a description. This can be edited later.
 3. Optionally add tags. Press `Enter` or type a comma after each tag to save it.
-4. If you want to reuse setup details from a previous run, click **Populate with previous experiment**.
+4. To reuse setup details, choose a previous experiment from the arrow menu beside **Populate from**, then click **Populate from [experiment name]**. This fills in its name, description, and tags; change the name to a unique one before saving.
 5. Click **Save**.
 
 Tags are useful for grouping related experiments across time. For example, you might tag experiments by strain, media, operator, protocol, or project name.

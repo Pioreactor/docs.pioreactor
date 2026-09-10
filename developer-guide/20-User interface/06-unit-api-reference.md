@@ -58,6 +58,7 @@ Endpoint count: `93`
 | `GET` | [`/unit_api/camera/experiments/{experiment}/stills.zip`](#endpoint-get-unit-api-camera-experiments-experiment-stills-zip) | [`get_zipped_camera_stills_for_experiment`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/unit_api.py#L353) |
 | `DELETE` | [`/unit_api/camera/experiments/{experiment}/stills/{image_id}.jpg`](#endpoint-delete-unit-api-camera-experiments-experiment-stills-image-id-jpg) | [`delete_camera_still_for_experiment`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/unit_api.py#L324) |
 | `GET` | [`/unit_api/camera/experiments/{experiment}/stills/{image_id}.jpg`](#endpoint-get-unit-api-camera-experiments-experiment-stills-image-id-jpg) | [`get_camera_still_for_experiment`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/unit_api.py#L297) |
+| `PATCH` | [`/unit_api/camera/experiments/{experiment}/stills/{image_id}.jpg`](#endpoint-patch-unit-api-camera-experiments-experiment-stills-image-id-jpg) | `rename_camera_still_for_experiment` |
 | `GET` | [`/unit_api/camera/focus_sessions/{session_id}/preview.jpg`](#endpoint-get-unit-api-camera-focus-sessions-session-id-preview-jpg) | [`get_camera_focus_preview`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/unit_api.py#L270) |
 | `PATCH` | [`/unit_api/camera/settings`](#endpoint-patch-unit-api-camera-settings) | [`update_camera_settings`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/unit_api.py#L207) |
 | `GET` | [`/unit_api/capabilities`](#endpoint-get-unit-api-capabilities) | [`get_capabilities`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/unit_api.py#L1417) |
@@ -1451,6 +1452,46 @@ Get Camera Still For Experiment endpoint.
 Status: `200 OK`
 
 _No example body inferred._
+
+## Rename Camera Still For Experiment {#endpoint-patch-unit-api-camera-experiments-experiment-stills-image-id-jpg}
+
+Rename a stored photo without changing its experiment, capture time, or capture reason. The name becomes its image identifier and JPEG filename.
+
+### Endpoint
+`PATCH /unit_api/camera/experiments/{experiment}/stills/{image_id}.jpg`
+
+### Request
+
+#### Path Parameters
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| experiment | string | Yes | Experiment identifier. |
+| image_id | string | Yes | Current image identifier, without the `.jpg` extension. |
+
+#### JSON Body
+
+```json
+{
+  "new_image_id": "culture-before-dosing"
+}
+```
+
+`new_image_id` is required. Use only ASCII letters, digits, dots, dashes, and underscores, without spaces or a `.jpg` extension. The name must not already belong to another stored image on that Pioreactor, including images from other experiments.
+
+### Response
+
+Status: `200 OK`. Returns the updated image metadata:
+
+```json
+{
+  "experiment": "my experiment",
+  "captured_at": "2026-09-09T12:00:00Z",
+  "image_id": "culture-before-dosing",
+  "capture_reason": "manual"
+}
+```
+
+Use the new identifier for subsequent image requests. Invalid names return `400 Bad Request`, missing images return `404 Not Found`, and name conflicts return `409 Conflict`.
 
 ## Get Camera Focus Preview {#endpoint-get-unit-api-camera-focus-sessions-session-id-preview-jpg}
 

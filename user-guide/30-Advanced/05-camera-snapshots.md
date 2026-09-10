@@ -23,10 +23,13 @@ Open **Configuration**, select the shared `config.ini`, and add or update the fo
 [camera]
 enabled=1
 snapshot_interval_minutes=5
+use_ir_led=1
 ir_led_intensity=25
 ```
 
 `snapshot_interval_minutes` is the number of whole minutes between automatic snapshots. Set it to `0` to disable scheduled captures while keeping manual captures available.
+
+With `use_ir_led=1` (the default), captures use the Pioreactor's IR LED at `ir_led_intensity`. In 26.9.0, you can set `use_ir_led=0` to capture using your own lighting without changing the IR LED. In that mode, `ir_led_intensity` is not used for camera captures.
 
 Next, configure the type of camera connected to each Pioreactor.
 
@@ -55,14 +58,44 @@ Set `keep_camera_active=1` to keep a Raspberry Pi camera sensor warm between cap
 Once camera snapshots are enabled, open **Cameras** in the sidebar. Each assigned Pioreactor with a detected camera has a camera card.
 
 - Use **Capture snapshots automatically** to enable or disable scheduled captures for an individual Pioreactor. The interval still comes from `snapshot_interval_minutes`.
-- Open the snapshot history to take an immediate snapshot, browse earlier images, delete individual images, or choose **Download all**.
+- Open the snapshot history to **Capture snapshot**, browse earlier images, delete individual images, or choose **Download all snapshots**.
+- Use the pencil icon (**Rename photo**) beside an image to change its name, then click **Rename**.
 - You can also take an immediate snapshot from that Pioreactor's command line with `pio run camera_snapshot`.
+
+### Naming snapshots
+
+The UI assigns a name automatically when it captures an image. Rename the photo afterward, or supply a name when capturing from that Pioreactor's command line:
+
+```bash
+pio run camera_snapshot --name culture-before-dosing
+```
+
+Use letters (`A–Z`, `a–z`), digits, dots, dashes, or underscores, without spaces or the `.jpg` extension. Names must be unique across stored photos on that Pioreactor, including photos from other experiments. An existing photo is not overwritten. Renaming changes the image's filename and identifier, while preserving its capture time and whether it was captured manually or automatically.
+
+### Storage and retention
 
 Automatic captures only run while the Pioreactor is active and assigned to an experiment. Each Pioreactor retains up to 500 scheduled snapshots per experiment, spread across the experiment timeline. Manually captured snapshots are retained until you delete them or delete the experiment.
 
 :::warning
 Deleting an experiment also deletes its stored camera snapshots from the Pioreactors that were assigned to it. Download any images you want to keep before deleting the experiment.
 :::
+
+## Raspberry Pi capture profiles
+
+In 26.9.0, Raspberry Pi captures use the native `rpicam-still` profile at `$DOT_PIOREACTOR/camera/viewing.conf` (normally `/home/pioreactor/.pioreactor/camera/viewing.conf`). It controls image settings such as resolution, tuning, exposure, and JPEG quality. The default profile uses JPEG quality `75`; the 26.8.1 release reduced the previous quality of `95` to reduce file sizes while retaining the image dimensions.
+
+Editing `viewing.conf` affects snapshots and focus previews on that Pioreactor. If `keep_camera_active=1`, restart the affected Pioreactor's Huey service or reboot it to apply profile edits to the persistent camera process.
+
+For a single manual capture, pass a different native configuration file:
+
+```bash
+pio run camera_snapshot --name culture-fixed-exposure \
+  --config /home/pioreactor/.pioreactor/camera/stable_cv.conf
+```
+
+The 26.9.0 upgrade installs `stable_cv.conf`, which fixes exposure and white balance for repeatable image analysis. It is configured for the OV5647 NoIR camera; check the sensor mode and tuning file before using it with another camera model. A custom file can be used instead. Relative paths inside the profile resolve from the profile's directory; environment variables inside native config files are not expanded.
+
+`--config` is supported only with `capture_backend=rpicam` and requires the camera warmer to be stopped. If it is enabled, set `keep_camera_active=0` and restart Huey or reboot the affected Pioreactor before using a custom profile. This override applies only to that capture; automatic snapshots continue to use `viewing.conf`.
 
 ## Focus a Raspberry Pi camera
 

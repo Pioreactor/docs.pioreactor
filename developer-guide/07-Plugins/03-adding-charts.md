@@ -1,5 +1,5 @@
 ---
-title: Adding charts to the Overview page
+title: Adding charts to the UI
 slug: /plugins/charts
 hide_table_of_contents: true
 ---
@@ -16,7 +16,7 @@ If your data comes from a worker, you usually need three pieces:
 
 1. Worker-side code that publishes the reading to MQTT.
 2. Leader-side persistence that stores readings in a SQLite table, if the chart should show historical data.
-3. Leader-side chart YAML and `[ui.overview.charts]` config so the **Overview** page knows how to display the data.
+3. Leader-side chart YAML to make the chart available, and `[ui.overview.charts]` config to include it in the default chart selection.
 
 ### Step 1
 Create a YAML file with the following fields, and place it on the leader in `/home/pioreactor/.pioreactor/plugins/ui/charts/`. Plugins can put the YAML file under `ui/charts` in their project folder; it will be copied to `~/.pioreactor/plugins/ui/charts` upon installation. The installer also accepts `ui/contrib/charts` for legacy plugins.
@@ -40,18 +40,24 @@ See examples of YAML files [here](https://github.com/Pioreactor/pioreactor/tree/
 
 ### Step 2
 
-On the leader, add your chart key under `[ui.overview.charts]` in `config.ini` and assign it 1. Example:
+On the leader, add your chart key under `[ui.overview.charts]` in `config.ini` and assign it `1` to include it in the defaults. Example:
 
 ```
 [ui.overview.charts]
-# show/hide charts on the PioreactorUI dashboard
-# 1 is show, 0 is hide
+# default chart selection for the Pioreactor UI
+# 1 includes the chart by default; 0 leaves it available to select
 ...
 co2_readings=1
 ...
 ```
 
 ![](/img/developer-guide/20-user-interface/04-adding-charts/adding_chart_to_config.png)
+
+### Per-experiment chart selection
+
+Since 26.9.0, users can select and reorder registered charts through **Customize charts**. Overview and individual Pioreactor chart views store separate ordered selections for each experiment on the leader. `[ui.overview.charts]` supplies defaults when a selection has not been saved; it does not restrict which registered charts users can select.
+
+A new plugin chart is available in **Customize charts** even if its config value is `0`. Changing the config defaults does not replace an experiment's saved selection. Users can select the new chart explicitly or choose **Use defaults**, then **Save**. See [Choosing and ordering charts](/user-guide/monitor-experiment#choosing-and-ordering-charts).
 
 ### Troubleshooting
 

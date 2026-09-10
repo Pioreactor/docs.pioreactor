@@ -63,6 +63,8 @@ Endpoint count: `156`
 | `DELETE` | [`/api/experiments/{experiment}`](#endpoint-delete-api-experiments-experiment) | [`delete_experiment`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L3440) |
 | `GET` | [`/api/experiments/{experiment}`](#endpoint-get-api-experiments-experiment) | [`get_experiment`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L3583) |
 | `PATCH` | [`/api/experiments/{experiment}`](#endpoint-patch-api-experiments-experiment) | [`update_experiment`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L3550) |
+| `GET` | [`/api/experiments/{experiment}/chart_preferences`](#endpoint-get-api-experiments-experiment-chart-preferences) | `get_experiment_chart_preferences` |
+| `PATCH` | [`/api/experiments/{experiment}/chart_preferences`](#endpoint-patch-api-experiments-experiment-chart-preferences) | `update_experiment_chart_preferences` |
 | `GET` | [`/api/experiments/{experiment}/cameras`](#endpoint-get-api-experiments-experiment-cameras) | [`get_camera_statuses_for_experiment`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L711) |
 | `GET` | [`/api/experiments/{experiment}/experiment_profiles/recent`](#endpoint-get-api-experiments-experiment-experiment-profiles-recent) | [`get_recent_experiment_profile_runs`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L3959) |
 | `GET` | [`/api/experiments/{experiment}/experiment_profiles/running`](#endpoint-get-api-experiments-experiment-experiment-profiles-running) | [`get_running_profiles`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L3929) |
@@ -156,6 +158,7 @@ Endpoint count: `156`
 | `GET` | [`/api/workers/{pioreactor_unit}/camera/experiments/{experiment}/stills.zip`](#endpoint-get-api-workers-pioreactor-unit-camera-experiments-experiment-stills-zip) | [`get_zipped_camera_stills_for_worker_experiment`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L932) |
 | `DELETE` | [`/api/workers/{pioreactor_unit}/camera/experiments/{experiment}/stills/{image_id}.jpg`](#endpoint-delete-api-workers-pioreactor-unit-camera-experiments-experiment-stills-image-id-jpg) | [`delete_camera_still_for_worker_experiment`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L902) |
 | `GET` | [`/api/workers/{pioreactor_unit}/camera/experiments/{experiment}/stills/{image_id}.jpg`](#endpoint-get-api-workers-pioreactor-unit-camera-experiments-experiment-stills-image-id-jpg) | [`get_camera_still_for_worker_experiment`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L878) |
+| `PATCH` | [`/api/workers/{pioreactor_unit}/camera/experiments/{experiment}/stills/{image_id}.jpg`](#endpoint-patch-api-workers-pioreactor-unit-camera-experiments-experiment-stills-image-id-jpg) | `rename_camera_still_for_worker_experiment` |
 | `GET` | [`/api/workers/{pioreactor_unit}/camera/focus_sessions/{session_id}/preview.jpg`](#endpoint-get-api-workers-pioreactor-unit-camera-focus-sessions-session-id-preview-jpg) | [`get_camera_focus_preview_for_worker`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L774) |
 | `PATCH` | [`/api/workers/{pioreactor_unit}/camera/settings`](#endpoint-patch-api-workers-pioreactor-unit-camera-settings) | [`update_camera_settings_for_worker`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L751) |
 | `GET` | [`/api/workers/{pioreactor_unit}/capabilities`](#endpoint-get-api-workers-pioreactor-unit-capabilities) | [`get_capabilities`](https://github.com/Pioreactor/pioreactor/blob/master/core/pioreactor/web/api.py#L2827) |
@@ -1327,6 +1330,64 @@ Example body:
   ]
 }
 ```
+
+## Get Experiment Chart Preferences {#endpoint-get-api-experiments-experiment-chart-preferences}
+
+Return the experiment's saved chart selections. Overview and individual Pioreactor chart views have independent ordered lists. A `null` value means the UI uses the configured defaults; an empty list means no charts are selected.
+
+### Endpoint
+`GET /api/experiments/{experiment}/chart_preferences`
+
+### Request
+
+#### Path Parameters
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| experiment | string | Yes | Experiment identifier. |
+
+### Response
+
+Status: `200 OK`
+
+```json
+{
+  "overview_chart_keys": ["optical_density", "temperature"],
+  "pioreactor_chart_keys": null
+}
+```
+
+An unknown experiment returns `404 Not Found`.
+
+## Update Experiment Chart Preferences {#endpoint-patch-api-experiments-experiment-chart-preferences}
+
+Save chart selection and display order for an experiment. These preferences are stored on the leader and shared across browsers.
+
+### Endpoint
+`PATCH /api/experiments/{experiment}/chart_preferences`
+
+### Request
+
+#### Path Parameters
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| experiment | string | Yes | Experiment identifier. |
+
+#### JSON Body
+
+Provide at least one of `overview_chart_keys` or `pioreactor_chart_keys`. Each value is an ordered array of distinct chart keys or `null` to restore configuration defaults. Omitted fields are unchanged. An empty array hides all charts for that view. Obtain valid keys from [`GET /api/charts/descriptors`](#endpoint-get-api-charts-descriptors).
+
+```json
+{
+  "overview_chart_keys": ["optical_density", "temperature"],
+  "pioreactor_chart_keys": null
+}
+```
+
+### Response
+
+Status: `200 OK`. Returns both preference fields in the same shape as the GET endpoint.
+
+Duplicate or unavailable chart keys, or a body with neither supported field, return `400 Bad Request`. An unknown experiment returns `404 Not Found`.
 
 ## Get Camera Statuses For Experiment {#endpoint-get-api-experiments-experiment-cameras}
 
@@ -4817,6 +4878,47 @@ Get Camera Still For Worker Experiment endpoint.
 Status: `200 OK`
 
 _No example body inferred._
+
+## Rename Camera Still For Worker Experiment {#endpoint-patch-api-workers-pioreactor-unit-camera-experiments-experiment-stills-image-id-jpg}
+
+Rename a stored photo without changing its experiment, capture time, or capture reason. The name becomes its image identifier and JPEG filename.
+
+### Endpoint
+`PATCH /api/workers/{pioreactor_unit}/camera/experiments/{experiment}/stills/{image_id}.jpg`
+
+### Request
+
+#### Path Parameters
+| Name | Type | Required | Description |
+| ---- | ---- | -------- | ----------- |
+| pioreactor_unit | string | Yes | One worker name; `$broadcast` is not supported. |
+| experiment | string | Yes | Experiment identifier. |
+| image_id | string | Yes | Current image identifier, without the `.jpg` extension. |
+
+#### JSON Body
+
+```json
+{
+  "new_image_id": "culture-before-dosing"
+}
+```
+
+`new_image_id` is required. Use only ASCII letters, digits, dots, dashes, and underscores, without spaces or a `.jpg` extension. The name must not already belong to another stored image on that Pioreactor, including images from other experiments.
+
+### Response
+
+Status: `200 OK`. Returns the updated image metadata:
+
+```json
+{
+  "experiment": "my experiment",
+  "captured_at": "2026-09-09T12:00:00Z",
+  "image_id": "culture-before-dosing",
+  "capture_reason": "manual"
+}
+```
+
+Use the new identifier for subsequent image requests. Invalid names return `400 Bad Request`, missing images return `404 Not Found`, and name conflicts return `409 Conflict`.
 
 ## Get Camera Focus Preview For Worker {#endpoint-get-api-workers-pioreactor-unit-camera-focus-sessions-session-id-preview-jpg}
 
