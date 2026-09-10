@@ -18,8 +18,8 @@
 
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css" integrity="sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM" crossorigin="anonymous"><link rel="stylesheet" href="/assets/css/styles.8cc36165.css">
-<script src="/assets/js/runtime~main.0d4b1c17.js" defer="defer"></script>
-<script src="/assets/js/main.1ecf7cf2.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.6348a8d3.js" defer="defer"></script>
+<script src="/assets/js/main.f4e3c89e.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
 <svg style="display: none;"><defs>
@@ -40,9 +40,9 @@
 <li class="">One folder per selected dataset, containing its CSV files and a <code>schema.json</code> file.</li>
 <li class="">Each <code>schema.json</code> describes the dataset and its columns, including descriptions and units when the dataset provides them.</li>
 </ul>
-<p>The metadata format is versioned independently from the Pioreactor software. In 26.7.0, <code>manifest.json</code> and each <code>schema.json</code> use schema version <code>1</code>.</p>
+<p>The metadata format is versioned independently from the Pioreactor software. <code>manifest.json</code> and each <code>schema.json</code> use schema version <code>1</code>.</p>
 <h2 class="anchor anchorTargetHideOnScrollNavbar_vjPI" id="exporting-experiment-details-and-tags">Exporting experiment details and tags<a href="#exporting-experiment-details-and-tags" class="hash-link" aria-label="Direct link to Exporting experiment details and tags" title="Direct link to Exporting experiment details and tags" translate="no">​</a></h2>
-<p>Select <strong>Experiments</strong> to export metadata for the selected experiment. In 26.9.0, this dataset correctly respects the experiment selection.</p>
+<p>Select <strong>Experiments</strong> to export metadata for the selected experiment.</p>
 <p>Select <strong>Experiment tags</strong> to export the experiment&#x27;s assigned tags, including each tag&#x27;s assignment timestamp. Its dataset name for CLI, API, and MCP exports is <code>experiment_tags</code>. It has experiment-level rows rather than per-Pioreactor rows, so splitting by Pioreactor does not apply. Time filters apply to when each tag was assigned.</p>
 <h2 class="anchor anchorTargetHideOnScrollNavbar_vjPI" id="exporting-from-the-command-line-or-an-integration">Exporting from the command line or an integration<a href="#exporting-from-the-command-line-or-an-integration" class="hash-link" aria-label="Direct link to Exporting from the command line or an integration" title="Direct link to Exporting from the command line or an integration" translate="no">​</a></h2>
 <p>On the leader, <code>pio run export_experiment_data</code> requires exactly one <code>--experiment</code>. Repeat <code>--dataset-name</code> to select more than one dataset:</p>
