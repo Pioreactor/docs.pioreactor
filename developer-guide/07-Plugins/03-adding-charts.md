@@ -55,7 +55,7 @@ co2_readings=1
 
 ### Per-experiment chart selection
 
-Since 26.9.0, users can select and reorder registered charts through **Customize charts**. Overview and individual Pioreactor chart views store separate ordered selections for each experiment on the leader. `[ui.overview.charts]` supplies defaults when a selection has not been saved; it does not restrict which registered charts users can select.
+Users can select and reorder registered charts through **Customize charts**. Overview and individual Pioreactor chart views store separate ordered selections for each experiment on the leader. `[ui.overview.charts]` supplies defaults when a selection has not been saved; it does not restrict which registered charts users can select.
 
 A new plugin chart is available in **Customize charts** even if its config value is `0`. Changing the config defaults does not replace an experiment's saved selection. Users can select the new chart explicitly or choose **Use defaults**, then **Save**. See [Choosing and ordering charts](/user-guide/monitor-experiment#choosing-and-ordering-charts).
 

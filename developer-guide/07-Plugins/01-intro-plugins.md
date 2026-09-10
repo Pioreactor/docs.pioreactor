@@ -49,7 +49,7 @@ if __name__ == "__main__":
 
 ### Respecting configured filesystem paths
 
-Since 26.8.1, plugin code can use `pioreactor.paths` to follow the same configured filesystem roots as core Pioreactor code. Each helper returns a `pathlib.Path`:
+Plugin code can use `pioreactor.paths` to follow the same configured filesystem roots as core Pioreactor code. Each helper returns a `pathlib.Path`:
 
 | Helper | Environment variable | Production default |
 | --- | --- | --- |

@@ -27,25 +27,13 @@ This is very new! Let us know if you have any questions, ideas, or issues!
 
 :::
 
-## Updating integrations for 26.9.0
+## Discovering and controlling jobs
 
-After upgrading from 26.8.x, refresh your client's MCP tool list and update any stored tool calls or scripts for these changes:
+Use `get_pioreactor_unit_capabilities` to discover the available jobs, command-line arguments and options, and published settings before launching or changing a job. The default response includes invocation details; set `condensed=true` for a shorter summary. Unavailable workers are represented by `null` in capability results. Read-only tools are marked with MCP read-only annotations to help clients distinguish inspection from changes.
 
-| Previous behavior | 26.9.0 behavior |
-| --- | --- |
-| `get_pioreactor_unit_capabilties` | Renamed to `get_pioreactor_unit_capabilities`. |
-| `assign_workers_to_experiment` | Renamed to `assign_worker_to_experiment`; takes one `pioreactor_unit` and an `experiment`. |
-| Job-launch `options` supplied as a JSON-encoded string | Supply a JSON object with scalar values. Use CLI option names without leading dashes, such as `{"target-rpm": 500}`; use `null` for a flag without a value. |
-| Stopping jobs without a target | `stop_job_on_pioreactor_unit` requires an explicit `pioreactor_unit`. Use `"$broadcast"` to target all workers assigned to the experiment. |
-| List responses wrapped in `{"result": ...}` | The extra wrapper is removed; consume the returned list directly. |
-| Unavailable workers represented by `[]` in capability results | Unavailable workers are represented by `null`. |
-| `db_query_db` returning an unrestricted list of rows | Only a single read-only `SELECT` (including `WITH` queries) is accepted; the result contains `rows`, `row_count`, and `truncated`. |
+Use `assign_worker_to_experiment` with a `pioreactor_unit` and an `experiment` to assign one worker.
 
-### Discovering and controlling jobs
-
-Use `get_pioreactor_unit_capabilities` to discover the available jobs, command-line arguments and options, and published settings before launching or changing a job. The default response includes invocation details; set `condensed=true` for a shorter summary. Read-only tools are marked with MCP read-only annotations to help clients distinguish inspection from changes.
-
-For example, the arguments to `run_job_or_action_on_pioreactor_unit` to start stirring on one worker are:
+When launching a job, supply `options` as a JSON object with scalar values. Use CLI option names without leading dashes, and `null` for flags without values. For example, the arguments to `run_job_or_action_on_pioreactor_unit` to start stirring on one worker are:
 
 ```json
 {
@@ -56,11 +44,15 @@ For example, the arguments to `run_job_or_action_on_pioreactor_unit` to start st
 }
 ```
 
+`stop_job_on_pioreactor_unit` requires an explicit `pioreactor_unit`. Use `"$broadcast"` to stop jobs on all workers assigned to the experiment.
+
 Task-result polling is bounded. If a call reports that an operation is still pending, it may still complete. Check the task result URL or running jobs before trying again; resubmitting a launch or action can run it twice.
 
-### Querying data
+## Querying data
 
-Discover tables with `db_get_tables` and columns with `db_get_table_schema`. Supply values using `?` placeholders and the `parameters` list. For example, pass these arguments to `db_query_db`:
+Tools that list experiments, workers, profiles, logs, or database tables return lists directly.
+
+`db_query_db` accepts a single read-only `SELECT`, including `WITH` queries. Discover tables with `db_get_tables` and columns with `db_get_table_schema`. Supply values using `?` placeholders and the `parameters` list. For example, pass these arguments to `db_query_db`:
 
 ```json
 {

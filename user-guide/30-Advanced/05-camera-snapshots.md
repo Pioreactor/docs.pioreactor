@@ -1,5 +1,5 @@
 ---
-title: Camera snapshots (experimental)
+title: Camera snapshots
 slug: /camera-snapshots
 description: Configure a Raspberry Pi or USB camera to capture and review experiment snapshots.
 hide_table_of_contents: true
@@ -29,7 +29,7 @@ ir_led_intensity=25
 
 `snapshot_interval_minutes` is the number of whole minutes between automatic snapshots. Set it to `0` to disable scheduled captures while keeping manual captures available.
 
-With `use_ir_led=1` (the default), captures use the Pioreactor's IR LED at `ir_led_intensity`. In 26.9.0, you can set `use_ir_led=0` to capture using your own lighting without changing the IR LED. In that mode, `ir_led_intensity` is not used for camera captures.
+With `use_ir_led=1` (the default), captures use the Pioreactor's IR LED at `ir_led_intensity`. Set `use_ir_led=0` to capture using your own lighting without changing the IR LED. In that mode, `ir_led_intensity` is not used for camera captures.
 
 Next, configure the type of camera connected to each Pioreactor.
 
@@ -82,7 +82,7 @@ Deleting an experiment also deletes its stored camera snapshots from the Pioreac
 
 ## Raspberry Pi capture profiles
 
-In 26.9.0, Raspberry Pi captures use the native `rpicam-still` profile at `$DOT_PIOREACTOR/camera/viewing.conf` (normally `/home/pioreactor/.pioreactor/camera/viewing.conf`). It controls image settings such as resolution, tuning, exposure, and JPEG quality. The default profile uses JPEG quality `75`; the 26.8.1 release reduced the previous quality of `95` to reduce file sizes while retaining the image dimensions.
+Raspberry Pi captures use the native `rpicam-still` profile at `$DOT_PIOREACTOR/camera/viewing.conf` (normally `/home/pioreactor/.pioreactor/camera/viewing.conf`). It controls image settings such as resolution, tuning, exposure, and JPEG quality. The default profile uses JPEG quality `75` to keep file sizes small while retaining the image dimensions.
 
 Editing `viewing.conf` affects snapshots and focus previews on that Pioreactor. If `keep_camera_active=1`, restart the affected Pioreactor's Huey service or reboot it to apply profile edits to the persistent camera process.
 

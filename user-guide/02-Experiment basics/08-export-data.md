@@ -30,11 +30,11 @@ Every archive includes:
 - One folder per selected dataset, containing its CSV files and a `schema.json` file.
 - Each `schema.json` describes the dataset and its columns, including descriptions and units when the dataset provides them.
 
-The metadata format is versioned independently from the Pioreactor software. In 26.7.0, `manifest.json` and each `schema.json` use schema version `1`.
+The metadata format is versioned independently from the Pioreactor software. `manifest.json` and each `schema.json` use schema version `1`.
 
 ## Exporting experiment details and tags
 
-Select **Experiments** to export metadata for the selected experiment. In 26.9.0, this dataset correctly respects the experiment selection.
+Select **Experiments** to export metadata for the selected experiment.
 
 Select **Experiment tags** to export the experiment's assigned tags, including each tag's assignment timestamp. Its dataset name for CLI, API, and MCP exports is `experiment_tags`. It has experiment-level rows rather than per-Pioreactor rows, so splitting by Pioreactor does not apply. Time filters apply to when each tag was assigned.
 
