@@ -90,8 +90,7 @@ Place the glassware vial into the Pioreactor sleeve. Ensure that the vial is pre
 Next, you can [start your experiment](/user-guide/set-up-an-experiment) in the browser.
 
 
-### Extra
-#### Using pumps: influx and efflux.
+### Using pumps: influx and efflux.
 
 When using the Pioreactor with pumps, you'll be using the four luer lock tubes/needle as influx and efflux. The tubes/needles, which are identical lengths, can be moved up and down, and we suggest using this as a way to "label" tubes, and to control the maximum volume in the vial. This can be done before sterilization. Here's how:
 

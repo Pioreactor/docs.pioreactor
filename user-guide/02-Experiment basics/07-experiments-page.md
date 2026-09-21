@@ -17,7 +17,7 @@ At the top of **Experiments**, you can:
 
 Each row shows the experiment name, description, tags, creation time, and whether the experiment is currently active.
 
-Click an experiment name to open that experiment. Use **More actions** for experiment-specific actions available in the UI.
+Click an experiment name to open that experiment.
 
 ## Using tags
 
@@ -25,4 +25,4 @@ Tags help group related work across many runs. You might use tags for strain nam
 
 ![](/img/user-guide/02-experiment-basics/07-experiments-page/experiments-page-tags-open-framed.png)
 
-Open **Filter by tags** and select one or more tags to narrow the list. This is useful when your cluster has many past experiments and you want to quickly find a subset without searching by the full experiment name.
+Open **Filter by tags** and select one or more tags to narrow the list.

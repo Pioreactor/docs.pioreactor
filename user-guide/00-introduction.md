@@ -25,8 +25,7 @@ If you are interested in the software internals, take a look at our [developer g
 ### Looking for further help?
 
 
-1. Check out the documentation (you're on it right now)!
-2. Ask a question on our [community forums](https://forum.pioreactor.com/)
+1. Ask a question on our [community forums](https://forum.pioreactor.com/)
 2. Contact us at support@pioreactor.com
 
 -----

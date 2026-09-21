@@ -10,7 +10,7 @@ Hardware calibrations serve as a method to get accurate performance from your Pi
 ### Stirring calibrations
 
 :::tip
-This is optional, but can really help stirring performance. Creating a stirring calibration is also very easy, so we recommend it.
+This is optional, but can really help stirring performance.
 :::
 
 You'll need:

@@ -4,7 +4,7 @@ slug: /start-stop-experiment-profiles
 hide_table_of_contents: true
 ---
 
-Experiment profiles let you automate repeatable routines across your Pioreactor cluster. The UI is the fastest way to launch, monitor, and stop those routines.
+Experiment profiles let you automate repeatable routines across your Pioreactor cluster.
 
 ## Start a profile from the UI
 
@@ -36,19 +36,11 @@ When you need to stop a profile early, use the **Stop** button in that table. Co
 
 ![Stop button highlighted in the Profiles Running table](/img/user-guide/03-extending-your-pioreactor/03-start-stop-profiles/profile-stop.png)
 
-Confirm the prompt to finish shutting the profile down.
-
 ![Stop profile confirmation dialog with the Stop Profile button highlighted](/img/user-guide/03-extending-your-pioreactor/03-start-stop-profiles/profile-stop-dialog.png)
 
 ## Run profiles from the CLI
 
 You can also launch profiles from the leader's terminal:
-
-```bash
-pio run experiment_profile execute </path/to/experiment_profile/.yaml> <experiment_name>
-```
-
-For example:
 
 ```bash
 pio run experiment_profile execute /home/pioreactor/.pioreactor/experiment_profiles/chemostat_in_out_2.yaml 'level tests'

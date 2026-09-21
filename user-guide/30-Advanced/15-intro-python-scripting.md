@@ -8,7 +8,7 @@ hide_table_of_contents: true
 This article isn't intended as a crash course in Python, or Pioreactor software, but some helpful ways to write small scripts for your Pioreactor. If interested in learning more, check out the [developer docs](/developer-guide/introduction) for detailed information.
 :::
 
-For some testing and playing purposes, it's really easy to get started writing scripts to automate parts of your Pioreactor. For this tutorial, you'll need to be able to SSH into your Raspberry Pi.
+For this tutorial, you'll need to be able to SSH into your Raspberry Pi.
 
 ### 1. SSHing into your Raspberry Pi
 
@@ -16,7 +16,6 @@ SSHing means to connect to a computer remotely, and interact with its command li
 
  - **Windows users**: use the Command Prompt, or install [PuTTY](https://www.putty.org/), or install the [Secure Shell App](https://chrome.google.com/webstore/detail/secure-shell-app/pnhechapfaindjhompbnflcldabbghjo?hl=en) for Google Chrome.
  - **macOS users**: open up the terminal app: `command`+`space`, search for "terminal".
- - **linux users**: y'all don't need my help :)
 
 
 We need to connect to the Raspberry Pi:
@@ -44,7 +43,7 @@ Hit `crtl-x`, and then `Y` to save our file.
 
 ### 3. Running our Python script
 
-To run our script, type `python3 script_test.py` in the command line. If everything works correctly, your Pioreactor's stirring will start, and then finish after 10 seconds. You're a hacker now :)
+To run our script, type `python3 script_test.py` in the command line. If everything works correctly, your Pioreactor's stirring will start, and then finish after 10 seconds.
 
 To make stirring run _forever_, let's edit the file again: `nano script_test.py`, and replace `time.sleep(10)` with:
 
@@ -107,8 +106,3 @@ stirrer.set_target_rpm(300)
 
 stirrer.block_until_disconnected()
 ```
-
-### Conclusion
-
-This is just a small example of scripts you can make. If you need to learn more, we suggest checking out the [developer guide](/developer-guide/introduction).
-

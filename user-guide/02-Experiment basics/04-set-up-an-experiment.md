@@ -24,7 +24,7 @@ On **Start a new experiment**:
 
 Tags are useful for grouping related experiments across time. For example, you might tag experiments by strain, media, operator, protocol, or project name.
 
-After saving, you can come back to the experiment later from **Experiments**. Tags make it easier to find related runs when your list grows.
+After saving, you can come back to the experiment later from **Experiments**.
 
 
 ### Assigning Pioreactors to your experiment
@@ -67,8 +67,6 @@ The typical sequence of activities to start is:
 
 If you'd like to **change the settings** of your activities after you start, navigate back to the _Pioreactors_ tab. You can click a setting directly in a Pioreactor card to jump to that control. For example, click `Target stir RPM` in the card's _Settings_ row to open the settings panel at stirring.
 
-![](/img/user-guide/02-experiment-basics/04-set-up-an-experiment/pioreactor_page_manage.png)
-
 You can also open settings from _Control_ for a single Pioreactor or _Control all Pioreactors_, then click the _Settings_ tab.
 
 ![](/img/user-guide/02-experiment-basics/04-set-up-an-experiment/manage_ui.png)
@@ -78,7 +76,7 @@ Here you can change the settings of your activities (such as temperature, RPM, a
 (Optional) If working with more than one Pioreactor in your cluster, it's useful to assign experiment-specific labels in these settings. These labels appear in the user interface, making progress checking and updating easier. The labels can be changed later. Click "Assign" when done.
 
 :::tip
-Use these labels to keep track of treatments on multiple Pioreactors. For example, labels '15C', '25C' and '35C' can be used to differentiate temperature treatments. These labels will be shown on graphs generated in the _Overview_ page on the website. They can be changed in the UI later, too.
+Use these labels to keep track of treatments on multiple Pioreactors. For example, labels '15C', '25C' and '35C' can be used to differentiate temperature treatments. These labels will be shown on graphs generated in the _Overview_ page on the website.
 ::: 
 
 #### Ending your experiment

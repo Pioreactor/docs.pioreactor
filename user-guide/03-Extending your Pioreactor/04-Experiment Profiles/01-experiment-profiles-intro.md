@@ -6,7 +6,7 @@ hide_table_of_contents: true
 
 ### What are experiment profiles?
 
-Experiment profiles are another way to automatically control your Pioreactor(s). Think of them as "scripts" (in the "movie script" sense) that you can write, and the Pioreactor will perform. For example, you can use experiment profiles to automatically start stirring and start temperature control when an experiment begins, and then automatically turn off stirring and temperature control hours later. They can be used to update activity settings, without you needing to be around. We think of them as "clicking in the UI, but headless".
+Experiment profiles are another way to automatically control your Pioreactor(s). For example, you can use experiment profiles to automatically start stirring and start temperature control when an experiment begins, and then automatically turn off stirring and temperature control hours later. They can be used to update activity settings, without you needing to be around.
 
 
 ### How do I use experiment profiles?
@@ -18,9 +18,7 @@ There's also a "dry-run" option, which won't actually execute any actions, but i
 
 ### What do they look like?
 
-Experiment profiles are written as a YAML file (rhymes with "camel"). A YAML file is a structured way to describe data, and we use that to define our experiments.
-
-You can browse experiment profile examples below.
+Experiment profiles are written as a YAML file. A YAML file is a structured way to describe data, and we use that to define our experiments.
 
 
 ### Looks great! Where do I start?

@@ -4,7 +4,7 @@ slug: /monitor-experiment
 hide_table_of_contents: true
 ---
 
-Navigate to the _Overview_ page on the Pioreactor web interface. Here you can view live charts for growth rate, OD, normalized OD, and temperature. These overview graphs are used to monitor collected data during the experiment runtime.
+Navigate to the _Overview_ page on the Pioreactor web interface. Here you can view live charts for growth rate, OD, normalized OD, and temperature.
 
 
 ## Choosing and ordering charts
@@ -20,19 +20,6 @@ When the `pioreactor-air-bubbler` plugin is configured with an `air_bubbler` PWM
 **Recent experiment logs** are found along the right side of the main _Overview page_. These logs document any errors, processes, or updates for each Pioreactor. Open **Experiment logs** in the sidebar to search and review the full history.
 
 ![](/img/user-guide/02-experiment-basics/06-monitor-experiment/example-event-logs.png)
-
-
-## Changing settings
-
-To **change the settings** of activities after starting, navigate to the _Pioreactors_ tab. Under _Control_ for a single Pioreactor or _Control all Pioreactors_, click the _Settings_ tab.
-
-![](/img/user-guide/02-experiment-basics/06-monitor-experiment/manage_ui.png)
-
-Here you can change the settings of your activities (such as temperature, RPM, and dosing volume) without pausing or stopping the activity.
-
-![](/img/user-guide/02-experiment-basics/06-monitor-experiment/settings.png)
-
-
 
 
 ## Identifying Pioreactors in your cluster
@@ -63,7 +50,7 @@ Optical density can decrease early => growth rates can dip negative early on & t
 
 ![](/img/user-guide/02-experiment-basics/06-monitor-experiment/forgot-stirbar.png)
 
-For variations in OD at the beginning, make sure that your **stirbar is in the vial!** This is a common mistake we experienced after several experiments. 
+For variations in OD at the beginning, make sure that your **stirbar is in the vial!**
 
 ### Random spikes in OD
 
