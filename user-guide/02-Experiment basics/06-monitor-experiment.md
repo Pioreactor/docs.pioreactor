@@ -2,6 +2,7 @@
 title: Monitoring your experiment
 slug: /monitor-experiment
 hide_table_of_contents: true
+sidebar_class_name: sidebar-item--updated
 ---
 
 Navigate to the _Overview_ page on the Pioreactor web interface. Here you can view live charts for growth rate, OD, normalized OD, and temperature.
