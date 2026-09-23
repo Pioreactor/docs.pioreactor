@@ -30,6 +30,22 @@ sudo nmcli device wifi connect <ssid name> password <ssid password> ifname wlan0
 
 (If you get a "Can't find" error, try running the above `list` command again.)
 
+If the Raspberry Pi's built-in Wi-Fi becomes disconnected, Pioreactor retries an available saved network with autoconnect enabled.
+
+### Connecting from the SD card with `wifi.ini`
+
+On a new Pioreactor image that supports boot-partition Wi-Fi setup, you can supply Wi-Fi credentials after flashing the SD card, without configuring Wi-Fi in Raspberry Pi Imager or using SSH. With the Pioreactor powered off, insert its SD card into your computer and create a plain-text file named `wifi.ini` at the root of the `boot` or `bootfs` volume:
+
+```ini title="wifi.ini"
+[wifi]
+ssid=Your network name
+passphrase=Your Wi-Fi password
+```
+
+Save the file, safely eject the SD card, and boot the Pioreactor. The image reads the file from `/boot/firmware/wifi.ini` and tries to connect to that network. After a successful connection, it removes `wifi.ini` from the boot partition; if the connection fails or either value is missing, the file remains there so you can correct it and reboot. Keep your Wi-Fi password private while the file is on the SD card.
+
+For a Pioreactor that is already running and reachable, use `nmcli` as described above.
+
 ### Connecting to multiple networks simultaneously
 
 First, some terminology and understanding for us: a computer, like a Pi, has networking interfaces. For example, the onboard wifi on RPi’s is one such interface. The larger, model Bs, have an ethernet connector, which is another interface. Each interface can connect to 0 or 1 networks.

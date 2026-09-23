@@ -7,6 +7,10 @@ sidebar_class_name: sidebar-item--updated
 
 Navigate to the _Overview_ page on the Pioreactor web interface. Here you can view live charts for growth rate, OD, normalized OD, and temperature.
 
+## Appearance
+
+Use **Appearance** in the top bar to choose **Light**, **Dark**, or **System**. **System** follows your device's appearance setting. The choice is remembered in this browser; it does not change the appearance for other users. Charts and downloaded chart images use the selected appearance.
+
 
 ## Choosing and ordering charts
 

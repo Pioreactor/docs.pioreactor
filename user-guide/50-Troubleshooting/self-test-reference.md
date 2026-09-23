@@ -47,3 +47,5 @@ If it continues to fail, contact us.
 **Stirring RPM is responsive** checks for a linear relationship between PWM stirring system and the Hall sensor that measure's RPM. If this fails, check that the stirring power is connected correctly (and in the location specified in config.ini's `[PWM]` section). Another reason for failure is that the magnets are too far away from the base of the vial. See [stirring troubleshooting](/user-guide/troubleshooting-stirring).
 
 **AUX power supply is appropriate value** checks that the AUX power voltage is between 0V and 18V. If no AUX power is connected to the Pioreactor, the default voltage is 5V.
+
+**Camera captures an image** appears when `[camera].enabled=1`. It checks that the configured camera captures a non-empty image. If it fails, check the camera connection and the `capture_backend`, `camera_index`, or `device_path` settings. See [Camera snapshots](/user-guide/camera-snapshots#if-a-camera-is-not-detected) for setup details.

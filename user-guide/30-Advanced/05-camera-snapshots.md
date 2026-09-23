@@ -104,3 +104,11 @@ For a manually focused camera, stop running optical-density, stirring, dosing-au
 ## If a camera is not detected
 
 Check that the camera is connected to the selected Pioreactor and that `capture_backend`, `camera_index`, or `device_path` matches the camera. For USB cameras, a stable path under `/dev/v4l/by-id/` is preferable to `/dev/video0` when one is available.
+
+With `[camera].enabled=1`, the Pioreactor's self-test includes **Camera captures an image**. Run the self-test from a Pioreactor's **Self-test** tab to check camera capture alongside the other hardware checks. To run just the camera check on that Pioreactor's command line, use:
+
+```bash
+pio run self_test -k test_camera_capture
+```
+
+Stop optical density reading, stirring, and automations before running a self-test. If the camera check fails, see [Self-test reference](/user-guide/self-test-reference) and the Pioreactor's system logs.
