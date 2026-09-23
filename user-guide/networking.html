@@ -18,8 +18,8 @@
 
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css" integrity="sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM" crossorigin="anonymous"><link rel="stylesheet" href="/assets/css/styles.8cc36165.css">
-<script src="/assets/js/runtime~main.8e320ed2.js" defer="defer"></script>
-<script src="/assets/js/main.0de83558.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.3cb08f78.js" defer="defer"></script>
+<script src="/assets/js/main.ed817bd9.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
 <svg style="display: none;"><defs>
@@ -34,6 +34,12 @@
 <p>If you see your network on the list, then run:</p>
 <div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">sudo nmcli device wifi connect &lt;ssid name&gt; password &lt;ssid password&gt; ifname wlan0</span><br></span></code></pre></div></div>
 <p>(If you get a &quot;Can&#x27;t find&quot; error, try running the above <code>list</code> command again.)</p>
+<p>If the Raspberry Pi&#x27;s built-in Wi-Fi becomes disconnected, Pioreactor retries an available saved network with autoconnect enabled.</p>
+<h3 class="anchor anchorTargetHideOnScrollNavbar_vjPI" id="connecting-from-the-sd-card-with-wifiini">Connecting from the SD card with <code>wifi.ini</code><a href="#connecting-from-the-sd-card-with-wifiini" class="hash-link" aria-label="Direct link to connecting-from-the-sd-card-with-wifiini" title="Direct link to connecting-from-the-sd-card-with-wifiini" translate="no">​</a></h3>
+<p>On a new Pioreactor image that supports boot-partition Wi-Fi setup, you can supply Wi-Fi credentials after flashing the SD card, without configuring Wi-Fi in Raspberry Pi Imager or using SSH. With the Pioreactor powered off, insert its SD card into your computer and create a plain-text file named <code>wifi.ini</code> at the root of the <code>boot</code> or <code>bootfs</code> volume:</p>
+<div class="language-ini codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockTitle_OeMC">wifi.ini</div><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-ini codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">[wifi]</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">ssid=Your network name</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">passphrase=Your Wi-Fi password</span><br></span></code></pre></div></div>
+<p>Save the file, safely eject the SD card, and boot the Pioreactor. The image reads the file from <code>/boot/firmware/wifi.ini</code> and tries to connect to that network. After a successful connection, it removes <code>wifi.ini</code> from the boot partition; if the connection fails or either value is missing, the file remains there so you can correct it and reboot. Keep your Wi-Fi password private while the file is on the SD card.</p>
+<p>For a Pioreactor that is already running and reachable, use <code>nmcli</code> as described above.</p>
 <h3 class="anchor anchorTargetHideOnScrollNavbar_vjPI" id="connecting-to-multiple-networks-simultaneously">Connecting to multiple networks simultaneously<a href="#connecting-to-multiple-networks-simultaneously" class="hash-link" aria-label="Direct link to Connecting to multiple networks simultaneously" title="Direct link to Connecting to multiple networks simultaneously" translate="no">​</a></h3>
 <p>First, some terminology and understanding for us: a computer, like a Pi, has networking interfaces. For example, the onboard wifi on RPi’s is one such interface. The larger, model Bs, have an ethernet connector, which is another interface. Each interface can connect to 0 or 1 networks.</p>
 <p>In order to connect to multiple networks, you need a Raspberry Pi with multiple interfaces. You can add interfaces with devices like a <a href="https://forum.pioreactor.com/t/connecting-more-workers-to-cluster/330/3" target="_blank" rel="noopener noreferrer" class="">USB wifi device</a>.</p>
