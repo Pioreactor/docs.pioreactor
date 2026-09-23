@@ -35,7 +35,7 @@ import TabItem from '@theme/TabItem';
 
 </AssemblyInstructionBlock>
 
-<AssemblyInstructionBlock title="Step 2: Attach the eye-spys" images={["user-guide/hardware-assembly/upgrade_XR/4B-top-solder-to-45.jpg", "user-guide/hardware-assembly/upgrade_XR/white-mark-to-ref.jpg", "user-guide/hardware-assembly/upgrade_XR/no-mark-to-90.jpg", "user-guide/hardware-assembly/upgrade_XR/48-bottom-solder-to-135.jpg","user-guide/hardware-assembly/upgrade_XR/twist-top-onto-bottom.jpg",]}>
+<AssemblyInstructionBlock title="Step 3: Attach the eye-spys" images={["user-guide/hardware-assembly/upgrade_XR/4B-top-solder-to-45.jpg", "user-guide/hardware-assembly/upgrade_XR/white-mark-to-ref.jpg", "user-guide/hardware-assembly/upgrade_XR/no-mark-to-90.jpg", "user-guide/hardware-assembly/upgrade_XR/48-bottom-solder-to-135.jpg","user-guide/hardware-assembly/upgrade_XR/twist-top-onto-bottom.jpg",]}>
 
 1. Identify the <Highlight color={colors.red}>eye-spy with the address 0x4B</Highlight>. Look for the soldered bulb next to the top address. 
 2. Place the optics cover over the eye-spy, and secure it in the 45 degree pocket with 4x 8mm screws.

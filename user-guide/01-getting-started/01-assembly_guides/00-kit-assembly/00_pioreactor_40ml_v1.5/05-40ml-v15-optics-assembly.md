@@ -11,6 +11,12 @@ import Highlight from '@site/src/components/Highlight';
 import * as colors from '@site/src/components/constants';
 
 
+:::info
+
+Have the XR version? [Move over to these instructions](/user-guide/40ml-v15-to-XR-upgrade-assembly#step-3-attach-the-eye-spys).
+
+:::
+
 <AssemblyInstructionBlock title="Step 1: Necessary parts" images={["user-guide/hardware-assembly/40ml-v15/eye-spy-parts.jpg", "user-guide/hardware-assembly/40ml-v15/identify-ref.jpg", "user-guide/hardware-assembly/40ml-v15/led-and-caps.jpg"]}>
 
 1.  You will need:
