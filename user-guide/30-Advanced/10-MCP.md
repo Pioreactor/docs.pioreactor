@@ -21,12 +21,6 @@ The MCP server's HTTP endpoint is
 
 If running the Agent locally, you may need to use a tool like mcp-proxy to bridge between HTTP and STDIO.
 
-:::tip
-
-This is very new! Let us know if you have any questions, ideas, or issues!
-
-:::
-
 ## Discovering and controlling jobs
 
 Use `get_pioreactor_unit_capabilities` to discover the available jobs, command-line arguments and options, and published settings before launching or changing a job. The default response includes invocation details; set `condensed=true` for a shorter summary. Unavailable workers are represented by `null` in capability results. Read-only tools are marked with MCP read-only annotations to help clients distinguish inspection from changes.

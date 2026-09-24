@@ -18,8 +18,6 @@ Click the chart settings gear on **Overview** or in an individual Pioreactor's c
 
 Selections are saved with the experiment and shared across browsers. Overview and Pioreactor charts have separate selections; the Pioreactor selection applies to the individual Pioreactor chart views in that experiment. To return to the configured chart defaults, click **Use defaults**, then **Save**. Defaults come from `[ui.overview.charts]` in the configuration.
 
-When the `pioreactor-air-bubbler` plugin is configured with an `air_bubbler` PWM load, the bioreactor diagram also shows a labelled sparger and highlights it while active.
-
 ## Experiment logs
 
 **Recent experiment logs** are found along the right side of the main _Overview page_. These logs document any errors, processes, or updates for each Pioreactor. Open **Experiment logs** in the sidebar to search and review the full history.

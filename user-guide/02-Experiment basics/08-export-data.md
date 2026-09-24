@@ -55,10 +55,6 @@ pio run export_experiment_data \
 Time bounds are inclusive. CLI, API, and MCP clients must supply offset-aware ISO-8601 timestamps: include `Z` for UTC or a numeric UTC offset such as `-04:00`. API and MCP clients should send one `experiment` string, not an `experiments` list.
 
 
-:::note
-Is a dataset not available in the list? Is there a specific data point you'd like but can't find? Feel free to ask about it on our [forums](https://forum.pioreactor.com/).
-:::
-
 ## Exporting to a USB drive
 
 If a writable USB drive is mounted on the leader Pioreactor, the export page can save the export directly to the drive instead of downloading it through the browser. See [Using USB drives](/user-guide/using-usb-drives) for mounting and ejecting the drive.
@@ -82,7 +78,3 @@ Consider this example where we turned on temperature and stirring:
 Temperature and stirring datasets are exported on separate .csv files and follow their unique time series. In comparison, the Pioreactor Unit dataset compiles both against the same time series, making it much more accessible:
 
 ![](/img/user-guide/02-experiment-basics/08-export-data/pio-unit-data-example.png)
-
-
-
-<!-- insert images of example export data once implemented --> 

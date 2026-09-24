@@ -29,8 +29,6 @@ The Pioreactor will run a short series of checks and report back with passes and
 
 ![](/img/user-guide/01-getting-started/03-pre-flight-hardware-check/inventory-self-test-running.png)
 
-When the results arrive, you'll see a list of successes and failures:
-
 ![](/img/user-guide/01-getting-started/03-pre-flight-hardware-check/self_test_results.png)
 
 :::info

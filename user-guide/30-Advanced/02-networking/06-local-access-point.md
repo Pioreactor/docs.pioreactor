@@ -25,7 +25,7 @@ The built-in local access point is meant for small clusters of Pioreactors, and 
 
 ## Starting a local access point
 
-The Pioreactor has the necessary software and hardware to create the local access point. To start the access point:
+To start the access point:
 
  - If starting with a new Pioreactor, during software set up:
     1. In Raspberry Pi Imager, leave Wi-Fi configuration disabled. Continue with the instructions at [Setting up your Raspberry Pi](/user-guide/software-set-up#setting-up-your-raspberry-pis-sd-card).
@@ -96,7 +96,6 @@ In the `config.ini`, the SSID and password are editable under the section `local
 #### Do you see the `pioreactor` network in the list of available wifi networks?
  - If presented, use the option "Use security key to connect" (this is an alias for the password).
  - Try power-cycling your Pioreactor
- - The maximum number of machines (Pioreactors and computers) that can be connected to a local access point on a Pioreactor is ~4-8. There is a possibility to add more, see [issue here](https://github.com/Pioreactor/pioreactor/issues/442).
 
 #### Alternatively, do you *not* see the `pioreactor` network in the list of available wifi networks?
  - Try power-cycling the Raspberry Pi
@@ -110,7 +109,6 @@ Try `http://<your_leaders_hostname>.local`. Still not working? Try `http://10.42
 ### I can't connect a worker to my local access point
 
  - confirm that you are using the right wifi name and password in the Imager (default `pioreactor` and `raspberry`), and the hostname is correct and unique.
- - The maximum number of access point clients (Pioreactors and computers) that can be connected to a local access point on a Pioreactor is ~4-8. See question below.
 
  ### I'm pretty sure I'm at the limit of ~4-8 clients on my access point - what can I do?
 

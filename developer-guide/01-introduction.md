@@ -17,8 +17,3 @@ Our code base is all open source, and [available on GitHub](https://github.com/p
 
  - [Pioreactor core](https://github.com/Pioreactor/pioreactor), written in Python.
  - [Pioreactor user interface](https://github.com/Pioreactor/pioreactorui), a React app written in JS.
-
-
-### Have edits, corrections, or suggestions?
-
-Any suggestions or comments can be added to our [Issue Tracker](https://github.com/Pioreactor/docs.pioreactor/issues). If you're up for it, feel free to send a [pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/getting-started/about-collaborative-development-models), too!
