@@ -36,3 +36,16 @@ Tailscale is a really cool service! You may find yourself using it for other pro
 
 7. Now, when you leave the local network, and if you have internet access, you can turn your VPN on and still access `http://<ipv4 address>`. Troubleshooting: try `http://<hostname>`, but confirm that magicDNS is on, too.
 8. You can use the Tailscale admin to add users to your VPN, too.
+
+## Security
+
+Before sharing remote access, we recommend disabling file uploads and plugin changes from the UI. [SSH into the leader](/user-guide/accessing-raspberry-pi) and create these files:
+
+```bash
+touch ~/.pioreactor/DISALLOW_UI_UPLOADS
+touch ~/.pioreactor/DISALLOW_UI_INSTALLS
+```
+
+To allow these actions again, remove the corresponding files over SSH.
+
+See [**Security hardening**](/user-guide/security-hardening) for cluster-wide plugin restrictions, passwords, and other protections.

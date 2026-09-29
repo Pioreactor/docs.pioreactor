@@ -15,9 +15,13 @@ import TabItem from '@theme/TabItem';
 <AssemblyInstructionBlock title="Step 1: 40ml vial assembly" images={["user-guide/hardware-assembly/40ml/40ml-vial-pieces.png","user-guide/hardware-assembly/40ml/steel-ports-into-holes.png","user-guide/hardware-assembly/40ml/steel-ports.png","user-guide/hardware-assembly/40ml/40ml-vial.png"]}>
 
 
+:::tip
+Recent version of the Pioreactor 40ml have plastic ends on these ports. These are easier to use and an improvement over the metal ends.
+:::
+
 1. Gather the 40ml vial, stirbar, and stainless steel ports.
 2. Remove the cap from the vial.
-3. Gently but firmly push the stainless steel ports into the four holes. The two straight ports are placed in the <Highlight color={colors.blue}>outer holes</Highlight>, and the two bent ports are placed in the <Highlight color={colors.orange}>inner holes</Highlight>. 
+3. Gently but firmly push the stainless steel ports into the four holes. The two straight ports are placed in the <Highlight color={colors.blue}>outer holes</Highlight>, and the two bent ports are placed in the <Highlight color={colors.orange}>inner holes</Highlight>. If you have the plastic ends, the green colored one goes into the hole labelled `E`.
 4. Place the stirbar in the vial and secure the cap. 
 
 </AssemblyInstructionBlock>

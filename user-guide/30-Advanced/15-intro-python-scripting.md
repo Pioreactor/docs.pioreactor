@@ -106,3 +106,18 @@ stirrer.set_target_rpm(300)
 
 stirrer.block_until_disconnected()
 ```
+
+### Starting a long-running script
+
+To run a script in the background so it continues after you close the terminal:
+
+```bash
+python3 your_script.py >/dev/null 2>&1 & disown
+```
+
+You can also use [custom scripts in plugins](/developer-guide/plugins#custom-scripts) to control the script's start and stop from the Pioreactor UI.
+
+### Useful utility objects
+
+- `get_unit_name` and `get_assigned_experiment_name`, from `pioreactor.whoami`, return the current Pioreactor name and its assigned experiment. Use these when constructing jobs directly so data is associated with the correct unit and experiment.
+- [RepeatedTimer](https://github.com/Pioreactor/pioreactor/blob/60875ebe5a35d7ed5c930d46ed7c755eadcb4b74/pioreactor/utils/timing.py#L40) runs a function every N seconds without blocking the rest of your script.

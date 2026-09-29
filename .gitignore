@@ -1,3 +1,7 @@
+DESIGN.md
+.tickets/
+scratch/
+.codex/
 # Dependencies
 /node_modules
 

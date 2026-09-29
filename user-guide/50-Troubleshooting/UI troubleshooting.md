@@ -52,7 +52,7 @@ Another reason might be that your institution's firewall is blocking port 9001. 
 
 #### If you are using a remote access service, like tailscale
 
-Likely you didn't fill out the `mqtt` `broker_address` parameter in the configuration correctly. See the [remote access instructions](https://docs.pioreactor.com/user-guide/remote-access) again.
+Likely you didn't fill out the `mqtt` `broker_address` parameter in the configuration correctly. See the [**Tailscale** instructions](/user-guide/tailscale-remote-access) again.
 
 
 ### When I click an action in the UI, I don't see any response. Or the button just spins and does nothing.

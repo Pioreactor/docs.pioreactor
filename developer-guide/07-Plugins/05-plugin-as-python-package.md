@@ -232,27 +232,10 @@ See an example plugin that uses this idea [here](https://github.com/Pioreactor/c
 
 ### Exportable datasets
 
-Now that you've added the code for adding to the database, you can also allow users to export your data from the UI's **Export Data** page. Exportable dataset YAML is read by the leader. To do this, add a new folder `exportable_datasets` to your project's source folder, alongside the `__init__.py` file, and add a YAML file:
-
-```yaml
-dataset_name: some_unique_dataset_name
-default_order_by: timestamp # for example
-description: A lovely description which shows up in the UI
-display_name: A lovely name which shows up in the UI
-has_experiment: true # does your SQL table have an experiment column.?
-has_unit: true # does your SQL table have an pioreactor_unit column.?
-source: your_plugin_name
-table: the_target_table # see also query below
-timestamp_columns:
-- timestamp
-always_partition_by_unit: false
-query: SELECT * FROM the_target_table WHERE reading < 4 AND ... # optional: you can specify a query.
-```
-
-You can add multiple dataset YAML files, too.
+To make your data available on **Export Data**, add an `exportable_datasets` folder alongside your package's `__init__.py`. Add one or more YAML files using the schema in [**Adding exportable datasets**](/developer-guide/plugins/datasets). Install these files on the leader.
 
 :::note
-Include the following in your MANIFEST.IN:
+Include the following in your `MANIFEST.in`:
 ```
 recursive-include your_plugin_name/exportable_datasets *.yaml
 ```

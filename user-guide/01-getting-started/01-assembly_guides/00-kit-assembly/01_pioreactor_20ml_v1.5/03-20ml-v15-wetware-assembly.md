@@ -15,9 +15,13 @@ import TabItem from '@theme/TabItem';
 <AssemblyInstructionBlock title="Step 1: 20ml vial assembly" images={["user-guide/hardware-assembly/20ml-v15/20ml-vial-pieces.jpg","user-guide/hardware-assembly/40ml/steel-ports-into-holes.png","user-guide/hardware-assembly/40ml/steel-ports.png","user-guide/hardware-assembly/20ml-v15/20ml-vial.jpg"]}>
 
 
+:::tip
+Recent version of the Pioreactor 20ml have plastic ends on these ports. These are easier to use and an improvement over the metal ends.
+:::
+
 1. Gather the 20ml vial, stirbar, and stainless steel ports.
 2. Remove the cap from the vial.
-3. Gently but firmly push the stainless steel ports into the four holes. The two straight ports are placed in the <Highlight color={colors.blue}>outer holes</Highlight>, and the two bent ports are placed in the <Highlight color={colors.orange}>inner holes</Highlight>. 
+3. Gently but firmly push the stainless steel ports into the four holes. The two straight ports are placed in the <Highlight color={colors.blue}>outer holes</Highlight>, and the two bent ports are placed in the <Highlight color={colors.orange}>inner holes</Highlight>. If you have the plastic ends, the green colored one goes into the hole labelled `E`.
 4. Position the ports about **half way** through the vial cap for now. These can be adjusted later.
 5. Place the stirbar in the vial and secure the cap.
 
