@@ -2,6 +2,7 @@
 title: Writing Pioreactor scripts with Python
 slug: /intro-python-scripting
 hide_table_of_contents: true
+sidebar_class_name: sidebar-item--updated
 ---
 
 :::note
