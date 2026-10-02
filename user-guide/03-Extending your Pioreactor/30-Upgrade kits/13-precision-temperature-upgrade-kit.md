@@ -4,7 +4,6 @@ sidebar_label: Precision Temperature Upgrade Kit
 description: Install and configure the Precision Temperature Upgrade Kit on a Pioreactor 40ml.
 slug: /precision-temperature-upgrade-kit
 hide_table_of_contents: true
-sidebar_class_name: sidebar-item--updated
 ---
 
 import AssemblyInstructionBlock from '@site/src/components/AssemblyInstructionBlock';
