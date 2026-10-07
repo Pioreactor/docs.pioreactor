@@ -8,7 +8,7 @@ import AssemblyInstructionBlock from '@site/src/components/AssemblyInstructionBl
 import Highlight from '@site/src/components/Highlight';
 import * as colors from '@site/src/components/constants';
 
-<AssemblyInstructionBlock title="Step 1: Necessary parts" images={["user-guide/hardware-assembly/aeration-kit/1-finished-pioreactor.png", "user-guide/hardware-assembly/aeration-kit/1-aeration-items.png"]}>
+<AssemblyInstructionBlock title="Step 1: Necessary parts" images={["user-guide/hardware-assembly/aeration-kit/1-finished-pioreactor.webp", "user-guide/hardware-assembly/aeration-kit/1-aeration-items.webp"]}>
 
 You will need the following items:
 
@@ -23,7 +23,7 @@ You will need the following items:
 
 </AssemblyInstructionBlock>
 
-<AssemblyInstructionBlock title="Step 2: Prepare the bubble humidifier" images={["user-guide/hardware-assembly/aeration-kit/2-bubble-humidifier.png", "user-guide/hardware-assembly/aeration-kit/2-place-humidifier-in-holder.png"]}>
+<AssemblyInstructionBlock title="Step 2: Prepare the bubble humidifier" images={["user-guide/hardware-assembly/aeration-kit/2-bubble-humidifier.webp", "user-guide/hardware-assembly/aeration-kit/2-place-humidifier-in-holder.webp"]}>
 
 1. Fill your 40ml vial with DI water, about 60% full.
 2. Screw on the Vial Cap P2. Ensure that the <Highlight color={colors.red}>lower (longer) port</Highlight> is submerged in the water.
@@ -35,7 +35,7 @@ The dovetail holders for the aeration kit can stand on their own or be attached 
 
 </AssemblyInstructionBlock>
 
-<AssemblyInstructionBlock title="Step 3: Prepare the sample vial" images={["user-guide/hardware-assembly/aeration-kit/3-remove-vial-and-cap.png", "user-guide/hardware-assembly/aeration-kit/3-place-sparger-on-port.png", "user-guide/hardware-assembly/aeration-kit/3-sparger-submerged.png", "user-guide/hardware-assembly/aeration-kit/3-vial-with-sparger-in-pio.png"]}>
+<AssemblyInstructionBlock title="Step 3: Prepare the sample vial" images={["user-guide/hardware-assembly/aeration-kit/3-remove-vial-and-cap.webp", "user-guide/hardware-assembly/aeration-kit/3-place-sparger-on-port.webp", "user-guide/hardware-assembly/aeration-kit/3-sparger-submerged.webp", "user-guide/hardware-assembly/aeration-kit/3-vial-with-sparger-in-pio.webp"]}>
 
 1. Remove the vial situated in the Pioreactor. Remove the Vial Cap S.
 2. Attach the <Highlight color={colors.green}>tubing end of the sintered sparger</Highlight> to influx port 1, 2, or 3.
@@ -45,7 +45,7 @@ The dovetail holders for the aeration kit can stand on their own or be attached 
 
 </AssemblyInstructionBlock>
 
-<AssemblyInstructionBlock title="Step 4: Connect it all together" images={["user-guide/hardware-assembly/aeration-kit/4-air-pump-to-pwm3.png", "user-guide/hardware-assembly/aeration-kit/4-air-pump-into-dovetail.png", "user-guide/hardware-assembly/aeration-kit/4-air-pump-to-4mmID-tubing.png", "user-guide/hardware-assembly/aeration-kit/4-10-inch-tubing-to-humidifier.png", "user-guide/hardware-assembly/aeration-kit/4-8-inch-tubing-connection.png"]}>
+<AssemblyInstructionBlock title="Step 4: Connect it all together" images={["user-guide/hardware-assembly/aeration-kit/4-air-pump-to-pwm3.webp", "user-guide/hardware-assembly/aeration-kit/4-air-pump-into-dovetail.webp", "user-guide/hardware-assembly/aeration-kit/4-air-pump-to-4mmID-tubing.webp", "user-guide/hardware-assembly/aeration-kit/4-10-inch-tubing-to-humidifier.webp", "user-guide/hardware-assembly/aeration-kit/4-8-inch-tubing-connection.webp"]}>
 
 1. Plug the 12V air pump into <Highlight color={colors.magenta}>PWM channel 3</Highlight> on the Pioreactor HAT. Route the cable next to the metal body of the pump, and gently push the pump into the dovetail holder.
 2. On one end of the 10-inch tubing is an air filter with a 1-inch length of 4mm ID tubing. Attach this end to the <Highlight color={colors.orange}>efflux port of the air pump</Highlight>, marked with an arrow. Leave the other port on the pump open.
@@ -54,7 +54,7 @@ The dovetail holders for the aeration kit can stand on their own or be attached 
 
 </AssemblyInstructionBlock>
 
-<AssemblyInstructionBlock title="Step 5: You're done!" images={["user-guide/hardware-assembly/aeration-kit/5-assembled-aeration-kit.png"]}>
+<AssemblyInstructionBlock title="Step 5: You're done!" images={["user-guide/hardware-assembly/aeration-kit/5-assembled-aeration-kit.webp"]}>
 
 Your new aeration kit is now assembled!
 
