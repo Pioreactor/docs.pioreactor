@@ -5,7 +5,7 @@ import styles from './AssemblyInstructionBlock.module.css';
 import {useLocation} from '@docusaurus/router';
 
 
-export default function AssemblyInstructionBlock({children, title, images}) {
+export default function AssemblyInstructionBlock({children, title, images = []}) {
 
   const url = useLocation().pathname.split('#')[0];
   const [mainImage, setMainImage] = React.useState(images[0]);
@@ -41,6 +41,15 @@ export default function AssemblyInstructionBlock({children, title, images}) {
     return value == undefined ? '' : value.replace(/[^a-z0-9_]+/gi, '-').replace(/^-|-$/g, '').toLowerCase()
   }
 
+
+  if (images.length === 0) {
+    return (
+      <div id={process(title)} style={{padding: "10px", margin: "20px 0px 60px 0px"}}>
+        <h2>{title}  <a href={url + "#" + process(title)}>#</a></h2>
+        <section>{children}</section>
+      </div>
+    );
+  }
 
   return (
     <div id={process(title)} style={{padding: "10px", margin: "20px 0px 60px 0px", display:"flex", flexWrap: "nowrap"}}>
