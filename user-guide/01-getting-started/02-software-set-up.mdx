@@ -6,6 +6,7 @@ slug: /software-set-up
 ---
 
 import CopyToClipboardButton from '@site/src/components/CopyToClipboardButton';
+import WifiConfigForm from '@site/src/components/WifiConfigForm';
 
 
 ### Before you begin
@@ -176,10 +177,16 @@ On a successful start, the Pioreactor will flash its blue LED for about 2 second
 *   If your network hidden? You will need to check `hidden SSID` in the configuration in the Raspberry Pi imager. To fix this, you'll need to restart the image installation from the Raspberry Pi Imager.
 *   Try power-cycling the Raspberry Pi (unplug and plug back in).
 *   If you are on a restrictive network (like at a university), and wish to avoid the network, [creating a local access point](/user-guide/local-access-point) may be a better option.
-*   You may have mis-typed your WiFi credentials. To fix this, you'll need to restart the image installation from the Raspberry Pi Imager.
+*   You may have mistyped your Wi-Fi credentials. Use the form below to correct them without reflashing the SD card.
 *   If connecting to a 5GHz WiFi connection, you _need_ to supply a valid country code. See the list here: [https://en.wikipedia.org/wiki/ISO\_3166-1\_alpha-2/](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 "Link to country codes on wikipedia").
 *   It's possible your SD card is damaged. This can cause all sorts of problems (including failing to boot), not just WiFi issues. The most common cause of SD card failure is probably inserting or removing the SD card while the Pi is powered up.
 
+
+##### Correct your Wi-Fi credentials without reflashing
+
+On current Pioreactor images, you can supply new Wi-Fi credentials using a file on the SD card. This does not erase your Pioreactor data.
+
+<WifiConfigForm />
 
 #### I want to change the Pioreactor name on installation of leader
 
