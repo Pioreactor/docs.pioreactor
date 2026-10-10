@@ -2,7 +2,6 @@
 title: API Reference (Leader /api)
 slug: /api-reference
 toc_max_heading_level: 2
-sidebar_class_name: sidebar-item--updated
 ---
 
 ### Conventions
