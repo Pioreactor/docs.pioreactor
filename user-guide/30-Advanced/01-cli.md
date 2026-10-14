@@ -42,7 +42,9 @@ pio [OPTIONS] COMMAND [ARGS]...
 | Command | Subcommands | Notes |
 | --- | --- | --- |
 | `experiments` | `create`, `delete`, `list` | Leader-only; maintain experiment records. |
-| `workers` | `add`, `assign`, `discover`, `remove`, `status`, `unassign`, `update-active`, `update-model` | Manage worker inventory and metadata. |
+| `workers` | `add`, `assign`, `discover`, `remove`, `status`, `unassign`, `update-active`, `model get`, `model set` | Manage worker inventory and metadata. |
+| `model` | `get`, `set` | Inspect or change this unit's locally stored model. Stop activities before changing it. |
+| `cluster` | `leave` | On a worker, leave its cluster and reboot; keeps its model, calibrations, estimators, and `unit_config.ini`. |
 | `cache` | `view`, `purge` | Inspect or purge per-job caches. |
 
 ### Calibration & Plugins
@@ -80,6 +82,13 @@ pio jobs info --job-name stirring
 
 # List experiments from the leader
 pio experiments list
+
+# Inspect the local model, or a worker's model from the leader
+pio model get
+pio workers model get worker01
+
+# On the leader, change a reachable worker's model after stopping its activities
+pio workers model set worker01 pioreactor_20ml 1.5
 ```
 
 ## `pios`: Cluster-Oriented CLI

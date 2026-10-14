@@ -12,9 +12,31 @@ If you are building a novel bioreactor on top of our software, you can use the `
    ```bash
    mkdir -p ~/.pioreactor/models
    ```
-2. Add one YAML file per model+version, for example `~/.pioreactor/models/custom_100ml__v1_0.yaml`.
+2. Add one YAML file per model+version, for example `~/.pioreactor/models/custom_100ml__v1_0.yaml`, on each Pioreactor that will use it. Put a copy on the leader for selection through Inventory.
 3. Restart the Pioreactor UI to pick up the new definition.
-4. Assign pioreactors to this new model on the Inventory UI page or via `pio workers update-model ...` tool.
+4. Stop activities on the target Pioreactor, then assign the model from Inventory or with the commands below. Update workers before changing their models through the leader.
+
+You can also import model YAML files from the [SD card's boot partition](/user-guide/provisioning-images#import-experiment-profiles-models-and-hardware).
+
+## Assigning a model
+
+Each Pioreactor stores its own model assignment. It survives reboots and remains available when the leader is unreachable. To inspect or change the local assignment, run these commands on that Pioreactor:
+
+```bash
+pio model get
+pio model set custom_100ml 1.0
+```
+
+The model definition must be installed locally, and activities must be stopped before changing the model. A custom model defined only on a worker can be assigned with `pio model set` on that worker.
+
+From the leader, inspect or change a worker's assignment with:
+
+```bash
+pio workers model get worker01
+pio workers model set worker01 custom_100ml 1.0
+```
+
+Both `get` commands print JSON with `model_name` and `model_version`. Changing a model through the leader requires the worker to be reachable and its activities to be stopped.
 
 ## Required fields
 

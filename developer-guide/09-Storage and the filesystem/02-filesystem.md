@@ -6,7 +6,7 @@ hide_table_of_contents: true
 
 # Important Raspberry Pi Locations for Pioreactor Images
 
-Reference list of on-device paths that matter once a custom Pioreactor Raspberry Pi OS image is flashed and running.
+Reference list of on-device paths that matter once a custom Pioreactor Raspberry Pi OS image is flashed and running. To prepare configuration, plugins, and supported files on an SD card before booting, see [Provisioning images](/user-guide/provisioning-images).
 
 | Path | What lives here | Notes |
 | --- | --- | --- |

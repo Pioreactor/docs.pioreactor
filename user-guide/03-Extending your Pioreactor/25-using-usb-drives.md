@@ -10,7 +10,7 @@ Pioreactor can use an attached USB drive for offline software updates, plugin in
 
 Use a USB drive formatted as exfat, vfat / FAT32, or ext4. Pioreactor mounts supported removable drives under `/run/pioreactor/usb/`.
 
-In the Pioreactor UI, open **Inventory** and find the **USB drive** card. If a supported drive is detected, click **Mount**. After you are finished, click **Eject** before removing the drive.
+In the Pioreactor UI, open **Inventory** and find the **USB drive** card. If a supported drive is detected, click **Mount**. You can also mount and eject the drive directly from **Plugins**. After you are finished, click **Eject** before removing the drive.
 
 ![Leader page USB drive card showing a mounted USB drive](/img/user-guide/03-extending-your-pioreactor/25-using-usb-drives/usb-drive-card.png)
 
@@ -42,8 +42,8 @@ Official release archives include a signed manifest. Pioreactor verifies the arc
 ## Install plugins from USB
 
 1. Copy the plugin `.whl` file to the USB drive root, or to `pioreactor/plugins/`.
-2. Attach and mount the drive on the leader.
-3. Open **Plugins**. Plugins found on the mounted USB drive appear above the usual plugin list.
+2. Attach the drive to the leader, open **Plugins**, and click **Mount** if needed.
+3. Plugins found on the mounted USB drive appear above the usual plugin list. Read-only drives are supported for plugin installation.
 4. Choose a target Pioreactor or the cluster target, then click **Install**.
 
 ![Plugins page showing plugins found on a USB drive](/img/user-guide/03-extending-your-pioreactor/06a-using-community-plugins/plugins-from-usb.png)

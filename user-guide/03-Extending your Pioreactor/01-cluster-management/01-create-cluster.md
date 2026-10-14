@@ -13,7 +13,7 @@ When you set up your first Pioreactor using our [software installation guide](/u
 
 ### Adding Pioreactors to your cluster
 
-After installing the _worker_ image onto your additional Pioreactor (see the instructions [here](/user-guide/software-set-up#adding-additional-workers-to-your-cluster)), visit the Inventory page.
+After installing the _worker_ image onto your additional Pioreactor (see the instructions [here](/user-guide/software-set-up#adding-additional-workers-to-your-cluster)), visit the Inventory page. The worker must run the same software version as the leader before it can be added. If setup reports an older worker version, update the worker first.
 
 On the _Inventory_ page, you can search for and add worker Pioreactors to your cluster. Click "Add new Pioreactor" at the top right corner of this tab.
 
@@ -24,6 +24,8 @@ In the popup, add the name of your worker and click "Add Pioreactor".
 Don't know what model you have? Compare it to the images in [Getting started](/user-guide/getting-started).
 
 ![Add Pioreactor modal with hostname and Add Pioreactor button highlighted](/img/user-guide/03-extending-your-pioreactor/01-create-cluster/inventory-add-modal.png)
+
+Keep the dialog open while setup runs. If a step fails, correct the reported problem and retry adding the same worker. A wrong SSH password fails immediately; check that it matches the password configured when writing the worker image.
 
 Once a new Pioreactor is added, you may need to refresh the page to see the new worker in the cluster.
 
@@ -38,6 +40,16 @@ Sometimes, you need to pass in an ipv4 instead of discovering a worker via it's 
 ```
 pio workers add <hostname> -a <ipv4>
 ```
+
+### Leaving a cluster from a worker
+
+To move a worker to another cluster, stop its activities, [SSH into the worker](/user-guide/accessing-raspberry-pi), and run:
+
+```bash
+pio cluster leave
+```
+
+Confirm the prompt to remove the worker from its leader's inventory and reboot it. If the leader is unreachable, the worker still leaves locally; remove its old inventory entry on the leader when it becomes available. The worker keeps its model, calibrations, estimators, and `unit_config.ini`, and waits to be added to a cluster again. This command is for workers; a leader cannot leave its own cluster.
 
 ### Active and inactive
 

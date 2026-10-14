@@ -545,6 +545,7 @@ pioreactors:
 # - <unit>:<job>:<setting>[.<nested_key>]*
 # - ::<job>:<setting>[.<nested_key>]* (uses current unit)
 #   Examples: unit():od_reading:od600, ::stirring:setting.target_rpm
+#   Bioreactor topics contain timestamp and value fields: use ::bioreactor:current_volume_ml.value.
 #   Fails if worker is inactive or topic missing.
 #
 # Conversion rules

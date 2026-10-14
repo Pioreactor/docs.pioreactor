@@ -41,7 +41,7 @@ To keep an offline copy of the cluster's configuration, click **Download all con
 
 ### Editing the `unit_config.ini` before booting
 
-Sometimes it's desirable to make changes to the `config.ini` without having to boot the Pioreactor first. You can do this by plugging the microSD card into your computer, and adding a `config.ini` to the `boot/` folder on it. This `config.ini` doesn't need to have all the fields, only the fields you wish to change. At start up, the Pioreactor will merge `/boot/config.ini` into the Pioreactor's `config.ini`, and then delete `/boot/config.ini`.
+To set unit-specific overrides before booting, place a `config.ini` at the root of the SD card's boot partition. At startup, its settings are merged into that Pioreactor's `unit_config.ini`. See [Provisioning images](/user-guide/provisioning-images#configuration-overrides-with-configini) for an example and the import behavior.
 
 
 ### Default `config.ini`

@@ -35,7 +35,9 @@ Updating from the UI will update all the Pioreactors in your cluster.
 
 :::note
 
-A cluster can be on mixed software versions temporarily while a rolling update is in progress. Version skew may expose incompatible features or APIs, so we recommend completing the update across the cluster instead of operating mixed versions long-term.
+A cluster can be on mixed software versions temporarily while a rolling update is in progress. Version skew may expose incompatible features or APIs, so complete the update across the cluster. Adding a worker requires it to run the same software version as the leader. Update workers before changing their models through the leader.
+
+For the 26.11.0 upgrade, update the leader and all workers together, then reload browser tabs: PWM MQTT topics and bioreactor value payloads have changed. See [MQTT payloads](/developer-guide/mqtt#bioreactor-values-and-pwm-duty-cycles) if you maintain plugins, scripts, or experiment profile expressions that consume these values.
 
 :::
 

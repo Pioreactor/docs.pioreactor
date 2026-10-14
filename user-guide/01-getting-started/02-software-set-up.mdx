@@ -21,6 +21,8 @@ Before you get started, you'll need to have the following:
 3.  A suitable power supply for the Raspberry Pi (our recommended power supply units are [here](/user-guide/common-questions#what-power-supply-unit-psu-do-i-need)). You don't need to plug power in yet.
 4.  A computer with internet access and ability to read & write to a microSD card
 
+To prepare configuration overrides, Wi-Fi credentials, plugins, or custom model and hardware files on the SD card before booting, see [Provisioning images](/user-guide/provisioning-images).
+
 ### Setting up your Raspberry Pi's SD Card
 
 
@@ -130,7 +132,7 @@ Workers are additional Pioreactors that you can control from a single UI. Togeth
 1. Follow the same instructions above, but instead of choosing **Leader + Worker**, choose **Worker**.
 
    :::tip
-   Check the software version of your leader first (you can find it on the **Updates** or **Inventory** page, or use `pio version` on the command line). Downloading the worker image for that same version is strongly recommended. Version skew can work temporarily during a rolling update, but features and APIs may be incompatible between releases; do not leave a cluster on mixed versions.
+   Check the software version of your leader first (you can find it on the **Updates** or **Inventory** page, or use `pio version` on the command line). The worker must run that same software version before it can be added to the cluster. Download the matching worker image, or update the worker before adding it.
    :::
 
 2. Follow the same instructions above to write the image to a microSD card. All the settings are the same, including *username* and *password*, **but choose a new hostname**. Choose a hostname that isn't currently being used in your cluster, ex: `worker01`, `worker02`, etc. Reusing an old name is fine after the former worker has been removed from **Inventory**.

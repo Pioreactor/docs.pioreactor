@@ -58,6 +58,7 @@ Once camera snapshots are enabled, open **Cameras** in the sidebar. Each assigne
 
 - Use **Capture snapshots automatically** to enable or disable scheduled captures for an individual Pioreactor. The interval still comes from `snapshot_interval_minutes`.
 - Open the snapshot history to **Capture snapshot**, browse earlier images, delete individual images, or choose **Download all snapshots**.
+- Toggle **Colour view** to apply the Magma colour map and highlight differences in image brightness.
 - Use the pencil icon (**Rename photo**) beside an image to change its name, then click **Rename**.
 - You can also take an immediate snapshot from that Pioreactor's command line with `pio run camera_snapshot`.
 
