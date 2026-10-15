@@ -5,6 +5,8 @@ description: Prepare a Pioreactor SD card with Wi-Fi credentials, configuration 
 sidebar_class_name: sidebar-item--updated
 ---
 
+import WifiConfigForm from '@site/src/components/WifiConfigForm';
+
 You can customize a Pioreactor image after writing it to an SD card. Place configuration files, plugin wheels, and supported YAML assets on the card's boot partition, and the Pioreactor imports them when it boots. This is useful for preparing several Pioreactors or setting up a unit without SSH.
 
 ## Prepare the SD card
@@ -54,7 +56,11 @@ These settings apply to this Pioreactor and override the cluster's shared config
 
 ## Wi-Fi credentials with `wifi.ini`
 
-On images that support boot-partition Wi-Fi setup, create `wifi.ini` at the root of the boot partition:
+On images that support boot-partition Wi-Fi setup, use the form below to create and download `wifi.ini`:
+
+<WifiConfigForm />
+
+You can also create `wifi.ini` manually at the root of the boot partition:
 
 ```ini title="wifi.ini"
 [wifi]
