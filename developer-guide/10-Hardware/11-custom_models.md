@@ -2,6 +2,7 @@
 title: Custom bioreactor models
 slug: /custom-bioreactor-models
 hide_table_of_contents: true
+sidebar_class_name: sidebar-item--updated
 ---
 
 If you are building a novel bioreactor on top of our software, you can use the `~/.pioreactor/models` dir to add your own bioreactors. This metadata flows into the Inventory UI, safety interlocks, analytics, and can be consumed from Python via `pioreactor.whoami.get_pioreactor_model()`.

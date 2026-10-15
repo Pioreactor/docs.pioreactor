@@ -2,6 +2,7 @@
 title: Provisioning images
 slug: /provisioning-images
 description: Prepare a Pioreactor SD card with Wi-Fi credentials, configuration overrides, plugins, and custom files before booting.
+sidebar_class_name: sidebar-item--updated
 ---
 
 You can customize a Pioreactor image after writing it to an SD card. Place configuration files, plugin wheels, and supported YAML assets on the card's boot partition, and the Pioreactor imports them when it boots. This is useful for preparing several Pioreactors or setting up a unit without SSH.

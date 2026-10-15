@@ -2,6 +2,7 @@
 title: Networking tools
 slug: /networking
 hide_table_of_contents: true
+sidebar_class_name: sidebar-item--updated
 ---
 
 :::info
@@ -158,4 +159,3 @@ You can put worker ipv4s in the shared config.ini file under `cluster.addresses`
 [cluster.addresses]
 worker01=192.1.1.1
 ```
-
