@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="550" viewBox="0 0 1100 550" role="img" aria-labelledby="title desc"><title id="title">The light dark schedule starts with light</title><desc id="desc">LED intensity alternates between the configured light intensity and zero. The first phase is light. Each period consists of the configured light duration followed by dark duration.</desc><defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0L8 4L0 8" fill="#526078"/></marker><marker id="teal" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0L8 4L0 8" fill="#087e8b"/></marker><marker id="red" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0L8 4L0 8" fill="#a84b48"/></marker></defs><g font-family="Arial, Helvetica, sans-serif"><rect x="0" y="0" width="1100" height="550" rx="16" fill="#f8fafc" stroke="none"/>
+<text x="34" y="43" font-size="26" fill="#243247" font-weight="700" text-anchor="start">The light/dark cycle starts with light</text>
+<text x="34" y="73" font-size="17" fill="#526078" font-weight="400" text-anchor="start">Channels C and D follow the same schedule.</text>
+<text x="34" y="141" font-size="16" fill="#243247" font-weight="700" text-anchor="start">LED intensity</text>
+<text x="142" y="210" font-size="16" fill="#526078" font-weight="400" text-anchor="end">Configured</text>
+<text x="142" y="233" font-size="16" fill="#526078" font-weight="400" text-anchor="end">light intensity</text>
+<text x="142" y="346" font-size="17" fill="#526078" font-weight="400" text-anchor="end">0%</text>
+<rect x="180" y="131" width="320" height="257" rx="6" fill="#fff0d4" stroke="none"/>
+<rect x="590" y="131" width="320" height="257" rx="6" fill="#fff0d4" stroke="none"/>
+<rect x="500" y="131" width="90" height="257" rx="6" fill="#e7eef8" stroke="none"/>
+<rect x="910" y="131" width="90" height="257" rx="6" fill="#e7eef8" stroke="none"/>
+<text x="340" y="164" font-size="16" fill="#a66b10" font-weight="700" text-anchor="middle">LIGHT</text>
+<text x="545" y="164" font-size="16" fill="#3c6aa0" font-weight="700" text-anchor="middle">DARK</text>
+<text x="750" y="164" font-size="16" fill="#a66b10" font-weight="700" text-anchor="middle">LIGHT</text>
+<text x="955" y="164" font-size="16" fill="#3c6aa0" font-weight="700" text-anchor="middle">DARK</text>
+<path d="M180 218L1025 218" fill="none" stroke="#d3dce7" stroke-width="1" stroke-dasharray="4 5"/>
+<path d="M180 340L1025 340" fill="none" stroke="#d3dce7" stroke-width="1" stroke-dasharray="4 5"/>
+<path d="M180 340V218H500V340H590V218H910V340H1000V218H1030" fill="none" stroke="#087e8b" stroke-width="5" stroke-linejoin="round"/>
+<path d="M180 400H1045" fill="none" stroke="#526078" stroke-width="2" stroke-linejoin="round" marker-end="url(#arrow)" />
+<text x="1045" y="428" font-size="16" fill="#526078" font-weight="400" text-anchor="end">Time →</text>
+<text x="180" y="433" font-size="16" fill="#243247" font-weight="700" text-anchor="middle">Start</text>
+<path d="M180 450V456H500V450" fill="none" stroke="#a66b10" stroke-width="2"/><path d="M500 450V456H590V450M545 456L584 481H624" fill="none" stroke="#3c6aa0" stroke-width="2"/>
+<text x="340" y="480" font-size="16" fill="#a66b10" font-weight="400" text-anchor="middle">light_duration_minutes</text>
+<text x="634" y="486" font-size="16" fill="#3c6aa0" font-weight="400" text-anchor="start">dark_duration_minutes</text>
+<text x="34" y="525" font-size="15" fill="#526078" font-weight="400" text-anchor="start">Schematic, not to scale. Light intensity and both phase durations are configurable.</text></g></svg>
