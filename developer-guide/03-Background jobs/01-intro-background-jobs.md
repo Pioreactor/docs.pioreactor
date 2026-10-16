@@ -43,29 +43,9 @@ A background job can be in one of five different states:
  - `disconnected`: the job has disconnected from services (MQTT, databases, etc.) and cleaned itself up successfully.
  - `lost`: the job did not disconnect gracefully. Something may be wrong.
 
-Here's how the states can transition to each other:
+The diagram below shows the main lifecycle transitions. An unexpected loss of connection can be reported as `lost` from any state.
 
-```
-                                        ┌──────────┐
-                                        │          │
-         ┌──────────────────────┬───────►   lost   ◄────────┐
-         │                      │       │          │        │
-         │                      │       └─────▲────┘        │
-         │                      │             │             │
-    ┌────┴─────┐          ┌─────┴──────┐      │     ┌───────┴──────┐
-    │          │          │            │      │     │              │
-    │   init   ├──────────►    ready   ├──────┼─────► disconnected │
-    │          │          │            │      │     │              │
-    └──────────┘          └────┬──▲────┘      │     └──────▲───────┘
-                               │  │           │            │
-                               │  │           │            │
-                               │  │           │            │
-                          ┌────▼──┴────┬──────┘            │
-                          │            │                   │
-                          │  sleeping  ├───────────────────┘
-                          │            │
-                          └────────────┘
-```
+![Background jobs initialize, become ready, pause and resume, and disconnect after cleanup. Unexpected connection loss is reported as lost.](/img/developer-guide/03-background-jobs/01-intro-background-jobs/background-job-states.svg)
 
 The author can optionally define hooks when a job moves between states, and when it enters a new state. For example, the method `.on_ready_to_sleeping()` is called when the job moves from `ready` to `sleeping`. Similarly, the method `.on_sleeping()` is called when the jobs enters state `sleeping`. By default, these methods are empty.
 
