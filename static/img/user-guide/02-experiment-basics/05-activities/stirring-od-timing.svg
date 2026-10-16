@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="450" viewBox="0 0 960 450" role="img" aria-labelledby="title desc">
+  <title id="title">Stirring targets around OD snapshots</title>
+  <desc id="desc">An example target RPM timeline alternates between 1200 RPM outside OD snapshots and 500 RPM around each snapshot. A long 1.5-second pre-delay precedes each measurement, with a short 0.25-second post-delay afterward. This shows target RPM, not measured motor speed.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0 0L8 4L0 8" fill="#526078"/></marker>
+  </defs>
+  <rect width="960" height="450" rx="16" fill="#f8fafc"/>
+  <g font-family="Arial, Helvetica, sans-serif" fill="#243247">
+    <text x="32" y="39" font-size="23" font-weight="700">Stirring around OD snapshots</text>
+    <text x="32" y="67" font-size="16" fill="#526078">Example: mix at 1200 RPM, measure at 500 RPM</text>
+    <rect x="300" y="102" width="230" height="220" rx="8" fill="#e7eef8"/>
+    <rect x="650" y="102" width="230" height="220" rx="8" fill="#e7eef8"/>
+    <rect x="450" y="102" width="55" height="220" fill="#c5d7ef"/>
+    <rect x="800" y="102" width="55" height="220" fill="#c5d7ef"/>
+    <g font-size="15" font-weight="700" text-anchor="middle">
+      <text x="478" y="124">OD</text><text x="478" y="144">snapshot</text>
+      <text x="828" y="124">OD</text><text x="828" y="144">snapshot</text>
+    </g>
+    <g stroke="#d3dce7" stroke-dasharray="4 5">
+      <path d="M130 175H900"/><path d="M130 295H900"/>
+    </g>
+    <g font-size="17" text-anchor="end">
+      <text x="112" y="181">1200 RPM</text><text x="112" y="301">500 RPM</text>
+    </g>
+    <text x="32" y="119" font-size="15" font-weight="700">Target RPM</text>
+    <path d="M130 175H300V295H530V175H650V295H880V175H900" fill="none" stroke="#087e8b" stroke-width="5" stroke-linejoin="round"/>
+    <path d="M130 330H911" fill="none" stroke="#526078" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <text x="900" y="356" text-anchor="end" font-size="15">Time →</text>
+    <g stroke="#526078" fill="none">
+      <path d="M300 310V316H450V310"/><path d="M505 310V316H530V310"/>
+      <path d="M375 316L348 358H246"/><path d="M518 316L545 358H610"/>
+    </g>
+    <g font-size="15">
+      <text x="160" y="378">Pre-delay: 1.5 s to settle</text>
+      <text x="490" y="378">Post-delay: 0.25 s</text>
+    </g>
+    <text x="32" y="420" font-size="15" fill="#526078">Schematic, not to scale. The motor takes time to reach each target.</text>
+  </g>
+</svg>
