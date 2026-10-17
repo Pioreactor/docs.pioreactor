@@ -2,6 +2,7 @@
 title: Activities
 slug: /activities
 hide_table_of_contents: true
+sidebar_class_name: sidebar-item--updated
 ---
 
 Below is a list of built-in activities that come with the Pioreactor. Additionally, you can add activities using plugins. [Read more about using plugins](/user-guide/using-community-plugins).
