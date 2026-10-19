@@ -3,6 +3,7 @@ import clsx from 'clsx';
 import styles from './AssemblyInstructionBlock.module.css';
 
 import {useLocation} from '@docusaurus/router';
+import useBrokenLinks from '@docusaurus/useBrokenLinks';
 
 
 export default function AssemblyInstructionBlock({children, title, images = []}) {
@@ -40,6 +41,9 @@ export default function AssemblyInstructionBlock({children, title, images = []})
   const process = (value) => {
     return value == undefined ? '' : value.replace(/[^a-z0-9_]+/gi, '-').replace(/^-|-$/g, '').toLowerCase()
   }
+
+  // Register the block's id so Docusaurus' broken-anchor check knows links to it are valid.
+  useBrokenLinks().collectAnchor(process(title));
 
 
   if (images.length === 0) {
