@@ -18,8 +18,8 @@
 
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css" integrity="sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM" crossorigin="anonymous"><link rel="stylesheet" href="/assets/css/styles.90febfe0.css">
-<script src="/assets/js/runtime~main.1e5a62e8.js" defer="defer"></script>
-<script src="/assets/js/main.6d6f0338.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.e70704a1.js" defer="defer"></script>
+<script src="/assets/js/main.9d1e469e.js" defer="defer"></script>
 </head>
 <body>
 <svg style="display: none;"><defs>
@@ -67,55 +67,31 @@
 </ol>
 <p><img decoding="async" loading="lazy" alt="Update dialog with zip file selected and ready to update" src="/assets/images/zip-file-selected-ready-to-update-08df63fd19925ffe01bbc0daa4112795.png" width="3024" height="1448" class="img_ev3q"></p>
 <h3 class="anchor anchorTargetHideOnScrollNavbar_vjPI" id="method-3-update-using-a-zip-file-from-a-usb-drive">Method 3: Update using a zip file from a USB drive<a href="#method-3-update-using-a-zip-file-from-a-usb-drive" class="hash-link" aria-label="Direct link to Method 3: Update using a zip file from a USB drive" title="Direct link to Method 3: Update using a zip file from a USB drive" translate="no">​</a></h3>
-<ol>
-<li class="">
 <p>Download the release you wish to update to: </p><div><span> Select version to update to: </span><select name="version" style="width:100px"><option value="">version</option></select><button disabled="" style="margin-left:10px">Download release</button></div><p></p>
-</li>
-<li class="">
-<p>Copy the <code>release_*.zip</code> file to the root of a USB drive.</p>
-</li>
-<li class="">
-<p>Attach the USB drive to the leader Pioreactor and mount it from the <strong>USB drive</strong> card on the leader page. See <a class="" href="/user-guide/using-usb-drives">Using USB drives</a>.</p>
-</li>
-<li class="">
-<p>In the UI, open <strong>Updates</strong>. In the dropdown at the top right, select <strong>Update from USB</strong>.</p>
-</li>
-</ol>
-<p><img decoding="async" loading="lazy" alt="Updates page showing the Update from USB option" src="/assets/images/update-from-usb-441348182486f55eb881c1305d5afd7c.png" width="3122" height="1656" class="img_ev3q"></p>
-<ol start="5">
-<li class="">Choose the release archive and the Pioreactors to update, then click <strong>Update</strong>.</li>
-</ol>
-<div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>info</div><div class="admonitionContent_BuS1"><p>Official release archives are verified before update scripts run. If an archive is missing its signed manifest, has been modified, or is not a Pioreactor release archive, the update will stop before installation.</p></div></div>
+<p>Copy it to the root of a USB drive, attach the drive to the leader, then choose <strong>Update from USB</strong> on the <strong>Updates</strong> page. See <a class="" href="/user-guide/using-usb-drives#update-software-from-usb">Update software from USB</a> for the full steps.</p>
 <h3 class="anchor anchorTargetHideOnScrollNavbar_vjPI" id="method-4-update-using-a-zip-file-over-scp-or-sftp">Method 4: Update using a zip file over scp or sftp<a href="#method-4-update-using-a-zip-file-over-scp-or-sftp" class="hash-link" aria-label="Direct link to Method 4: Update using a zip file over scp or sftp" title="Direct link to Method 4: Update using a zip file over scp or sftp" translate="no">​</a></h3>
 <ol>
 <li class="">
 <p>Download the release you wish to update to: </p><div><span> Select version to update to: </span><select name="version" style="width:100px"><option value="">version</option></select><button disabled="" style="margin-left:10px">Download release</button></div><p></p>
 </li>
 <li class="">
-<p>We need a software tool up upload this release to the Pioreactor.</p>
-<ol>
-<li class="">
-<p>You can use <code>scp</code> on the command line:</p>
+<p>Copy the release archive to your leader Pioreactor. Use either option below.</p>
+<p><strong>Option A: <code>scp</code> on the command line</strong></p>
 <div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">scp &lt;path to release archive&gt; pioreactor@&lt;leader hostname&gt;.local:/home/pioreactor</span><br></div></code></pre></div></div>
-<p>Skip to 8. below.</p>
-</li>
-<li class="">
-<p>or a tool like FileZilla. We&#x27;ll continue with FileZilla below.</p>
-</li>
-</ol>
-</li>
+<p><strong>Option B: FileZilla</strong></p>
+<ol>
 <li class="">
 <p>Download and open <a href="https://filezilla-project.org/download.php?type=client" target="_blank" rel="noopener noreferrer" class="">FileZilla</a>.</p>
 </li>
 <li class="">
-<p>Connect to the Pioreactor&#x27;s local-access-point, <em>pioreactor</em>.</p>
+<p>Make sure your computer is on the same network as the leader. If you use the leader&#x27;s local access point, connect to the <em>pioreactor</em> Wi-Fi network first.</p>
 </li>
 <li class="">
 <p>Enter the following credentials in the top-right:</p>
 <ul>
 <li class="">host: <code>pioreactor.local</code> (or, your <code>&lt;leader hostname&gt;.local</code> or its IP address)</li>
 <li class="">username: <code>pioreactor</code></li>
-<li class="">password: <code>raspberry</code></li>
+<li class="">password: <code>raspberry</code> (or the password you chose during setup)</li>
 <li class="">port: <code>22</code></li>
 </ul>
 <p>Click <code>Quickconnect</code>. You should successfully connect to your Pioreactor&#x27;s Raspberry Pi (and may need to accept a security pop-up).</p>
@@ -129,13 +105,15 @@
 <p>You should see a successfully uploaded message, and the file should be present on the right-hand side now. You can close FileZilla.
 <img decoding="async" loading="lazy" alt="filezilla UI successfully uploaded file to Pioreactor" src="/assets/images/successuful_upload-edaf37800b289de114bbda1152911f87.png" width="3248" height="1950" class="img_ev3q"></p>
 </li>
+</ol>
+</li>
 <li class="">
-<p><a class="" href="/user-guide/accessing-raspberry-pi">SSH into your Pioreactor</a>. Now enter:</p>
+<p><a class="" href="/user-guide/accessing-raspberry-pi">SSH into your leader Pioreactor</a>. Now enter:</p>
 <div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">pio update app --source release_xx.xx.xx.zip</span><br></div></code></pre></div></div>
 <p>(Of course, replace the <code>xx.xx.xx</code> with your version). This will kick off a task to update your software.</p>
 </li>
 <li class="">
-<p>To update your workers, first we will distribute the release file to all workers:</p>
+<p>To update your workers, first distribute the release file to all workers:</p>
 <div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">pios cp release_xx.xx.xx.zip -y</span><br></div></code></pre></div></div>
 </li>
 <li class="">

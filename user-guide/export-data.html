@@ -18,8 +18,8 @@
 
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css" integrity="sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM" crossorigin="anonymous"><link rel="stylesheet" href="/assets/css/styles.90febfe0.css">
-<script src="/assets/js/runtime~main.1e5a62e8.js" defer="defer"></script>
-<script src="/assets/js/main.6d6f0338.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.e70704a1.js" defer="defer"></script>
+<script src="/assets/js/main.9d1e469e.js" defer="defer"></script>
 </head>
 <body>
 <svg style="display: none;"><defs>
@@ -49,10 +49,7 @@
 <div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">pio run export_experiment_data \</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">  --experiment &quot;my experiment&quot; \</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">  --dataset-name od_readings \</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">  --dataset-name experiment_tags \</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">  --start-time 2026-07-01T00:00:00-04:00 \</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">  --end-time 2026-07-02T00:00:00-04:00 \</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">  --output ./my-experiment.zip</span><br></div></code></pre></div></div>
 <p>Time bounds are inclusive. CLI, API, and MCP clients must supply offset-aware ISO-8601 timestamps: include <code>Z</code> for UTC or a numeric UTC offset such as <code>-04:00</code>. API and MCP clients should send one <code>experiment</code> string, not an <code>experiments</code> list.</p>
 <h2 class="anchor anchorTargetHideOnScrollNavbar_vjPI" id="exporting-to-a-usb-drive">Exporting to a USB drive<a href="#exporting-to-a-usb-drive" class="hash-link" aria-label="Direct link to Exporting to a USB drive" title="Direct link to Exporting to a USB drive" translate="no">​</a></h2>
-<p>If a writable USB drive is mounted on the leader Pioreactor, the export page can save the export directly to the drive instead of downloading it through the browser. See <a class="" href="/user-guide/using-usb-drives">Using USB drives</a> for mounting and ejecting the drive.</p>
-<p>After selecting your experiment and datasets, choose <strong>Export to USB</strong> from the export destination menu and click <strong>Export to USB</strong>.</p>
-<p><img decoding="async" loading="lazy" alt="Export data page showing Export to USB" src="/assets/images/export-to-usb-48901f8a8d014b93a048dcd5c02940bc.png" width="3130" height="1662" class="img_ev3q"></p>
-<p>USB exports are saved as a <code>.zip</code> file under <code>pioreactor/exports/</code> on the drive. Keep the page open until the export finishes.</p>
+<p>If a writable USB drive is mounted on the leader Pioreactor, you can save the export directly to the drive instead of downloading it through the browser. See <a class="" href="/user-guide/using-usb-drives#export-data-to-usb">Export data to USB</a>.</p>
 <h2 class="anchor anchorTargetHideOnScrollNavbar_vjPI" id="pioreactor-unit-activity-data">Pioreactor Unit Activity Data<a href="#pioreactor-unit-activity-data" class="hash-link" aria-label="Direct link to Pioreactor Unit Activity Data" title="Direct link to Pioreactor Unit Activity Data" translate="no">​</a></h2>
 <p>When exporting datasets, most csv files will include a single metric against a time series. If you&#x27;d like to compare many datasets using a single time series, we recommend export of the <em>Pioreactor Unit Activity</em> dataset.</p>
 <p>This dataset summarizes all activities from one Pioreactor against a single time series to make working with data easier. The dataset will follow a running timeseries (column A) and include metrics for OD, temperature, stirring, LED updates and dosing.</p>
