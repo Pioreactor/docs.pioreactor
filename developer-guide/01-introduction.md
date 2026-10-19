@@ -8,8 +8,8 @@ This documentation is for those who want to
 
 1. get the most customization out of their Pioreactor,
 2. use the Pioreactor core software for their own project,
-2. understand how the pieces work,
-3. contribute back code to the open-source Pioreactor software.
+3. understand how the pieces work,
+4. contribute back code to the open-source Pioreactor software.
 
 ### Open source
 

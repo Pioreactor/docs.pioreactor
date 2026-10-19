@@ -13,8 +13,14 @@ If you are building a novel bioreactor on top of our software, you can use the `
    ```bash
    mkdir -p ~/.pioreactor/models
    ```
-2. Add one YAML file per model+version, for example `~/.pioreactor/models/custom_100ml__v1_0.yaml`, on each Pioreactor that will use it. Put a copy on the leader for selection through Inventory.
-3. Restart the Pioreactor UI to pick up the new definition.
+2. Add one YAML file per model+version, for example `~/.pioreactor/models/custom_100ml__v1_0.yaml`. Any filename ending in `.yaml` or `.yml` works. The file must be on the leader (so the model appears in the Inventory dropdown) and on every Pioreactor that will use it. From the leader, copy it to all workers with:
+   ```bash
+   pios cp ~/.pioreactor/models/custom_100ml__v1_0.yaml
+   ```
+3. Restart the web UI on the leader to pick up the new definition:
+   ```bash
+   sudo systemctl restart pioreactor-web.target
+   ```
 4. Stop activities on the target Pioreactor, then assign the model from Inventory or with the commands below. Update workers before changing their models through the leader.
 
 You can also import model YAML files from the [SD card's boot partition](/user-guide/provisioning-images#import-experiment-profiles-models-and-hardware).
@@ -90,5 +96,5 @@ cp ~/.pioreactor/hardware/models/pioreactor_40ml/1.5/* ~/.pioreactor/hardware/mo
 ## Validation and troubleshooting
 
 - Run `python -m pioreactor.models` to ensure your YAML parses; validation errors are also logged via the `models` logger.
-- If a model is missing from the dropdown, confirm the filename ends with `.yaml`/`.yml`, the process has read permissions, and the Pioreactor services have restarted.
+- If a model is missing from the dropdown, confirm the file is in `/home/pioreactor/.pioreactor/models/` on the leader, the filename ends with `.yaml`/`.yml`, and you restarted `pioreactor-web.target`. Invalid files are skipped and logged to `pioreactor.log`.
 - Treat this directory like code: commit the YAMLs to version control alongside any CAD notes or lab SOPs so teammates understand the assumptions behind each model.

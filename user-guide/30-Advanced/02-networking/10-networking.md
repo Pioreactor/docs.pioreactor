@@ -61,11 +61,11 @@ sudo nmcli device wifi connect <ssid name> password <ssid password> ifname wlan1
 If your leader is connected to multiple networks `A` and `B`, and you access the UI over network `A`, but your workers access over network `B`, the leader is in the position called a "gateway". You'll need to make some configuration changes to your cluster. Since the leader is attached to networks `A` and `B`, it has two IPs (use `hostname -I` to see all the ips), let's call them `ipA` and `ipB` respectively.
 
 1. Access the configuration in the UI.
-2. In the _shared_ config.ini, edit the `[mqtt]` `broker` field to be equal to `ipA`. Also edit the `leader_address` to be `ipB`.
+2. In the _shared_ config.ini, edit the `[mqtt]` `broker_address` field to be equal to `ipA`. Also edit the `leader_address` to be `ipB`.
 3. In each of the workers (including the leader's config.ini, if it's a worker), add the following:
    ```
    [mqtt]
-   broker=ipB
+   broker_address=ipB
    ```
 
 You may need to restart your cluster for these to take full effect.
@@ -88,15 +88,15 @@ sudo nmcli con up PioreactorAP
 ```
 
 
-#### Changing `leader_address` and MQTT `broker` in your config.ini
+#### Changing `leader_address` and MQTT `broker_address` in your config.ini
 
 You may need to change the `leader_address` in your config.ini: this is the address where workers will communicate with your leader.
 
-Likewise, you may need to change the mqtt `broker` in your config.ini for the same reason. It may be required to change it in the unit specific config.inis.
+Likewise, you may need to change the mqtt `broker_address` in your config.ini for the same reason. It may be required to change it in the unit specific config.inis.
 
 ```ini title="config_worker01.ini"
 [mqtt]
-broker=leader.local
+broker_address=leader.local
 ```
 
 

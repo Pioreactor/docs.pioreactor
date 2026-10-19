@@ -167,13 +167,15 @@ common:
 
 ### Expressions in the `common` block
 
-Expressions can reference individual Pioreactors (for example `worker1:stirring:target_rpm`), but sometimes you want the aggregate across all workers. Use the `::<job>:setting` syntax inside the `common` block:
+Expressions can reference a specific Pioreactor by name (for example `worker1:stirring:target_rpm`). Inside the `common` block, you usually want each worker to look at its *own* value instead. Use the `::<job>:setting` syntax, which leaves out the unit name:
 
 ```
 ::<job_name>:setting
 ```
 
-For example, to conditionally change the stirring RPM for all workers:
+The `::` is replaced with the name of the Pioreactor the action is running on. Because `common` actions run once for each worker in the experiment, every worker evaluates the expression against its own job. It is not an aggregate (such as an average or maximum) across workers.
+
+For example, to raise the stirring RPM on each worker whose own target is at or below 500:
 
 ```yaml
 common:

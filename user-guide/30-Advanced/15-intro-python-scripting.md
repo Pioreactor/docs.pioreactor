@@ -63,7 +63,7 @@ Save the file with `crtl-x`, and then `Y`, and run the script again. Now, the jo
 
 Let's add some more to our script. Let's say we also want to:
 1. turn on an LED in channel B,
-2. turn on optical density reading (with 90° photodiode in channel 1 and reference in channel 2).
+2. turn on optical density reading (with the reference photodiode in channel 1 and the 90° photodiode in channel 2, the default wiring).
 3. After 10 seconds, slow down the stirring RPM
 
 ```python {3,4,6,9,11,12}
@@ -75,7 +75,7 @@ from pioreactor.actions.led_intensity import led_intensity
 led_intensity({'B': 50})
 
 stirrer = start_stirring(target_rpm=400)
-od_reader = start_od_reading("90", "REF")
+od_reader = start_od_reading({"1": "REF", "2": "90"})
 
 time.sleep(10)
 stirrer.set_target_rpm(300)
@@ -99,7 +99,7 @@ from pioreactor.background_jobs.temperature_automation import start_temperature_
 led_intensity({'B': 50})
 
 stirrer = start_stirring(target_rpm=400)
-od_reader = start_od_reading("90", "REF")
+od_reader = start_od_reading({"1": "REF", "2": "90"})
 thermostat = start_temperature_automation("thermostat", target_temperature=32)
 
 time.sleep(10)

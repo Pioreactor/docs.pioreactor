@@ -41,7 +41,7 @@ Newer versions of the <Highlight color={colors.orange}>top faceplate</Highlight>
 - Most of the labels are scaled 1:1 and can be used to identify parts.
 
 :::info
-Missing a part? Email us at `hello@pioreactor.com`, we're happy to help.
+Missing a part? Email us at `support@pioreactor.com`, we're happy to help.
 :::
 
 
@@ -65,7 +65,7 @@ Here are some tips to prevent damage to the electronics:
 <AssemblyInstructionBlock title="Step 4: We are here for you!" images={["user-guide/hardware-assembly/upgrade-version/finished-upgraded-version.png"]}>
 
 -  If you get stuck, missing a piece, or are unsure of something, **let us know**!
--  You can reach out to us at `hello@pioreactor.com`!
+-  You can reach out to us at `support@pioreactor.com`!
 -  Continue to the [next assembly instructions](/user-guide/v11-upgrade-pioreactor-disassembly).
 
 </AssemblyInstructionBlock>

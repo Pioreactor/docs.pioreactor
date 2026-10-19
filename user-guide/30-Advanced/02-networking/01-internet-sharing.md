@@ -29,8 +29,8 @@ Below is a simple diagram of how this might look (these are random IPs, yours ma
 
 1. The Pioreactor requires an ethernet port. Any Raspberry Pi B models have this, but also you can purchase inexpensive (micro)USB-to-ethernet dongles.
 2. You can use a freshly installed Pioreactor, or an existing Pioreactor.
-2. An ethernet cable
-3. A PC with an available ethernet connector (again, you can purchase dongles to connect ethernet to PC's that don't have an available ethernet port).
+3. An ethernet cable
+4. A PC with an available ethernet connector (again, you can purchase dongles to connect ethernet to PC's that don't have an available ethernet port).
 
 ### Steps
 
@@ -39,10 +39,10 @@ Below is a simple diagram of how this might look (these are random IPs, yours ma
 3. Connect the other end of the ethernet cable to the PC.
 4. If using a **mac / OSX**: turn on internet sharing with the following:
     1. Go to System Preferences -> Internet sharing.
-     2. In "Share your connection from", choose the source of your internet. Ex: if connected over Wi-Fi, choose that.
-     3. "To devices using": select the USB10/100/1000 LAN.
-     4. Set "Internet Sharing" to "On".
-     5. Click "Done"
+    2. In "Share your connection from", choose the source of your internet. Ex: if connected over Wi-Fi, choose that.
+    3. "To devices using": select the USB10/100/1000 LAN.
+    4. Set "Internet Sharing" to "On".
+    5. Click "Done"
 
 5. If using a **Windows**,  turn on internet sharing with the following:
     1. Open search bar and search for "View Network Connections"
@@ -51,7 +51,6 @@ Below is a simple diagram of how this might look (these are random IPs, yours ma
     4. Tick the box 'Allow other network users to connect through this computer's Internet connection' and click on 'OK'
 6. Power up the Pioreactor. After a few minutes, you should be able to `ping your-leaders-hostname.local` and get back an address like `192.168.xx.xx`.
 7. Open the UI in your browser using your leader's hostname (for example, `your-leaders-hostname.local`).
-9. Save the new config.
 
 
 And you're done! Your Pioreactor should be able to be both accessed by the local PC, and be able to ping the internet (for updates, plugins, etc). You can also disconnect the ethernet cable as well, and your Pioreactor will still function (albeit it will lose internet connectivity).

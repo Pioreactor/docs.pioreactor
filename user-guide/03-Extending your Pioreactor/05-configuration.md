@@ -6,7 +6,7 @@ hide_table_of_contents: true
 
 ### How configuration works across Pioreactors
 
-Configuration of the Pioreactors is through configuration files, prefixed by `.ini`. There are two types of `.ini` files: a shared `config.ini`, which is the same across all units, and a unit-specific `unit_config.ini` file, which can have settings that overwrite those found in the shared `config.ini`.
+Configuration of the Pioreactors is through configuration files ending in `.ini`. There are two types of `.ini` files: a shared `config.ini`, which is the same across all units, and a unit-specific `unit_config.ini` file, which can have settings that overwrite those found in the shared `config.ini`.
 
 For example (and see image below), each unit will use the shared config.ini setting of `target_rpm=500`, unless an alternative setting is present in their specific `unit_config.ini` files (like `target_rpm=400` found in `unit1_config.ini`) . This overriding lets you customize specific behavior *per* Pioreactor, without having to duplicate lots of configuration over and over again.
 
@@ -46,4 +46,4 @@ To set unit-specific overrides before booting, place a `config.ini` at the root 
 
 ### Default `config.ini`
 
-If you need a reference config.ini, or to replace parts of yours, here's our [default one](https://raw.githubusercontent.com/Pioreactor/CustoPiZer/pioreactor/workspace/scripts/files/config.example.ini) that ships with the Raspberry Pi image. To use it, you'll need to make some changes to populate the leader, specifically to \`cluster.topology\` and \`mqtt\`.
+If you need a reference config.ini, or to replace parts of yours, here's our [default one](https://github.com/Pioreactor/pioreactor/blob/master/packaging/shared-assets/pioreactor/config.example.ini) that ships with the Pioreactor software. To use it, you'll need to fill in the leader's details: `leader_hostname` and `leader_address` under `[cluster.topology]`, and `broker_address` under `[mqtt]`.

@@ -142,4 +142,4 @@ Please use these assets only to identify Pioreactor or describe your experimenta
 
 Using Pioreactor in a paper, thesis, poster, preprint, course, or talk? We would love to hear about it.
 
-Email us at [hello@pioreactor.com](mailto:hello@pioreactor.com) or share it on the [Pioreactor forum](https://forum.pioreactor.com/).
+Email us at [support@pioreactor.com](mailto:support@pioreactor.com) or share it on the [Pioreactor forum](https://forum.pioreactor.com/).

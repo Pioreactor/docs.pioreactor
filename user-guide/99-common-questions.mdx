@@ -134,7 +134,7 @@ If the Pioreactor's heating shuts off, typically with an accompanying error and 
 
 On current hardware, the software begins reducing heating when the heating PCB reaches 78℃, disables heating at 80℃, and shuts down the Pioreactor at 85℃. The Raspberry Pi has its own temperature protections and may shut down independently.
 
-To avoid this occurring, we suggest not setting the target temperature too high - not more than 20℃ above ambient temperature. Also, reducing the `Kd` parameter in `[temperature_automation.stable]` section in the config.ini would help.
+To avoid this occurring, we suggest not setting the target temperature too high - not more than 20℃ above ambient temperature. Also, reducing the `Kd` parameter in the `[temperature_automation.thermostat]` section in the config.ini would help.
 
 ### How does heating work on the Pioreactor?
 
@@ -318,18 +318,11 @@ Depending on your access to the Pioreactor, there are a few ways:
 
 1. In the UI's Inventory page.
 2. After SSHing in, use `hostname -I`.
-3. If you can't access the Pioreactor's UI or SSH in: the software will write the IP address to the `/boot` directory on the SD card. After the Pioreactor's blue LED has blinked, you can unplug the Pioreactor, remove the SD card, and place the SD card in another computer. Navigate to the card, and in the directory you should see a file called `ip`. Open this file, and the IP address should be there. Place the SD card back into the Pioreactor and plug it back in.
+3. If you can't access the Pioreactor's UI or SSH in: on each boot, the software writes a file called `network_info.txt` to the SD card's boot partition (shown as **boot** or **bootfs** on your computer). After the Pioreactor's blue LED has blinked, shut down or unplug the Pioreactor, remove the SD card, and place it in another computer. Open `network_info.txt`: it lists the hostname, IP address, MAC addresses, and recent network logs. Place the SD card back into the Pioreactor and plug it back in.
 
 ### I'm using a local access point, but I'd like to install plugins, update software, etc.
 
-#### To install a plugin
-
-On a computer that is connected to the internet, download the `.whl` file from the plugins webpage on PyPI. Then, connect that computer to your Pioreactor's local access point's network. To each Pioreactor you wish to install the plugin on, transfer the `.whl` file to the Pioreactor (using SFTP or FTP). Then, run `pio plugins install <plugin-name> --source <path/to/local/.whl>`
-
-
-#### To upgrade the Pioreactor software
-
-See steps [here](/user-guide/updating-software#method-2-update-using-a-zip-file-and-the-ui).
+Without internet access, use a USB drive: copy the plugin's `.whl` file or the software release `.zip` onto a drive and attach it to the leader. See [Using USB drives](/user-guide/using-usb-drives) for installing plugins and updating software. For other offline methods, see [Using community plugins](/user-guide/using-community-plugins#i-dont-have-internet-access---how-can-i-install-the-plugin) and [Updating the Pioreactor software](/user-guide/updating-software).
 
 ### If I have multiple Pioreactor leaders on my network, what leader does `http://pioreactor.local` point to?
 
