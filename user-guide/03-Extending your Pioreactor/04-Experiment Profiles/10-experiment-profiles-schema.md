@@ -148,6 +148,11 @@ You can reference other jobs, too. The example below adjusts stirring based on o
 
 A `start` action can also interpolate expressions in `config_overrides`. Each key overrides a setting in that job's `<job_name>.config` section for the new process:
 
+- Place `config_overrides` alongside `options`, not inside it. Use `options` for job arguments and `config_overrides` for configuration settings.
+- Use a flat mapping of setting names to literal values or `${{ ... }}` expressions. Expressions are evaluated when the start action runs, and values are passed to the new process as strings.
+- Overrides apply only to the process started by that action. They do not edit `config.ini` or `unit_config.ini`, or change already-running jobs. Include the overrides again in any later start action that needs them.
+- This field is supported on `start` actions only. It cannot select other configuration sections or accept nested section mappings.
+
 ```yaml
 version: "1.0"
 experiment_profile_name: configurable-stirring
@@ -164,6 +169,8 @@ common:
           config_overrides:
             pwm_hz: ${{ stirring_pwm_hz }}
 ```
+
+Here, `pwm_hz` overrides `[stirring.config]` for the new stirring process. To use a fixed value instead, write `pwm_hz: 100`.
 
 ### Expressions in the `common` block
 
@@ -324,7 +331,7 @@ remove_waste:
             volume: 1.5
 ```
 
-To override Turbidostat's default biomass signal inside an experiment profile, set `biomass_signal` directly in the start options or use `config_overrides` when you want to change the config-backed default for that run:
+To override Turbidostat's default biomass signal inside an experiment profile, set `biomass_signal` directly in the start options:
 
 ```yaml
 common:
@@ -339,22 +346,7 @@ common:
             biomass_signal: od_fused
 ```
 
-```yaml
-common:
-  jobs:
-    dosing_automation:
-      actions:
-        - type: start
-          options:
-            automation_name: turbidostat
-            target_biomass: 2.0
-            exchange_volume_ml: 1.0
-          config_overrides:
-            dosing_automation.turbidostat:
-              biomass_signal: od
-```
-
-Use the current section name `dosing_automation.turbidostat`. Older documentation may refer to `turbidostat.config`, but current releases migrate that legacy location to the new one.
+The config-backed default lives in `[dosing_automation.turbidostat]`. A profile's `config_overrides` for this job targets `[dosing_automation.config]`, so use the start option above to select the biomass signal for this run.
 
 ## Defining top-level parameters with `inputs`
 
