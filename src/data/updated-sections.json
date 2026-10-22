@@ -1,0 +1,107 @@
+{
+  "developer-guide/07-Plugins/05-plugin-as-python-package.md": [
+    "Add optional Pioreactor files"
+  ],
+  "developer-guide/10-Hardware/11-custom_models.md": [
+    "Directory layout",
+    "Assigning a model",
+    "Validation and troubleshooting"
+  ],
+  "developer-guide/20-User interface/05-api-reference.md": [
+    "Endpoint Index",
+    "Update Shared Config",
+    "Get Shared Config History",
+    "Get Config For Pioreactor Unit",
+    "Update Specific Config For Pioreactor Unit",
+    "Get Specific Config History For Pioreactor Unit",
+    "Get Experiments",
+    "Get Experiment",
+    "Get Camera Statuses For Experiment",
+    "Get Experiment Chart Preferences",
+    "Update Experiment Chart Preferences",
+    "Get List Of Historical Workers For Experiment",
+    "Get Active Experiments",
+    "Get Experiments Worker Assignments",
+    "Get Latest Experiment",
+    "Get Models",
+    "Get List Of Units",
+    "Get Capabilities",
+    "Get Jobs Running",
+    "Get Plugins On Machine",
+    "Get Unit Utc Clock",
+    "Get Usb Status On Machine",
+    "Get Usb Artifacts On Machine",
+    "Get App Versions",
+    "Get List Of Workers",
+    "Get Worker",
+    "Get All Active Calibrations",
+    "Get All Active Estimators",
+    "Get Calibration Protocols",
+    "Get All Calibrations",
+    "Get Calibrations",
+    "Get Calibration",
+    "Get Camera Status For Worker",
+    "List Camera Stills For Worker Experiment",
+    "Rename Camera Still For Worker Experiment",
+    "Get All Estimators",
+    "Get Estimators By Device",
+    "Get Estimator",
+    "Get Experiment Assignment For Worker",
+    "Get Worker Model And Metadata",
+    "Update Reported Worker Model",
+    "Get Workers And Experiment Assignments",
+    "Discover Available Workers",
+    "Setup Worker Pioreactor"
+  ],
+  "developer-guide/20-User interface/06-unit-api-reference.md": [
+    "Endpoint Index",
+    "Get Camera Status For Experiment",
+    "List Camera Stills For Experiment",
+    "Rename Camera Still For Experiment",
+    "Get Capabilities",
+    "Leave Cluster",
+    "Get Merged Config",
+    "Update Specific Config",
+    "Health Check",
+    "Get Unit Model",
+    "Set Unit Model",
+    "Get Disk Space",
+    "Get Memory",
+    "Get Clock Time",
+    "Get Usb Status",
+    "Get Usb Artifacts",
+    "Get App Version"
+  ],
+  "user-guide/01-getting-started/02-software-set-up.mdx": [
+    "Adding additional workers to your cluster",
+    "Common questions"
+  ],
+  "user-guide/02-Experiment basics/05-Activities.md": [
+    "Stirring around OD snapshots"
+  ],
+  "user-guide/03-Extending your Pioreactor/01-cluster-management/03-change-model.mdx": [
+    "Update a Pioreactor's model from the UI",
+    "Use a custom model"
+  ],
+  "user-guide/03-Extending your Pioreactor/04-Experiment Profiles/10-experiment-profiles-schema.md": [
+    "Conditionals and expressions",
+    "Action reference",
+    "Schema reference"
+  ],
+  "user-guide/03-Extending your Pioreactor/06a-using-community-plugins.mdx": [
+    "I don't have internet access - how can I install the plugin?",
+    "Install plugins from the SD card"
+  ],
+  "user-guide/30-Advanced/02-networking/10-networking.md": [
+    "General networking tools"
+  ],
+  "user-guide/30-Advanced/07-remote-access/03-tailscale.md": [
+    "Security"
+  ],
+  "user-guide/99-common-questions.mdx": [
+    "Heating and Temperature control",
+    "Mixing and stirring in the Pioreactor",
+    "Raspberry Pi Hardware",
+    "Networking"
+  ]
+}

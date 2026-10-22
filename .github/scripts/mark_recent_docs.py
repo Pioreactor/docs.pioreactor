@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 
 import datetime
+import json
 import os
+import re
 import pathlib
 import subprocess
 from collections import defaultdict
@@ -13,6 +15,11 @@ CLASS_NAME = "sidebar-item--updated"
 TARGET_DIRS = ("user-guide", "developer-guide")
 TARGET_EXTS = {".md", ".mdx"}
 EXCLUDED_PATH_PREFIXES = ("user-guide/01-getting-started/01-assembly_guides/",)
+UPDATED_SECTIONS_PATH = pathlib.Path("src/data/updated-sections.json")
+
+HUNK_RE = re.compile(r"^@@ -\d+(?:,(\d+))? \+(\d+)(?:,(\d+))? @@")
+FENCE_RE = re.compile(r"^\s*(```|~~~)")
+SECTION_HEADING_RE = re.compile(r"^##\s+(.+?)\s*#*\s*$")
 
 
 def run_git(args: List[str]) -> str:
@@ -88,6 +95,81 @@ def change_counts_since(since: str, doc_set: set[str]) -> dict[str, int]:
         except ValueError:
             continue
     return counts
+
+
+def revision_before(since: str) -> Optional[str]:
+    rev = run_git(["rev-list", "-1", f"--before={since}", "HEAD"]).strip()
+    return rev or None
+
+
+def exists_at(rev: str, path: str) -> bool:
+    result = subprocess.run(
+        ["git", "cat-file", "-e", f"{rev}:{path}"], capture_output=True
+    )
+    return result.returncode == 0
+
+
+def heading_text(raw: str) -> str:
+    text = re.sub(r"\s*\{#[^}]*\}$", "", raw)
+    text = re.sub(r"!?\[([^\]]*)\]\([^)]*\)", r"\1", text)
+    return re.sub(r"<[^>]+>", "", text).strip()
+
+
+def section_for_each_line(lines: List[str]) -> List[Optional[str]]:
+    # sections[i] is the "## " heading that line i+1 falls under, if any
+    sections: List[Optional[str]] = []
+    current = None
+    in_fence = False
+    for line in lines:
+        if FENCE_RE.match(line):
+            in_fence = not in_fence
+        elif not in_fence:
+            match = SECTION_HEADING_RE.match(line)
+            if match:
+                current = heading_text(match.group(1))
+        sections.append(current)
+    return sections
+
+
+def changed_sections(base: str, path: str) -> List[str]:
+    diff = run_git(
+        ["diff", "-U0", "-w", "--ignore-blank-lines", base, "HEAD", "--", path]
+    )
+    lines = pathlib.Path(path).read_text(encoding="utf-8").splitlines()
+    sections = section_for_each_line(lines)
+
+    def section_at(line_no: int) -> Optional[str]:
+        if not sections:
+            return None
+        return sections[min(max(line_no, 1), len(sections)) - 1]
+
+    changed: List[str] = []
+    for line in diff.splitlines():
+        match = HUNK_RE.match(line)
+        if not match:
+            continue
+        removed = int(match.group(1) or "1")
+        start = int(match.group(2))
+        added = int(match.group(3) or "1")
+        if added:
+            touched = [section_at(n) for n in range(start, start + added)]
+        else:
+            touched = [section_at(start)] if removed else []
+        for section in touched:
+            if section and section not in changed:
+                changed.append(section)
+    return changed
+
+
+def write_updated_sections(updated_sections: dict[str, List[str]]) -> bool:
+    text = json.dumps(updated_sections, indent=2, sort_keys=True) + "\n"
+    if UPDATED_SECTIONS_PATH.exists() and UPDATED_SECTIONS_PATH.read_text(
+        encoding="utf-8"
+    ) == text:
+        return False
+    UPDATED_SECTIONS_PATH.parent.mkdir(parents=True, exist_ok=True)
+    UPDATED_SECTIONS_PATH.write_text(text, encoding="utf-8")
+    return True
 
 
 def split_front_matter(
@@ -218,6 +300,19 @@ def main() -> None:
         should_have_flag = path_str in to_mark
         if update_file(path, should_have_flag):
             changed_files.append(path_str)
+
+    # New pages are entirely new, so only highlight sections of edited pages.
+    base = revision_before(since)
+    updated_sections: dict[str, List[str]] = {}
+    if base:
+        for path_str in sorted(significant_changes - created_recently):
+            if not exists_at(base, path_str):
+                continue
+            sections = changed_sections(base, path_str)
+            if sections:
+                updated_sections[path_str] = sections
+    if write_updated_sections(updated_sections):
+        changed_files.append(str(UPDATED_SECTIONS_PATH))
 
     print(f"Window start: {since}")
     print(f"New files in window: {len(created_recently)}")
