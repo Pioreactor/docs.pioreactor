@@ -1,107 +1,688 @@
 {
+  "developer-guide/03-Background jobs/01-intro-background-jobs.md": [
+    {
+      "heading": "State of a job",
+      "occurrence": 1
+    }
+  ],
   "developer-guide/07-Plugins/05-plugin-as-python-package.md": [
-    "Add optional Pioreactor files"
+    {
+      "heading": "Exportable datasets",
+      "occurrence": 1
+    }
+  ],
+  "developer-guide/09-Storage and the filesystem/01-data-stores/03_mqtt.md": [
+    {
+      "heading": "How do you structure topics for MQTT?",
+      "occurrence": 1
+    },
+    {
+      "heading": "Bioreactor values and PWM duty cycles",
+      "occurrence": 1
+    }
   ],
   "developer-guide/10-Hardware/11-custom_models.md": [
-    "Directory layout",
-    "Assigning a model",
-    "Validation and troubleshooting"
+    {
+      "heading": "Directory layout",
+      "occurrence": 1
+    },
+    {
+      "heading": "Assigning a model",
+      "occurrence": 1
+    },
+    {
+      "heading": "Validation and troubleshooting",
+      "occurrence": 1
+    }
   ],
   "developer-guide/20-User interface/05-api-reference.md": [
-    "Endpoint Index",
-    "Update Shared Config",
-    "Get Shared Config History",
-    "Get Config For Pioreactor Unit",
-    "Update Specific Config For Pioreactor Unit",
-    "Get Specific Config History For Pioreactor Unit",
-    "Get Experiments",
-    "Get Experiment",
-    "Get Camera Statuses For Experiment",
-    "Get Experiment Chart Preferences",
-    "Update Experiment Chart Preferences",
-    "Get List Of Historical Workers For Experiment",
-    "Get Active Experiments",
-    "Get Experiments Worker Assignments",
-    "Get Latest Experiment",
-    "Get Models",
-    "Get List Of Units",
-    "Get Capabilities",
-    "Get Jobs Running",
-    "Get Plugins On Machine",
-    "Get Unit Utc Clock",
-    "Get Usb Status On Machine",
-    "Get Usb Artifacts On Machine",
-    "Get App Versions",
-    "Get List Of Workers",
-    "Get Worker",
-    "Get All Active Calibrations",
-    "Get All Active Estimators",
-    "Get Calibration Protocols",
-    "Get All Calibrations",
-    "Get Calibrations",
-    "Get Calibration",
-    "Get Camera Status For Worker",
-    "List Camera Stills For Worker Experiment",
-    "Rename Camera Still For Worker Experiment",
-    "Get All Estimators",
-    "Get Estimators By Device",
-    "Get Estimator",
-    "Get Experiment Assignment For Worker",
-    "Get Worker Model And Metadata",
-    "Update Reported Worker Model",
-    "Get Workers And Experiment Assignments",
-    "Discover Available Workers",
-    "Setup Worker Pioreactor"
+    {
+      "heading": "Conventions",
+      "occurrence": 1
+    },
+    {
+      "heading": "Endpoint Index",
+      "occurrence": 1
+    },
+    {
+      "heading": "Update Shared Config",
+      "occurrence": 2
+    },
+    {
+      "heading": "Endpoint",
+      "occurrence": 5
+    },
+    {
+      "heading": "Request",
+      "occurrence": 3
+    },
+    {
+      "heading": "Request Body",
+      "occurrence": 2
+    },
+    {
+      "heading": "Response",
+      "occurrence": 5
+    },
+    {
+      "heading": "Success",
+      "occurrence": 5
+    },
+    {
+      "heading": "Success",
+      "occurrence": 6
+    },
+    {
+      "heading": "Success",
+      "occurrence": 7
+    },
+    {
+      "heading": "Update Specific Config For Pioreactor Unit",
+      "occurrence": 2
+    },
+    {
+      "heading": "Endpoint",
+      "occurrence": 10
+    },
+    {
+      "heading": "Request",
+      "occurrence": 7
+    },
+    {
+      "heading": "Path Parameters",
+      "occurrence": 5
+    },
+    {
+      "heading": "Request Body",
+      "occurrence": 4
+    },
+    {
+      "heading": "Response",
+      "occurrence": 10
+    },
+    {
+      "heading": "Success",
+      "occurrence": 10
+    },
+    {
+      "heading": "Success",
+      "occurrence": 11
+    },
+    {
+      "heading": "Success",
+      "occurrence": 22
+    },
+    {
+      "heading": "Success",
+      "occurrence": 25
+    },
+    {
+      "heading": "Success",
+      "occurrence": 26
+    },
+    {
+      "heading": "Success",
+      "occurrence": 27
+    },
+    {
+      "heading": "Get Experiment Chart Preferences",
+      "occurrence": 1
+    },
+    {
+      "heading": "Endpoint",
+      "occurrence": 28
+    },
+    {
+      "heading": "Request",
+      "occurrence": 21
+    },
+    {
+      "heading": "Path Parameters",
+      "occurrence": 15
+    },
+    {
+      "heading": "Response",
+      "occurrence": 28
+    },
+    {
+      "heading": "Success",
+      "occurrence": 28
+    },
+    {
+      "heading": "Update Experiment Chart Preferences",
+      "occurrence": 1
+    },
+    {
+      "heading": "Endpoint",
+      "occurrence": 29
+    },
+    {
+      "heading": "Request",
+      "occurrence": 22
+    },
+    {
+      "heading": "Path Parameters",
+      "occurrence": 16
+    },
+    {
+      "heading": "Request Body",
+      "occurrence": 11
+    },
+    {
+      "heading": "Response",
+      "occurrence": 29
+    },
+    {
+      "heading": "Success",
+      "occurrence": 29
+    },
+    {
+      "heading": "Success",
+      "occurrence": 32
+    },
+    {
+      "heading": "Success",
+      "occurrence": 50
+    },
+    {
+      "heading": "Success",
+      "occurrence": 51
+    },
+    {
+      "heading": "Success",
+      "occurrence": 52
+    },
+    {
+      "heading": "Success",
+      "occurrence": 56
+    },
+    {
+      "heading": "Success",
+      "occurrence": 62
+    },
+    {
+      "heading": "Success",
+      "occurrence": 63
+    },
+    {
+      "heading": "Success",
+      "occurrence": 68
+    },
+    {
+      "heading": "Success",
+      "occurrence": 79
+    },
+    {
+      "heading": "Success",
+      "occurrence": 85
+    },
+    {
+      "heading": "Success",
+      "occurrence": 87
+    },
+    {
+      "heading": "Success",
+      "occurrence": 88
+    },
+    {
+      "heading": "Success",
+      "occurrence": 91
+    },
+    {
+      "heading": "Success",
+      "occurrence": 93
+    },
+    {
+      "heading": "Success",
+      "occurrence": 96
+    },
+    {
+      "heading": "Success",
+      "occurrence": 97
+    },
+    {
+      "heading": "Success",
+      "occurrence": 100
+    },
+    {
+      "heading": "Success",
+      "occurrence": 106
+    },
+    {
+      "heading": "Success",
+      "occurrence": 107
+    },
+    {
+      "heading": "Success",
+      "occurrence": 108
+    },
+    {
+      "heading": "Success",
+      "occurrence": 111
+    },
+    {
+      "heading": "Success",
+      "occurrence": 116
+    },
+    {
+      "heading": "Success",
+      "occurrence": 117
+    },
+    {
+      "heading": "Rename Camera Still For Worker Experiment",
+      "occurrence": 1
+    },
+    {
+      "heading": "Path Parameters",
+      "occurrence": 94
+    },
+    {
+      "heading": "Request Body",
+      "occurrence": 35
+    },
+    {
+      "heading": "Success",
+      "occurrence": 122
+    },
+    {
+      "heading": "Success",
+      "occurrence": 125
+    },
+    {
+      "heading": "Success",
+      "occurrence": 126
+    },
+    {
+      "heading": "Success",
+      "occurrence": 127
+    },
+    {
+      "heading": "Success",
+      "occurrence": 129
+    },
+    {
+      "heading": "Success",
+      "occurrence": 130
+    },
+    {
+      "heading": "Success",
+      "occurrence": 145
+    },
+    {
+      "heading": "Success",
+      "occurrence": 153
+    },
+    {
+      "heading": "Endpoint",
+      "occurrence": 154
+    },
+    {
+      "heading": "Request",
+      "occurrence": 137
+    },
+    {
+      "heading": "Path Parameters",
+      "occurrence": 126
+    },
+    {
+      "heading": "Request Body",
+      "occurrence": 42
+    },
+    {
+      "heading": "Response",
+      "occurrence": 154
+    },
+    {
+      "heading": "Success",
+      "occurrence": 154
+    },
+    {
+      "heading": "Update Reported Worker Model",
+      "occurrence": 1
+    },
+    {
+      "heading": "Endpoint",
+      "occurrence": 155
+    },
+    {
+      "heading": "Success",
+      "occurrence": 160
+    },
+    {
+      "heading": "Success",
+      "occurrence": 161
+    },
+    {
+      "heading": "Setup Worker Pioreactor",
+      "occurrence": 1
+    },
+    {
+      "heading": "Success",
+      "occurrence": 162
+    }
   ],
   "developer-guide/20-User interface/06-unit-api-reference.md": [
-    "Endpoint Index",
-    "Get Camera Status For Experiment",
-    "List Camera Stills For Experiment",
-    "Rename Camera Still For Experiment",
-    "Get Capabilities",
-    "Leave Cluster",
-    "Get Merged Config",
-    "Update Specific Config",
-    "Health Check",
-    "Get Unit Model",
-    "Set Unit Model",
-    "Get Disk Space",
-    "Get Memory",
-    "Get Clock Time",
-    "Get Usb Status",
-    "Get Usb Artifacts",
-    "Get App Version"
+    {
+      "heading": "Conventions",
+      "occurrence": 1
+    },
+    {
+      "heading": "Endpoint Index",
+      "occurrence": 1
+    },
+    {
+      "heading": "Success",
+      "occurrence": 16
+    },
+    {
+      "heading": "Success",
+      "occurrence": 18
+    },
+    {
+      "heading": "Rename Camera Still For Experiment",
+      "occurrence": 1
+    },
+    {
+      "heading": "Path Parameters",
+      "occurrence": 19
+    },
+    {
+      "heading": "Request Body",
+      "occurrence": 3
+    },
+    {
+      "heading": "Success",
+      "occurrence": 23
+    },
+    {
+      "heading": "Success",
+      "occurrence": 26
+    },
+    {
+      "heading": "Leave Cluster",
+      "occurrence": 1
+    },
+    {
+      "heading": "Endpoint",
+      "occurrence": 27
+    },
+    {
+      "heading": "Request",
+      "occurrence": 22
+    },
+    {
+      "heading": "Request Body",
+      "occurrence": 5
+    },
+    {
+      "heading": "Response",
+      "occurrence": 27
+    },
+    {
+      "heading": "Success",
+      "occurrence": 27
+    },
+    {
+      "heading": "Success",
+      "occurrence": 28
+    },
+    {
+      "heading": "Endpoint",
+      "occurrence": 31
+    },
+    {
+      "heading": "Request",
+      "occurrence": 24
+    },
+    {
+      "heading": "Request Body",
+      "occurrence": 7
+    },
+    {
+      "heading": "Response",
+      "occurrence": 31
+    },
+    {
+      "heading": "Success",
+      "occurrence": 31
+    },
+    {
+      "heading": "Update Specific Config",
+      "occurrence": 3
+    },
+    {
+      "heading": "Endpoint",
+      "occurrence": 32
+    },
+    {
+      "heading": "Success",
+      "occurrence": 39
+    },
+    {
+      "heading": "Success",
+      "occurrence": 54
+    },
+    {
+      "heading": "Get Unit Model",
+      "occurrence": 1
+    },
+    {
+      "heading": "Endpoint",
+      "occurrence": 55
+    },
+    {
+      "heading": "Response",
+      "occurrence": 55
+    },
+    {
+      "heading": "Success",
+      "occurrence": 55
+    },
+    {
+      "heading": "Set Unit Model",
+      "occurrence": 1
+    },
+    {
+      "heading": "Endpoint",
+      "occurrence": 56
+    },
+    {
+      "heading": "Request",
+      "occurrence": 39
+    },
+    {
+      "heading": "Request Body",
+      "occurrence": 15
+    },
+    {
+      "heading": "Response",
+      "occurrence": 56
+    },
+    {
+      "heading": "Success",
+      "occurrence": 56
+    },
+    {
+      "heading": "Success",
+      "occurrence": 68
+    },
+    {
+      "heading": "Success",
+      "occurrence": 70
+    },
+    {
+      "heading": "Success",
+      "occurrence": 85
+    },
+    {
+      "heading": "Success",
+      "occurrence": 92
+    },
+    {
+      "heading": "Success",
+      "occurrence": 93
+    },
+    {
+      "heading": "Success",
+      "occurrence": 96
+    }
   ],
   "user-guide/01-getting-started/02-software-set-up.mdx": [
-    "Adding additional workers to your cluster",
-    "Common questions"
+    {
+      "heading": "Before you begin",
+      "occurrence": 1
+    },
+    {
+      "heading": "Setting up your Raspberry Pi's SD Card",
+      "occurrence": 1
+    },
+    {
+      "heading": "Step 1. Install the worker software",
+      "occurrence": 1
+    },
+    {
+      "heading": "My RPi won't connect to my WiFi.",
+      "occurrence": 1
+    },
+    {
+      "heading": "Correct your Wi-Fi credentials without reflashing",
+      "occurrence": 1
+    }
   ],
   "user-guide/02-Experiment basics/05-Activities.md": [
-    "Stirring around OD snapshots"
+    {
+      "heading": "Stirring around OD snapshots",
+      "occurrence": 1
+    },
+    {
+      "heading": "Configure the two RPM targets",
+      "occurrence": 1
+    },
+    {
+      "heading": "Allow time for RPM changes",
+      "occurrence": 1
+    }
   ],
   "user-guide/03-Extending your Pioreactor/01-cluster-management/03-change-model.mdx": [
-    "Update a Pioreactor's model from the UI",
-    "Use a custom model"
+    {
+      "heading": "Use a custom model",
+      "occurrence": 1
+    }
   ],
   "user-guide/03-Extending your Pioreactor/04-Experiment Profiles/10-experiment-profiles-schema.md": [
-    "Conditionals and expressions",
-    "Action reference",
-    "Schema reference"
+    {
+      "heading": "Expressions in `config_overrides`",
+      "occurrence": 1
+    },
+    {
+      "heading": "Expressions in the `common` block",
+      "occurrence": 1
+    },
+    {
+      "heading": "`repeat`",
+      "occurrence": 1
+    },
+    {
+      "heading": "Schema reference",
+      "occurrence": 1
+    }
   ],
   "user-guide/03-Extending your Pioreactor/06a-using-community-plugins.mdx": [
-    "I don't have internet access - how can I install the plugin?",
-    "Install plugins from the SD card"
+    {
+      "heading": "Option 1: install from a USB drive",
+      "occurrence": 1
+    },
+    {
+      "heading": "Install plugins from the SD card",
+      "occurrence": 1
+    }
+  ],
+  "user-guide/03-Extending your Pioreactor/20-updating-software.mdx": [
+    {
+      "heading": "Method 1: Updating over the internet",
+      "occurrence": 1
+    },
+    {
+      "heading": "Method 3: Update using a zip file from a USB drive",
+      "occurrence": 1
+    },
+    {
+      "heading": "Method 4: Update using a zip file over scp or sftp",
+      "occurrence": 1
+    }
+  ],
+  "user-guide/30-Advanced/02-networking/01-internet-sharing.md": [
+    {
+      "heading": "Steps",
+      "occurrence": 1
+    },
+    {
+      "heading": "Connecting multiple Pioreactors",
+      "occurrence": 1
+    }
   ],
   "user-guide/30-Advanced/02-networking/10-networking.md": [
-    "General networking tools"
+    {
+      "heading": "Connecting to a wifi network using `nmcli`",
+      "occurrence": 1
+    },
+    {
+      "heading": "Connecting from the SD card with `wifi.ini`",
+      "occurrence": 1
+    },
+    {
+      "heading": "Connecting to multiple networks simultaneously",
+      "occurrence": 1
+    },
+    {
+      "heading": "Changing `leader_address` and MQTT `broker_address` in your config.ini",
+      "occurrence": 1
+    }
   ],
   "user-guide/30-Advanced/07-remote-access/03-tailscale.md": [
-    "Security"
+    {
+      "heading": "Security",
+      "occurrence": 1
+    }
+  ],
+  "user-guide/30-Advanced/15-intro-python-scripting.md": [
+    {
+      "heading": "4. Extending our script: more jobs, changing RPM, and adding lights.",
+      "occurrence": 1
+    },
+    {
+      "heading": "5. Adding an automation",
+      "occurrence": 1
+    },
+    {
+      "heading": "Starting a long-running script",
+      "occurrence": 1
+    },
+    {
+      "heading": "Useful utility objects",
+      "occurrence": 1
+    }
   ],
   "user-guide/99-common-questions.mdx": [
-    "Heating and Temperature control",
-    "Mixing and stirring in the Pioreactor",
-    "Raspberry Pi Hardware",
-    "Networking"
+    {
+      "heading": "Why does the Pioreactor's heating keep shutting off?",
+      "occurrence": 1
+    },
+    {
+      "heading": "How can I improve mixing and aeration?",
+      "occurrence": 1
+    },
+    {
+      "heading": "Do I need any cooling for the Raspberry Pi?",
+      "occurrence": 1
+    },
+    {
+      "heading": "How can I determine the Pioreactor's IP address? Or the MAC address?",
+      "occurrence": 1
+    },
+    {
+      "heading": "I'm using a local access point, but I'd like to install plugins, update software, etc.",
+      "occurrence": 1
+    }
   ]
 }

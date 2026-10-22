@@ -1,13 +1,14 @@
 #!/usr/bin/env python3
 
 import datetime
+import difflib
 import json
 import os
 import re
 import pathlib
 import subprocess
 from collections import defaultdict
-from typing import List, Optional, Tuple
+from typing import Any, List, Optional, Tuple
 
 WINDOW_DAYS = int(os.getenv("WINDOW_DAYS", "30"))
 SIGNIFICANT_LINE_THRESHOLD = int(os.getenv("SIGNIFICANT_LINE_THRESHOLD", "20"))
@@ -17,9 +18,9 @@ TARGET_EXTS = {".md", ".mdx"}
 EXCLUDED_PATH_PREFIXES = ("user-guide/01-getting-started/01-assembly_guides/",)
 UPDATED_SECTIONS_PATH = pathlib.Path("src/data/updated-sections.json")
 
-HUNK_RE = re.compile(r"^@@ -\d+(?:,(\d+))? \+(\d+)(?:,(\d+))? @@")
 FENCE_RE = re.compile(r"^\s*(```|~~~)")
-SECTION_HEADING_RE = re.compile(r"^##\s+(.+?)\s*#*\s*$")
+SECTION_HEADING_RE = re.compile(r"^#{2,6}\s+(.+?)\s*#*\s*$")
+LIST_NUMBER_RE = re.compile(r"^\s*\d+[.)]\s+")
 
 
 def run_git(args: List[str]) -> str:
@@ -115,9 +116,16 @@ def heading_text(raw: str) -> str:
     return re.sub(r"<[^>]+>", "", text).strip()
 
 
-def section_for_each_line(lines: List[str]) -> List[Optional[str]]:
-    # sections[i] is the "## " heading that line i+1 falls under, if any
-    sections: List[Optional[str]] = []
+def normalize(text: str) -> str:
+    return "".join(c for c in text.lower() if c.isalnum())
+
+
+def section_for_each_line(lines: List[str]) -> List[Optional[Tuple[str, int]]]:
+    # sections[i] is the nearest heading of level 2 or deeper that line i+1 falls under, if any,
+    # as (text, occurrence); occurrence counts earlier headings with the same
+    # normalized text, starting at 1, so duplicate headings stay distinct.
+    sections: List[Optional[Tuple[str, int]]] = []
+    seen: defaultdict[str, int] = defaultdict(int)
     current = None
     in_fence = False
     for line in lines:
@@ -126,42 +134,44 @@ def section_for_each_line(lines: List[str]) -> List[Optional[str]]:
         elif not in_fence:
             match = SECTION_HEADING_RE.match(line)
             if match:
-                current = heading_text(match.group(1))
+                text = heading_text(match.group(1))
+                seen[normalize(text)] += 1
+                current = (text, seen[normalize(text)])
         sections.append(current)
     return sections
 
 
-def changed_sections(base: str, path: str) -> List[str]:
-    diff = run_git(
-        ["diff", "-U0", "-w", "--ignore-blank-lines", base, "HEAD", "--", path]
-    )
+def comparable(line: str) -> str:
+    # List renumbering and whitespace don't count as changes.
+    return re.sub(r"\s+", "", LIST_NUMBER_RE.sub("", line))
+
+
+def changed_sections(base: str, path: str) -> List[dict[str, Any]]:
+    old_lines = run_git(["show", f"{base}:{path}"]).splitlines()
     lines = pathlib.Path(path).read_text(encoding="utf-8").splitlines()
     sections = section_for_each_line(lines)
 
-    def section_at(line_no: int) -> Optional[str]:
-        if not sections:
-            return None
-        return sections[min(max(line_no, 1), len(sections)) - 1]
+    old_cmp = [comparable(line) for line in old_lines]
+    new_cmp = [comparable(line) for line in lines]
+    matcher = difflib.SequenceMatcher(None, old_cmp, new_cmp, autojunk=False)
 
-    changed: List[str] = []
-    for line in diff.splitlines():
-        match = HUNK_RE.match(line)
-        if not match:
+    changed: List[Tuple[str, int]] = []
+    for tag, i1, i2, j1, j2 in matcher.get_opcodes():
+        if tag == "equal":
             continue
-        removed = int(match.group(1) or "1")
-        start = int(match.group(2))
-        added = int(match.group(3) or "1")
-        if added:
-            touched = [section_at(n) for n in range(start, start + added)]
+        if not any(old_cmp[i1:i2]) and not any(new_cmp[j1:j2]):
+            continue
+        if j2 > j1:
+            touched = sections[j1:j2]
         else:
-            touched = [section_at(start)] if removed else []
+            touched = [sections[j1 - 1]] if 0 < j1 <= len(sections) else []
         for section in touched:
             if section and section not in changed:
                 changed.append(section)
-    return changed
+    return [{"heading": text, "occurrence": n} for text, n in changed]
 
 
-def write_updated_sections(updated_sections: dict[str, List[str]]) -> bool:
+def write_updated_sections(updated_sections: dict[str, List[dict[str, Any]]]) -> bool:
     text = json.dumps(updated_sections, indent=2, sort_keys=True) + "\n"
     if UPDATED_SECTIONS_PATH.exists() and UPDATED_SECTIONS_PATH.read_text(
         encoding="utf-8"
@@ -303,7 +313,7 @@ def main() -> None:
 
     # New pages are entirely new, so only highlight sections of edited pages.
     base = revision_before(since)
-    updated_sections: dict[str, List[str]] = {}
+    updated_sections: dict[str, List[dict[str, Any]]] = {}
     if base:
         for path_str in sorted(significant_changes - created_recently):
             if not exists_at(base, path_str):
