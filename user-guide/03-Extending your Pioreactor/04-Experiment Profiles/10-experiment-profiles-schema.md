@@ -1,6 +1,7 @@
 ---
 title: Experiment profile schema and syntax
 slug: /experiment-profiles-schema
+sidebar_class_name: sidebar-item--updated
 ---
 
 Experiment profiles are YAML files that choreograph jobs across your Pioreactor cluster. This page documents the syntax the UI validates against and the constructs available when you are editing a profile directly.
