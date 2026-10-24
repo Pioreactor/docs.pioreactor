@@ -623,10 +623,6 @@
   ],
   "user-guide/30-Advanced/02-networking/10-networking.md": [
     {
-      "heading": "Connecting to a wifi network using `nmcli`",
-      "occurrence": 1
-    },
-    {
       "heading": "Connecting from the SD card with `wifi.ini`",
       "occurrence": 1
     },
