@@ -19,16 +19,14 @@ import TabItem from '@theme/TabItem';
 * <Highlight color={colors.blue}>Hex nuts (4x)</Highlight>
 * <Highlight color={colors.red}>M2.5 12mm hex standoffs (4x)</Highlight>
 * <Highlight color={colors.magenta}>M2.5 12mm hex standoffs-with-6mm-screws (4x)</Highlight>
-* <Highlight color={colors.green}>M2.5 10mm screws (4x)</Highlight>
+* <Highlight color={colors.green}>M2.5 8mm screws (4x)</Highlight>
 * <Highlight color={colors.orange}>Bottom faceplate</Highlight>
 * <Highlight color={colors.teal}>HAT PCB</Highlight>
 
 
 2. Check the <Highlight color={colors.teal}>GPIO pins</Highlight> on the HAT PCB to confirm that they are straight and not touching another GPIO pin.
 
-:::warning
-The <Highlight color={colors.green}>M2.5 10mm screws (4x)</Highlight> are replaced with **M2.5 8mm screws** in newer versions of the Pioreactor.
-:::
+
 
 
 </AssemblyInstructionBlock>
@@ -59,7 +57,7 @@ The 40 GPIO pins (standing for general-purpose input/output) form a distinct row
 :::
 
 1.  Orientation: the base will have a flat edge and an edge with an indent. The GPIO pins sit along the <Highlight color={colors.orange}>indent</Highlight>, seen on the left in the images.
-2.  Insert the <Highlight color={colors.green}>M2.5 10mm screws</Highlight> into the holes.
+2.  Insert the <Highlight color={colors.green}>M2.5 8mm screws</Highlight> into the holes.
 3.  Hand screw a <Highlight color={colors.blue}>hex nut</Highlight> onto each screw.
 4.  Place the Raspberry Pi on top, aligning the holes, with the <Highlight color={colors.purple}>GPIO pins</Highlight> on the left. Note: your Raspberry Pi may look different than the one displayed.
 
