@@ -91,7 +91,7 @@ The 40 GPIO pins (standing for general-purpose input/output) form a distinct row
 :::
 
 1.  Orientation: the base will have a flat edge and an edge with an indent. The GPIO pins sit along the <Highlight color={colors.orange}>indent</Highlight>, seen on the left in the images.
-2.  Insert the 10mm screws into the <Highlight color={colors.green}>holes</Highlight>.
+2.  Insert the 8mm screws into the <Highlight color={colors.green}>holes</Highlight>.
 3.  Hand screw the <Highlight color={colors.blue}>hexnuts</Highlight> on the screws along the flat edge of the bottom faceplate. Hexnuts are only needed on one side because of the size of the Raspberry Pi Zero.
 4.  View the assembly from the side. Ensure that the Pi lies flat on the bottom faceplate.
 5.  Place the Raspberry Pi along the indented edge of the faceplate, with the <Highlight color={colors.purple}>GPIO pins</Highlight> on the left.
