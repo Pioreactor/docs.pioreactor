@@ -16,11 +16,7 @@ import TabItem from '@theme/TabItem';
 1. For this version, you will need:
 
   * <Highlight color={colors.red}>Fan and top faceplate</Highlight> (will have 4x 30mm screws in it)
-  * <Highlight color={colors.orange}>M2.5 10mm screw (1x)</Highlight>
-
-:::warning
-The <Highlight color={colors.orange}>M2.5 10mm screw (1x)</Highlight> is replaced with a **M2.5 8mm screw** in newer versions of the Pioreactor.
-:::
+  * <Highlight color={colors.orange}>M2.5 8mm screw (1x)</Highlight>
 
 </AssemblyInstructionBlock>
 
@@ -65,7 +61,7 @@ The top faceplate comes with a button extension to provide easier access to push
 Older kits may contain 4x M2.5 6mm screws instead. Use these instead. Double check using the sticker guide on the bag containing the fasteners. 
 :::
 
-3. Check that the screw for the button extension is in the right position and not prematurely compressing the button under it (you should feel a "click" when pressing the button extension). Remove the top and screw in the M2.5 10mm screw more if you detect a problem.
+3. Check that the screw for the button extension is in the right position and not prematurely compressing the button under it (you should feel a "click" when pressing the button extension). Remove the top and screw in the M2.5 8mm screw more if you detect a problem.
 4. Open the <Highlight color={colors.orange}>flat flex cable connector</Highlight> on the HAT by pulling the tabs outward, like done previously. Insert the flex cable copper-side up.
 5. <Highlight color={colors.green}>Push the tabs inward</Highlight> to secure the flex cable.
 6. Insert the stirring power connector into <Highlight color={colors.magenta}>PWM channel 1</Highlight> (unlabelled).
