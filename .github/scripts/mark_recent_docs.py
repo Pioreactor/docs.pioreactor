@@ -7,11 +7,12 @@ import os
 import re
 import pathlib
 import subprocess
-from collections import defaultdict
+from collections import Counter, defaultdict
 from typing import Any, List, Optional, Tuple
 
 WINDOW_DAYS = int(os.getenv("WINDOW_DAYS", "30"))
 SIGNIFICANT_LINE_THRESHOLD = int(os.getenv("SIGNIFICANT_LINE_THRESHOLD", "20"))
+PROSE_WORD_THRESHOLD = int(os.getenv("PROSE_WORD_THRESHOLD", "10"))
 CLASS_NAME = "sidebar-item--updated"
 TARGET_DIRS = ("user-guide", "developer-guide")
 TARGET_EXTS = {".md", ".mdx"}
@@ -21,6 +22,7 @@ UPDATED_SECTIONS_PATH = pathlib.Path("src/data/updated-sections.json")
 FENCE_RE = re.compile(r"^\s*(```|~~~)")
 SECTION_HEADING_RE = re.compile(r"^#{2,6}\s+(.+?)\s*#*\s*$")
 LIST_NUMBER_RE = re.compile(r"^\s*\d+[.)]\s+")
+TOKEN_RE = re.compile(r"`[^`]*`|\S+")
 
 
 def run_git(args: List[str]) -> str:
@@ -146,28 +148,84 @@ def comparable(line: str) -> str:
     return re.sub(r"\s+", "", LIST_NUMBER_RE.sub("", line))
 
 
+def fenced_lines(lines: List[str]) -> List[bool]:
+    fenced: List[bool] = []
+    in_fence = False
+    for line in lines:
+        is_fence = bool(FENCE_RE.match(line))
+        fenced.append(in_fence or is_fence)
+        if is_fence:
+            in_fence = not in_fence
+    return fenced
+
+
+def tokens(line: str, fenced: bool) -> List[Tuple[str, bool]]:
+    # (token, is_code); an inline `code` span is one token
+    return [
+        (token, fenced or token.startswith("`"))
+        for token in TOKEN_RE.findall(LIST_NUMBER_RE.sub("", line))
+    ]
+
+
 def changed_sections(base: str, path: str) -> List[dict[str, Any]]:
+    # A section counts as changed when any code in it changed (commands, config keys,
+    # code blocks) or at least PROSE_WORD_THRESHOLD words of prose did, so a typo or
+    # email fix doesn't. Lines that only moved, and text from sections that no longer
+    # exist, don't count against the sections around them.
     old_lines = run_git(["show", f"{base}:{path}"]).splitlines()
-    lines = pathlib.Path(path).read_text(encoding="utf-8").splitlines()
-    sections = section_for_each_line(lines)
+    new_lines = pathlib.Path(path).read_text(encoding="utf-8").splitlines()
+    old_sections = section_for_each_line(old_lines)
+    new_sections = section_for_each_line(new_lines)
+    old_fenced = fenced_lines(old_lines)
+    new_fenced = fenced_lines(new_lines)
+    existing = set(new_sections)
 
     old_cmp = [comparable(line) for line in old_lines]
-    new_cmp = [comparable(line) for line in lines]
+    new_cmp = [comparable(line) for line in new_lines]
     matcher = difflib.SequenceMatcher(None, old_cmp, new_cmp, autojunk=False)
+    opcodes = [op for op in matcher.get_opcodes() if op[0] != "equal"]
+    removed = {old_cmp[i] for _, i1, i2, _, _ in opcodes for i in range(i1, i2)}
+    added = {new_cmp[j] for _, _, _, j1, j2 in opcodes for j in range(j1, j2)}
+    moved = removed & added
+
+    prose_words: Counter[Tuple[str, int]] = Counter()
+    code_changed: set[Tuple[str, int]] = set()
+    for _, i1, i2, j1, j2 in opcodes:
+        old_tokens = [
+            (token, is_code, old_sections[i])
+            for i in range(i1, i2)
+            if old_cmp[i] not in moved
+            for token, is_code in tokens(old_lines[i], old_fenced[i])
+        ]
+        new_tokens = [
+            (token, is_code, new_sections[j])
+            for j in range(j1, j2)
+            if new_cmp[j] not in moved
+            for token, is_code in tokens(new_lines[j], new_fenced[j])
+        ]
+        word_matcher = difflib.SequenceMatcher(
+            None,
+            [token for token, _, _ in old_tokens],
+            [token for token, _, _ in new_tokens],
+            autojunk=False,
+        )
+        for tag, a1, a2, b1, b2 in word_matcher.get_opcodes():
+            if tag == "equal":
+                continue
+            for _, is_code, section in old_tokens[a1:a2] + new_tokens[b1:b2]:
+                if section is None or section not in existing:
+                    continue
+                if is_code:
+                    code_changed.add(section)
+                else:
+                    prose_words[section] += 1
 
     changed: List[Tuple[str, int]] = []
-    for tag, i1, i2, j1, j2 in matcher.get_opcodes():
-        if tag == "equal":
+    for section in new_sections:
+        if section is None or section in changed:
             continue
-        if not any(old_cmp[i1:i2]) and not any(new_cmp[j1:j2]):
-            continue
-        if j2 > j1:
-            touched = sections[j1:j2]
-        else:
-            touched = [sections[j1 - 1]] if 0 < j1 <= len(sections) else []
-        for section in touched:
-            if section and section not in changed:
-                changed.append(section)
+        if section in code_changed or prose_words[section] >= PROSE_WORD_THRESHOLD:
+            changed.append(section)
     return [{"heading": text, "occurrence": n} for text, n in changed]
 
 

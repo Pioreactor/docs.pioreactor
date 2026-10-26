@@ -13,10 +13,6 @@
   ],
   "developer-guide/09-Storage and the filesystem/01-data-stores/03_mqtt.md": [
     {
-      "heading": "How do you structure topics for MQTT?",
-      "occurrence": 1
-    },
-    {
       "heading": "Bioreactor values and PWM duty cycles",
       "occurrence": 1
     }
@@ -45,24 +41,12 @@
       "occurrence": 1
     },
     {
-      "heading": "Update Shared Config",
-      "occurrence": 2
-    },
-    {
       "heading": "Endpoint",
       "occurrence": 5
     },
     {
-      "heading": "Request",
-      "occurrence": 3
-    },
-    {
       "heading": "Request Body",
       "occurrence": 2
-    },
-    {
-      "heading": "Response",
-      "occurrence": 5
     },
     {
       "heading": "Success",
@@ -77,6 +61,10 @@
       "occurrence": 7
     },
     {
+      "heading": "Success",
+      "occurrence": 9
+    },
+    {
       "heading": "Update Specific Config For Pioreactor Unit",
       "occurrence": 2
     },
@@ -85,20 +73,12 @@
       "occurrence": 10
     },
     {
-      "heading": "Request",
-      "occurrence": 7
-    },
-    {
       "heading": "Path Parameters",
       "occurrence": 5
     },
     {
       "heading": "Request Body",
       "occurrence": 4
-    },
-    {
-      "heading": "Response",
-      "occurrence": 10
     },
     {
       "heading": "Success",
@@ -110,14 +90,26 @@
     },
     {
       "heading": "Success",
+      "occurrence": 20
+    },
+    {
+      "heading": "Success",
       "occurrence": 22
+    },
+    {
+      "heading": "Success",
+      "occurrence": 23
+    },
+    {
+      "heading": "Response",
+      "occurrence": 25
     },
     {
       "heading": "Success",
       "occurrence": 25
     },
     {
-      "heading": "Success",
+      "heading": "Response",
       "occurrence": 26
     },
     {
@@ -129,22 +121,6 @@
       "occurrence": 1
     },
     {
-      "heading": "Endpoint",
-      "occurrence": 28
-    },
-    {
-      "heading": "Request",
-      "occurrence": 21
-    },
-    {
-      "heading": "Path Parameters",
-      "occurrence": 15
-    },
-    {
-      "heading": "Response",
-      "occurrence": 28
-    },
-    {
       "heading": "Success",
       "occurrence": 28
     },
@@ -153,32 +129,24 @@
       "occurrence": 1
     },
     {
-      "heading": "Endpoint",
-      "occurrence": 29
-    },
-    {
-      "heading": "Request",
-      "occurrence": 22
-    },
-    {
-      "heading": "Path Parameters",
-      "occurrence": 16
-    },
-    {
       "heading": "Request Body",
       "occurrence": 11
     },
     {
-      "heading": "Response",
-      "occurrence": 29
-    },
-    {
-      "heading": "Success",
-      "occurrence": 29
-    },
-    {
       "heading": "Success",
       "occurrence": 32
+    },
+    {
+      "heading": "Success",
+      "occurrence": 46
+    },
+    {
+      "heading": "Success",
+      "occurrence": 47
+    },
+    {
+      "heading": "Success",
+      "occurrence": 48
     },
     {
       "heading": "Success",
@@ -198,6 +166,10 @@
     },
     {
       "heading": "Success",
+      "occurrence": 59
+    },
+    {
+      "heading": "Success",
       "occurrence": 62
     },
     {
@@ -206,11 +178,31 @@
     },
     {
       "heading": "Success",
+      "occurrence": 64
+    },
+    {
+      "heading": "Success",
       "occurrence": 68
     },
     {
       "heading": "Success",
+      "occurrence": 75
+    },
+    {
+      "heading": "Success",
       "occurrence": 79
+    },
+    {
+      "heading": "Success",
+      "occurrence": 81
+    },
+    {
+      "heading": "Success",
+      "occurrence": 83
+    },
+    {
+      "heading": "Success",
+      "occurrence": 84
     },
     {
       "heading": "Success",
@@ -246,6 +238,18 @@
     },
     {
       "heading": "Success",
+      "occurrence": 102
+    },
+    {
+      "heading": "Success",
+      "occurrence": 103
+    },
+    {
+      "heading": "Success",
+      "occurrence": 104
+    },
+    {
+      "heading": "Success",
       "occurrence": 106
     },
     {
@@ -262,6 +266,14 @@
     },
     {
       "heading": "Success",
+      "occurrence": 112
+    },
+    {
+      "heading": "Success",
+      "occurrence": 113
+    },
+    {
+      "heading": "Success",
       "occurrence": 116
     },
     {
@@ -269,12 +281,24 @@
       "occurrence": 117
     },
     {
-      "heading": "Rename Camera Still For Worker Experiment",
-      "occurrence": 1
+      "heading": "Response",
+      "occurrence": 120
+    },
+    {
+      "heading": "Success",
+      "occurrence": 120
     },
     {
       "heading": "Path Parameters",
-      "occurrence": 94
+      "occurrence": 93
+    },
+    {
+      "heading": "Success",
+      "occurrence": 121
+    },
+    {
+      "heading": "Rename Camera Still For Worker Experiment",
+      "occurrence": 1
     },
     {
       "heading": "Request Body",
@@ -283,6 +307,10 @@
     {
       "heading": "Success",
       "occurrence": 122
+    },
+    {
+      "heading": "Success",
+      "occurrence": 124
     },
     {
       "heading": "Success",
@@ -306,19 +334,19 @@
     },
     {
       "heading": "Success",
+      "occurrence": 140
+    },
+    {
+      "heading": "Success",
       "occurrence": 145
     },
     {
       "heading": "Success",
+      "occurrence": 148
+    },
+    {
+      "heading": "Success",
       "occurrence": 153
-    },
-    {
-      "heading": "Endpoint",
-      "occurrence": 154
-    },
-    {
-      "heading": "Request",
-      "occurrence": 137
     },
     {
       "heading": "Path Parameters",
@@ -327,10 +355,6 @@
     {
       "heading": "Request Body",
       "occurrence": 42
-    },
-    {
-      "heading": "Response",
-      "occurrence": 154
     },
     {
       "heading": "Success",
@@ -346,15 +370,15 @@
     },
     {
       "heading": "Success",
-      "occurrence": 160
+      "occurrence": 155
     },
     {
       "heading": "Success",
-      "occurrence": 161
+      "occurrence": 156
     },
     {
-      "heading": "Setup Worker Pioreactor",
-      "occurrence": 1
+      "heading": "Success",
+      "occurrence": 160
     },
     {
       "heading": "Success",
@@ -391,8 +415,16 @@
       "occurrence": 3
     },
     {
+      "heading": "Response",
+      "occurrence": 23
+    },
+    {
       "heading": "Success",
       "occurrence": 23
+    },
+    {
+      "heading": "Success",
+      "occurrence": 25
     },
     {
       "heading": "Success",
@@ -407,16 +439,8 @@
       "occurrence": 27
     },
     {
-      "heading": "Request",
-      "occurrence": 22
-    },
-    {
       "heading": "Request Body",
       "occurrence": 5
-    },
-    {
-      "heading": "Response",
-      "occurrence": 27
     },
     {
       "heading": "Success",
@@ -427,20 +451,8 @@
       "occurrence": 28
     },
     {
-      "heading": "Endpoint",
-      "occurrence": 31
-    },
-    {
-      "heading": "Request",
-      "occurrence": 24
-    },
-    {
       "heading": "Request Body",
       "occurrence": 7
-    },
-    {
-      "heading": "Response",
-      "occurrence": 31
     },
     {
       "heading": "Success",
@@ -456,51 +468,39 @@
     },
     {
       "heading": "Success",
-      "occurrence": 39
+      "occurrence": 36
     },
     {
       "heading": "Success",
-      "occurrence": 54
-    },
-    {
-      "heading": "Get Unit Model",
-      "occurrence": 1
+      "occurrence": 39
     },
     {
       "heading": "Endpoint",
       "occurrence": 55
     },
     {
-      "heading": "Response",
-      "occurrence": 55
-    },
-    {
       "heading": "Success",
       "occurrence": 55
-    },
-    {
-      "heading": "Set Unit Model",
-      "occurrence": 1
     },
     {
       "heading": "Endpoint",
       "occurrence": 56
-    },
-    {
-      "heading": "Request",
-      "occurrence": 39
     },
     {
       "heading": "Request Body",
       "occurrence": 15
     },
     {
-      "heading": "Response",
+      "heading": "Success",
       "occurrence": 56
     },
     {
       "heading": "Success",
-      "occurrence": 56
+      "occurrence": 63
+    },
+    {
+      "heading": "Success",
+      "occurrence": 65
     },
     {
       "heading": "Success",
@@ -512,7 +512,23 @@
     },
     {
       "heading": "Success",
+      "occurrence": 80
+    },
+    {
+      "heading": "Success",
       "occurrence": 85
+    },
+    {
+      "heading": "Success",
+      "occurrence": 87
+    },
+    {
+      "heading": "Success",
+      "occurrence": 88
+    },
+    {
+      "heading": "Success",
+      "occurrence": 91
     },
     {
       "heading": "Success",
@@ -530,10 +546,6 @@
   "user-guide/01-getting-started/02-software-set-up.mdx": [
     {
       "heading": "Before you begin",
-      "occurrence": 1
-    },
-    {
-      "heading": "Setting up your Raspberry Pi's SD Card",
       "occurrence": 1
     },
     {
@@ -613,10 +625,6 @@
   ],
   "user-guide/30-Advanced/02-networking/01-internet-sharing.md": [
     {
-      "heading": "Steps",
-      "occurrence": 1
-    },
-    {
       "heading": "Connecting multiple Pioreactors",
       "occurrence": 1
     }
@@ -666,10 +674,6 @@
     },
     {
       "heading": "How can I improve mixing and aeration?",
-      "occurrence": 1
-    },
-    {
-      "heading": "Do I need any cooling for the Raspberry Pi?",
       "occurrence": 1
     },
     {
