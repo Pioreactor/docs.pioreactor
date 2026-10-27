@@ -77,13 +77,14 @@ It does not matter which wires are connected to either eye-spy sockets. However,
 -------------------
 
 
-<AssemblyInstructionBlock title="Step 4: Connect LED cable (Channel A → IR pocket)" images={[ "user-guide/hardware-assembly/40ml-v15/led-and-caps-in-place.jpg", "user-guide/hardware-assembly/40ml-v15/led-in-ir.jpg", "user-guide/hardware-assembly/40ml-v15/secure-ir.jpg"]}>
+<AssemblyInstructionBlock title="Step 4: Connect LED cable (Channel A → IR pocket)" images={[ "user-guide/hardware-assembly/40ml-v15/led-and-caps-in-place.jpg", "user-guide/hardware-assembly/upgrade_XR/flat-side-of-bulb.jpg", "user-guide/hardware-assembly/upgrade_XR/insert-bulb-into-ir.jpg", "user-guide/hardware-assembly/upgrade_XR/twist-bulb-into-place.jpg", "user-guide/hardware-assembly/40ml-v15/secure-ir.jpg"]}>
 
 
 1. Connect the LED cable to the <Highlight color={colors.green}>Channel A connector</Highlight>.
 2. Secure <Highlight color={colors.purple}>LED caps (3x) over the unused pockets</Highlight>. 
-3. Insert the LED bulb into the pocket labeled IR. _Slowly_ bend the bulb's leads 90 degrees towards the left such that the bend is near the LED bulb.
-4. Secure the bulb with an LED cap. 
+3. Notice the <Highlight color={colors.green}>flat side of the LED bulb</Highlight> and the <Highlight color={colors.teal}>flat protrusion</Highlight> in front of the IR pocket.
+4. With the IR cable <Highlight color={colors.magenta}>pointing downward</Highlight>, gently insert the bulb into the IR pocket.
+5. Gently <Highlight color={colors.red}>twist</Highlight> the LED cable to the left. The bulb should feel secured in the pocket. Cover it with an LED cap.
 
 
 </AssemblyInstructionBlock>
