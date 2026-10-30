@@ -2,7 +2,6 @@
 title: Tailscale
 slug: /tailscale-remote-access
 hide_table_of_contents: true
-sidebar_class_name: sidebar-item--updated
 ---
 
 import CopyToClipboardButton from '@site/src/components/CopyToClipboardButton';

@@ -5,12 +5,6 @@
       "occurrence": 1
     }
   ],
-  "developer-guide/07-Plugins/05-plugin-as-python-package.md": [
-    {
-      "heading": "Exportable datasets",
-      "occurrence": 1
-    }
-  ],
   "developer-guide/09-Storage and the filesystem/01-data-stores/03_mqtt.md": [
     {
       "heading": "Bioreactor values and PWM duty cycles",
@@ -644,30 +638,6 @@
     },
     {
       "heading": "Changing `leader_address` and MQTT `broker_address` in your config.ini",
-      "occurrence": 1
-    }
-  ],
-  "user-guide/30-Advanced/07-remote-access/03-tailscale.md": [
-    {
-      "heading": "Security",
-      "occurrence": 1
-    }
-  ],
-  "user-guide/30-Advanced/15-intro-python-scripting.md": [
-    {
-      "heading": "4. Extending our script: more jobs, changing RPM, and adding lights.",
-      "occurrence": 1
-    },
-    {
-      "heading": "5. Adding an automation",
-      "occurrence": 1
-    },
-    {
-      "heading": "Starting a long-running script",
-      "occurrence": 1
-    },
-    {
-      "heading": "Useful utility objects",
       "occurrence": 1
     }
   ],
