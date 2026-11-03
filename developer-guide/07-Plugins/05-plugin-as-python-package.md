@@ -2,7 +2,6 @@
 title: Packaging plugins to share
 slug: /plugins/python-package
 hide_table_of_contents: true
-sidebar_class_name: sidebar-item--updated
 ---
 
 If you want other people to install your plugin, package it as a Python package. A package lets Pioreactor install your Python code, UI YAML, configuration, database setup, and optional install scripts together.

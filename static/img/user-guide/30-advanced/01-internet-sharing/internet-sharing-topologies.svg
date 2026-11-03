@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="650" viewBox="0 0 1100 650" role="img" aria-labelledby="title desc"><title id="title">Two ways to connect a shared-internet cluster</title><desc id="desc">A sharing computer connects either to a leader with a local Wi-Fi access point or to an Ethernet switch. In the access point setup workers are controllable locally but do not receive internet by default. In the switch setup all units use the shared network.</desc><defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0L8 4L0 8" fill="#526078"/></marker><marker id="teal" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0L8 4L0 8" fill="#087e8b"/></marker><marker id="red" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0L8 4L0 8" fill="#a84b48"/></marker></defs><g font-family="Arial, Helvetica, sans-serif"><rect x="0" y="0" width="1100" height="650" rx="16" fill="#f8fafc" stroke="none"/>
+<text x="34" y="43" font-size="26" fill="#243247" font-weight="700" text-anchor="start">Two ways to extend internet sharing</text>
+<text x="34" y="73" font-size="17" fill="#526078" font-weight="400" text-anchor="start">Illustrative addresses. Your computer may choose a different subnet.</text>
+<rect x="34" y="107" width="503" height="474" rx="12" fill="#ffffff" stroke="#d3dce7"/>
+<rect x="557" y="107" width="509" height="474" rx="12" fill="#ffffff" stroke="#d3dce7"/>
+<text x="57" y="139" font-size="21" fill="#243247" font-weight="700" text-anchor="start">A · Leader provides local Wi-Fi</text>
+<text x="580" y="139" font-size="21" fill="#243247" font-weight="700" text-anchor="start">B · All units use Ethernet</text>
+<rect x="157" y="166" width="258" height="68" rx="10" fill="#ffffff" stroke="#d3dce7"/>
+<text x="286" y="197" font-size="20" fill="#243247" font-weight="700" text-anchor="middle">Sharing computer</text>
+<text x="286" y="223" font-size="16" fill="#526078" font-weight="400" text-anchor="middle">192.168.137.1</text>
+<rect x="157" y="300" width="258" height="70" rx="10" fill="#e7eef8" stroke="#d3dce7"/>
+<text x="286" y="331" font-size="20" fill="#3c6aa0" font-weight="700" text-anchor="middle">Leader + access point</text>
+<text x="286" y="357" font-size="16" fill="#526078" font-weight="400" text-anchor="middle">Ethernet: 192.168.137.2</text>
+<path d="M286 235L286 299" fill="none" stroke="#087e8b" stroke-width="3" />
+<text x="300" y="273" font-size="16" fill="#526078" font-weight="400" text-anchor="start">Ethernet</text>
+<path d="M286 371L286 417" fill="none" stroke="#3c6aa0" stroke-width="2" stroke-dasharray="6 4"/>
+<path d="M163 417L406 417" fill="none" stroke="#3c6aa0" stroke-width="2" stroke-dasharray="6 4"/>
+<path d="M163 417L163 442" fill="none" stroke="#3c6aa0" stroke-width="2" stroke-dasharray="6 4"/>
+<path d="M406 417L406 442" fill="none" stroke="#3c6aa0" stroke-width="2" stroke-dasharray="6 4"/>
+<text x="306" y="398" font-size="15" fill="#3c6aa0" font-weight="400" text-anchor="start">Wi-Fi · 192.168.4.x</text>
+<rect x="58" y="444" width="209" height="68" rx="10" fill="#ffffff" stroke="#d3dce7"/>
+<text x="162.5" y="475" font-size="20" fill="#243247" font-weight="700" text-anchor="middle">Worker 1</text>
+<text x="162.5" y="501" font-size="16" fill="#526078" font-weight="400" text-anchor="middle">192.168.4.2</text>
+<rect x="301" y="444" width="209" height="68" rx="10" fill="#ffffff" stroke="#d3dce7"/>
+<text x="405.5" y="475" font-size="20" fill="#243247" font-weight="700" text-anchor="middle">Worker 2</text>
+<text x="405.5" y="501" font-size="16" fill="#526078" font-weight="400" text-anchor="middle">192.168.4.3</text>
+<text x="286" y="540" font-size="16" fill="#a66b10" font-weight="400" text-anchor="middle">Workers are reachable locally.</text>
+<text x="286" y="563" font-size="16" fill="#a66b10" font-weight="400" text-anchor="middle">No worker internet by default.</text>
+<rect x="683" y="166" width="258" height="68" rx="10" fill="#ffffff" stroke="#d3dce7"/>
+<text x="812" y="197" font-size="20" fill="#243247" font-weight="700" text-anchor="middle">Sharing computer</text>
+<text x="812" y="223" font-size="16" fill="#526078" font-weight="400" text-anchor="middle">192.168.137.1</text>
+<rect x="683" y="300" width="258" height="70" rx="10" fill="#e1f2f2" stroke="#d3dce7"/>
+<text x="812" y="331" font-size="20" fill="#087e8b" font-weight="700" text-anchor="middle">Ethernet switch</text>
+<text x="812" y="357" font-size="16" fill="#526078" font-weight="400" text-anchor="middle">One shared subnet</text>
+<path d="M812 235L812 299" fill="none" stroke="#087e8b" stroke-width="3" />
+<text x="826" y="273" font-size="16" fill="#526078" font-weight="400" text-anchor="start">Ethernet</text>
+<path d="M812 371L812 417" fill="none" stroke="#087e8b" stroke-width="3" />
+<path d="M654 417L976 417" fill="none" stroke="#087e8b" stroke-width="3" />
+<path d="M654 417L654 442" fill="none" stroke="#087e8b" stroke-width="3" />
+<path d="M815 417L815 442" fill="none" stroke="#087e8b" stroke-width="3" />
+<path d="M976 417L976 442" fill="none" stroke="#087e8b" stroke-width="3" />
+<rect x="577" y="444" width="154" height="68" rx="10" fill="#ffffff" stroke="#d3dce7"/>
+<text x="654" y="475" font-size="20" fill="#243247" font-weight="700" text-anchor="middle">Leader</text>
+<text x="654" y="501" font-size="16" fill="#526078" font-weight="400" text-anchor="middle">192.168.137.2</text>
+<rect x="739" y="444" width="154" height="68" rx="10" fill="#ffffff" stroke="#d3dce7"/>
+<text x="816" y="475" font-size="20" fill="#243247" font-weight="700" text-anchor="middle">Worker 1</text>
+<text x="816" y="501" font-size="16" fill="#526078" font-weight="400" text-anchor="middle">192.168.137.3</text>
+<rect x="901" y="444" width="150" height="68" rx="10" fill="#ffffff" stroke="#d3dce7"/>
+<text x="976" y="475" font-size="20" fill="#243247" font-weight="700" text-anchor="middle">Worker 2</text>
+<text x="976" y="501" font-size="16" fill="#526078" font-weight="400" text-anchor="middle">192.168.137.4</text>
+<text x="812" y="540" font-size="16" fill="#087e8b" font-weight="400" text-anchor="middle">Leader and workers share one subnet.</text>
+<text x="812" y="563" font-size="16" fill="#087e8b" font-weight="400" text-anchor="middle">All units use the computer’s sharing.</text>
+<text x="34" y="625" font-size="15" fill="#526078" font-weight="400" text-anchor="start">The computer needs an upstream internet connection to share. Solid = Ethernet; dashed = Wi-Fi.</text></g></svg>

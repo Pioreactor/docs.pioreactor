@@ -376,3 +376,17 @@ html[data-theme='dark'] .menu__list-item.sidebar-item--updated > .menu__list-ite
   order: 3;
   margin-left: auto;
 }
+
+/* Sections changed recently on an "Updated" page, same amber as the sidebar pill */
+:root {
+  --doc-section-updated-accent: rgb(247, 173, 65);
+}
+
+html[data-theme='dark'] {
+  --doc-section-updated-accent: rgb(247, 199, 120);
+}
+
+.doc-section--updated {
+  border-left: 3px solid var(--doc-section-updated-accent);
+  padding-left: 1rem;
+}

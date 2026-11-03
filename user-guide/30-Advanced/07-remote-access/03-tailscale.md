@@ -22,7 +22,8 @@ Tailscale is a really cool service! You may find yourself using it for other pro
    3. _You don't need to install anything on the workers_.
 5. Back in your [Tailscale admin](https://login.tailscale.com/admin/machines), you should see two machines: your computer and the leader Pioreactor. Make note of the ipv4 address for the leader - we will use it below.
 6. You should still be able to access `http://pioreactor.local` without any problems.
-8. 1. In your **shared config.ini**, add your ipv4 address to the `[mqtt]` section:
+7. Update your configuration:
+   1. In your **shared config.ini**, add your ipv4 address to the `[mqtt]` section:
       ```
       broker_address=<ipv4 address>
       ```
@@ -34,8 +35,8 @@ Tailscale is a really cool service! You may find yourself using it for other pro
       And save. This means that your workers will connect "locally" (over the local network), but the UI  will connect "remotely".
    3. Your **leader's config** file should stay the same (confirm it's `localhost`)
 
-7. Now, when you leave the local network, and if you have internet access, you can turn your VPN on and still access `http://<ipv4 address>`. Troubleshooting: try `http://<hostname>`, but confirm that magicDNS is on, too.
-8. You can use the Tailscale admin to add users to your VPN, too.
+8. Now, when you leave the local network, and if you have internet access, you can turn your VPN on and still access `http://<ipv4 address>`. Troubleshooting: try `http://<hostname>`, but confirm that magicDNS is on, too.
+9. You can use the Tailscale admin to add users to your VPN, too.
 
 ## Security
 

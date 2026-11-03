@@ -3,7 +3,6 @@ title: Camera snapshots
 slug: /camera-snapshots
 description: Configure a Raspberry Pi or USB camera to capture and review experiment snapshots.
 hide_table_of_contents: true
-sidebar_class_name: sidebar-item--updated
 ---
 
 Pioreactor can use a Raspberry Pi camera or a V4L2/USB camera to photograph cultures during an experiment. The camera feature is experimental and disabled by default.
@@ -59,6 +58,7 @@ Once camera snapshots are enabled, open **Cameras** in the sidebar. Each assigne
 
 - Use **Capture snapshots automatically** to enable or disable scheduled captures for an individual Pioreactor. The interval still comes from `snapshot_interval_minutes`.
 - Open the snapshot history to **Capture snapshot**, browse earlier images, delete individual images, or choose **Download all snapshots**.
+- Toggle **Colour view** to apply the Magma colour map and highlight differences in image brightness.
 - Use the pencil icon (**Rename photo**) beside an image to change its name, then click **Rename**.
 - You can also take an immediate snapshot from that Pioreactor's command line with `pio run camera_snapshot`.
 

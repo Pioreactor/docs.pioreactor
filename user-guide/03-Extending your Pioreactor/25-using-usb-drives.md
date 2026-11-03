@@ -10,7 +10,7 @@ Pioreactor can use an attached USB drive for offline software updates, plugin in
 
 Use a USB drive formatted as exfat, vfat / FAT32, or ext4. Pioreactor mounts supported removable drives under `/run/pioreactor/usb/`.
 
-In the Pioreactor UI, open **Inventory** and find the **USB drive** card. If a supported drive is detected, click **Mount**. After you are finished, click **Eject** before removing the drive.
+In the Pioreactor UI, open **Inventory** and find the **USB drive** card. If a supported drive is detected, click **Mount**. You can also mount and eject the drive directly from **Plugins**. After you are finished, click **Eject** before removing the drive.
 
 ![Leader page USB drive card showing a mounted USB drive](/img/user-guide/03-extending-your-pioreactor/25-using-usb-drives/usb-drive-card.png)
 
@@ -30,7 +30,7 @@ pioreactor/exports/
 
 ## Update software from USB
 
-1. Download the Pioreactor release archive on another computer.
+1. On another computer, download the Pioreactor release archive from the [Updating the Pioreactor software](/user-guide/updating-software#method-2-update-using-a-zip-file-and-the-ui) page.
 2. Copy the `release_*.zip` file to the root of the USB drive.
 3. Attach the drive to the leader Pioreactor and mount it from the **USB drive** card.
 4. Open **Updates**, select **Update from USB**, choose the archive, choose the Pioreactors to update, and click **Update**.
@@ -41,10 +41,11 @@ Official release archives include a signed manifest. Pioreactor verifies the arc
 
 ## Install plugins from USB
 
-1. Copy the plugin `.whl` file to the USB drive root, or to `pioreactor/plugins/`.
-2. Attach and mount the drive on the leader.
-3. Open **Plugins**. Plugins found on the mounted USB drive appear above the usual plugin list.
-4. Choose a target Pioreactor or the cluster target, then click **Install**.
+1. On another computer, download the plugin's `.whl` file from [PyPI](https://pypi.org/) or from the plugin author.
+2. Copy the `.whl` file to the USB drive root, or to `pioreactor/plugins/`.
+3. Attach the drive to the leader, open **Plugins**, and click **Mount** if needed.
+4. Plugins found on the mounted USB drive appear above the usual plugin list. Read-only drives are supported for plugin installation.
+5. Choose a target Pioreactor or the cluster target, then click **Install**.
 
 ![Plugins page showing plugins found on a USB drive](/img/user-guide/03-extending-your-pioreactor/06a-using-community-plugins/plugins-from-usb.png)
 

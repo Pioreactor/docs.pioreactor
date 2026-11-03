@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="520" viewBox="0 0 1100 520" role="img" aria-labelledby="title desc"><title id="title">Turbidostat reacts to fresh biomass readings</title><desc id="desc">Biomass increases to a target. Each dilution exchanges a fixed volume and is followed by a settling period. One exchange may leave biomass above target, so a later fresh reading can trigger another exchange.</desc><defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0L8 4L0 8" fill="#526078"/></marker><marker id="teal" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0L8 4L0 8" fill="#087e8b"/></marker><marker id="red" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0L8 4L0 8" fill="#a84b48"/></marker></defs><g font-family="Arial, Helvetica, sans-serif"><rect x="0" y="0" width="1100" height="520" rx="16" fill="#f8fafc" stroke="none"/>
+<text x="34" y="43" font-size="26" fill="#243247" font-weight="700" text-anchor="start">Turbidostat reacts to fresh biomass readings</text>
+<text x="34" y="73" font-size="17" fill="#526078" font-weight="400" text-anchor="start">Each dilution exchanges a fixed volume, then allows the readings to settle.</text>
+<rect x="405" y="116" width="66" height="246" rx="5" fill="#fff0d4" stroke="none"/>
+<rect x="563" y="116" width="66" height="246" rx="5" fill="#fff0d4" stroke="none"/>
+<rect x="855" y="116" width="66" height="246" rx="5" fill="#fff0d4" stroke="none"/>
+<path d="M139 236L1046 236" fill="none" stroke="#3c6aa0" stroke-width="2" stroke-dasharray="7 5"/>
+<text x="130" y="242" font-size="17" fill="#3c6aa0" font-weight="700" text-anchor="end">Target</text>
+<text x="34" y="125" font-size="16" fill="#243247" font-weight="700" text-anchor="start">Biomass</text>
+<path d="M145 326C235 316 315 281 405 205L420 222C465 217 520 203 563 184L578 272C655 258 758 235 855 208L870 282C927 273 986 254 1032 231" fill="none" stroke="#087e8b" stroke-width="4" stroke-linejoin="round"/>
+<path d="M405 166V194" fill="none" stroke="#087e8b" stroke-width="2" stroke-linejoin="round" marker-end="url(#teal)" />
+<text x="438" y="385" font-size="15" fill="#a66b10" font-weight="700" text-anchor="middle">Settle</text>
+<path d="M563 166V194" fill="none" stroke="#087e8b" stroke-width="2" stroke-linejoin="round" marker-end="url(#teal)" />
+<text x="596" y="385" font-size="15" fill="#a66b10" font-weight="700" text-anchor="middle">Settle</text>
+<path d="M855 166V194" fill="none" stroke="#087e8b" stroke-width="2" stroke-linejoin="round" marker-end="url(#teal)" />
+<text x="888" y="385" font-size="15" fill="#a66b10" font-weight="700" text-anchor="middle">Settle</text>
+<path d="M139 410H1047" fill="none" stroke="#526078" stroke-width="2" stroke-linejoin="round" marker-end="url(#arrow)" />
+<text x="1047" y="438" font-size="16" fill="#526078" font-weight="400" text-anchor="end">Time →</text>
+<circle cx="405" cy="205" r="6" fill="#087e8b"/>
+<circle cx="563" cy="184" r="6" fill="#087e8b"/>
+<circle cx="855" cy="208" r="6" fill="#087e8b"/>
+<rect x="189" y="112" width="252" height="51" rx="8" fill="#ffffff" stroke="#d3dce7"/>
+<text x="315" y="144" font-size="17" fill="#087e8b" font-weight="700" text-anchor="middle">Fixed-volume exchange</text>
+<rect x="660" y="118" width="352" height="62" rx="8" fill="#ffffff" stroke="#d3dce7"/>
+<text x="678" y="143" font-size="16" fill="#526078" font-weight="400" text-anchor="start">Still above target after one exchange?</text>
+<text x="678" y="166" font-size="16" fill="#526078" font-weight="400" text-anchor="start">A later fresh reading can trigger another.</text>
+<path d="M662 154L523 208" fill="none" stroke="#526078" stroke-width="2" stroke-linejoin="round" marker-end="url(#arrow)" />
+<text x="34" y="495" font-size="15" fill="#526078" font-weight="400" text-anchor="start">Illustrative biomass trace, not measured data. No new dilution during the settling period.</text></g></svg>

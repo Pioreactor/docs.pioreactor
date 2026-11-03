@@ -22,6 +22,8 @@ The silent automation is the simplest automation: doing nothing. It does not sch
 
 This automation will turn the LEDs in channels C & D on and off on a predetermined schedule, specified by `light_duration_minutes` and `dark_duration_minutes`. The intensity of the LED is given by `light_intensity`. The LEDs start ON. The automation schedules each light/dark boundary directly, so there is no `duration` field.
 
+![LED intensity starts at the configured light intensity, alternates between light and dark phases, and repeats according to the configured phase durations.](/img/user-guide/29-automations/03-led-automations/light-dark-cycle.svg)
+
 The LEDs should go in pockets X2 and X3 on the Pioreactor.
 
 

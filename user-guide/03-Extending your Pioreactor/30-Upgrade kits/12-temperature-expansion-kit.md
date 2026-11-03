@@ -115,16 +115,10 @@ local_ac_hz=60
 
 ### I don't have internet access - how can I install the plugin?
 
- 1. First, get the file latest .whl file [here](https://piwheels.org/project/temperature-expansion-kit-plugin/) onto any computer that can SSH into the Pioreactor.
- 2. To get this .whl file onto a Pioreactor, use either `scp`, or FileZilla.
- 3. Once the .whl file is on the Pioreactor, use
-    ```
-    pio plugins install temperature-expansion-kit-plugin --source <location of whl file>
-
-    ```
+Download the latest `.whl` file from [piwheels](https://piwheels.org/project/temperature-expansion-kit-plugin/), then install it from a USB drive or over SSH. See [Using community plugins](/user-guide/using-community-plugins#i-dont-have-internet-access---how-can-i-install-the-plugin).
 
 ### I'm seeing "Record null temperature. Is the Pt1000 probe connected?" and the wire is connected.
 
  - Try unplugging and plugging the probe back into the HAT.
  - Try restarting the Pioreactor.
- - If the error persists, contact us at `hello@pioreactor.com`
+ - If the error persists, contact us at `support@pioreactor.com`

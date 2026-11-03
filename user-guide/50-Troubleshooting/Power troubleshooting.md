@@ -17,4 +17,4 @@ Brown-outs are when your power supply is momentarily reduced to the point that t
 
 #### Pioreactor restarts when a PWM output is turned on
 
-If your Pioreactor restarts with a pump, stirring fan, etc. turns out, it's possible there is a short in the connectors. Email us at help@pioreactor.com
+If your Pioreactor restarts with a pump, stirring fan, etc. turns out, it's possible there is a short in the connectors. Email us at support@pioreactor.com

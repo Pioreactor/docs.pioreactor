@@ -2,6 +2,7 @@
 title: Introduction to background jobs
 slug: /intro-background-jobs
 hide_table_of_contents: true
+sidebar_class_name: sidebar-item--updated
 ---
 
 The core unit of "work" in the Pioreactor software is a background job (called _activities_ in the web interface). Background jobs include `od_reading`, `monitor`, automation controllers, all the _automations_ themselves, etc. Often, a community plugin is a background job (or multiple jobs) that gives your bioreactor new abilities. There are a few important features of background jobs to be highlighted if you intend on working with them.
@@ -43,29 +44,9 @@ A background job can be in one of five different states:
  - `disconnected`: the job has disconnected from services (MQTT, databases, etc.) and cleaned itself up successfully.
  - `lost`: the job did not disconnect gracefully. Something may be wrong.
 
-Here's how the states can transition to each other:
+The diagram below shows the main lifecycle transitions. An unexpected loss of connection can be reported as `lost` from any state.
 
-```
-                                        ┌──────────┐
-                                        │          │
-         ┌──────────────────────┬───────►   lost   ◄────────┐
-         │                      │       │          │        │
-         │                      │       └─────▲────┘        │
-         │                      │             │             │
-    ┌────┴─────┐          ┌─────┴──────┐      │     ┌───────┴──────┐
-    │          │          │            │      │     │              │
-    │   init   ├──────────►    ready   ├──────┼─────► disconnected │
-    │          │          │            │      │     │              │
-    └──────────┘          └────┬──▲────┘      │     └──────▲───────┘
-                               │  │           │            │
-                               │  │           │            │
-                               │  │           │            │
-                          ┌────▼──┴────┬──────┘            │
-                          │            │                   │
-                          │  sleeping  ├───────────────────┘
-                          │            │
-                          └────────────┘
-```
+![Background jobs initialize, become ready, pause and resume, and disconnect after cleanup. Unexpected connection loss is reported as lost.](/img/developer-guide/03-background-jobs/01-intro-background-jobs/background-job-states.svg)
 
 The author can optionally define hooks when a job moves between states, and when it enters a new state. For example, the method `.on_ready_to_sleeping()` is called when the job moves from `ready` to `sleeping`. Similarly, the method `.on_sleeping()` is called when the jobs enters state `sleeping`. By default, these methods are empty.
 

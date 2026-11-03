@@ -35,7 +35,7 @@ You will need the following items to assemble your Pioreactor:
 - Most of the labels on the packaging are scaled 1:1 and can be used to identify parts.
 
 :::info
-Missing a part? Email us at `hello@pioreactor.com`, we're happy to help.
+Missing a part? Email us at `support@pioreactor.com`, we're happy to help.
 :::
 
 
@@ -59,6 +59,6 @@ Here are some tips to prevent damage to the electronics:
 <AssemblyInstructionBlock title="Step 4: We are here for you!" images={["user-guide/hardware-assembly/40ml-v15/40ml-and-vial.jpg"]}>
 
 -  If you get stuck, missing a piece, or are unsure of something, **let us know**!
--  You can reach out to us at `hello@pioreactor.com`!
+-  You can reach out to us at `support@pioreactor.com`!
 
 </AssemblyInstructionBlock>

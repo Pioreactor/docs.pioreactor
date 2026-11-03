@@ -2,6 +2,7 @@
 title: Using community plugins
 slug: /using-community-plugins
 hide_table_of_contents: true
+sidebar_class_name: sidebar-item--updated
 ---
 
 import TOCInline from '@theme/TOCInline';
@@ -31,13 +32,7 @@ You can uninstall plugins from the same page, too. These will remove the action 
 
 ### Option 1: install from a USB drive
 
-1. On another computer, download the plugin's `.whl` file from [PyPI](https://pypi.org/) or from the plugin author.
-2. Copy the `.whl` file to the root of a USB drive, or to `pioreactor/plugins/` on the drive.
-3. Attach the USB drive to the leader Pioreactor and mount it from the **USB drive** card on the leader page. See [Using USB drives](/user-guide/using-usb-drives).
-4. Open **Plugins**. Plugins found on the mounted USB drive appear above the normal plugin list.
-5. Choose the target Pioreactor or cluster target, then click **Install**.
-
-![Plugins page showing plugins found on a USB drive](/img/user-guide/03-extending-your-pioreactor/06a-using-community-plugins/plugins-from-usb.png)
+Copy the plugin's `.whl` file onto a USB drive, attach it to the leader, and install it from the **Plugins** page. See [Install plugins from USB](/user-guide/using-usb-drives#install-plugins-from-usb) for the full steps.
 
 ### Option 2: copy the wheel over SSH
 
@@ -51,6 +46,10 @@ You can uninstall plugins from the same page, too. These will remove the action 
     ```
     pio plugins install pioreactor-air-bubbler --source ~/pioreactor_air_bubbler-0.3.1-py3-none-any.whl
     ```
+
+## Install plugins from the SD card
+
+You can stage plugin wheels and their dependencies on the SD card before booting. See [Provisioning images](/user-guide/provisioning-images#install-plugins) for the folder layout, installation behavior, and troubleshooting.
 
 ## Alternative: putting Python files in the the `plugins` folder
 

@@ -2,7 +2,6 @@
 title: Exporting data
 slug: /export-data
 hide_table_of_contents: true
-sidebar_class_name: sidebar-item--updated
 ---
 
 Experiment data can be exported using the _Export data_ tab on the Pioreactor site.
@@ -58,13 +57,7 @@ Time bounds are inclusive. CLI, API, and MCP clients must supply offset-aware IS
 
 ## Exporting to a USB drive
 
-If a writable USB drive is mounted on the leader Pioreactor, the export page can save the export directly to the drive instead of downloading it through the browser. See [Using USB drives](/user-guide/using-usb-drives) for mounting and ejecting the drive.
-
-After selecting your experiment and datasets, choose **Export to USB** from the export destination menu and click **Export to USB**.
-
-![Export data page showing Export to USB](/img/user-guide/02-experiment-basics/08-export-data/export-to-usb.png)
-
-USB exports are saved as a `.zip` file under `pioreactor/exports/` on the drive. Keep the page open until the export finishes.
+If a writable USB drive is mounted on the leader Pioreactor, you can save the export directly to the drive instead of downloading it through the browser. See [Export data to USB](/user-guide/using-usb-drives#export-data-to-usb).
 
 ## Pioreactor Unit Activity Data
 

@@ -1,0 +1,35 @@
+.form {
+  max-width: 36rem;
+  margin: 1rem 0;
+  padding: 1.25rem;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: var(--ifm-global-radius);
+}
+
+.form > label {
+  display: block;
+  font-weight: 600;
+}
+
+.input {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 44px;
+  margin: 0.35rem 0 1rem;
+  padding: 0.5rem;
+  font: inherit;
+  color: var(--ifm-font-color-base);
+  background: var(--ifm-background-color);
+  border: 1px solid var(--ifm-color-emphasis-500);
+  border-radius: var(--ifm-global-radius);
+}
+
+.toggle {
+  min-height: 44px;
+}
+
+.status {
+  min-height: 1.5em;
+  margin-top: 0.75rem;
+}

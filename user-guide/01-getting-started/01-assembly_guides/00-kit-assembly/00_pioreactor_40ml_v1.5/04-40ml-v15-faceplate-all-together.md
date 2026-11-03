@@ -14,12 +14,7 @@ import * as colors from '@site/src/components/constants';
 1. For this version, you will need:
 
   * <Highlight color={colors.red}>Fan and top faceplate</Highlight> (will have 4x 30mm screws in it)
-  * <Highlight color={colors.orange}>M2.5 10mm screw (1x)</Highlight>
-
-:::warning
-The <Highlight color={colors.orange}>M2.5 10mm screw (1x)</Highlight> is replaced with a **M2.5 8mm screw** in newer versions of the Pioreactor.
-:::
-
+  * <Highlight color={colors.orange}>M2.5 8mm screw (1x)</Highlight>
 
 </AssemblyInstructionBlock>
 
@@ -48,7 +43,7 @@ The <Highlight color={colors.orange}>M2.5 10mm screw (1x)</Highlight> is replace
 The top faceplate comes with a button extension to provide easier access to pushing the button.
 
 1. Flip over the assembly.
-2. Insert the 10mm screw into the hole under the button extension.
+2. Insert the 8mm screw into the hole under the button extension.
 3. Place <Highlight color={colors.red}>one finger behind the extension</Highlight> and <Highlight color={colors.magenta}>rotate with the other hand</Highlight> until the screw is secure in the hole. Don't over-tighten! Once established, you can use a screwdriver to finish screwing it in until you feel sufficient resistance. Don't over-tighten!
 
 </AssemblyInstructionBlock>
@@ -64,7 +59,7 @@ The top faceplate comes with a button extension to provide easier access to push
 Older kits may contain 4x M2.5 6mm screws instead. Use theses instead. Double check using the sticker guide on the bag containing the fasteners.
 :::
 
-3. Check that the screw for the button extension is in the right position and not prematurely compressing the button under it (you should feel a "click" when pressing the button extension). Remove the top and screw in the M2.5 10mm screw more if you detect a problem.
+3. Check that the screw for the button extension is in the right position and not prematurely compressing the button under it (you should feel a "click" when pressing the button extension). Remove the top and screw in the M2.5 8mm screw more if you detect a problem.
 4. Open the <Highlight color={colors.orange}>flat flex cable connector</Highlight> on the HAT by pulling the tabs outward, like done previously. Insert the flex cable copper-side up.
 5. <Highlight color={colors.green}>Push the tabs inward</Highlight> to secure the flex cable.
 6. Insert the stirring power connector into <Highlight color={colors.magenta}>PWM channel 1</Highlight> (unlabelled).

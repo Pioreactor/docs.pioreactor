@@ -2,6 +2,7 @@
 title: Networking tools
 slug: /networking
 hide_table_of_contents: true
+sidebar_class_name: sidebar-item--updated
 ---
 
 :::info
@@ -34,17 +35,7 @@ If the Raspberry Pi's built-in Wi-Fi becomes disconnected, Pioreactor retries an
 
 ### Connecting from the SD card with `wifi.ini`
 
-On a new Pioreactor image that supports boot-partition Wi-Fi setup, you can supply Wi-Fi credentials after flashing the SD card, without configuring Wi-Fi in Raspberry Pi Imager or using SSH. With the Pioreactor powered off, insert its SD card into your computer and create a plain-text file named `wifi.ini` at the root of the `boot` or `bootfs` volume:
-
-```ini title="wifi.ini"
-[wifi]
-ssid=Your network name
-passphrase=Your Wi-Fi password
-```
-
-Save the file, safely eject the SD card, and boot the Pioreactor. The image reads the file from `/boot/firmware/wifi.ini` and tries to connect to that network. After a successful connection, it removes `wifi.ini` from the boot partition; if the connection fails or either value is missing, the file remains there so you can correct it and reboot. Keep your Wi-Fi password private while the file is on the SD card.
-
-For a Pioreactor that is already running and reachable, use `nmcli` as described above.
+You can supply Wi-Fi credentials on the SD card without SSH. See [Provisioning images: Wi-Fi credentials](/user-guide/provisioning-images#wi-fi-credentials-with-wifiini) for the `wifi.ini` format and retry behavior. For a Pioreactor that is already running and reachable, use `nmcli` as described above.
 
 ### Connecting to multiple networks simultaneously
 
@@ -70,11 +61,11 @@ sudo nmcli device wifi connect <ssid name> password <ssid password> ifname wlan1
 If your leader is connected to multiple networks `A` and `B`, and you access the UI over network `A`, but your workers access over network `B`, the leader is in the position called a "gateway". You'll need to make some configuration changes to your cluster. Since the leader is attached to networks `A` and `B`, it has two IPs (use `hostname -I` to see all the ips), let's call them `ipA` and `ipB` respectively.
 
 1. Access the configuration in the UI.
-2. In the _shared_ config.ini, edit the `[mqtt]` `broker` field to be equal to `ipA`. Also edit the `leader_address` to be `ipB`.
+2. In the _shared_ config.ini, edit the `[mqtt]` `broker_address` field to be equal to `ipA`. Also edit the `leader_address` to be `ipB`.
 3. In each of the workers (including the leader's config.ini, if it's a worker), add the following:
    ```
    [mqtt]
-   broker=ipB
+   broker_address=ipB
    ```
 
 You may need to restart your cluster for these to take full effect.
@@ -97,15 +88,15 @@ sudo nmcli con up PioreactorAP
 ```
 
 
-#### Changing `leader_address` and MQTT `broker` in your config.ini
+#### Changing `leader_address` and MQTT `broker_address` in your config.ini
 
 You may need to change the `leader_address` in your config.ini: this is the address where workers will communicate with your leader.
 
-Likewise, you may need to change the mqtt `broker` in your config.ini for the same reason. It may be required to change it in the unit specific config.inis.
+Likewise, you may need to change the mqtt `broker_address` in your config.ini for the same reason. It may be required to change it in the unit specific config.inis.
 
 ```ini title="config_worker01.ini"
 [mqtt]
-broker=leader.local
+broker_address=leader.local
 ```
 
 
@@ -168,4 +159,3 @@ You can put worker ipv4s in the shared config.ini file under `cluster.addresses`
 [cluster.addresses]
 worker01=192.1.1.1
 ```
-

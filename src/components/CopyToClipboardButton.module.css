@@ -1,0 +1,86 @@
+.button {
+  --copy-success: #2c8b43;
+  --copy-failure: #c0392b;
+
+  display: inline-flex;
+  align-items: center;
+  vertical-align: middle;
+  padding: 0.2rem 0.55rem;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 6px;
+  background: var(--ifm-color-emphasis-100);
+  color: var(--ifm-color-emphasis-800);
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1.2;
+  cursor: pointer;
+  user-select: none;
+  transition:
+    border-color 150ms ease,
+    color 150ms ease;
+}
+
+.button:hover {
+  border-color: var(--ifm-color-emphasis-500);
+}
+
+.button:focus-visible {
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: 2px;
+}
+
+.copied,
+.copied:hover {
+  border-color: var(--copy-success);
+  color: var(--copy-success);
+}
+
+.failed,
+.failed:hover {
+  border-color: var(--copy-failure);
+  color: var(--copy-failure);
+}
+
+html[data-theme='dark'] .button {
+  --copy-success: #5cc277;
+  --copy-failure: #ff7b6b;
+}
+
+.inner {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.icon {
+  width: 0.95em;
+  height: 0.95em;
+  flex: none;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.25;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.labels {
+  display: inline-grid;
+}
+
+.labels > span {
+  grid-area: 1 / 1;
+  text-align: center;
+}
+
+.hiddenLabel {
+  visibility: hidden;
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}

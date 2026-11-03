@@ -26,9 +26,9 @@ We suggest using between **8ml to 16ml** volume of liquid in the 20ml vials, and
 Some things to consider when selecting a volume: a lower volume will provide more aeration per mL since the liquid-air interface is fixed. A lower volume will also be more responsive to changes in temperature, and be able to achieve a higher maximum temperature. But too low and the vortex caused by stirring may start interfering with the Pioreactor's optical system (a lower RPM can fix this though).
 :::
 
-#### Position of tubes/needles in cap
+#### Position of tubes/steep ports in cap
 
-Keep _at least_ 1 cap tube/needle out of the liquid and well away from potential bubbles / foam that may occur. This will prevent gas pressure from building up. Something also to keep in mind: more tubes/needles out of the liquid means more gas transfer with the ambient atmosphere.
+Keep _at least_ 1 cap tube/port out of the liquid and well away from potential bubbles / foam that may occur. This will prevent gas pressure from building up. Something also to keep in mind: more tubes/steep ports out of the liquid means more gas transfer with the ambient atmosphere.
 
 If using pumps with your Pioreactor, see the note [below](/user-guide/prepare-vial-for-cultures#using-pumps-influx-and-efflux).
 
@@ -53,12 +53,12 @@ Don't have an autoclave? A kitchen pressure cooker works just as well. Still don
 
 #### Using sterile filtration
 
-Filtered media can be directly added to a sterilized glass vial, or via the (sterilized) male luer lock ports.
+Filtered media can be directly added to a sterilized glass vial, or via the (sterilized) male luer lock steep ports.
 
 
 ### 4. Inoculation
 
-Ideally in a sterile environment, the vial's lid can be removed and the inoculant can be added. Alternatively, for additional sterility, a needle can be sent down a tube/needle, without removing the cap at all.
+Ideally in a sterile environment, the vial's lid can be removed and the inoculant can be added. Alternatively, for additional sterility, a port can be sent down a tube/port, without removing the cap at all.
 
 How much inoculant should you add? That depends on the concentration of your inoculant. From our experience, we create a dense culture/stock culture by adding some amount of culture to sterile media or water, and then inoculate our vials from this stock. 
 
@@ -66,12 +66,12 @@ For example, we add 0.5 grams of dried Baker's yeast to 15 mL of YPD broth, then
 
 We recommend measuring with a micropipette. If you are using a dropper, hold it vertically for more accurate, consistent drops.
 
-### 5. Adjusting tube/needle lengths
+### 5. Adjusting tube/stainless steel port lengths
 
-Keep **at least one** of the bottoms of the tubes/needles in the cap above the liquid-air interface to avoid creating a pressured environment. Adjust the luer lock end until the other end of the tube/needle is well above liquid level.
+Keep **at least one** of the bottoms of the tubes/steep ports in the cap above the liquid-air interface to avoid creating a pressured environment. Adjust the luer lock end until the other end of the tube/port is well above liquid level.
 
 :::tip
-If you have an unused luer lock needle not being used for liquid handling or venting, you can use it as a _baffle_ in the liquid to improve mixing.
+If you have an unused luer lock stainless steel port not being used for liquid handling or venting, you can use it as a _baffle_ in the liquid to improve mixing.
 :::
 
 ### 6. Handling the glass
@@ -92,9 +92,9 @@ Next, you can [start your experiment](/user-guide/set-up-an-experiment) in the b
 
 ### Using pumps: influx and efflux.
 
-When using the Pioreactor with pumps, you'll be using the four luer lock tubes/needle as influx and efflux. The tubes/needles, which are identical lengths, can be moved up and down, and we suggest using this as a way to "label" tubes, and to control the maximum volume in the vial. This can be done before sterilization. Here's how:
+When using the Pioreactor with pumps, you'll be using the four luer lock tubes/steep ports as influx and efflux. The tubes/steep ports, which are identical lengths, can be moved up and down, and we suggest using this as a way to "label" tubes, and to control the maximum volume in the vial. This can be done before sterilization. Here's how:
 
-Two tubes/needles can be pulled such they are aligned high, near the tapered "shoulder" of the vial, and out of the vial's liquid. These two tubes/needles will be the liquid influx. For some operations, like a chemostat, you'll only be using one of these, but some operations require more than one influx.
+Two tubes/steep ports can be pulled such they are aligned high, near the tapered "shoulder" of the vial, and out of the vial's liquid. These two tubes/steep ports will be the liquid influx. For some operations, like a chemostat, you'll only be using one of these, but some operations require more than one influx.
 
 The third tube is the liquid efflux tube. It will be positioned such that it controls the final amount of volume in the vial. Fill your vial to the desired final volume using water. Pull the tube down such that its end just touches the top of the liquid when the cap is fully screwed on. It may take some minor adjustments to achieve this.
 

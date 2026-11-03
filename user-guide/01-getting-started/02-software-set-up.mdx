@@ -3,14 +3,16 @@ id: software-set-up
 description: Install the Pioreactor software onto the Raspberry Pi
 title: Software installation
 slug: /software-set-up
+sidebar_class_name: sidebar-item--updated
 ---
 
 import CopyToClipboardButton from '@site/src/components/CopyToClipboardButton';
+import WifiConfigForm from '@site/src/components/WifiConfigForm';
 
 
 ### Before you begin
 
-You can expect the setup process to take 10-15 minutes. If you encounter any problems, feel free to email us for support at hello@pioreactor.com.
+You can expect the setup process to take 10-15 minutes. If you encounter any problems, feel free to email us for support at support@pioreactor.com.
 
 
 Before you get started, you'll need to have the following:
@@ -20,6 +22,8 @@ Before you get started, you'll need to have the following:
 3.  A suitable power supply for the Raspberry Pi (our recommended power supply units are [here](/user-guide/common-questions#what-power-supply-unit-psu-do-i-need)). You don't need to plug power in yet.
 4.  A computer with internet access and ability to read & write to a microSD card
 
+To prepare configuration overrides, Wi-Fi credentials, plugins, or custom model and hardware files on the SD card before booting, see [Provisioning images](/user-guide/provisioning-images).
+
 ### Setting up your Raspberry Pi's SD Card
 
 
@@ -27,8 +31,8 @@ We'll start with your blank microSD card.
 
 
 1.  Download the latest version of [Raspberry Pi Imager](https://www.raspberrypi.org/software/) for your operating system and install it.
-3.  Open the newly-installed Raspberry Pi Imager.
-4.  Immediately, click **"App Options"**
+2.  Open the newly-installed Raspberry Pi Imager.
+3.  Immediately, click **"App Options"**
     ![Click "App options"](/img/user-guide/01-getting-started/02-software-set-up/app_options.png)
 4.  Click **Edit** next to _Content Repository_.
     ![Click "Edit" to choose repository](/img/user-guide/01-getting-started/02-software-set-up/content_repo.png)
@@ -46,7 +50,16 @@ We'll start with your blank microSD card.
     ![Choose leader + worker](/img/user-guide/01-getting-started/02-software-set-up/pio_lw_os.png)
 11. Insert your micro SD card if you haven't already. Select your Storage device (it may be a different icon than shown).
     ![Choose storage](/img/user-guide/01-getting-started/02-software-set-up/choose_storage.png)
-12. Input a unique name for this Pioreactor. Some names that we use for our first Pioreactor: `pioreactor01`, or `leader`, or `pio01`. _Don't_ use `pioreactor` or `raspberrypi`.
+12. Input a unique name for this Pioreactor. Some names that we use for our first Pioreactor: `pioreactor01`, or `leader`, or `pio01`.
+
+    :::tip
+
+    1. _Don't_ use `pioreactor` or `raspberrypi`.
+    2. Use lowercase letters.
+    3. If you expect many more Pioreactors, prefix any numbers with a leading `0`, like `01`, `02`, etc.
+
+    :::
+
     ![Choose hostname](/img/user-guide/01-getting-started/02-software-set-up/choose_hostname.png)
     Click **Next**.
 13. Change localization preferences. Click **Next**.
@@ -70,10 +83,10 @@ We'll start with your blank microSD card.
     :::tip
     If Raspberry Pi Imager fails while writing, first try **Erase** in Raspberry Pi Imager to format the card as FAT32, then write the image again.
     :::
-18.  A prompt *may* appear asking for permission to write, accept it. Writing will take up to 5 minutes. Perfect time for a tea break. <img src="/img/user-guide/01-getting-started/02-software-set-up/coffee.svg" width="250" alt="Screenshot of what your settings should look like" style={{margin: "80px auto", display:"block"}} />
-10.  Once writing is complete, remove the microSD card, and place it into the Raspberry Pi. **Your Raspberry Pi's power should be unplugged before inserting the microSD card**. The microSD slot is located on the PWM side of the Pioreactor. Example for a Raspberry Pi A model:
+18. A prompt *may* appear asking for permission to write, accept it. Writing will take up to 5 minutes. Perfect time for a tea break. <img src="/img/user-guide/01-getting-started/02-software-set-up/coffee.svg" width="250" alt="Screenshot of what your settings should look like" style={{margin: "80px auto", display:"block"}} />
+19. Once writing is complete, remove the microSD card, and place it into the Raspberry Pi. **Your Raspberry Pi's power should be unplugged before inserting the microSD card**. The microSD slot is located on the PWM side of the Pioreactor. Example for a Raspberry Pi A model:
     ![Insert the microSD card into a Raspberry Pi A model](/img/user-guide/01-getting-started/02-software-set-up/place-micro-sd-card.JPG)
-11. Plug power into your Raspberry Pi. LEDs onboard the Raspberry Pi may start to light up momentarily. After **a few minutes**, your Pioreactor HAT will briefly blink a blue LED, telling us it is ready.
+20. Plug power into your Raspberry Pi. LEDs onboard the Raspberry Pi may start to light up momentarily. After **a few minutes**, your Pioreactor HAT will briefly blink a blue LED, telling us it is ready.
     <p align="center">
         <video width="520" muted loop={true} autoPlay="autoplay">
           <source src="/vid/flashing.mp4" type="video/mp4" />
@@ -81,12 +94,12 @@ We'll start with your blank microSD card.
     </p>
 
     :::info
-    Waited, but didn't see a blue LED blink, or maybe you missed it? Try pressing on the onboard button, near the side labelled "PWM", and pictured above. If this lights up the blue LED, you're good to move on. Still not working? Try power-cycling the Raspberry Pi, or email us at hello@pioreactor.com.
+    Waited, but didn't see a blue LED blink, or maybe you missed it? Try pressing on the onboard button, near the side labelled "PWM", and pictured above. If this lights up the blue LED, you're good to move on. Still not working? Try power-cycling the Raspberry Pi, or email us at support@pioreactor.com.
     :::
 
-12. After observing the blue LED flashing, navigate to [http://pioreactor.local](http://pioreactor.local) in a web browser to visit the web interface. If you are using local-access-point, looking for a `pioreactor` wifi network and then visit the link. (Not able to load http://pioreactor.local? Read [Common Questions](#httppioreactorlocal-in-a-web-browser-is-not-showing-up) below).
+21. After observing the blue LED flashing, navigate to [http://pioreactor.local](http://pioreactor.local) in a web browser to visit the web interface. If you are using local-access-point, looking for a `pioreactor` wifi network and then visit the link. (Not able to load http://pioreactor.local? Read [Common Questions](#httppioreactorlocal-in-a-web-browser-is-not-showing-up) below).
 
-13. When the UI loads for the first time you'll be prompted by the **Update Pioreactor model** dialog. Select the correct model and hardware version for each Pioreactor listed, then click **Save** to continue.
+22. When the UI loads for the first time you'll be prompted by the **Update Pioreactor model** dialog. Select the correct model and hardware version for each Pioreactor listed, then click **Save** to continue.
 
     ![Select the Pioreactor model and version for each unit](/img/user-guide/01-getting-started/02-software-set-up/pioreactor-model-version-modal.png)
 
@@ -94,7 +107,7 @@ We'll start with your blank microSD card.
     If the **Update Pioreactor model** dialog doesn't appear, open the **Inventory** page and use the **Model** dropdown on the Pioreactor card to select the correct model and hardware version (the dropdown can be hidden if the card is narrow). Then reboot the Pioreactor from the Inventory page.
     :::
 
-14. The Pioreactor is now ready for use! Follow the [hardware pre-flight check](/user-guide/pre-flight-hardware-check) before setting up your first experiment.
+23. The Pioreactor is now ready for use! Follow the [hardware pre-flight check](/user-guide/pre-flight-hardware-check) before setting up your first experiment.
 
 
     <div
@@ -129,7 +142,7 @@ Workers are additional Pioreactors that you can control from a single UI. Togeth
 1. Follow the same instructions above, but instead of choosing **Leader + Worker**, choose **Worker**.
 
    :::tip
-   Check the software version of your leader first (you can find it on the **Updates** or **Inventory** page, or use `pio version` on the command line). Downloading the worker image for that same version is strongly recommended. Version skew can work temporarily during a rolling update, but features and APIs may be incompatible between releases; do not leave a cluster on mixed versions.
+   Check the software version of your leader first (you can find it on the **Updates** or **Inventory** page, or use `pio version` on the command line). The worker must run that same software version before it can be added to the cluster. Download the matching worker image, or update the worker before adding it.
    :::
 
 2. Follow the same instructions above to write the image to a microSD card. All the settings are the same, including *username* and *password*, **but choose a new hostname**. Choose a hostname that isn't currently being used in your cluster, ex: `worker01`, `worker02`, etc. Reusing an old name is fine after the former worker has been removed from **Inventory**.
@@ -176,10 +189,16 @@ On a successful start, the Pioreactor will flash its blue LED for about 2 second
 *   If your network hidden? You will need to check `hidden SSID` in the configuration in the Raspberry Pi imager. To fix this, you'll need to restart the image installation from the Raspberry Pi Imager.
 *   Try power-cycling the Raspberry Pi (unplug and plug back in).
 *   If you are on a restrictive network (like at a university), and wish to avoid the network, [creating a local access point](/user-guide/local-access-point) may be a better option.
-*   You may have mis-typed your WiFi credentials. To fix this, you'll need to restart the image installation from the Raspberry Pi Imager.
+*   You may have mistyped your Wi-Fi credentials. Use the form below to correct them without reflashing the SD card.
 *   If connecting to a 5GHz WiFi connection, you _need_ to supply a valid country code. See the list here: [https://en.wikipedia.org/wiki/ISO\_3166-1\_alpha-2/](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 "Link to country codes on wikipedia").
 *   It's possible your SD card is damaged. This can cause all sorts of problems (including failing to boot), not just WiFi issues. The most common cause of SD card failure is probably inserting or removing the SD card while the Pi is powered up.
 
+
+##### Correct your Wi-Fi credentials without reflashing
+
+On current Pioreactor images, you can supply new Wi-Fi credentials using a file on the SD card. This does not erase your Pioreactor data.
+
+<WifiConfigForm />
 
 #### I want to change the Pioreactor name on installation of leader
 

@@ -1,6 +1,7 @@
 ---
 title: Experiment profile schema and syntax
 slug: /experiment-profiles-schema
+sidebar_class_name: sidebar-item--updated
 ---
 
 Experiment profiles are YAML files that choreograph jobs across your Pioreactor cluster. This page documents the syntax the UI validates against and the constructs available when you are editing a profile directly.
@@ -148,6 +149,11 @@ You can reference other jobs, too. The example below adjusts stirring based on o
 
 A `start` action can also interpolate expressions in `config_overrides`. Each key overrides a setting in that job's `<job_name>.config` section for the new process:
 
+- Place `config_overrides` alongside `options`, not inside it. Use `options` for job arguments and `config_overrides` for configuration settings.
+- Use a flat mapping of setting names to literal values or `${{ ... }}` expressions. Expressions are evaluated when the start action runs, and values are passed to the new process as strings.
+- Overrides apply only to the process started by that action. They do not edit `config.ini` or `unit_config.ini`, or change already-running jobs. Include the overrides again in any later start action that needs them.
+- This field is supported on `start` actions only. It cannot select other configuration sections or accept nested section mappings.
+
 ```yaml
 version: "1.0"
 experiment_profile_name: configurable-stirring
@@ -165,15 +171,19 @@ common:
             pwm_hz: ${{ stirring_pwm_hz }}
 ```
 
+Here, `pwm_hz` overrides `[stirring.config]` for the new stirring process. To use a fixed value instead, write `pwm_hz: 100`.
+
 ### Expressions in the `common` block
 
-Expressions can reference individual Pioreactors (for example `worker1:stirring:target_rpm`), but sometimes you want the aggregate across all workers. Use the `::<job>:setting` syntax inside the `common` block:
+Expressions can reference a specific Pioreactor by name (for example `worker1:stirring:target_rpm`). Inside the `common` block, you usually want each worker to look at its *own* value instead. Use the `::<job>:setting` syntax, which leaves out the unit name:
 
 ```
 ::<job_name>:setting
 ```
 
-For example, to conditionally change the stirring RPM for all workers:
+The `::` is replaced with the name of the Pioreactor the action is running on. Because `common` actions run once for each worker in the experiment, every worker evaluates the expression against its own job. It is not an aggregate (such as an average or maximum) across workers.
+
+For example, to raise the stirring RPM on each worker whose own target is at or below 500:
 
 ```yaml
 common:
@@ -322,7 +332,7 @@ remove_waste:
             volume: 1.5
 ```
 
-To override Turbidostat's default biomass signal inside an experiment profile, set `biomass_signal` directly in the start options or use `config_overrides` when you want to change the config-backed default for that run:
+To override Turbidostat's default biomass signal inside an experiment profile, set `biomass_signal` directly in the start options:
 
 ```yaml
 common:
@@ -337,22 +347,7 @@ common:
             biomass_signal: od_fused
 ```
 
-```yaml
-common:
-  jobs:
-    dosing_automation:
-      actions:
-        - type: start
-          options:
-            automation_name: turbidostat
-            target_biomass: 2.0
-            exchange_volume_ml: 1.0
-          config_overrides:
-            dosing_automation.turbidostat:
-              biomass_signal: od
-```
-
-Use the current section name `dosing_automation.turbidostat`. Older documentation may refer to `turbidostat.config`, but current releases migrate that legacy location to the new one.
+The config-backed default lives in `[dosing_automation.turbidostat]`. A profile's `config_overrides` for this job targets `[dosing_automation.config]`, so use the start option above to select the biomass signal for this run.
 
 ## Defining top-level parameters with `inputs`
 
@@ -545,6 +540,7 @@ pioreactors:
 # - <unit>:<job>:<setting>[.<nested_key>]*
 # - ::<job>:<setting>[.<nested_key>]* (uses current unit)
 #   Examples: unit():od_reading:od600, ::stirring:setting.target_rpm
+#   Bioreactor topics contain timestamp and value fields: use ::bioreactor:current_volume_ml.value.
 #   Fails if worker is inactive or topic missing.
 #
 # Conversion rules

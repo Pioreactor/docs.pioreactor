@@ -6,6 +6,7 @@
 
 import math from 'remark-math';
 import katex from 'rehype-katex';
+import updatedSections from './src/remark/updated-sections.js';
 
 import lightCodeTheme from 'prism-react-renderer/themes/github';
 import darkCodeTheme from 'prism-react-renderer/themes/dracula';
@@ -41,7 +42,7 @@ const config = {
         docs: {
           routeBasePath: 'user-guide',
           path: 'user-guide',
-		      remarkPlugins: [math],
+		      remarkPlugins: [math, updatedSections],
           rehypePlugins: [katex],
           breadcrumbs: false,
           sidebarPath: require.resolve('./sidebars.js'),
@@ -68,7 +69,7 @@ const config = {
         id: 'developer-guide',
         breadcrumbs: false,
         path: 'developer-guide',
-		    remarkPlugins: [math],
+		    remarkPlugins: [math, updatedSections],
         rehypePlugins: [katex],
         routeBasePath: 'developer-guide',
         sidebarPath: require.resolve('./sidebars.js'),

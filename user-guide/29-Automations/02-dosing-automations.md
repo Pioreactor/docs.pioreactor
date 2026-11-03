@@ -53,6 +53,8 @@ A turbidostat ("turbidity-static") tries to keep the biomass constant over time.
 
 This automation will always move the full `exchange volume`, even if it's not enough for the measured biomass to drop below the `target biomass`. If that happens, the automation can trigger again after another fresh biomass update. After each exchange, Turbidostat waits briefly before reacting again so post-dilution readings have time to settle.
 
+![Illustrative biomass trace showing fixed-volume dilutions and settling periods. A dilution can leave biomass above target, so another fresh reading can trigger a later dilution.](/img/user-guide/29-automations/02-dosing-automations/turbidostat-feedback.svg)
+
 The current turbidostat fields in the UI are:
 
  - `exchange volume`: how much media and waste to move in each dilution cycle, in mL.
