@@ -60,4 +60,16 @@ Your new aeration kit is now assembled!
 
 Next: [install the plugin](/user-guide/using-community-plugins) and start experimenting.
 
+### Application tips
+
+1. If not enough pressure is making it to the sparger, there may be a leak in the system. Try these, in order:
+   - check and tighten each luer lock connection
+   - check and tighten the humidifier vial's cap.
+   - use needle-nose pliers to _very slowly_ tighten the humidifier's cap's two plastic hex parts. **Do not overtighten**.
+   - use a zip-tie to secure the tubing to the air-pump's outflow.
+   - use soapy water to investigate where the leak is.
+   - contact us!
+
+2. Noisy OD? Try _reducing_ stirring RPM. This helps the bubbles rise up. Too fast RPM, and the bubbles get caught spinning.
+
 </AssemblyInstructionBlock>

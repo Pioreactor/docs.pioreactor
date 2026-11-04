@@ -35,14 +35,6 @@ Bioreactor topics use `pioreactor/<unit>/<experiment>/bioreactor/<variable>`. Th
 
 Read the `value` field when consuming these topics. In experiment profile expressions, use `${{ ::bioreactor:current_volume_ml.value }}` to read the current unit's volume.
 
-PWM duty cycles use `pioreactor/<unit>/<experiment>/pwms/channel_dc`. The JSON payload is keyed by PWM channel in `channels`, with duty cycles expressed as percentages:
-
-```json
-{"timestamp": "2026-10-14T12:00:00Z", "channels": {"1": 50.0, "2": 0.0}}
-```
-
-The `pwms/channel_dc` topic replaces `pwms/dc`, whose keys were GPIO pins. Update plugins and scripts that consume the old topic. For the 26.11.0 upgrade, update the leader and all workers together, then reload browser tabs.
-
 Jobs buffer up to 10,000 outgoing MQTT messages while the broker is unreachable, reducing lost readings during short network interruptions or leader reboots. This buffer is bounded and belongs to the running job; it is not a persistent archive.
 
 ### How do I publish data to MQTT?
