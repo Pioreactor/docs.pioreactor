@@ -15,8 +15,12 @@ may be provided via another system, for example an Arduino.
 The first thing to do is to add a hook to your custom pump into Pioreactor's software. To do this, we attach new functions to a dosing automation that are invoked when `execute_io_action` is called. These functions will call your logic that runs the external pump. Specifically, if we wish to overwrite the `media` pump, we create a function called `add_media_to_bioreactor`, with signature
 
 ```
-(cls, ml: float, unit: str, experiment: str, source_of_event: str, mqtt_client: pioreactor.pubsub.Client, logger: logger) -> float)
+(self, ml: float, unit: str, experiment: str, source_of_event: str, mqtt_client, logger, *, cancel_event: threading.Event) -> float
 ```
+
+Every custom pump callable must accept the keyword-only `cancel_event: threading.Event`. Forward `cancel_event=cancel_event` and the supplied `mqtt_client` to built-in pump actions. When controlling hardware directly, observe the event and stop the pump when it is set. Cancellation permanently ends that operation, including across pause/resume. Return the estimated volume actually moved, rather than the requested volume if interrupted.
+
+The examples below show the hooks; replace their placeholder bodies with hardware control that follows this contract. Import `threading` in your plugin.
 
 To see this in an example:
 
@@ -31,7 +35,7 @@ class CustomPumper(DosingAutomationJob):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
 
-    def add_media_to_bioreactor(self, ml: float, unit: str, experiment: str, source_of_event: str, mqtt_client, logger) -> float:
+    def add_media_to_bioreactor(self, ml: float, unit: str, experiment: str, source_of_event: str, mqtt_client, logger, *, cancel_event: threading.Event) -> float:
         # overrides the built in add_media_to_bioreactor
         # add your custom logic here. Example could be interfacing with i2c, serial, PWM, etc.
         ...
@@ -50,17 +54,17 @@ class CustomPumper(DosingAutomationJob):
 
     automation_name = "custom_pumper"
 
-    def add_media_to_bioreactor(self, ml: float, unit: str, experiment: str, source_of_event: str, mqtt_client, logger) -> float:
+    def add_media_to_bioreactor(self, ml: float, unit: str, experiment: str, source_of_event: str, mqtt_client, logger, *, cancel_event: threading.Event) -> float:
         # overrides the built in add_media_to_bioreactor
         ...
         return ml
 
-    def add_alt_media_to_bioreactor(self, ml: float, unit: str, experiment: str, source_of_event: str, mqtt_client, logger) -> float:
+    def add_alt_media_to_bioreactor(self, ml: float, unit: str, experiment: str, source_of_event: str, mqtt_client, logger, *, cancel_event: threading.Event) -> float:
         # overrides the built in remove_waste_from_bioreactor
         ...
         return ml
 
-    def remove_waste_from_bioreactor(self, ml: float, unit: str, experiment: str, source_of_event: str, mqtt_client, logger) -> float:
+    def remove_waste_from_bioreactor(self, ml: float, unit: str, experiment: str, source_of_event: str, mqtt_client, logger, *, cancel_event: threading.Event) -> float:
         # overrides the built in remove_waste_from_bioreactor
         ...
         return ml
@@ -84,7 +88,7 @@ class ThreePumps(DosingAutomationJob):
 
     automation_name = "three_pumps"
 
-    def add_salty_media_to_bioreactor(self, ml: float, unit: str, experiment: str, source_of_event: str, mqtt_client, logger) -> float:
+    def add_salty_media_to_bioreactor(self, ml: float, unit: str, experiment: str, source_of_event: str, mqtt_client, logger, *, cancel_event: threading.Event) -> float:
         # call an external pump, via i2c, serial, GPIO, etc.,
         # or pumping_functions.add_salt_media
         ...

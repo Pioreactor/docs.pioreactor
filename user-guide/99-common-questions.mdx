@@ -81,6 +81,13 @@ Glass thickness: 1.05 to 1.15 mm
 | All vial caps to either 20 mL or 40 mL vials | 24-400 |
 
 
+### What is the relationship between height and volume in the glass vials?
+
+Approximately:
+
+
+
+
 ## Optical density and LEDs
 
 
@@ -94,7 +101,7 @@ The _uncalibrated_ optical densities reported the UI and recorded in the databas
 
 ### How can I change the frequency (rate) of optical density measurements?
 
-In the configuration, you can edit the parameter `samples_per_second` to adjust the how often the Pioreactor takes an optical density snapshot. Note that this parameter is the inverse of "duration between readings". For example, if you wish to record a measurement every 60 seconds, then `samples_per_second=0.01666667` (which is 1/60).
+In `[od_reading.config]`, set `seconds_between_readings` to the interval between optical density snapshots. For example, `seconds_between_readings=60` records one measurement every minute. Restart optical density reading to apply the change.
 
 
 ### Why does the intensity for LED A turn on & off during an experiment?

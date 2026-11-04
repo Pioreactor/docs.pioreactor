@@ -9,6 +9,8 @@ When pairing the Pioreactor with dosing pumps, there are new capabilities and ex
 
 Before starting a dosing automation from the UI, review the `Current volume` and `Efflux tube level` fields in the automation dialog. `Current volume` should match the liquid currently in the vial, and `Efflux tube level` should match the volume set by the height of your waste / efflux tube.
 
+Pausing a dosing automation cancels the remainder of the current dose. Resuming does not finish that old dose; future doses use fresh readings.
+
 ## Available dosing automations
 
 

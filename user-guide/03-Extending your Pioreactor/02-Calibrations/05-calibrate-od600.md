@@ -18,6 +18,8 @@ You can run the calibration from the web UI or the command line.
 
 An OD calibration is specific to the individual Pioreactor, organism morphology, media colour, IR intensity, and photodiode angle. Create a new calibration when any of these change. If they remain consistent, we recommend recalibrating every six months, or at the interval required by your protocol.
 
+In `[od_reading.config]`, `ir_led_intensity` must be a numeric percentage (default `80`); OD reading refuses to start if an active OD calibration was recorded at a different intensity. Recalibrate at the configured intensity before starting. An intensity mismatch with a fusion estimator disables `od_fused` while other OD readings continue.
+
 :::info
 All your OD calibrations are saved to disk, and can be edited afterwards.
 :::

@@ -5,7 +5,7 @@ description: Configure a Raspberry Pi or USB camera to capture and review experi
 hide_table_of_contents: true
 ---
 
-Pioreactor can use a Raspberry Pi camera or a V4L2/USB camera to photograph cultures during an experiment. The camera feature is experimental and disabled by default.
+Pioreactor can use a Raspberry Pi camera or a V4L2/USB camera to photograph cultures during an experiment. The camera feature is experimental. Capturing images still requires a connected, supported camera.
 
 Camera snapshots are stored on the Pioreactor that captured them. In the Pioreactor UI, you can:
 
@@ -54,7 +54,7 @@ Set `keep_camera_active=1` to keep a Raspberry Pi camera sensor warm between cap
 
 ## Capture and review snapshots
 
-Once camera snapshots are enabled, open **Cameras** in the sidebar. Each assigned Pioreactor with a detected camera has a camera card.
+Open **Cameras** in the sidebar. Each assigned Pioreactor with a detected camera has a camera card.
 
 - Use **Capture snapshots automatically** to enable or disable scheduled captures for an individual Pioreactor. The interval still comes from `snapshot_interval_minutes`.
 - Open the snapshot history to **Capture snapshot**, browse earlier images, delete individual images, or choose **Download all snapshots**.

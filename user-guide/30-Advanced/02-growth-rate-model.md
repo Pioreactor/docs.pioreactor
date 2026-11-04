@@ -96,7 +96,7 @@ To upload your optical density and dosing events data to the Pioreactor, you nee
 
 :::tip
 
-If using the Pioreactor UI to export datasets _Optical density_ and _Dosing event log_, these already have the correct schema.
+Export _Optical density_ and _Dosing event log_ from the Pioreactor UI. Current exports use `hours_since_experiment_started`; rename that column to `hours_since_experiment_created` in both files for the schema below, keeping the same time reference.
 
 
 :::

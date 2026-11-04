@@ -26,6 +26,8 @@ Tags are useful for grouping related experiments across time. For example, you m
 
 After saving, you can come back to the experiment later from **Experiments**.
 
+Use **Edit details** to change the experiment start time, or **Set to now** to match time zero to inoculation. Charts, elapsed times, and media-rate summaries use this start time and exclude earlier readings. Changing it does not delete data.
+
 
 ### Assigning Pioreactors to your experiment
 

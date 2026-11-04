@@ -32,6 +32,8 @@ Every archive includes:
 
 The metadata format is versioned independently from the Pioreactor software. `manifest.json` and each `schema.json` use schema version `1`.
 
+Timestamped datasets include `hours_since_experiment_started`, measured from the experiment start time set in **Edit details**. This replaces `hours_since_experiment_created`; update analysis scripts that use the old name.
+
 ## Exporting experiment details and tags
 
 Select **Experiments** to export metadata for the selected experiment.

@@ -43,6 +43,7 @@ pio [OPTIONS] COMMAND [ARGS]...
 | --- | --- | --- |
 | `experiments` | `create`, `delete`, `list` | Leader-only; maintain experiment records. |
 | `workers` | `add`, `assign`, `discover`, `remove`, `status`, `unassign`, `update-active`, `model get`, `model set` | Manage worker inventory and metadata. |
+| `active` | `get`, `set` | Inspect or change whether this Pioreactor is in service. Use `pio active set 1` to enable it or `pio active set 0` to stop its activities; the setting survives reboots and works without the web server. |
 | `model` | `get`, `set` | Inspect or change this unit's locally stored model. Stop activities before changing it. |
 | `cluster` | `leave` | On a worker, leave its cluster and reboot; keeps its model, calibrations, estimators, and `unit_config.ini`. |
 | `cache` | `view`, `purge` | Inspect or purge per-job caches. |

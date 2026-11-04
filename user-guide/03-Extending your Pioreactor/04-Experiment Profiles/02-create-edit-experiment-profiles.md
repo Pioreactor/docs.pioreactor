@@ -67,6 +67,10 @@ pioreactors:
 
 ![Editing an existing profile showing the Save button](/img/user-guide/03-extending-your-pioreactor/02-create-edit-experiment-profiles/edit-profile-highlight.png)
 
+## Share profiles
+
+Use **Upload profile** on the Profiles page to import a `.yaml` file. Use **Download** on a saved profile to back it up or share it with another cluster.
+
 ## Prefer the command line?
 
 Profiles are plain text. You can edit them locally on the leader with any editor:

@@ -43,7 +43,7 @@ pio workers model get worker01
 pio workers model set worker01 custom_100ml 1.0
 ```
 
-Both `get` commands print JSON with `model_name` and `model_version`. Changing a model through the leader requires the worker to be reachable and its activities to be stopped.
+Both `get` commands print a readable model name. Add `--json` for JSON with `model_name` and `model_version`. Changing a model through the leader requires the worker to be reachable and its activities to be stopped.
 
 ## Required fields
 

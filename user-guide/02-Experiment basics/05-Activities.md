@@ -38,7 +38,6 @@ On the **Configuration** page, edit the existing `[stirring.config]` section in 
 use_rpm=1
 enable_dodging_od=True
 initial_target_rpm=1200
-target_rpm_outside_od_reading=1200
 target_rpm_during_od_reading=500
 pre_delay_duration=1.5
 post_delay_duration=0.25
@@ -47,26 +46,23 @@ post_delay_duration=0.25
 | Setting | Purpose |
 | --- | --- |
 | `enable_dodging_od` | Enables switching RPM around OD snapshots. With this disabled, stirring uses a single target. |
-| `target_rpm_outside_od_reading` | The mixing target applied after each snapshot and its post-delay. |
 | `target_rpm_during_od_reading` | The target applied before each snapshot and held through the measurement and post-delay. Set to `0` to stop stirring. |
-| `initial_target_rpm` | The default startup target. This is separate from the two snapshot targets. |
+| `initial_target_rpm` | The startup mixing target; change the running target in **Settings**. Targets are limited to 2000 RPM. |
 | `pre_delay_duration`, `post_delay_duration` | Timing margins in seconds before and after each snapshot. |
 
-Save the configuration and restart stirring to load the changed RPM settings. OD dodging needs RPM feedback (`use_rpm=1`) and the **Optical density** activity running. Without OD reading running, stirring operates continuously.
+Save the configuration and restart stirring to load the changed RPM settings. OD dodging needs the **Optical density** activity running. Without it, stirring operates continuously. With `use_rpm=0`, stirring stops for each OD reading and resumes afterwards.
 
-:::note Choose the mixing target explicitly
-After each snapshot, stirring applies `target_rpm_outside_od_reading`, rather than restoring whichever RPM was selected at startup or changed in **Settings**. For example, if you start stirring at 600 RPM but configure the outside-snapshot target as 1200 RPM, stirring will switch to 1200 RPM after the snapshot. Changing the live `target_rpm` alone does not change either snapshot target.
-:::
+After each snapshot and its post-delay, stirring returns to its current target RPM. Changes in **Settings** take effect immediately, or after the reading ends if one is in progress.
 
 ### Allow time for RPM changes
 
 Run a [stirring calibration](/user-guide/hardware-calibrations#stirring-calibrations) and make it active before using OD dodging. Calibration helps the motor reach each target more quickly and can reduce OD noise during RPM transitions.
 
-Use an OD sampling rate of **0.12 samples per second or slower** (about one snapshot every 8.3 seconds or longer) to leave time for stirring to change speed. For example, set the following in the existing OD configuration section and restart **Optical density**:
+Leave **at least 8.3 seconds between OD readings** to allow stirring to change speed. For example, set the following in the existing OD configuration section and restart **Optical density**:
 
 ```ini
 [od_reading.config]
-samples_per_second=0.1
+seconds_between_readings=10
 ```
 
 This records one snapshot every 10 seconds. If RPM transitions still disturb the readings, allow more time between snapshots or increase the settling delay before each snapshot.
