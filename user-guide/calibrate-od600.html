@@ -18,8 +18,8 @@
 
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css" integrity="sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM" crossorigin="anonymous"><link rel="stylesheet" href="/assets/css/styles.1b0e53b2.css">
-<script src="/assets/js/runtime~main.ce77db21.js" defer="defer"></script>
-<script src="/assets/js/main.e95f00dd.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.7c482cc4.js" defer="defer"></script>
+<script src="/assets/js/main.d63f8af4.js" defer="defer"></script>
 </head>
 <body>
 <svg style="display: none;"><defs>
@@ -29,6 +29,7 @@
 <p>Depending on the purposes of your research, you may want to calibrate your Pioreactor against known samples and OD600 values. OD calibrations now use a single protocol: <code>standards</code>. You prepare multiple vials with known OD600 values (including a blank with media only) and record them in sequence. This option is quick for calibrating multiple Pioreactors and works for specific angles (e.g. <code>od90</code>) or all configured OD channels (<code>od</code>).</p>
 <p>You can run the calibration from the web UI or the command line.</p>
 <p>An OD calibration is specific to the individual Pioreactor, organism morphology, media colour, IR intensity, and photodiode angle. Create a new calibration when any of these change. If they remain consistent, we recommend recalibrating every six months, or at the interval required by your protocol.</p>
+<p>In <code>[od_reading.config]</code>, <code>ir_led_intensity</code> must be a numeric percentage (default <code>80</code>); OD reading refuses to start if an active OD calibration was recorded at a different intensity. Recalibrate at the configured intensity before starting. An intensity mismatch with a fusion estimator disables <code>od_fused</code> while other OD readings continue.</p>
 <div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>info</div><div class="admonitionContent_BuS1"><p>All your OD calibrations are saved to disk, and can be edited afterwards.</p></div></div>
 <h2 class="anchor anchorTargetHideOnScrollNavbar_vjPI" id="running-the-calibration">Running the calibration<a href="#running-the-calibration" class="hash-link" aria-label="Direct link to Running the calibration" title="Direct link to Running the calibration" translate="no">​</a></h2>
 <p>You can run the OD600 standards protocol in the UI (recommended) or via the CLI.</p>
