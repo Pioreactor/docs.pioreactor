@@ -55,6 +55,10 @@
       "occurrence": 7
     },
     {
+      "heading": "Request Body",
+      "occurrence": 3
+    },
+    {
       "heading": "Success",
       "occurrence": 9
     },
@@ -83,6 +87,14 @@
       "occurrence": 11
     },
     {
+      "heading": "Request Body",
+      "occurrence": 5
+    },
+    {
+      "heading": "Request Body",
+      "occurrence": 6
+    },
+    {
       "heading": "Success",
       "occurrence": 20
     },
@@ -103,7 +115,15 @@
       "occurrence": 25
     },
     {
+      "heading": "Request Body",
+      "occurrence": 10
+    },
+    {
       "heading": "Response",
+      "occurrence": 26
+    },
+    {
+      "heading": "Success",
       "occurrence": 26
     },
     {
@@ -161,10 +181,6 @@
     {
       "heading": "Success",
       "occurrence": 59
-    },
-    {
-      "heading": "Success",
-      "occurrence": 62
     },
     {
       "heading": "Success",
@@ -355,7 +371,7 @@
       "occurrence": 154
     },
     {
-      "heading": "Update Reported Worker Model",
+      "heading": "Update Reported Worker Active",
       "occurrence": 1
     },
     {
@@ -363,8 +379,24 @@
       "occurrence": 155
     },
     {
+      "heading": "Path Parameters",
+      "occurrence": 127
+    },
+    {
+      "heading": "Request Body",
+      "occurrence": 43
+    },
+    {
       "heading": "Success",
       "occurrence": 155
+    },
+    {
+      "heading": "Update Reported Worker Model",
+      "occurrence": 1
+    },
+    {
+      "heading": "Endpoint",
+      "occurrence": 156
     },
     {
       "heading": "Success",
@@ -372,11 +404,11 @@
     },
     {
       "heading": "Success",
-      "occurrence": 160
+      "occurrence": 161
     },
     {
       "heading": "Success",
-      "occurrence": 162
+      "occurrence": 163
     }
   ],
   "developer-guide/20-User interface/06-unit-api-reference.md": [
@@ -389,12 +421,40 @@
       "occurrence": 1
     },
     {
+      "heading": "Endpoint",
+      "occurrence": 1
+    },
+    {
+      "heading": "Success",
+      "occurrence": 1
+    },
+    {
+      "heading": "Endpoint",
+      "occurrence": 2
+    },
+    {
+      "heading": "Request Body",
+      "occurrence": 1
+    },
+    {
+      "heading": "Success",
+      "occurrence": 2
+    },
+    {
       "heading": "Success",
       "occurrence": 16
     },
     {
       "heading": "Success",
       "occurrence": 18
+    },
+    {
+      "heading": "Success",
+      "occurrence": 20
+    },
+    {
+      "heading": "Response",
+      "occurrence": 23
     },
     {
       "heading": "Rename Camera Still For Experiment",
@@ -406,15 +466,7 @@
     },
     {
       "heading": "Request Body",
-      "occurrence": 3
-    },
-    {
-      "heading": "Response",
-      "occurrence": 23
-    },
-    {
-      "heading": "Success",
-      "occurrence": 23
+      "occurrence": 4
     },
     {
       "heading": "Success",
@@ -425,32 +477,36 @@
       "occurrence": 26
     },
     {
+      "heading": "Success",
+      "occurrence": 28
+    },
+    {
       "heading": "Leave Cluster",
       "occurrence": 1
     },
     {
       "heading": "Endpoint",
-      "occurrence": 27
+      "occurrence": 29
     },
     {
       "heading": "Request Body",
-      "occurrence": 5
+      "occurrence": 6
     },
     {
       "heading": "Success",
-      "occurrence": 27
+      "occurrence": 29
     },
     {
       "heading": "Success",
-      "occurrence": 28
+      "occurrence": 30
     },
     {
       "heading": "Request Body",
-      "occurrence": 7
+      "occurrence": 8
     },
     {
       "heading": "Success",
-      "occurrence": 31
+      "occurrence": 33
     },
     {
       "heading": "Update Specific Config",
@@ -458,7 +514,7 @@
     },
     {
       "heading": "Endpoint",
-      "occurrence": 32
+      "occurrence": 34
     },
     {
       "heading": "Success",
@@ -466,27 +522,27 @@
     },
     {
       "heading": "Success",
-      "occurrence": 39
+      "occurrence": 41
     },
     {
       "heading": "Endpoint",
-      "occurrence": 55
+      "occurrence": 57
     },
     {
       "heading": "Success",
-      "occurrence": 55
+      "occurrence": 57
     },
     {
       "heading": "Endpoint",
-      "occurrence": 56
+      "occurrence": 58
     },
     {
       "heading": "Request Body",
-      "occurrence": 15
+      "occurrence": 16
     },
     {
       "heading": "Success",
-      "occurrence": 56
+      "occurrence": 58
     },
     {
       "heading": "Success",
@@ -498,19 +554,15 @@
     },
     {
       "heading": "Success",
-      "occurrence": 68
-    },
-    {
-      "heading": "Success",
       "occurrence": 70
     },
     {
       "heading": "Success",
-      "occurrence": 80
+      "occurrence": 72
     },
     {
       "heading": "Success",
-      "occurrence": 85
+      "occurrence": 80
     },
     {
       "heading": "Success",
@@ -526,15 +578,15 @@
     },
     {
       "heading": "Success",
-      "occurrence": 92
+      "occurrence": 94
     },
     {
       "heading": "Success",
-      "occurrence": 93
+      "occurrence": 95
     },
     {
       "heading": "Success",
-      "occurrence": 96
+      "occurrence": 98
     }
   ],
   "user-guide/01-getting-started/02-software-set-up.mdx": [
@@ -642,6 +694,14 @@
     }
   ],
   "user-guide/99-common-questions.mdx": [
+    {
+      "heading": "What is the relationship between height and volume in the glass vials?",
+      "occurrence": 1
+    },
+    {
+      "heading": "How can I change the frequency (rate) of optical density measurements?",
+      "occurrence": 1
+    },
     {
       "heading": "Why does the Pioreactor's heating keep shutting off?",
       "occurrence": 1
