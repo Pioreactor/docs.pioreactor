@@ -601,14 +601,6 @@
     {
       "heading": "Step 1. Install the worker software",
       "occurrence": 1
-    },
-    {
-      "heading": "My RPi won't connect to my WiFi.",
-      "occurrence": 1
-    },
-    {
-      "heading": "Correct your Wi-Fi credentials without reflashing",
-      "occurrence": 1
     }
   ],
   "user-guide/02-Experiment basics/05-Activities.md": [
