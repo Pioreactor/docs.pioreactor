@@ -66,10 +66,17 @@ Next: [install the plugin](/user-guide/using-community-plugins) and start experi
    - check and tighten each luer lock connection
    - check and tighten the humidifier vial's cap.
    - use needle-nose pliers to _very slowly_ tighten the humidifier's cap's two plastic hex parts. **Do not overtighten**.
+   - tighten the 4 screws on the pump's faceplate.
    - use a zip-tie to secure the tubing to the air-pump's outflow.
    - use soapy water to investigate where the leak is.
    - contact us!
 
-2. Noisy OD? Try _reducing_ stirring RPM. This helps the bubbles rise up. Too fast RPM, and the bubbles get caught spinning.
+2. Noisy OD?
+ - Try _reducing_ stirring RPM. This helps the bubbles rise up. Too fast RPM, and the bubbles get caught spinning.
+ - Try increasing the time between OD snapshots, and changing the config setting:
+   ```
+   [air_bubbler.config]
+   pre_delay_duration = 5.0
+   ```
 
 </AssemblyInstructionBlock>
