@@ -63,6 +63,7 @@ const config = {
     },
   ],
   plugins: [
+    require.resolve('./plugins/search-events.js'),
     [
       '@docusaurus/plugin-content-docs',
       {
