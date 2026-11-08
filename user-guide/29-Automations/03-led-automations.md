@@ -2,6 +2,7 @@
 title: LED automations
 slug: /led-automations
 hide_table_of_contents: true
+sidebar_class_name: sidebar-item--updated
 ---
 
 LED automations are ways to automatically control the 4 available LEDs in the Pioreactor. These LEDs can be used as a light source for photosynthetic microbes, influence the environment of the microbes, as additional sensors, or improve existing sensors.

@@ -2,6 +2,7 @@
 title: Using USB drives
 slug: /using-usb-drives
 hide_table_of_contents: true
+sidebar_class_name: sidebar-item--updated
 ---
 
 Pioreactor can use an attached USB drive for offline software updates, plugin installs, and large data exports.

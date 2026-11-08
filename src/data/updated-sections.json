@@ -5,6 +5,16 @@
       "occurrence": 1
     }
   ],
+  "developer-guide/08-Custom pumps/20-writing-pump-software.md": [
+    {
+      "heading": "Using external pumps with a custom automation",
+      "occurrence": 1
+    },
+    {
+      "heading": "Adding additional pumps beyond media and alt-media",
+      "occurrence": 1
+    }
+  ],
   "developer-guide/09-Storage and the filesystem/01-data-stores/03_mqtt.md": [
     {
       "heading": "Bioreactor values and PWM duty cycles",
@@ -603,6 +613,18 @@
       "occurrence": 1
     }
   ],
+  "user-guide/02-Experiment basics/02-prepare-vial-for-cultures.md": [
+    {
+      "heading": "Using pumps: influx and efflux.",
+      "occurrence": 1
+    }
+  ],
+  "user-guide/02-Experiment basics/04-set-up-an-experiment.md": [
+    {
+      "heading": "Creating an experiment",
+      "occurrence": 1
+    }
+  ],
   "user-guide/02-Experiment basics/05-Activities.md": [
     {
       "heading": "Stirring around OD snapshots",
@@ -617,9 +639,47 @@
       "occurrence": 1
     }
   ],
+  "user-guide/02-Experiment basics/08-export-data.md": [
+    {
+      "heading": "What's in an export archive",
+      "occurrence": 1
+    },
+    {
+      "heading": "Exporting to a USB drive",
+      "occurrence": 1
+    }
+  ],
+  "user-guide/03-Extending your Pioreactor/01-cluster-management/01-create-cluster.md": [
+    {
+      "heading": "Adding Pioreactors to your cluster",
+      "occurrence": 1
+    },
+    {
+      "heading": "Leaving a cluster from a worker",
+      "occurrence": 1
+    }
+  ],
   "user-guide/03-Extending your Pioreactor/01-cluster-management/03-change-model.mdx": [
     {
       "heading": "Use a custom model",
+      "occurrence": 1
+    }
+  ],
+  "user-guide/03-Extending your Pioreactor/02-Calibrations/03-protocols.md": [
+    {
+      "heading": "Run a calibration protocol",
+      "occurrence": 1
+    }
+  ],
+  "user-guide/03-Extending your Pioreactor/02-Calibrations/05-calibrate-od600.md": [
+    {
+      "heading": "Calibrating your OD600 readings",
+      "occurrence": 1
+    }
+  ],
+  "user-guide/03-Extending your Pioreactor/04-Experiment Profiles/02-create-edit-experiment-profiles.md": [
+    {
+      "heading": "Share profiles",
       "occurrence": 1
     }
   ],
@@ -638,6 +698,16 @@
     },
     {
       "heading": "Schema reference",
+      "occurrence": 1
+    }
+  ],
+  "user-guide/03-Extending your Pioreactor/05-configuration.md": [
+    {
+      "heading": "Editing the `unit_config.ini` before booting",
+      "occurrence": 1
+    },
+    {
+      "heading": "Default `config.ini`",
       "occurrence": 1
     }
   ],
@@ -665,6 +735,48 @@
       "occurrence": 1
     }
   ],
+  "user-guide/03-Extending your Pioreactor/25-using-usb-drives.md": [
+    {
+      "heading": "Supported drives",
+      "occurrence": 1
+    },
+    {
+      "heading": "Update software from USB",
+      "occurrence": 1
+    },
+    {
+      "heading": "Install plugins from USB",
+      "occurrence": 1
+    }
+  ],
+  "user-guide/29-Automations/02-dosing-automations.md": [
+    {
+      "heading": "Turbidostat",
+      "occurrence": 1
+    }
+  ],
+  "user-guide/29-Automations/03-led-automations.md": [
+    {
+      "heading": "Light/Dark cycle",
+      "occurrence": 1
+    }
+  ],
+  "user-guide/30-Advanced/01-cli.md": [
+    {
+      "heading": "Experiment & Cluster Management",
+      "occurrence": 1
+    },
+    {
+      "heading": "Usage Examples",
+      "occurrence": 1
+    }
+  ],
+  "user-guide/30-Advanced/02-growth-rate-model.md": [
+    {
+      "heading": "Required CSV schemas for growth-rate tool",
+      "occurrence": 1
+    }
+  ],
   "user-guide/30-Advanced/02-networking/01-internet-sharing.md": [
     {
       "heading": "Connecting multiple Pioreactors",
@@ -682,6 +794,22 @@
     },
     {
       "heading": "Changing `leader_address` and MQTT `broker_address` in your config.ini",
+      "occurrence": 1
+    }
+  ],
+  "user-guide/30-Advanced/05-camera-snapshots.md": [
+    {
+      "heading": "Capture and review snapshots",
+      "occurrence": 1
+    }
+  ],
+  "user-guide/30-Advanced/15-intro-python-scripting.md": [
+    {
+      "heading": "4. Extending our script: more jobs, changing RPM, and adding lights.",
+      "occurrence": 1
+    },
+    {
+      "heading": "5. Adding an automation",
       "occurrence": 1
     }
   ],

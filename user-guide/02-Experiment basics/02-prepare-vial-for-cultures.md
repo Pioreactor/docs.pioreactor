@@ -2,6 +2,7 @@
 title: Preparing your vial for cultures
 slug: /prepare-vial-for-cultures
 hide_table_of_contents: true
+sidebar_class_name: sidebar-item--updated
 ---
 
 ### 1. Preparing the vial
@@ -106,6 +107,5 @@ How does this maintain a constant volume throughout operation? When liquid is ad
 :::
 
 During your experiment set up, the length of the tubes out of the cap can provide information about their "roles": longest tube is air exchange, shortest tube is efflux, and middle two tubes are influx.
-
 
 

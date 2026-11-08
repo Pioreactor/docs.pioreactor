@@ -24,7 +24,6 @@ jobs:
 
       - name: Mark recently updated docs
         env:
-          SIGNIFICANT_LINE_THRESHOLD: "20"
           WINDOW_DAYS: "30"
         run: python .github/scripts/mark_recent_docs.py
 

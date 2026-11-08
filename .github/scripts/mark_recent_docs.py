@@ -11,7 +11,6 @@ from collections import Counter, defaultdict
 from typing import Any, List, Optional, Tuple
 
 WINDOW_DAYS = int(os.getenv("WINDOW_DAYS", "30"))
-SIGNIFICANT_LINE_THRESHOLD = int(os.getenv("SIGNIFICANT_LINE_THRESHOLD", "20"))
 PROSE_WORD_THRESHOLD = int(os.getenv("PROSE_WORD_THRESHOLD", "10"))
 CLASS_NAME = "sidebar-item--updated"
 TARGET_DIRS = ("user-guide", "developer-guide")
@@ -67,37 +66,6 @@ def files_created_since(since: str, doc_set: set[str]) -> set[str]:
         ]
     )
     return {line.strip() for line in output.splitlines() if line.strip() in doc_set}
-
-
-def change_counts_since(since: str, doc_set: set[str]) -> dict[str, int]:
-    output = run_git(
-        [
-            "log",
-            "--since",
-            since,
-            "--pretty=format:",
-            "--numstat",
-            "--",
-            *TARGET_DIRS,
-        ]
-    )
-    counts: defaultdict[str, int] = defaultdict(int)
-    for line in output.splitlines():
-        parts = line.split("\t")
-        if len(parts) != 3:
-            continue
-        added, removed, path = parts
-        path = path.strip()
-        if path not in doc_set:
-            continue
-        if added == "-" or removed == "-":
-            counts[path] = max(counts[path], SIGNIFICANT_LINE_THRESHOLD)
-            continue
-        try:
-            counts[path] += int(added) + int(removed)
-        except ValueError:
-            continue
-    return counts
 
 
 def revision_before(since: str) -> Optional[str]:
@@ -355,36 +323,27 @@ def main() -> None:
     since = since_date(WINDOW_DAYS)
 
     created_recently = files_created_since(since, doc_set)
-    change_counts = change_counts_since(since, doc_set)
-    significant_changes = {
-        path for path, total in change_counts.items() if total >= SIGNIFICANT_LINE_THRESHOLD
-    }
-
-    to_mark = created_recently | significant_changes
-
-    changed_files = []
-    for path_str in sorted(doc_set):
-        path = pathlib.Path(path_str)
-        should_have_flag = path_str in to_mark
-        if update_file(path, should_have_flag):
-            changed_files.append(path_str)
-
     # New pages are entirely new, so only highlight sections of edited pages.
     base = revision_before(since)
     updated_sections: dict[str, List[dict[str, Any]]] = {}
     if base:
-        for path_str in sorted(significant_changes - created_recently):
+        for path_str in sorted(doc_set - created_recently):
             if not exists_at(base, path_str):
                 continue
             sections = changed_sections(base, path_str)
             if sections:
                 updated_sections[path_str] = sections
+    to_mark = created_recently | set(updated_sections)
+    changed_files = []
+    for path_str in sorted(doc_set):
+        if update_file(pathlib.Path(path_str), path_str in to_mark):
+            changed_files.append(path_str)
     if write_updated_sections(updated_sections):
         changed_files.append(str(UPDATED_SECTIONS_PATH))
 
     print(f"Window start: {since}")
     print(f"New files in window: {len(created_recently)}")
-    print(f"Files with significant changes: {len(significant_changes)}")
+    print(f"Files with significant changes: {len(updated_sections)}")
     if changed_files:
         print("Updated sidebar_class_name in:")
         for path in changed_files:
