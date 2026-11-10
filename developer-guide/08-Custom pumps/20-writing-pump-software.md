@@ -2,6 +2,7 @@
 title: Custom & additional pumps for dosing automations
 slug: /writing-pump-software
 hide_table_of_contents: true
+sidebar_class_name: sidebar-item--updated
 ---
 
 The following provides solutions to:
@@ -110,4 +111,3 @@ Notice the `salty_media_ml=1.0` kwarg: this represents how much salty-media volu
 :::info
 In general, `execute_io_action` will try to call a function called `add_<name>_to_bioreactor` if provided with a kwarg `<name>_ml`.
 :::
-
