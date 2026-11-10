@@ -73,6 +73,41 @@ You can add additional mods with any key/value structure—`get_layered_mod_conf
    ```
    This keeps custom hardware logic outside Pioreactor core.
 
+## Migrating plugins from hardware constants
+
+Use the getter functions when initializing hardware in plugins. The next Pioreactor core release removes the deprecated module constants listed below. Update affected plugins before upgrading core. These plugin releases use the getter functions:
+
+| Plugin | Updated version |
+| --- | --- |
+| OLED status display | 0.2.2 |
+| PiOLED display | 0.5.1 |
+| Temperature expansion kit | 0.4.1 |
+| Relay | 0.8.2 |
+
+| Deprecated constant | Replacement |
+| --- | --- |
+| `GPIOCHIP` | `determine_gpiochip()` |
+| `PWM_CONTROLLER` | `get_pwm_controller()` |
+| `HEATER_PWM_TO_PIN` | `get_heater_pwm_channel()` |
+| `PWM_TO_PIN` | `get_pwm_to_pin_map()` |
+| `SDA`, `SCL` | `get_sda_pin()`, `get_scl_pin()` |
+| `PCB_LED_PIN`, `PCB_BUTTON_PIN` | `get_pcb_led_pin()`, `get_pcb_button_pin()` |
+| `HALL_SENSOR_PIN` | `get_hall_sensor_pin()` |
+| `TEMP`, `TEMP_ADDRESS` | `get_temp_address()` |
+| `ADCs` | `get_adc_curriers()` |
+| `DAC`, `DAC_ADDRESS` | `get_dac_address()` |
+
+For example, initialize an I2C bus with:
+
+```python
+import busio
+from pioreactor.hardware import get_scl_pin, get_sda_pin
+
+i2c = busio.I2C(get_scl_pin(), get_sda_pin())
+```
+
+For a PWM pin, call `get_pwm_to_pin_map()[channel]`. The deprecated `HEATER_PWM_TO_PIN` name refers to a PWM channel, so the heater's GPIO pin is `get_pwm_to_pin_map()[get_heater_pwm_channel()]`.
+
 ## Tips for customization
 
 - Use integers for all addresses and pins; `hardware.py` casts everything via `int()` and will raise if parsing fails.

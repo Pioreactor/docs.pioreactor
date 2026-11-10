@@ -20,23 +20,19 @@ Tailscale is a really cool service! You may find yourself using it for other pro
    1. Install Tailscale for Raspberry Pi with the following: `curl -fsSL https://tailscale.com/install.sh | sh` <CopyToClipboardButton content="curl -fsSL https://tailscale.com/install.sh | sh" label="Copy" style={{ marginLeft: '0.5rem' }} />
    2. Don't miss that you also need to run `sudo tailscale up` <CopyToClipboardButton content="sudo tailscale up" label="Copy" style={{ marginLeft: '0.5rem' }} />
    3. _You don't need to install anything on the workers_.
-5. Back in your [Tailscale admin](https://login.tailscale.com/admin/machines), you should see two machines: your computer and the leader Pioreactor. Make note of the ipv4 address for the leader - we will use it below.
-6. You should still be able to access `http://pioreactor.local` without any problems.
-7. Update your configuration:
-   1. In your **shared config.ini**, add your ipv4 address to the `[mqtt]` section:
-      ```
-      broker_address=<ipv4 address>
-      ```
-   2. If you have other Pioreactors in your cluster: you likely won't be adding those to tailscale (only adding the leader is necessary for remote access), so in each of the **workers' config** files, add the new `[mqtt]` section like so:
-      ```
-      [mqtt]
-      broker_address=<leader name>.local
-      ```
-      And save. This means that your workers will connect "locally" (over the local network), but the UI  will connect "remotely".
-   3. Your **leader's config** file should stay the same (confirm it's `localhost`)
-
-8. Now, when you leave the local network, and if you have internet access, you can turn your VPN on and still access `http://<ipv4 address>`. Troubleshooting: try `http://<hostname>`, but confirm that magicDNS is on, too.
+5. Back in your [Tailscale admin](https://login.tailscale.com/admin/machines), you should see your computer and the leader Pioreactor. Make note of the leader's Tailscale IPv4 address.
+6. With Tailscale connected on your computer, open `http://<leader Tailscale IPv4 address>`. You can also use `http://<leader hostname>` if MagicDNS is enabled in Tailscale.
+7. No MQTT configuration changes are needed for a standard installation. The browser connects through the leader's web server at the same address you opened. Workers continue connecting to the leader over your local network and do not need Tailscale.
+8. When you leave the local network, connect your computer to Tailscale and use the same Tailscale address. On the local network, the leader's usual address, such as `http://pioreactor.local` or its local IP address, still works.
 9. You can use the Tailscale admin to add users to your VPN, too.
+
+:::note Existing clusters and custom MQTT setups
+
+If you previously configured Tailscale broker-address overrides, you can leave them in place. Pioreactor jobs still use those settings, so do not remove them without checking how your cluster connects to its broker.
+
+The setting `[mqtt] ui_use_proxy=false` is for an external MQTT broker or a custom WebSocket setup. It makes the browser use `broker_address`, `broker_ws_port`, and `ws_protocol` directly. It is not needed for ordinary Tailscale access with the leader's built-in broker.
+
+:::
 
 ## Security
 
