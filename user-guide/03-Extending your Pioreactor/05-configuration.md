@@ -2,7 +2,6 @@
 title: Configuration via config.ini
 slug: /configuration
 hide_table_of_contents: true
-sidebar_class_name: sidebar-item--updated
 ---
 
 ### How configuration works across Pioreactors

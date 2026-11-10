@@ -376,25 +376,3 @@ html[data-theme='dark'] .menu__list-item.sidebar-item--updated > .menu__list-ite
   order: 3;
   margin-left: auto;
 }
-
-/* A quiet heading label keeps recently edited content in its normal layout. */
-.doc-heading--updated::after {
-  content: "Updated";
-  display: inline-block;
-  margin-left: 0.6rem;
-  padding: 2px 6px;
-  vertical-align: middle;
-  border: 1px solid rgba(247, 173, 65, 0.4);
-  border-radius: 999px;
-  background-color: rgba(247, 173, 65, 0.1);
-  color: #8a5800;
-  font-size: 0.7rem;
-  font-weight: 500;
-  line-height: 1.2;
-}
-
-html[data-theme='dark'] .doc-heading--updated::after {
-  background-color: rgba(247, 199, 120, 0.18);
-  color: #ffdca6;
-  border-color: rgba(247, 199, 120, 0.5);
-}

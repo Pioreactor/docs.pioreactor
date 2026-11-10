@@ -2,7 +2,6 @@
 
 import datetime
 import difflib
-import json
 import os
 import re
 import pathlib
@@ -11,12 +10,12 @@ from collections import Counter, defaultdict
 from typing import Any, List, Optional, Tuple
 
 WINDOW_DAYS = int(os.getenv("WINDOW_DAYS", "30"))
+SIGNIFICANT_LINE_THRESHOLD = int(os.getenv("SIGNIFICANT_LINE_THRESHOLD", "20"))
 PROSE_WORD_THRESHOLD = int(os.getenv("PROSE_WORD_THRESHOLD", "10"))
 CLASS_NAME = "sidebar-item--updated"
 TARGET_DIRS = ("user-guide", "developer-guide")
 TARGET_EXTS = {".md", ".mdx"}
 EXCLUDED_PATH_PREFIXES = ("user-guide/01-getting-started/01-assembly_guides/",)
-UPDATED_SECTIONS_PATH = pathlib.Path("src/data/updated-sections.json")
 
 FENCE_RE = re.compile(r"^\s*(```|~~~)")
 SECTION_HEADING_RE = re.compile(r"^#{2,6}\s+(.+?)\s*#*\s*$")
@@ -66,6 +65,22 @@ def files_created_since(since: str, doc_set: set[str]) -> set[str]:
         ]
     )
     return {line.strip() for line in output.splitlines() if line.strip() in doc_set}
+
+
+def change_counts_since(since: str, doc_set: set[str]) -> dict[str, int]:
+    output = run_git([
+        "log", "--since", since, "--pretty=format:", "--numstat",
+        "--", *TARGET_DIRS,
+    ])
+    counts: defaultdict[str, int] = defaultdict(int)
+    for line in output.splitlines():
+        parts = line.split("\t")
+        if len(parts) != 3:
+            continue
+        added, removed, path = parts
+        if path in doc_set and added != "-" and removed != "-":
+            counts[path] += int(added) + int(removed)
+    return counts
 
 
 def revision_before(since: str) -> Optional[str]:
@@ -197,17 +212,6 @@ def changed_sections(base: str, path: str) -> List[dict[str, Any]]:
     return [{"heading": text, "occurrence": n} for text, n in changed]
 
 
-def write_updated_sections(updated_sections: dict[str, List[dict[str, Any]]]) -> bool:
-    text = json.dumps(updated_sections, indent=2, sort_keys=True) + "\n"
-    if UPDATED_SECTIONS_PATH.exists() and UPDATED_SECTIONS_PATH.read_text(
-        encoding="utf-8"
-    ) == text:
-        return False
-    UPDATED_SECTIONS_PATH.parent.mkdir(parents=True, exist_ok=True)
-    UPDATED_SECTIONS_PATH.write_text(text, encoding="utf-8")
-    return True
-
-
 def split_front_matter(
     text: str,
 ) -> Tuple[Optional[List[str]], List[str]]:
@@ -323,11 +327,16 @@ def main() -> None:
     since = since_date(WINDOW_DAYS)
 
     created_recently = files_created_since(since, doc_set)
-    # New pages are entirely new, so only highlight sections of edited pages.
+    counts = change_counts_since(since, doc_set)
+    significant_changes = {
+        path for path, total in counts.items()
+        if total >= SIGNIFICANT_LINE_THRESHOLD
+    }
+    # Edited pages must meet both the line threshold and section checks.
     base = revision_before(since)
     updated_sections: dict[str, List[dict[str, Any]]] = {}
     if base:
-        for path_str in sorted(doc_set - created_recently):
+        for path_str in sorted(significant_changes - created_recently):
             if not exists_at(base, path_str):
                 continue
             sections = changed_sections(base, path_str)
@@ -338,8 +347,6 @@ def main() -> None:
     for path_str in sorted(doc_set):
         if update_file(pathlib.Path(path_str), path_str in to_mark):
             changed_files.append(path_str)
-    if write_updated_sections(updated_sections):
-        changed_files.append(str(UPDATED_SECTIONS_PATH))
 
     print(f"Window start: {since}")
     print(f"New files in window: {len(created_recently)}")

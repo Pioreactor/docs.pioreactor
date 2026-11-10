@@ -2,7 +2,6 @@
 title: Growth rate curve modelling
 slug: /growth-rate-modelling
 hide_table_of_contents: true
-sidebar_class_name: sidebar-item--updated
 ---
 
 
@@ -166,7 +165,6 @@ remove_waste,2.0,1.567
 * **Mixed delimiters** – Ensure you’re saving with commas.
 * **Units** – `volume_change_ml` must be millilitres; convert L → mL beforehand.
 * **Consistent clock** – Both files must use the same `hours_since_experiment_created` reference, or dilution jumps won’t align.
-
 
 
 
