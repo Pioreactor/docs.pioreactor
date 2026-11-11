@@ -1,7 +1,8 @@
 ---
 title: Yeast growth at varying temperatures
 slug: /yeast-growth-by-temperature
-tags: 
+description: Compare baker's yeast growth at 25°C, 29°C, and 33°C using Pioreactors.
+tags:
   - Yeast
   - Temperature
   - Secondary education
@@ -9,79 +10,112 @@ hide_table_of_contents: true
 ---
 
 import AssemblyInstructionBlock from '@site/src/components/AssemblyInstructionBlock';
-import Highlight from '@site/src/components/Highlight';
-import Admonition from '@theme/Admonition';
-
-import * as colors from '@site/src/components/constants';
 
 :::tip Success Goal
-Demonstrate the effect of temperature on yeast growth. 
+Determine how temperature affects the growth rate of baker's yeast.
 :::
-
-## Requirements
-
-<AssemblyInstructionBlock images={["experiments/02-secondary-level-education/yeast-growth-by-temperature/two_pio_plus_vials.jpg"]}>
-
-*   At least two available Pioreactors
-*   Dry baker's yeast
-*   YPD broth mix, or any other media mix
-
-</AssemblyInstructionBlock>
 
 ## Introduction
 
-Students may have a prior belief that temperature effects are linear. For example: a culture at 10℃ will grow at half the rate compared to a culture at 20℃, and a third the rate at 30℃. In reality, cells have a range of temperatures it will do well at, and temperatures too cold or too hot will lead to slower growth rates. This experiment would show the non-linear effect of temperature on growth (and relate it to how refrigerators halt spoilage for so long!). Students and the teacher can pick temperatures to test beforehand.
+Temperature affects how quickly yeast cells reproduce and use nutrients. In this experiment, we used Pioreactors to compare yeast growth at **25°C, 29°C, and 33°C**.
+
+Encourage students to choose their own temperatures and predict what will happen. At cooler temperatures, growth may take longer than 24 hours to observe. Use the growth curves to evaluate their predictions and discuss how temperature affects doubling time.
 
 :::info
-The Pioreactor doesn't cool samples, so it can't achieve temperatures below your ambient temperature. If you want to test low temperatures, you can place the Pioreactor in a fridge, or in a cooler with ice packs (making sure the electronics won't get wet).
+The Pioreactor heats cultures but does not actively cool them. Choose temperatures at or above ambient temperature, or use an externally cooled environment. Keep the electronics dry.
 :::
 
-## Experiment
+## Materials
 
-The following experiment was performed using four Pioreactors. Four vials containing 15 mL of the sterile YPD stock were inoculated with 1 drop of rehydrated active yeast (0.500 g of dry yeast in a 15mL YPD broth vial). They were grown at temperatures of 28°C, 32°C, 36°C and 40°C. 
+<AssemblyInstructionBlock images={["experiments/02-secondary-level-education/yeast-growth-by-temperature/temperature-experiment-materials.jpg"]}>
 
-### Results
+- 40 mL Pioreactors (ten were used for the results below)
+- Glass culture vials, including one extra vial for yeast stock
+- Dry baker's yeast
+- YPD broth powder (50 g per litre of distilled water)
+- Distilled water
+- Erlenmeyer flask
+- Autoclave
+- Thermometer
+- Stir bars
+- Scale capable of weighing 0.002 g, or supplies to prepare a larger yeast stock
+- Pipette and sterile tips for transferring 1,000 µL (1 mL)
 
-Over the course of 12 hours, the following graphs were recorded: 
+</AssemblyInstructionBlock>
 
-![](/img/experiments/02-secondary-level-education/yeast-growth-by-temperature/temperature_temp.png)
+## Procedure
 
-![](/img/experiments/02-secondary-level-education/yeast-growth-by-temperature/temperature_growth_rate.png)
+### Prepare the cultures
 
-Though subtle, non-linear patterns of growth rate are observed between the temperatures. Key data points are summarized in the following table: 
+1. Mix 12.5 g YPD broth powder with 250 mL distilled water in an Erlenmeyer flask.
+2. Dispense 19 mL into each experimental culture vial and 20 mL into an additional vial for the yeast stock. Include a stir bar in each experimental vial.
+3. Autoclave for 15 minutes at 121°C, then allow the broth to cool to 25–30°C. Alternatively, prepare and autoclave the broth the day before, refrigerate it, and warm it to 25–30°C in a water bath before use.
+4. Record the broth temperature when adding the yeast. Add 0.002 g dry baker's yeast to the stock vial containing 20 mL YPD broth.
+5. Mix the stock by pipetting until the yeast is fully suspended, rather than shaking the vial.
+6. Using sterile technique, add 1,000 µL (1 mL) yeast stock to each experimental vial containing 19 mL YPD broth. Mix the stock between transfers to keep the inoculum consistent.
+7. Wipe the outside of each vial and place it in its Pioreactor.
 
-|Temperature|Peak growth rate (h⁻¹)|Time to reach stationary phase|
-|------------------|----------------|--------------------|
-|28°C|0.65|9 hours|
-|32°C|0.73|8.5 hours|
-|36°C|0.76|7.5 hours|
-|40°C|0.59|9.5 hours|
+### Media and inoculum calculations
 
-Rather than increasing as temperature increases, the highest growth rates form a bell curve, with the highest overall growth rate of **0.76 h⁻¹** occurring at 36°C. It decreases at 40°C since this temperature lies outside of the ideal temperature range for yeast. 
+Prepare YPD at **50 g/L**. For a 250 mL batch:
 
-The time it takes for each culture to reach the stationary phase is also related to the peak growth rates. Cultures that peaked higher did so in a quicker time frame, thus reaching the stationary phase sooner! Consider the extremes in this case: what would happen if we drop the temperature? Increased it to 50°C? How does this relate to cooking and food storage? 
+**50 g/L × 0.250 L = 12.5 g YPD powder.**
 
-## Recommendations 
+Each experimental culture starts with **19 mL YPD broth + 1 mL yeast stock = 20 mL**. Set aside another 20 mL of broth to prepare the stock. A 250 mL batch is enough for eleven cultures plus the stock vial, with some broth left over for handling losses.
 
-We chose a relatively small temperature range that mostly aligned with optimal temperatures for yeast growth. We encourage you to explore temperatures outside of this range, whether by cooling the Pioreactor externally (using ice/a cooler) or increasing the temperature (the maximum that can be reached is room temperature plus 20°C).
+For the yeast stock, suspend **0.002 g (2 mg) dry yeast in 20 mL YPD broth**.
 
-Keep in mind to not get the electronics of your Pioreactor wet! Elevate your Pioreactor to protect it from any spills. 
+This makes enough yeast stock for **19 experiments**. Each culture receives **1 mL** of this stock in **19 mL** of YPD broth, for a final volume of **20 mL**.
 
------
+:::tip Weighing small amounts
+If your scale cannot accurately weigh 0.002 g, scale up both the yeast mass and stock volume by the same factor. Keep the concentration the same: a starting culture that is too dense can obscure the growth curve.
+:::
 
-## Detailed procedure
+### Start the experiment
 
-1. Prepare a stock of 50g YPD / 1L distilled water. Aim for 20ml × the number of Pioreactors you are using, as each Pioreactor will require about 15mL of media.
-2. Divide this stock into small vials, then sterilize by autoclaving. Allow stock to cool.
-6. Dilute a small amount of yeast in 15mL of YPD stock media. 
-7. Sterily add 3-4 drops of this yeast solution to your vials. 
-8. Wipe the vials and place them in the Pioreactor.
-6. Visit [pioreactor.local](http://pioreactor.local) and start a new experiment.
-7. On the left menu, select the _Pioreactors_ page. Add any additional Pioreactors that you would like to use (more information [here](/user-guide/create-cluster)). Select _Control all Pioreactors_, and start:
-	*	_Stirring_ activity
-	*	_OD reading_ activity
-8. Select _Control_ on an individual Pioreactor. Turn on the _Temperature automation_ activity on _Thermostat_, selecting your temperature of interest.
-8. Confirm that everything looks normal on the _Overview_ page (ex: receiving optical density signal).
-9. Back on the _Pioreactors_ page, select _Control all Pioreactors_ and start _Growth rate_. 
-	* Optional: you can change the names of the Pioreactor in the UI to display the target temperature.
-11. Students can watch growth progress on the _Overview_ page. 
+1. Open [pioreactor.local](http://pioreactor.local) and create a new experiment. Assign the Pioreactors you will use; see [creating a cluster](/user-guide/create-cluster) if needed.
+2. On the _Pioreactors_ page, select _Control all Pioreactors_ and start _Stirring_ and _OD reading_. Use the same stirring settings for all cultures.
+3. Select _Control_ for each Pioreactor. Start _Temperature automation_ using _Thermostat_ and set its assigned temperature.
+4. Confirm that optical density readings and temperatures appear on the _Overview_ page, then start _Growth rate_ for all Pioreactors.
+5. Record for at least 24 hours, extending the run if cooler cultures are still growing. The example below ran for approximately 31 hours. Compare the growth rate, optical density, and temperature charts.
+
+## Our experiment
+
+Ten cultures were grown at three temperatures, with multiple Pioreactors at each temperature:
+
+| Pioreactors | Number of cultures | Stir rate | Temperature | Graph colour |
+| --- | --- | --- | --- | --- |
+| Pioreactor7–Pioreactor10 | 4 | 300 rpm | 25°C | Blue |
+| Pioreactor1–Pioreactor3 | 3 | 300 rpm | 29°C | Green |
+| Pioreactor4–Pioreactor6 | 3 | 300 rpm | 33°C | Red |
+
+The recorded experiment window was November 6–7, lasting approximately **30 hours and 44 minutes**.
+
+### Growth rate
+
+![Implied growth rate over time for ten yeast cultures: the 33°C cultures peak first and highest, followed by 29°C and 25°C.](/img/experiments/02-secondary-level-education/yeast-growth-by-temperature/temperature-growth-rate.png)
+
+The cultures at 33°C reached higher peak growth rates earlier than those at 29°C. The cultures at 25°C grew more slowly and reached their peak later.
+
+### Optical density
+
+![Normalized optical density over time for yeast cultures at 25°C, 29°C, and 33°C.](/img/experiments/02-secondary-level-education/yeast-growth-by-temperature/temperature-normalized-od.png)
+
+![Optical density over time for the same ten yeast cultures, showing an earlier rise at 33°C and a later rise at 25°C.](/img/experiments/02-secondary-level-education/yeast-growth-by-temperature/temperature-optical-density.png)
+
+The optical density curves show the same progression: the 33°C cultures increased first, followed by 29°C and then 25°C. Compare replicates as well as temperature groups when interpreting the curves.
+
+### Temperature during the experiment
+
+![Vial temperatures remain near the assigned setpoints of 25°C, 29°C, and 33°C throughout the experiment.](/img/experiments/02-secondary-level-education/yeast-growth-by-temperature/temperature-vial-temperatures.png)
+
+## Conclusions and discussion
+
+Within the tested range, a higher temperature promoted faster yeast growth, while a lower temperature slowed it. All three temperature groups grew, but their growth rates and timing differed. These results do not establish the optimum temperature or show what happens beyond the tested range.
+
+Ask students to consider:
+
+- Which temperature produced the highest growth rate? Which cultures took longest to reach a plateau?
+- How consistent were the cultures grown at the same temperature?
+- Does faster growth always mean a higher final optical density?
+- How would they design a follow-up experiment using other temperatures?
