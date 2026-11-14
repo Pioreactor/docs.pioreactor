@@ -2,7 +2,6 @@
 title: Networking tools
 slug: /networking
 hide_table_of_contents: true
-sidebar_class_name: sidebar-item--updated
 ---
 
 :::info

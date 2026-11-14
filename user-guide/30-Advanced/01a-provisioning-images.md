@@ -2,7 +2,6 @@
 title: Provisioning images
 slug: /provisioning-images
 description: Prepare a Pioreactor SD card with Wi-Fi credentials, configuration overrides, plugins, and custom files before booting.
-sidebar_class_name: sidebar-item--updated
 ---
 
 import WifiConfigForm from '@site/src/components/WifiConfigForm';
