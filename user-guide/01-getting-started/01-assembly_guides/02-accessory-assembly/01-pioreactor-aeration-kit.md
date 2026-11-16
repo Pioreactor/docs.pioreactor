@@ -62,11 +62,11 @@ Next: [install the plugin](/user-guide/using-community-plugins) and start experi
 
 ### Application tips
 
-1. If not enough pressure is making it to the sparger, there may be a leak in the system. Try these, in order:
-   - check and tighten each luer lock connection
+1. If not enough pressure is making it to the sparger, try these, in order:
+   - check and tighten each luer lock and barb connection
    - check and tighten the humidifier vial's cap.
+   - loosen, and then tighten the 4 screws on the air pump's faceplate.
    - use needle-nose pliers to _very slowly_ tighten the humidifier's cap's two plastic hex parts. **Do not overtighten**.
-   - tighten the 4 screws on the pump's faceplate.
    - use a zip-tie to secure the tubing to the air-pump's outflow.
    - use soapy water to investigate where the leak is.
    - contact us!
