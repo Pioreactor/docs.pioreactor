@@ -99,7 +99,7 @@ In the `config.ini`, the SSID and password are editable under the section `local
 
 #### Alternatively, do you *not* see the `pioreactor` network in the list of available wifi networks?
  - Try power-cycling the Raspberry Pi
- - If you unplug the Pioreactor, and place the SD card back into your computer, do you see the `local_access_point` file? If not, try adding the file again, inserting the SD card in the Pioreactor, and restarting the Pioreactor.
+ - If you unplug the Pioreactor, and place the SD card back into your computer, do you see the `local_access_point` file at the top level of the `boot` or `bootfs` partition? The filename must be exactly `local_access_point`, without a download suffix such as ` (1)` or an extension such as `.txt`. In macOS Finder, check **Get Info → Name & Extension**; in Windows File Explorer, enable **View → Show → File name extensions**. If not, try adding the file again, inserting the SD card in the Pioreactor, and restarting the Pioreactor.
 
 
 ### I'm on the network, but can't load the Pioreactor UI at `http://pioreactor.local`

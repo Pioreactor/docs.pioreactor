@@ -26,3 +26,15 @@ The [Precision Temperature Upgrade Kit](https://pioreactor.com/collections/acces
 ## Step 2: Install the plugin
 
 Power on the Pioreactor, open **Plugins** in the Pioreactor UI, and install `pioreactor-precision-temperature-plugin` on the Pioreactor with the new sensor.
+
+
+## Slow heating after changing sensors
+
+In a cluster with different temperature sensors, check each Pioreactor's hardware and configuration together:
+
+- Install the precision-temperature plugin only on units with the sensor attached.
+- Check software compatibility and configuration against the [plugin's current instructions](https://github.com/Pioreactor/pioreactor-precision-temperature-plugin).
+- Keep sensor-specific thermostat settings in the individual Pioreactor configuration; shared settings affect other units too.
+- When reverting to the original sensor, remove the plugin from that unit and restore the configuration appropriate to that sensor, including temperature sampling and thermostat settings. Removing hardware alone does not undo configuration changes.
+
+Disconnect power before changing sensor connections. Before starting another experiment, verify temperature readings and heating response with the intended sensor and configuration.

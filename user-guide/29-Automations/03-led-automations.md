@@ -7,6 +7,8 @@ hide_table_of_contents: true
 LED automations are ways to automatically control the 4 available LEDs in the Pioreactor. These LEDs can be used as a light source for photosynthetic microbes, influence the environment of the microbes, as additional sensors, or improve existing sensors.
 
 
+For continuous light (always-on LEDs), set the intensity using the [manual LED controls](/user-guide/manual-dosing-leds#leds). Stop any LED automation that would change that intensity. OD measurements can briefly turn other LEDs off, so this does not guarantee uninterrupted illumination.
+
 ## Available LED automations
 
 

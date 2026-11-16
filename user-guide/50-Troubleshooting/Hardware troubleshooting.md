@@ -34,3 +34,14 @@ Check the connection between the 3" flat-flex-cable and the HAT, and the connect
 See our [stirring troubleshooting docs](/user-guide/troubleshooting-stirring).
 
 
+
+### OD readings are zero, or optical self-tests fail
+
+Start with the [self-test results](/user-guide/self-test-reference). A zero reading or division-by-zero error alone does not identify a faulty component.
+
+- If all photodiodes fail to respond, check the shared IR light source first. Follow the optics assembly guide for your model ([20ml v1.5](/user-guide/20ml-v15-optics-assembly) or [40ml v1.5](/user-guide/40ml-v15-optics-assembly)): confirm the IR LED is in the IR pocket, connected to HAT channel A for the standard assembly, and that its exposed leads do not touch.
+- If only one channel fails, inspect that channel's cable and board connectors for loose connections or damaged pins.
+
+Power off and disconnect power before touching wiring or connectors. Contact support if pins are bent or damage is suspected. Support may suggest swapping a compatible, known-good Eye-Spy board: a fault that follows the board helps locate the problem, but does not identify the precise electrical failure.
+
+After correcting a connection, rerun the self-test. If failures remain, send support the results, logs, configuration, and clear photos of the optical wiring.

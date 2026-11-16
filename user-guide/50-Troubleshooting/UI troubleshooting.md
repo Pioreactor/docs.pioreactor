@@ -69,3 +69,9 @@ Any of the following could solve your problem:
  - Possibly the web server is off. Try logging into your leader and typing `sudo systemctl status lighttpd.service` <CopyToClipboardButton content="sudo systemctl status lighttpd.service" label="Copy" style={{ marginLeft: '0.5rem' }} />
  - Do you also see a "Failed to connect to MQTT. Is configuration for leader_address correct?" error pop-up? If so, [see question above](/user-guide/troubleshooting-ui#failed-to-connect-to-mqtt-popup).
  - Try power-cycling the Pioreactor.
+
+### A worker is reachable directly, but the UI cannot reach it
+
+The leader must be able to reach the worker too; access from your laptop does not establish that connection. From the leader, compare the worker's hostname and current IP address with any entry in `[cluster.addresses]` in the shared configuration. These entries override normal hostname resolution, so an old IP can send requests to the wrong address.
+
+Correct stale entries, or remove an unnecessary override only after confirming hostname resolution works from the leader. Keep mappings required by your network. See [networking](/user-guide/networking) for address configuration before considering reimaging a worker. Schedule any required restart outside active experiments.
