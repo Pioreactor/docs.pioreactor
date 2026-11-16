@@ -602,7 +602,6 @@ Example body:
         "pause_between_subdoses_seconds": "0.5",
         "waste_removal_multiplier": "2.0",
         "max_volume_to_warn": "17.0",
-        "max_volume_to_stop": "18.0",
         "max_subdose": "1.0",
         "experimental_pump_malfunction_tolerance": "0.2",
         "experimental_detect_pump_malfunction": "False"
