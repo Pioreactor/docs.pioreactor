@@ -19,8 +19,8 @@
 
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css" integrity="sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM" crossorigin="anonymous"><link rel="stylesheet" href="/assets/css/styles.c80d6129.css">
-<script src="/assets/js/runtime~main.b6c306e3.js" defer="defer"></script>
-<script src="/assets/js/main.e5602eb1.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.f2a03bb7.js" defer="defer"></script>
+<script src="/assets/js/main.d9dcf6b1.js" defer="defer"></script>
 </head>
 <body>
 <svg style="display: none;"><defs>
@@ -88,7 +88,7 @@
 <h4 class="anchor anchorTargetHideOnScrollNavbar_vjPI" id="alternatively-do-you-not-see-the-pioreactor-network-in-the-list-of-available-wifi-networks">Alternatively, do you <em>not</em> see the <code>pioreactor</code> network in the list of available wifi networks?<a href="#alternatively-do-you-not-see-the-pioreactor-network-in-the-list-of-available-wifi-networks" class="hash-link" aria-label="Direct link to alternatively-do-you-not-see-the-pioreactor-network-in-the-list-of-available-wifi-networks" title="Direct link to alternatively-do-you-not-see-the-pioreactor-network-in-the-list-of-available-wifi-networks" translate="no">​</a></h4>
 <ul>
 <li class="">Try power-cycling the Raspberry Pi</li>
-<li class="">If you unplug the Pioreactor, and place the SD card back into your computer, do you see the <code>local_access_point</code> file? If not, try adding the file again, inserting the SD card in the Pioreactor, and restarting the Pioreactor.</li>
+<li class="">If you unplug the Pioreactor, and place the SD card back into your computer, do you see the <code>local_access_point</code> file at the top level of the <code>boot</code> or <code>bootfs</code> partition? The filename must be exactly <code>local_access_point</code>, without a download suffix such as <code> (1)</code> or an extension such as <code>.txt</code>. In macOS Finder, check <strong>Get Info → Name &amp; Extension</strong>; in Windows File Explorer, enable <strong>View → Show → File name extensions</strong>. If not, try adding the file again, inserting the SD card in the Pioreactor, and restarting the Pioreactor.</li>
 </ul>
 <h3 class="anchor anchorTargetHideOnScrollNavbar_vjPI" id="im-on-the-network-but-cant-load-the-pioreactor-ui-at-httppioreactorlocal">I&#x27;m on the network, but can&#x27;t load the Pioreactor UI at <code>http://pioreactor.local</code><a href="#im-on-the-network-but-cant-load-the-pioreactor-ui-at-httppioreactorlocal" class="hash-link" aria-label="Direct link to im-on-the-network-but-cant-load-the-pioreactor-ui-at-httppioreactorlocal" title="Direct link to im-on-the-network-but-cant-load-the-pioreactor-ui-at-httppioreactorlocal" translate="no">​</a></h3>
 <p>Try <code>http://&lt;your_leaders_hostname&gt;.local</code>. Still not working? Try <code>http://10.42.0.1</code>)</p>
