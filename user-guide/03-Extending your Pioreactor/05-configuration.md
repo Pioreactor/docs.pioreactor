@@ -18,7 +18,7 @@ The config.ini can have duplicate entries (though it's not recommended), but onl
 
 ### Editing the configuration files from the web interface
 
-At [pioreactor.local](http://pioreactor.local), navigate to the _Configuration_ page in the sidebar.
+In the Pioreactor UI, navigate to the _Configuration_ page in the sidebar.
 
 ![Edit configuration page](/img/user-guide/03-extending-your-pioreactor/05-configuration/edit_config_page.png)
 

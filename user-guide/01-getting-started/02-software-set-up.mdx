@@ -89,7 +89,7 @@ We'll start with your blank microSD card.
     Waited, but didn't see a blue LED blink, or maybe you missed it? Try pressing on the onboard button, near the side labelled "PWM", and pictured above. If this lights up the blue LED, you're good to move on. Still not working? Try power-cycling the Raspberry Pi, or email us at support@pioreactor.com.
     :::
 
-21. After observing the blue LED flashing, navigate to [http://pioreactor.local](http://pioreactor.local) in a web browser to visit the web interface. If you are using local-access-point, looking for a `pioreactor` wifi network and then visit the link. (Not able to load http://pioreactor.local? Read [Common Questions](#httppioreactorlocal-in-a-web-browser-is-not-showing-up) below).
+21. After observing the blue LED flashing, navigate to `http://<hostname>.local` in a web browser to visit the web interface, using the name you chose in step 12. For example, if you named it `pioreactor01`, go to `http://pioreactor01.local`. If you are using local-access-point, look for a `pioreactor` wifi network and then visit the link. (Not loading? Read [Common Questions](#the-ui-is-not-showing-up-in-my-web-browser) below).
 
 22. When the UI loads for the first time you'll be prompted by the **Update Pioreactor model** dialog. Select the correct model and hardware version for each Pioreactor listed, then click **Save** to continue.
 
@@ -196,12 +196,12 @@ On current Pioreactor images, you can supply new Wi-Fi credentials using a file 
 
 Easiest solution is to start over. You can edit the name in the RPi Imager, and reflash the image onto the microSD card to remove all previous data.
 
-#### http://pioreactor.local in a web browser is not showing up
+#### The UI is not showing up in my web browser
 
-*   In your browser's address bar, add the `http://` in front of the url, like so: `http://pioreactor.local`.
-*   Try appending a backslash as well: `http://pioreactor.local/`.
-*   The UI is hosted on **http**, not **https**. Check if you are accessing `http` `://pioreactor.local`, and _not_ `https` `://pioreactor.local`.
-*   Try accessing using the url `http://<the name of your leader Pioreactor aka hostname>.local`.
+*   Check the name: use `http://<the name of your leader Pioreactor aka hostname>.local`, for example `http://pioreactor01.local`. Older software also answered at `http://pioreactor.local`; new installs don't.
+*   In your browser's address bar, add the `http://` in front of the url, like so: `http://pioreactor01.local`.
+*   Try appending a backslash as well: `http://pioreactor01.local/`.
+*   The UI is hosted on **http**, not **https**. Check if you are accessing `http` `://pioreactor01.local`, and _not_ `https` `://pioreactor01.local`.
 *   If you know your Raspberry Pi's IP, try `http://<IP address of your Raspberry Pi>`. Here's [information to determine the IP address](/user-guide/common-questions#how-can-i-determine-the-pioreactors-ip-address-or-the-mac-address).
 *   On macOS, if your browser shows `ERR_ADDRESS_UNREACHABLE`, check **System Settings** > **Privacy & Security** > **Local Network** and make sure your browser is allowed to access devices on the local network. If it is already allowed, try toggling the permission off and on.
 *   When pressing the button on the HAT, does the blue LED show up? If not, installation may have failed. Try installing the image again, and double check the settings.

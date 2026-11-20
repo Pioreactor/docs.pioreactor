@@ -302,7 +302,7 @@ Unfortunately, the microSD card becoming corrupted or damaged is an infrequent b
 
 - If the microSD card was inside a non-leader Pioreactor, it's best to try to reformat the microSD card and start fresh (i.e. [reinstall the Pioreactor software and reintroduce it to the cluster](/user-guide/software-set-up#adding-additional-workers-to-your-cluster)). This is usually okay as no critical data is stored locally in workers, only log files and hardware calibrations will be lost.
 
-- If the microSD was inside the leader Raspberry Pi, this is a bigger problem. Likely any running experiment will have to be restarted. The leader attempts a database backup every week and, by default, copies it to as many as two reachable workers. This replication is best-effort: a backup can be skipped or a worker can be unavailable. Using the command line, check other Pioreactors' `/home/pioreactor/.pioreactor/storage` directory for the latest `pioreactor.sqlite.backup`, and check its timestamp before using it to recover a new leader.
+- If the microSD was inside the leader Raspberry Pi, this is a bigger problem. Likely any running experiment will have to be restarted. The leader attempts a database backup every week and, by default, copies it to as many as two reachable workers. This replication is best-effort: a backup can be skipped or a worker can be unavailable. Using the command line, check other Pioreactors' `/home/pioreactor/.pioreactor/storage` directory for the latest `<leader hostname>.pioreactor.sqlite.backup` (`pioreactor.sqlite.backup` on older software), and check its timestamp before using it to recover a new leader.
 
 ## Networking
 
@@ -328,4 +328,4 @@ Without internet access, use a USB drive: copy the plugin's `.whl` file or the s
 
 ### If I have multiple Pioreactor leaders on my network, what leader does `http://pioreactor.local` point to?
 
-If there are multiple leaders on the same network, then each will override the other's `pioreactor.local` alias, and the alias will be unreliable. You can either access the leaders by their hostnames: `http://<leader hostname>.local`, or you can change the alias in the config.ini, too, by editing `domain_alias` under section `[ui]` (changing this requires a restart of the machine).
+`pioreactor.local` is deprecated, and new installs don't publish it. Older leaders still do, so with several on one network the alias is unreliable. Use each leader's hostname instead: `http://<leader hostname>.local`.

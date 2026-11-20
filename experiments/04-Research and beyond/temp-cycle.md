@@ -61,7 +61,7 @@ Once we [exported our data](/user-guide/export-data), we charted our yeast growt
 	*	Attach the sink tube to the vial cap tube that sits **above** the media. 
 6. For your waste pump:
 	*	Attach the source tube to the vial cap tube that **touches** the media. 
-7.	Visit [pioreactor.local](http://pioreactor.local) and start a new experiment.
+7.	In the Pioreactor UI, start a new experiment.
 8.  On the left menu, select the _Pioreactors_ page.
 9.	Select _Control_, start _Stirring_ activity and _OD reading_ activity.
 10. Install the **cycle_temp** plugin from the _Plugins_ tab. This will give you a new option in your _Temperature automation_ activity. 

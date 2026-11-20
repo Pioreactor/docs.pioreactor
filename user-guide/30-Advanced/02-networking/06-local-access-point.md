@@ -46,7 +46,7 @@ After plugging in the Pioreactor, the local access point will start and you shou
 
 <img src="/img/user-guide/30-advanced/02-networking/06-local-access-point/pioreactor_ap.png" width="325" />
 
-Once connected, the usual urls should work: http://pioreactor.local will bring up the Pioreactor interface (having trouble? Not working? Try our troubleshooting steps below.
+Once connected, the usual urls should work: `http://<leader hostname>.local` will bring up the Pioreactor interface (having trouble? Not working? Try our troubleshooting steps below.
 
 :::info
 
@@ -102,9 +102,9 @@ In the `config.ini`, the SSID and password are editable under the section `local
  - If you unplug the Pioreactor, and place the SD card back into your computer, do you see the `local_access_point` file at the top level of the `boot` or `bootfs` partition? The filename must be exactly `local_access_point`, without a download suffix such as ` (1)` or an extension such as `.txt`. In macOS Finder, check **Get Info → Name & Extension**; in Windows File Explorer, enable **View → Show → File name extensions**. If not, try adding the file again, inserting the SD card in the Pioreactor, and restarting the Pioreactor.
 
 
-### I'm on the network, but can't load the Pioreactor UI at `http://pioreactor.local`
+### I'm on the network, but can't load the Pioreactor UI at `http://<leader hostname>.local`
 
-Try `http://<your_leaders_hostname>.local`. Still not working? Try `http://10.42.0.1`)
+Try `http://10.42.0.1`.
 
 ### I can't connect a worker to my local access point
 

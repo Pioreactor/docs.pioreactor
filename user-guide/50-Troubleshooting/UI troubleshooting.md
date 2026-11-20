@@ -6,12 +6,12 @@ hide_table_of_contents: true
 
 import CopyToClipboardButton from '@site/src/components/CopyToClipboardButton';
 
-### I'm not able to access `http://pioreactor.local`
+### I'm not able to access the UI
 
 
-- In your browser's address bar, add the `http://` infront of the url, like so: `http://pioreactor.local`.
-- The UI is hosted on **http**, not **http_s_**. Check if you are accessing `http` `://pioreactor.local`, and _not_ `https` `://pioreactor.local`.
-- Try accessing using the url `http://<the permanent name of your Pioreactor aka hostname>.local`
+- Use the url `http://<the permanent name of your leader Pioreactor aka hostname>.local`, for example `http://pioreactor01.local`. Older software also answered at `http://pioreactor.local`; new installs don't.
+- In your browser's address bar, add the `http://` infront of the url, like so: `http://pioreactor01.local`.
+- The UI is hosted on **http**, not **http_s_**. Check if you are accessing `http` `://pioreactor01.local`, and _not_ `https` `://pioreactor01.local`.
 - If you know your Raspberry Pi's IP, try `http://<IP address of your Raspberry Pi>`. Here's [information to determine the IP address](/user-guide/common-questions#how-can-i-determine-the-pioreactors-ip-address-or-the-mac-address)
 - On macOS, if your browser shows `ERR_ADDRESS_UNREACHABLE`, check **System Settings** > **Privacy & Security** > **Local Network** and make sure your browser is allowed to access devices on the local network. If it is already allowed, try toggling the permission off and on.
 - Errors during installation:
@@ -27,7 +27,7 @@ See [question below](#failed-to-connect-to-mqtt-popup).
 
 ### I see "Failed to connect to MQTT. ..." in a pop-up - what can I do? {#failed-to-connect-to-mqtt-popup}
 
-This error likely occurs because your browser can't connect to an internal system, MQTT, that is used for displaying data and actions. Possibly you also weren't able to access the UI with `http://pioreactor.local`, but had to use an IP address as the url.
+This error likely occurs because your browser can't connect to an internal system, MQTT, that is used for displaying data and actions. Possibly you also weren't able to access the UI with `http://<leader hostname>.local`, but had to use an IP address as the url.
 
 To fix this:
 

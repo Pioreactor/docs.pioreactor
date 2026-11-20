@@ -96,7 +96,7 @@ The flexibility of the Pioreactor means you can do much more with this simple co
 6. Dilute a small amount of yeast in 15mL of YPD stock media. This can be stored in a fridge for future use.
 7. Using sterile techniqes, add 3-4 drops of this yeast solution to your vials. 
 8. Wipe the vials and place them in the Pioreactor.
-9.  Visit [pioreactor.local](http://pioreactor.local) and start a new experiment.
+9.  In the Pioreactor UI, start a new experiment.
 10. On the left menu, select the _Pioreactors_ page. Add any additional Pioreactors that you would like to use (more information [here](/user-guide/create-cluster)). Select _Control all Pioreactors_, and start:
      * _Stirring_ activity
      * _OD reading_ activity

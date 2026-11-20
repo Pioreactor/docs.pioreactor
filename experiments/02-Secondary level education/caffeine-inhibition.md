@@ -54,7 +54,7 @@ We recommend trying different amounts of tea, coffee, or other caffeine containi
 3. Inoculate each vial with a very small amount of your microorganism, using best practices to avoid other contamination.
 	* In our example, a yeast stock solution can be made by diluting a small amount of yeast in 15mL of YPD stock media, then a drop of this stock solution can be added to your vials.
 4. Wipe the vials and place them in the Pioreactors. 
-5. Visit [pioreactor.local](http://pioreactor.local) and start a new experiment.
+5. In the Pioreactor UI, start a new experiment.
 6. On the left menu, select the _Pioreactors_ page. Add any additional Pioreactors that you would like to use (more information [here](/user-guide/create-cluster)).
 7. Select _Control all Pioreactors_, and start _Stirring_ activity, _Temperature automation_ activity (set to an optimal temperature; ex. 30°C) and _OD reading_ activity.
 8. Confirm that everything looks normal (ex: receiving optical density signal).

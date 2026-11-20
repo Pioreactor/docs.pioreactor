@@ -73,7 +73,7 @@ If your scale cannot accurately weigh 0.002 g, scale up both the yeast mass and 
 
 ### Start the experiment
 
-1. Open [pioreactor.local](http://pioreactor.local) and create a new experiment. Assign the Pioreactors you will use; see [creating a cluster](/user-guide/create-cluster) if needed.
+1. In the Pioreactor UI, create a new experiment. Assign the Pioreactors you will use; see [creating a cluster](/user-guide/create-cluster) if needed.
 2. On the _Pioreactors_ page, select _Control all Pioreactors_ and start _Stirring_ and _OD reading_. Use the same stirring settings for all cultures.
 3. Select _Control_ for each Pioreactor. Start _Temperature automation_ using _Thermostat_ and set its assigned temperature.
 4. Confirm that optical density readings and temperatures appear on the _Overview_ page, then start _Growth rate_ for all Pioreactors.

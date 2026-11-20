@@ -56,7 +56,7 @@ Your Pioreactor is capable of controling a wide diversity of lighting effects on
 3.	Prepare a sterile stock of media for algae. We used Bold’s Basal Medium (BBM). Aim for 10 to 12 mL of media per each vial/Pioreactor you will be using. This is to allow more headspace for oxygen!  
 4.	Add 1 mL of your algae culture to each vial. 
 5.	Wipe the vials and place them in the Pioreactor.
-6.	Visit [pioreactor.local](http://pioreactor.local) and start a new experiment.
+6.	In the Pioreactor UI, start a new experiment.
 7.	Click the _Plugins_ tab on the left and install the _led_cycle_ plugin. This will add the Day/Night feature when you begin LED automations. 
 8.	On the left menu, select the Pioreactors page. Add any additional Pioreactors that you would like to use (more information [here](/user-guide/create-cluster)). Select _Control all Pioreactors_, and start _Stirring_ activity and _OD reading_ activity.
 

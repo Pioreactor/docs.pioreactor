@@ -51,7 +51,7 @@ These kinds of tests make it easy to identify any unusual activity occurring in 
 2. Inoculate each vial with a very small amount of your microorganism, using best practices to avoid other contamination.
 	* In our example, a yeast stock solution can be made by diluting a small amount of yeast in 15mL of YPD stock media, then a drop of this stock solution can be added to your vials.
 3. Wipe the vials and place them in the Pioreactors. 
-4. Visit [pioreactor.local](http://pioreactor.local) and start a new experiment.
+4. In the Pioreactor UI, start a new experiment.
 5. On the left menu, select the _Pioreactors_ page. Add any additional Pioreactors that you would like to use (more information [here](/user-guide/create-cluster)).
 6. Select _Control all Pioreactors_, and start _Stirring_ activity, _Temperature automation_ activity (set to an optimal temperature; ex. 30°C) and _OD reading_ activity.
 7. Confirm that everything looks normal (ex: receiving optical density signal).

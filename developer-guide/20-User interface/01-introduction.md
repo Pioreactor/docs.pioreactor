@@ -4,7 +4,7 @@ slug: /web-ui-introduction
 hide_table_of_contents: true
 ---
 
-Every Pioreactor, either worker or leader, have a web server on them. However, only the leader has an associated website (ex: http://pioreactor.local). Here are the details:
+Every Pioreactor, either worker or leader, have a web server on them. However, only the leader has an associated website (ex: `http://<leader hostname>.local`). Here are the details:
 
 ### Web server
 
@@ -28,9 +28,9 @@ Both workers and leaders have this backend. However, workers only use expose the
 The frontend is a React app, built with Material UI. The source code is at [pioreactorui_frontend](https://github.com/Pioreactor/pioreactor/tree/master/frontend). A lot of the "data" for the frontend comes from YAML files on the RPi's filesystem. For example, all the charts, activities, and automations are defined in their own YAML file in a `~/.pioreactor/` folder on the filesystem. This way, it's easy to add new data to the frontend without having to write new JS.
 
 
-### DNS name resolution to `pioreactor.local`
+### DNS name resolution
 
-To allow for `pioreactor.local` to be an alias for `<leader hostname>.local`, we use mdns provided by `avahi`. There is a systemd service, `avahi_alias.service`, that will point `pioreactor.local` to `<leader hostname>.local`.
+Each Pioreactor is reachable at `<hostname>.local` through mDNS, provided by `avahi`. The `pioreactor.local` alias is deprecated: new images don't publish it, but older leaders still run `avahi_aliases.service`, which points `pioreactor.local` to `<leader hostname>.local`.
 
 
 ### Updating and restarting the web UI
