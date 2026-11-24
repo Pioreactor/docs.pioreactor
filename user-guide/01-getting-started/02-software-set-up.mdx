@@ -131,10 +131,10 @@ Workers are additional Pioreactors that you can control from a single UI. Togeth
 #### Step 1. Install the worker software
 
 
-1. Follow the same instructions above, but instead of choosing **Leader + Worker**, choose **Worker**.
+1. Follow the same instructions above, and choose **Leader + Worker** again. Every Pioreactor starts as its own standalone Pioreactor, and becomes a worker when your leader adds it to the cluster.
 
    :::tip
-   Check the software version of your leader first (you can find it on the **Updates** or **Inventory** page, or use `pio version` on the command line). The worker must run that same software version before it can be added to the cluster. Download the matching worker image, or update the worker before adding it.
+   Check the software version of your leader first (you can find it on the **Updates** or **Inventory** page, or use `pio version` on the command line). The new Pioreactor must run that same software version before it can be added to the cluster. Choose the image for your leader's version, or update the new Pioreactor before adding it. If your leader runs an older version, choose that version's **Worker** image instead.
    :::
 
 2. Follow the same instructions above to write the image to a microSD card. All the settings are the same, including *username* and *password*, **but choose a new hostname**. Choose a hostname that isn't currently being used in your cluster, ex: `worker01`, `worker02`, etc. Reusing an old name is fine after the former worker has been removed from **Inventory**.
