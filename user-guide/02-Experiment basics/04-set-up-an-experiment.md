@@ -22,11 +22,15 @@ On **Start a new experiment**:
 4. To reuse setup details, choose a previous experiment from the arrow menu beside **Populate from**, then click **Populate from [experiment name]**. This fills in its name, description, and tags; change the name to a unique one before saving.
 5. Click **Save**.
 
+![Start a new experiment form with a name, description, and two tags entered](/img/user-guide/02-experiment-basics/04-set-up-an-experiment/new-experiment-form.png)
+
 Tags are useful for grouping related experiments across time. For example, you might tag experiments by strain, media, operator, protocol, or project name.
 
 After saving, you can come back to the experiment later from **Experiments**.
 
 Use **Edit details** to change the experiment start time, or **Set to now** to match time zero to inoculation. Charts, elapsed times, and media-rate summaries use this start time and exclude earlier readings. Changing it does not delete data.
+
+![Edit details dialog with the local start time and Set to now button](/img/user-guide/02-experiment-basics/04-set-up-an-experiment/experiment-start-time.png)
 
 
 ### Assigning Pioreactors to your experiment

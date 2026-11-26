@@ -21,7 +21,9 @@ Experiment profiles let you automate repeatable routines across your Pioreactor 
    ![Run profile button highlighted](/img/user-guide/03-extending-your-pioreactor/03-start-stop-profiles/profile-start-button.png)
 
 :::tip Dry-run mode
-Open the button's chevron menu to choose **Dry-run profile**. Dry-run executes the schedule without touching hardware; it emits the planned actions so you can confirm timing or sequencing before running the real thing.
+Choose **Dry-run profile** from the chevron menu, then click the **Dry-run profile** button. The dry run logs planned actions so you can check their timing and order without touching hardware.
+
+![Run profile menu with Dry-run profile highlighted](/img/user-guide/03-extending-your-pioreactor/03-start-stop-profiles/profile-dry-run.png)
 :::
 
 You can run multiple profiles—even multiple copies of the same profile—at the same time.

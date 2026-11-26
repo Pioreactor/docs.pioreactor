@@ -101,6 +101,8 @@ The 26.9.0 upgrade installs `stable_cv.conf`, which fixes exposure and white bal
 
 For a manually focused camera, stop running optical-density, stirring, dosing-automation, and LED-automation activities on the Pioreactor. Then open **Protocols**, select that Pioreactor and **Device = camera**, and run **Manual camera focus**. The protocol shows successive preview images and guides you while you turn the camera's focus control.
 
+![Protocols page with the camera device selected and Run protocol highlighted for Manual camera focus](/img/user-guide/30-advanced/05-camera-snapshots/manual-camera-focus.png)
+
 ## If a camera is not detected
 
 Check that the camera is connected to the selected Pioreactor and that `capture_backend`, `camera_index`, or `device_path` matches the camera. For USB cameras, a stable path under `/dev/v4l/by-id/` is preferable to `/dev/video0` when one is available.

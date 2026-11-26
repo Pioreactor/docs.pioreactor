@@ -20,6 +20,8 @@ Select the datasets you would like to download.
 
 Under **Export options**, you can split CSV files by Pioreactor or restrict timestamped datasets to a time range. Times entered in the UI use your browser's timezone and are converted to UTC for the export.
 
+![Export options with Filter by time range enabled and local start and end times entered](/img/user-guide/02-experiment-basics/08-export-data/export-time-range.png)
+
 Click the _Export_ button to download a **.zip** archive containing the selected CSV files.
 
 ## What's in an export archive

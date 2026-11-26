@@ -16,8 +16,10 @@ Protocols are step-by-step workflows for calibrations. Use the Protocols page in
 2. Choose the protocol that matches your calibration goal.
 3. Enter a clear name and any metadata requested by the flow.
 4. Follow the on-screen steps to collect measurements.
-5. At the review step, check the recorded points and fitted curve. Correct entered values or uncheck points to exclude them, then select **Update chart** to refit before saving.
+5. At the review step, check the measurements and the fitted curve or fit summary. Where the protocol allows it, correct entered values or uncheck measurements to exclude them. Use **Recalculate curve** when shown to preview the fit before saving.
 6. Save the calibration and set it active if needed.
+
+![Pump calibration review with editable volumes, the calculated flow rate, and the Recalculate curve and Save calibration buttons](/img/user-guide/03-extending-your-pioreactor/03-protocols/calibration-review.png)
 
 Review is available for OD600 standards, duration-based pump, DC-based stirring, and fusion OD protocols. Stirring calibrations run on all Pioreactors at once keep every reading; CLI calibrations save as before.
 

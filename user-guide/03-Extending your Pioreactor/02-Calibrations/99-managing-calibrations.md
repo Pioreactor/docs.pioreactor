@@ -21,6 +21,10 @@ To change which calibration is active, visit the Calibrations page, select the c
 - The chart in both the list view and detail view has a download icon. Click it to export a PNG of the calibration curve for lab notes. The top-level **Download all calibrations** button grabs all calibration YAML files for backup.
 - To edit a calibration, open its detail view and choose **View YAML**. Make small changes, save the YAML, and re-upload it via **Upload calibration** (or edit the YAML on-disk and use `pio calibrations display` to confirm before setting it active).
 
+Use **Calibration status** at the top of **Calibrations** to see which devices have an active calibration on each Pioreactor. Click the name of an active calibration to open it.
+
+![Calibration status table showing active, inactive, and missing calibrations by Pioreactor and device](/img/user-guide/03-extending-your-pioreactor/99-managing-calibrations/calibration-status.png)
+
 ## Managing calibrations from the command line
 
 - List what you have with `pio calibrations list` or scope to a single device with `pio calibrations list --device <device>`.

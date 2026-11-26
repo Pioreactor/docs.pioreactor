@@ -10,18 +10,24 @@ Navigate to the _Overview_ page on the Pioreactor web interface. Here you can vi
 
 Use **Appearance** in the top bar to choose **Light**, **Dark**, or **System**. **System** follows your device's appearance setting. The choice is remembered in this browser; it does not change the appearance for other users. Charts and downloaded chart images use the selected appearance.
 
+![Appearance menu with Light, Dark, and System options](/img/user-guide/02-experiment-basics/06-monitor-experiment/appearance-menu.png)
+
 
 ## Choosing and ordering charts
 
-Click the chart settings gear on **Overview** or in an individual Pioreactor's chart view to open **Customize charts**. Select the charts to display, clear those you want to hide, and drag selected charts into your preferred order. Click **Save** to apply the changes.
+Click the chart settings gear on **Overview** or in an individual Pioreactor's chart view to open **Customize charts**. In **Charts**, select the charts to display, clear those you want to hide, and drag selected charts into your preferred order. Click **Save** to apply the changes.
+
+![Charts tab showing selected charts, drag handles, and additional charts to add](/img/user-guide/02-experiment-basics/06-monitor-experiment/customize-charts-dialog.png)
 
 Selections are saved with the experiment and shared across browsers. Overview and Pioreactor charts have separate selections; the Pioreactor selection applies to the individual Pioreactor chart views in that experiment. To return to the configured chart defaults, click **Use defaults**, then **Save**. Defaults come from `[ui.overview.charts]` in the configuration.
 
 ## Experiment logs
 
-**Recent experiment logs** appear on **Overview**. On wide screens, look in the right column. These logs document any errors, processes, or updates for each Pioreactor. Open **Experiment logs** in the sidebar to search and review the full history.
+**Recent experiment logs** appear on **Overview**. On wide screens, look in the right column. These logs document any errors, processes, or updates for each Pioreactor. Open **Experiment logs** in the sidebar to review the history. Use the filters at the top to choose a log level or Pioreactor.
 
 ![Overview with the Recent experiment logs card highlighted](/img/user-guide/02-experiment-basics/06-monitor-experiment/example-event-logs.png)
+
+![Experiment logs with the log-level menu open and the Pioreactor filter beside it](/img/user-guide/02-experiment-basics/06-monitor-experiment/experiment-log-filters.png)
 
 
 ## Identifying Pioreactors in your cluster
