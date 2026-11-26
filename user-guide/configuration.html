@@ -19,8 +19,8 @@
 
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css" integrity="sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM" crossorigin="anonymous"><link rel="stylesheet" href="/assets/css/styles.c80d6129.css">
-<script src="/assets/js/runtime~main.5e6beae9.js" defer="defer"></script>
-<script src="/assets/js/main.f9449206.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.099c41e6.js" defer="defer"></script>
+<script src="/assets/js/main.7342db93.js" defer="defer"></script>
 </head>
 <body>
 <svg style="display: none;"><defs>
@@ -34,13 +34,13 @@
 <p>The config.ini can have duplicate entries (though it&#x27;s not recommended), but only the last occurrence in the file will be used.</p>
 <h3 class="anchor anchorTargetHideOnScrollNavbar_vjPI" id="editing-the-configuration-files-from-the-web-interface">Editing the configuration files from the web interface<a href="#editing-the-configuration-files-from-the-web-interface" class="hash-link" aria-label="Direct link to Editing the configuration files from the web interface" title="Direct link to Editing the configuration files from the web interface" translate="no">​</a></h3>
 <p>In the Pioreactor UI, navigate to the <em>Configuration</em> page in the sidebar.</p>
-<p><img decoding="async" loading="lazy" alt="Edit configuration page" src="/assets/images/edit_config_page-0a141995f75038ca312f00e8c2a8d903.png" width="3152" height="1648" class="img_ev3q"></p>
+<p><img decoding="async" loading="lazy" alt="Edit configuration page" src="/assets/images/edit_config_page-8b898e6657c37836635e0f697c907870.png" width="2028" height="1445" class="img_ev3q"></p>
 <p>Select the configuration file you wish to edit from the dropdown:</p>
-<p><img decoding="async" loading="lazy" alt="Choose the config.ini you wish to edit" src="/assets/images/find_config_to_edit-f4078c2db1d5157ea39d3d4ea299475e.png" width="3152" height="1648" class="img_ev3q"></p>
+<p><img decoding="async" loading="lazy" alt="Choose the config.ini you wish to edit" src="/assets/images/find_config_to_edit-726a5b91af95aa6aefccddf36a5f77ad.png" width="2028" height="1445" class="img_ev3q"></p>
 <p>Clicking [Save] will save the new configuration and will deploy the new configuration to the proper Pioreactor unit(s).</p>
-<p><img decoding="async" loading="lazy" alt="Save the edited config.ini using the Save button" src="/assets/images/save_config-4ab08f83d76bbf1479c5d5f96e041f07.png" width="3152" height="1648" class="img_ev3q"></p>
+<p><img decoding="async" loading="lazy" alt="Save the edited config.ini using the Save button" src="/assets/images/save_config-a10db498de2dfa6ab9b33750f44f7363.png" width="2028" height="1445" class="img_ev3q"></p>
 <p>Pioreactor also stores a history of changes to each configuration file. You can view previous versions of configuration files in the dropdown. Clicking [Revert] will save the displayed configuration file.</p>
-<p><img decoding="async" loading="lazy" alt="Select historical versions of config.ini&amp;#39;s" src="/assets/images/choose_config_version2-0b41bff2c4e9ae9aef80d21b74b85334.png" width="3152" height="1648" class="img_ev3q"></p>
+<p><img decoding="async" loading="lazy" alt="Select historical versions of config.ini&amp;#39;s" src="/assets/images/choose_config_version2-b376558f1aaa61a0ef268e9557786c11.png" width="2028" height="1445" class="img_ev3q"></p>
 <p>To keep an offline copy of the cluster&#x27;s configuration, click <strong>Download all configurations</strong>. The downloaded <code>configuration_inis.zip</code> contains the shared <code>config.ini</code>, each reachable Pioreactor&#x27;s <code>unit_config.ini</code> under a folder named for that unit, and <code>metadata.json</code>, which lists the included files and any units that could not be reached.</p>
 <h3 class="anchor anchorTargetHideOnScrollNavbar_vjPI" id="editing-the-unit_configini-before-booting">Editing the <code>unit_config.ini</code> before booting<a href="#editing-the-unit_configini-before-booting" class="hash-link" aria-label="Direct link to editing-the-unit_configini-before-booting" title="Direct link to editing-the-unit_configini-before-booting" translate="no">​</a></h3>
 <p>To set unit-specific overrides before booting, place a <code>config.ini</code> at the root of the SD card&#x27;s boot partition. At startup, its settings are merged into that Pioreactor&#x27;s <code>unit_config.ini</code>. See <a class="" href="/user-guide/provisioning-images#configuration-overrides-with-configini">Provisioning images</a> for an example and the import behavior.</p>

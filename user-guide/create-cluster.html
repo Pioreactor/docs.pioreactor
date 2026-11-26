@@ -19,8 +19,8 @@
 
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css" integrity="sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM" crossorigin="anonymous"><link rel="stylesheet" href="/assets/css/styles.c80d6129.css">
-<script src="/assets/js/runtime~main.5e6beae9.js" defer="defer"></script>
-<script src="/assets/js/main.f9449206.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.099c41e6.js" defer="defer"></script>
+<script src="/assets/js/main.7342db93.js" defer="defer"></script>
 </head>
 <body>
 <svg style="display: none;"><defs>
@@ -31,14 +31,14 @@
 <h3 class="anchor anchorTargetHideOnScrollNavbar_vjPI" id="adding-pioreactors-to-your-cluster">Adding Pioreactors to your cluster<a href="#adding-pioreactors-to-your-cluster" class="hash-link" aria-label="Direct link to Adding Pioreactors to your cluster" title="Direct link to Adding Pioreactors to your cluster" translate="no">​</a></h3>
 <p>After installing the <em>worker</em> image onto your additional Pioreactor (see the instructions <a class="" href="/user-guide/software-set-up#adding-additional-workers-to-your-cluster">here</a>), visit the Inventory page. The worker must run the same software version as the leader before it can be added. If setup reports an older worker version, update the worker first.</p>
 <p>On the <em>Inventory</em> page, you can search for and add worker Pioreactors to your cluster. Click &quot;Add new Pioreactor&quot; at the top right corner of this tab.</p>
-<p><img decoding="async" loading="lazy" alt="Inventory tab with the Add new Pioreactor button highlighted" src="/assets/images/inventory-add-pioreactor-f855fc53bed4252188baabc52f09b5b2.png" width="3152" height="1648" class="img_ev3q"></p>
-<p>In the popup, add the name of your worker and click &quot;Add Pioreactor&quot;.</p>
+<p><img decoding="async" loading="lazy" alt="Inventory tab with the Add new Pioreactor button highlighted" src="/assets/images/inventory-add-pioreactor-8d4048cab78737ad433af6e13f8f7ef6.png" width="2028" height="1445" class="img_ev3q"></p>
+<p>In the dialog, enter the worker’s hostname, select its model, and click <strong>Add new Pioreactor</strong>.</p>
 <p>Don&#x27;t know what model you have? Compare it to the images in <a class="" href="/user-guide/getting-started">Getting started</a>.</p>
-<p><img decoding="async" loading="lazy" alt="Add Pioreactor modal with hostname and Add Pioreactor button highlighted" src="/assets/images/inventory-add-modal-665c3f26b64cf7c90175afc68889b3e9.png" width="3152" height="1648" class="img_ev3q"></p>
+<p><img decoding="async" loading="lazy" alt="Add Pioreactor modal with hostname and Add Pioreactor button highlighted" src="/assets/images/inventory-add-modal-a853c6994fc3ef8fbc28807e0ac4f7cc.png" width="2028" height="1445" class="img_ev3q"></p>
 <p>Keep the dialog open while setup runs. If a step fails, correct the reported problem and retry adding the same worker. A wrong SSH password fails immediately; check that it matches the password configured when writing the worker image.</p>
 <p>Once a new Pioreactor is added, you may need to refresh the page to see the new worker in the cluster.</p>
 <p>This Inventory tab will display metadata pertaining to each of your Pioreactors. You can use this page to identify a Pioreactor (causes the blue LED on the HAT to blink), unassign a Pioreactor from any experiment, reboot a Pioreactor, or remove it from your cluster. This page also provides a summary of which Pioreactors are assigned to which experiment, as shown in the image below.</p>
-<p><img decoding="async" loading="lazy" alt="Inventory card with action buttons highlighted" src="/assets/images/inventory-actions-7b9eef0efdeac00d51eaba00b4975277.png" width="3152" height="1648" class="img_ev3q"></p>
+<p><img decoding="async" loading="lazy" alt="Inventory card with action buttons highlighted" src="/assets/images/inventory-actions-415b524687bc43a0ea85d5640e859b81.png" width="2028" height="1445" class="img_ev3q"></p>
 <h4 class="anchor anchorTargetHideOnScrollNavbar_vjPI" id="from-the-command-line-with-an-ipv4-address">From the command line with an ipv4 address<a href="#from-the-command-line-with-an-ipv4-address" class="hash-link" aria-label="Direct link to From the command line with an ipv4 address" title="Direct link to From the command line with an ipv4 address" translate="no">​</a></h4>
 <p>Sometimes, you need to pass in an ipv4 instead of discovering a worker via it&#x27;s hostname. To do this, SSH into your leader and run:</p>
 <div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">pio workers add &lt;hostname&gt; -a &lt;ipv4&gt;</span><br></div></code></pre></div></div>

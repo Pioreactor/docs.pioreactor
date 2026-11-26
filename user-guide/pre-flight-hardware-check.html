@@ -19,8 +19,8 @@
 
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css" integrity="sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM" crossorigin="anonymous"><link rel="stylesheet" href="/assets/css/styles.c80d6129.css">
-<script src="/assets/js/runtime~main.5e6beae9.js" defer="defer"></script>
-<script src="/assets/js/main.f9449206.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.099c41e6.js" defer="defer"></script>
+<script src="/assets/js/main.7342db93.js" defer="defer"></script>
 </head>
 <body>
 <svg style="display: none;"><defs>
@@ -39,11 +39,11 @@
 <li class="">Open the <strong>Inventory</strong> page in the UI.</li>
 <li class="">Click <strong>Self-test</strong> on your Pioreactor card, then click <strong>Start</strong>.</li>
 </ol>
-<p><img decoding="async" loading="lazy" src="/assets/images/inventory-self-test-button-756bd7bd8db26d62ff0f2469f9f18412.png" width="3152" height="1648" class="img_ev3q">
-<img decoding="async" loading="lazy" src="/assets/images/inventory-self-test-pre-4086c13c3cd054dcc0ca2715925fdb05.png" width="3152" height="1648" class="img_ev3q"></p>
+<p><img decoding="async" loading="lazy" alt="Inventory card with the Self-test button highlighted" src="/assets/images/inventory-self-test-button-8a1a23d29979537518d7337d2864373a.png" width="2028" height="1445" class="img_ev3q">
+<img decoding="async" loading="lazy" alt="Self-test dialog showing the vial requirements and the Start button" src="/assets/images/inventory-self-test-pre-ed3344202bb1735ab68f8216d1152852.png" width="2028" height="1445" class="img_ev3q"></p>
 <p>The Pioreactor will run a short series of checks and report back with passes and failures.</p>
-<p><img decoding="async" loading="lazy" src="/assets/images/inventory-self-test-running-7190dd529c4c2e01ca721cef226b373b.png" width="3152" height="1648" class="img_ev3q"></p>
-<p><img decoding="async" loading="lazy" src="/assets/images/self_test_results-1d0b585ef408fdb300664775b14c34b7.png" width="2656" height="1362" class="img_ev3q"></p>
+<p><img decoding="async" loading="lazy" alt="Self-test in progress with completed and pending checks" src="/assets/images/inventory-self-test-running-0a06f273f3c94cd9b2bc1e65f12a087e.png" width="2028" height="1445" class="img_ev3q"></p>
+<p><img decoding="async" loading="lazy" alt="Example self-test results with all checks passing on the left and a stirring failure on the right" src="/assets/images/self_test_results-554ab130335a220fa4d813b18b1b7d6a.png" width="2028" height="1568" class="img_ev3q"></p>
 <div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>info</div><div class="admonitionContent_BuS1"><p>The self-test is optional, but we <strong>strongly recommend</strong> running it after your initial setup. Even if a test fails, your Pioreactor may still be usable - it just helps you catch issues early.</p><p>Want details on each check and how to interpret failures? See <a class="" href="/user-guide/self-test-reference">Self-test reference</a>.</p></div></div>
 <h2 class="anchor anchorTargetHideOnScrollNavbar_vjPI" id="step-2-create-a-stirring-calibration">Step 2: Create a stirring calibration<a href="#step-2-create-a-stirring-calibration" class="hash-link" aria-label="Direct link to Step 2: Create a stirring calibration" title="Direct link to Step 2: Create a stirring calibration" translate="no">​</a></h2>
 <p>A stirring calibration helps the Pioreactor hit the RPM you ask for quickly.</p>
@@ -53,12 +53,17 @@
 <li class="">Set <strong>Pioreactor</strong> to the unit you&#x27;re calibrating, and <strong>Device</strong> to <strong>stirring</strong>.</li>
 <li class="">Click <strong>Run protocol</strong> to begin the calibration.</li>
 </ol>
-<p><img decoding="async" loading="lazy" src="/assets/images/protocols-stirring-calibration-modal-a69098a27f90bb81965ea57a11b6efd7.png" width="3152" height="1648" class="img_ev3q"></p>
+<p><img decoding="async" loading="lazy" alt="DC-based stirring calibration dialog showing the vial and stir bar requirements" src="/assets/images/protocols-stirring-calibration-modal-bf4505ac290fa86133ebc68b0b87d7bd.png" width="1380" height="1492" class="img_ev3q"></p>
 <ol start="4">
-<li class="">Let it finish - it takes about <strong>1 minute</strong>.</li>
+<li class="">
+<p>Follow the setup prompt, then click <strong>Run calibration</strong>. Recording takes about one minute.</p>
+</li>
+<li class="">
+<p>Review the readings and save the calibration.</p>
+</li>
 </ol>
-<p><img decoding="async" loading="lazy" src="/assets/images/protocols-stirring-calibration-complete-73de416d9fd1fdaacd3859104f61b1bf.png" width="3152" height="1648" class="img_ev3q"></p>
-<p>When it&#x27;s done, the calibration is saved automatically. If anything looks off, you can run the calibration again.</p>
+<p><img decoding="async" loading="lazy" alt="Completed stirring calibration with a link to the saved result" src="/assets/images/protocols-stirring-calibration-complete-0760b311cbc16687ff1d4f75dc3d4a90.png" width="1380" height="1492" class="img_ev3q"></p>
+<p>Open the saved calibration to check whether it&#x27;s active. You can manage or activate it from <strong>Calibrations</strong>.</p>
 <hr>
 <p>You&#x27;re done with pre-flight checks. Next up: <a class="" href="/user-guide/prepare-vial-for-cultures">set up your first experiment</a>.</p></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/user-guide/software-set-up"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Software installation</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/user-guide/prepare-vial-for-cultures"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Preparing your vial for cultures</div></a></nav></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Topics</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/user-guide/introduction">User Guide</a></li><li class="footer__item"><a class="footer__link-item" href="/developer-guide/introduction">Developer Guide</a></li><li class="footer__item"><a class="footer__link-item" href="/experiments/introduction">Experiments</a></li><li class="footer__item"><a href="https://github.com/Pioreactor/pioreactor/blob/master/CHANGELOG.md" target="_blank" rel="noopener noreferrer" class="footer__link-item">Changelog</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Community</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://forum.pioreactor.com/" target="_blank" rel="noopener noreferrer" class="footer__link-item">Community forums<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://twitter.com/pioreactor" target="_blank" rel="noopener noreferrer" class="footer__link-item">Twitter<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://github.com/pioreactor/" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2026 Pioreactor, Inc.</div></div></div></footer></div>
 </body>
