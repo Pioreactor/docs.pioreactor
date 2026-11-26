@@ -22,14 +22,14 @@ This self-test catches wiring or hardware issues early, before you run your firs
 2. Open the **Inventory** page in the UI.
 3. Click **Self-test** on your Pioreactor card, then click **Start**.
 
-![](/img/user-guide/01-getting-started/03-pre-flight-hardware-check/inventory-self-test-button.png)
-![](/img/user-guide/01-getting-started/03-pre-flight-hardware-check/inventory-self-test-pre.png)
+![Inventory card with the Self-test button highlighted](/img/user-guide/01-getting-started/03-pre-flight-hardware-check/inventory-self-test-button.png)
+![Self-test dialog showing the vial requirements and the Start button](/img/user-guide/01-getting-started/03-pre-flight-hardware-check/inventory-self-test-pre.png)
 
 The Pioreactor will run a short series of checks and report back with passes and failures.
 
-![](/img/user-guide/01-getting-started/03-pre-flight-hardware-check/inventory-self-test-running.png)
+![Self-test in progress with completed and pending checks](/img/user-guide/01-getting-started/03-pre-flight-hardware-check/inventory-self-test-running.png)
 
-![](/img/user-guide/01-getting-started/03-pre-flight-hardware-check/self_test_results.png)
+![Example self-test results with all checks passing on the left and a stirring failure on the right](/img/user-guide/01-getting-started/03-pre-flight-hardware-check/self_test_results.png)
 
 :::info
 The self-test is optional, but we **strongly recommend** running it after your initial setup. Even if a test fails, your Pioreactor may still be usable - it just helps you catch issues early.
@@ -48,13 +48,15 @@ Keep the same vial (water + stir bar) in place for this step.
 2. Set **Pioreactor** to the unit you're calibrating, and **Device** to **stirring**.
 3. Click **Run protocol** to begin the calibration.
 
-![](/img/user-guide/01-getting-started/03-pre-flight-hardware-check/protocols-stirring-calibration-modal.png)
+![DC-based stirring calibration dialog showing the vial and stir bar requirements](/img/user-guide/01-getting-started/03-pre-flight-hardware-check/protocols-stirring-calibration-modal.png)
 
-4. Let it finish - it takes about **1 minute**.
+4. Follow the setup prompt, then click **Run calibration**. Recording takes about one minute.
 
-![](/img/user-guide/01-getting-started/03-pre-flight-hardware-check/protocols-stirring-calibration-complete.png)
+5. Review the readings and save the calibration.
 
-When it's done, the calibration is saved automatically. If anything looks off, you can run the calibration again.
+![Completed stirring calibration with a link to the saved result](/img/user-guide/01-getting-started/03-pre-flight-hardware-check/protocols-stirring-calibration-complete.png)
+
+Open the saved calibration to check whether it's active. You can manage or activate it from **Calibrations**.
 
 ---
 

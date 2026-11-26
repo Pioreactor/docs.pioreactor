@@ -12,17 +12,17 @@ You can run the pumps from the Pioreactor UI. These are not automations, but sim
 
 #### Specific control of pumps
 
-Under the **Dosing** tab, you can run specific pumps (media, waste, and alt-media) for a set duration, volume (if calibrated), or continuously. The latter will run until the *Stop* button is pressed. Read more about [using pumps](/user-guide/using-pumps).
+Open **Control** on the Pioreactor card, then choose **Dosing**. Choose **Duration** or, for a calibrated pump, **Volume**. For media and alt-media, **Fill to max** runs the pump up to the estimated safe fill limit. For waste, **Run continuously** runs until you click **Stop**. Read more about [using pumps](/user-guide/using-pumps).
 
 :::caution
-Careful not to overflow your vial! The Pioreactor doesn't know how much liquid is currently in the vial. Stay well below the max volume of the vial for safety.
+Careful not to overflow your vial! The Pioreactor estimates liquid volume from its recorded starting volume and dosing events. Check the estimate before running a pump and stay below the vial’s maximum fill volume.
 :::
 
 ![UI showing how to add media.](/img/user-guide/02-experiment-basics/10-manual-led-dosing/add_media.png)
 
 #### Adjustments from manual changes
 
-Sometimes you may want to add or remove liquid from the vial by hand, for example when taking a sample. After the manual change, go to **Pioreactors** and edit the **Current volume** setting on that Pioreactor's card. This updates the estimated liquid volume without running the pumps.
+Sometimes you may want to add or remove liquid from the vial by hand, for example when taking a sample. After the manual change, go to **Pioreactors** and click the value under **Current volume** on that Pioreactor’s card. This updates the estimated liquid volume without running the pumps.
 
 For example, if you remove 0.2 mL from a vial that currently shows 14 mL, change **Current volume** to 13.8 mL.
 
@@ -33,6 +33,6 @@ For example, if you remove 0.2 mL from a vial that currently shows 14 mL, change
 
 ### LEDs
 
-Under the **LED** tab, you can update specific intensities of the LEDs. For automated light schedules, see [LED automations](/user-guide/led-automations).
+Open **Control → LEDs** to set the intensity of each LED channel. For automated light schedules, see [LED automations](/user-guide/led-automations).
 
 ![UI showing how to change LEDs.](/img/user-guide/02-experiment-basics/10-manual-led-dosing/change_leds.png)

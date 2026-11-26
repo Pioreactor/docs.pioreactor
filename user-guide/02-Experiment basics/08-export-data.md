@@ -7,16 +7,16 @@ hide_table_of_contents: true
 Experiment data can be exported using the _Export data_ tab on the Pioreactor site.
 
 
-![](/img/user-guide/02-experiment-basics/08-export-data/export_data_default.png)
+![Export data page before selecting an experiment or datasets](/img/user-guide/02-experiment-basics/08-export-data/export_data_default.png)
 
 
 Each export contains data from one experiment. Select the experiment from the dropdown menu, or select `<System>` for system-level datasets such as logs that are not associated with a user experiment.
 
-![](/img/user-guide/02-experiment-basics/08-export-data/export_data_choose_dataset.png)
+![Export data page with the experiment selector open](/img/user-guide/02-experiment-basics/08-export-data/export_data_choose_dataset.png)
 
 Select the datasets you would like to download.
 
-![](/img/user-guide/02-experiment-basics/08-export-data/export_data_selections.png)
+![Export data page with two datasets selected and the Export button highlighted](/img/user-guide/02-experiment-basics/08-export-data/export_data_selections.png)
 
 Under **Export options**, you can split CSV files by Pioreactor or restrict timestamped datasets to a time range. Times entered in the UI use your browser's timezone and are converted to UTC for the export.
 

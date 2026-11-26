@@ -39,7 +39,7 @@ To control the pinch valve, we suggest using the [pioreactor relay plugin](https
 You can [install this plugin from the Pioreactor UI](/user-guide/using-community-plugins#installing-plugins).
 
 
-![](/img/user-guide/30-advanced/02-pinch-valves/start_relay.png)
+![Activities tab showing the relay plugin and its Start button](/img/user-guide/30-advanced/02-pinch-valves/start_relay.png)
 
 
 

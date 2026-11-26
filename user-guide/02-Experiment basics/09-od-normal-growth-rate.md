@@ -148,7 +148,7 @@ When working with **small amounts** of a microorganism, or when using very turbi
 
 1. Insert your sterile vial containing media into the Pioreactor before inoculating with your species of interest.
 2. In the UI, click the **Pioreactors** tab on the left-hand menu, and choose one of the active pioreactors.
-3. Select **Calibrate**, and under the **Blanks** tab, click _Start_. The Pioreactor will now record the optical density of the blank vial.
+3. Select **Calibrations**, open **Blanks**, and click **Start**. The Pioreactor will now record the optical density of the blank vial.
 4. Repeat for all the Pioreactors to be used.
     *   A notification will appear when a Pioreactor has finished blanking.
 5. You can now inoculate your vials and begin your experiment.

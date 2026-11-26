@@ -46,7 +46,7 @@ pioreactors:
 ```
 
 4. Click **Search jobs and automations** if you want to insert additional sample actions—results paste directly into the editor.
-5. Choose **Save**. The profile appears immediately under **Available profiles**, ready to run with **Start profile**.
+5. Choose **Save**. The profile appears immediately under **Available profiles**, ready to run with **Run profile**.
 
 ![Creating a hello-world profile in the Pioreactor UI](/img/user-guide/03-extending-your-pioreactor/02-create-edit-experiment-profiles/create-profile-hello-world.png)
 
@@ -63,7 +63,7 @@ pioreactors:
 1. Go back to **Profiles**, pick the file from **Available profiles**, and click **Edit**.
 2. Adjust the YAML—validation hints appear directly under the editor if you break the schema.
 3. Select **Save**. The file in `~/.pioreactor/experiment_profiles/<filename>.yaml` is overwritten.
-4. Use **Duplicate profile** when you want to branch an idea without touching the original, or **View source code** for a read-only copy in a new tab.
+4. Use **Duplicate profile** when you want to branch an idea without touching the original, or **View source** for a read-only copy in a new tab.
 
 ![Editing an existing profile showing the Save button](/img/user-guide/03-extending-your-pioreactor/02-create-edit-experiment-profiles/edit-profile-highlight.png)
 

@@ -10,7 +10,7 @@ Pioreactor can use an attached USB drive for offline software updates, plugin in
 
 Use a USB drive formatted as exfat, vfat / FAT32, or ext4. Pioreactor mounts supported removable drives under `/run/pioreactor/usb/`.
 
-In the Pioreactor UI, open **Inventory** and find the **USB drive** card. If a supported drive is detected, click **Mount**. You can also mount and eject the drive directly from **Plugins**. After you are finished, click **Eject** before removing the drive.
+In the Pioreactor UI, open **Inventory → Leader** and find the **USB drive** card. If a supported drive is detected, click **Mount**. You can also mount and eject the drive directly from **Plugins**. After you are finished, click **Eject** before removing the drive.
 
 ![Leader page USB drive card showing a mounted USB drive](/img/user-guide/03-extending-your-pioreactor/25-using-usb-drives/usb-drive-card.png)
 
@@ -33,9 +33,9 @@ pioreactor/exports/
 1. On another computer, download the Pioreactor release archive from the [Updating the Pioreactor software](/user-guide/updating-software#method-2-update-using-a-zip-file-and-the-ui) page.
 2. Copy the `release_*.zip` file to the root of the USB drive.
 3. Attach the drive to the leader Pioreactor and mount it from the **USB drive** card.
-4. Open **Updates**, select **Update from USB**, choose the archive, choose the Pioreactors to update, and click **Update**.
+4. Open **Updates** and select **Update from USB** from the dropdown. Click **Update from USB**, choose the archive and the target Pioreactor, then click **Update**.
 
-![Updates page showing the Update from USB option](/img/user-guide/03-extending-your-pioreactor/20-updating-software/update-from-usb.png)
+![Update from USB dialog with archive and target Pioreactor selectors](/img/user-guide/03-extending-your-pioreactor/20-updating-software/update-from-usb.png)
 
 Official release archives include a signed manifest. Pioreactor verifies the archive before running update scripts.
 
@@ -56,7 +56,7 @@ For worker installs, the leader copies the wheel to the worker and installs it f
 1. Attach and mount a writable USB drive on the leader.
 2. Open **Export data**.
 3. Select the experiment, datasets, and date range.
-4. Choose **Export to USB** and start the export.
+4. Select **Export to USB** from the dropdown, then click **Export to USB**.
 
 ![Export data page showing Export to USB](/img/user-guide/02-experiment-basics/08-export-data/export-to-usb.png)
 

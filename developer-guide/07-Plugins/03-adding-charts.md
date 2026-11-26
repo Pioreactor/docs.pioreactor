@@ -51,7 +51,7 @@ co2_readings=1
 ...
 ```
 
-![](/img/developer-guide/20-user-interface/04-adding-charts/adding_chart_to_config.png)
+![Configuration editor showing co2_readings enabled under ui.overview.charts](/img/developer-guide/20-user-interface/04-adding-charts/adding_chart_to_config.png)
 
 ### Per-experiment chart selection
 

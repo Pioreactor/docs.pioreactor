@@ -109,7 +109,7 @@ Skip any section here that your plugin does not need.
 
 This configuration file will contain additional configs that we want to add to our list of existing Configurations on the Pioreactor web interface. This file will be merged with the existing `unit_config.ini` when the plugin is installed.
 
-![](/img/developer-guide/07-plugins/03-plugin-as-python-package/python-package-new-config.png)
+![Configuration editor showing the relay.config section](/img/developer-guide/07-plugins/03-plugin-as-python-package/python-package-new-config.png)
 
 :::tip
 A convention we've tried to follow is to use the section name convention of `[<job_name>.config]` or `[<automation_name>.config]` in the configuration files. For example, our relay job has `[relay.config]` in its `additional_config.ini` and settings under it.
@@ -409,7 +409,7 @@ In both cases, we will evaluate your plugin to ensure code quality and all requi
 
 Once your plugin is accepted, it will appear on the **Plugins** page. Users in the community can click _Install_ to download your plugin onto their Pioreactors.
 
-![](/img/developer-guide/07-plugins/03-plugin-as-python-package/python-package-plugins.png)
+![Plugins page showing the relay plugin installed on the selected Pioreactor](/img/developer-guide/07-plugins/03-plugin-as-python-package/python-package-plugins.png)
 
 
 ### Troubleshooting

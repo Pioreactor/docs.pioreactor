@@ -28,7 +28,7 @@ You can run multiple profiles—even multiple copies of the same profile—at th
 
 ## Monitor and stop running profiles
 
-Once started, profiles appear in **Profiles Running** with a link back to their definition and elapsed time.
+Once started, profiles appear in **Profiles running** with a link back to their definition and elapsed time.
 
 ![Profiles Running table highlighted with an active profile](/img/user-guide/03-extending-your-pioreactor/03-start-stop-profiles/profile-running.png)
 

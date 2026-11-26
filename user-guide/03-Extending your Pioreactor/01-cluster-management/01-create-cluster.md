@@ -19,7 +19,7 @@ On the _Inventory_ page, you can search for and add worker Pioreactors to your c
 
 ![Inventory tab with the Add new Pioreactor button highlighted](/img/user-guide/03-extending-your-pioreactor/01-create-cluster/inventory-add-pioreactor.png)
 
-In the popup, add the name of your worker and click "Add Pioreactor".
+In the dialog, enter the worker’s hostname, select its model, and click **Add new Pioreactor**.
 
 Don't know what model you have? Compare it to the images in [Getting started](/user-guide/getting-started).
 

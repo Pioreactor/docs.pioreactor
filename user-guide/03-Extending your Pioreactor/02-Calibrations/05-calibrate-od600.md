@@ -30,7 +30,7 @@ You can run the OD600 standards protocol in the UI (recommended) or via the CLI.
 
 ### From the web UI
 
-Open **Protocols**, select your Pioreactor and **Device = od90**, then click **Run protocol**. The dialog will guide you through naming the calibration, stirring setup, and recording standards.
+Open **Protocols**, select your Pioreactor and **Device = od90**, then click **Run protocol**. The dialog will guide you through naming the calibration, stirring setup, and recording the blank first, followed by the non-blank standards. Review the readings and fitted curve before saving.
 
 ![OD600 standards protocol intro step in the UI.](/img/user-guide/03-extending-your-pioreactor/05-calibrate-od600/od600-ui-standards-step-1.png)
 
@@ -52,7 +52,7 @@ To calibrate all configured OD channels at once, use:
 pio calibrations run --device od --protocol standards
 ```
 
-You will be prompted for a calibration name and (optionally) the stirring RPM. Then, for each standard, enter its OD600 value, record another standard if needed, and finally record the blank (media only).
+The protocol prompts for a calibration name and an optional stirring RPM. Follow the prompts to measure the blank (media only), then enter the OD600 value and record a reading for each standard.
 
 As you record standards, a chart appears to show your progress. Once you complete all measurements (including the blank), the calibration curve appears on the chart. If you are satisfied with this, save your calibration.
 

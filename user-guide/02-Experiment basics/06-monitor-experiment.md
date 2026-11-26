@@ -19,9 +19,9 @@ Selections are saved with the experiment and shared across browsers. Overview an
 
 ## Experiment logs
 
-**Recent experiment logs** are found along the right side of the main _Overview page_. These logs document any errors, processes, or updates for each Pioreactor. Open **Experiment logs** in the sidebar to search and review the full history.
+**Recent experiment logs** appear on **Overview**. On wide screens, look in the right column. These logs document any errors, processes, or updates for each Pioreactor. Open **Experiment logs** in the sidebar to search and review the full history.
 
-![](/img/user-guide/02-experiment-basics/06-monitor-experiment/example-event-logs.png)
+![Overview with the Recent experiment logs card highlighted](/img/user-guide/02-experiment-basics/06-monitor-experiment/example-event-logs.png)
 
 
 ## Identifying Pioreactors in your cluster
@@ -30,7 +30,7 @@ To locate a Pioreactor, click _Identify_ for the corresponding Pioreactor on the
 
 Conversely, you can also find a Pioreactor's name by pressing the white button on the Pioreactor. This causes a tag to come up on the interface for as long as you are holding the button down:
 
-![](/img/user-guide/02-experiment-basics/06-monitor-experiment/blue-tag.png)
+![Blue notification showing the unit whose onboard button is pressed](/img/user-guide/02-experiment-basics/06-monitor-experiment/blue-tag.png)
 
 
 ## Troubleshooting 

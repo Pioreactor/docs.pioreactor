@@ -23,7 +23,7 @@ You should have already added your plugin's Python code to your Pioreactor by so
 
 ### Adding a custom background job to the list of activities
 
-![](/img/developer-guide/07-plugins/02-adding-plugins-to-ui/activities.png)
+![Activities tab with the built-in jobs and automations](/img/developer-guide/07-plugins/02-adding-plugins-to-ui/activities.png)
 
 
 On a Pioreactor that should run the job, the list of activities is sourced from either of two directories:
@@ -43,14 +43,14 @@ published_settings:
   - key: rpm   # as defined in Python
     unit: RPM  #
     label: Stirring speed # human readable name
-    description: This description is displayed with an editable field in Control / Settings.
+    description: This description is displayed with an editable field in Control / Parameters.
     type: numeric  # one of numeric, bool, string, json
     default: null
     display: true # true to display on the /Pioreactors card
   - key: something_else
     unit: lb
     label: Something else
-    description: This description is displayed with an editable switch in Control / Settings.
+    description: This description is displayed with an editable switch in Control / Parameters.
     type: bool # one of numeric, bool, string, json
     default: null
     display: true # true to display on the /Pioreactors card
@@ -58,11 +58,11 @@ published_settings:
 
 Saving it to either directory above, and refreshing the page:
 
-![](/img/developer-guide/07-plugins/02-adding-plugins-to-ui/activities_with_example.png)
+![Activities tab showing the example custom job and its Start button](/img/developer-guide/07-plugins/02-adding-plugins-to-ui/activities_with_example.png)
 
-![](/img/developer-guide/07-plugins/02-adding-plugins-to-ui/settings_with_example.png)
+![Parameters tab showing the custom Stirring speed and Something else fields](/img/developer-guide/07-plugins/02-adding-plugins-to-ui/settings_with_example.png)
 
-![](/img/developer-guide/07-plugins/02-adding-plugins-to-ui/card_with_example.png)
+![Pioreactor card showing the custom job and its parameters](/img/developer-guide/07-plugins/02-adding-plugins-to-ui/card_with_example.png)
 
 
 ### Adding a custom Python script to the list of activities
@@ -90,7 +90,7 @@ See more information on the structure of your script [here](/developer-guide/plu
 
 Suppose we wish to add our new automation, either installed from a package or via the `plugins` folder, to the drop-down list of automations users can choose from:
 
-![](/img/developer-guide/07-plugins/02-adding-plugins-to-ui/dropdown_automations.png)
+![Dosing automation menu showing available automations](/img/developer-guide/07-plugins/02-adding-plugins-to-ui/dropdown_automations.png)
 
 This list is sourced from YAML files located on the Pioreactor that should run the automation, in either of two directories:
 
@@ -128,9 +128,9 @@ fields:
 
 If this file was saved to the folder `/home/pioreactor/.pioreactor/plugins/ui/automations/dosing`, we would see the following in the web interface (after refreshing):
 
-![](/img/developer-guide/07-plugins/02-adding-plugins-to-ui/dropdown_automations_with_example.png)
+![Dosing automation menu with My Automations Name highlighted](/img/developer-guide/07-plugins/02-adding-plugins-to-ui/dropdown_automations_with_example.png)
 
-![](/img/developer-guide/07-plugins/02-adding-plugins-to-ui/automations_example.png)
+![Dosing automation dialog with the custom automation selected and its fields visible](/img/developer-guide/07-plugins/02-adding-plugins-to-ui/automations_example.png)
 
 More examples of automation [YAML files here](https://github.com/Pioreactor/pioreactor/tree/master/packaging/shared-assets/pioreactor/ui/automations).
 

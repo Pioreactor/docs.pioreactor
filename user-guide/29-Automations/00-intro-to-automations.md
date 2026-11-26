@@ -16,10 +16,10 @@ Use an automation when:
 ## Start an automation from the UI
 
 1. Open **Pioreactors** → choose the reactor you want to configure.
-2. Click **Control** (or **Control**) to open the activities drawer.
+2. Click **Control** on a Pioreactor card to open the dialog.
 3. In **Activities**, locate the automation you need and use **Start**.
 
-![Activities drawer showing available automations](/img/user-guide/29-automations/00-intro-to-automations/automations-panel.png)
+![Activities tab with temperature, dosing, and LED automations highlighted](/img/user-guide/29-automations/00-intro-to-automations/automations-panel.png)
 _Highlighted rows show where temperature, dosing, and LED automations live inside the Activities dialog._
 
 Each automation runs as its own background job, so you can mix and match—for example, keep stirring and growth-rate measurements active while only dosing automatically.

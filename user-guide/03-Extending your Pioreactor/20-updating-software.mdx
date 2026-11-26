@@ -16,22 +16,22 @@ We publish new software occasionally that fixes bugs, adds new features, and imp
 To use this update method, you Raspberry Pi must be able to access the internet. Using a local access point, see method 2 below.
 :::
 
-When a new software version is released by our team, you will see a red "badge" in your UI's sidebar:
+When an update is available, a red dot appears beside **Updates** in the sidebar.
 
-![a red badge is beside the Update link](/img/user-guide/03-extending-your-pioreactor/20-updating-software/badge.png)
+![Red update badge beside the Updates link in the sidebar](/img/user-guide/03-extending-your-pioreactor/20-updating-software/badge.png)
 
-Upon visiting the _Updates_ page, you can see what version you have installed, and the latest version published by us. You can also read the changelog to see what improvements we've made in the latest releases.
+On the **Updates** page, you can see what version you have installed, and the latest version published by us. You can also read the changelog to see what improvements we've made in the latest releases.
 
 If a release mentions Turbidostat biomass signal selection changes, see [Dosing automations](/user-guide/dosing-automations) for the current `biomass_signal` behavior, override options, and migration notes.
 
-![](/img/user-guide/03-extending-your-pioreactor/20-updating-software/version_installed_vs_latest.png)
+![Updates page showing the installed and available software versions](/img/user-guide/03-extending-your-pioreactor/20-updating-software/version_installed_vs_latest.png)
 
 
-If you'd like to update, click on the "Update to next release" button. Updating software doesn't interrupt experiments or activities, but we suggest waiting until between experiments to update.
+Open the dropdown in the top right and select **Update over internet**. Click **Update over internet** to open the confirmation dialog. Update between experiments to avoid interrupting data collection.
 
-![highlight of the webpage showing what to select to update](/img/user-guide/03-extending-your-pioreactor/20-updating-software/click_update.png)
+![Updates page with the Update over internet button highlighted](/img/user-guide/03-extending-your-pioreactor/20-updating-software/click_update.png)
 
-Updating from the UI will update all the Pioreactors in your cluster.
+In the confirmation dialog, choose **All Pioreactors** or one unit, then click **Update**.
 
 :::note
 
@@ -68,15 +68,15 @@ We highly recommend updating incrementally. That is, update to the _next_ versio
 
 1. Download the release you wish to update to: <ButtonDownloadVersionedReleaseZip/>
 
-2. In the UI, open **Updates**. In the dropdown at the top right, select **Update from zip file**.
+2. In the UI, open **Updates**. In the dropdown at the top right, select **Update from zip file**, then click the **Update from zip file** button.
 
-![Updates page dropdown with "Update from zip file" selected](/img/user-guide/03-extending-your-pioreactor/20-updating-software/select-update-from-zip-dropdown.png)
+![Updates dropdown with the Update from zip file option highlighted](/img/user-guide/03-extending-your-pioreactor/20-updating-software/select-update-from-zip-dropdown.png)
 
-3. In the dialog, click **Upload zip file**.
+3. Open the file picker using **click to choose one** in the dialog.
 
-![Update from zip file dialog with the "Upload zip file" option](/img/user-guide/03-extending-your-pioreactor/20-updating-software/update-from-zip-dialog.png)
+![Update from zip file dialog with the archive drop area and file picker link](/img/user-guide/03-extending-your-pioreactor/20-updating-software/update-from-zip-dialog.png)
 
-4. Select the zip file from step 1 (`release_xx.xx.xx.zip`).
+4. Select the archive you downloaded (`release_xx.xx.xx.zip`). You can also drop it directly into the dialog.
 
 5. Confirm the filename appears in the dialog, then click **Update**.
 
