@@ -19,8 +19,8 @@
 
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css" integrity="sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM" crossorigin="anonymous"><link rel="stylesheet" href="/assets/css/styles.c80d6129.css">
-<script src="/assets/js/runtime~main.099c41e6.js" defer="defer"></script>
-<script src="/assets/js/main.7342db93.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.ed0c2f70.js" defer="defer"></script>
+<script src="/assets/js/main.876d0b70.js" defer="defer"></script>
 </head>
 <body>
 <svg style="display: none;"><defs>
@@ -71,6 +71,7 @@
 <p><code>--config</code> is supported only with <code>capture_backend=rpicam</code> and requires the camera warmer to be stopped. If it is enabled, set <code>keep_camera_active=0</code> and restart Huey or reboot the affected Pioreactor before using a custom profile. This override applies only to that capture; automatic snapshots continue to use <code>viewing.conf</code>.</p>
 <h2 class="anchor anchorTargetHideOnScrollNavbar_vjPI" id="focus-a-raspberry-pi-camera">Focus a Raspberry Pi camera<a href="#focus-a-raspberry-pi-camera" class="hash-link" aria-label="Direct link to Focus a Raspberry Pi camera" title="Direct link to Focus a Raspberry Pi camera" translate="no">​</a></h2>
 <p>For a manually focused camera, stop running optical-density, stirring, dosing-automation, and LED-automation activities on the Pioreactor. Then open <strong>Protocols</strong>, select that Pioreactor and <strong>Device = camera</strong>, and run <strong>Manual camera focus</strong>. The protocol shows successive preview images and guides you while you turn the camera&#x27;s focus control.</p>
+<p><img decoding="async" loading="lazy" alt="Protocols page with the camera device selected and Run protocol highlighted for Manual camera focus" src="/assets/images/manual-camera-focus-6c859837768916099ebc946beb2c7e50.png" width="2028" height="1445" class="img_ev3q"></p>
 <h2 class="anchor anchorTargetHideOnScrollNavbar_vjPI" id="if-a-camera-is-not-detected">If a camera is not detected<a href="#if-a-camera-is-not-detected" class="hash-link" aria-label="Direct link to If a camera is not detected" title="Direct link to If a camera is not detected" translate="no">​</a></h2>
 <p>Check that the camera is connected to the selected Pioreactor and that <code>capture_backend</code>, <code>camera_index</code>, or <code>device_path</code> matches the camera. For USB cameras, a stable path under <code>/dev/v4l/by-id/</code> is preferable to <code>/dev/video0</code> when one is available.</p>
 <p>With <code>[camera].enabled=1</code>, the Pioreactor&#x27;s self-test includes <strong>Camera captures an image</strong>. Run the self-test from a Pioreactor&#x27;s <strong>Self-test</strong> tab to check camera capture alongside the other hardware checks. To run just the camera check on that Pioreactor&#x27;s command line, use:</p>

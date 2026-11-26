@@ -19,8 +19,8 @@
 
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css" integrity="sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM" crossorigin="anonymous"><link rel="stylesheet" href="/assets/css/styles.c80d6129.css">
-<script src="/assets/js/runtime~main.099c41e6.js" defer="defer"></script>
-<script src="/assets/js/main.7342db93.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.ed0c2f70.js" defer="defer"></script>
+<script src="/assets/js/main.876d0b70.js" defer="defer"></script>
 </head>
 <body>
 <svg style="display: none;"><defs>
@@ -38,6 +38,8 @@
 <li class="">The chart in both the list view and detail view has a download icon. Click it to export a PNG of the calibration curve for lab notes. The top-level <strong>Download all calibrations</strong> button grabs all calibration YAML files for backup.</li>
 <li class="">To edit a calibration, open its detail view and choose <strong>View YAML</strong>. Make small changes, save the YAML, and re-upload it via <strong>Upload calibration</strong> (or edit the YAML on-disk and use <code>pio calibrations display</code> to confirm before setting it active).</li>
 </ul>
+<p>Use <strong>Calibration status</strong> at the top of <strong>Calibrations</strong> to see which devices have an active calibration on each Pioreactor. Click the name of an active calibration to open it.</p>
+<p><img decoding="async" loading="lazy" alt="Calibration status table showing active, inactive, and missing calibrations by Pioreactor and device" src="/assets/images/calibration-status-b22c6589a05ac02475b240387677923e.png" width="2028" height="1323" class="img_ev3q"></p>
 <h2 class="anchor anchorTargetHideOnScrollNavbar_vjPI" id="managing-calibrations-from-the-command-line">Managing calibrations from the command line<a href="#managing-calibrations-from-the-command-line" class="hash-link" aria-label="Direct link to Managing calibrations from the command line" title="Direct link to Managing calibrations from the command line" translate="no">​</a></h2>
 <ul>
 <li class="">List what you have with <code>pio calibrations list</code> or scope to a single device with <code>pio calibrations list --device &lt;device&gt;</code>.</li>
